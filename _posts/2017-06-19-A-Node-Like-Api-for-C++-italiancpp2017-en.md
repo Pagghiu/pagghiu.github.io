@@ -27,5 +27,4 @@ If you find interesting what I'm writing here maybe it's a good idea to visit at
 </figure>
 
 ## Video
-
-TBD (soon)
+<iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/VFGUPB5pqpw?controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
