@@ -26,5 +26,16 @@ If you find interesting what I'm writing here maybe it's a good idea to visit at
   <figcaption>Download slides of my Italian C++ Conference 2017 Talk</figcaption>
 </figure>
 
+## Discussion
+
+Discussion on this article is better done on reddit:
+<ul>
+<li><a href="https://www.reddit.com/r/cpp/comments/5yep78/why_on_earth_are_we_developing_a_nodejslike_api/" target="_new">Discussion on Reddit on cpp channel</a></li>
+
+<li><a href="https://www.reddit.com/r/programming/comments/5yenqy/why_on_earth_are_we_developing_a_nodejslike_api/" target="_new">Discussion on Reddit on programming channel</a></li>
+</ul>
+
 ## Video
 <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/VFGUPB5pqpw?controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+

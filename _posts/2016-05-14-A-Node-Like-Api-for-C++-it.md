@@ -40,6 +40,16 @@ In questo articolo analizzo il percorso che ha portato nel 2013 alla definizione
 
 {% include toc title="Table of Contents" icon="file-text" %}
 
+## Discussion
+
+Discussion on this article is better done on reddit:
+<ul>
+<li><a href="https://www.reddit.com/r/cpp/comments/5yep78/why_on_earth_are_we_developing_a_nodejslike_api/" target="_new">Discussion on Reddit on cpp channel</a></li>
+
+<li><a href="https://www.reddit.com/r/programming/comments/5yenqy/why_on_earth_are_we_developing_a_nodejslike_api/" target="_new">Discussion on Reddit on programming channel</a></li>
+</ul>
+
+
 ## Nota Introduttiva
 
 Se trovate interessante il contenuto di questo articolo, date un'occhiata al sito web della mia azienda...stiamo assumendo! 

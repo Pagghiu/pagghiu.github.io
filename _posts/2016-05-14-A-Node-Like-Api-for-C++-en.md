@@ -39,6 +39,15 @@ I've been analyzing the path that has been shaping our technological stack back 
 
 {% include toc title="Table of Contents" icon="file-text" %}
 
+## Discussion
+
+Discussion on this article is better done on reddit:
+<ul>
+<li><a href="https://www.reddit.com/r/cpp/comments/5yep78/why_on_earth_are_we_developing_a_nodejslike_api/" target="_new">Discussion on Reddit on cpp channel</a></li>
+
+<li><a href="https://www.reddit.com/r/programming/comments/5yenqy/why_on_earth_are_we_developing_a_nodejslike_api/" target="_new">Discussion on Reddit on programming channel</a></li>
+</ul>
+
 ## Introduction note
 
 If you find interesting what I'm writing here maybe it's a good idea to visit at our company website...we're hiring! 
@@ -46,7 +55,6 @@ If you find interesting what I'm writing here maybe it's a good idea to visit at
 	<a href="https://www.recognitionrobotics.com/careers" target="_new"><img src="https://recognitionrobotics.com/wp-content/uploads/2015/09/rob_logo-icon.png"></a>
 	<figcaption><a href="https://recognitionrobotics.com/careers" title="recognitionrobotics.com/careers">recognitionrobotics.com/careers</a></figcaption>
 </figure>
-
 
 ## Finding the right tool 
 
