@@ -24,8 +24,13 @@ But you can also get the <a href="{{ site.url }}/assets/pdf/2017-12-04/Recogniti
 ## Conference Video
 <!-- <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/VFGUPB5pqpw?controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
  -->
+The conference video will be published soon...
 
- I will publish as soon as the conference organizer will make it available.
+<figure>
+  <img src="{{ site.url }}/assets/images/2017-12-04/Recognition Robotics - Immediate Mode User Interface in C++-talk.jpg">
+  <figcaption>Waiting for the conference video...</figcaption>
+</figure>
+
 
 ## Side note
 
