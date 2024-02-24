@@ -86,8 +86,9 @@
         <details open="true">
           <summary>Blog</summary>
           <ul>
-            <li><a href="../blog/2024-02-23-SaneCppLibrariesUpdate.html" id="blog1-link" class="secondary">🎠 Sane C++ 02-2024</a></li>
-            <li><a href="#" id="blog1-link" class="secondary" aria-current="page">❄️ Sane C++ 01-2024</a></li>
+            <li><a href="#" id="blog1-link" class="secondary" aria-current="page">🎠 Sane C++ 02-2024</a></li>
+            <li><a href="../blog/2024-01-23-SaneCppLibrariesUpdate.html" id="blog1-link" class="secondary">❄️ Sane C++
+                01-2024</a></li>
             <li><a href="../blog/2023-12-23-SaneCppLibrariesRelease.html" id="blog1-link" class="secondary">🎉 Sane C++
                 Libraries</a></li>
           </ul>
@@ -97,24 +98,25 @@
     <div class="document">
       <section>
         Share on:
-        <a href="https://www.reddit.com/r/programming/submit?url=https://pagghiu.github.io/site/blog/2024-01-23-SaneCppLibrariesUpdate.html&title=Sane%20C++%20Libraries"
+        <a href="https://www.reddit.com/r/programming/submit?url=https://pagghiu.github.io/site/blog/2024-02-23-SaneCppLibrariesUpdate.html&title=Sane%20C++%20Libraries"
           target="_blank" rel="nofollow noopener">Reddit r/programming</a> ||
-        <a href="https://twitter.com/intent/tweet?url=https://pagghiu.github.io/site/blog/2024-01-23-SaneCppLibrariesUpdate.html&text=Sane%20C++%20Libraries&via="
+        <a href="https://twitter.com/intent/tweet?url=https://pagghiu.github.io/site/blog/2024-02-23-SaneCppLibrariesUpdate.html&text=Sane%20C++%20Libraries&via="
           target="_blank" rel="nofollow noopener">Twitter</a> ||
-        <a href="https://news.ycombinator.com/submitlink?u=https://pagghiu.github.io/site/blog/2024-01-23-SaneCppLibrariesUpdate.html&t=Sane%20C++%20Libraries"
+        <a href="https://news.ycombinator.com/submitlink?u=https://pagghiu.github.io/site/blog/2024-02-23-SaneCppLibrariesUpdate.html&t=Sane%20C++%20Libraries"
           target="_blank" rel="nofollow noopener">Hacker News</a>
         <article>
           <hgroup>
-            <h1>❄️ Sane C++ January 2024</h1>
-            <h2>January 23, 2024</h2>
+            <h1>🎠 Sane C++ February 2024</h1>
+            <h2>February 23, 2024</h2>
           </hgroup>
           <figure>
-            <img src="2024-01-23-SaneCppLibrariesUpdate/article.png" alt="SC" />
+            <img src="2024-02-23-SaneCppLibrariesUpdate/article.png" alt="SC" />
           </figure>
           <p>
-            One month has passed since the <a href="2023-12-23-SaneCppLibrariesRelease.html">initial release of Sane C++
+            Two months have passed since the <a href="2023-12-23-SaneCppLibrariesRelease.html">initial release of Sane
+              C++
               Libraries</a>! 🎉🎉🎉<br>
-            This post collects all relevant events happened during the first month of (public) life of the project.
+            This post collects all relevant events happened during the second month of (public) life of the project.
           </p>
           <p>
             📄 <a href="../../SaneCppLibraries/index.html" target="_blank">Sane C++ Libraries Documentation</a><br>
@@ -127,149 +129,98 @@
           </p>
           <h5>Code</h5>
           Code is always the most important news!👨🏻‍💻<br>
-          This is the month marking official Linux support for all Libraries!! 🐧
+          Continuing giving Linux some love!! 🐧
           <br>
           <br>
           ✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a> got an
-          epoll Linux backend.<br>
-          ✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_file_system_watcher.html"
-            target="_blank">SC::FileSystemWatcher</a> got an inotify Linux backend.<br>
-          ✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_process.html" target="_blank">SC::Process</a>
-          has been made more solid on Posix in general (including Linux).<br>
-          ✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_build.html" target="_blank">SC::Build</a> got a
-          Makefile generator for Linux (and macOS).<br>
-          ✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_strings.html"
-            target="_blank">SC::StringConverter</a> got UTF8 to / from UTF16 code path necessary on Linux.<br>
-          ✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_plugin.html" target="_blank">SC::Plugin</a> got
-          necessary fixes to run on Linux.<br>
+          <code>io_uring</code> Linux backend!<br>
+          ✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a>
+          <code>epoll</code> backend got simplified <br>
+          ✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a> now
+          tracks all active requests to mark them as free on a sudden close requests. Po<br>
+          ✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_threading.html"
+            target="_blank">SC::ThreadPool</a> has been added, to allow running tasks in background<br>
+          ✅ Got CI building and running tests on Windows, Linux and macOS (using Github Actions).<br>
+          ✅ The CI also enforces proper formatting through clang-format.<br>
+          ✅ Fixed a few UB and leaks signaled by gcc UBSAN and LSAN on Linux.<br>
+          ✅ Improved documentation for <a href="https://pagghiu.github.io/SaneCppLibraries/page_building_user.html"
+            target="_blank">Building as an User</a> vs
+          <a href="https://pagghiu.github.io/SaneCppLibraries/page_building_contributor.html">Building as a
+            contributor</a><br>
 
-          <h5>X (Twitter)</h5>
-          After the initial announcement I got a very warm social welcome on Twitter!<br>
-          This has been definitively the best way to start this journey!
-          <blockquote class="twitter-tweet">
-            <p lang="en" dir="ltr">Sane C++ Libraries has been open-sourced! 🎉<br><br>✅ Fast compile times<br>✅ Bloat
-              free<br>✅ Simple readable code<br>✅ Easy to integrate<br>⛔️ No C++ Standard Library / Exceptions<br>⛔️ No
-              third party dependencies<a href="https://t.co/D0DUDuAoSG">https://t.co/D0DUDuAoSG</a><br>Blog:<a
-                href="https://t.co/M8hyEQ9YWE">https://t.co/M8hyEQ9YWE</a><br><br>Retweet if you like it ❤️</p>&mdash;
-            Stefano Cristiano (@pagghiu_) <a
-              href="https://twitter.com/pagghiu_/status/1738349359266197892?ref_src=twsrc%5Etfw">December 23, 2023</a>
-          </blockquote>
-          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+          <h5>Hacker News</h5>
+          The Library has been <a href="https://news.ycombinator.com/item?id=39159153">posted to Hacker News</a>
+          bringing some visibility on the project for a few hours.
+          The discussions / comments are also quite interesting, sparkled by the many opinionated and strong decisions /
+          principles of the library.<br>
+          I've tried answering some of the posts, and it has been fun honestly 😁.<br>
+          Some themes:<br>
+          <ul>
+            <li>You shouldn't be writing C++ libraries without the standard library / exceptions / smart pointers</li>
+            <li>Qt / POCO exists and provides everything you need</li>
+            <li>Writing Builds in C++ is not Sane</li>
+            <li>You should implement all containers that exists in the STL</li>
+          </ul>
+          My favorite comment is <a href="https://news.ycombinator.com/item?id=39161028"> this one</a>:
+          <figure>
+            <img src="2024-02-23-SaneCppLibrariesUpdate/HackerNewsComment.jpg">
+          </figure>
           <h5>Github</h5>
           <p>
-            As of today, the Sane C++ Libraries has got 187 ⭐️ stars ⭐️ on <a
-            href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Github</a>
-          (<a href="https://github.com/pagghiu/SaneCppLibraries"><img
-              src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a>).<br>
-          The repo has also been in trending list for C++ for a couple of days!!<br>
-          This has been leaving me both completely mind-blown 🤯 and super happy about that 😎.<br>
-          <a href="2024-01-23-SaneCppLibrariesUpdate/GithubTrending.jpg" target="_blank">
-            <img src="2024-01-23-SaneCppLibrariesUpdate/GithubTrending.jpg" alt="Sane C++ on Github Trending" />
-          </a>
-        </p>
-        <p>
-
-          For this reason I immediately went on the seaside to celebrate
-          (<a href="https://maps.app.goo.gl/53qgxUVyHuKHbuEx8" target="_blank">in Manfredonia</a>)!🍹<br>
-        </p>
-
-          <figure>
-            <a href="2024-01-23-SaneCppLibrariesUpdate/SaneCppCelebration.jpg">
-              <img src="2024-01-23-SaneCppLibrariesUpdate/SaneCppCelebration.jpg"
-                alt="Sane C++ Celebration in Manfredonia" width="50%" />
-            </a>
-            <figcaption>Nice sunny south Italy day for being in December ❄️ 🥂 ❄️!</figcaption>
-          </figure>
-
-
-          <h5>Contributing</h5>
-          I have been writing some documents to help figuring out how to contribute to the project.
-          <p>
-            📃 <a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/CONTRIBUTING.md"
-              target="_blank">CONTRIBUTING.md</a><br>
-            📃 <a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/Documentation/CodingStyle.md"
-              target="_blank">Coding Style</a>
+            As of today, the Sane C++ Libraries has got 412 ⭐️ stars ⭐️ on <a
+              href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Github</a>
+            (<a href="https://github.com/pagghiu/SaneCppLibraries"><img
+                src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a>).<br>
+            A big jump from the 187 stars of last month!<br>
+            A big step has been due to the hacker news post, but in the subsequent weeks there has been a steady
+            and horganic increase, hopefully meaning that more people are finding something interesting in the project.
           </p>
 
-          I've also starting to create some <a href="https://github.com/Pagghiu/SaneCppLibraries/issues"
-            target="_blank">Github Issues</a> with some <b>good first issue</b> labels to
-          help a potential contributor trying to look for some task to start with.
-
-          <h5>Discord</h5>
-          I have created the <a href="https://discord.gg/tyBfFp33Z6">Sane Coding Discord</a>.
-          <a href="https://discord.gg/tyBfFp33Z6"><img src="https://img.shields.io/discord/1195076118307426384"></a>
-          <br>
-          This is a place where to discuss about the library but it's not limited to that.<br>
-          Let's see if it can become a place of aggregation for anyone sharing similar ideas as shown in the project.
-          
-          <h5>Youtube </h5>
+          <h5>YouTube </h5>
           <p>
-            In addition to the <a href="https://www.youtube.com/watch?v=5w1_rRXgyv0&t=1170s" target="_blank">presentation youtube video</a> to introduce the library, 
-            I have been producing 8 additional ones in the <a href="https://www.youtube.com/@Pagghiu"
-              target="_blank">Sane Coding Youtube channel</a>, mostly as an experiment and to document the process of
-            porting the library to Linux.<br>
-            I would really like to receive some feedback on the format! 😅<br>
-            So far I'm filming myself talking when trying to implement a feature in a reasonable (kinda) amount of time,
-            after I've already done research on how
-            to implement the feature and I have a pretty clear idea of what to do.<br>
-            As there are no cuts in the videos, it's possible sometimes getting to know my ⁉️🤔⁉️ face when something
-            doesn't work and I need to debug it.
+            I have been producing 4 videos explaining some of the design decisions around the <a
+              href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a>
+            library, the addition of <code>io_uring</code> to it and the creation of <a
+              href="https://pagghiu.github.io/SaneCppLibraries/library_threading.html"
+              target="_blank">SC::ThreadPool</a>
           </p>
-          <iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/2ccW8TBAWWE?si=vyQhUZ_vU5Rtn0pi"
+          <iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/pIGosb2D2Ro?si=vyQhUZ_vU5Rtn0pi"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
 
-          <iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/wYmT3xAzMxU?si=vyQhUZ_vU5Rtn0pi"
+          <iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/YR935rorb3E?si=vyQhUZ_vU5Rtn0pi"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
 
-          <iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/DUZeu6VDGL8?si=vyQhUZ_vU5Rtn0pi"
+          <iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/CgYE0YrpHt0?si=vyQhUZ_vU5Rtn0pi"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
 
-          <iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/gu3x3Y1zZLI?si=vyQhUZ_vU5Rtn0pi"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-
-          <iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/-OiVELMxL6Q?si=vyQhUZ_vU5Rtn0pi"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-
-          <iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/4rC4aKCD0V8?si=vyQhUZ_vU5Rtn0pi"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-
-          <iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/uCsGpJcF2oc?si=vyQhUZ_vU5Rtn0pi"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-
-          <iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/92saVDCRnCI?si=vyQhUZ_vU5Rtn0pi"
+          <iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/e48ruImESxI?si=vyQhUZ_vU5Rtn0pi"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
 
           <h5>Next</h5>
-          So what's next? I will continue improving the library to make it become solid on all platforms.<br>
-          When I will identify some interesting developments, I will make sure to record them in a video 👀.<br>
+          So what's next?<br>
+          I am not really sure, but I will probably continue improving <code>SC::Async</code> making use of the
+          threadpool to run the fs operations in background.<br>
+          I would also like to wrap some of the libraries to expose them as <a
+            href="https://github.com/nothings/stb">stb style</a> libraries, usable from C.
           <br>
           Thank you for reading this far!<br><br>
           Bye!👋🏼<br>
           Pagghiu
         </article>
         Share on:
-        <a href="https://www.reddit.com/r/programming/submit?url=https://pagghiu.github.io/site/blog/2024-01-23-SaneCppLibrariesUpdate.html&title=Sane%20C++%20Libraries"
+        <a href="https://www.reddit.com/r/programming/submit?url=https://pagghiu.github.io/site/blog/2024-02-23-SaneCppLibrariesUpdate.html&title=Sane%20C++%20Libraries"
           target="_blank" rel="nofollow noopener">Reddit r/programming</a> ||
-        <a href="https://twitter.com/intent/tweet?url=https://pagghiu.github.io/site/blog/2024-01-23-SaneCppLibrariesUpdate.html&text=Sane%20C++%20Libraries&via="
+        <a href="https://twitter.com/intent/tweet?url=https://pagghiu.github.io/site/blog/2024-02-23-SaneCppLibrariesUpdate.html&text=Sane%20C++%20Libraries&via="
           target="_blank" rel="nofollow noopener">Twitter</a> ||
-        <a href="https://news.ycombinator.com/submitlink?u=https://pagghiu.github.io/site/blog/2024-01-23-SaneCppLibrariesUpdate.html&t=Sane%20C++%20Libraries"
+        <a href="https://news.ycombinator.com/submitlink?u=https://pagghiu.github.io/site/blog/2024-02-23-SaneCppLibrariesUpdate.html&t=Sane%20C++%20Libraries"
           target="_blank" rel="nofollow noopener">Hacker News</a>
         <footer>
           <hr>
