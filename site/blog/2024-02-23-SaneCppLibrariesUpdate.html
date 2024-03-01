@@ -127,6 +127,11 @@
             💬 <a href="https://discord.gg/tyBfFp33Z6" target="_blank">Sane Coding Discord</a> <a
               href="https://discord.gg/tyBfFp33Z6"><img src="https://img.shields.io/discord/1195076118307426384"></a>
           </p>
+          <p><i>
+              Edit: <b>29 Feb 2024</b> - Added a few items to the Code paragraph, the Releases and an additional YouTube
+              video
+            </i>
+          </p>
           <h5>Code</h5>
           Code is always the most important news!👨🏻‍💻<br>
           Continuing giving Linux some love!! 🐧
@@ -137,7 +142,13 @@
           ✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a>
           <code>epoll</code> backend got simplified <br>
           ✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a> now
-          tracks all active requests to mark them as free on a sudden close requests. Po<br>
+          tracks all active requests to mark them as free on a sudden close requests. <br>
+          ✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a> got
+          all private implementation details hidden under a compiler firewall<br>
+          ✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a> can
+          now use <code>SC::ThreadPool</code> to run some async ops<br>
+          ✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a>
+          <code>AsyncFileRead</code> / <code>AsyncFileWrite</code> are now fully async also on buffered files <br>
           ✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_threading.html"
             target="_blank">SC::ThreadPool</a> has been added, to allow running tasks in background<br>
           ✅ Got CI building and running tests on Windows, Linux and macOS (using Github Actions).<br>
@@ -148,6 +159,20 @@
           <a href="https://pagghiu.github.io/SaneCppLibraries/page_building_contributor.html">Building as a
             contributor</a><br>
 
+          <h5>Github Releases</h5>
+          I have started creating Github <a href="https://github.com/Pagghiu/SaneCppLibraries/releases"
+            target="_blank">releases</a> tagged with each month. <br>
+          I'm not planning to do semantic versioning for now, just sticking to <i>year-month</i> release tagging.
+          <p>
+          <ul>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/tag/release%2F2024%2F02"
+                target="_blank">February 2024
+                Release</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/tag/release%2F2024%2F01"
+                target="_blank">January 2024
+                Release</a></li>
+          </ul>
+          </p>
           <h5>Hacker News</h5>
           The Library has been <a href="https://news.ycombinator.com/item?id=39159153">posted to Hacker News</a>
           bringing some visibility on the project for a few hours.
@@ -167,7 +192,7 @@
           </figure>
           <h5>Github</h5>
           <p>
-            As of today, the Sane C++ Libraries has got 412 ⭐️ stars ⭐️ on <a
+            As of today, the Sane C++ Libraries has got 419 ⭐️ stars ⭐️ on <a
               href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Github</a>
             (<a href="https://github.com/pagghiu/SaneCppLibraries"><img
                 src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a>).<br>
@@ -178,11 +203,12 @@
 
           <h5>YouTube </h5>
           <p>
-            I have been producing 4 videos explaining some of the design decisions around the <a
+            I have been producing 5 videos explaining some of the design decisions around the <a
               href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a>
-            library, the addition of <code>io_uring</code> to it and the creation of <a
+            library, the addition of <code>io_uring</code> to it, the creation of <a
               href="https://pagghiu.github.io/SaneCppLibraries/library_threading.html"
-              target="_blank">SC::ThreadPool</a>
+              target="_blank">SC::ThreadPool</a> and how it has been used to do proper Async File I/O also for buffered
+            files (that always act synchronously under most async APIs, excluding <code>io_uring</code>...)
           </p>
           <iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/pIGosb2D2Ro?si=vyQhUZ_vU5Rtn0pi"
             title="YouTube video player" frameborder="0"
@@ -204,12 +230,15 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
 
+          <iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/WF9beKyEA_E?si=vyQhUZ_vU5Rtn0pi"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+
           <h5>Next</h5>
           So what's next?<br>
-          I am not really sure, but I will probably continue improving <code>SC::Async</code> making use of the
-          threadpool to run the fs operations in background.<br>
-          I would also like to wrap some of the libraries to expose them as <a
-            href="https://github.com/nothings/stb">stb style</a> libraries, usable from C.
+          I'm not really sure. One thing I would like to experiment with is a <a href="https://github.com/nothings/stb"
+            target="_blank">stb style</a>wrapper for some of the libraries, to make them usable from C.
           <br>
           Thank you for reading this far!<br><br>
           Bye!👋🏼<br>
