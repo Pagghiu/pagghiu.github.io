@@ -1,0 +1,12 @@
+
+@media (min-width: 1024px) {
+  body > header .container
+  {
+    max-width: 100%;
+  }
+  
+  body>header.is-fixed-above-lg
+{
+  padding: 0 1.0em 0 0;
+}
+}
