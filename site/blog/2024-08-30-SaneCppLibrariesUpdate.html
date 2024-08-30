@@ -97,45 +97,173 @@
         <details open="">
           <summary>Projects</summary>
           <ul>
-            <li><a class="secondary" href="../projects/SaneCppLibraries.html">Sane C++ Libraries</a>
-            </li>
+            <li><a class="secondary" href="../projects/SaneCppLibraries.html">Sane C++ Libraries</a></li>
           </ul>
         </details>
         <details open="">
-          <summary>Blog</summary>
+          <summary aria-current="true">Blog</summary>
           <ul>
-            <li><a class="secondary" href="../blog/2024-08-30-SaneCppLibrariesUpdate.html">🌊 Sane C++ August 24 <mark>New</mark></a></li>
+            <li><a aria-current="page" class="secondary" href="">🌊 Sane C++ August 24 <mark>New</mark></a></li>
             <li><a class="secondary" href="../blog/2024-07-31-SaneCppLibrariesUpdate.html">🏖️ Sane C++ July 24</a></li>
             <li><a class="secondary" href="../blog/2024-06-30-SaneCppLibrariesUpdate.html">☀️ Sane C++ June 24</a></li>
             <li><a class="secondary" href="../blog/2024-05-31-SaneCppLibrariesUpdate.html">🌸 Sane C++ May 24</a></li>
             <li><a class="secondary" href="../blog/2024-04-27-SaneCppLibrariesUpdate.html">💤 Sane C++ April 24</a></li>
             <li><a class="secondary" href="../blog/2024-03-27-SaneCppLibrariesUpdate.html">☔️ Sane C++ March 24</a></li>
-            <li><a class="secondary" href="../blog/2024-02-23-SaneCppLibrariesUpdate.html">🎠 Sane C++ February 24</a></li>
+            <li><a class="secondary" href="../blog/2024-02-23-SaneCppLibrariesUpdate.html">🎠 SaneC++ February 24</a></li>
             <li><a class="secondary" href="../blog/2024-01-23-SaneCppLibrariesUpdate.html">❄️ Sane C++ January 24</a></li>
             <li><a class="secondary" href="../blog/2023-12-23-SaneCppLibrariesRelease.html">🎉 Sane C++ Release!</a></li>
           </ul>
         </details>
       </nav>
     </aside>
-
+    <hgroup>
+      <p class="chapter">August 30, 2024</p>
+      <h1>🌊 Sane C++ August 2024<a href="#section-0" id="section-0" class="secondary" tabindex="-1">#</a></h1>
+      <figure>
+        <img src="2024-08-30-SaneCppLibrariesUpdate/article.png" alt="SC" />
+      </figure>
+      <p>
+        Welcome to the update post for August 2024!<br>
+        August has been spent doing some first round of improvements to the <code>SC::Http</code> library.
+      </p>
+      <p>
+        📄 <a href="../../SaneCppLibraries/index.html" target="_blank">Sane C++ Libraries Documentation</a><br>
+        💻 <a href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Sane C++ Libraries
+          Repository <img src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a> <br>
+        📹 <a href="https://www.youtube.com/@Pagghiu" target="_blank">Sane Coding Youtube channel</a> <img
+          src="https://img.shields.io/youtube/channel/subscribers/UCnmN_whfM12LU6VNQWG0NFg"> <br>
+        💬 <a href="https://discord.gg/tyBfFp33Z6" target="_blank">Sane Coding Discord</a> <a
+          href="https://discord.gg/tyBfFp33Z6"><img src="https://img.shields.io/discord/1195076118307426384"></a>
+      </p>
+    </hgroup>
+    <aside id="table-of-contents">
+      <nav class="is-sticky-above-lg ">
+        <details open="">
+          <summary>Content</summary>
+          <ul>
+            <li><a class="secondary" href="#section-0">Sane C++ August 2024</a></li>
+            <li><a class="secondary" href="#section-1">SC::Http</a></li>
+            <li><a class="secondary" href="#section-2">SCExample</a></li>
+            <li><a class="secondary" href="#section-3">SC::Async</a></li>
+            <li><a class="secondary" href="#section-4">Additional fixes</a></li>
+          </ul>
+        </details>
+      </nav>
+    </aside>
     <div id="content" role="document">
+
       <section>
-        <article>
-          <hgroup>
-            <h1>About</h1>
-            <h2>Sane Coding Blog</h2>
-          </hgroup>
-          <b>Sane Coding</b> happens when code is written with simplicity, efficiency and clearness as first principles.<br>
-          💻 <a href="https://github.com/pagghiu" target="_blank">Github <img
-              src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a><br>
-          📹 <a href="https://www.youtube.com/@Pagghiu" target="_blank">Youtube <img
-              src="https://img.shields.io/youtube/channel/subscribers/UCnmN_whfM12LU6VNQWG0NFg"></a><br>
-          💬 <a href="https://discord.gg/tyBfFp33Z6" target="_blank">Discord</a> <a
-            href="https://discord.gg/tyBfFp33Z6"><img src="https://img.shields.io/discord/1195076118307426384"></a>
-          <br>
-          Opinions are my own.
-        </article>
+        <h2>SC::Http<a href="#section-1" id="section-1" class="secondary" tabindex="-1">#</a></h2>
+        <p class="chapter">Pushing it forward</p>
+        <p>
+          The HTTP library is still very incomplete and fragile, but it got to the level of being able serving a simple local html web site, through the new <code>SC::HttpWebServer</code> class.
+          The <code>SC::HttpServer</code> / <code>SC::HttpWebServer</code> classes are not solid enough to be used in real internet facing application but they're in better shape than they were the previous month.
+          <code>SC::HttpClient</code> is just a very incomplete stub and it currently exists to help testing the server classes.<br>
+
+          In the following video a first draft of the HttpWebServer class is being implemented:
+          
+          <p>
+            <iframe width="560" height="314" src="https://www.youtube-nocookie.com/embed/yg438A9Db50?si=vyQhUZ_vU5Rtn0pi"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>  
+          </p>
+  
+          This is the list of SC::Http related commits:
+          <ul>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9f4700f7" target="_new"> Http: Add HttpWebServer to serve files from a directory</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4d3a5b46" target="_new"> Http: Hide HttpServer implementation details</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6f03e3b7" target="_new"> Http: Improve HttpServer properly releasing unused sockets</a></li>
+          </ul>
+          </p>
       </section>
+      
+
+      <section>
+        <h2>SCExample<a href="#section-2" id="section-2" class="secondary" tabindex="-1">#</a></h2>
+        <p class="chapter">Serialize all the things</p>
+        <p>
+          
+          <iframe width="700" height="400" src="https://github.com/user-attachments/assets/0cbb0221-85c9-4f40-84b5-7df615973671" frameborder="0" allowfullscreen>
+          </iframe>
+
+          <code>SCExample</code> has now a second example called <code>WebServer</code> that can host a website on a specific port
+          reading files from a local folder, all integrated with a GUI interface.
+          The example interface now has two new methods (<code>initAsync</code> / <code>closeAsync</code>) to let samples access
+          the main <code>SC::AsyncEventLoop</code> of the application.
+          The async io event loop is integrated with gui event loop on main thread to make sure that all examples using
+          <code>SC::Async</code> can see their completions dispatched on the main (gui) thread. This means that they can modify
+          the same state variables used by the GUI without needing mutexes.
+
+
+          
+          
+          <ul>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/15eb5abf" target="_new"> SCExample: Add helper to use InputText with SC::String</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0893d45c" target="_new"> SCExample: Add initAsync and closeAsync example interface methods</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/38143804" target="_new"> SCExample: Add WebServer example</a></li>
+          </ul>
+          
+        </p>
+      </section>
+      
+
+      <section>
+        <h2>SC::Async<a href="#section-3" id="section-3" class="secondary" tabindex="-1">#</a></h2>
+        <p class="chapter">Your next favorite Async IO library</p>
+          <p>
+            Implementing the <code>SC::HttpWebServer</code> has been putting a little bit of stress on the <code>SC::Async</code> library, with a few new features, and some bug fixes and QOL improvements.
+
+            <h3>Features</h3>
+            <code>SC::AsyncSocketReceive</code> and <code>SC::AsyncFileRead</code> report End Of File and disconnected events on all platforms, signaling when they are running out of data.
+            
+            <h3>Bugs (fixed)</h3>
+            <ul>
+
+            <li><code>SC::AsyncSocketWrite</code> writes were not properly handled on Posix with large buffers (and now there's a test for that)</li>
+            <li>Timer callbacks were called multiple times on the <code>io_uring</code> backend</li>
+          </ul>
+            
+            <h3>Quality of Life improvements</h3>
+            It's possible now to de-allocate any <code>SC::AsyncRequest</code> derived request  inside its own callback or just re-configure them and start them again.
+            That should make it a lot easier handling more complex async data flows.
+            
+          <ul>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1d262b71" target="_new">Async: Allow AsyncRequests to be deallocated inside their own user callback</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/37354326" target="_new">Async: Do not invoke timers callbacks multiple times on io_uring backend</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1cf9c2bb" target="_new">Async: Handle partial writes in Posix backend</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/34cbfd69" target="_new">Async: Mark AsyncRequest as free after Cancelling it</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9b1b2d06" target="_new">Async: Report disconnected on AsyncSocketReceive</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/58aded23" target="_new">Async: Report end of file on AsyncFileRead</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a7c64cc2" target="_new">Async: Simplify reporting AsyncSocketReceive disconnected on posix</a></li>
+          </ul>
+        </p>
+      </section>
+
+      <section>
+        <h2>Additional fixes<a href="#section-4" id="section-4" class="secondary" tabindex="-1">#</a></h2>
+        <p class="chapter">Fix fix fix</p>
+        <p>
+          
+          And just like every month, a bunch of fixes and improvements to all libraries have been committed.
+          The most notable bug was in the <code>SC::Process</code> library, that was preventing proper <code>stdout</code> inheritance for console applications on Windows.
+          Github CI was missing all output of the <code>cl.exe</code> and <code>link.exe</code> msvc executables spawned by <code>SC::Build</code> during compilation.
+          Specifically the Win10/MSVC2019 ci job was failing without printing any error, making it really difficult to figure out how to fix it!
+          
+          <ul>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/97a687f8" target="_new">Console: Attach to parent console on Windows</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/809e2b9b" target="_new">Containers: Add methods to obtain arena capacity</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fb6877cf" target="_new">Containers: Split ArenaMapKey<T> in a separate header</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0c0a6b63" target="_new">FileSystem: Report file size in new FileStat structure replacing FileTime</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/12b85ed4" target="_new">Process: Hide child process console on Windows only if parent process has no console</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/924a7978" target="_new">SerializationBinary: Prefer using loadExact when loaded schema matches source schema</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1783a3af" target="_new">SerializationText: Support bool data types for JSON serializer</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/177f005e" target="_new">Socket: Replace SocketClient::close calls with SocketDescriptor::close</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2cd08506" target="_new">Time: Expose month and day as strings in Time::Absolute::ParseResult</a></li>
+          </ul>          
+        </p>
+      </section>
+
     </div>
   </main>
   <footer>
@@ -144,7 +272,8 @@
         <nav class="links">
           <ul>
             <li><strong>Projects</strong></li>
-            <li><a class="secondary" href="../projects/SaneCppLibraries.html">Sane C++ Libraries</a></li>
+            <li><a aria-current="page" class="secondary" href="../projects/SaneCppLibraries.html">Sane C++ Libraries</a>
+            </li>
           </ul>
           <ul>
             <li><strong>Blog</strong></li>
