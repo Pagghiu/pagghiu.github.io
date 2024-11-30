@@ -95,112 +95,133 @@
     <aside id="documentation-menu">
       <nav class="is-sticky-above-lg" style="--max-height: 674.75px;">
         <details open="">
-          <summary >Projects</summary>
+          <summary>Projects</summary>
           <ul>
-            <li><a aria-current="page" class="secondary" href="../projects/SaneCppLibraries.html">Sane C++ Libraries</a>
-            </li>
+            <li><a class="secondary" href="../projects/SaneCppLibraries.html">Sane C++ Libraries</a></li>
           </ul>
         </details>
         <details open="">
-          <summary>Blog</summary>
+          <summary aria-current="true">Blog</summary>
           <ul>
-            <li><a class="secondary" href="../blog/2024-11-30-SaneCppLibrariesUpdate.html">🌫️ Sane C++ November 24 <mark>New</mark></a></li>
+            <li><a aria-current="page" class="secondary" href="">🌫️ Sane C++ November 24 <mark>New</mark></a></li>
             <li><a class="secondary" href="../blog/2024-08-30-SaneCppLibrariesUpdate.html">🌊 Sane C++ August 24</a></li>
             <li><a class="secondary" href="../blog/2024-07-31-SaneCppLibrariesUpdate.html">🏖️ Sane C++ July 24</a></li>
             <li><a class="secondary" href="../blog/2024-06-30-SaneCppLibrariesUpdate.html">☀️ Sane C++ June 24</a></li>
             <li><a class="secondary" href="../blog/2024-05-31-SaneCppLibrariesUpdate.html">🌸 Sane C++ May 24</a></li>
             <li><a class="secondary" href="../blog/2024-04-27-SaneCppLibrariesUpdate.html">💤 Sane C++ April 24</a></li>
             <li><a class="secondary" href="../blog/2024-03-27-SaneCppLibrariesUpdate.html">☔️ Sane C++ March 24</a></li>
-            <li><a class="secondary" href="../blog/2024-02-23-SaneCppLibrariesUpdate.html">🎠 Sane C++ February 24</a></li>
+            <li><a class="secondary" href="../blog/2024-02-23-SaneCppLibrariesUpdate.html">🎠 SaneC++ February 24</a></li>
             <li><a class="secondary" href="../blog/2024-01-23-SaneCppLibrariesUpdate.html">❄️ Sane C++ January 24</a></li>
             <li><a class="secondary" href="../blog/2023-12-23-SaneCppLibrariesRelease.html">🎉 Sane C++ Release!</a></li>
           </ul>
         </details>
       </nav>
     </aside>
-
+    <hgroup>
+      <p class="chapter">November 30, 2024</p>
+      <h1>🌫️ Sane C++ November 2024<a href="#section-0" id="section-0" class="secondary" tabindex="-1">#</a></h1>
+      <figure>
+        <img src="2024-11-30-SaneCppLibrariesUpdate/article.png" alt="SC" />
+      </figure>
+      <p>
+        Welcome to the update post for November 2024!<br>
+        Main focus of the month is the addition of Async Streams!
+      </p>
+      <p>
+        📄 <a href="../../SaneCppLibraries/index.html" target="_blank">Sane C++ Libraries Documentation</a><br>
+        💻 <a href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Sane C++ Libraries
+          Repository <img src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a> <br>
+        📹 <a href="https://www.youtube.com/@Pagghiu" target="_blank">Sane Coding Youtube channel</a> <img
+          src="https://img.shields.io/youtube/channel/subscribers/UCnmN_whfM12LU6VNQWG0NFg"> <br>
+        💬 <a href="https://discord.gg/tyBfFp33Z6" target="_blank">Sane Coding Discord</a> <a
+          href="https://discord.gg/tyBfFp33Z6"><img src="https://img.shields.io/discord/1195076118307426384"></a>
+      </p>
+    </hgroup>
+    <aside id="table-of-contents">
+      <nav class="is-sticky-above-lg ">
+        <details open="">
+          <summary>Content</summary>
+          <ul>
+            <li><a class="secondary" href="#section-0">Sane C++ November 2024</a></li>
+            <li><a class="secondary" href="#section-1">SC::AsyncStreams</a></li>
+            <li><a class="secondary" href="#section-2">Additional fixes</a></li>
+          </ul>
+        </details>
+      </nav>
+    </aside>
     <div id="content" role="document">
+
       <section>
-        <article>
-          <hgroup>
-            <h1>Sane C++ Libraries</h1>
-            <h2>C++ Platform Abstraction Libraries</h2>
-          </hgroup>
-          <figure>
-            <img src="images/SC.svg" alt="SC" width="30%" />
-          </figure>
-          <p>
+        <h2>SC::AsyncStreams<a href="#section-1" id="section-1" class="secondary" tabindex="-1">#</a></h2>
+        <p class="chapter">Pushing it forward</p>
+        <p>
+          The <a href="https://pagghiu.github.io/SaneCppLibraries/library_async_streams.html" target="_new"><code>SC::Async</code></a> library has been extended with the addition of <a href="https://pagghiu.github.io/SaneCppLibraries/library_async_streams.html" target="_new">SC::AsyncStreams</a>!<br>
+          Async Streams are largely inspired by <a href="https://nodejs.org/api/stream.html" target="_new">node.js Streams</a>, a very powerful tool to process large amounts of data in parallel.<br>
+          The basic idea about an async stream is to create a Source / Sink abstraction (also called Readable and Writable) and process small buffers of data at time.<br>
+          The state machine that coordinates this interaction handles data buffering and more importantly handles also back-pressure, that means:
+          <ul>
+            <li><b>Pausing</b> the readable stream when a connected writable stream cannot process data fast enough</li>
+            <li><b>Resuming</b> the readable stream when a connected writable stream is finally able to receive more data</li>
+          </ul>
+          By implementing streams on top of async operations it's possible to run many of them concurrently very efficiently.<br>
+          When properly implemented for example an async pipeline can concurrently read from disk, write to a socket while compressing data.<br>
+          For now only Readable / Writable File and Socket streams have been implemented, but Async Transform Streams (for compression) will be next!<br>
 
+          Most notable differences with node.js streams are for now:
+          <ul>
+            <li>No allocation (designed to work inside user-provided list of buffers)</li>
+            <li>No object mode</li>
+            <li>Fixed Layout to create data pipelines (<code>AsyncPipeline</code>)</li>
+            <li><code>onData</code> support only (no <code>readable</code> event)</li>
+          </ul>
 
-            Sane C++ is a set of C++ platform abstraction libraries for:<br>
-            ✅ macOS<br>
-            ✅ Windows<br>
-            ✅ Linux<br><br>
-
-            Features:<br>
-            ✅ Fast compile times<br>
-            ✅ Bloat free<br>
-            ✅ Simple readable code<br>
-            ✅ Easy to integrate<br>
-            ⛔️ No C++ Standard Library / Exceptions / RTTI<br>
-            ⛔️ No third party dependencies (prefer OS API)<br>
-            <br>
-            💻 <a href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Sane C++ Libraries Repository</a>
-            <img src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"><br>
-            📄 <a href="../../SaneCppLibraries/index.html" target="_blank">Sane C++ Libraries Documentation</a><br>
-
-            <br>
-
-            Relevant blog posts about the library:
-          <table>
-            <thead>
-              <th>Date</th>
-              <th>Post</th>
-            </thead>
-            <tr>
-              <td>November 30, 2024</td>
-              <td><a href="../blog/2024-11-30-SaneCppLibrariesUpdate.html ">🌫️ Sane C++ November 24 <mark>New</mark></a></td>
-            </tr>
-            <tr>
-              <td>August 30, 2024</td>
-              <td><a href="../blog/2024-08-30-SaneCppLibrariesUpdate.html ">🌊 Sane C++ August 24</a></td>
-            </tr>
-            <tr>
-              <td>July 31, 2024</td>
-              <td><a href="../blog/2024-07-31-SaneCppLibrariesUpdate.html ">🏖️ Sane C++ July 24</a></td>
-            </tr>
-            <tr>
-              <td>June 30, 2024</td>
-              <td><a href="../blog/2024-06-30-SaneCppLibrariesUpdate.html ">☀️ Sane C++ June 24</a></td>
-            </tr>
-            <tr>
-              <td>May 31, 2024</td>
-              <td><a href="../blog/2024-05-31-SaneCppLibrariesUpdate.html ">🌸 Sane C++ May 2024</a></td>
-            </tr>
-            <tr>
-              <td>April 27, 2024</td>
-              <td><a href="../blog/2024-04-27-SaneCppLibrariesUpdate.html ">💤 Sane C++ April 2024</a></td>
-            </tr>
-            <tr>
-              <td>March 27, 2024</td>
-              <td><a href="../blog/2024-03-27-SaneCppLibrariesUpdate.html ">☔️ Sane C++ March 2024</a></td>
-            </tr>
-            <tr>
-              <td>February 23, 2024</td>
-              <td><a href="../blog/2024-02-23-SaneCppLibrariesUpdate.html ">🎠 Sane C++ February 2024</a></td>
-            </tr>
-            <tr>
-              <td>January 23, 2024</td>
-              <td><a href="../blog/2024-01-23-SaneCppLibrariesUpdate.html ">❄️ Sane C++ January 2024</a></td>
-            </tr>
-            <tr>
-              <td>December 23, 2023</td>
-              <td><a href="../blog/2023-12-23-SaneCppLibrariesRelease.html ">🎉 Sane C++ Libraries</a></td>
-            </tr>
-          </table>
+          <code>Async Streams</code> are for now in 🟥 Draft state.
+          It's also possible that its API will evolve a little bit to be less verbose and there is also lack of nice examples, aside from the tests.<br>
+          It's better waiting for it to become stable before doing anything significant with it.<br>
+          Some changes and fixes in the <a href="https://pagghiu.github.io/SaneCppLibraries/library_async_streams.html" target="_new"><code>SC::Async</code></a> library
+          have been made necessary to support Async Streams.
+          <br><br>
+          This is the list of related commits:
+          <ul>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/339f291e" target="_new">Async: Add AsyncReadableStream</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/11a2b925" target="_new">Async: Add AsyncWritableStream</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9d9d550b" target="_new">Async: Draft AsyncPipeline and AsyncRequest{Readable | Writable} Stream</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fc97464e" target="_new">Async: Extend AsyncRequest{Readable | Writable}Stream to Socket Send/Receive</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/46174b02" target="_new">Async: Make AsyncPipeline and AsyncRequest{Readable | Writable}Stream public</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/15ec1855" target="_new">Async: Make AsyncSocket{Send | Receive} buffer and handle public</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a6bdc110" target="_new">Async: Rename AsyncPipeline::Sink to AsyncPipeline::Pipe</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3c780170" target="_new">Async: Reorganize AsyncTest for clarity</a></li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c251205c" target="_new">Async: Use offsets only if explicitly set in AsyncFile{Read | Write}</a></li>
+          </ul>
           </p>
-        </article>
       </section>
+      
+      <section>
+        <h2>Additional fixes<a href="#section-2" id="section-2" class="secondary" tabindex="-1">#</a></h2>
+        <p class="chapter">Fix fix fix</p>
+        <p>
+          
+          And just like every update, a bunch of fixes and improvements to all libraries have been committed.
+          Nothing specific stands out this update, but for completeness this is the list of related commits:          
+          <ul>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9347ca62" target="_new">Build: Bypass VMWare hgfs issue setting wrong modified time for new files</a> </li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a075702d" target="_new">Build: Support linking system libraries in XCode</a> </li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a572d897" target="_new">Containers: Fix compile errors under latest MSVC</a> </li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ee4947b2" target="_new">Documentation: Enable warnings as errors</a> </li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/596f0523" target="_new">Documentation: Update README.md with latest videos</a> </li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b0778887" target="_new">Foundation: Add equality operator to Function</a> </li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0ad81879" target="_new">Foundation: Add HeapBuffer</a> </li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c750871f" target="_new">Foundation: Add Span::equals</a> </li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/7f08864b" target="_new">Foundation: Add Span::get(int)</a> </li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/14f37f58" target="_new">Foundation: Add StrongID</a> </li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e80edc21" target="_new">Hashing: Improve documentation</a> </li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/23e7b37b" target="_new">Meta: Ignore sync folder and icon files</a> </li>
+            <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fa9a48cb" target="_new">Tools: Rebuild bootstrap when make fails</a> </li>
+
+          </ul>          
+        </p>
+      </section>
+
     </div>
   </main>
   <footer>
@@ -209,7 +230,8 @@
         <nav class="links">
           <ul>
             <li><strong>Projects</strong></li>
-            <li><a class="secondary" href="../projects/SaneCppLibraries.html">Sane C++ Libraries</a></li>
+            <li><a aria-current="page" class="secondary" href="../projects/SaneCppLibraries.html">Sane C++ Libraries</a>
+            </li>
           </ul>
           <ul>
             <li><strong>Blog</strong></li>
