@@ -1,686 +1,736 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#2a3140">
-  <meta name="color-scheme" content="light dark">
-  <link rel="canonical" href="">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@pagghiu_">
-  <title>Sane Coding Blog</title>
-  <meta name="description" content="Sane Coding Blog.">
-  <link rel="shortcut icon" href="../../site/images/favicon.png">
-  <link rel="icon" type="image/x-icon" href="../../site/images/favicon.png">
-  <link rel="apple-touch-icon" href="site/images/favicon.png" type="image/png" sizes="180x180">
-  <link rel="stylesheet" href="../../site/css/pico2/main.css">
-  <link rel="stylesheet" href="../../site/css/pico2/docs.css">
-  <link rel="stylesheet" href="../../site/css/pico2/custom.css">
-</head>
-
-<body style="min-height: 786px;"><a href="#content" class="skip-to-content contrast" role="button">Skip to content</a>
-  <header class="is-fixed-above-lg is-fixed">
-    <div class="container">
-      <a aria-label="Sane Coding homepage" href="../../index.html">
-        <img focusable="false" src="../../site/images/logo.png" style="display: block; width: 6rem" />
-      </a>
-      <nav class="container-fluid">
-        <ul>
-          <li class="hide-before-sm">Sane Coding Blog</li>
-        </ul>
-      </nav>
-      <nav>
-        <ul>
-          <li><a class="secondary" href="../../site/projects/projects.html">Projects</a></li>
-          <li><a class="secondary" href="../../site/blog/blog.html">Blog</a></li>
-          <li><a class="secondary" href="../../site/pages/about.html">About</a></li>
-          <li><a class="contrast theme-switcher" aria-label="Turn off dark mode" href=""><svg
-                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="currentColor"
-                class="icon-theme-toggle">
-                <clippath id="theme-toggle-cutout">
-                  <path d="M0-11h25a1 1 0 0017 13v30H0Z"></path>
-                </clippath>
-                <g clip-path="url(#theme-toggle-cutout)">
-                  <circle cx="16" cy="16" r="8.4"></circle>
-                  <path
-                    d="M18.3 3.2c0 1.3-1 2.3-2.3 2.3s-2.3-1-2.3-2.3S14.7.9 16 .9s2.3 1 2.3 2.3zm-4.6 25.6c0-1.3 1-2.3 2.3-2.3s2.3 1 2.3 2.3-1 2.3-2.3 2.3-2.3-1-2.3-2.3zm15.1-10.5c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zM3.2 13.7c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3S.9 17.3.9 16s1-2.3 2.3-2.3zm5.8-7C9 7.9 7.9 9 6.7 9S4.4 8 4.4 6.7s1-2.3 2.3-2.3S9 5.4 9 6.7zm16.3 21c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zm2.4-21c0 1.3-1 2.3-2.3 2.3S23 7.9 23 6.7s1-2.3 2.3-2.3 2.4 1 2.4 2.3zM6.7 23C8 23 9 24 9 25.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3z">
-                  </path>
-                </g>
-              </svg>
-              <script src="../../site/js/commons.min.pico2.js"></script>
-            </a></li>
-        </ul>
-        <ul class="icons">
-          <li><a rel="noopener noreferrer" class="contrast" aria-label="GitHub repository"
-              href="https://github.com/pagghiu/SaneCppLibraries" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"
-                height="24" width="24.25" viewBox="0 0 496 512" class="icon-github">
-                <path
-                  d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
-                </path>
-              </svg></a></li>
-          <li><a rel="noopener noreferrer" class="contrast" aria-label="Twitter" href="https://twitter.com/pagghiu_"
-              target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512"
-                class="icon-x">
-                <path
-                  d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z">
-                </path>
-              </svg></a></li>
-          <li><a href="https://www.youtube.com/@Pagghiu" target="_blank" class="contrast"
-              aria-label="Youtube Channel"><svg aria-hidden="true" focusable="false" role="img"
-                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 180" height="16px">
-                <path fill="red"
-                  d="M250.346 28.075A32.18 32.18 0 0 0 227.69 5.418C207.824 0 127.87 0 127.87 0S47.912.164 28.046 5.582A32.18 32.18 0 0 0 5.39 28.24c-6.009 35.298-8.34 89.084.165 122.97a32.18 32.18 0 0 0 22.656 22.657c19.866 5.418 99.822 5.418 99.822 5.418s79.955 0 99.82-5.418a32.18 32.18 0 0 0 22.657-22.657c6.338-35.348 8.291-89.1-.164-123.134" />
-                <path fill="#FFF" d="m102.421 128.06l66.328-38.418l-66.328-38.418z" />
-              </svg></a></li>
-          <li><a href="https://discord.gg/tyBfFp33Z6" target="_blank" class="contrast" aria-label="Discord Chat"><svg
-                aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 -28.5 256 256" height="16px">
-                <path
-                  d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"
-                  fill="#5865F2" fill-rule="nonzero"> </path>
-              </svg></a></li>
-          <li><a href="https://mastodon.gamedev.place/@pagghiu" target="_blank" class="contrast"
-              aria-label="Mastodon"><svg aria-hidden="true" focusable="false" role="img"
-                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                style="enable-background:new 0 0 1668.56 1221.19;" height="16px">
-                <path
-                  d="M21.327 8.566c0-4.339-2.843-5.61-2.843-5.61-1.433-.658-3.894-.935-6.451-.956h-.063c-2.557.021-5.016.298-6.45.956 0 0-2.843 1.272-2.843 5.61 0 .993-.019 2.181.012 3.441.103 4.243.778 8.425 4.701 9.463 1.809.479 3.362.579 4.612.51 2.268-.126 3.541-.809 3.541-.809l-.075-1.646s-1.621.511-3.441.449c-1.804-.062-3.707-.194-3.999-2.409a4.523 4.523 0 0 1-.04-.621s1.77.433 4.014.536c1.372.063 2.658-.08 3.965-.236 2.506-.299 4.688-1.843 4.962-3.254.434-2.223.398-5.424.398-5.424zm-3.353 5.59h-2.081V9.057c0-1.075-.452-1.62-1.357-1.62-1 0-1.501.647-1.501 1.927v2.791h-2.069V9.364c0-1.28-.501-1.927-1.502-1.927-.905 0-1.357.546-1.357 1.62v5.099H6.026V8.903c0-1.074.273-1.927.823-2.558.566-.631 1.307-.955 2.228-.955 1.065 0 1.872.409 2.405 1.228l.518.869.519-.869c.533-.819 1.34-1.228 2.405-1.228.92 0 1.662.324 2.228.955.549.631.822 1.484.822 2.558v5.253z" />
-              </svg></a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <main class="container has-table-of-contents page-index">
-    <aside id="documentation-menu">
-      <nav class="is-sticky-above-lg" style="--max-height: 674.75px;">
-        <details open="">
-          <summary>Projects</summary>
-          <ul>
-            <li><a class="secondary" href="../projects/SaneCppLibraries.html">Sane C++ Libraries</a></li>
-          </ul>
-        </details>
-        <details open="">
-          <summary aria-current="true">Blog</summary>
-          <ul>
-            <li><a class="secondary" href="../blog/2024-11-30-SaneCppLibrariesUpdate.html">🌫️ Sane C++ November 24 <mark>New</mark></a></li>
-            <li><a class="secondary" href="../blog/2024-08-30-SaneCppLibrariesUpdate.html">🌊 Sane C++ August 24</a></li>
-            <li><a class="secondary" href="../blog/2024-07-31-SaneCppLibrariesUpdate.html">🏖️ Sane C++ July 24</a></li>
-            <li><a class="secondary" href="../blog/2024-06-30-SaneCppLibrariesUpdate.html">☀️ Sane C++ June 24</a></li>
-            <li><a class="secondary" href="../blog/2024-05-31-SaneCppLibrariesUpdate.html">🌸 Sane C++ May 24</a></li>
-            <li><a class="secondary" href="../blog/2024-04-27-SaneCppLibrariesUpdate.html">💤 Sane C++ April 24</a></li>
-            <li><a aria-current="page" class="secondary" href="">☔️ Sane C++ March 24</a></li>
-            <li><a class="secondary" href="../blog/2024-02-23-SaneCppLibrariesUpdate.html">🎠 Sane C++ February 24</a></li>
-            <li><a class="secondary" href="../blog/2024-01-23-SaneCppLibrariesUpdate.html">❄️ Sane C++ January 24</a></li>
-            <li><a class="secondary" href="../blog/2023-12-23-SaneCppLibrariesRelease.html">🎉 Sane C++ Release!</a></li>
-          </ul>
-        </details>
-      </nav>
-    </aside>
-    <hgroup>
-      <p class="chapter">March 27, 2024</p>
-      <h1>☔️ Sane C++ March 2024<a href="#section-0" id="section-0" class="secondary" tabindex="-1">#</a></h1>
-      <figure>
-        <img src="2024-03-27-SaneCppLibrariesUpdate/article.png" alt="SC" />
-      </figure>
-      <p>
-        Welcome to the third monthly update for Sane C++ Libraries!<br><br>
-      </p>
-      <p>
-        📄 <a href="../../SaneCppLibraries/index.html" target="_blank">Sane C++ Libraries Documentation</a><br>
-        💻 <a href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Sane C++ Libraries
-          Repository <img src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a> <br>
-        📹 <a href="https://www.youtube.com/@Pagghiu" target="_blank">Sane Coding Youtube channel</a> <img
-          src="https://img.shields.io/youtube/channel/subscribers/UCnmN_whfM12LU6VNQWG0NFg"> <br>
-        💬 <a href="https://discord.gg/tyBfFp33Z6" target="_blank">Sane Coding Discord</a> <a
-          href="https://discord.gg/tyBfFp33Z6"><img src="https://img.shields.io/discord/1195076118307426384"></a>
-      </p>
-      <iframe width="560" height="314" src="https://www.youtube-nocookie.com/embed/kGSei82JaOc?si=vyQhUZ_vU5Rtn0pi"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-    </hgroup>
-    <aside id="table-of-contents">
-      <nav class="is-sticky-above-lg ">
-        <details open="">
-          <summary>Content</summary>
-          <ul>
-            <li><a class="secondary" href="#section-0">Sane C++ March 2024</a></li>
-            <li><a class="secondary" href="#section-1">SC::Tools</a></li>
-            <li><a class="secondary" href="#section-2">SC-build.cpp</a></li>
-            <li><a class="secondary" href="#section-3">SC-package.cpp</a></li>
-            <li><a class="secondary" href="#section-3-1">> Additional Reasons</a></li>
-            <li><a class="secondary" href="#section-3-2">> Technical Details</a></li>
-            <li><a class="secondary" href="#section-4">SC-format.cpp</a></li>
-            <li><a class="secondary" href="#section-4-1">> Improvements to CI</a></li>
-            <li><a class="secondary" href="#section-5">Sane C++ Improvements</a></li>
-            <li><a class="secondary" href="#section-5-1">> SC::Build</a></li>
-            <li><a class="secondary" href="#section-5-2">> SC::Async</a></li>
-            <li><a class="secondary" href="#section-5-3">> SC::FileSystem</a></li>
-            <li><a class="secondary" href="#section-5-4">> SC::Strings</a></li>
-          </ul>
-        </details>
-      </nav>
-    </aside>
-    <div id="content" role="document">
-
-      <section>
-        <h2>SC::Tools<a href="#section-1" id="section-1" class="secondary" tabindex="-1">#</a></h2>
-        <p class="chapter">written for Sane C++ Libraries, using Sane C++ Libraries</p>
-        <p>
-          There is no better way to improve a library than using it to create some other project or tool.
-          <br>
-          This is why effort has been spent using Sane C++ Libraries to build some useful tools
-          needed by...Sane C++ Libraries!
-        </p>
-
-        <p>
-          So, unsurprisingly, the big addition of the month to Sane C++ Libraries are <a
-            href="https://pagghiu.github.io/SaneCppLibraries/page_tools.html" target="_blank">SC::Tools</a>!
-        </p>
-        <p>
-
-          Something similar to <a href="https://pagghiu.github.io/SaneCppLibraries/page_tools.html"
-            target="_blank">SC::Tools</a> already used to exist in some form:
-          <code>SCBuild.cpp</code>, the bootstrap from source C++ file using
-          <a href="https://pagghiu.github.io/SaneCppLibraries/library_build.html" target="_blank">SC::Build</a>
-          build system (generator).<br>
-          It used to work thanks to a bootstrap bash / batch file that compiles <code>SC-Build.cpp</code> and
-          the unity build file <code>SC.cpp</code> to produce the <code>SCBuild[.exe]</code> self-contained
-          (statically linked) executable.<br>
-          This was nice but it had a few issues, for example it was not able to detect
-          changes in any of the source files and rebuild the executable accordingly.
-        </p>
-
-        <p>
-          <a href="https://pagghiu.github.io/SaneCppLibraries/page_tools.html" target="_blank">SC::Tools</a>
-          is a generalization of the
-          <code>SCBuild.{sh | bat} </code> mechanism into a more flexible
-          <code>SC.sh $TOOL [$ACTION]</code>.
-
-          This allows also running custom tools, leveraging Sane C++ Libraries, by just launching
-          <code>SC.sh myDirectory/myScript.cpp [$ACTION]</code>!
-        </p>
-        <p>
-          <a href="2024-03-27-SaneCppLibrariesUpdate/tool.png" target="_blank">
-            <img src="2024-03-27-SaneCppLibrariesUpdate/tool.png">
-          </a>
-        </p>
-
-        <p>
-          The source code dependency tracking is taken care of by a couple of parametric makefiles.<br>
-
-          The intermediate files directory is shared by all tools, and the unity build file
-          <code>SC.cpp</code> (#include-d by <code>Tools.cpp</code> ) makes the entire set of Sane C++
-          Libraries available to every tool.<br>
-          It's compiled just once (in a couple of seconds), making any successive compile / linking of
-          the tools extremely fast (less than 1 sec on a recent laptop).
-        </p>
-        <p>
-          Tools in the<code>Tools</code> subdirectory are special, as they can be invoked by just using
-          their name (without the <code>SC-</code> prefix).<br>
-          <code>./SC.sh Tools/SC-build.cpp</code> can be invoked as just <code>./SC.sh build</code>.
-        </p>
-      </section>
+  <head>
+        <title>Sane Coding Blog - ☔️ Sane C++ March 24</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="https://pagghiu.github.io/images/favicon.png">
+      <link rel="icon" type="image/x-icon" href="https://pagghiu.github.io/images/favicon.png">
+      <link rel="apple-touch-icon" href="https://pagghiu.github.io/images/favicon.png" type="image/png" sizes="180x180">    
+        <meta name="description" content="Sane Coding Blog" />
+        <link rel="stylesheet" type="text/css" href="https://pagghiu.github.io/theme/css/pico2/all.css" />
+        <link href="https://pagghiu.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Sane Coding Blog Full Atom Feed" />
+        <link href="https://pagghiu.github.io/feeds/sanecpplibraries.atom.xml" type="application/atom+xml" rel="alternate" title="Sane Coding Blog Categories Atom Feed" />
 
 
 
-      <section>
-        <h2>SC-build.cpp<a href="#section-2" id="section-2" class="secondary" tabindex="-1">#</a></h2>
-        <p class="chapter">building C++ programs in C++, why not?</p>
-        The first tool is just called
-        <a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/Tools/SC-build.cpp" target="_blank">
-          SC-build.cpp</a>.<br> It comes with a companion
-        <a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/Tools/SC-build.h" target="_blank">
-          SC-build.h</a> file holding code shared between multiple projects.<br>
-        Its default action (<code>configure</code>) is equivalent to
-        the (now old) <code>SCBuild.sh</code>, that generates build/project files.
-        <p>
-          The new action called <code>compile</code> (guess what?) compiles the
-          generated projects 🤯!
-        </p>
-        <p>
-          <code>./SC.sh Tools/SC-build.cpp configure</code><br>
-          or<br>
-          <code>./SC.sh build configure</code>
-        </p>
-        <p>
-          and on windows:
-        </p>
-
-        <p>
-          <code>SC.bat Tools\SC-build.cpp compile</code><br>
-          or<br>
-          <code>SC.bat build compile</code>
-        </p>
-
-        <p>
-          <a href="2024-03-27-SaneCppLibrariesUpdate/build.png" target="_blank">
-            <img src="2024-03-27-SaneCppLibrariesUpdate/build.png">
-          </a>
-        </p>
-      </section>
 
 
+  </head>
 
-      <section>
-        <h2>SC-package.cpp<a href="#section-3" id="section-3" class="secondary" tabindex="-1">#</a></h2>
-        <p class="chapter">wheel reinvention, reinvented</p>
-        The second tool is
-        <a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/Tools/SC-package.cpp" target="_blank">
-          SC-package.cpp</a>, once again a manifestation of the wheel
-        reinvention attitude already pervading the entire project 😊.
-        <p>
-          This poor-man's imperative package manager downloads binary files taking care of checking
-          MD5, extracting and testing what's contained.<br>
-          The guiding reason for this tool to exist was to automatically be able downloading and
-          extracting the official<code>clang</code> distribution (at a specific version, matching the
-          Gitlab CI) in order to use <code>clang-format</code> on the entire repo.<br>
-          This is needed for a potential contributor to properly format files before sending a Pull
-          Request, keeping the CI format validation jobs happy.
-        </p>
-
-        <p>
-          The end result is a folder with <i>_PackagesCache</i> and <i>_Packages</i> under <i>_Build</i>.
-        </p>
-
-        <p>
-          This is still very primitive for now, but who knows, maybe in the future it could be evolved
-          into something more advanced.
-        </p>
-
-        <p>
-          <a href="2024-03-27-SaneCppLibrariesUpdate/packages-results.png" target="_blank">
-            <img src="2024-03-27-SaneCppLibrariesUpdate/packages-results.png" width="75%">
-          </a>
-        </p>
-        <h3>Additional reasons to exist<a href="#section-3-1" id="section-3-1" class="secondary" tabindex="-1">#</a>
-        </h3>
-        <p class="chapter">other than wheel re-invention</p>
-        <p>
-          Too often <i>repository automation</i> tools are written in<code>bash</code> or
-          <code>batch</code> where best thing you can do is putting print (echo) statements to debug
-          them.<br>
-          Slightly better are the cases when an actual programming language like <code>python</code>
-          or <code>javascript</code> is used, but sometimes this comes with an entire set of problems
-          regarding their requirements and in general the fact that such tools expect to be installed
-          globally on developer's system, with probability of incurring into a <i>it works on my machine</i>
-          situation.<br> Things like Python <i>.venv</i> can sometimes help but not always. <br>
-          In some cases such scripts do not even exist, but you're getting a bunch of <i>install this</i>
-          or <i>install that</i> <code>Readmes</code> always missing some step and where you end up
-          wasting a lot of time.<br>
-          And let's not discuss docker about please, I am trying to stay nice 😄.
-        </p>
-
-        <p>
-          So my obvious solution has been to write such a tool in C++ using Sane C++ Libraries of
-          course, so that I can debug it properly just like any other program.<br>
-          I am really happy the result, the small program is easy to follow and does its job.<br>
-          For now all data is local to the repository <i>_Build</i> directory but it would be easy
-          sharing the <i>_PackagesCache</i> into some custom user directory to save some space on
-          multiple checked-out copies of the repository. <br>
-          For any issue, I can just debug this C++ <i>shell script</i>, that is just a regular
-          <i>program</i>, like all other programs that a C++ programmer debugs <i>every day</i>.
-        </p>
-
-        <h3>Technical Details<a href="#section-3-2" id="section-3-2" class="secondary" tabindex="-1">#</a></h3>
-        <p class="chapter">if you really want to know...</p>
-        <p>
-          On Posix to get<code>clang+llvm-x.y.z-$ARCH-$PLATFORM</code> you just download a file from
-          github, check it MD5, and extract the <code>.tar.gz</code> file.<br>
-        </p>
-        <p>
-
-          On Windows this is even more difficult because the official LLVM binary distribution is some
-          sort of self-extracting setup (requiring admin privileges too!) and to extract it you need a
-          tool like <code>7zip</code>.
-          <code>7zip</code> is as well a self extracting installer and requires another tool (called
-          <code>7zr.exe</code>) in order to be extracted!.
-          So on Windows <code>SC-package</code> downloads <code>7zr.exe</code> -> extracts the
-          <code>7zip</code> installer -> uses the extracted <code>7z.exe</code> to extract the
-          <code>LLVM-X.Y.Z-$ARCH</code> into some directory.
-          If someone knows an easier way of doing this (without installing other tools or requiring a
-          package manger) please let me know.
-        </p>
-
-        <p>
-          On all platforms / architectures (macOS/Windows/Linux and ARM64/Intel64) MD5 of the
-          downloaded files it's being checked to make sure they're all legit.
-          This also helps creating a <i>_PackagesCache</i> to hold these setup files and avoid
-          re-downloading them every time.
-        </p>
-
-        <p>
-          Also a small <code>clang-format</code> test is run to make sure it's properly installed and
-          available.
-          The extracted directory is symlinked into a <i>_Packages</i> sub-folder containing package name
-          / platform.
-        </p>
-
-
-        <p>
-          Sane C++ Libraries doesn't have (yet) a properly working HTTPS client, so an alternative
-          solution was necessary.
-          It looks like nowadays<code>curl</code> is pre-installed on any
-          recent <code>macOS</code>,<code>linux</code> and<code>windows</code>
-          install and so <code>SC-package</code> uses it.
-        </p>
-
-
-        <a href="https://pagghiu.github.io/SaneCppLibraries/library_hashing.html" target="_blank">SC::Hashing</a>
-        library has been used to compute all MD5 easily getting the job done.
-        <br>
-        File operations and cross-platform path handling have been implemented using the
-        <a href="https://pagghiu.github.io/SaneCppLibraries/library_file_system.html" target="_blank">SC::FileSystem</a>
-        library.
-
-      </section>
-
-
-
-      <section>
-        <h2>SC-format.cpp<a href="#section-4" id="section-4" class="secondary" tabindex="-1">#</a></h2>
-        <p class="chapter">code is poetry, prove me wrong</p>
-        <a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/Tools/SC-format.cpp" target="_blank">
-          SC-format.cpp
+  <body style="min-height: 786px;">
+    <header class="is-fixed-above-lg is-fixed">
+      <div class="container">
+        <a aria-label="Sane Coding homepage" href="https://pagghiu.github.io/">
+          <img focusable="false" src="https://pagghiu.github.io/images/logo.png" style="display: block; width: 6rem" />
         </a>
-        runs <code>clang-format</code> on all files of the repository, with some exclusions, to beautify source code.
-        <p>
-          It launches many parallel processes but always <i>dynamically limiting</i> them to the number
-          of available processors using <a href="https://pagghiu.github.io/SaneCppLibraries/library_process.html"
-            target="_blank">SC::Process</a>.
-          Processes are monitored using the
-          <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a>
-          Library, and as soon as one "slot" is made available, it's being filled with a new <code>clang-format</code>
-          process.
-        </p>
-        <p>
-          Most code has upper bounds and fixed buffers.<br>
-          Even if it's totally unnecessary for such a small script, it's cool to see how the libraries work
-          together to allow minimal (or no) heap allocation!<br>
-          In this example the number of maximum processes is fixed and the recursive file system iteration
-          happens with a lambda, avoiding storing a vector of all file paths found in the target directory.
-        </p>
-        <p>
-          <a href="2024-03-27-SaneCppLibrariesUpdate/format-script.png" target="_blank">
-            <img src="2024-03-27-SaneCppLibrariesUpdate/format-script.png">
-          </a>
-        </p>
-
-        <p>
-
-          The tool looks for <code>clang-format</code> in known places, depending on platform, and if a
-          working <code>clang-format</code> at the correct version is found, it will be used.
-          This is for example what happens on CI as <code>clang-format</code> is pre-installed on Github
-          CI OS
-          Images.
-          If the no suitable <code>clang-format</code> has been found, then
-          <a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/Tools/SC-format.cpp" target="_blank">
-            SC-format.cpp
-          </a>
-          relies on
-          <a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/Tools/SC-package.cpp" target="_blank">
-            SC-package.cpp
-          </a>
-
-          to
-          download a brand new set of LLVM binaries from github, extracting and symlinking them.
-
-        </p>
-        <h3>Improvements to the CI and .vscode files<a href="#section-4-1" id="section-4-1" class="secondary"
-            tabindex="-1">#</a></h3>
-
-        All these tools are now making the CI scripts and the .VSCode files a lot nicer.
-        <p>
-          These are the new simplified CI and VSCode build scripts:
-        </p>
-
-        <p>
-          <a href="2024-03-27-SaneCppLibrariesUpdate/ci-linux.png" target="_blank"><img
-              src="2024-03-27-SaneCppLibrariesUpdate/ci-linux.png" width="48%"></a>
-          <a href="2024-03-27-SaneCppLibrariesUpdate/ci-windows.png" target="_blank"><img
-              src="2024-03-27-SaneCppLibrariesUpdate/ci-windows.png" width="48%"></a>
-          <a href="2024-03-27-SaneCppLibrariesUpdate/ci-macos.png" target="_blank"><img
-              src="2024-03-27-SaneCppLibrariesUpdate/ci-macos.png" width="48%"></a>
-          <a href="2024-03-27-SaneCppLibrariesUpdate/vscode-build.png" target="_blank"><img
-              src="2024-03-27-SaneCppLibrariesUpdate/vscode-build.png" width="48%"></a>
-        </p>
-
-      </section>
-
-
-      <section>
-        <h2>Improvements to the Library<a href="#section-5" id="section-5" class="secondary" tabindex="-1">#</a></h2>
-
-        As expected, the act of building this simple set of tools, has uncovered issues, bugs and
-        limitations in Sane C++ Libraries.<br>
-        Of course they've been promptly fixed, but this shows, once again, that developing libraries
-        in a vacuum doesn't generate strong enough code 🙂.<br>
-        Hopefully more developers will start using the libraries, reporting issues or providing bug-reports
-        and maybe even Pull Requests!
-
-        <h3>SC::Process</h3>
-        The <a href="https://pagghiu.github.io/SaneCppLibraries/library_process.html" target="_blank">SC::Process</a>
-        class has been pretty crucial in implementing the tools.
-        <p>
-          The original interface was not so easy to use so it got a nice facelift:
-        <ul>
-          <li>
-            <a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f038a44e67e9c72b88182c20cc923698512342b2"
-              target="_blank">
-              Process: Improve the API to be more pleasant to use</a>
-          </li>
-        </ul>
-        <a href="2024-03-27-SaneCppLibrariesUpdate/new-process-api.png" target="_blank">
-          <img src="2024-03-27-SaneCppLibrariesUpdate/new-process-api.png">
-        </a>
-
-        </p>
-        <p>
-          It also got some more features:
-        <ul>
-          <li>
-            <a href="https://github.com/Pagghiu/SaneCppLibraries/commit/bed597734acf9673427d3d61722854e2743c8b3b"
-              target="_blank">
-              Process: Allow ignoring child process standard output / error</a>
-          </li>
-          <li>
-            <a href="https://github.com/Pagghiu/SaneCppLibraries/commit/32e5fb47ca022078a7a02cf131057342d2df5cfd"
-              target="_blank">
-              Process: Add Process::getNumberOfProcessors
-            </a>
-          </li>
-        </ul>
-        </p>
-
-        <p>
-          Improved Tests and Documentation:
-        <ul>
-          <li>
-            <a href="https://github.com/Pagghiu/SaneCppLibraries/commit/771300ef584c2e26b7ef9992fbececdd66f1362e"
-              target="_blank"> Process: Cleanup tests and improve documentation
-            </a>
-          </li>
-        </ul>
-        </p>
-
-        <p>
-          and bugfixes for very tricky OS-specific issues!
-        <ul>
-          <li>
-            <a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1145a382cd4cf37a59425478f9c62c23651696cf"
-              target="_blank"> Process: Fix Posix waitForExitSync failing on non zero exit status</a>
-          </li>
-          <li>
-            <a href="https://github.com/Pagghiu/SaneCppLibraries/commit/eebe13a808fa457fe0a2df4da0b1905f60451993"
-              target="_blank"> Process: Handle kevent ESRCH errors caused by processes exiting too
-              fast</a>
-          </li>
-        </ul>
-        </p>
-
-        <h3>SC::Build<a href="#section-5-1" id="section-5-1" class="secondary" tabindex="-1">#</a></h3>
-        <p>
-
-          As already said the <a href="https://pagghiu.github.io/SaneCppLibraries/library_build.html"
-            target="_blank">SC::Build</a> library got the capability of compiling specific configuration
-          / architecture combos.
-        </p>
-        <p>
-          This has been also the occasion to cleanup the intermediates / output folder naming, so that
-          all folders can coexist in the same working directory.
-          This is useful to map that very same working directory on all Operating Systems (with a couple
-          of Virtual Machines), so that code can be quickly tested on all platforms while it's being
-          developed, before even hitting the CI.
-        </p>
-
-        <p>
-          Features:
-        <ul>
-          <li>
-            <a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1f2a8aab363b884bb02432470567d8d7d3fb83bf"
-              target="_blank"> Build: Support compiling specific configuration / architecture </a>
-
-          </li>
-        </ul>
-        </p>
-
-        <p>
-          <a href="2024-03-27-SaneCppLibrariesUpdate/build-directories.png" target="_blank">
-            <img src="2024-03-27-SaneCppLibrariesUpdate/build-directories.png" width="50%">
-          </a>
-        </p>
-
-        <h3>SC::Async<a href="#section-5-2" id="section-5-2" class="secondary" tabindex="-1">#</a></h3>
-
-        <p>
-          The <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a>
-          library got some fixes in the child process exit handling,
-          that
-          was randomly failing on the<code>SC-format</code> command!
-        </p>
-        <p>
-          Features:
-        <ul>
-          <li>
-            <a href="https://github.com/Pagghiu/SaneCppLibraries/commit/996374f9f37542631f3b579e2c34e9327c603df6"
-              target="_blank">Async: Remove the handle from active list before calling complete
-              callback</a>
-            <br>
-            This allows reusing "completed" AsyncRequests in the callback for a new operation!)
-          </li>
-        </ul>
-        </p>
-        <p>
-          Bugfixes:
-        <ul>
-          <li>
-            <a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9d94bb85354d45fc0358230d4d7c231107cbf87e"
-              target="_blank">Async: Handle merged <code>SIGCHLD</code> by signalfd on epoll
-              backend</a>
-            <br>
-            This was causing spuriously missing child process exit notifications, and it was only
-            visible on Linux (Intel) with a "high enough" number of concurrent process finishing
-            "simultaneously".
-          </li>
-        </ul>
-        </p>
-
-        <h3>SC::FileSystem<a href="#section-5-3" id="section-5-3" class="secondary" tabindex="-1">#</a></h3>
-
-        <p>
-          <a href="https://pagghiu.github.io/SaneCppLibraries/library_fileSystem.html"
-            target="_blank">SC::FileSystem</a> got some additions needed mainly by
-          <code>SC-package</code>
-          and a bugfix found when developing the tool.
-        </p>
-
-        <p>
-          Features:
-        <ul>
-          <li>
-            <a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1a5955962f718e8096bdfefb9cc238a32c53b76a"
-              target="_blank">FileSystem: Add existsAndIsLink, removeLinkIfExists and moveDirectory</a>
-          </li>
-          <li>
-            <a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f1c770a035d2038eeaaf42bcc12e85a9d70dacab"
-              target="_blank">FileSystem: Add createSymbolicLink</a>
-          </li>
-          <li>
-            <a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0e8137c2afdb2033c6a3c6fd901bf9f6042f2508"
-              target="_blank">File: Add read / write uint8_t overloads and make readAppend private</a>
-          </li>
-        </ul>
-        </p>
-        <p>
-          Bugfixes:
-        <ul>
-          <li>
-            <a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f444e3619f691a23b81e30df9f8c2d5dd8a0080d"
-              target="_blank">File: Pop null terminator before appending to String with
-              readUntilEOF</a>
-          </li>
-        </ul>
-        </p>
-
-        <h3>SC::Strings<a href="#section-5-4" id="section-5-4" class="secondary" tabindex="-1">#</a></h3>
-
-        <a href="https://pagghiu.github.io/SaneCppLibraries/library_strings.html" target="_blank">SC::Strings</a> got
-        a series of improvements identified when implementing all
-        the tools.
-        <p>
-          Features:
-        <ul>
-          <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f1bec9d5713bf3fc8dff32f6d5e875b025161db9"
-              target="_blank">Strings: Add StringView {starts | ends}WithAnyOf and trim{ start | end
-              }AnyOf</a></li>
-          <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4efa35baecfc6fdabf9eb06a01e2dff443314455"
-              target="_blank">Strings: Allow using<code>SmallString<N></code> as argument to
-              format</a></li>
-          <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d563cf064d890447a567dd039791c3e6fe931415"
-              target="_blank">Strings: Add casing parameter to StringBuilder::appendHex</a></li>
-          <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2098dd80d5fd12f37cdff31cd337bb90ec97c309"
-              target="_blank">Strings: Add Windows only UTF16 StringView::fromNullTerminated</a></li>
-          <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/36db6b61f9db1bcf897a279c4a277c279592855c"
-              target="_blank">Strings: Add StringFormatterFor void* pointers</a></li>
-        </ul>
-        </p>
-
-        <p>
-
-          Bugfixes:
-        <ul>
-          <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3eef35691023382437f002aeb94c88f4df0d64ef"
-              target="_blank">Strings: Fix an UB when copying StringView containing null</a></li>
-        </ul>
-        </p>
-
-      </section>
-    </div>
-  </main>
-  <footer>
-    <div class="container">
-      <section>
-        <nav class="links">
+        <nav class="container-fluid">
           <ul>
-            <li><strong>Projects</strong></li>
-            <li><a aria-current="page" class="secondary" href="../projects/SaneCppLibraries.html">Sane C++ Libraries</a>
-            </li>
-          </ul>
-          <ul>
-            <li><strong>Blog</strong></li>
-            <li><a rel="noopener noreferrer" class="secondary" href="../blog/blog.html">Posts by date</a></li>
-          </ul>
-          <ul>
-            <li><strong>About</strong></li>
-            <li><a class="secondary" href="../pages/about.html">About this blog</a></li>
+            <li class="hide-before-sm">Sane Coding Blog</li>
           </ul>
         </nav>
-        <p class="build-info">&copy; 2023-2024<!-- --> <a rel="noopener noreferrer" class="secondary" href="about.html"
-            target="_blank">Stefano Cristiano</a>.</p>
-      </section>
-    </div>
-  </footer>
-</body>
+        <nav>
+          <ul>
+            <li><a class="secondary" href="https://pagghiu.github.io/site/projects/projects.html">Projects</a></li>
+            <li><a class="secondary" href="https://pagghiu.github.io/site/blog/blog.html">Blog</a></li>
+            <li><a class="secondary" href="https://pagghiu.github.io/site/pages/about.html">About</a></li>
+            <li><a class="contrast theme-switcher" aria-label="Turn off dark mode" href=""><svg
+                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="currentColor"
+                  class="icon-theme-toggle">
+                  <clippath id="theme-toggle-cutout">
+                    <path d="M0-11h25a1 1 0 0017 13v30H0Z"></path>
+                  </clippath>
+                  <g clip-path="url(#theme-toggle-cutout)">
+                    <circle cx="16" cy="16" r="8.4"></circle>
+                    <path
+                      d="M18.3 3.2c0 1.3-1 2.3-2.3 2.3s-2.3-1-2.3-2.3S14.7.9 16 .9s2.3 1 2.3 2.3zm-4.6 25.6c0-1.3 1-2.3 2.3-2.3s2.3 1 2.3 2.3-1 2.3-2.3 2.3-2.3-1-2.3-2.3zm15.1-10.5c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zM3.2 13.7c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3S.9 17.3.9 16s1-2.3 2.3-2.3zm5.8-7C9 7.9 7.9 9 6.7 9S4.4 8 4.4 6.7s1-2.3 2.3-2.3S9 5.4 9 6.7zm16.3 21c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zm2.4-21c0 1.3-1 2.3-2.3 2.3S23 7.9 23 6.7s1-2.3 2.3-2.3 2.4 1 2.4 2.3zM6.7 23C8 23 9 24 9 25.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3z">
+                    </path>
+                  </g>
+                </svg>
+                <script src="https://pagghiu.github.io/theme/js/commons.min.pico2.js"></script>
+              </a></li>
+          </ul>
+          <ul class="icons">
+            <li><a rel="noopener noreferrer" class="contrast" aria-label="GitHub repository"
+                href="https://github.com/pagghiu/SaneCppLibraries" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"
+                  height="24" width="24.25" viewBox="0 0 496 512" class="icon-github">
+                  <path
+                    d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+                  </path>
+                </svg></a></li>
+            <li><a rel="noopener noreferrer" class="contrast" aria-label="Twitter" href="https://twitter.com/pagghiu_"
+                target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512"
+                  class="icon-x">
+                  <path
+                    d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z">
+                  </path>
+                </svg></a></li>
+            <li><a href="https://www.youtube.com/@Pagghiu" target="_blank" class="contrast"
+                aria-label="Youtube Channel"><svg aria-hidden="true" focusable="false" role="img"
+                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 180" height="16px">
+                  <path fill="red"
+                    d="M250.346 28.075A32.18 32.18 0 0 0 227.69 5.418C207.824 0 127.87 0 127.87 0S47.912.164 28.046 5.582A32.18 32.18 0 0 0 5.39 28.24c-6.009 35.298-8.34 89.084.165 122.97a32.18 32.18 0 0 0 22.656 22.657c19.866 5.418 99.822 5.418 99.822 5.418s79.955 0 99.82-5.418a32.18 32.18 0 0 0 22.657-22.657c6.338-35.348 8.291-89.1-.164-123.134" />
+                  <path fill="#FFF" d="m102.421 128.06l66.328-38.418l-66.328-38.418z" />
+                </svg></a></li>
+            <li><a href="https://discord.gg/tyBfFp33Z6" target="_blank" class="contrast" aria-label="Discord Chat"><svg
+                  aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -28.5 256 256" height="16px">
+                  <path
+                    d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"
+                    fill="#5865F2" fill-rule="nonzero"> </path>
+                </svg></a></li>
+            <li><a href="https://mastodon.gamedev.place/@pagghiu" target="_blank" class="contrast"
+                aria-label="Mastodon"><svg aria-hidden="true" focusable="false" role="img"
+                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  style="enable-background:new 0 0 1668.56 1221.19;" height="16px">
+                  <path
+                    d="M21.327 8.566c0-4.339-2.843-5.61-2.843-5.61-1.433-.658-3.894-.935-6.451-.956h-.063c-2.557.021-5.016.298-6.45.956 0 0-2.843 1.272-2.843 5.61 0 .993-.019 2.181.012 3.441.103 4.243.778 8.425 4.701 9.463 1.809.479 3.362.579 4.612.51 2.268-.126 3.541-.809 3.541-.809l-.075-1.646s-1.621.511-3.441.449c-1.804-.062-3.707-.194-3.999-2.409a4.523 4.523 0 0 1-.04-.621s1.77.433 4.014.536c1.372.063 2.658-.08 3.965-.236 2.506-.299 4.688-1.843 4.962-3.254.434-2.223.398-5.424.398-5.424zm-3.353 5.59h-2.081V9.057c0-1.075-.452-1.62-1.357-1.62-1 0-1.501.647-1.501 1.927v2.791h-2.069V9.364c0-1.28-.501-1.927-1.502-1.927-.905 0-1.357.546-1.357 1.62v5.099H6.026V8.903c0-1.074.273-1.927.823-2.558.566-.631 1.307-.955 2.228-.955 1.065 0 1.872.409 2.405 1.228l.518.869.519-.869c.533-.819 1.34-1.228 2.405-1.228.92 0 1.662.324 2.228.955.549.631.822 1.484.822 2.558v5.253z" />
+                </svg></a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="container has-table-of-contents">
+<aside id="documentation-menu">
+    <nav class="is-sticky-above-lg" style="--max-height: 674.75px;">
+        <details open="">
+            <summary>Projects</summary>
+            <ul>
+                <li><a class="secondary" href="https://pagghiu.github.io/site/projects/SaneCppLibraries.html"
+                        title="Permalink to Sane C++ Libraries">Sane C++ Libraries
+                    </a></li>
+            </ul>
+        </details>
+        <details open="">
+            <summary>Blog</summary>
+            <ul>
+                <!--- articles_page.object_list --->
+                <li>
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-11-30-SaneCppLibrariesUpdate.html" title="Permalink to 🌫️ Sane C++ November 24">
+                    🌫️ Sane C++ November 24
+                    <br>
+                </a>
+            </li>
+                <li>
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-08-30-SaneCppLibrariesUpdate.html" title="Permalink to 🌊 Sane C++ August 24">
+                    🌊 Sane C++ August 24
+                    <br>
+                </a>
+            </li>
+                <li>
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-07-31-SaneCppLibrariesUpdate.html" title="Permalink to 🏖️ Sane C++ July 24">
+                    🏖️ Sane C++ July 24
+                    <br>
+                </a>
+            </li>
+                <li>
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-06-30-SaneCppLibrariesUpdate.html" title="Permalink to ☀️ Sane C++ June 24">
+                    ☀️ Sane C++ June 24
+                    <br>
+                </a>
+            </li>
+                <li>
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-05-31-SaneCppLibrariesUpdate.html" title="Permalink to 🌸 Sane C++ May 24">
+                    🌸 Sane C++ May 24
+                    <br>
+                </a>
+            </li>
+                <li>
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-04-27-SaneCppLibrariesUpdate.html" title="Permalink to 💤 Sane C++ April 24">
+                    💤 Sane C++ April 24
+                    <br>
+                </a>
+            </li>
+                <li>
+                    <a class="secondary" aria-current="page" href="" title="Permalink to ☔️ Sane C++ March 24">
+                    ☔️ Sane C++ March 24
+                    <br>
+                </a>
+            </li>
+                <li>
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-02-23-SaneCppLibrariesUpdate.html" title="Permalink to 🎠 Sane C++ February 24">
+                    🎠 Sane C++ February 24
+                    <br>
+                </a>
+            </li>
+                <li>
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-01-23-SaneCppLibrariesUpdate.html" title="Permalink to ❄️ Sane C++ January 24">
+                    ❄️ Sane C++ January 24
+                    <br>
+                </a>
+            </li>
+                <li>
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2023-12-23-SaneCppLibrariesRelease.html" title="Permalink to 🎉 Sane C++ Libraries">
+                    🎉 Sane C++ Libraries
+                    <br>
+                </a>
+            </li>
+            </ul>
+        </details>
+    </nav>
+</aside>
+    <hgroup>
+      <p class="chapter">Wed 27 March 2024</p>
+      <h1>☔️ Sane C++ March 24</h1>
+      
+      <figure>
+        <img src="https://pagghiu.github.io/images/2024-03-27-SaneCppLibrariesUpdate/article.png" alt="SC" />
+      </figure>
+      <p>
+        <p>Welcome to the third monthly update for Sane C++ Libraries!</p>
+        📄 <a href="../../SaneCppLibraries/index.html" target="_blank">Sane C++ Libraries Documentation</a><br>
+        💻 <a href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Sane C++ Libraries
+            Repository <img src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a> <br>
+        📹 <a href="https://www.youtube.com/@Pagghiu" target="_blank">Sane Coding Youtube channel</a> <img
+            src="https://img.shields.io/youtube/channel/subscribers/UCnmN_whfM12LU6VNQWG0NFg"> <br>
+        💬 <a href="https://discord.gg/tyBfFp33Z6" target="_blank">Sane Coding Discord</a> <a
+            href="https://discord.gg/tyBfFp33Z6"><img src="https://img.shields.io/discord/1195076118307426384"></a>
+              </p>
+    </hgroup>
+    <aside id="table-of-contents">
+<nav class="is-sticky-above-lg ">
+<details open="">
+<summary>Content</summary>
+<ul>
+<li><a class="secondary" href="#section-0">Sane C++ March 2024</a></li>
+<li><a class="secondary" href="#section-1">SC::Tools</a></li>
+<li><a class="secondary" href="#section-2">SC-build.cpp</a></li>
+<li><a class="secondary" href="#section-3">SC-package.cpp</a></li>
+<li><a class="secondary" href="#section-3-1">> Additional Reasons</a></li>
+<li><a class="secondary" href="#section-3-2">> Technical Details</a></li>
+<li><a class="secondary" href="#section-4">SC-format.cpp</a></li>
+<li><a class="secondary" href="#section-4-1">> Improvements to CI</a></li>
+<li><a class="secondary" href="#section-5">Sane C++ Improvements</a></li>
+<li><a class="secondary" href="#section-5-1">> SC::Build</a></li>
+<li><a class="secondary" href="#section-5-2">> SC::Async</a></li>
+<li><a class="secondary" href="#section-5-3">> SC::FileSystem</a></li>
+<li><a class="secondary" href="#section-5-4">> SC::Strings</a></li>
+</ul>
+</details>
+</nav>
+</aside>
+<div id="content" role="document">
 
+<section>
+<h2>SC::Tools<a href="#section-1" id="section-1" class="secondary" tabindex="-1">#</a></h2>
+<p class="chapter">written for Sane C++ Libraries, using Sane C++ Libraries</p>
+<p>
+There is no better way to improve a library than using it to create some other project or tool.
+<br>
+This is why effort has been spent using Sane C++ Libraries to build some useful tools
+needed by...Sane C++ Libraries!
+</p>
+
+<p>
+So, unsurprisingly, the big addition of the month to Sane C++ Libraries are <a
+href="https://pagghiu.github.io/SaneCppLibraries/page_tools.html" target="_blank">SC::Tools</a>!
+</p>
+<p>
+
+Something similar to <a href="https://pagghiu.github.io/SaneCppLibraries/page_tools.html"
+target="_blank">SC::Tools</a> already used to exist in some form:
+<code>SCBuild.cpp</code>, the bootstrap from source C++ file using
+<a href="https://pagghiu.github.io/SaneCppLibraries/library_build.html" target="_blank">SC::Build</a>
+build system (generator).<br>
+It used to work thanks to a bootstrap bash / batch file that compiles <code>SC-Build.cpp</code> and
+the unity build file <code>SC.cpp</code> to produce the <code>SCBuild[.exe]</code> self-contained
+(statically linked) executable.<br>
+This was nice but it had a few issues, for example it was not able to detect
+changes in any of the source files and rebuild the executable accordingly.
+</p>
+
+<p>
+<a href="https://pagghiu.github.io/SaneCppLibraries/page_tools.html" target="_blank">SC::Tools</a>
+is a generalization of the
+<code>SCBuild.{sh | bat} </code> mechanism into a more flexible
+<code>SC.sh $TOOL [$ACTION]</code>.
+
+This allows also running custom tools, leveraging Sane C++ Libraries, by just launching
+<code>SC.sh myDirectory/myScript.cpp [$ACTION]</code>!
+</p>
+<p>
+<a href="2024-03-27-SaneCppLibrariesUpdate/tool.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/tool.png">
+</a>
+</p>
+
+<p>
+The source code dependency tracking is taken care of by a couple of parametric makefiles.<br>
+
+The intermediate files directory is shared by all tools, and the unity build file
+<code>SC.cpp</code> (#include-d by <code>Tools.cpp</code> ) makes the entire set of Sane C++
+Libraries available to every tool.<br>
+It's compiled just once (in a couple of seconds), making any successive compile / linking of
+the tools extremely fast (less than 1 sec on a recent laptop).
+</p>
+<p>
+Tools in the<code>Tools</code> subdirectory are special, as they can be invoked by just using
+their name (without the <code>SC-</code> prefix).<br>
+<code>./SC.sh Tools/SC-build.cpp</code> can be invoked as just <code>./SC.sh build</code>.
+</p>
+</section>
+
+
+
+<section>
+<h2>SC-build.cpp<a href="#section-2" id="section-2" class="secondary" tabindex="-1">#</a></h2>
+<p class="chapter">building C++ programs in C++, why not?</p>
+The first tool is just called
+<a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/Tools/SC-build.cpp" target="_blank">
+SC-build.cpp</a>.<br> It comes with a companion
+<a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/Tools/SC-build.h" target="_blank">
+SC-build.h</a> file holding code shared between multiple projects.<br>
+Its default action (<code>configure</code>) is equivalent to
+the (now old) <code>SCBuild.sh</code>, that generates build/project files.
+<p>
+The new action called <code>compile</code> (guess what?) compiles the
+generated projects 🤯!
+</p>
+<p>
+<code>./SC.sh Tools/SC-build.cpp configure</code><br>
+or<br>
+<code>./SC.sh build configure</code>
+</p>
+<p>
+and on windows:
+</p>
+
+<p>
+<code>SC.bat Tools\SC-build.cpp compile</code><br>
+or<br>
+<code>SC.bat build compile</code>
+</p>
+
+<p>
+<a href="2024-03-27-SaneCppLibrariesUpdate/build.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/build.png">
+</a>
+</p>
+</section>
+
+
+
+<section>
+<h2>SC-package.cpp<a href="#section-3" id="section-3" class="secondary" tabindex="-1">#</a></h2>
+<p class="chapter">wheel reinvention, reinvented</p>
+The second tool is
+<a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/Tools/SC-package.cpp" target="_blank">
+SC-package.cpp</a>, once again a manifestation of the wheel
+reinvention attitude already pervading the entire project 😊.
+<p>
+This poor-man's imperative package manager downloads binary files taking care of checking
+MD5, extracting and testing what's contained.<br>
+The guiding reason for this tool to exist was to automatically be able downloading and
+extracting the official<code>clang</code> distribution (at a specific version, matching the
+Gitlab CI) in order to use <code>clang-format</code> on the entire repo.<br>
+This is needed for a potential contributor to properly format files before sending a Pull
+Request, keeping the CI format validation jobs happy.
+</p>
+
+<p>
+The end result is a folder with <i>_PackagesCache</i> and <i>_Packages</i> under <i>_Build</i>.
+</p>
+
+<p>
+This is still very primitive for now, but who knows, maybe in the future it could be evolved
+into something more advanced.
+</p>
+
+<p>
+<a href="2024-03-27-SaneCppLibrariesUpdate/packages-results.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/packages-results.png" width="75%">
+</a>
+</p>
+<h3>Additional reasons to exist<a href="#section-3-1" id="section-3-1" class="secondary" tabindex="-1">#</a>
+</h3>
+<p class="chapter">other than wheel re-invention</p>
+<p>
+Too often <i>repository automation</i> tools are written in<code>bash</code> or
+<code>batch</code> where best thing you can do is putting print (echo) statements to debug
+them.<br>
+Slightly better are the cases when an actual programming language like <code>python</code>
+or <code>javascript</code> is used, but sometimes this comes with an entire set of problems
+regarding their requirements and in general the fact that such tools expect to be installed
+globally on developer's system, with probability of incurring into a <i>it works on my machine</i>
+situation.<br> Things like Python <i>.venv</i> can sometimes help but not always. <br>
+In some cases such scripts do not even exist, but you're getting a bunch of <i>install this</i>
+or <i>install that</i> <code>Readmes</code> always missing some step and where you end up
+wasting a lot of time.<br>
+And let's not discuss docker about please, I am trying to stay nice 😄.
+</p>
+
+<p>
+So my obvious solution has been to write such a tool in C++ using Sane C++ Libraries of
+course, so that I can debug it properly just like any other program.<br>
+I am really happy the result, the small program is easy to follow and does its job.<br>
+For now all data is local to the repository <i>_Build</i> directory but it would be easy
+sharing the <i>_PackagesCache</i> into some custom user directory to save some space on
+multiple checked-out copies of the repository. <br>
+For any issue, I can just debug this C++ <i>shell script</i>, that is just a regular
+<i>program</i>, like all other programs that a C++ programmer debugs <i>every day</i>.
+</p>
+
+<h3>Technical Details<a href="#section-3-2" id="section-3-2" class="secondary" tabindex="-1">#</a></h3>
+<p class="chapter">if you really want to know...</p>
+<p>
+On Posix to get<code>clang+llvm-x.y.z-$ARCH-$PLATFORM</code> you just download a file from
+github, check it MD5, and extract the <code>.tar.gz</code> file.<br>
+</p>
+<p>
+
+On Windows this is even more difficult because the official LLVM binary distribution is some
+sort of self-extracting setup (requiring admin privileges too!) and to extract it you need a
+tool like <code>7zip</code>.
+<code>7zip</code> is as well a self extracting installer and requires another tool (called
+<code>7zr.exe</code>) in order to be extracted!.
+So on Windows <code>SC-package</code> downloads <code>7zr.exe</code> -> extracts the
+<code>7zip</code> installer -> uses the extracted <code>7z.exe</code> to extract the
+<code>LLVM-X.Y.Z-$ARCH</code> into some directory.
+If someone knows an easier way of doing this (without installing other tools or requiring a
+package manger) please let me know.
+</p>
+
+<p>
+On all platforms / architectures (macOS/Windows/Linux and ARM64/Intel64) MD5 of the
+downloaded files it's being checked to make sure they're all legit.
+This also helps creating a <i>_PackagesCache</i> to hold these setup files and avoid
+re-downloading them every time.
+</p>
+
+<p>
+Also a small <code>clang-format</code> test is run to make sure it's properly installed and
+available.
+The extracted directory is symlinked into a <i>_Packages</i> sub-folder containing package name
+/ platform.
+</p>
+
+
+<p>
+Sane C++ Libraries doesn't have (yet) a properly working HTTPS client, so an alternative
+solution was necessary.
+It looks like nowadays<code>curl</code> is pre-installed on any
+recent <code>macOS</code>,<code>linux</code> and<code>windows</code>
+install and so <code>SC-package</code> uses it.
+</p>
+
+
+<a href="https://pagghiu.github.io/SaneCppLibraries/library_hashing.html" target="_blank">SC::Hashing</a>
+library has been used to compute all MD5 easily getting the job done.
+<br>
+File operations and cross-platform path handling have been implemented using the
+<a href="https://pagghiu.github.io/SaneCppLibraries/library_file_system.html" target="_blank">SC::FileSystem</a>
+library.
+
+</section>
+
+
+
+<section>
+<h2>SC-format.cpp<a href="#section-4" id="section-4" class="secondary" tabindex="-1">#</a></h2>
+<p class="chapter">code is poetry, prove me wrong</p>
+<a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/Tools/SC-format.cpp" target="_blank">
+SC-format.cpp
+</a>
+runs <code>clang-format</code> on all files of the repository, with some exclusions, to beautify source code.
+<p>
+It launches many parallel processes but always <i>dynamically limiting</i> them to the number
+of available processors using <a href="https://pagghiu.github.io/SaneCppLibraries/library_process.html"
+target="_blank">SC::Process</a>.
+Processes are monitored using the
+<a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a>
+Library, and as soon as one "slot" is made available, it's being filled with a new <code>clang-format</code>
+process.
+</p>
+<p>
+Most code has upper bounds and fixed buffers.<br>
+Even if it's totally unnecessary for such a small script, it's cool to see how the libraries work
+together to allow minimal (or no) heap allocation!<br>
+In this example the number of maximum processes is fixed and the recursive file system iteration
+happens with a lambda, avoiding storing a vector of all file paths found in the target directory.
+</p>
+<p>
+<a href="2024-03-27-SaneCppLibrariesUpdate/format-script.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/format-script.png">
+</a>
+</p>
+
+<p>
+
+The tool looks for <code>clang-format</code> in known places, depending on platform, and if a
+working <code>clang-format</code> at the correct version is found, it will be used.
+This is for example what happens on CI as <code>clang-format</code> is pre-installed on Github
+CI OS
+Images.
+If the no suitable <code>clang-format</code> has been found, then
+<a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/Tools/SC-format.cpp" target="_blank">
+SC-format.cpp
+</a>
+relies on
+<a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/Tools/SC-package.cpp" target="_blank">
+SC-package.cpp
+</a>
+
+to
+download a brand new set of LLVM binaries from github, extracting and symlinking them.
+
+</p>
+<h3>Improvements to the CI and .vscode files<a href="#section-4-1" id="section-4-1" class="secondary"
+tabindex="-1">#</a></h3>
+
+All these tools are now making the CI scripts and the .VSCode files a lot nicer.
+<p>
+These are the new simplified CI and VSCode build scripts:
+</p>
+
+<p>
+<a href="2024-03-27-SaneCppLibrariesUpdate/ci-linux.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/ci-linux.png" width="48%"></a>
+<a href="2024-03-27-SaneCppLibrariesUpdate/ci-windows.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/ci-windows.png" width="48%"></a>
+<a href="2024-03-27-SaneCppLibrariesUpdate/ci-macos.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/ci-macos.png" width="48%"></a>
+<a href="2024-03-27-SaneCppLibrariesUpdate/vscode-build.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/vscode-build.png" width="48%"></a>
+</p>
+
+</section>
+
+
+<section>
+<h2>Improvements to the Library<a href="#section-5" id="section-5" class="secondary" tabindex="-1">#</a></h2>
+
+As expected, the act of building this simple set of tools, has uncovered issues, bugs and
+limitations in Sane C++ Libraries.<br>
+Of course they've been promptly fixed, but this shows, once again, that developing libraries
+in a vacuum doesn't generate strong enough code 🙂.<br>
+Hopefully more developers will start using the libraries, reporting issues or providing bug-reports
+and maybe even Pull Requests!
+
+<h3>SC::Process</h3>
+The <a href="https://pagghiu.github.io/SaneCppLibraries/library_process.html" target="_blank">SC::Process</a>
+class has been pretty crucial in implementing the tools.
+<p>
+The original interface was not so easy to use so it got a nice facelift:
+<ul>
+<li>
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f038a44e67e9c72b88182c20cc923698512342b2"
+target="_blank">
+Process: Improve the API to be more pleasant to use</a>
+</li>
+</ul>
+<a href="2024-03-27-SaneCppLibrariesUpdate/new-process-api.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/new-process-api.png">
+</a>
+
+</p>
+<p>
+It also got some more features:
+<ul>
+<li>
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/bed597734acf9673427d3d61722854e2743c8b3b"
+target="_blank">
+Process: Allow ignoring child process standard output / error</a>
+</li>
+<li>
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/32e5fb47ca022078a7a02cf131057342d2df5cfd"
+target="_blank">
+Process: Add Process::getNumberOfProcessors
+</a>
+</li>
+</ul>
+</p>
+
+<p>
+Improved Tests and Documentation:
+<ul>
+<li>
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/771300ef584c2e26b7ef9992fbececdd66f1362e"
+target="_blank"> Process: Cleanup tests and improve documentation
+</a>
+</li>
+</ul>
+</p>
+
+<p>
+and bugfixes for very tricky OS-specific issues!
+<ul>
+<li>
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1145a382cd4cf37a59425478f9c62c23651696cf"
+target="_blank"> Process: Fix Posix waitForExitSync failing on non zero exit status</a>
+</li>
+<li>
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/eebe13a808fa457fe0a2df4da0b1905f60451993"
+target="_blank"> Process: Handle kevent ESRCH errors caused by processes exiting too
+fast</a>
+</li>
+</ul>
+</p>
+
+<h3>SC::Build<a href="#section-5-1" id="section-5-1" class="secondary" tabindex="-1">#</a></h3>
+<p>
+
+As already said the <a href="https://pagghiu.github.io/SaneCppLibraries/library_build.html"
+target="_blank">SC::Build</a> library got the capability of compiling specific configuration
+/ architecture combos.
+</p>
+<p>
+This has been also the occasion to cleanup the intermediates / output folder naming, so that
+all folders can coexist in the same working directory.
+This is useful to map that very same working directory on all Operating Systems (with a couple
+of Virtual Machines), so that code can be quickly tested on all platforms while it's being
+developed, before even hitting the CI.
+</p>
+
+<p>
+Features:
+<ul>
+<li>
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1f2a8aab363b884bb02432470567d8d7d3fb83bf"
+target="_blank"> Build: Support compiling specific configuration / architecture </a>
+
+</li>
+</ul>
+</p>
+
+<p>
+<a href="2024-03-27-SaneCppLibrariesUpdate/build-directories.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/build-directories.png" width="50%">
+</a>
+</p>
+
+<h3>SC::Async<a href="#section-5-2" id="section-5-2" class="secondary" tabindex="-1">#</a></h3>
+
+<p>
+The <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a>
+library got some fixes in the child process exit handling,
+that
+was randomly failing on the<code>SC-format</code> command!
+</p>
+<p>
+Features:
+<ul>
+<li>
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/996374f9f37542631f3b579e2c34e9327c603df6"
+target="_blank">Async: Remove the handle from active list before calling complete
+callback</a>
+<br>
+This allows reusing "completed" AsyncRequests in the callback for a new operation!)
+</li>
+</ul>
+</p>
+<p>
+Bugfixes:
+<ul>
+<li>
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9d94bb85354d45fc0358230d4d7c231107cbf87e"
+target="_blank">Async: Handle merged <code>SIGCHLD</code> by signalfd on epoll
+backend</a>
+<br>
+This was causing spuriously missing child process exit notifications, and it was only
+visible on Linux (Intel) with a "high enough" number of concurrent process finishing
+"simultaneously".
+</li>
+</ul>
+</p>
+
+<h3>SC::FileSystem<a href="#section-5-3" id="section-5-3" class="secondary" tabindex="-1">#</a></h3>
+
+<p>
+<a href="https://pagghiu.github.io/SaneCppLibraries/library_fileSystem.html"
+target="_blank">SC::FileSystem</a> got some additions needed mainly by
+<code>SC-package</code>
+and a bugfix found when developing the tool.
+</p>
+
+<p>
+Features:
+<ul>
+<li>
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1a5955962f718e8096bdfefb9cc238a32c53b76a"
+target="_blank">FileSystem: Add existsAndIsLink, removeLinkIfExists and moveDirectory</a>
+</li>
+<li>
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f1c770a035d2038eeaaf42bcc12e85a9d70dacab"
+target="_blank">FileSystem: Add createSymbolicLink</a>
+</li>
+<li>
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0e8137c2afdb2033c6a3c6fd901bf9f6042f2508"
+target="_blank">File: Add read / write uint8_t overloads and make readAppend private</a>
+</li>
+</ul>
+</p>
+<p>
+Bugfixes:
+<ul>
+<li>
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f444e3619f691a23b81e30df9f8c2d5dd8a0080d"
+target="_blank">File: Pop null terminator before appending to String with
+readUntilEOF</a>
+</li>
+</ul>
+</p>
+
+<h3>SC::Strings<a href="#section-5-4" id="section-5-4" class="secondary" tabindex="-1">#</a></h3>
+
+<a href="https://pagghiu.github.io/SaneCppLibraries/library_strings.html" target="_blank">SC::Strings</a> got
+a series of improvements identified when implementing all
+the tools.
+<p>
+Features:
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f1bec9d5713bf3fc8dff32f6d5e875b025161db9"
+target="_blank">Strings: Add StringView {starts | ends}WithAnyOf and trim{ start | end
+}AnyOf</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4efa35baecfc6fdabf9eb06a01e2dff443314455"
+target="_blank">Strings: Allow using<code>SmallString<N></code> as argument to
+format</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d563cf064d890447a567dd039791c3e6fe931415"
+target="_blank">Strings: Add casing parameter to StringBuilder::appendHex</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2098dd80d5fd12f37cdff31cd337bb90ec97c309"
+target="_blank">Strings: Add Windows only UTF16 StringView::fromNullTerminated</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/36db6b61f9db1bcf897a279c4a277c279592855c"
+target="_blank">Strings: Add StringFormatterFor void* pointers</a></li>
+</ul>
+</p>
+
+<p>
+
+Bugfixes:
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3eef35691023382437f002aeb94c88f4df0d64ef"
+target="_blank">Strings: Fix an UB when copying StringView containing null</a></li>
+</ul>
+</p>
+
+</section>
+</div>
+  
+    </main>
+    <footer>
+      <div class=" container">
+            <section>
+              <nav class="links">
+                <ul>
+                  <li><strong>Projects</strong></li>
+
+                    <li><a  aria-current="page" class="secondary" href="https://pagghiu.github.io/pages/sane-c-libraries.html"
+                        title="Permalink to Sane C++ Libraries">Sane C++ Libraries
+                    </a></li>
+
+                    </ul>
+                <ul>
+                  <li><strong>Blog</strong></li>
+                  <li><a class="secondary" href="https://pagghiu.github.io/site/blog/blog.html">All Posts</a></li>
+                </ul>
+                <ul>
+                  <li><strong>About</strong></li>
+                  <li><a class="secondary" href="https://pagghiu.github.io/site/pages/about.html">About this blog</a></li>
+                </ul>
+              </nav>
+              <p class="build-info">&copy; 2023-2024<!-- --> <a rel="noopener noreferrer" class="secondary"
+                  href="https://pagghiu.github.io/site/pages/about.html" target="_blank">Stefano Cristiano</a>.</p>
+            </section>
+      </div>
+      </footer>
+  </body>
 </html>

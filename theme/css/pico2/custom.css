@@ -1,0 +1,23 @@
+@media (min-width: 1024px) {
+  body>header .container {
+    max-width: 100%;
+  }
+
+  body>header.is-fixed-above-lg {
+    padding: 0 1.0em 0 0;
+  }
+
+}
+@media (min-width: 1280px) {
+body > main:has(aside#table-of-contents) {
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 11.5rem 1fr 11.0rem;
+  grid-template-areas: "menu header table-of-content" "menu body table-of-content";
+}
+
+body > main.has-table-of-contents {
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 11.5rem 1fr 11.0rem;
+  grid-template-areas: "menu header table-of-content" "menu body table-of-content"
+}
+}
