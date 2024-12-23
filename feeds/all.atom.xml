@@ -42,7 +42,7 @@
 &lt;p&gt;This is the most advanced library of the project, designed to do exactly 0 dynamic allocations and it got stability and quality of life improvements.&lt;/p&gt;
 &lt;p&gt;Think of a simplified libuv / Boost.ASIO that covers most of their features in a very compact codebase written according to the Sane C++ Principles!&lt;/p&gt;
 &lt;p&gt;🟢 No allocations!&lt;br&gt;
-🟢 Socket operations (send/receive/connect/disconnect)&lt;br&gt;
+🟢 Socket operations (send/receive/connect/accept)&lt;br&gt;
 🟢 File operations (read/write/close)&lt;br&gt;
 🟢 Child process watcher&lt;br&gt;
 🟢 Folder watcher&lt;br&gt;
@@ -163,7 +163,7 @@
 
 &lt;p&gt;See &lt;a target="_new" href="http://pagghiu.github.io/SaneCppLibraries/library_file_system.html"&gt;&lt;code&gt;SC::FileSystem&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;🟢 Improve reliability&lt;br&gt;
-🟢 Simlinks creation  &lt;/p&gt;
+🟢 Symlinks creation  &lt;/p&gt;
 &lt;p&gt;&lt;a href="https://pagghiu.github.io/site/blog/SCFileSystem.png" target="_blank"&gt;
 &lt;img src="https://pagghiu.github.io/site/blog/SCFileSystem.png"&gt;
 &lt;/a&gt;&lt;/p&gt;
@@ -203,9 +203,10 @@
 🟢 Builds and publishes documentation at every commit&lt;br&gt;
 🟢 Computes and publishes code coverage at every commit  &lt;/p&gt;
 &lt;h2 id="youtube"&gt;🤳 YouTube&lt;/h2&gt;
-&lt;p&gt;🟢 32 YouTube videos produced&lt;br&gt;
-I've always liked the idea of producing some videos to shed some light on the development process and get better at explaining myself.
+&lt;p&gt;🟢 32 YouTube videos produced  &lt;/p&gt;
+&lt;p&gt;I've always liked the idea of producing some videos to shed some light on the development process and get better at explaining myself.
 This has been taking a little bit of time away from actual coding, but I enjoyed doing them!&lt;/p&gt;
+&lt;p&gt;Take a look at my &lt;a href="https://www.youtube.com/@Pagghiu" target="_new"&gt;YouTube Channel&lt;/a&gt; if you're interested!&lt;/p&gt;
 &lt;h2 id="blog"&gt;📒 Blog&lt;/h2&gt;
 &lt;p&gt;🟢 10 Blog Posts written  &lt;/p&gt;
 &lt;p&gt;Writing update blog post has also been consuming some time but it was worth it.&lt;br&gt;
