@@ -1,3 +1,5 @@
 @import url("main.css");
 @import url("docs.css");
 @import url("custom.css");
+@import url("pygment_light.css");
+@import url("pygment_dark.css");
