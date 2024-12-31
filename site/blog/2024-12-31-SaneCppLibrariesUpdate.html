@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-        <title>Sane Coding Blog - 🎠 Sane C++ February 24</title>
+      <title>Sane Coding Blog - ☃️ Sane C++ December 24</title>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" href="https://pagghiu.github.io/images/favicon.png">
@@ -112,7 +112,7 @@
             <ul>
                 <!--- articles_page.object_list --->
                 <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-12-31-SaneCppLibrariesUpdate.html" title="Permalink to ☃️ Sane C++ December 24">
+                    <a class="secondary" aria-current="page" href="" title="Permalink to ☃️ Sane C++ December 24">
                     ☃️ Sane C++ December 24
                     <br>
                 </a>
@@ -166,7 +166,7 @@
                 </a>
             </li>
                 <li>
-                    <a class="secondary" aria-current="page" href="" title="Permalink to 🎠 Sane C++ February 24">
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-02-23-SaneCppLibrariesUpdate.html" title="Permalink to 🎠 Sane C++ February 24">
                     🎠 Sane C++ February 24
                     <br>
                 </a>
@@ -187,158 +187,124 @@
         </details>
     </nav>
 </aside>
-    <hgroup>
-      <p class="chapter">Fri 23 February 2024</p>
-      <h1>🎠 Sane C++ February 24</h1>
-      
-      <figure>
-        <img src="https://pagghiu.github.io/images/2024-02-23-SaneCppLibrariesUpdate/article.png" alt="SC" />
-      </figure>
-      <p>
-        <p>Two months have passed since the <a href="2023-12-23-SaneCppLibrariesRelease.html">initial release of Sane C++ Libraries</a>! 🎉🎉🎉<br> This post collects all relevant events happened during the second month of (public) life of the project.</p>
-        📄 <a href="../../SaneCppLibraries/index.html" target="_blank">Sane C++ Libraries Documentation</a><br>
-        💻 <a href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Sane C++ Libraries
-            Repository <img src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a> <br>
-        📹 <a href="https://www.youtube.com/@Pagghiu" target="_blank">Sane Coding Youtube channel</a> <img
-            src="https://img.shields.io/youtube/channel/subscribers/UCnmN_whfM12LU6VNQWG0NFg"> <br>
-        💬 <a href="https://discord.gg/tyBfFp33Z6" target="_blank">Sane Coding Discord</a> <a
-            href="https://discord.gg/tyBfFp33Z6"><img src="https://img.shields.io/discord/1195076118307426384"></a>
-              </p>
-    </hgroup>
-    <aside id="table-of-contents">
-<nav class="is-sticky-above-lg ">
-<details open="">
-<summary>Content</summary>
-<ul>
-<li><a class="secondary" href="#section-0">Sane C++ February 2024</a></li>
-<li><a class="secondary" href="#section-1">Code</a></li>
-<li><a class="secondary" href="#section-2">Github Releases</a></li>
-<li><a class="secondary" href="#section-3">Hacker News</a></li>
-<li><a class="secondary" href="#section-4">Github</a></li>
-<li><a class="secondary" href="#section-5">YouTube</a></li>
-</ul>
-</details>
-</nav>
-</aside>
-<div id="content" role="document">
-<section>
-<article>
-<h2>Code<a href="#section-1" id="section-1" class="secondary" tabindex="-1">#</a></h2>
-Code is always the most important news!👨🏻‍💻<br>
-Continuing giving Linux some love!! 🐧
-<br>
-<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a> got an
-<code>io_uring</code> Linux backend!<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a>
-<code>epoll</code> backend got simplified <br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a> now
-tracks all active requests to mark them as free on a sudden close requests. <br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a> got
-all private implementation details hidden under a compiler firewall<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a> can
-now use <code>SC::ThreadPool</code> to run some async ops<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a>
-<code>AsyncFileRead</code> / <code>AsyncFileWrite</code> are now fully async also on buffered files <br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_threading.html"
-target="_blank">SC::ThreadPool</a> has been added, to allow running tasks in background<br>
-✅ Got CI building and running tests on Windows, Linux and macOS (using Github Actions).<br>
-✅ The CI also enforces proper formatting through clang-format.<br>
-✅ Fixed a few UB and leaks signaled by gcc UBSAN and LSAN on Linux.<br>
-✅ Improved documentation for <a href="https://pagghiu.github.io/SaneCppLibraries/page_building_user.html"
-target="_blank">Building as an User</a> vs
-<a href="https://pagghiu.github.io/SaneCppLibraries/page_building_contributor.html">Building as a
-contributor</a><br>
+  <hgroup>
+    <p class="chapter">Tue 31 December 2024</p>
+    <h1 id="section-0">☃️ Sane C++ December 24</h1>
+    
+    <figure>
+      <img src="https://pagghiu.github.io/images/2024-12-31-SaneCppLibrariesUpdate/article.png" alt="SC" />
+    </figure>
+    <p>
+      <p>Welcome to the update post for December 2024!<br> This month has been mostly spent improving <code>SC::AsyncStreams</code> library with Async Transform Streams!</p>
+    </p>
+  </hgroup>
+  <aside id="table-of-contents">
+    <nav class="is-sticky-above-lg ">
+      <details open="">
+        <summary>Content</summary>
+        <div class="col-lg-3 hidden-xs hidden-sm">
+          <ul>
+            <li><a class="secondary" href="#section-0">Sane C++ December 24</a></li>
+            <li><a class="secondary" href="#scasyncstreams"> SC::AsyncStreams</a></li>
+            <li><a class="secondary" href="#scasync"> SC::Async</a></li>
+            <li><a class="secondary" href="#scfoundation"> SC::Foundation</a></li>
+            <li><a class="secondary" href="#refactoring"> Refactoring</a></li>
+            <li><a class="secondary" href="#minor-changes"> Minor Changes</a></li>
+          </ul>
+        </div>
+      </details>
+    </nav>
+  </aside>
+  <div id="content" role="document">
+    <h3 id="scasyncstreams">SC::AsyncStreams</h3>
+<p>Most of the work has been focused on shaping the <a target="_new" href="http://pagghiu.github.io/SaneCppLibraries/library_async_streams.html"><code>SC::AsyncStreams</code></a> library.</p>
+<p>Async streams got their own folder and the <code>AsyncPipeline</code> API has been improved so that it accept transform streams.<br>
+Transform streams are used to concurrently modify data read from a source, before it's being written to one or multiple destinations.
+The sample use case has been compression through ZLIB library.<br>
+In order to keep Sane C++ Libraries free of build time dependencies, zlib is dynamically loaded on all major operating systems.
+A nice trick has been figuring out that the .NET CLR on Windows ships zlib hidden in the <code>clrcompression.dll</code>, avoiding the need to deploy it.</p>
+<blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:2yxw2iku77om6gswp7sl3njb/app.bsky.feed.post/3ldjr6ckmqk2q" data-bluesky-cid="bafyreigzeqlu4m7mdurvptalveduamsadxd3yhbvevzb6t6h7fsqgynpvi"><p lang="en">C/C++ compression tip:
+Avoid deploying zlib binary with your executable, it&#x27;s already included in the OS.
 
-<h2>Github Releases<a href="#section-2" id="section-2" class="secondary" tabindex="-1">#</a></h2>
-I have started creating Github <a href="https://github.com/Pagghiu/SaneCppLibraries/releases"
-target="_blank">releases</a> tagged with each month. <br>
-I'm not planning to do semantic versioning for now, just sticking to <i>year-month</i> release tagging.
-<p>
-<ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/tag/release%2F2024%2F02"
-target="_blank">February 2024
-Release</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/tag/release%2F2024%2F01"
-target="_blank">January 2024
-Release</a></li>
-</ul>
-</p>
-<h2>Hacker News<a href="#section-3" id="section-3" class="secondary" tabindex="-1">#</a></h2>
-The Library has been <a href="https://news.ycombinator.com/item?id=39159153">posted to Hacker News</a>
-bringing some visibility on the project for a few hours.
-The discussions / comments are also quite interesting, sparkled by the many opinionated and strong decisions /
-principles of the library.<br>
-I've tried answering some of the posts, and it has been fun honestly 😁.<br>
-Some themes:<br>
-<ul>
-<li>You shouldn't be writing C++ libraries without the standard library / exceptions / smart pointers</li>
-<li>Qt / POCO exists and provides everything you need</li>
-<li>Writing Builds in C++ is not Sane</li>
-<li>You should implement all containers that exists in the STL</li>
-</ul>
-My favorite comment is <a href="https://news.ycombinator.com/item?id=39161028"> this one</a>:
-<figure>
-<img src="https://pagghiu.github.io/site/blog/HackerNewsComment.jpg">
-</figure>
-<h2>Github<a href="#section-4" id="section-4" class="secondary" tabindex="-1">#</a></h2>
-<p>
-As of today, the Sane C++ Libraries has got 419 ⭐️ stars ⭐️ on <a
-href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Github</a>
-(<a href="https://github.com/pagghiu/SaneCppLibraries"><img
-src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a>).<br>
-A big jump from the 187 stars of last month!<br>
-A big step has been due to the hacker news post, but in the subsequent weeks there has been a steady
-and horganic increase, hopefully meaning that more people are finding something interesting in the project.
-</p>
+macOS ▶️ libz.dylib
+Linux ▶️ libz.so.1 (on normal distros)
+Windows ▶️ clrcompression.dll (.NET CLR) exports:
+- deflate
+- deflateEnd
+- inflate
+- inflateEnd
+- deflateInit2_
+- inflateInit2_
 
-<h2>YouTube <a href="#section-5" id="section-5" class="secondary" tabindex="-1">#</a></h2>
-<p>
-I have been producing 5 videos explaining some of the design decisions around the <a
-href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a>
-library, the addition of <code>io_uring</code> to it, the creation of <a
-href="https://pagghiu.github.io/SaneCppLibraries/library_threading.html"
-target="_blank">SC::ThreadPool</a> and how it has been used to do proper Async File I/O also for buffered
-files (that always act synchronously under most async APIs, excluding <code>io_uring</code>...)
-</p>
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/pIGosb2D2Ro?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
+Enjoy!😏</p>&mdash; Stefano Cristiano (<a href="https://bsky.app/profile/did:plc:2yxw2iku77om6gswp7sl3njb?ref_src=embed">@pagghiu.bsky.social</a>) <a href="https://bsky.app/profile/did:plc:2yxw2iku77om6gswp7sl3njb/post/3ldjr6ckmqk2q?ref_src=embed">December 17, 2024 at 10:14 PM</a></blockquote>
+<script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
 
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/YR935rorb3E?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/CgYE0YrpHt0?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/e48ruImESxI?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/WF9beKyEA_E?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<h2>Next<a href="#section-1" id="section-4" class="secondary" tabindex="-1">#</a></h2>
-So what's next?<br>
-I'm not really sure. One thing I would like to experiment with is a <a href="https://github.com/nothings/stb"
-target="_blank">stb style</a> wrapper for some of the libraries, to make them usable from C.
-<br>
-Thank you for reading this far!<br><br>
-Bye!👋🏼<br>
-Pagghiu
-</article>
-
-</section>
+<p>It seems that the <em>fixed pool</em> initial design constraint, that forbids any dynamic allocation inside Async Streams is still working.
+Some more work will need to be carried on to really prove if it works on a significant number of use cases!  </p>
+<p>Two Videos have been recorded while implementing the most significant portions of <code>SC::AsyncTransformStream</code></p>
+<div class="youtube youtube-16x9">
+<iframe src="https://www.youtube.com/embed/Ul7DdQGrETo" allowfullscreen seamless frameborder="0"></iframe>
 </div>
-  
+
+<div class="youtube youtube-16x9">
+<iframe src="https://www.youtube.com/embed/KKwohFmAUCk" allowfullscreen seamless frameborder="0"></iframe>
+</div>
+
+<p>Detailed List of commits:</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/00b4e95d">Move Async Streams to a dedicated folder</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/17a36188">Improve documentation</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/21839848">Use threaded blocking IO for file operations in test</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/21a0c927">Add an async zlib transform stream</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/21c8605c">Replace Pipe with a Span of AsyncWritableStream</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/387cc1f1">Add method to remove all listeners bound to a specific class instance</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/402a214c">Fix pause handling inside AsyncRequestReadableStream</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/70a4f927">Allow extending writable ending state until needed</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/741bf983">Add unpipe to remove listeners added by pipe</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/80b565e8">Add CircularQueue::pushFront</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/87e7652d">Make AsyncPipeline end writable sinks when readable source ends</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8a3c5431">Add errors listener directly on the AsyncPipeline in the test</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ad6a2b59">Add ZLibAPI and ZLibStream</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c7c6714d">Add Event::removeListener member function overload</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d74291a1">Implement write resuming and pushing a buffer to the top of the write queue</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/de7e410f">Add auto-close descriptor for request streams</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/df25bbf2">Add AsyncTransformStream and a simple synchronous zlib stream</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ec5d68dc">Add AsyncPipeline::pipe to validate requested pipeline</a></li>
+</ul>
+<h3 id="scasync">SC::Async</h3>
+<p><a target="_new" href="http://pagghiu.github.io/SaneCppLibraries/library_async.html"><code>SC::Async</code></a> gets its usual set of monthly minimal improvements.
+The most significant one is change in API when using thread pools, so that they can be set once and re-used over multiple <code>start</code> of the same request.</p>
+<p>Detailed List of commits:</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/898a7755">Require setting thread-pool before start for AsyncLoopWork</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/90fca39b">Allow setting request thread pool and task before start</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9cd6b84a">Avoid leaking link to next element in ThreadSafeLinkedList</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b05854d2">Set AsyncRequest to State::Free after stop()</a></li>
+</ul>
+<h3 id="scfoundation">SC::Foundation</h3>
+<p><a target="_new" href="http://pagghiu.github.io/SaneCppLibraries/library_foundation.html"><code>SC::AsyncFoundation</code></a> gets a few new classes to represent read-only and read/write strings without needing to include the entire <a target="_new" href="http://pagghiu.github.io/SaneCppLibraries/library_strings.html"><code>SC::String</code></a> library.</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1fb1bf36">Fix Span::reinterpret_as_array_of const correctness</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/245cb384">Add method to check if a Function is bound to a specific class instance</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9ba637d1">Add SpanStringView and SpanString</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a16248d1">Add Span::sliceFromStartUntil and fix Span::equals</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ae21ddc2">Fix Span::reinterpret_as_array_of</a></li>
+</ul>
+<h3 id="refactoring">Refactoring</h3>
+<p>Changes in <a target="_new" href="http://pagghiu.github.io/SaneCppLibraries/library_foundation.html"><code>SC::AsyncFoundation</code></a> have been carried on to reduce header bloat and inter-dependencies between libraries.
+More specifically both File and Socket library got this treatment, so that Socket doesn't depend on <a target="_new" href="http://pagghiu.github.io/SaneCppLibraries/library_strings.html"><code>SC::String</code></a> library at all anymore, and <a target="_new" href="http://pagghiu.github.io/SaneCppLibraries/library_file.html"><code>SC::File</code></a> now has a StringView-free header (<code>FileDescriptor.h</code>) that can be included without bringing any <code>StringView</code> dependency</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a2f67be3">Split all String and Vector related functions out of FileDescriptor</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/77d21663">Split SocketDescriptor header</a></li>
+</ul>
+<h3 id="minor-changes">Minor changes</h3>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/146608cc">Cleanup README.md by referencing relevant blogs/videos inside each library</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b0154f33">Add some Quick Sheets and update README.md</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a7aad864">Add function to obtain plugins to reload after a file is modified</a></li>
+</ul>
+  </div>
+
     </main>
     <footer>
       <div class=" container">
