@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-        <title>Sane Coding Blog - 🌫️ Sane C++ November 24</title>
+      <title>Sane Coding Blog - ❄️ Sane C++ January 25</title>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" href="https://pagghiu.github.io/images/favicon.png">
@@ -112,7 +112,7 @@
             <ul>
                 <!--- articles_page.object_list --->
                 <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-01-31-SaneCppLibrariesUpdate.html" title="Permalink to ❄️ Sane C++ January 25">
+                    <a class="secondary" aria-current="page" href="" title="Permalink to ❄️ Sane C++ January 25">
                     ❄️ Sane C++ January 25
                     <br>
                 </a>
@@ -130,7 +130,7 @@
                 </a>
             </li>
                 <li>
-                    <a class="secondary" aria-current="page" href="" title="Permalink to 🌫️ Sane C++ November 24">
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-11-30-SaneCppLibrariesUpdate.html" title="Permalink to 🌫️ Sane C++ November 24">
                     🌫️ Sane C++ November 24
                     <br>
                 </a>
@@ -193,109 +193,128 @@
         </details>
     </nav>
 </aside>
-    <hgroup>
-      <p class="chapter">Sat 30 November 2024</p>
-      <h1>🌫️ Sane C++ November 24</h1>
-      
-      <figure>
-        <img src="https://pagghiu.github.io/images/2024-11-30-SaneCppLibrariesUpdate/article.png" alt="SC" />
-      </figure>
-      <p>
-        <p>Welcome to the update post for November 2024! <br> Main focus of the month is the addition of Async Streams!</p>
-        📄 <a href="../../SaneCppLibraries/index.html" target="_blank">Sane C++ Libraries Documentation</a><br>
-        💻 <a href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Sane C++ Libraries
-            Repository <img src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a> <br>
-        📹 <a href="https://www.youtube.com/@Pagghiu" target="_blank">Sane Coding Youtube channel</a> <img
-            src="https://img.shields.io/youtube/channel/subscribers/UCnmN_whfM12LU6VNQWG0NFg"> <br>
-        💬 <a href="https://discord.gg/tyBfFp33Z6" target="_blank">Sane Coding Discord</a> <a
-            href="https://discord.gg/tyBfFp33Z6"><img src="https://img.shields.io/discord/1195076118307426384"></a>
-              </p>
-    </hgroup>
-    <aside id="table-of-contents">
+  <hgroup>
+    <p class="chapter">Fri 31 January 2025</p>
+    <h1 id="section-0">❄️ Sane C++ January 25</h1>
+    
+    <figure>
+      <img src="https://pagghiu.github.io/images/2025-01-31-SaneCppLibrariesUpdate/article.png" alt="SC" />
+    </figure>
+    <p>
+      <p>Welcome to the update post for January 2025!<br> This month has been mostly spent improving <code>SC::Async</code> library!</p>
+    </p>
+  </hgroup>
+  <aside id="table-of-contents">
     <nav class="is-sticky-above-lg ">
-    <details open="">
+      <details open="">
         <summary>Content</summary>
-        <ul>
-        <li><a class="secondary" href="#section-0">Sane C++ November 2024</a></li>
-        <li><a class="secondary" href="#section-1">SC::AsyncStreams</a></li>
-        <li><a class="secondary" href="#section-2">Additional fixes</a></li>
-        </ul>
-    </details>
+        <div class="col-lg-3 hidden-xs hidden-sm">
+          <ul>
+            <li><a class="secondary" href="#section-0">Sane C++ January 25</a></li>
+            <li><a class="secondary" href="#scasync"> SC::Async</a></li>
+            <li><a class="secondary" href="#scasyncstreams"> SC::AsyncStreams</a></li>
+            <li><a class="secondary" href="#scfoundation"> SC::Foundation</a></li>
+            <li><a class="secondary" href="#sctime"> SC::Time</a></li>
+            <li><a class="secondary" href="#minor-changes"> Minor Changes</a></li>
+          </ul>
+        </div>
+      </details>
     </nav>
-</aside>
-<div id="content" role="document">
-
-<section>
-<h2>SC::AsyncStreams<a href="#section-1" id="section-1" class="secondary" tabindex="-1">#</a></h2>
-<p class="chapter">Pushing it forward</p>
-<p>
-The <a href="https://pagghiu.github.io/SaneCppLibraries/library_async_streams.html" target="_new"><code>SC::Async</code></a> library has been extended with the addition of <a href="https://pagghiu.github.io/SaneCppLibraries/library_async_streams.html" target="_new">SC::AsyncStreams</a>!<br>
-Async Streams are largely inspired by <a href="https://nodejs.org/api/stream.html" target="_new">node.js Streams</a>, a very powerful tool to process large amounts of data in parallel.<br>
-The basic idea about an async stream is to create a Source / Sink abstraction (also called Readable and Writable) and process small buffers of data at time.<br>
-The state machine that coordinates this interaction handles data buffering and more importantly handles also back-pressure, that means:
+  </aside>
+  <div id="content" role="document">
+    <h3 id="scasync">SC::Async</h3>
+<p><a target="_new" href="http://pagghiu.github.io/SaneCppLibraries/library_async.html"><code>SC::Async</code></a> has been the main focus of the month.</p>
+<p>Simplification:</p>
 <ul>
-<li><b>Pausing</b> the readable stream when a connected writable stream cannot process data fast enough</li>
-<li><b>Resuming</b> the readable stream when a connected writable stream is finally able to receive more data</li>
+<li>Remove one state throughout the system (<code>Teardown</code>)</li>
 </ul>
-By implementing streams on top of async operations it's possible to run many of them concurrently very efficiently.<br>
-When properly implemented for example an async pipeline can concurrently read from disk, write to a socket while compressing data.<br>
-For now only Readable / Writable File and Socket streams have been implemented, but Async Transform Streams (for compression) will be next!<br>
-
-Most notable differences with node.js streams are for now:
+<p>Consistency:</p>
 <ul>
-<li>No allocation (designed to work inside user-provided list of buffers)</li>
-<li>No object mode</li>
-<li>Fixed Layout to create data pipelines (<code>AsyncPipeline</code>)</li>
-<li><code>onData</code> support only (no <code>readable</code> event)</li>
+<li>Expose callback to signal when a request is fully stopped after issuing a <code>AsyncRequest::stop()</code>.</li>
 </ul>
-
-<code>Async Streams</code> are for now in 🟥 Draft state.
-It's also possible that its API will evolve a little bit to be less verbose and there is also lack of nice examples, aside from the tests.<br>
-It's better waiting for it to become stable before doing anything significant with it.<br>
-Some changes and fixes in the <a href="https://pagghiu.github.io/SaneCppLibraries/library_async_streams.html" target="_new"><code>SC::Async</code></a> library
-have been made necessary to support Async Streams.
-<br><br>
-This is the list of related commits:
+<p>Features:</p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/339f291e" target="_new">Async: Add AsyncReadableStream</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/11a2b925" target="_new">Async: Add AsyncWritableStream</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9d9d550b" target="_new">Async: Draft AsyncPipeline and AsyncRequest{Readable | Writable} Stream</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fc97464e" target="_new">Async: Extend AsyncRequest{Readable | Writable}Stream to Socket Send/Receive</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/46174b02" target="_new">Async: Make AsyncPipeline and AsyncRequest{Readable | Writable}Stream public</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/15ec1855" target="_new">Async: Make AsyncSocket{Send | Receive} buffer and handle public</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a6bdc110" target="_new">Async: Rename AsyncPipeline::Sink to AsyncPipeline::Pipe</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3c780170" target="_new">Async: Reorganize AsyncTest for clarity</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c251205c" target="_new">Async: Use offsets only if explicitly set in AsyncFile{Read | Write}</a></li>
+<li>Exclude specific request from active count (it will not keep the loop alive)</li>
+<li>Enumerate all (non-internal) active and submitted async requests</li>
+<li>Interrupt event loop even with active requests</li>
+<li>Update loop time externally</li>
+<li>Check request state (free / active / cancelling)</li>
 </ul>
-</p>
-</section>
-
-<section>
-<h2>Additional fixes<a href="#section-2" id="section-2" class="secondary" tabindex="-1">#</a></h2>
-<p class="chapter">Fix fix fix</p>
-<p>
-
-And just like every update, a bunch of fixes and improvements to all libraries have been committed.
-Nothing specific stands out this update, but for completeness this is the list of related commits:          
+<p>Stability:</p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9347ca62" target="_new">Build: Bypass VMWare hgfs issue setting wrong modified time for new files</a> </li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a075702d" target="_new">Build: Support linking system libraries in XCode</a> </li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a572d897" target="_new">Containers: Fix compile errors under latest MSVC</a> </li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ee4947b2" target="_new">Documentation: Enable warnings as errors</a> </li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/596f0523" target="_new">Documentation: Update README.md with latest videos</a> </li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b0778887" target="_new">Foundation: Add equality operator to Function</a> </li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0ad81879" target="_new">Foundation: Add HeapBuffer</a> </li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c750871f" target="_new">Foundation: Add Span::equals</a> </li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/7f08864b" target="_new">Foundation: Add Span::get(int)</a> </li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/14f37f58" target="_new">Foundation: Add StrongID</a> </li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e80edc21" target="_new">Hashing: Improve documentation</a> </li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/23e7b37b" target="_new">Meta: Ignore sync folder and icon files</a> </li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fa9a48cb" target="_new">Tools: Rebuild bootstrap when make fails</a> </li>
+<li>Fix issues with <code>AsyncWakeUp</code> on <code>io_uring</code></li>
+</ul>
+<p>Timers (<code>AsyncLoopTimeout</code>) improvements:</p>
+<ul>
+<li>Invoke timers consistently when one of them is being cancelled during another timer's callback.</li>
+<li>Sort timers by expiration time (first) and insertion order (second)</li>
+<li>Use Monotonic clock everywhere</li>
+<li>Unify code on all backends (including <code>io_uring</code>)</li>
+</ul>
+<p>Detailed List of commits:</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a8825316">Async: Add a callback to signal when AsyncRequest is fully closed after stop()</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/cfe1eef6">Async: Add method to check if event loop is initialized</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/63850d3d">Async: Add method to enumerate all requests of the event loop</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/705643b8">Async: Add methods to check if a request is free/active/cancelling and update loop time</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/809d139d">Async: Allow excluding a specific request from active count</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/69d6edb2">Async: Allow interrupting event loop even with active requests</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/082e2dcb">Async: Do not enumerate internally created requests</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/00ced9c5">Async: Enforce temporal ordering of loop timeouts</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/89506626">Async: Expose callback to notify before and after polling for IO</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f1eac82e">Async: Fix AsyncWakeUp on io_uring</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/81e4455a">Async: Fix expired timers invocation when they're being cancelled</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c6edcbd3">Async: Make teardownAsync static function</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3c0a170b">Async: Reduce AsyncEventLoop size</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/32f15c13">Async: Remove Teardown state to reduce complexity</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c46a9fa4">Async: Split AsyncTest in multiple files for easier navigation</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ca411dc0">Async: Update time in any case after a kernel sync operation</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9970a64d">Async: Use Monotonic clock everywhere</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8b375613">Async: When interrupted loop shouldn't dispatch completions</a></li>
+</ul>
+<h3 id="scasyncstreams">SC::AsyncStreams</h3>
+<p>Some minimal work as been done to the <a target="_new" href="http://pagghiu.github.io/SaneCppLibraries/library_async_streams.html"><code>SC::AsyncStreams</code></a> library as well.</p>
+<p>One video has been recorded Showing how to move the transform stream compression operation on a background thread, using <code>AsyncLoopWork</code>.
+This video pauses (for now) the series of videos dedicated to <code>SC::AsyncStreams</code>.</p>
+<div class="youtube youtube-16x9">
+<iframe src="https://www.youtube.com/embed/vCh6vEfiISI" allowfullscreen seamless frameborder="0"></iframe>
+</div>
 
-</ul>          
-</p>
-</section>
-  
+<p>Detailed List of commits:</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5df350ac">AsyncStreams: Compress on separate thread on zlib transform stream</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d7c0e573">AsyncStreams: Fix zlib api calling convention</a></li>
+</ul>
+<h3 id="scfoundation">SC::Foundation</h3>
+<p><a target="_new" href="http://pagghiu.github.io/SaneCppLibraries/library_foundation.html"><code>SC::Foundation</code></a> most notable change has been using a different approach in <code>SC::Function</code>.</p>
+<p>We're now using a <code>vtable</code>-like approach that allows saving one entire pointer (!!) for each <code>SC::Function</code> instance.</p>
+<p>The price to pay is the static initialization (that will require a <code>mutex</code> acquisition) and one more indirection, but it has been considered a good tradeoff.</p>
+<p>Detailed List of commits:</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/48788b62">Foundation: Add a basic test for HeapBuffer</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/dec26556">Foundation: Add explicit size for Linux on OpaqueObject</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/153995b9">Foundation: Use static vtable approach in Function to reduce its size</a></li>
+</ul>
+<h3 id="sctime">SC::Time</h3>
+<p>The <a target="_new" href="http://pagghiu.github.io/SaneCppLibraries/library_time.html"><code>SC::Time</code></a> library got user defined literals, some conversion between different units and differentiation between monotonic and realtime clocks.</p>
+<p>A nasty bug regarding time normalization in <code>SC::Time::HighResolutionCounter</code> has been fixed too!</p>
+<p>Detailed List of commits:</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/57f737d6">Time: Add User defined literals and more conversions between types</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/22c2335a">Time: Differentiate between Monotonic and Realtime clocks</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e4832649">Time: Handle time normalization in HighResolutionCounter</a></li>
+</ul>
+<h3 id="minor-changes">Minor changes</h3>
+<p>And these are some minor changes that don't have enough impact to deserve a dedicated comment.</p>
+<p>Detailed List of commits:</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fb093b66">Everywhere: Fix build and runtime issues with GCC 13</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ae1f43d8">Plugin: Use correct casing for the "nologo" option</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ca1b0c12">SCExample: Stop timer during close</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/77c26075">SCExample: Update dear-imgui and sokol</a></li>
+</ul>
+  </div>
+
     </main>
     <footer>
       <div class=" container">
