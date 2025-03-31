@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-        <title>Sane Coding Blog - ❄️ Sane C++ January 24</title>
+      <title>Sane Coding Blog - ☔️ Sane C++ March 25</title>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" href="https://pagghiu.github.io/images/favicon.png">
@@ -112,7 +112,7 @@
             <ul>
                 <!--- articles_page.object_list --->
                 <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-03-31-SaneCppLibrariesUpdate.html" title="Permalink to ☔️ Sane C++ March 25">
+                    <a class="secondary" aria-current="page" href="" title="Permalink to ☔️ Sane C++ March 25">
                     ☔️ Sane C++ March 25
                     <br>
                 </a>
@@ -190,7 +190,7 @@
                 </a>
             </li>
                 <li>
-                    <a class="secondary" aria-current="page" href="" title="Permalink to ❄️ Sane C++ January 24">
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-01-23-SaneCppLibrariesUpdate.html" title="Permalink to ❄️ Sane C++ January 24">
                     ❄️ Sane C++ January 24
                     <br>
                 </a>
@@ -205,182 +205,173 @@
         </details>
     </nav>
 </aside>
-    <hgroup>
-      <p class="chapter">Tue 23 January 2024</p>
-      <h1>❄️ Sane C++ January 24</h1>
-      
-      <figure>
-        <img src="https://pagghiu.github.io/images/2024-01-23-SaneCppLibrariesUpdate/article.png" alt="SC" />
-      </figure>
-      <p>
-        <p>One month has passed since the initial release of Sane C++ Libraries 🎉🎉🎉<br>This post collects all relevant events happened during the first month of (public) life of the project.</p>
-        📄 <a href="../../SaneCppLibraries/index.html" target="_blank">Sane C++ Libraries Documentation</a><br>
-        💻 <a href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Sane C++ Libraries
-            Repository <img src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a> <br>
-        📹 <a href="https://www.youtube.com/@Pagghiu" target="_blank">Sane Coding Youtube channel</a> <img
-            src="https://img.shields.io/youtube/channel/subscribers/UCnmN_whfM12LU6VNQWG0NFg"> <br>
-        💬 <a href="https://discord.gg/tyBfFp33Z6" target="_blank">Sane Coding Discord</a> <a
-            href="https://discord.gg/tyBfFp33Z6"><img src="https://img.shields.io/discord/1195076118307426384"></a>
-              </p>
-    </hgroup>
-    <aside id="table-of-contents">
-<nav class="is-sticky-above-lg ">
-<details open="">
-<summary>Content</summary>
+  <hgroup>
+    <p class="chapter">Mon 31 March 2025</p>
+    <h1 id="section-0">☔️ Sane C++ March 25</h1>
+    
+    <figure>
+      <img src="https://pagghiu.github.io/images/2025-03-31-SaneCppLibrariesUpdate/article.png" alt="SC" />
+    </figure>
+    <p>
+      <p>Welcome to the update post for March 2025!<br> This month has been mostly spent adding custom allocators support to all Containers!</p>
+    </p>
+  </hgroup>
+  <aside id="table-of-contents">
+    <nav class="is-sticky-above-lg ">
+      <details open="">
+        <summary>Content</summary>
+        <div class="col-lg-3 hidden-xs hidden-sm">
+          <ul>
+            <li><a class="secondary" href="#section-0">Sane C++ March 25</a></li>
+            <li><a class="secondary" href="#scfoundation"> SC::Foundation</a></li>
+            <li><a class="secondary" href="#custom-allocators"> Custom Allocators</a></li>
+            <li><a class="secondary" href="#relative-pointers"> Relative Pointers</a></li>
+            <li><a class="secondary" href="#inline-header"> Inline Header</a></li>
+            <li><a class="secondary" href="#virtual-memory"> Virtual Memory</a></li>
+            <li><a class="secondary" href="#memory-statistics"> Memory Statistics</a></li>
+            <li><a class="secondary" href="#vector-growth-factor">Vector Growth Factor</a></li>
+            <li><a class="secondary" href="#debug-visualizers">Debug visualizers</a></li>
+            <li><a class="secondary" href="#scbuild"> SC::Build</a></li>
+            <li><a class="secondary" href="#minor-changes"> Minor Changes</a></li>
+          </ul>
+        </div>
+      </details>
+    </nav>
+  </aside>
+  <div id="content" role="document">
+    <h3 id="scfoundation">SC::Foundation</h3>
+<p>The big <code>Segment</code> refactoring from last month has left so many trails also during March in <a href="https://pagghiu.github.io/SaneCppLibraries/library_foundation.html"><code>SC::Foundation</code></a>.<br>
+Most notably <code>Segment</code> now:</p>
+<ol>
+<li>Supports custom allocators (WIP)</li>
+<li>Uses relative pointers to store <em>dynamically allocated</em> block information</li>
+<li>Stores its header inline instead of making it part of the <em>dynamic allocation</em></li>
+</ol>
+<h4 id="custom-allocators">Custom allocators</h4>
 <ul>
-<li><a class="secondary" href="#section-0">Sane C++ February 2024</a></li>
-<li><a class="secondary" href="#section-1">Code</a></li>
-<li><a class="secondary" href="#section-2">Github Releases</a></li>
-<li><a class="secondary" href="#section-3">Hacker News</a></li>
-<li><a class="secondary" href="#section-4">Github</a></li>
-<li><a class="secondary" href="#section-5">YouTube</a></li>
+<li>Implementation differs from STL one of embedding allocator in the type, as a template parameter.  </li>
+<li>Keeping allocator out of the template parameters allows functions to just accept <code>Vector&lt;T&gt;&amp;</code> without needing to care what allocator has been set for it and avoiding the <em>viral</em> effect of needing to make also the method templated around the allocator (that is really bad for compile times).</li>
+<li>Allocators are not stored for each single container or dynamic allocation, they're by all means a global.</li>
+<li>They're arranged in a double-linked list and users can push / pop their custom one as needed.</li>
+<li>This makes it easy for example to create strategies where all allocations in a given sub-scope are sliced from a pre-allocated slab of memory that can be later on released all at once.  </li>
+<li>Custom allocators must be considered still WIP and their API will likely change.
+Also documentation about their usage is insufficient and it will be expanded.</li>
 </ul>
-</details>
-</nav>
-</aside>
-<div id="content" role="document">
-<section>
-<article>
-<h5>Code</h5>
-Code is always the most important news!👨🏻‍💻<br>
-This is the month marking official Linux support for all Libraries!! 🐧
-<br>
-<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a> got an
-epoll Linux backend.<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_file_system_watcher.html"
-target="_blank">SC::FileSystemWatcher</a> got an inotify Linux backend.<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_process.html" target="_blank">SC::Process</a>
-has been made more solid on Posix in general (including Linux).<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_build.html" target="_blank">SC::Build</a> got a
-Makefile generator for Linux (and macOS).<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_strings.html"
-target="_blank">SC::StringConverter</a> got UTF8 to / from UTF16 code path necessary on Linux.<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_plugin.html" target="_blank">SC::Plugin</a> got
-necessary fixes to run on Linux.<br>
+<p><a href="https://pagghiu.github.io/site/blog/CustomFixedAllocator.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/CustomFixedAllocator.png">
+</a></p>
+<p>Detailed list of commits: </p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/50d184e5">Foundation: Add FixedAllocator</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/703372d3">Foundation: Add global and thread-local allocators</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f31955c">Foundation: Add allocation ownership mechanism</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/938292a6">Foundation: Add alignment support to allocators</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a61fba94">Foundation: Add Global and Thread-Local enum</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4a3f51c">Containers: Add thread-local Vector and SmallVector containers</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fc5fd77">Containers: Use Globals to allocate in ArenaMap</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4a3f51c">Documentation: Add initial documentation for Globals</a></li>
+</ul>
+<h4 id="relative-pointers">Relative pointers</h4>
+<p>Relative pointers make it easier to create data structures that can be bulk serialized and restored skipping parsing entirely.
+A specific demo featuring this must still be built but this is definitively on the <code>TODO</code> list.
+Relative pointers are quite tricky to implement properly in C++ because it's very easy to trigger UB with this specific class of pointer arithmetics and this has been learned the hard way.
+Some tests where failing on GCC (when compiling with <code>-fstrict-aliasing</code>) but it has been a good occasion to learn about <code>std::launder</code> and <code>std::start_lifetime_as</code> family of functions and in general creating optimization barriers with <code>volatile</code> specifier.<br>
+For now relative pointers are used by default but at some point the performance impact due to their use will be assessed.
+In case of a significant performance difference maybe it will be re-considered possible to opt-out their usage with some runtime or compile-time flag.</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8a00000e">Foundation: Use relative pointers in Segment and make header inline</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ac70d9cc">Foundation: Launder Segment::data() returned pointer</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/7a97c14f">Foundation: Refactor Segment to reduce and isolate UB</a></li>
+</ul>
+<p><a href="https://pagghiu.github.io/site/blog/RelativePointer.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/RelativePointer.png">
+</a></p>
+<h4 id="inline-header">Inline header</h4>
+<p><code>SegmentHeader</code> is now part of <code>Segment</code> declaration. In other words it's no more part of its dynamically allocated part.
+This is useful to know all properties of a segment like its inline storage and capacity or the use of custom allocators.
+The inline header stores also information about needing to use the <code>Global</code> or the <code>Thread-Local</code> allocator.<br>
+This helps avoiding unnecessary thread-local access because it's useless if all allocations are known to be done from the main thread (or from a specific thread).</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0a17bd41">Foundation: Explicitly reference header from VTable</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/76e56e5c">Foundation: Fix Segment::isInline</a></li>
+</ul>
+<p><a href="https://pagghiu.github.io/site/blog/SegmentHeader.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/SegmentHeader.png">
+</a></p>
+<h4 id="virtual-memory">Virtual Memory</h4>
+<p>A class called <code>VirtualMemory</code> enables reserving large amounts (max value) of memory and then committing the needed one keeping existing allocation address stable.
+This is a big win in many cases because it avoids needing to move everything when a dynamic vector needs to expand, as long as it will be under the <em>max value</em> guessed during the Virtual Memory initialization. This max value can be very large as long as it stays in the allowed virtual memory available range for the given architecture, and in case of 64 bits that's pretty big.</p>
+<p><a href="https://pagghiu.github.io/site/blog/VirtualMemoryTest.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/VirtualMemoryTest.png">
+</a></p>
+<p>An associated <code>VirtualAllocator</code> enables using it with the Segment allocator subsystem.</p>
+<p><a href="https://pagghiu.github.io/site/blog/CustomVirtualAllocator.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/CustomVirtualAllocator.png">
+</a></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e6d93749">Foundation: Add VirtualAllocator</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0cdbeb1f">Foundation: Add VirtualMemory</a></li>
+</ul>
+<h4 id="memory-statistics">Memory Statistics</h4>
+<p>All allocations, deallocations and reallocations are now being counted in a <code>Statistics</code> class providing useful information about how many allocations are done by a given section of code.
+The <code>SCTest</code> is using such statistics to assert when detecting a mismatched number of <code>allocate</code> vs <code>release</code> calls.</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/878f7627">Testing: Add global memory report</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d22c7593">Foundation: Record statistics in MemoryAllocator</a></li>
+</ul>
+<p><a href="https://pagghiu.github.io/site/blog/MemoryReport.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/MemoryReport.png">
+</a></p>
+<h4 id="vector-growth-factor">Vector Growth Factor</h4>
+<p>This has been also been the occasion to feel ashamed about how many allocations where actually already done leading to make Segment grow by factor of <code>2</code> on append.</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/390ce729">Foundation: Grow Segment capacity with factor 2 on append or insert</a></li>
+</ul>
+<h4 id="debug-visualizers">Debug visualizers</h4>
+<p>Debug visualizers have been updated to reflect changes in <code>Segment</code> data layout.<br>
+Also a LLDB visualizer for <code>Array&lt;T, N&gt;</code> was missing and it has been added as well.</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/bfc0c827">DebugVisualizer: Update Segment visualizers to use relative pointers</a></li>
+</ul>
+<p><a href="https://pagghiu.github.io/site/blog/DebugVisualizers.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/DebugVisualizers.png">
+</a></p>
+<h4 id="and-more">And more</h4>
+<p>Additional minor fixes that don't deserve a whole paragraph to describe them are listed below:</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e5c5041f">Foundation: Add no-except to all Segment related methods</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/abb0b0b6">Foundation: Enable creation of Span<void></a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1ed98c28">Foundation: Extend Segment assign and insert to types convertible to T</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/92eff60a">Foundation: Fix memory Leak in Segment::shrink_to_fit</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a6ad7dfd">Foundation: Split Foundation.cpp content in separate files</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0cffe20e">Containers: Move SmallVector to Vector header</a></li>
+</ul>
+<h3 id="scbuild">SC::Build</h3>
+<p><a href="https://pagghiu.github.io/SaneCppLibraries/library_build.html"><code>SC::Build</code></a> has received a small set of changes too.
+It's now always using the C++ stdlib on GCC because only more recent GCC versions (&gt; 13) support the <code>-nostdlib++</code> flag that makes it easy linking <code>libc</code> but not <code>libc++</code> or <code>libstdc++</code>.</p>
+<p>Also Makefiles for apple and linux platforms are now created in separate sub-directories.
+This makes it easier to manually invoke make for them as you don't need the flag to indicate a custom Makefile file name.</p>
+<p><a href="https://pagghiu.github.io/site/blog/SCBuildMarch25.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/SCBuildMarch25.png">
+</a></p>
+<p>This is the detailed list of commits:</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/bbb46ea1">Build: Always link C++ stdlib on GCC</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/734b73b4">Build: Create Makefiles in apple / linux subdirs</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9dc9792d">Build: Fix enabling standard C++ library for gcc</a></li>
+</ul>
+<h3 id="minor-changes">Minor Changes</h3>
+<p>And the obvious list of random fixes, with the notable mention of the one related to <code>SC::Async</code> that was randomly failing in the CI very often due to some bad copy and paste from the <code>io_uring</code> headers.</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6d288b0d">Everywhere: Fixes to compile under ClangCL</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/59efa2fc">Async: Just fill the entire SQE with zero inside io_uring_prep_rw on Linux</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9ef93dad">Async: Set to zer all SQE fields for Linux on io_uring</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f60358e0">Documentation: Fix some typos for build instructions</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/443c38e9">SerializationBinary: Fix UB on buffer reader</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d003f221">Containers: Use placementNew in ArenaMap</a></li>
+</ul>
+  </div>
 
-<h5>X (Twitter)</h5>
-After the initial announcement I got a very warm social welcome on Twitter!<br>
-This has been definitively the best way to start this journey!
-<blockquote class="twitter-tweet">
-<p lang="en" dir="ltr">Sane C++ Libraries has been open-sourced! 🎉<br><br>✅ Fast compile times<br>✅ Bloat
-free<br>✅ Simple readable code<br>✅ Easy to integrate<br>⛔️ No C++ Standard Library / Exceptions<br>⛔️ No
-third party dependencies<a href="https://t.co/D0DUDuAoSG">https://t.co/D0DUDuAoSG</a><br>Blog:<a
-href="https://t.co/M8hyEQ9YWE">https://t.co/M8hyEQ9YWE</a><br><br>Retweet if you like it ❤️</p>&mdash;
-Stefano Cristiano (@pagghiu_) <a
-href="https://twitter.com/pagghiu_/status/1738349359266197892?ref_src=twsrc%5Etfw">December 23, 2023</a>
-</blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-<h5>Github</h5>
-<p>
-As of today, the Sane C++ Libraries has got 187 ⭐️ stars ⭐️ on <a
-href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Github</a>
-(<a href="https://github.com/pagghiu/SaneCppLibraries"><img
-src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a>).<br>
-The repo has also been in trending list for C++ for a couple of days!!<br>
-This has been leaving me both completely mind-blown 🤯 and super happy about that 😎.<br>
-<img src="https://pagghiu.github.io/site/blog/GithubTrending.jpg" alt="Sane C++ on Github Trending" />
-</p>
-<p>
-For this reason I immediately went on the seaside to celebrate
-(<a href="https://maps.app.goo.gl/53qgxUVyHuKHbuEx8" target="_blank">in Manfredonia</a>)!🍹<br>
-</p>
-
-
-
-<figure>
-<img src="https://pagghiu.github.io/site/blog/SaneCppCelebration.jpg" width=90%>
-<figcaption>Nice sunny south Italy day for being in December ❄️ 🥂 ❄️!</figcaption>
-</figure>
-
-
-<h5>Contributing</h5>
-I have been writing some documents to help figuring out how to contribute to the project.
-<p>
-📃 <a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/CONTRIBUTING.md"
-target="_blank">CONTRIBUTING.md</a><br>
-📃 <a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/Documentation/CodingStyle.md"
-target="_blank">Coding Style</a>
-</p>
-
-I've also starting to create some <a href="https://github.com/Pagghiu/SaneCppLibraries/issues"
-target="_blank">Github Issues</a> with some <b>good first issue</b> labels to
-help a potential contributor trying to look for some task to start with.
-
-<h5>Discord</h5>
-I have created the <a href="https://discord.gg/tyBfFp33Z6">Sane Coding Discord</a>.
-<a href="https://discord.gg/tyBfFp33Z6"><img src="https://img.shields.io/discord/1195076118307426384"></a>
-<br>
-This is a place where to discuss about the library but it's not limited to that.<br>
-Let's see if it can become a place of aggregation for anyone sharing similar ideas as shown in the project.
-
-<h5>Youtube </h5>
-<p>
-In addition to the <a href="https://www.youtube.com/watch?v=5w1_rRXgyv0&t=1170s"
-target="_blank">presentation youtube video</a> to introduce the library,
-I have been producing 8 additional ones in the <a href="https://www.youtube.com/@Pagghiu"
-target="_blank">Sane Coding Youtube channel</a>, mostly as an experiment and to document the process of
-porting the library to Linux.<br>
-I would really like to receive some feedback on the format! 😅<br>
-So far I'm filming myself talking when trying to implement a feature in a reasonable (kinda) amount of time,
-after I've already done research on how
-to implement the feature and I have a pretty clear idea of what to do.<br>
-As there are no cuts in the videos, it's possible sometimes getting to know my ⁉️🤔⁉️ face when something
-doesn't work and I need to debug it.
-</p>
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/2ccW8TBAWWE?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/wYmT3xAzMxU?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/DUZeu6VDGL8?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/gu3x3Y1zZLI?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/-OiVELMxL6Q?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/4rC4aKCD0V8?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/uCsGpJcF2oc?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/92saVDCRnCI?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<h5>Next</h5>
-So what's next? I will continue improving the library to make it become solid on all platforms.<br>
-When I will identify some interesting developments, I will make sure to record them in a video 👀.<br>
-<br>
-Thank you for reading this far!<br><br>
-Bye!👋🏼<br>
-Pagghiu
-</article>
-
-</section>
-</div>
-  
     </main>
     <footer>
       <div class=" container">

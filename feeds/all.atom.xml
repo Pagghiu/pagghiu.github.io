@@ -1,5 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Sane Coding Blog</title><link href="https://pagghiu.github.io/" rel="alternate"></link><link href="https://pagghiu.github.io/feeds/all.atom.xml" rel="self"></link><id>https://pagghiu.github.io/</id><updated>2025-02-28T00:00:00+01:00</updated><subtitle>Sane Coding Blog</subtitle><entry><title>🎠 Sane C++ February 25</title><link href="https://pagghiu.github.io/sane-c-february-25.html" rel="alternate"></link><published>2025-02-28T00:00:00+01:00</published><updated>2025-02-28T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-02-28:/sane-c-february-25.html</id><summary type="html">&lt;p&gt;Welcome to the update post for February 2025!&lt;br&gt; This month has been mostly spent re-writing &lt;code&gt;Containers&lt;/code&gt; and &lt;code&gt;SC::Build&lt;/code&gt; libraries!&lt;/p&gt;</summary><content type="html">&lt;h3 id="containers"&gt;Containers&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Sane Coding Blog</title><link href="https://pagghiu.github.io/" rel="alternate"></link><link href="https://pagghiu.github.io/feeds/all.atom.xml" rel="self"></link><id>https://pagghiu.github.io/</id><updated>2025-03-31T00:00:00+02:00</updated><subtitle>Sane Coding Blog</subtitle><entry><title>☔️ Sane C++ March 25</title><link href="https://pagghiu.github.io/sane-c-march-25.html" rel="alternate"></link><published>2025-03-31T00:00:00+02:00</published><updated>2025-03-31T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-03-31:/sane-c-march-25.html</id><summary type="html">&lt;p&gt;Welcome to the update post for March 2025!&lt;br&gt; This month has been mostly spent adding custom allocators support to all Containers!&lt;/p&gt;</summary><content type="html">&lt;h3 id="scfoundation"&gt;SC::Foundation&lt;/h3&gt;
+&lt;p&gt;The big &lt;code&gt;Segment&lt;/code&gt; refactoring from last month has left so many trails also during March in &lt;a href="https://pagghiu.github.io/SaneCppLibraries/library_foundation.html"&gt;&lt;code&gt;SC::Foundation&lt;/code&gt;&lt;/a&gt;.&lt;br&gt;
+Most notably &lt;code&gt;Segment&lt;/code&gt; now:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Supports custom allocators (WIP)&lt;/li&gt;
+&lt;li&gt;Uses relative pointers to store &lt;em&gt;dynamically allocated&lt;/em&gt; block information&lt;/li&gt;
+&lt;li&gt;Stores its header inline instead of making it part of the &lt;em&gt;dynamic allocation&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id="custom-allocators"&gt;Custom allocators&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Implementation differs from STL one of embedding allocator in the type, as a template parameter.  &lt;/li&gt;
+&lt;li&gt;Keeping allocator out of the template parameters allows functions to just accept &lt;code&gt;Vector&amp;lt;T&amp;gt;&amp;amp;&lt;/code&gt; without needing to care what allocator has been set for it and avoiding the &lt;em&gt;viral&lt;/em&gt; effect of needing to make also the method templated around the allocator (that is really bad for compile times).&lt;/li&gt;
+&lt;li&gt;Allocators are not stored for each single container or dynamic allocation, they're by all means a global.&lt;/li&gt;
+&lt;li&gt;They're arranged in a double-linked list and users can push / pop their custom one as needed.&lt;/li&gt;
+&lt;li&gt;This makes it easy for example to create strategies where all allocations in a given sub-scope are sliced from a pre-allocated slab of memory that can be later on released all at once.  &lt;/li&gt;
+&lt;li&gt;Custom allocators must be considered still WIP and their API will likely change.
+Also documentation about their usage is insufficient and it will be expanded.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://pagghiu.github.io/site/blog/CustomFixedAllocator.png" target="_blank"&gt;
+&lt;img src="https://pagghiu.github.io/site/blog/CustomFixedAllocator.png"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Detailed list of commits: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/50d184e5"&gt;Foundation: Add FixedAllocator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/703372d3"&gt;Foundation: Add global and thread-local allocators&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f31955c"&gt;Foundation: Add allocation ownership mechanism&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/938292a6"&gt;Foundation: Add alignment support to allocators&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a61fba94"&gt;Foundation: Add Global and Thread-Local enum&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4a3f51c"&gt;Containers: Add thread-local Vector and SmallVector containers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fc5fd77"&gt;Containers: Use Globals to allocate in ArenaMap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4a3f51c"&gt;Documentation: Add initial documentation for Globals&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="relative-pointers"&gt;Relative pointers&lt;/h4&gt;
+&lt;p&gt;Relative pointers make it easier to create data structures that can be bulk serialized and restored skipping parsing entirely.
+A specific demo featuring this must still be built but this is definitively on the &lt;code&gt;TODO&lt;/code&gt; list.
+Relative pointers are quite tricky to implement properly in C++ because it's very easy to trigger UB with this specific class of pointer arithmetics and this has been learned the hard way.
+Some tests where failing on GCC (when compiling with &lt;code&gt;-fstrict-aliasing&lt;/code&gt;) but it has been a good occasion to learn about &lt;code&gt;std::launder&lt;/code&gt; and &lt;code&gt;std::start_lifetime_as&lt;/code&gt; family of functions and in general creating optimization barriers with &lt;code&gt;volatile&lt;/code&gt; specifier.&lt;br&gt;
+For now relative pointers are used by default but at some point the performance impact due to their use will be assessed.
+In case of a significant performance difference maybe it will be re-considered possible to opt-out their usage with some runtime or compile-time flag.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8a00000e"&gt;Foundation: Use relative pointers in Segment and make header inline&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ac70d9cc"&gt;Foundation: Launder Segment::data() returned pointer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/7a97c14f"&gt;Foundation: Refactor Segment to reduce and isolate UB&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://pagghiu.github.io/site/blog/RelativePointer.png" target="_blank"&gt;
+&lt;img src="https://pagghiu.github.io/site/blog/RelativePointer.png"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id="inline-header"&gt;Inline header&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;SegmentHeader&lt;/code&gt; is now part of &lt;code&gt;Segment&lt;/code&gt; declaration. In other words it's no more part of its dynamically allocated part.
+This is useful to know all properties of a segment like its inline storage and capacity or the use of custom allocators.
+The inline header stores also information about needing to use the &lt;code&gt;Global&lt;/code&gt; or the &lt;code&gt;Thread-Local&lt;/code&gt; allocator.&lt;br&gt;
+This helps avoiding unnecessary thread-local access because it's useless if all allocations are known to be done from the main thread (or from a specific thread).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0a17bd41"&gt;Foundation: Explicitly reference header from VTable&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/76e56e5c"&gt;Foundation: Fix Segment::isInline&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://pagghiu.github.io/site/blog/SegmentHeader.png" target="_blank"&gt;
+&lt;img src="https://pagghiu.github.io/site/blog/SegmentHeader.png"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id="virtual-memory"&gt;Virtual Memory&lt;/h4&gt;
+&lt;p&gt;A class called &lt;code&gt;VirtualMemory&lt;/code&gt; enables reserving large amounts (max value) of memory and then committing the needed one keeping existing allocation address stable.
+This is a big win in many cases because it avoids needing to move everything when a dynamic vector needs to expand, as long as it will be under the &lt;em&gt;max value&lt;/em&gt; guessed during the Virtual Memory initialization. This max value can be very large as long as it stays in the allowed virtual memory available range for the given architecture, and in case of 64 bits that's pretty big.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pagghiu.github.io/site/blog/VirtualMemoryTest.png" target="_blank"&gt;
+&lt;img src="https://pagghiu.github.io/site/blog/VirtualMemoryTest.png"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;An associated &lt;code&gt;VirtualAllocator&lt;/code&gt; enables using it with the Segment allocator subsystem.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pagghiu.github.io/site/blog/CustomVirtualAllocator.png" target="_blank"&gt;
+&lt;img src="https://pagghiu.github.io/site/blog/CustomVirtualAllocator.png"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e6d93749"&gt;Foundation: Add VirtualAllocator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0cdbeb1f"&gt;Foundation: Add VirtualMemory&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="memory-statistics"&gt;Memory Statistics&lt;/h4&gt;
+&lt;p&gt;All allocations, deallocations and reallocations are now being counted in a &lt;code&gt;Statistics&lt;/code&gt; class providing useful information about how many allocations are done by a given section of code.
+The &lt;code&gt;SCTest&lt;/code&gt; is using such statistics to assert when detecting a mismatched number of &lt;code&gt;allocate&lt;/code&gt; vs &lt;code&gt;release&lt;/code&gt; calls.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/878f7627"&gt;Testing: Add global memory report&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d22c7593"&gt;Foundation: Record statistics in MemoryAllocator&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://pagghiu.github.io/site/blog/MemoryReport.png" target="_blank"&gt;
+&lt;img src="https://pagghiu.github.io/site/blog/MemoryReport.png"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id="vector-growth-factor"&gt;Vector Growth Factor&lt;/h4&gt;
+&lt;p&gt;This has been also been the occasion to feel ashamed about how many allocations where actually already done leading to make Segment grow by factor of &lt;code&gt;2&lt;/code&gt; on append.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/390ce729"&gt;Foundation: Grow Segment capacity with factor 2 on append or insert&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="debug-visualizers"&gt;Debug visualizers&lt;/h4&gt;
+&lt;p&gt;Debug visualizers have been updated to reflect changes in &lt;code&gt;Segment&lt;/code&gt; data layout.&lt;br&gt;
+Also a LLDB visualizer for &lt;code&gt;Array&amp;lt;T, N&amp;gt;&lt;/code&gt; was missing and it has been added as well.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/bfc0c827"&gt;DebugVisualizer: Update Segment visualizers to use relative pointers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://pagghiu.github.io/site/blog/DebugVisualizers.png" target="_blank"&gt;
+&lt;img src="https://pagghiu.github.io/site/blog/DebugVisualizers.png"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id="and-more"&gt;And more&lt;/h4&gt;
+&lt;p&gt;Additional minor fixes that don't deserve a whole paragraph to describe them are listed below:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e5c5041f"&gt;Foundation: Add no-except to all Segment related methods&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/abb0b0b6"&gt;Foundation: Enable creation of Span&lt;void&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1ed98c28"&gt;Foundation: Extend Segment assign and insert to types convertible to T&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/92eff60a"&gt;Foundation: Fix memory Leak in Segment::shrink_to_fit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a6ad7dfd"&gt;Foundation: Split Foundation.cpp content in separate files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0cffe20e"&gt;Containers: Move SmallVector to Vector header&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="scbuild"&gt;SC::Build&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://pagghiu.github.io/SaneCppLibraries/library_build.html"&gt;&lt;code&gt;SC::Build&lt;/code&gt;&lt;/a&gt; has received a small set of changes too.
+It's now always using the C++ stdlib on GCC because only more recent GCC versions (&amp;gt; 13) support the &lt;code&gt;-nostdlib++&lt;/code&gt; flag that makes it easy linking &lt;code&gt;libc&lt;/code&gt; but not &lt;code&gt;libc++&lt;/code&gt; or &lt;code&gt;libstdc++&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Also Makefiles for apple and linux platforms are now created in separate sub-directories.
+This makes it easier to manually invoke make for them as you don't need the flag to indicate a custom Makefile file name.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pagghiu.github.io/site/blog/SCBuildMarch25.png" target="_blank"&gt;
+&lt;img src="https://pagghiu.github.io/site/blog/SCBuildMarch25.png"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is the detailed list of commits:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/bbb46ea1"&gt;Build: Always link C++ stdlib on GCC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/734b73b4"&gt;Build: Create Makefiles in apple / linux subdirs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9dc9792d"&gt;Build: Fix enabling standard C++ library for gcc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="minor-changes"&gt;Minor Changes&lt;/h3&gt;
+&lt;p&gt;And the obvious list of random fixes, with the notable mention of the one related to &lt;code&gt;SC::Async&lt;/code&gt; that was randomly failing in the CI very often due to some bad copy and paste from the &lt;code&gt;io_uring&lt;/code&gt; headers.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6d288b0d"&gt;Everywhere: Fixes to compile under ClangCL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/59efa2fc"&gt;Async: Just fill the entire SQE with zero inside io_uring_prep_rw on Linux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9ef93dad"&gt;Async: Set to zer all SQE fields for Linux on io_uring&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f60358e0"&gt;Documentation: Fix some typos for build instructions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/443c38e9"&gt;SerializationBinary: Fix UB on buffer reader&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d003f221"&gt;Containers: Use placementNew in ArenaMap&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🎠 Sane C++ February 25</title><link href="https://pagghiu.github.io/sane-c-february-25.html" rel="alternate"></link><published>2025-02-28T00:00:00+01:00</published><updated>2025-02-28T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-02-28:/sane-c-february-25.html</id><summary type="html">&lt;p&gt;Welcome to the update post for February 2025!&lt;br&gt; This month has been mostly spent re-writing &lt;code&gt;Containers&lt;/code&gt; and &lt;code&gt;SC::Build&lt;/code&gt; libraries!&lt;/p&gt;</summary><content type="html">&lt;h3 id="containers"&gt;Containers&lt;/h3&gt;
 &lt;p&gt;Re-writing &lt;a href="https://pagghiu.github.io/SaneCppLibraries/library_containers.html"&gt;&lt;code&gt;Containers&lt;/code&gt;&lt;/a&gt;...what could be going wrong?&lt;/p&gt;
 &lt;p&gt;Sane C++ Libraries tag-line is "Platform Abstraction Libraries". 
 The main reason for that is that the project doesn't try or want to be a STL replacement.
