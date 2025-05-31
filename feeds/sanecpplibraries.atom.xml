@@ -1,5 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Sane Coding Blog - SaneCppLibraries</title><link href="https://pagghiu.github.io/" rel="alternate"></link><link href="https://pagghiu.github.io/feeds/sanecpplibraries.atom.xml" rel="self"></link><id>https://pagghiu.github.io/</id><updated>2025-04-30T00:00:00+02:00</updated><subtitle>Sane Coding Blog</subtitle><entry><title>💤 Sane C++ April 25</title><link href="https://pagghiu.github.io/sane-c-april-25.html" rel="alternate"></link><published>2025-04-30T00:00:00+02:00</published><updated>2025-04-30T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-04-30:/sane-c-april-25.html</id><summary type="html">&lt;p&gt;Welcome to the update post for April 2025!&lt;br&gt; This month has been mostly spent adding Process fork, Async vectorized writes and Memory Dump to Containers!&lt;/p&gt;</summary><content type="html">&lt;h1 id="process"&gt;Process&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Sane Coding Blog - SaneCppLibraries</title><link href="https://pagghiu.github.io/" rel="alternate"></link><link href="https://pagghiu.github.io/feeds/sanecpplibraries.atom.xml" rel="self"></link><id>https://pagghiu.github.io/</id><updated>2025-05-31T00:00:00+02:00</updated><subtitle>Sane Coding Blog</subtitle><entry><title>🌸 Sane C++ May 25</title><link href="https://pagghiu.github.io/sane-c-may-25.html" rel="alternate"></link><published>2025-05-31T00:00:00+02:00</published><updated>2025-05-31T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-05-31:/sane-c-may-25.html</id><summary type="html">&lt;p&gt;Welcome to the update post for May 2025!&lt;br&gt; This month a new object called &lt;code&gt;AsyncSequence&lt;/code&gt; has been added to &lt;a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html"&gt;&lt;code&gt;SC::Async&lt;/code&gt;&lt;/a&gt; together with a good list of smaller improvements!&lt;/p&gt;</summary><content type="html">&lt;h1 id="deepwiki"&gt;DeepWiki&lt;/h1&gt;
+&lt;p&gt;I've been feeding the Sane C++ Libraries repo to &lt;a href="https://deepwiki.com" target="_blank"&gt;DeepWiki&lt;/a&gt; and I am actually surprised by how good it has understood the overall codebase structure!
+Some details are wrong and sometimes it analyzes details that are not really worth that much, but it's really amazing how much insight it provides at a glance to someone who is not aware of the internals of the project.&lt;/p&gt;
+&lt;p&gt;Make sure to check it out at:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://deepwiki.com/Pagghiu/SaneCppLibraries"&gt;https://deepwiki.com/Pagghiu/SaneCppLibraries&lt;/a&gt;
+&lt;a href="https://deepwiki.com/Pagghiu/SaneCppLibraries" target="_blank"&gt;
+&lt;img src="https://pagghiu.github.io/site/blog/SCDeepWiki.png"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id="async-sequence"&gt;Async Sequence&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;AsyncSequence&lt;/code&gt; allows controlling requests execution order, and it's implemented as a simple linked list queue that can simplify some common use cases.&lt;/p&gt;
+&lt;p&gt;For example &lt;code&gt;AsyncSequence&lt;/code&gt; can be used to issue an &lt;code&gt;AsyncSocketConnect&lt;/code&gt; request and then a sequence of &lt;code&gt;AsyncSocketSend&lt;/code&gt; or a &lt;code&gt;AsyncSocketReceive&lt;/code&gt; immediately after.
+&lt;code&gt;AsyncSequence&lt;/code&gt; avoids the need to start such additional requests in the callback of the previously finished requests.&lt;/p&gt;
+&lt;p&gt;This is a (not so small) extract of the test suite where &lt;code&gt;AsyncSequence&lt;/code&gt; is being used to &lt;em&gt;queue&lt;/em&gt; two writes so that they will happen in the correct order.
+&lt;a href="https://pagghiu.github.io/site/blog/SCAsyncSequence.png" target="_blank"&gt;
+&lt;img src="https://pagghiu.github.io/site/blog/SCAsyncSequence.png"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2ec9cd28"&gt;Async: Add AsyncSequence to control async requests execution order&lt;/a&gt; &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="async-cancellations"&gt;Async Cancellations&lt;/h1&gt;
+&lt;p&gt;Lastly Async requests cancellation handling has been consolidated between all backends and it's more precise and consistent.
+Some async backends (Windows &lt;code&gt;IOCP&lt;/code&gt; / Linux &lt;code&gt;io_uring&lt;/code&gt;) post cancellations notification to the kernel queue.
+This is now properly handled by stepping the event loop one more time.&lt;/p&gt;
+&lt;p&gt;The remaining changes try to consistently track multiple edge cases when processing cancellations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cancelAsync&lt;/code&gt; is called only if an activateAsync has been previously called&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;teardownAsync&lt;/code&gt; is called only if setupAsync has been previously called&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Honestly trying to unify these kind of behaviors between APIs that are so wildly different is really challenging!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b9e466af"&gt;Async: Consolidate state machine cancellation handling between all backends&lt;/a&gt; &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="async-improvements"&gt;Async Improvements&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html"&gt;&lt;code&gt;SC::Async&lt;/code&gt;&lt;/a&gt; has been receiving some additional fine tuning reducing the size of all AsyncRequest, removing some common fields like eventIndex and event loop pointer.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;AsyncFileClose&lt;/code&gt; and &lt;code&gt;AsyncSocketClose&lt;/code&gt; have finally seen their return code moved to completion data and AsyncSocketConnect will stop its watcher in case of errors.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/10e409b4"&gt;Async: Add method to create async UDP socket associated with event loop&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/53e17bce"&gt;Async: Avoid enabling Socket connect watcher on errors (Posix)&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b9e0a77f"&gt;Socket: Add method to check SocketIPAddress validity&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f4b18d79"&gt;Async: Do not access request after completion unless it has been reactivated&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/538f769a"&gt;Async: Allow removing file / socket association with event loop&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a65f19f9"&gt;Async: Move AsyncFileClose return code to completion data&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0e713590"&gt;Async: Remove useless [[nodiscard]]&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5aad3aa6"&gt;Async: Split AsyncSocketAcceptData out of AsyncSocketAccept&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6c98c709"&gt;Async: Declare per-request debug name only when SC_ASYNC_ENABLE_LOG is defined&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/46543ed5"&gt;Async: Remove pointer to event loop inside async requests&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6425ccb1"&gt;Async: Store 2 bytes of user flags in AsyncRequest&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fb27bfa7"&gt;Async: Do not store event index per each request&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ed75c2db"&gt;Async: Migrate code to completion data in AsyncSocketClose&lt;/a&gt; &lt;/li&gt;
+&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>💤 Sane C++ April 25</title><link href="https://pagghiu.github.io/sane-c-april-25.html" rel="alternate"></link><published>2025-04-30T00:00:00+02:00</published><updated>2025-04-30T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-04-30:/sane-c-april-25.html</id><summary type="html">&lt;p&gt;Welcome to the update post for April 2025!&lt;br&gt; This month has been mostly spent adding Process fork, Async vectorized writes and Memory Dump to Containers!&lt;/p&gt;</summary><content type="html">&lt;h1 id="process"&gt;Process&lt;/h1&gt;
 &lt;p&gt;&lt;a href="https://pagghiu.github.io/SaneCppLibraries/library_process.html"&gt;&lt;code&gt;SC::Process&lt;/code&gt;&lt;/a&gt; library allows spawning process across all supported platforms with many features, including I/O redirection and setting environment variables / starting directories.
 This month however it has been gaining a new class called &lt;code&gt;SC::ProcessFork&lt;/code&gt; that uses &lt;code&gt;fork&lt;/code&gt; on Posix and &lt;code&gt;RtlCloneUserProcess&lt;/code&gt; a very well hidden NT Kernel API that we can consider to be some sort of Windows &lt;code&gt;fork&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;A fork duplicates a parent process execution state, os handles and private memory.&lt;/p&gt;
