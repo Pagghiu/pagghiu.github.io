@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-        <title>Sane Coding Blog - 🏖️ Sane C++ July 24</title>
+      <title>Sane Coding Blog - ☀️ Sane C++ June 25</title>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" href="https://pagghiu.github.io/images/favicon.png">
@@ -112,7 +112,7 @@
             <ul>
                 <!--- articles_page.object_list --->
                 <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-06-30-SaneCppLibrariesUpdate.html" title="Permalink to ☀️ Sane C++ June 25">
+                    <a class="secondary" aria-current="page" href="" title="Permalink to ☀️ Sane C++ June 25">
                     ☀️ Sane C++ June 25
                     <br>
                 </a>
@@ -172,7 +172,7 @@
                 </a>
             </li>
                 <li>
-                    <a class="secondary" aria-current="page" href="" title="Permalink to 🏖️ Sane C++ July 24">
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-07-31-SaneCppLibrariesUpdate.html" title="Permalink to 🏖️ Sane C++ July 24">
                     🏖️ Sane C++ July 24
                     <br>
                 </a>
@@ -223,202 +223,130 @@
         </details>
     </nav>
 </aside>
-    <hgroup>
-      <p class="chapter">Wed 31 July 2024</p>
-      <h1>🏖️ Sane C++ July 24</h1>
-      
-      <figure>
-        <img src="https://pagghiu.github.io/images/2024-07-31-SaneCppLibrariesUpdate/article.png" alt="SC" />
-      </figure>
-      <p>
-        <p>Welcome to the update post for July 2024!<br>The focus of the month has been building a nicer showcase for <code>SC::Plugin</code> and <code>SC::Serialization</code> libraries.</p>
-        📄 <a href="../../SaneCppLibraries/index.html" target="_blank">Sane C++ Libraries Documentation</a><br>
-        💻 <a href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Sane C++ Libraries
-            Repository <img src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a> <br>
-        📹 <a href="https://www.youtube.com/@Pagghiu" target="_blank">Sane Coding Youtube channel</a> <img
-            src="https://img.shields.io/youtube/channel/subscribers/UCnmN_whfM12LU6VNQWG0NFg"> <br>
-        💬 <a href="https://discord.gg/tyBfFp33Z6" target="_blank">Sane Coding Discord</a> <a
-            href="https://discord.gg/tyBfFp33Z6"><img src="https://img.shields.io/discord/1195076118307426384"></a>
-              </p>
-    </hgroup>
-    <aside id="table-of-contents">
-  <nav class="is-sticky-above-lg ">
-    <details open="">
-      <summary>Content</summary>
-      <ul>
-        <li><a class="secondary" href="#section-0">Sane C++ June 2024</a></li>
-        <li><a class="secondary" href="#section-1">SCExample</a></li>
-        <li><a class="secondary" href="#section-2">SC::Serialization</a></li>
-        <li><a class="secondary" href="#section-3">SC::Plugin</a></li>
-        <li><a class="secondary" href="#section-4">SC::Build</a></li>
-        <li><a class="secondary" href="#section-5">Contributions</a></li>
-        <li><a class="secondary" href="#section-6">Additional fixes</a></li>
-      </ul>
-    </details>
-  </nav>
-</aside>
-<div id="content" role="document">
-
-<section>
-<h2>SCExample<a href="#section-1" id="section-1" class="secondary" tabindex="-1">#</a></h2>
-<p class="chapter">Serializer example</p>
-<p>
-The hot-reload system of SCExample has been tuned so that each internal example is just an hot-reloaded Plugin.
-It's now very convenient to iteratively build them and experiment!
-A nice serialization example has been added to SCExample,  based on a very well known piece of code from the official imgui demo.
-State of the canvas control is saved to binary and json using the automatic serialization provided by the reflection system.
-It's also showing a somewhat advanced usage of the Reflection system, that is how to wrap a "custom" vector implementation (ImVector<T>)
-
-
-<iframe width="700" height="400" src="https://github.com/user-attachments/assets/2a38310c-6a28-4f86-a0f3-665dc15b126d" frameborder="0" allowfullscreen>
-</iframe>
-
-There is a video where I've been recording the most important bits of this development:                    
-<p>
-  <iframe width="560" height="314" src="https://www.youtube-nocookie.com/embed/d7DXxC6xG_A?si=vyQhUZ_vU5Rtn0pi"
-  title="YouTube video player" frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  allowfullscreen></iframe>  
-</p>
-
-And as a last nicety, SCExample has been fully ported to iOS!
-Hot-reload obviously requires root access to install clang compiler and a sysroot on iOS, so it will work only if you have an active jailbreak.
-
-Also here I've been recording a video on finalizing porting SCExample to iOS.
-
-
-<p>
-  <iframe width="560" height="314" src="https://www.youtube-nocookie.com/embed/6DfykfYCQdY?si=vyQhUZ_vU5Rtn0pi"
-  title="YouTube video player" frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  allowfullscreen></iframe>  
-</p>
-
-
-This is the list of SCExample related commits:
+  <hgroup>
+    <p class="chapter">Mon 30 June 2025</p>
+    <h1 id="section-0">☀️ Sane C++ June 25</h1>
+    
+    <figure>
+      <img src="https://pagghiu.github.io/images/2025-06-30-SaneCppLibrariesUpdate/article.png" alt="SC" />
+    </figure>
+    <p>
+      <p>Welcome to the update post for June 2025!<br> This month brings a new async file system operations, an enhanced UDP socket support in <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html"><code>SC::Async</code></a> and some dependency cleanup with the Memory library split from Foundation!</p>
+    </p>
+  </hgroup>
+  <aside id="table-of-contents">
+    <nav class="is-sticky-above-lg ">
+      <details open="">
+        <summary>Content</summary>
+        <div class="col-lg-3 hidden-xs hidden-sm">
+          <ul>
+            <li><a class="secondary" href="#section-0">Sane C++ June 25</a></li>
+            <li><a class="secondary" href="#async-file-system-operations">Async File System Operations</a></li>
+            <li><a class="secondary" href="#async-udp-socket-operations">Async UDP Socket Operations</a></li>
+            <li><a class="secondary" href="#memory-library-split">Memory Library Split</a></li>
+            <li><a class="secondary" href="#filesystemiterator-and-filesystemwatcher-dependency-cleanup">FileSystemIterator and FileSystemWatcher Dependency Cleanup</a></li>
+            <li><a class="secondary" href="#foundation">Foundation</a></li>
+            <li><a class="secondary" href="#socket">Socket</a></li>
+            <li><a class="secondary" href="#other-improvements">Other improvements</a></li>
+          </ul>
+        </div>
+      </details>
+    </nav>
+  </aside>
+  <div id="content" role="document">
+    <h1 id="async-file-system-operations">Async File System Operations</h1>
+<p>A major new feature this month is the unified <code>AsyncFileSystemOperation</code> that provides async file system operations across all platforms. This replaces the previous <code>AsyncFileClose</code> and <code>AsyncSocketClose</code> with a more comprehensive and consistent API.</p>
+<p>The new operations include:</p>
 <ul>
-
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/85e6352b" target="_new">SCExample: Port to iOS</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c839d17f" target="_new">SCExample: Show compile errors when hovering examples</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/641c9276" target="_new">SCExample: Refactoring hot-reload plugins as examples</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b14ef5ed" target="_new">SCExample: Add Serialization example</a></li>
+<li><strong>open/close</strong> (File)</li>
+<li><strong>read/write</strong> (File)</li>
+<li><strong>copyFile/copyDirectory</strong> (File / Directory)</li>
+<li><strong>rename</strong> (File / Directory)</li>
+<li><strong>removeFile/removeEmptyDirectory</strong>: (File / Directory)</li>
 </ul>
-</p>
-</section>
-
-
-<section>
-<h2>SC::Serialization<a href="#section-2" id="section-2" class="secondary" tabindex="-1">#</a></h2>
-<p class="chapter">Serialize all the things</p>
-<p>
-
-While building the Serialization example, a few fixes have been made necessary to 
-<code><a href="https://pagghiu.github.io/SaneCppLibraries/library_serialization_binary.html" target="_blank">SC::SerializationBinary</a></code>.
-The first has been supporting the bool data type that for some obscure reason was missing from the primitive types.
-Some helpers to read and write the schema together with serialized data have been added to make it easy supporting versioned binary serialization.
-Fields can be added or removed, and the serializer will still try to load data that can be converted assuming a matching order.
-There is also some support for changing field types. For example a float field that is converted to int (or vice-versa) will receive a truncated value on deserialization.
-
+<p>Eventually <code>AsyncFileRead</code> / <code>AsyncFileWrite</code> will be renamed to something like <code>AsyncPipeRead</code> / <code>AsyncPipeWrite</code>, losing their threading support needed for buffered files, now that dedicated fs read / write operation exist.</p>
+<p>Under the hood, this leverages platform-specific async APIs:</p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fe203bb1" target="_new">Reflection: Add vector manipulation methods to ExtendedTypeInfo</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0419d749" target="_new">Reflection: Support bool primitive type</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f83bb784" target="_new">SerializationBinary: Add writeWithSchema and loadVersionedWithSchema</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/03ef3a13" target="_new">SerializationBinary: Reduce boilerplate needed to wrap a custom vector container</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/18d871c2" target="_new">SerializationBinary: Support bool primitive type</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/89814957" target="_new">SerializationText: Reduce boilerplate needed to wrap a custom vector container</a></li>
+<li><code>io_uring</code> on Linux</li>
+<li><code>IOCP</code> (I/O Completion Ports) on Windows.</li>
 </ul>
-
-
-</p>
-</section>
-
-
-<section>
-<h2>SC::Plugin<a href="#section-3" id="section-3" class="secondary" tabindex="-1">#</a></h2>
-<p class="chapter">Hot-Reload like there is no tomorrow</p>
-<p>
-
-<code><a href="https://pagghiu.github.io/SaneCppLibraries/library_plugin.html" target="_blank">SC::Plugin</a></code>  library has received a few improvements, 
-like the ability to specify a path for the sysroot under clang (needed on iOS), and it's capturing compiler and linker outputs.
-This last one allows showing compile errors in the plugin host app, that is a nice addition to SCExample.
-Finally some dynamic export clauses have been added to many libraries in order for Plugins to find symbols in the host application that is loading them.
-This will for sure increase the executable size as the linker will not be able to trim such classes as "unused" code, even if they're not referenced by any Plugin.
-Probably some macro to disable this "export by default" behavior will be added for anyone that wants to use Sane C++ Libraries without the Plugin Library or without 
-needing to use Sane C++ Libraries type across dynamic library boundaries.
-
+<p>The abstraction handles the complexity of these very different APIs while providing a consistent interface.</p>
+<p>Here's an example (extracted from the test suite) on how it's meant to be used:</p>
+<p><a href="https://pagghiu.github.io/site/blog/SCAsyncFileSystemOperation.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/SCAsyncFileSystemOperation.png">
+</a></p>
+<p>Detailed list of commits:</p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e6d21a84" target="_new">Plugin: Allow overriding isysroot path</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/61b89284" target="_new">Plugin: Capture compiler and linker output</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1ffb8749" target="_new">Everywhere: Add export clause for use across Plugin boundaries</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/cf2dac7">Async: Add AsyncFileSystemOperation</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5eea13c">Async: Add "open" async file system operation</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1656732">Async: Add "close" async file system operation</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3eb4d4e">Async: Add "read" async file system operation</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1656732">Async: Add "write" async file system operation</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/04a77a1">Async: Add "copyFile" async file system operation</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/427a70c">Async: Add "rename" async file system operation</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8033b48">Async: Add "removeFile" async file system operation</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/427a70c">Async: Add "removeDirectory" async file system operation</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4bee0c0">Async: Add "copyDirectory" async file system operation</a></li>
 </ul>
-
-
-</p>
-</section>
-
-
-
-<section>
-<h2>SC::Build<a href="#section-4" id="section-4" class="secondary" tabindex="-1">#</a></h2>
-<p class="chapter">Actually got a promotion!</p>
-<p>
-<code><a href="https://pagghiu.github.io/SaneCppLibraries/library_build.html" target="_blank">SC::Build</a></code> library has 
-received some improvements too, supporting generation of iOS project and application icon for Xcode app bundle.
-There are still many missing features and too many hardcoded defaults but I feel that the library deserves more than a Draft status.
-For this reason I've been promoting it to MVP status: maybe this will become an incentive to add more features to make it usable!
-
+<h1 id="async-udp-socket-operations">Async UDP Socket Operations</h1>
+<p>New async operations for UDP sockets have been added: <code>sendTo</code> and <code>receiveFrom</code> for unconnected sockets. </p>
+<p>This is particularly useful for UDP networking scenarios where you need to send/receive from multiple endpoints.</p>
+<p>The implementation handles the platform differences elegantly:</p>
 <ul>
-
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d865cc41" target="_new"> Build: Add iOS storyboard generation</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ca0fb7b6" target="_new"> Build: Elevate to MVP status</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6551c1e3" target="_new"> Build: Support application icon in Xcode app bundles</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/70d32b7d" target="_new"> Build: Support iOS</a></li>
+<li><strong>Linux</strong>: Uses <code>io_uring</code> with <code>IORING_OP_SENDMSG</code> and <code>IORING_OP_RECVMSG</code></li>
+<li><strong>Windows</strong>: Uses <code>IOCP</code> with <code>WSASendTo</code> and <code>WSARecvFrom</code></li>
 </ul>
-
-</p>
-</section>
-
-
-<section>
-<h2>Contributions<a href="#section-5" id="section-5" class="secondary" tabindex="-1">#</a></h2>
-<p class="chapter">Together we can build more!</p>
-<p>          
-This month <a href="https://x.com/_plop_" target="_new">Jeremy Laumon</a> has been adding <code>.natvis</code> support for Arrays!
-
+<p>Here's how the async sendTo operation looks in practice:
+<a href="https://pagghiu.github.io/site/blog/SCAsyncSendTo.jpg" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/SCAsyncSendTo.jpg">
+</a></p>
+<p>And the corresponding receiveFrom operation:
+<a href="https://pagghiu.github.io/site/blog/SCAsyncReceiveFrom.jpg" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/SCAsyncReceiveFrom.jpg">
+</a></p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/415dc323" target="_new">DebugVisualizers: Add natvis for SegmentedItems and Array</a></li>
-</ul>          
-</p>
-</section>
-
-
-
-<section>
-<h2>Additional fixes<a href="#section-6" id="section-6" class="secondary" tabindex="-1">#</a></h2>
-<p class="chapter">Fix fix fix</p>
-<p>
-
-And then the usual amount of monthly fixes!
-I can never stress how important is to use the libraries in a real project or even just in an example app to trigger issues and identify missing bits!
-<ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/050bad6a" target="_new">Strings: Export String and some SmallString<N> for use across Plugin boundaries</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1d485307" target="_new">Containers: Fix some incorrect Array member functions</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/20f2dd9b" target="_new">FileSystemWatcher: Add internal header with FSEvents declarations for iOS</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/54fb28bc" target="_new">Documentation: Improve README and fix descriptions of some libraries</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5a72dcf1" target="_new">FileSystem: Add read and write overloads for uint8_t</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/915367a5" target="_new">Strings: Fix doubles parsing</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a176a3e7" target="_new">Everywhere: Add lifetime bound attribute for StringViews and Spans</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e3121af6" target="_new">Foundation: Add Span::reinterpret_as_array_of<T>()</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e5475aff" target="_new">Tools: Use Github to download doxygen releases</a></li>
-
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/7a728f2">Async: Add sendTo and receiveFrom requests for unconnected sockets</a></li>
 </ul>
+<h1 id="memory-library-split">Memory Library Split</h1>
+<p>One important change this mont is the split of memory management components from the Foundation library into a dedicated Memory library.</p>
+<p>The goal has been isolating <code>Segment</code>, <code>Buffer</code>, <code>Globals</code>, and <code>VirtualMemory</code> - all the components that perform dynamic allocation.</p>
+<p>This change brings much clearer dependency boundaries. Now if something depends only on Foundation, you can be certain it doesn't perform any dynamic allocation. This is particularly important for embedded systems, low-level libraries, or any code that needs to avoid heap allocation.</p>
+<p>The split involved moving 46 files and updating countless include statements across the codebase. 
+While this was a slighltly distrupting refactoring effort, it makes the library architecture much more predictable and easier to reason about.</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/07a30bd">Memory: Split Segment, Buffer, Globals and VirtualMemory out of Foundation</a></li>
+</ul>
+<h1 id="filesystemiterator-and-filesystemwatcher-dependency-cleanup">FileSystemIterator and FileSystemWatcher Dependency Cleanup</h1>
+<p>This month saw significant work on cleaning up the dependency graph, which demonstrates the commitment to the <a href="https://pagghiu.github.io/SaneCppLibraries/page_principles.html">Sane C++ Libraries principles</a>.</p>
+<p><code>FileSystemWatcher</code> and <code>FileSystemIterator</code> have been cleaned up to remove unnecessary dependencies on <code>Strings</code> and <code>Containers</code>, making the dependency graph cleaner and more predictable.</p>
+<p>As part of this cleanup, <code>FileSystemIterator</code> now requires you to pass in a fixed span of <code>FileSystemIterator::FolderState</code> that the iterator will use, avoiding any internal allocation.</p>
+<p>Also <code>FileSystemWatcher</code> got the <em>no allocation</em> treatment with the only exceptionon Linux where it's still doing a small (single) allocation holding paths for watching sub-directories (in case of recursive watch).
+One could tecnically request the span of memory to use to the caller but maybe it's not great to bend the API for all other backends just for this one specific Linux difference. This topic will be re-visited in the future eventually maybe providing some hooks to remove also this very last allocation.</p>
+<p>This kind of architectural hygiene is crucial for maintaining the "bloat free" and "easy to integrate" principles - when libraries have minimal, clear dependencies, they're much easier to understand, test, and integrate into existing projects!</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2f59c19">FileSystemWatcher: Remove dependency from Strings, Containers and FileSystemIterator</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/7b743ee">FileSystemIterator: Remove dependency from Strings and Containers</a></li>
+</ul>
+<h1 id="foundation">Foundation</h1>
+<p>A new <code>SC::StringViewData</code> class has been added to <code>Foundation</code> and it can be used in place of <code>SC::StringView</code> when parsing is not needed.</p>
+<p>It's a non-owning view over a string and the most common use case is to pass it in and out of OS API as is for file system paths.
+As it holds also the encoding, some libraries will convert the string in some internal buffer before passing it to OS api.</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5ee30f6">Foundation: Add StringViewData</a></li>
+</ul>
+<h1 id="socket">Socket</h1>
+<p>Added methods to shutdown sockets and get string representations of SocketIPAddress.</p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3e036b5">Socket: Add method to shutdown sockets</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3271b9a">Socket: Add method to return SocketIPAddress string representation</a></li>
+</ul>
+<h1 id="other-improvements">Other improvements</h1>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/94c8849">Algorithms: Add contains and output found index from findIf</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c8e251b">File: Fix infinite loop on FileDescriptor::write (Windows)</a></li>
+</ul>
+  </div>
 
-
-</p>
-</section>
-
-</div>
-  
     </main>
     <footer>
       <div class=" container">
