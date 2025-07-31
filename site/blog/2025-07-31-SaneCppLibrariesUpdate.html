@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-        <title>Sane Coding Blog - 🌊 Sane C++ August 24</title>
+      <title>Sane Coding Blog - ☀️ Sane C++ July 25</title>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" href="https://pagghiu.github.io/images/favicon.png">
@@ -112,7 +112,7 @@
             <ul>
                 <!--- articles_page.object_list --->
                 <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html" title="Permalink to ☀️ Sane C++ July 25">
+                    <a class="secondary" aria-current="page" href="" title="Permalink to ☀️ Sane C++ July 25">
                     ☀️ Sane C++ July 25
                     <br>
                 </a>
@@ -172,7 +172,7 @@
                 </a>
             </li>
                 <li>
-                    <a class="secondary" aria-current="page" href="" title="Permalink to 🌊 Sane C++ August 24">
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-08-30-SaneCppLibrariesUpdate.html" title="Permalink to 🌊 Sane C++ August 24">
                     🌊 Sane C++ August 24
                     <br>
                 </a>
@@ -229,112 +229,208 @@
         </details>
     </nav>
 </aside>
-    <hgroup>
-      <p class="chapter">Fri 30 August 2024</p>
-      <h1>🌊 Sane C++ August 24</h1>
-      
-      <figure>
-        <img src="https://pagghiu.github.io/images/2024-08-30-SaneCppLibrariesUpdate/article.png" alt="SC" />
-      </figure>
-      <p>
-        <p>Welcome to the update post for August 2024!<br> August has been spent doing some first round of improvements to the <code>SC::Http</code> library.</p>
-        📄 <a href="../../SaneCppLibraries/index.html" target="_blank">Sane C++ Libraries Documentation</a><br>
-        💻 <a href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Sane C++ Libraries
-            Repository <img src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a> <br>
-        📹 <a href="https://www.youtube.com/@Pagghiu" target="_blank">Sane Coding Youtube channel</a> <img
-            src="https://img.shields.io/youtube/channel/subscribers/UCnmN_whfM12LU6VNQWG0NFg"> <br>
-        💬 <a href="https://discord.gg/tyBfFp33Z6" target="_blank">Sane Coding Discord</a> <a
-            href="https://discord.gg/tyBfFp33Z6"><img src="https://img.shields.io/discord/1195076118307426384"></a>
-              </p>
-    </hgroup>
-    <aside id="table-of-contents">
+  <hgroup>
+    <p class="chapter">Thu 31 July 2025</p>
+    <h1 id="section-0">☀️ Sane C++ July 25</h1>
+    
+    <figure>
+      <img src="https://pagghiu.github.io/images/2025-07-31-SaneCppLibrariesUpdate/article.png" alt="SC" />
+    </figure>
+    <p>
+      <p>Welcome to the update post for July 2025!<br> It's dependency cleanup month! 🧹🧹🧹</p>
+    </p>
+  </hgroup>
+  <aside id="table-of-contents">
     <nav class="is-sticky-above-lg ">
-    <details open="">
+      <details open="">
         <summary>Content</summary>
-        <ul>
-        <li><a class="secondary" href="#section-0">Sane C++ August 2024</a></li>
-        <li><a class="secondary" href="#section-1">SC::AsyncStreams</a></li>
-        <li><a class="secondary" href="#section-2">Additional fixes</a></li>
-        </ul>
-    </details>
+        <div class="col-lg-3 hidden-xs hidden-sm">
+          <ul>
+            <li><a class="secondary" href="#section-0">July Updates</a></li>
+            <li><a class="secondary" href="#automatic-dependency-and-loc">Automatic Dependency and LOC</a></li>
+            <li><a class="secondary" href="#foundation-cleanup">Foundation cleanup</a></li>
+            <li><a class="secondary" href="#async-dependencies">Async dependencies</a></li>
+            <li><a class="secondary" href="#filesystemwatcher-dependencies">FileSystemWatcher Dependencies</a></li>
+            <li><a class="secondary" href="#filesystem-dependencies">FileSystem Dependencies</a></li>
+            <li><a class="secondary" href="#filesystemiterator-dependencies">FileSystemIterator dependencies</a></li>
+            <li><a class="secondary" href="#file-dependencies">File dependencies</a></li>
+            <li><a class="secondary" href="#process-dependencies">Process dependencies</a></li>
+            <li><a class="secondary" href="#socket-dependencies">Socket dependencies</a></li>
+            <li><a class="secondary" href="#strings-improvements">Strings improvements</a></li>
+            <li><a class="secondary" href="#other-improvements">Other improvements</a></li>
+          </ul>
+        </div>
+      </details>
     </nav>
-</aside>
+  </aside>
+  <div id="content" role="document">
+    <h1 id="automatic-dependency-and-loc">Automatic Dependency and LOC</h1>
+<p>List of dependencies between libraries and the number of lines of code (LOC) composing them gives an immediate complexity indication.</p>
+<p>For this reason from this month I've started publishing:</p>
+<ul>
+<li>The reported lines of code (LOC) for each library</li>
+<li>The dependencies between libraries </li>
+</ul>
+<p>An automatic python scripts now updates both inside each library documentation page and also to Readmes and elsewhere.</p>
+<p>This has been the input to start attacking and removing un-needed inter-dependencies between libraries.</p>
+<p>This has in turn freed many libraries from dynamic allocation!</p>
+<p><a href="https://pagghiu.github.io/SaneCppLibraries/page_dependencies.html" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/SCDependencies.png">
+</a></p>
+<p><a href="https://pagghiu.github.io/SaneCppLibraries/libraries.html" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/SCLibrariesLOC.png">
+</a></p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/195ceea">Documentation: Add lines of code count to Libraries.md</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e91d14a">Documentation: Report dependencies between libraries</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/59f0bfc">Documentation: Report lines of code count of each library</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/07e100e">Documentation: Update LOC also for README.md</a></li>
+</ul>
+<h1 id="foundation-cleanup">Foundation cleanup</h1>
+<p>The <code>Foundation</code> library received several updates in order to make it as minimal as possible.</p>
+<ul>
+<li><code>StringViewData</code> was renamed to <code>StringSpan</code> for better clarity.</li>
+<li>A new <code>StringPath</code> class was introduced to handle file system paths with maximum length constraints and UTF-16 conversion.</li>
+<li>Rarely used methods in <code>Span&lt;T&gt;</code> were moved to where they are actually used, and some unused <code>TypeTraits</code> were removed.</li>
+<li>Backtrace printing for <code>Assert</code> was implemented on Windows.</li>
+<li>Some classes have been moved elsewhere (like <code>Limits.h</code>).</li>
+</ul>
+<p>All of these building blocks have been necessary to allow removal of several inter-dependencies between libraries in the project.</p>
+<p>Dynamic allocation status: No allocation</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b80d5e7">Foundation: Add StringPath holding the maximum length of a file system path</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/db94f0d">Foundation: Add write and append null terminated to StringSpan</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ab3d724">Foundation: Implement Assert backtrace printing for Windows</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/366ac35">Foundation: Move IntrusiveDoubleLinkedList to Async</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6b6a99b">Foundation: Move Limits.h to Testing</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a63a1c1">Foundation: Move rarely used Span<T> methods where they're actually used</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2a20fb1">Foundation: Refactor StringPath functionality in a reusable StringNativeFixed</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/626b59b">Foundation: Remove some rarely used TypeTraits</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a91fefc">Foundation: Remove some useless macros</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8485f00">Foundation: Rename StringViewData to StringSpan</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f773a79">Foundation: Use Result in StringSpan to communicate error reason</a></li>
+</ul>
+<h1 id="async-dependencies">Async dependencies</h1>
+<p><code>Async</code> is an advanced multi-platform async IO library with a feature set that is progressively expanding.</p>
+<p>The biggest library of the project has now no more dependency on <code>Process</code> library.
+Combining this with all the other dependency <em>cleanups</em> of this month makes the library set of transitive dependencies much cleaner.</p>
+<p>Previously the <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html"><code>SC::Async</code></a> Library was depending on almost the entire rest of Sane C++ Libraries!</p>
+<p>Now the entire list of dependencies for <code>Async</code> is <code>File</code>, <code>FileSystem</code>, <code>Foundation</code>, <code>Socket</code>, <code>Threading</code>, <code>Time</code>.</p>
+<p>Dynamic allocation status: No allocation</p>
+<p><a href="https://pagghiu.github.io/site/blog/SCAsyncDependencies.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/SCAsyncDependencies.png">
+</a></p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4091f2e">Async: Remove dependency from Process library</a></li>
+</ul>
+<h1 id="filesystemwatcher-dependencies">FileSystemWatcher Dependencies</h1>
+<p><code>FileSystemWatcher</code> has probably been the hardest dependency cleanup to finish.</p>
+<p>In addition to removing dependencies from <code>Strings</code> and <code>Memory</code> libraries, it has been necessary to remove dependency from the <code>Async</code> library too.
+The reason is that <code>FileSystemWatcher</code> supports both a thread based backend or an event loop based one.</p>
+<p>Now the role of integrating <code>FileSystemWatcher</code> with <code>Async</code> has been isolated in the <code>FileSystemWatcherAsync</code> library, through some minimal runtime virtual interface usage.</p>
+<p>Dynamic allocation status: No allocation</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/45a1232">FileSystemWatcher: Reduce manual string handling with StringPath</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/563c03e">FileSystemWatcher: Remove dependency from Async and File libraries</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/29829dd">FileSystemWatcher: Remove dependency from Memory library</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a250300">FileSystemWatcher: Use StringPath where appropriate to simplify code</a></li>
+</ul>
+<h1 id="filesystem-dependencies">FileSystem Dependencies</h1>
+<p>The <code>FileSystem</code> library underwent significant refactoring to simplify its code and reduce dependencies:</p>
+<ul>
+<li>Platform-specific implementations were merged into <code>FileSystemOperations</code>.</li>
+<li>Methods like <code>makeDirectoryRecursive</code> were added, while <code>removeEmptyDirectoryRecursive</code> was removed.</li>
+<li>Dependencies on <code>Containers</code>, <code>Strings</code>, and <code>Memory</code> libraries were eliminated, making the library more lightweight and focused.</li>
+</ul>
+<p>Library now only depends on <code>Foundation</code> and <code>Time</code> libraries.</p>
+<p>Dynamic allocation status: No allocation</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/67a5dd8">FileSystem: Get rid of removeEmptyDirectoryRecursive</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6f72723">FileSystem: Implement FileSystemOperations makeDirectoryRecursive</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/88d3db4">FileSystem: Merge platform specific implementation in FileSystemOperations</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b5b0470">FileSystem: Move FileSystemOperations to FileSystem::Operations</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d82c851">FileSystem: Re-implement FileSystemDirectories methods in FileSystemOperations</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/106b621">FileSystem: Remove dependency from Containers library</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f966926">FileSystem: Remove dependency from String and Memory libraries</a></li>
+</ul>
+<h1 id="filesystemiterator-dependencies">FileSystemIterator dependencies</h1>
+<p><code>FileSystemIterator</code> has been already cleaned up during path month's effort.
+This month however the extremely error prone manual string handling has been reduced through the use of the new StringPath class</p>
+<p>Library now only depends on <code>Foundation</code> library.</p>
+<p>Dynamic allocation status: No allocation</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b774139">FileSystemIterator: Reduce manual string handling using StringPath</a></li>
+</ul>
+<h1 id="file-dependencies">File dependencies</h1>
+<p><code>File</code> has also seen removal of dependencies from <code>Memory</code> and <code>Strings</code>, by using <code>StringPath</code> for simplifying string handling.</p>
+<p>Library now only depends on <code>Foundation</code> library.</p>
+<p>Dynamic allocation status: No allocation</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/33e68f9">File: Remove dependency from Memory and Strings Libraries</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b1da42d">File: Rename FileDescriptor.cpp to just File.cpp</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c19572a">File: Use StringPath where appropriate to simplify code</a></li>
+</ul>
+<h1 id="process-dependencies">Process dependencies</h1>
+<p>The <code>Process</code> library has seen also dependency from <code>Strings</code> and <code>Memory</code> library removed, through some lightweight runtime abstraction (<code>IGrowableBuffer</code>).
+This interface abstracts read/write operation to/from <code>Strings</code> and <code>Buffers</code>.</p>
+<p>Library now only depends on <code>File</code> and <code>Foundation</code> libraries.</p>
+<p>Dynamic allocation status: No allocation</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1a81233">Process: Merge ProcessDescriptor.h to Process.h</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/89c5385">Process: Remove dependency from Strings library</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a2addfa">Process: Use IGrowableBuffer when outputting to String / Buffer</a></li>
+</ul>
+<h1 id="socket-dependencies">Socket dependencies</h1>
+<p>The <code>Socket</code> libraries has been streamlined by removing dependencies on <code>Strings</code>, <code>File</code>, <code>Threading</code> and <code>Time</code>.</p>
+<p>Library now only depends on <code>Foundation</code>.</p>
+<p>Dynamic allocation status: No allocation</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/143a4c7">Socket: Remove dependency from File library</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/7538b89">Socket: Merge SocketDescriptor.h to Socket.h</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/da872ac5">Socket: Remove dependency from Threading library</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9c89b2f7">Socket: Remove dependency from Time library</a></li>
+</ul>
+<h1 id="strings-improvements">Strings improvements</h1>
+<p>The <code>Strings</code> library saw several improvements:</p>
+<ul>
+<li><code>StringNative</code> was renamed to <code>SmallStringNative</code>.</li>
+<li><code>Path</code> functionality was moved from the <code>FileSystem</code> library to <code>Strings</code>.</li>
+<li><code>StringConverter</code> was updated to accept <code>StringSpan</code>.</li>
+</ul>
+<p>Dynamic allocation status: Allocates dynamic memory</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/cecc951">Strings: Change StringConverter to accept StringSpan</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8568bbd">Strings: Fix clang warning about GrowableBuffer destructor marked as final</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1d496d2">Strings: Move Path from FileSystem to Strings library</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/40e41b8">Strings: Rename StringNative to SmallStringNative</a></li>
+</ul>
+<h1 id="other-improvements">Other improvements</h1>
+<ul>
+<li>The CI pipeline was updated to replace Windows Server 2019 with Windows Server 2025.</li>
+<li>Code was cleaned up to remove warnings reported by <code>clangd</code></li>
+<li>Debug Visualizers have been fixed</li>
+</ul>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/10c0296">CI: Replace Windows Server 2019 with Windows Server 2025</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a1021cb">Containers: Move StrongID from Foundation to Containers</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/585ee59">DebugVisualizer: Fix StringSpan / StringView visualizers</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8945865">Everywhere: Remove /<em> </em>/ style comments</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/72fde39">Everywhere: Get rid of some warnings reported by clangd</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9a922f6">Tools: Update 7zr to 25.00</a></li>
+</ul>
+  </div>
 
-<div id="content" role="document">
-
-
-
-<section>
-<h2>SC::AsyncStreams<a href="#section-1" id="section-1" class="secondary" tabindex="-1">#</a></h2>
-<p class="chapter">Pushing it forward</p>
-<p>
-  The <a href="https://pagghiu.github.io/SaneCppLibraries/library_async_streams.html" target="_new"><code>SC::Async</code></a> library has been extended with the addition of <a href="https://pagghiu.github.io/SaneCppLibraries/library_async_streams.html" target="_new">SC::AsyncStreams</a>!<br>
-  Async Streams are largely inspired by <a href="https://nodejs.org/api/stream.html" target="_new">node.js Streams</a>, a very powerful tool to process large amounts of data in parallel.<br>
-  The basic idea about an async stream is to create a Source / Sink abstraction (also called Readable and Writable) and process small buffers of data at time.<br>
-  The state machine that coordinates this interaction handles data buffering and more importantly handles also back-pressure, that means:
-  <ul>
-  <li><b>Pausing</b> the readable stream when a connected writable stream cannot process data fast enough</li>
-  <li><b>Resuming</b> the readable stream when a connected writable stream is finally able to receive more data</li>
-  </ul>
-  By implementing streams on top of async operations it's possible to run many of them concurrently very efficiently.<br>
-  When properly implemented for example an async pipeline can concurrently read from disk, write to a socket while compressing data.<br>
-  For now only Readable / Writable File and Socket streams have been implemented, but Async Transform Streams (for compression) will be next!<br>
-
-  Most notable differences with node.js streams are for now:
-  <ul>
-  <li>No allocation (designed to work inside user-provided list of buffers)</li>
-  <li>No object mode</li>
-  <li>Fixed Layout to create data pipelines (<code>AsyncPipeline</code>)</li>
-  <li><code>onData</code> support only (no <code>readable</code> event)</li>
-  </ul>
-
-  <code>Async Streams</code> are for now in 🟥 Draft state.
-  It's also possible that its API will evolve a little bit to be less verbose and there is also lack of nice examples, aside from the tests.<br>
-  It's better waiting for it to become stable before doing anything significant with it.<br>
-  Some changes and fixes in the <a href="https://pagghiu.github.io/SaneCppLibraries/library_async_streams.html" target="_new"><code>SC::Async</code></a> library
-  have been made necessary to support Async Streams.
-  <br><br>
-  This is the list of related commits:
-  <ul>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/339f291e" target="_new">Async: Add AsyncReadableStream</a></li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/11a2b925" target="_new">Async: Add AsyncWritableStream</a></li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9d9d550b" target="_new">Async: Draft AsyncPipeline and AsyncRequest{Readable | Writable} Stream</a></li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fc97464e" target="_new">Async: Extend AsyncRequest{Readable | Writable}Stream to Socket Send/Receive</a></li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/46174b02" target="_new">Async: Make AsyncPipeline and AsyncRequest{Readable | Writable}Stream public</a></li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/15ec1855" target="_new">Async: Make AsyncSocket{Send | Receive} buffer and handle public</a></li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a6bdc110" target="_new">Async: Rename AsyncPipeline::Sink to AsyncPipeline::Pipe</a></li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3c780170" target="_new">Async: Reorganize AsyncTest for clarity</a></li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c251205c" target="_new">Async: Use offsets only if explicitly set in AsyncFile{Read | Write}</a></li>
-  </ul>
-  </p>
-  </section>
-
-  <section>
-  <h2>Additional fixes<a href="#section-2" id="section-2" class="secondary" tabindex="-1">#</a></h2>
-  <p class="chapter">Fix fix fix</p>
-  <p>
-
-  And just like every update, a bunch of fixes and improvements to all libraries have been committed.
-  Nothing specific stands out this update, but for completeness this is the list of related commits:          
-  <ul>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9347ca62" target="_new">Build: Bypass VMWare hgfs issue setting wrong modified time for new files</a> </li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a075702d" target="_new">Build: Support linking system libraries in XCode</a> </li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a572d897" target="_new">Containers: Fix compile errors under latest MSVC</a> </li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ee4947b2" target="_new">Documentation: Enable warnings as errors</a> </li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/596f0523" target="_new">Documentation: Update README.md with latest videos</a> </li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b0778887" target="_new">Foundation: Add equality operator to Function</a> </li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0ad81879" target="_new">Foundation: Add HeapBuffer</a> </li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c750871f" target="_new">Foundation: Add Span::equals</a> </li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/7f08864b" target="_new">Foundation: Add Span::get(int)</a> </li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/14f37f58" target="_new">Foundation: Add StrongID</a> </li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e80edc21" target="_new">Hashing: Improve documentation</a> </li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/23e7b37b" target="_new">Meta: Ignore sync folder and icon files</a> </li>
-  <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fa9a48cb" target="_new">Tools: Rebuild bootstrap when make fails</a> </li>
-
-  </ul>          
-  </p>
-  </section>
-  
     </main>
     <footer>
       <div class=" container">
