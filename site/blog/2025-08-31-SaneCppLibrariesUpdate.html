@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-        <title>Sane Coding Blog - 🎠 Sane C++ February 24</title>
+      <title>Sane Coding Blog - 🌊 Sane C++ August 25</title>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" href="https://pagghiu.github.io/images/favicon.png">
@@ -112,7 +112,7 @@
             <ul>
                 <!--- articles_page.object_list --->
                 <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html" title="Permalink to 🌊 Sane C++ August 25">
+                    <a class="secondary" aria-current="page" href="" title="Permalink to 🌊 Sane C++ August 25">
                     🌊 Sane C++ August 25
                     <br>
                 </a>
@@ -214,7 +214,7 @@
                 </a>
             </li>
                 <li>
-                    <a class="secondary" aria-current="page" href="" title="Permalink to 🎠 Sane C++ February 24">
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-02-23-SaneCppLibrariesUpdate.html" title="Permalink to 🎠 Sane C++ February 24">
                     🎠 Sane C++ February 24
                     <br>
                 </a>
@@ -235,158 +235,178 @@
         </details>
     </nav>
 </aside>
-    <hgroup>
-      <p class="chapter">Fri 23 February 2024</p>
-      <h1>🎠 Sane C++ February 24</h1>
-      
-      <figure>
-        <img src="https://pagghiu.github.io/images/2024-02-23-SaneCppLibrariesUpdate/article.png" alt="SC" />
-      </figure>
-      <p>
-        <p>Two months have passed since the <a href="2023-12-23-SaneCppLibrariesRelease.html">initial release of Sane C++ Libraries</a>! 🎉🎉🎉<br> This post collects all relevant events happened during the second month of (public) life of the project.</p>
-        📄 <a href="../../SaneCppLibraries/index.html" target="_blank">Sane C++ Libraries Documentation</a><br>
-        💻 <a href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Sane C++ Libraries
-            Repository <img src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a> <br>
-        📹 <a href="https://www.youtube.com/@Pagghiu" target="_blank">Sane Coding Youtube channel</a> <img
-            src="https://img.shields.io/youtube/channel/subscribers/UCnmN_whfM12LU6VNQWG0NFg"> <br>
-        💬 <a href="https://discord.gg/tyBfFp33Z6" target="_blank">Sane Coding Discord</a> <a
-            href="https://discord.gg/tyBfFp33Z6"><img src="https://img.shields.io/discord/1195076118307426384"></a>
-              </p>
-    </hgroup>
-    <aside id="table-of-contents">
-<nav class="is-sticky-above-lg ">
-<details open="">
-<summary>Content</summary>
+  <hgroup>
+    <p class="chapter">Sun 31 August 2025</p>
+    <h1 id="section-0">🌊 Sane C++ August 25</h1>
+    
+    <figure>
+      <img src="https://pagghiu.github.io/images/2025-08-31-SaneCppLibrariesUpdate/article.png" alt="SC" />
+    </figure>
+    <p>
+      <p>Welcome to the update post for August 2025!<br> This month we finally have Single File Libs!!!</p>
+    </p>
+  </hgroup>
+  <aside id="table-of-contents">
+    <nav class="is-sticky-above-lg ">
+      <details open="">
+        <summary>Content</summary>
+        <div class="col-lg-3 hidden-xs hidden-sm">
+          <ul>
+            <li><a class="secondary" href="#section-0">August Updates</a></li>
+            <li><a class="secondary" href="#single-file-libraries">Single File Libraries</a></li>
+            <li><a class="secondary" href="#threading">Threading</a></li>
+            <li><a class="secondary" href="#async">Async</a></li>
+            <li><a class="secondary" href="#asyncstreams">AsyncStreams</a></li>
+            <li><a class="secondary" href="#algorithms">Algorithms</a></li>
+            <li><a class="secondary" href="#process">Process</a></li>
+            <li><a class="secondary" href="#strings">Strings</a></li>
+            <li><a class="secondary" href="#build">Build</a></li>
+            <li><a class="secondary" href="#file">File</a></li>
+            <li><a class="secondary" href="#other-improvements">Other Improvements</a></li>
+          </ul>
+        </div>
+      </details>
+    </nav>
+  </aside>
+  <div id="content" role="document">
+    <h1 id="single-file-libraries">Single File Libraries</h1>
+<p>One of the core principles of this project is to be "Easy to Integrate".<br>
+I'm always looking for ways to lower the barrier to entry for using these libraries in your own projects.</p>
+<p>To that end, I'm happy to announce that all Sane Cpp Libraries are now available as <strong>single-file libraries</strong>!</p>
+<p>This means you can now get the power of a library like <code>SC::Async</code> or <code>SC::Process</code> by simply dropping a single <code>.h</code> file into your project.<br>
+No complex build system integration, no scripts to run—just include the header and build the source file. It's that simple.</p>
+<p>There are two amalgamator tools written in Python and Javascript, that you can use to generate the single file libs locally on a checked out copy of the repo.
+Alternatively you can use the browser-based JavaScript amalgamator available at <a href="https://pagghiu.github.io/SaneCppLibraries/single_file_libs.html">single_file_libs.html</a>.</p>
+<p><a href="https://pagghiu.github.io/SaneCppLibraries/single_file_libs.html" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/SCAmalgamationGenerator.jpg">
+</a></p>
+<p><a href="https://pagghiu.github.io/SaneCppLibraries/single_file_libs.html" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/SCAmalgamationExample.jpg">
+</a></p>
+<p><strong>Detailed list of commits:</strong></p>
 <ul>
-<li><a class="secondary" href="#section-0">Sane C++ February 2024</a></li>
-<li><a class="secondary" href="#section-1">Code</a></li>
-<li><a class="secondary" href="#section-2">Github Releases</a></li>
-<li><a class="secondary" href="#section-3">Hacker News</a></li>
-<li><a class="secondary" href="#section-4">Github</a></li>
-<li><a class="secondary" href="#section-5">YouTube</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0a0a269a">SingleFileLibs/Javascript: Add javascript single file libs amalgamator (in-browser + cli)</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8ddb8370">SingleFileLibs/Python: Add python single file libs amalgamator</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/304be752">SingleFileLibs/Python: Print total lines of code at the end of library tables</a></li>
 </ul>
-</details>
-</nav>
-</aside>
-<div id="content" role="document">
-<section>
-<article>
-<h2>Code<a href="#section-1" id="section-1" class="secondary" tabindex="-1">#</a></h2>
-Code is always the most important news!👨🏻‍💻<br>
-Continuing giving Linux some love!! 🐧
-<br>
-<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a> got an
-<code>io_uring</code> Linux backend!<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a>
-<code>epoll</code> backend got simplified <br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a> now
-tracks all active requests to mark them as free on a sudden close requests. <br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a> got
-all private implementation details hidden under a compiler firewall<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a> can
-now use <code>SC::ThreadPool</code> to run some async ops<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a>
-<code>AsyncFileRead</code> / <code>AsyncFileWrite</code> are now fully async also on buffered files <br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_threading.html"
-target="_blank">SC::ThreadPool</a> has been added, to allow running tasks in background<br>
-✅ Got CI building and running tests on Windows, Linux and macOS (using Github Actions).<br>
-✅ The CI also enforces proper formatting through clang-format.<br>
-✅ Fixed a few UB and leaks signaled by gcc UBSAN and LSAN on Linux.<br>
-✅ Improved documentation for <a href="https://pagghiu.github.io/SaneCppLibraries/page_building_user.html"
-target="_blank">Building as an User</a> vs
-<a href="https://pagghiu.github.io/SaneCppLibraries/page_building_contributor.html">Building as a
-contributor</a><br>
-
-<h2>Github Releases<a href="#section-2" id="section-2" class="secondary" tabindex="-1">#</a></h2>
-I have started creating Github <a href="https://github.com/Pagghiu/SaneCppLibraries/releases"
-target="_blank">releases</a> tagged with each month. <br>
-I'm not planning to do semantic versioning for now, just sticking to <i>year-month</i> release tagging.
-<p>
+<h1 id="threading">Threading</h1>
+<p>The <code>Threading</code> library received some love this month and has now been promoted to <strong>Usable</strong> status!</p>
+<p>Here are some of the key additions:</p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/tag/release%2F2024%2F02"
-target="_blank">February 2024
-Release</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/tag/release%2F2024%2F01"
-target="_blank">January 2024
-Release</a></li>
+<li><strong><code>SC::Semaphore</code></strong>: A classic semaphore for controlling access to a resource.</li>
+<li><strong><code>SC::Barrier</code></strong>: A synchronization primitive that allows a set of threads to wait for each other to reach a certain point before continuing.</li>
+<li><strong><code>SC::RWLock</code></strong>: A reader-writer lock that allows concurrent access for read-only operations, but exclusive access for write operations.</li>
+<li><strong><code>Atomic&lt;T&gt;</code> improvements</strong>: The atomic types have been improved with more operations and better memory ordering support for MSVC.</li>
 </ul>
-</p>
-<h2>Hacker News<a href="#section-3" id="section-3" class="secondary" tabindex="-1">#</a></h2>
-The Library has been <a href="https://news.ycombinator.com/item?id=39159153">posted to Hacker News</a>
-bringing some visibility on the project for a few hours.
-The discussions / comments are also quite interesting, sparkled by the many opinionated and strong decisions /
-principles of the library.<br>
-I've tried answering some of the posts, and it has been fun honestly 😁.<br>
-Some themes:<br>
+<p>I also fixed a tricky "lost wake-up" bug in <code>EventObject</code>'s condition variable signaling, which improves the robustness of thread synchronization.</p>
+<p><strong>Detailed list of commits:</strong></p>
 <ul>
-<li>You shouldn't be writing C++ libraries without the standard library / exceptions / smart pointers</li>
-<li>Qt / POCO exists and provides everything you need</li>
-<li>Writing Builds in C++ is not Sane</li>
-<li>You should implement all containers that exists in the STL</li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0f14d189">Threading: Add Barrier</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/29f4107c">Threading: Add RWLock</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4d2a9fb2">Threading: Add Semaphore</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9e8de5b5">Threading: Improve Atomic<bool> and Atomic<int32_t></a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/20c6700c">Threading: Prevent EventObject lost wake-up and fix Mutex destructor</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ef558303">Threading: Promote Threading to Usable</a></li>
 </ul>
-My favorite comment is <a href="https://news.ycombinator.com/item?id=39161028"> this one</a>:
-<figure>
-<img src="https://pagghiu.github.io/site/blog/HackerNewsComment.jpg">
-</figure>
-<h2>Github<a href="#section-4" id="section-4" class="secondary" tabindex="-1">#</a></h2>
-<p>
-As of today, the Sane C++ Libraries has got 419 ⭐️ stars ⭐️ on <a
-href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Github</a>
-(<a href="https://github.com/pagghiu/SaneCppLibraries"><img
-src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a>).<br>
-A big jump from the 187 stars of last month!<br>
-A big step has been due to the hacker news post, but in the subsequent weeks there has been a steady
-and horganic increase, hopefully meaning that more people are finding something interesting in the project.
-</p>
+<h1 id="async">Async</h1>
+<p>The <code>Async</code> library received several important fixes, particularly for the <code>io_uring</code> backend on Linux and the IOCP backend on Windows.<br>
+These changes improve the reliability and prevent potential hangs or asserts when dealing with asynchronous file and pipe operations.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/53b90663">Async: Allow re-using AsyncProcessExit on Linux under io_uring</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6882e371">Async: Do not expect IOCP cancellation packet if AsyncFilePoll handle is already closed</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/55651c5e">Async: Do not process AsyncFilePoll cancellations on io_uring backend</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0a62eae8">Async: Handle file descriptor read or write succeeding synchronously on Windows</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/815c2102">Async: Re-organize files for more effective unity build</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/60118293">Async: Support async pipe non-blocking reads</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2ca79bb6">Async: Test synchronous pipe reads from ThreadPool</a></li>
+</ul>
+<h1 id="asyncstreams">AsyncStreams</h1>
+<p><code>AsyncStreams</code> has been promoted to <strong>MVP</strong> (Minimum Viable Product), meaning its core feature set is in place for concurrently reading, writing, and transforming byte streams.  </p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a37078a3">AsyncStreams: Add async request test variation for blocking and non-blocking pipes</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e1b307b9">AsyncStreams: Process leftover input bytes before finalizing zlib stream</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1d0e047e">AsyncStreams: Promote AsyncStreams to MVP</a></li>
+</ul>
+<h1 id="algorithms">Algorithms</h1>
+<p>The Algorithms library has been removed, or to be more precise it has been merged to Containers.
+The reason is pretty simple, I am not a great fan of using std-like algorithms aside from very simple usages.
+I find that any non-trivial usage of std C++ <code>&lt;algorithm&gt;</code> make code more difficult to read and reason about.<br>
+For this reason Sane C++ <code>Algorithms</code> library was only bringing 3 functions (<code>removeIf</code>, <code>sort</code> and <code>find</code>) so it made really little sense.<br>
+If you need std-like algorithms, just include <code>&lt;algorithm&gt;</code> or add some other library providing them to your project.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/76158a1b">Algorithms: Revoke its standalone library status moving it to Containers</a></li>
+</ul>
+<h1 id="process">Process</h1>
+<p>Process library has been improved with arguments quoting on Windows.
+There's now better support for redirecting standard I/O and better support for ipc pipes in general, that has also involved the File library.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2660f3d7">Process: Automatically set child process standard IO inherit flags</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3b802fbb">Process: Check the correct variable before assigning environmentMemory</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1d146ea0">Process: Increment environment storage to 16K chars</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/03199676">Process: Quote arguments on Windows with any UTF encoding</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e154dafa">Process: Validate external pipes used to redirect child process IO</a></li>
+</ul>
+<h1 id="strings">Strings</h1>
+<p>The <code>Path</code> and <code>StringBuilder</code> classes now have better support for to handle UTF8 and UTF16 encodings.<br>
+Throughout the libraries the philosophy is to keep strings in whatever encoding they've been given.
+Strings are lazy converted only when required by some OS API and in some cases this could lead to hitting asserts due to unsupported encodings.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6507b49e">Strings: Check for null iterator before calling memchr</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6cdb0436">Strings: Remove StringView::slice methods using bytes</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a6ab717e">Strings: Support mixed encodings in Path</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2ad27c99">Strings: Support mixed encodings in StringBuilder::appendReplaceAll</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/bd272a53">Strings: Support mixed encodings in StringView::split{Before | After}</a></li>
+</ul>
+<h1 id="build">Build</h1>
+<p>The self-hosted C++ build system can now generate workspace files that group multiple projects.
+This has been done to support testing compilation of the Single File Libs in the CI, but it can be useful in general.</p>
+<p>If absolute paths are used when adding files to a project, they will be automatically made relative to the project root directory.</p>
+<p>Some better checking in makefile generation has been added, to avoid trying to build non-existing configurations.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/655ca98c">Build: Automatically compute relative paths when required for files</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/71182e79">Build: Generate workspace files grouping multiple projects</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d9e09efd">Build: Print error when an unsupported configuration is requested</a></li>
+</ul>
+<h1 id="file">File</h1>
+<p>The file library gains methods to open stdin / stderr and stdout cross-platform.<br>
+Also the API for Pipe has been changed to make sure properly setting inheritable and blocking flags during creation, as in some platforms (Windows) some of these behaviors cannot be changed later (mainly setting OVERLAPPED_IO flags).</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e7ff8fb5">File: Add methods to open stdin / stderr / stdout</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/43bb44e5">File: Enforce setting inheritable and blocking flags during pipe creation</a></li>
+</ul>
+<h1 id="other-improvements">Other Improvements</h1>
+<p>Beyond these major updates, August included a bunch of other fixes:</p>
+<ul>
+<li><strong>CI</strong>: The continuous integration pipeline now automatically generates and builds the single-file libraries to ensure they are always up-to-date and working correctly.</li>
+<li><strong>Dependencies</strong>: The LOC update is handled by the Python amalgamator script and the dependency .json generator is a separate script</li>
+<li><strong>Everywhere</strong>: Fix some warnings under clang-cl and ASAN warning about using out of scope stack memory for FileSystemIterator</li>
+<li><strong>Tools</strong>: Generate PDBs on windows so that tools can be debugged</li>
+</ul>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/80f11581">CI: Add single file libs generation and build</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a9deffea">CI: Always apt-get update before apt-get install</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1a9662f9">Dependencies: Add script to just update library dependencies</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d2c2af71">Documentation: Update LOC for all libraries</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c1f74b45">Everywhere: Declare FileSystemIterator::FolderState before FileSystemIterator</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d0c3b8c6">Everywhere: Fix clang-cl warnings and unity build issues</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8147fe99">Everywhere: Remove nodiscard when used with Result</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e80abd40">FileSystem: Fix conversion of precise error messages</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5c52cc56">Plugin: Propagate host executable sanitization flags</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d412fd19">Testing: Enforce TestReport not printing anything under quiet mode</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/cd429f4d">Tools: Generate PDB when building tools on Windows</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/749742c5">Tools: Run SC-format with default event loop backend</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/70b2d740">Tools: Update 7zr to 25.01</a></li>
+</ul>
+  </div>
 
-<h2>YouTube <a href="#section-5" id="section-5" class="secondary" tabindex="-1">#</a></h2>
-<p>
-I have been producing 5 videos explaining some of the design decisions around the <a
-href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a>
-library, the addition of <code>io_uring</code> to it, the creation of <a
-href="https://pagghiu.github.io/SaneCppLibraries/library_threading.html"
-target="_blank">SC::ThreadPool</a> and how it has been used to do proper Async File I/O also for buffered
-files (that always act synchronously under most async APIs, excluding <code>io_uring</code>...)
-</p>
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/pIGosb2D2Ro?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/YR935rorb3E?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/CgYE0YrpHt0?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/e48ruImESxI?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/WF9beKyEA_E?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<h2>Next<a href="#section-1" id="section-4" class="secondary" tabindex="-1">#</a></h2>
-So what's next?<br>
-I'm not really sure. One thing I would like to experiment with is a <a href="https://github.com/nothings/stb"
-target="_blank">stb style</a> wrapper for some of the libraries, to make them usable from C.
-<br>
-Thank you for reading this far!<br><br>
-Bye!👋🏼<br>
-Pagghiu
-</article>
-
-</section>
-</div>
-  
     </main>
     <footer>
       <div class=" container">
