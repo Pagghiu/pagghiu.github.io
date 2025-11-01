@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-        <title>Sane Coding Blog - 🏖️ Sane C++ July 24</title>
+      <title>Sane Coding Blog - 🌧️ Sane C++ October 25</title>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" href="https://pagghiu.github.io/images/favicon.png">
@@ -112,7 +112,7 @@
             <ul>
                 <!--- articles_page.object_list --->
                 <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-10-31-SaneCppLibrariesUpdate.html" title="Permalink to 🌧️ Sane C++ October 25">
+                    <a class="secondary" aria-current="page" href="" title="Permalink to 🌧️ Sane C++ October 25">
                     🌧️ Sane C++ October 25
                     <br>
                 </a>
@@ -196,7 +196,7 @@
                 </a>
             </li>
                 <li>
-                    <a class="secondary" aria-current="page" href="" title="Permalink to 🏖️ Sane C++ July 24">
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-07-31-SaneCppLibrariesUpdate.html" title="Permalink to 🏖️ Sane C++ July 24">
                     🏖️ Sane C++ July 24
                     <br>
                 </a>
@@ -247,202 +247,149 @@
         </details>
     </nav>
 </aside>
-    <hgroup>
-      <p class="chapter">Wed 31 July 2024</p>
-      <h1>🏖️ Sane C++ July 24</h1>
-      
-      <figure>
-        <img src="https://pagghiu.github.io/images/2024-07-31-SaneCppLibrariesUpdate/article.png" alt="SC" />
-      </figure>
-      <p>
-        <p>Welcome to the update post for July 2024!<br>The focus of the month has been building a nicer showcase for <code>SC::Plugin</code> and <code>SC::Serialization</code> libraries.</p>
-        📄 <a href="../../SaneCppLibraries/index.html" target="_blank">Sane C++ Libraries Documentation</a><br>
-        💻 <a href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Sane C++ Libraries
-            Repository <img src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a> <br>
-        📹 <a href="https://www.youtube.com/@Pagghiu" target="_blank">Sane Coding Youtube channel</a> <img
-            src="https://img.shields.io/youtube/channel/subscribers/UCnmN_whfM12LU6VNQWG0NFg"> <br>
-        💬 <a href="https://discord.gg/tyBfFp33Z6" target="_blank">Sane Coding Discord</a> <a
-            href="https://discord.gg/tyBfFp33Z6"><img src="https://img.shields.io/discord/1195076118307426384"></a>
-              </p>
-    </hgroup>
-    <aside id="table-of-contents">
-  <nav class="is-sticky-above-lg ">
-    <details open="">
-      <summary>Content</summary>
-      <ul>
-        <li><a class="secondary" href="#section-0">Sane C++ June 2024</a></li>
-        <li><a class="secondary" href="#section-1">SCExample</a></li>
-        <li><a class="secondary" href="#section-2">SC::Serialization</a></li>
-        <li><a class="secondary" href="#section-3">SC::Plugin</a></li>
-        <li><a class="secondary" href="#section-4">SC::Build</a></li>
-        <li><a class="secondary" href="#section-5">Contributions</a></li>
-        <li><a class="secondary" href="#section-6">Additional fixes</a></li>
-      </ul>
-    </details>
-  </nav>
-</aside>
-<div id="content" role="document">
-
-<section>
-<h2>SCExample<a href="#section-1" id="section-1" class="secondary" tabindex="-1">#</a></h2>
-<p class="chapter">Serializer example</p>
-<p>
-The hot-reload system of SCExample has been tuned so that each internal example is just an hot-reloaded Plugin.
-It's now very convenient to iteratively build them and experiment!
-A nice serialization example has been added to SCExample,  based on a very well known piece of code from the official imgui demo.
-State of the canvas control is saved to binary and json using the automatic serialization provided by the reflection system.
-It's also showing a somewhat advanced usage of the Reflection system, that is how to wrap a "custom" vector implementation (ImVector<T>)
-
-
-<iframe width="700" height="400" src="https://github.com/user-attachments/assets/2a38310c-6a28-4f86-a0f3-665dc15b126d" frameborder="0" allowfullscreen>
-</iframe>
-
-There is a video where I've been recording the most important bits of this development:                    
-<p>
-  <iframe width="560" height="314" src="https://www.youtube-nocookie.com/embed/d7DXxC6xG_A?si=vyQhUZ_vU5Rtn0pi"
-  title="YouTube video player" frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  allowfullscreen></iframe>  
-</p>
-
-And as a last nicety, SCExample has been fully ported to iOS!
-Hot-reload obviously requires root access to install clang compiler and a sysroot on iOS, so it will work only if you have an active jailbreak.
-
-Also here I've been recording a video on finalizing porting SCExample to iOS.
-
-
-<p>
-  <iframe width="560" height="314" src="https://www.youtube-nocookie.com/embed/6DfykfYCQdY?si=vyQhUZ_vU5Rtn0pi"
-  title="YouTube video player" frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  allowfullscreen></iframe>  
-</p>
-
-
-This is the list of SCExample related commits:
+  <hgroup>
+    <p class="chapter">Fri 31 October 2025</p>
+    <h1 id="section-0">🌧️ Sane C++ October 25</h1>
+    
+    <figure>
+      <img src="https://pagghiu.github.io/images/2025-10-31-SaneCppLibrariesUpdate/article.png" alt="SC" />
+    </figure>
+    <p>
+      <p>Welcome to the October 2025 update!<br> This month internal dependencies have been further removed.</p>
+    </p>
+  </hgroup>
+  <aside id="table-of-contents">
+    <nav class="is-sticky-above-lg ">
+      <details open="">
+        <summary>Content</summary>
+        <div class="col-lg-3 hidden-xs hidden-sm">
+          <ul>
+            <li><a class="secondary" href="#section-0">October Updates</a></li>
+            <li><a class="secondary" href="#reducing-internal-dependencies">Reducing Internal Dependencies</a></li>
+            <li><a class="secondary" href="#bring-your-own-containers">Bring Your Own Containers</a></li>
+            <li><a class="secondary" href="#tools-new-bootstrap">Tools new bootstrap</a></li>
+            <li><a class="secondary" href="#build">Build</a></li>
+            <li><a class="secondary" href="#test-coverage">Test Coverage</a></li>
+            <li><a class="secondary" href="#ci">CI</a></li>
+            <li><a class="secondary" href="#miscellaneous">Miscellaneous</a></li>
+          </ul>
+        </div>
+      </details>
+    </nav>
+  </aside>
+  <div id="content" role="document">
+    <h1 id="reducing-internal-dependencies">Reducing Internal Dependencies</h1>
+<p>The first part of the month month has been focused on continuing breaking <strong>internal</strong> dependencies between libraries.</p>
+<p>The goal is for Sane C++ Libraries to be a collection of libraries that <em>work well together</em>, rather than a monolithic <em>framework</em>.
+Users should be able to use a single library in isolation without being forced to adopt the entire ecosystem.</p>
+<p><code>Plugin</code>, <code>FileSystemWatcher</code>, <code>Async</code> and <code>Http</code> libraries have seen their dependencies reduced, and the resulting dependencies graph is now starting to look a lot nicer!</p>
+<p><a href="https://pagghiu.github.io/SaneCppLibraries/page_dependencies.html" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/2025-10-Dependencies.svg">
+</a></p>
+<p><strong>Detailed list of commits:</strong></p>
 <ul>
-
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/85e6352b" target="_new">SCExample: Port to iOS</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c839d17f" target="_new">SCExample: Show compile errors when hovering examples</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/641c9276" target="_new">SCExample: Refactoring hot-reload plugins as examples</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b14ef5ed" target="_new">SCExample: Add Serialization example</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e03402cc">Plugin: Refactoring to isolate FileSystemIterator usage</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d44ce07e">Plugin: Remove Plugin dependency on FileSystem</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e252e18c">Plugin: Remove Plugin dependency on FileSystemIterator</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5d4b050e">Plugin: Remove Plugin dependency on Time</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/abc2abc8">FileSystemWatcher: Remove dependency on Threading</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/10c9b893">Http: Remove Http dependency on Strings</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2db0ebc6">Async: Remove dependency on Time</a></li>
 </ul>
-</p>
-</section>
-
-
-<section>
-<h2>SC::Serialization<a href="#section-2" id="section-2" class="secondary" tabindex="-1">#</a></h2>
-<p class="chapter">Serialize all the things</p>
-<p>
-
-While building the Serialization example, a few fixes have been made necessary to 
-<code><a href="https://pagghiu.github.io/SaneCppLibraries/library_serialization_binary.html" target="_blank">SC::SerializationBinary</a></code>.
-The first has been supporting the bool data type that for some obscure reason was missing from the primitive types.
-Some helpers to read and write the schema together with serialized data have been added to make it easy supporting versioned binary serialization.
-Fields can be added or removed, and the serializer will still try to load data that can be converted assuming a matching order.
-There is also some support for changing field types. For example a float field that is converted to int (or vice-versa) will receive a truncated value on deserialization.
-
+<h1 id="bring-your-own-containers">Bring Your Own Containers</h1>
+<p>A new example called <a href="https://github.com/Pagghiu/SaneCppLibraries/tree/main/Tests/InteropSTL">InteropSTL</a> has been added to show how to use <code>std::string</code> and <code>std::vector&lt;char&gt;</code> with some Sane C++ Libraries.
+You don't need to use the STL containers, this is only showing that you can absolutely <em>Bring Your Own Containers</em> (including strings) if for whatever reason one is not interested in using <code>String</code> and <code>Vector&lt;&gt;</code> variations already included in the project.  </p>
+<p>Some details about how how this works: as a consequence of the dependencies reduction, in the past months a new virtual interface has been introduced (named <code>IGrowableBuffer</code>) abstracting strings and writable byte buffers, allowing for all libraries not to depend on the <code>Strings</code> or <code>Memory</code> libraries.<br>
+This month one more step has been done, by further optimizing it so that the only <em>virtual</em> function call is done when physically requiring an allocation if the available growable buffer capacity is insufficient.<br>
+Callers can always avoid this indirect function call by properly sizing the buffer before using some library.<br>
+Previously a second virtual call was always done in the <code>IGrowableBuffer</code> destructor, but now this has been optimized.
+As the number of potential <em>virtual</em> methods has become just one, the interface has been changed from a virtual one into a regular plain struct with a function pointer, reducing the additional indirection required by the C++ vtable dereferencing!  </p>
+<p>So now it's up to you to bring your own containers!!</p>
+<p><strong>Detailed list of commits:</strong></p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fe203bb1" target="_new">Reflection: Add vector manipulation methods to ExtendedTypeInfo</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0419d749" target="_new">Reflection: Support bool primitive type</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f83bb784" target="_new">SerializationBinary: Add writeWithSchema and loadVersionedWithSchema</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/03ef3a13" target="_new">SerializationBinary: Reduce boilerplate needed to wrap a custom vector container</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/18d871c2" target="_new">SerializationBinary: Support bool primitive type</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/89814957" target="_new">SerializationText: Reduce boilerplate needed to wrap a custom vector container</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a2bcb9d2">Everywhere: De-virtualize IGrowableBuffer destruction</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5f70908a">Strings: Obtain encoding from GrowableBuffer<T> in StringBuilder</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/cb8bca41">InteropSTL: Show std::string and std::vector<char> usage with File and FileSystem libraries</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e1467be9">InteropSTL: Show std::string and std::vector<char> usage with Strings library</a></li>
 </ul>
-
-
-</p>
-</section>
-
-
-<section>
-<h2>SC::Plugin<a href="#section-3" id="section-3" class="secondary" tabindex="-1">#</a></h2>
-<p class="chapter">Hot-Reload like there is no tomorrow</p>
-<p>
-
-<code><a href="https://pagghiu.github.io/SaneCppLibraries/library_plugin.html" target="_blank">SC::Plugin</a></code>  library has received a few improvements, 
-like the ability to specify a path for the sysroot under clang (needed on iOS), and it's capturing compiler and linker outputs.
-This last one allows showing compile errors in the plugin host app, that is a nice addition to SCExample.
-Finally some dynamic export clauses have been added to many libraries in order for Plugins to find symbols in the host application that is loading them.
-This will for sure increase the executable size as the linker will not be able to trim such classes as "unused" code, even if they're not referenced by any Plugin.
-Probably some macro to disable this "export by default" behavior will be added for anyone that wants to use Sane C++ Libraries without the Plugin Library or without 
-needing to use Sane C++ Libraries type across dynamic library boundaries.
-
+<h1 id="tools-new-bootstrap">Tools new bootstrap</h1>
+<p><a href="https://pagghiu.github.io/SaneCppLibraries/page_tools.html">SC::Tools</a> are self contained single C++ source files that are (automatically) compiled on the fly and linked to Sane C++ to be immediately executed.<br>
+The mechanism used to compile them was historically involving both <code>Make</code> on Posix and <code>NMake</code> on Windows to rebuild <code>SC.cpp</code> <em>library</em> and the <code>SC-${TOOL_NAME}.cpp</code> <em>script</em> separately, link them and also to rebuild them only when some of their dependencies change.<br>
+Both <code>Make</code> and <code>NMake</code> have now been replaced by a native <code>ToolsBootstrap.cpp</code> that doesn't use any of the project's libraries.<br>
+The new bootstrap does the same work as <code>Make</code> but hardcoded on compiling the <code>SC.cpp</code> plus the <code>SC-${TOOL_NAME}.cpp</code> on Posix/Windows.  </p>
+<p><strong>Detailed list of commits:</strong></p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e6d21a84" target="_new">Plugin: Allow overriding isysroot path</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/61b89284" target="_new">Plugin: Capture compiler and linker output</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1ffb8749" target="_new">Everywhere: Add export clause for use across Plugin boundaries</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ef36596e">Tools: Add ToolsBootstrap to get rid of the Makefiles</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/da3cc54d">Tools: Fix time tracking for compiling Tools on older macOS</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0051b6dd">Tools: Fix time tracking for compiling Tools on Windows</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/532f3a14">Tools: Improve ToolsBootstrap code clarity</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8bca9513">Tools: Print how much time is being spent compiling a Tool on Windows</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f646f509">Tools: Print how much time is being spent compiling a Tool</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c37ddc9e">Tools: Support folder with spaces and unicode code points in ToolsBootstrap</a></li>
 </ul>
-
-
-</p>
-</section>
-
-
-
-<section>
-<h2>SC::Build<a href="#section-4" id="section-4" class="secondary" tabindex="-1">#</a></h2>
-<p class="chapter">Actually got a promotion!</p>
-<p>
-<code><a href="https://pagghiu.github.io/SaneCppLibraries/library_build.html" target="_blank">SC::Build</a></code> library has 
-received some improvements too, supporting generation of iOS project and application icon for Xcode app bundle.
-There are still many missing features and too many hardcoded defaults but I feel that the library deserves more than a Draft status.
-For this reason I've been promoting it to MVP status: maybe this will become an incentive to add more features to make it usable!
-
+<h1 id="build">Build</h1>
+<p>The <a href="https://pagghiu.github.io/SaneCppLibraries/page_build.html">SC::Build</a> is a <a href="https://pagghiu.github.io/SaneCppLibraries/page_tools.html">tool</a> implementing a build system generator where builds are imperatively described in C++.  </p>
+<p>This month it gets:</p>
 <ul>
-
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d865cc41" target="_new"> Build: Add iOS storyboard generation</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ca0fb7b6" target="_new"> Build: Elevate to MVP status</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6551c1e3" target="_new"> Build: Support application icon in Xcode app bundles</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/70d32b7d" target="_new"> Build: Support iOS</a></li>
+<li>switches to change the C++ standard used by projects</li>
+<li>some fixes for enabling exceptions on VS Projects</li>
+<li>makefiles avoiding to use the (quite dangerous) <code>rm -rf</code> to remove intermediates and output directory as that was incompatible with building multiple projects in the same output folder.</li>
+<li>Also now custom arguments can be passed when using the run verb so for example, parsed after the first <code>--</code> appended to the commandline</li>
 </ul>
+<div class="highlight"><pre><span></span><code>./SC.sh<span class="w"> </span>build<span class="w"> </span>run<span class="w"> </span>SCTest<span class="w"> </span>Debug<span class="w"> </span>--<span class="w"> </span>--arg1<span class="w"> </span>--arg2
+</code></pre></div>
 
-</p>
-</section>
-
-
-<section>
-<h2>Contributions<a href="#section-5" id="section-5" class="secondary" tabindex="-1">#</a></h2>
-<p class="chapter">Together we can build more!</p>
-<p>          
-This month <a href="https://x.com/_plop_" target="_new">Jeremy Laumon</a> has been adding <code>.natvis</code> support for Arrays!
-
+<p>The above invokes the SCTest executable, as built by the SCTest project with the <code>--arg1</code> and <code>--arg2</code> arguments.</p>
+<p><strong>Detailed list of commits:</strong></p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/415dc323" target="_new">DebugVisualizers: Add natvis for SegmentedItems and Array</a></li>
-</ul>          
-</p>
-</section>
-
-
-
-<section>
-<h2>Additional fixes<a href="#section-6" id="section-6" class="secondary" tabindex="-1">#</a></h2>
-<p class="chapter">Fix fix fix</p>
-<p>
-
-And then the usual amount of monthly fixes!
-I can never stress how important is to use the libraries in a real project or even just in an example app to trigger issues and identify missing bits!
-<ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/050bad6a" target="_new">Strings: Export String and some SmallString<N> for use across Plugin boundaries</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1d485307" target="_new">Containers: Fix some incorrect Array member functions</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/20f2dd9b" target="_new">FileSystemWatcher: Add internal header with FSEvents declarations for iOS</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/54fb28bc" target="_new">Documentation: Improve README and fix descriptions of some libraries</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5a72dcf1" target="_new">FileSystem: Add read and write overloads for uint8_t</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/915367a5" target="_new">Strings: Fix doubles parsing</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a176a3e7" target="_new">Everywhere: Add lifetime bound attribute for StringViews and Spans</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e3121af6" target="_new">Foundation: Add Span::reinterpret_as_array_of<T>()</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e5475aff" target="_new">Tools: Use Github to download doxygen releases</a></li>
-
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/92b9fe17">Build: Add support to switch the C++ standard</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/7f82a06a">Build: Fix enabling Exception handling on Visual Studio projects</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b6e82ce2">Build: Only remove generated files in the 'clean' Makefile target</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8fb4ac8d">Build: Support passing custom arguments when using the run verb</a></li>
 </ul>
+<h1 id="test-coverage">Test Coverage</h1>
+<p><a href="https://pagghiu.github.io/SaneCppLibraries/coverage/">Test coverage</a> has been going down a little bit over the course of the past months, so a few commits have been done with the specific target of bringing it back in the ~85% range.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2e3dbf08">Everywhere: Increase test coverage</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fce72f48">Process: Increase test coverage</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/578d9207">AsyncStreams: Increase test coverage</a></li>
+</ul>
+<h1 id="ci">CI</h1>
+<p>CI was suffering from some flakiness on <code>FileSystemWatcher</code> macOS tests.<br>
+I suspect this has to do with how github is handling macOS VM as tests never fail locally but anyway, they are less flaky now.<br>
+Also the new <a href="https://github.com/Pagghiu/SaneCppLibraries/tree/main/Tests/InteropSTL">InteropSTL</a> is now compiled on all supported platforms to make sure it doesn't regress.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b370c72a">CI: Build with Xcode on macOS in Release configurations</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c1ebc74e">CI: Compile and test InteropSTL on all platforms</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5b2d7528">CI: Extend windows runners timeout</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d0cf32f1">FileSystemWatcherAsync: Reduce test flakiness on macOS (2nd attempt)</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f17d0504">FileSystemWatcherAsync: Reduce test flakiness on macOS</a></li>
+</ul>
+<h1 id="miscellaneous">Miscellaneous</h1>
+<p>And as always a bunch of fixes and minor additions throughout all libraries that are not sizable enough to have their own section in the blog post!
+One thing to note is that the <code>ContainersSerialization</code> library has been renamed to <a href="https://pagghiu.github.io/SaneCppLibraries/library_containers_reflection.html">ContainersReflection</a> as it was depending on <a href="https://pagghiu.github.io/SaneCppLibraries/library_containers.html">Containers</a> and <a href="https://pagghiu.github.io/SaneCppLibraries/library_reflection.html">Reflection</a> libraries.<br>
+I want to thank <a href="http://coz.is">Francesco (cozis) Cozzuto</a> for reporting on <a href="https://discord.com/invite/tyBfFp33Z6">Discord</a> a couple of issues he has been finding with Valgrind!</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fb1f4f58">Async: Preserve timeouts scheduling order and clamp their expiration time</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c4a40c43">AsyncStreams: Refcount ZLibAPI</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/67479112">ContainersReflection: Rename ContainersSerialization to ContainersReflection</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ea85685f">Everywhere: Use wide characters versions of the <strong>FILE</strong> macro</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fcbe7837">Foundation: Fully qualify SC::forward to avoid confusion with std::forward</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f020a3be">Process: Do not close Process::handle like a file descriptor</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/18ea45fa">SCExample: Fix printing plugin names on Windows</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c0c5e771">Socket: Fix Socket test including IPV6 option for localhost</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/aac5e572">Socket: Make SocketIPAddress::isValid() return false for invalid socket addresses</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1d4b2eaa">Strings: Add Console::flush</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5a5c1274">Strings: Make StringView::operator== accept a StringView</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4421c8ed">Strings: Remove consecutive path separators in Path::normalize</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c16d7143">Testing: Flush every printed line</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ebca6076">Testing: Get rid of the trailing 0 when printing red/green emoji</a></li>
+</ul>
+  </div>
 
-
-</p>
-</section>
-
-</div>
-  
     </main>
     <footer>
       <div class=" container">
