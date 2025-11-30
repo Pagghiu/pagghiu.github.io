@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <title>Sane Coding Blog - ☔️ Sane C++ March 25</title>
+      <title>Sane Coding Blog - 🌫️ Sane C++ November 25</title>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" href="https://pagghiu.github.io/images/favicon.png">
@@ -112,7 +112,7 @@
             <ul>
                 <!--- articles_page.object_list --->
                 <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-11-30-SaneCppLibrariesUpdate.html" title="Permalink to 🌫️ Sane C++ November 25">
+                    <a class="secondary" aria-current="page" href="" title="Permalink to 🌫️ Sane C++ November 25">
                     🌫️ Sane C++ November 25
                     <br>
                 </a>
@@ -160,7 +160,7 @@
                 </a>
             </li>
                 <li>
-                    <a class="secondary" aria-current="page" href="" title="Permalink to ☔️ Sane C++ March 25">
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-03-31-SaneCppLibrariesUpdate.html" title="Permalink to ☔️ Sane C++ March 25">
                     ☔️ Sane C++ March 25
                     <br>
                 </a>
@@ -254,14 +254,14 @@
     </nav>
 </aside>
   <hgroup>
-    <p class="chapter">Mon 31 March 2025</p>
-    <h1 id="section-0">☔️ Sane C++ March 25</h1>
+    <p class="chapter">Sun 30 November 2025</p>
+    <h1 id="section-0">🌫️ Sane C++ November 25</h1>
     
     <figure>
-      <img src="https://pagghiu.github.io/images/2025-03-31-SaneCppLibrariesUpdate/article.png" alt="SC" />
+      <img src="https://pagghiu.github.io/images/2025-11-30-SaneCppLibrariesUpdate/article.png" alt="SC" />
     </figure>
     <p>
-      <p>Welcome to the update post for March 2025!<br> This month has been mostly spent adding custom allocators support to all Containers!</p>
+      <p>Welcome to the November 2025 update!<br> This month, focus is bringing the long neglected <code>Http</code> library out of its initial <code>Draft</code> state!</p>
     </p>
   </hgroup>
   <aside id="table-of-contents">
@@ -270,153 +270,95 @@
         <summary>Content</summary>
         <div class="col-lg-3 hidden-xs hidden-sm">
           <ul>
-            <li><a class="secondary" href="#section-0">Sane C++ March 25</a></li>
-            <li><a class="secondary" href="#scfoundation"> SC::Foundation</a></li>
-            <li><a class="secondary" href="#custom-allocators"> Custom Allocators</a></li>
-            <li><a class="secondary" href="#relative-pointers"> Relative Pointers</a></li>
-            <li><a class="secondary" href="#inline-header"> Inline Header</a></li>
-            <li><a class="secondary" href="#virtual-memory"> Virtual Memory</a></li>
-            <li><a class="secondary" href="#memory-statistics"> Memory Statistics</a></li>
-            <li><a class="secondary" href="#vector-growth-factor">Vector Growth Factor</a></li>
-            <li><a class="secondary" href="#debug-visualizers">Debug visualizers</a></li>
-            <li><a class="secondary" href="#scbuild"> SC::Build</a></li>
-            <li><a class="secondary" href="#minor-changes"> Minor Changes</a></li>
+            <li><a class="secondary" href="#section-0">November Updates</a></li>
+            <li><a class="secondary" href="#http">Http</a></li>
+            <li><a class="secondary" href="#asyncstreams">AsyncStreams</a></li>
+            <li><a class="secondary" href="#async">Async</a></li>
+            <li><a class="secondary" href="#tools">Tools</a></li>
+            <li><a class="secondary" href="#build">Build</a></li>
+            <li><a class="secondary" href="#others">Others</a></li>
           </ul>
         </div>
       </details>
     </nav>
   </aside>
   <div id="content" role="document">
-    <h3 id="scfoundation">SC::Foundation</h3>
-<p>The big <code>Segment</code> refactoring from last month has left so many trails also during March in <a href="https://pagghiu.github.io/SaneCppLibraries/library_foundation.html"><code>SC::Foundation</code></a>.<br>
-Most notably <code>Segment</code> now:</p>
-<ol>
-<li>Supports custom allocators (WIP)</li>
-<li>Uses relative pointers to store <em>dynamically allocated</em> block information</li>
-<li>Stores its header inline instead of making it part of the <em>dynamic allocation</em></li>
-</ol>
-<h4 id="custom-allocators">Custom allocators</h4>
-<ul>
-<li>Implementation differs from STL one of embedding allocator in the type, as a template parameter.  </li>
-<li>Keeping allocator out of the template parameters allows functions to just accept <code>Vector&lt;T&gt;&amp;</code> without needing to care what allocator has been set for it and avoiding the <em>viral</em> effect of needing to make also the method templated around the allocator (that is really bad for compile times).</li>
-<li>Allocators are not stored for each single container or dynamic allocation, they're by all means a global.</li>
-<li>They're arranged in a double-linked list and users can push / pop their custom one as needed.</li>
-<li>This makes it easy for example to create strategies where all allocations in a given sub-scope are sliced from a pre-allocated slab of memory that can be later on released all at once.  </li>
-<li>Custom allocators must be considered still WIP and their API will likely change.
-Also documentation about their usage is insufficient and it will be expanded.</li>
-</ul>
-<p><a href="https://pagghiu.github.io/site/blog/CustomFixedAllocator.png" target="_blank">
-<img src="https://pagghiu.github.io/site/blog/CustomFixedAllocator.png">
+    <h1 id="http">Http</h1>
+<p>The <code>Http</code> library was initially put together in a hurry for the first release of Sane C++ Libraries almost two years ago. Since then, it has remained largely unchanged, a simple <code>Draft</code> that was just enough to demonstrate a basic asynchronous web server.</p>
+<p>While useful, its minimal implementation and lack of comprehensive tests meant it was often fragile, breaking as other parts of the ecosystem evolved. The time has come to give <code>Http</code> the attention it deserves and begin the long process of elevating it to a more robust state.</p>
+<p>The first steps on this journey involve reducing its footprint by removing now-unnecessary dependencies on <code>Containers</code> and <code>Time</code>. Concurrently, <code>Http</code> is being refactored to leverage the <code>AsyncStreams</code> abstraction instead of dealing with raw socket operations. The next step is to remove the <code>Memory</code> dependency, leaving <code>AsyncStreams</code> as its sole dependency and solidifying its foundation.</p>
+<p><a href="https://pagghiu.github.io/SaneCppLibraries/page_dependencies.html" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/2025-11-Dependencies.svg">
 </a></p>
-<p>Detailed list of commits: </p>
+<p><strong>Detailed list of commits:</strong></p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/50d184e5">Foundation: Add FixedAllocator</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/703372d3">Foundation: Add global and thread-local allocators</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f31955c">Foundation: Add allocation ownership mechanism</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/938292a6">Foundation: Add alignment support to allocators</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a61fba94">Foundation: Add Global and Thread-Local enum</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4a3f51c">Containers: Add thread-local Vector and SmallVector containers</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fc5fd77">Containers: Use Globals to allocate in ArenaMap</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4a3f51c">Documentation: Add initial documentation for Globals</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8f188bae">Http: Fix issues introduced when removing dependency from String</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ac94af4f">Http: Fix using HttpServerClient across Plugin boundaries</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3c7c3359">Http: Move HttpServer::parse to HttpRequest</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/81bc9234">Http: Remove dependency on Containers library</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/82315df1">Http: Remove dependency on Time library</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a320715e">Http: Split HttpAsyncServer out of HttpServer</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/cd423d17">Http: Start integrating AsyncStreams</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/31f38dd5">Http: Stop reading data from socket stream before sending response</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b1ce27d2">Http: Write request headers to user provided region of memory</a></li>
 </ul>
-<h4 id="relative-pointers">Relative pointers</h4>
-<p>Relative pointers make it easier to create data structures that can be bulk serialized and restored skipping parsing entirely.
-A specific demo featuring this must still be built but this is definitively on the <code>TODO</code> list.
-Relative pointers are quite tricky to implement properly in C++ because it's very easy to trigger UB with this specific class of pointer arithmetics and this has been learned the hard way.
-Some tests where failing on GCC (when compiling with <code>-fstrict-aliasing</code>) but it has been a good occasion to learn about <code>std::launder</code> and <code>std::start_lifetime_as</code> family of functions and in general creating optimization barriers with <code>volatile</code> specifier.<br>
-For now relative pointers are used by default but at some point the performance impact due to their use will be assessed.
-In case of a significant performance difference maybe it will be re-considered possible to opt-out their usage with some runtime or compile-time flag.</p>
+<h1 id="asyncstreams">AsyncStreams</h1>
+<p>As is often the case, improvements in one library drive the evolution of another. The work on <code>Http</code> exposed some limitations in <code>AsyncStreams</code>.</p>
+<p>Previously, <code>AsyncStreams</code> was strict, only allowing data from its own pre-allocated buffers. This is great for managing memory with a fixed budget, but <code>Http</code> needed more flexibility. It required the ability to handle data from other subsystems without forcing a copy.</p>
+<p>To accommodate this, the buffer system in <code>AsyncStreams</code> is now a hybrid model. It now supports read-only buffers and <code>IGrowableBuffer</code>-based views, where the memory lifetime is managed by the caller. This change, along with several bug fixes to the stream's state machine, makes <code>AsyncStreams</code> more powerful and flexible, ready for the more complex scenarios that the evolving <code>Http</code> library will demand.</p>
+<p><strong>Detailed list of commits:</strong></p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8a00000e">Foundation: Use relative pointers in Segment and make header inline</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ac70d9cc">Foundation: Launder Segment::data() returned pointer</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/7a97c14f">Foundation: Refactor Segment to reduce and isolate UB</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/690750c3">AsyncStreams: Add read only AsyncBufferView</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/22feff4a">AsyncStreams: Allow re-using streams after they've been stopped, ended or destroyed</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2a422952">AsyncStreams: Avoid buffer leak when stopping async streams on close / finish</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/065bdcce">AsyncStreams: Free Readable and Growable buffer slots when their refCount expires</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/776b38f0">AsyncStreams: Remove the Destroying state</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b9732563">AsyncStreams: Return true from AsyncReadableStream::push if the caller can continue pushing</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/207570c5">AsyncStreams: Stop socket and file requests when close or finish events happens</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/de65bb9f">AsyncStreams: Use a fixed size for AsyncPipeline transforms and sinks</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c6cd8283">AsyncStreams: Wrap Strings / Buffers in AsyncBufferView though type erasure</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/cf7313e5">SCExample: Add option to use AsyncStreams in WebServerExample</a></li>
 </ul>
-<p><a href="https://pagghiu.github.io/site/blog/RelativePointer.png" target="_blank">
-<img src="https://pagghiu.github.io/site/blog/RelativePointer.png">
-</a></p>
-<h4 id="inline-header">Inline header</h4>
-<p><code>SegmentHeader</code> is now part of <code>Segment</code> declaration. In other words it's no more part of its dynamically allocated part.
-This is useful to know all properties of a segment like its inline storage and capacity or the use of custom allocators.
-The inline header stores also information about needing to use the <code>Global</code> or the <code>Thread-Local</code> allocator.<br>
-This helps avoiding unnecessary thread-local access because it's useless if all allocations are known to be done from the main thread (or from a specific thread).</p>
+<h1 id="async">Async</h1>
+<p>Stress-testing the new <code>Http</code> and <code>AsyncStreams</code> integration revealed some subtle edge cases in the core <code>Async</code> library.</p>
+<p>For instance, on Windows, <code>IOCP</code> cancellations can return <code>ERROR_NOT_FOUND</code> if no cancellation was queued, which shouldn't be treated as a critical error by higher-level abstractions.</p>
+<p>More critically, a re-entrancy bug was discovered. Calling the event loop's <code>runOnce</code> method from within a callback could cause the same callback to be invoked again before it had been fully torn down. A new internal flag, <code>Flag_NeedsTeardown</code>, now prevents the same completion from being incorrectly called multiple times.</p>
+<p><strong>Detailed list of commits:</strong></p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0a17bd41">Foundation: Explicitly reference header from VTable</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/76e56e5c">Foundation: Fix Segment::isInline</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e54d8ab1">Async: Do not complete multiple times requests waiting for teardown</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6f3ad886">Async: Flag most types for dll export</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c1b763ce">Async: Handle ERROR_NOT_FOUND in IOCP cancellations using CancelIOEx</a></li>
 </ul>
-<p><a href="https://pagghiu.github.io/site/blog/SegmentHeader.png" target="_blank">
-<img src="https://pagghiu.github.io/site/blog/SegmentHeader.png">
-</a></p>
-<h4 id="virtual-memory">Virtual Memory</h4>
-<p>A class called <code>VirtualMemory</code> enables reserving large amounts (max value) of memory and then committing the needed one keeping existing allocation address stable.
-This is a big win in many cases because it avoids needing to move everything when a dynamic vector needs to expand, as long as it will be under the <em>max value</em> guessed during the Virtual Memory initialization. This max value can be very large as long as it stays in the allowed virtual memory available range for the given architecture, and in case of 64 bits that's pretty big.</p>
-<p><a href="https://pagghiu.github.io/site/blog/VirtualMemoryTest.png" target="_blank">
-<img src="https://pagghiu.github.io/site/blog/VirtualMemoryTest.png">
-</a></p>
-<p>An associated <code>VirtualAllocator</code> enables using it with the Segment allocator subsystem.</p>
-<p><a href="https://pagghiu.github.io/site/blog/CustomVirtualAllocator.png" target="_blank">
-<img src="https://pagghiu.github.io/site/blog/CustomVirtualAllocator.png">
-</a></p>
+<h1 id="tools">Tools</h1>
+<p>The <code>ToolsBootstrap</code> utility, which replaces the old bootstrap Makefiles, has received some bug fixes and feature enhancements.</p>
+<p>This tool was largely coded with AI assistance, and in an interesting experiment, it was automatically translated from C++ to C. Why? To get even faster compilation times. While the C++ version was already quick, the C version is <em>faster</em>, and the translation was surprisingly low-effort. So... here it is!</p>
+<p><strong>Detailed list of commits:</strong></p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e6d93749">Foundation: Add VirtualAllocator</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0cdbeb1f">Foundation: Add VirtualMemory</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/af5c2528">Tools: Compile Tools.cpp and the Tool script in parallel</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/27dc5864">Tools: Compile with debug info enabled so that tools can be debugged</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b2062177">Tools: Do not use nostdinc++ in ToolsBootstrap for older GCC</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6562b144">Tools: Make bootstrap return -1 on error</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1bdb55e8">Tools: Port ToolsBootstrap to C</a></li>
 </ul>
-<h4 id="memory-statistics">Memory Statistics</h4>
-<p>All allocations, deallocations and reallocations are now being counted in a <code>Statistics</code> class providing useful information about how many allocations are done by a given section of code.
-The <code>SCTest</code> is using such statistics to assert when detecting a mismatched number of <code>allocate</code> vs <code>release</code> calls.</p>
+<h1 id="build">Build</h1>
+<p><code>SC::Build</code> is steadily maturing. This month, it gained the ability to specify coverage exclusion regexes directly in the <code>SC-Build.cpp</code> file. Additionally, the generated <code>Makefile</code> targets are now smarter, automatically attempting a clean rebuild if a <code>No rule to make target</code> error occurs.</p>
+<p><strong>Detailed list of commits:</strong></p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/878f7627">Testing: Add global memory report</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d22c7593">Foundation: Record statistics in MemoryAllocator</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0e01bdbd">Build: Automatically rebuild makefiles on "No rule to make target" error</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d46a112e">Build: De-hardcode coverage regex exclusion</a></li>
 </ul>
-<p><a href="https://pagghiu.github.io/site/blog/MemoryReport.png" target="_blank">
-<img src="https://pagghiu.github.io/site/blog/MemoryReport.png">
-</a></p>
-<h4 id="vector-growth-factor">Vector Growth Factor</h4>
-<p>This has been also been the occasion to feel ashamed about how many allocations where actually already done leading to make Segment grow by factor of <code>2</code> on append.</p>
+<h1 id="others">Others</h1>
+<p>As with every month, there are numerous small fixes and improvements that don't need their own section but are worth mentioning.</p>
+<p>A fix for pipe reads on Windows was added to <code>File</code>, and the <code>Function</code> template now has a user-configurable <code>LAMBDA_SIZE</code> to help avoid heap allocations for closures. <code>Console</code> gained methods for printing to <code>stderr</code>, and the limitations of <code>FileSystemWatcher</code> are now better documented thanks to a community-filed issue.</p>
+<p>All these small changes are great indicators of the libraries maturing and hardening over time!</p>
+<p><strong>Detailed list of commits:</strong></p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/390ce729">Foundation: Grow Segment capacity with factor 2 on append or insert</a></li>
-</ul>
-<h4 id="debug-visualizers">Debug visualizers</h4>
-<p>Debug visualizers have been updated to reflect changes in <code>Segment</code> data layout.<br>
-Also a LLDB visualizer for <code>Array&lt;T, N&gt;</code> was missing and it has been added as well.</p>
-<ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/bfc0c827">DebugVisualizer: Update Segment visualizers to use relative pointers</a></li>
-</ul>
-<p><a href="https://pagghiu.github.io/site/blog/DebugVisualizers.png" target="_blank">
-<img src="https://pagghiu.github.io/site/blog/DebugVisualizers.png">
-</a></p>
-<h4 id="and-more">And more</h4>
-<p>Additional minor fixes that don't deserve a whole paragraph to describe them are listed below:</p>
-<ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e5c5041f">Foundation: Add no-except to all Segment related methods</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/abb0b0b6">Foundation: Enable creation of Span<void></a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1ed98c28">Foundation: Extend Segment assign and insert to types convertible to T</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/92eff60a">Foundation: Fix memory Leak in Segment::shrink_to_fit</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a6ad7dfd">Foundation: Split Foundation.cpp content in separate files</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0cffe20e">Containers: Move SmallVector to Vector header</a></li>
-</ul>
-<h3 id="scbuild">SC::Build</h3>
-<p><a href="https://pagghiu.github.io/SaneCppLibraries/library_build.html"><code>SC::Build</code></a> has received a small set of changes too.
-It's now always using the C++ stdlib on GCC because only more recent GCC versions (&gt; 13) support the <code>-nostdlib++</code> flag that makes it easy linking <code>libc</code> but not <code>libc++</code> or <code>libstdc++</code>.</p>
-<p>Also Makefiles for apple and linux platforms are now created in separate sub-directories.
-This makes it easier to manually invoke make for them as you don't need the flag to indicate a custom Makefile file name.</p>
-<p><a href="https://pagghiu.github.io/site/blog/SCBuildMarch25.png" target="_blank">
-<img src="https://pagghiu.github.io/site/blog/SCBuildMarch25.png">
-</a></p>
-<p>This is the detailed list of commits:</p>
-<ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/bbb46ea1">Build: Always link C++ stdlib on GCC</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/734b73b4">Build: Create Makefiles in apple / linux subdirs</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9dc9792d">Build: Fix enabling standard C++ library for gcc</a></li>
-</ul>
-<h3 id="minor-changes">Minor Changes</h3>
-<p>And the obvious list of random fixes, with the notable mention of the one related to <code>SC::Async</code> that was randomly failing in the CI very often due to some bad copy and paste from the <code>io_uring</code> headers.</p>
-<ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6d288b0d">Everywhere: Fixes to compile under ClangCL</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/59efa2fc">Async: Just fill the entire SQE with zero inside io_uring_prep_rw on Linux</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9ef93dad">Async: Set to zer all SQE fields for Linux on io_uring</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f60358e0">Documentation: Fix some typos for build instructions</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/443c38e9">SerializationBinary: Fix UB on buffer reader</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d003f221">Containers: Use placementNew in ArenaMap</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b4498097">Containers: Increase Array coverage</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2d72fdb9">File: Handle Windows ERROR_BROKEN_PIPE for synchronous reads</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/75eaa833">FileSystemWatcher: Document file watcher limitations</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/107c23b0">Foundation: Fix type constraints for Span<T> std::initializer_list  constructor</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f7e24260">Foundation: Make Function LAMBDA_SIZE user configurable</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/144fadd0">Strings: Add Console methods to enable printing to stderr</a></li>
 </ul>
   </div>
 
