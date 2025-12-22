@@ -415,9 +415,6 @@
     <g transform="matrix(5.55556,0,0,5.55556,0,0)">
         <text x="1301.65px" y="157.838px" style="font-family:'HelveticaNeue-Medium', 'Helvetica Neue', sans-serif;font-weight:500;font-size:32px;fill:white;">FileSystemW<tspan x="1493.11px 1510.9px " y="157.838px 157.838px ">at</tspan>cherAsync</text>
     </g>
-    <g transform="matrix(5.55556,0,0,5.55556,0,0)">
-        <text x="1579.51px" y="33.46px" style="font-family:'HelveticaNeue', 'Helvetica Neue';font-size:20px;">…soon to be r<tspan x="1706.95px 1717.69px " y="33.46px 33.46px ">em</tspan>oved</text>
-    </g>
     <g transform="matrix(5.55556,0,0,-5.55556,5649.44,1458.89)">
         <path d="M472.6,87.5L472.6,0L14.8,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:4px;"/>
     </g>
@@ -429,12 +426,6 @@
     </g>
     <g transform="matrix(5.55556,0,0,5.55556,0,-1654.44)">
         <path d="M1481.1,680.5L1489.5,697.3L1497.9,680.5L1481.1,680.5Z" style="fill-rule:nonzero;"/>
-    </g>
-    <g transform="matrix(5.55556,0,0,-5.55556,5650.56,4193.89)">
-        <path d="M0,712.7L762,712.7L762,0L689.6,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:3px;stroke-dasharray:6,6;"/>
-    </g>
-    <g transform="matrix(5.55556,0,0,5.55556,0,2387.78)">
-        <path d="M1708.2,318.5L1695,325.1L1708.2,331.7L1708.2,318.5Z" style="fill-rule:nonzero;"/>
     </g>
     <defs>
         <image id="_Image2" width="110px" height="109px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAABtCAYAAABAz1RVAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAGIUlEQVR4nO2Yv49kRxHHv/Wj31xEwskJ9p/g6JAzEyKROrQgg38C3d3enu8P4A9wBnJKRkB6GciJQ0IMyUGEjXTzuquaoPu9md1bEbA7nEqqz2o0vfP6vV31Z6q6ugiTp89ffOjun5vZT1prH7TW2M3h7nA3uPdtKno/jZP7QUT7mJlAzBAWsDBU1VX1jYi8ZuavXr188e1+HwA8fX79sZl92Wr9ZK0rWmtorcHNYGZTngNIaZdgk8fMYGaICFgEqgpVxVIWaCl/EpFfvXp59Q0A0LPn1x+Z2++Px+OT9bii1opaK1qrsNbQzsT13oHegbNvSXJP5noS0S5ORSCqUC0oZbwOhwOWw/K1sHz2xcurv6q7/7zW9mQ9rljrirquWNd1ymuw1kbUmSFj7XIQABaB7NIUpRh6d3R0EBGI+QkV+sWvn179Rs3s01qHqPV4xLqJm/LMGsx8iLuRJlPj/SAQjYADRroc4hgiilLKKcsBYBopVJh/ysx/UDN7bM3Q2kiR67ruAlutqK3CmsH9trjkIRmpckScFr0hbUujogIR+VBVf6StNd6KkdbaSJV1RV2PWNeKWldYM5i1mzGWEu/PWa1AwF6ULH7Y15eYICLDT20wNSWmouYGc8O5vFbrlFaxLAc8+sEjdPQ9O56Pk3tAAIFujN++fYt1XcdHMz02nVW+G7x7d/Ou7j6LD59V5DBba4UWxQ8fP8bh0SN070NYchEIBGLC8e1b/OPNG9S6QlVGjdHa8DM9OTnUzccvfZb8c4JZw+FwQLOG+v136L3nHndBaB4JCCM1rscjWjPo1gTpPorEeTTTjiFk+2DbFHvvWNcjvv/Xd3thkuIuB+1nOcG6HuF9ejjzAnR4H40QHbf1XUwHxtmhA3WtszCx/QHJZWDm0e4SGcGD6QF4J2g6OvS/VYd1Xec5bnRPeoq7GLR1TVTBLNBlGRf6ac33zhX2iNsv3Zjo3ffuyfm5Inl4tgM4AGi53VK8ue69d/Ct2+98YPYm3zfvrj/fMSsJQIoLwF1bVIoLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLSooLABG989ktcf3/9K8k9+WWOAKmXSKAAPTegZ5C3y8315+IwHgnDOl8xh23JZei947eOwg4aSHG5oToFFh7xN2VR5P3xB0ubvtRGn5H+DGDicAsIIwrzAxmhrmn3AuzOZhGwCzTB+9rT/NH6ezCJomYwCpgU8gMXwD7e/LwEBFEBCICVoWogJmGC94CS0BzrCxDlogMcSJQUZgYuvpZYULI3e7hIaI9ILQUqCqKFojo/mLRk5/50k2aiEC1QLXBisLd9gfSnJzV5QWZEadaoKWgFIUWharufkQEwkOgighEBapjUikF7j6ljTAVE5hopsoLQkQzPQpKKShLQSnLGGs5CVQhFiZVVd+kaSnw7vApiJkhVWBm8OI3xKXE+3Ne7I097FbULctInzPyprwmolVF9J+qBaU0uHds+xgzg1eGiMLc0M3Rtz3u5lvyP0C3BgQCnW1bZYorZcGyHKbAAhH9GzP/XUXk9VLKz9xs38K2CkZkRpsb3Dyj7IIQEUaheKo3StEpbsFSFiylQET+SIS/KDP/Tkv5bOn+YwCj/BSGaINbQWsNZqO67Jgn+zzPPRjbetJsN4owVHVU97PmKFqwHBZoKV8z829fvnj2bwKAq+tXH5vZl63WT2qraK2htQY3mxHnM42e/ljyMJwHATOdjmZyVjCOPe/PIvLL66un3wBnqfbq+ouP3P1zN/+0WfvAmrH5Js3RPQ/hl2LvivCpCSIsEBVX0Tcs/JqZv7q+evbtds9/AKBOMme1lx98AAAAAElFTkSuQmCC"/>

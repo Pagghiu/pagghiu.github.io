@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <title>Sane Coding Blog - 🍂 Sane C++ September 25</title>
+      <title>Sane Coding Blog - 2️⃣ Years of Sane C++ Libraries</title>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" href="https://pagghiu.github.io/images/favicon.png">
@@ -10,11 +10,16 @@
         <meta name="description" content="Sane Coding Blog" />
         <link rel="stylesheet" type="text/css" href="https://pagghiu.github.io/theme/css/pico2/all.css" />
         <link href="https://pagghiu.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Sane Coding Blog Full Atom Feed" />
-        <link href="https://pagghiu.github.io/feeds/sanecpplibraries.atom.xml" type="application/atom+xml" rel="alternate" title="Sane Coding Blog Categories Atom Feed" />
+        <link href="https://pagghiu.github.io/feeds/c.atom.xml" type="application/atom+xml" rel="alternate" title="Sane Coding Blog Categories Atom Feed" />
 
 
 
 
+<meta name="tags" content="c++" />
+<meta name="tags" content="sane" />
+<meta name="tags" content="libraries" />
+<meta name="tags" content="update" />
+<meta name="tags" content="anniversary" />
 
   </head>
 
@@ -112,7 +117,7 @@
             <ul>
                 <!--- articles_page.object_list --->
                 <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-12-23-SaneCpp2Year.html" title="Permalink to 2️⃣ Years of Sane C++ Libraries">
+                    <a class="secondary" aria-current="page" href="" title="Permalink to 2️⃣ Years of Sane C++ Libraries">
                     2️⃣ Years of Sane C++ Libraries
                     <br>
                 </a>
@@ -130,7 +135,7 @@
                 </a>
             </li>
                 <li>
-                    <a class="secondary" aria-current="page" href="" title="Permalink to 🍂 Sane C++ September 25">
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-09-30-SaneCppLibrariesUpdate.html" title="Permalink to 🍂 Sane C++ September 25">
                     🍂 Sane C++ September 25
                     <br>
                 </a>
@@ -260,14 +265,14 @@
     </nav>
 </aside>
   <hgroup>
-    <p class="chapter">Tue 30 September 2025</p>
-    <h1 id="section-0">🍂 Sane C++ September 25</h1>
+    <p class="chapter">Tue 23 December 2025</p>
+    <h1 id="section-0">2️⃣ Years of Sane C++ Libraries</h1>
     
     <figure>
-      <img src="https://pagghiu.github.io/images/2025-09-30-SaneCppLibrariesUpdate/article.png" alt="SC" />
+      <img src="https://pagghiu.github.io/images/2025-12-23-SaneCpp2Year/article.svg" alt="SC" />
     </figure>
     <p>
-      <p>Welcome to the September 2025 update!<br> The main focus this month has been on breaking internal dependencies to enhance modularity.</p>
+      <p>A look back at the second year of the Sane C++ Libraries project, highlighting a massive dependency cleanup, the "No Allocations" guarantee, single-file libraries, and much more.</p>
     </p>
   </hgroup>
   <aside id="table-of-contents">
@@ -276,154 +281,140 @@
         <summary>Content</summary>
         <div class="col-lg-3 hidden-xs hidden-sm">
           <ul>
-            <li><a class="secondary" href="#section-0">September Updates</a></li>
-            <li><a class="secondary" href="#reducing-internal-dependencies">Reducing Internal Dependencies</a></li>
-            <li><a class="secondary" href="#dependencies-support">Dependencies Support</a></li>
-            <li><a class="secondary" href="#dependencies-tooling">Dependencies Tooling</a></li>
-            <li><a class="secondary" href="#build">Build</a></li>
-            <li><a class="secondary" href="#gdb-pretty-printer">GDB Pretty Printer</a></li>
-            <li><a class="secondary" href="#contributions">Contributions</a></li>
-            <li><a class="secondary" href="#http">Http</a></li>
-            <li><a class="secondary" href="#miscellaneous">Miscellaneous</a></li>
           </ul>
         </div>
       </details>
     </nav>
   </aside>
   <div id="content" role="document">
-    <h1 id="reducing-internal-dependencies">Reducing Internal Dependencies</h1>
-<p>The majority of the work this month focused on breaking <strong>internal</strong> dependencies between libraries.</p>
-<p>The goal is for Sane C++ Libraries to be a collection of libraries that <em>work well together</em>, rather than a monolithic <em>framework</em>. Users should be able to use a single library in isolation without being forced to adopt the entire ecosystem.</p>
-<p>Sane C++ Libraries is not a project that forces itself to be the central heart of your software project (even if it would probably be a good idea! 😎).</p>
-<p>Balancing library isolation with the ergonomics of using multiple libraries together is challenging, but significant progress has been made.</p>
-<p>Here is the resulting graph of all internal dependencies between libraries:</p>
-<p><a href="https://pagghiu.github.io/SaneCppLibraries/page_dependencies.html" target="_blank">
-<img src="https://pagghiu.github.io/site/blog/2025-09-Dependencies.svg">
+    <p>Another year has passed, and it's time to celebrate the second anniversary of Sane C++ Libraries
+<a href="https://github.com/pagghiu/SaneCppLibraries">https://github.com/pagghiu/SaneCppLibraries</a>!<br>
+The journey continues toward the goal of providing simple, modern, and dependency-free C++ platform abstraction libraries for macOS, Windows, and Linux.</p>
+<p>The core principles remain the same:</p>
+<p>✅ Fast compile times<br>
+✅ Bloat free<br>
+✅ Simple and readable code<br>
+✅ Easy to integrate<br>
+⛔️ No C++ Standard Library / Exceptions / RTTI<br>
+⛔️ No third party build dependencies (prefer OS API)  </p>
+<p>This second year was defined by a relentless focus on architectural purity, developer experience, and delivering on the project's core promises in a tangible way.</p>
+<h2 id="the-great-cleanup">The Great Cleanup</h2>
+<p class="chapter">The "No Allocations" Guarantee</p>
+
+<p>The single most important achievement of this year was a massive dependency cleanup that culminated in making them single-file libraries with clean dependencies.</p>
+<p>Isn't this final clean internal dependency graph super cool? 😎</p>
+<p><a href="https://pagghiu.github.io/site/blog/2025-12-23-SaneCpp2Year-Dependencies.svg" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/2025-12-23-SaneCpp2Year-Dependencies.svg">
 </a></p>
-<p>Key takeaways:</p>
+<p>A powerful guarantee for most of the libraries has been gained too:<br>
+<strong>No dynamic memory allocations.</strong></p>
+<p>As the official <code>README.md</code> now states:</p>
+<blockquote>
 <ul>
-<li>Only libraries that depend on <code>Memory</code> require dynamic memory allocation (currently <code>Containers</code> and <code>Http</code>).</li>
-<li>The entire lower row of libraries are essentially standalone, depending only on <code>Foundation</code>.</li>
-<li><code>Foundation</code> is a minimal collection of headers designed to avoid using the Standard C++ Library and including compiler-supplied headers in the public interface.</li>
+<li>All libraries do not dynamically allocate memory (excluding <code>Memory</code> and <code>Containers</code>)</li>
+<li>All libraries are designed to work inside user-provided memory buffers.</li>
+<li>All libraries return error codes when running out of such memory buffers.</li>
+<li>Third-party container classes, including <code>std::</code> ones, are supported (see <code>InteropSTL</code> for an example).</li>
+<li><code>Memory</code> and <code>Containers</code> are fully optional and just provided for convenience.</li>
 </ul>
-<p>In many cases, all you need to get started is the <code>Foundation</code> single-file library plus any other library from the lower row!</p>
-<p><strong>Detailed list of commits:</strong></p>
+</blockquote>
+<p>This was a multi-month effort that involved:</p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3b2bc612">ContainersSerialization: Remove Serialization dependency on Containers</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9a3c5dc9">FileSystem: Remove FileSystem dependency on File</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1f2ff68e">FileSystem: Remove FileSystem dependency on Time</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/03852af7">Plugin: Remove Plugin dependency on Containers</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f476ab91">Plugin: Remove Plugin dependency on Memory</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1b1f20d7">Plugin: Remove Plugin dependency on Threading</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/83281e6d">SerializationText: Remove SerializationText dependency on Memory</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/43b772ea">Strings: Move String and SmallString to Memory</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/327bb8e3">Strings: Remove Path dependency on String</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/02bd0f2d">Strings: Remove StringBuilder dependency on Buffer and require finalize (breaking change)</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/636d54bb">Strings: Remove StringBuilder dependency on String</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9e36c556">Strings: Remove StringFormat dependency on Buffer and String</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4752f1ef">Testing: Remove Testing dependency on Memory</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0ec0f808">Testing: Remove Testing dependency on Strings</a></li>
+<li><strong>Splitting the <code>Memory</code> library (<a href="https://pagghiu.github.io/site/blog/2025-06-30-SaneCppLibrariesUpdate.html">June</a>):</strong><br>
+All components responsible for dynamic allocation (<code>Segment</code>, <code>Buffer</code>, <code>VirtualMemory</code>) were moved from <code>Foundation</code> into their own dedicated library.<br>
+This created a clear architectural boundary.</li>
+<li><strong>Aggressive Refactoring (<a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html">July</a>-<a href="https://pagghiu.github.io/site/blog/2025-10-31-SaneCppLibrariesUpdate.html">October</a>):</strong><br>
+Guided by a new <a href="https://pagghiu.github.io/SaneCppLibraries/page_dependencies.html">automated dependency tracking system</a>, libraries like <code>File</code>, <code>Socket</code>, <code>Process</code>, <code>FileSystem</code>, and <code>FileSystemWatcher</code> were refactored to remove all dependencies on <code>Memory</code> or <code>Strings</code>.</li>
+<li><strong>"Bring Your Own Containers" (<a href="https://pagghiu.github.io/site/blog/2025-10-31-SaneCppLibrariesUpdate.html">October</a>):</strong><br>
+To prove this wasn't about locking users in, the <code>InteropSTL</code> example was created to show how easily <code>std::string</code> and <code>std::vector</code> can be used with the libraries, thanks to the lightweight <code>IGrowableBuffer</code> interface.</li>
 </ul>
-<h1 id="dependencies-support">Dependencies Support</h1>
-<p>To achieve the goal of reducing internal dependencies, it was necessary to break many internal sub-dependencies.</p>
-<p>The most challenging task was moving <code>String</code> and <code>SmallString</code> from the <code>Strings</code> library to the <code>Memory</code> library.</p>
-<p>Most <code>String</code> usages were related to file and path manipulation, which is now handled by the fixed-size and native-encoding-aware <code>StringPath</code>.</p>
-<p>While this may seem counter-intuitive, it makes perfect sense. The <code>Strings</code> library should focus on string manipulation, and <code>std::string</code>-like classes don't belong there as they require allocator support.</p>
-<p>In the future, alternatives to <code>std::string</code>-like allocation will be provided. For now, anyone needing it can use <code>String</code> and the <code>Global</code> allocator support from <code>Memory</code>.</p>
-<p>This change caused a large refactoring across the entire project, which may have introduced some bugs (mainly due to re-working null-termination).</p>
-<p>The most significant <em>breaking change</em> is the new requirement to call <code>StringBuilder::finalize</code> to ensure the underlying string container or buffer is null-terminated.</p>
-<p>Please report any misbehavior or bugs you may find.</p>
-<p><strong>Detailed list of commits:</strong></p>
+<p>Now, if you use a library that doesn't depend on <code>Memory</code> (directly or indirectly), you have a compile-time guarantee that it performs no heap allocations.  </p>
+<h2 id="the-year-in-review">The Year in Review</h2>
+<p class="chapter">A Look Back at The Updates </p>
+
+<p>Beyond the architectural overhaul, the year was packed with new features and improvements.</p>
+<h3 id="async-evolution">🟨 Async Evolution</h3>
+<p class="chapter">Async all the things</p>
+
+<p>The async ecosystem has been refined consistently throughout the year:</p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2cd13385">Foundation: De-virtualize IGrowableBuffer::getDirectAccess</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d6055f9e">Foundation: Export IGrowableBuffer and derived classes</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/883e7cfb">Foundation: Implement GrowableBuffer<StringPath></a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/27f48bcd">Foundation: Move StringView::compare to StringSpan</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c9c7aab1">Memory: Avoid losing data when tryGrowTo causes reallocation</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0d9d0870">Memory: Make GrowableBuffer<Buffer> final</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0caf50ed">Plugin: Null terminate error messages when compiling or linking</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/beabd54b">SerializationText: Default specialization handles non-struct type</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f23e76eb">SerializationText: Use StringSpan in SerializationText</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/88b415f0">Strings: Allow custom encoding in construction of StringView from iterators</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6ae66418">Strings: Avoid allocation in Path::normalize when preserving UNC prefix</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c308279f">Strings: Avoid reading past end pointers during UTF decoding</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/afcb4182">Strings: Do not append null-terminator in StringBuilder / StringFormat</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/81c182b3">Strings: Get rid of dynamic memory allocations from Console</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/25194d8b">Strings: Make Console conversion buffer optional</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ae04fbea">Strings: Make GrowableBuffer<String> final</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/dd4374c4">Strings: Make output the first parameter of Path::relativeFromTo</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a0e22c32">Strings: Make StringPath::path private</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/cc996056">Strings: Move null-termination helpers from StringConverter to String and StringBuilder</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ac78c533">Strings: Remove unused member functions from StringConverter</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f1e23351">Strings: Simplify StringConverter API and break dependency from Buffer</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3ef05efc">Strings: Use StringSpan instead of StringView for StringFormat specifiers</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2a8b5a6b">Testing: Use StringPath for library root / application root / executable paths</a></li>
+<li><strong><code>AsyncStreams</code> (<a href="https://pagghiu.github.io/site/blog/2024-12-31-SaneCppLibrariesUpdate.html">December</a>):</strong><br>
+Gained transform streams, demonstrated with an async ZLib compression stream.<br>
+It was later promoted to <strong>MVP</strong> status (August).</li>
+<li><strong><code>Async</code> Core (<a href="https://pagghiu.github.io/site/blog/2025-01-31-SaneCppLibrariesUpdate.html">January</a>):</strong><br>
+The core event loop was refined with a large number of bug fixes and improvements, timers were improved, and the <code>SC::Function</code> object was optimized to save memory.  Significant effort has been spent trying to unify cancellation behaviors of the wildly different OS APIs.</li>
+<li><strong><code>AsyncSequence</code> (<a href="https://pagghiu.github.io/site/blog/2025-05-31-SaneCppLibrariesUpdate.html">May</a>):</strong><br>
+A major quality-of-life improvement, allowing for easy chaining of async operations without complex callback nesting.</li>
+<li><strong><code>AsyncFileSystemOperation</code> (<a href="https://pagghiu.github.io/site/blog/2025-06-30-SaneCppLibrariesUpdate.html">June</a>):</strong><br>
+A powerful new feature unifying a huge range of async file system operations (<code>copy</code>, <code>rename</code>, <code>remove</code>, etc.) under a single cross-platform API.</li>
+<li><strong>UDP Support (<a href="https://pagghiu.github.io/site/blog/2025-06-30-SaneCppLibrariesUpdate.html">June</a>):</strong><br>
+Added <code>sendTo</code> and <code>receiveFrom</code> for unconnected UDP sockets.</li>
+<li><strong>Http Async Evolution (<a href="https://pagghiu.github.io/site/blog/2025-11-30-SaneCppLibrariesUpdate.html">November</a>):</strong><br>
+Work on overhauling the <code>Http</code> library drove improvements in <code>AsyncStreams</code>, making it more flexible to handle externally managed buffers.</li>
 </ul>
-<h1 id="dependencies-tooling">Dependencies Tooling</h1>
-<p>Internal dependencies are now automatically computed with a Python script that also generates SVGs for documentation and a small interactive visualization.</p>
-<p>The interactive visualization can highlight the required downstream dependencies for a given set of libraries.</p>
-<p><a href="https://pagghiu.github.io/SaneCppLibraries/page_dependencies.html" target="_blank">
-<img src="https://pagghiu.github.io/site/blog/2025-09-DependenciesInteractive.png">
+<p><a href="https://pagghiu.github.io/site/blog/SCAsyncSequence.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/SCAsyncSequence.png">
 </a></p>
-<p>This is useful because it's now entirely automatic, ensuring the documentation is always in sync with the current state of internal dependencies.</p>
-<p>Finally, the CI will fail if a PR introduces a dependency that doesn't adhere to proper dependency hygiene!</p>
-<p><strong>Detailed list of commits:</strong></p>
+<h3 id="memory-management-revolution-february-march">🧠 Memory Management Revolution (<a href="https://pagghiu.github.io/site/blog/2025-02-28-SaneCppLibrariesUpdate.html">February</a>-<a href="https://pagghiu.github.io/site/blog/2025-03-31-SaneCppLibrariesUpdate.html">March</a>)</h3>
+<p class="chapter">Do not allocate as if your life depends on it!</p>
+
+<p>The foundation for the "No Allocations" guarantee was laid early in the year.</p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3352d8f9">Dependencies: Compute minimal dependencies for each library</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/64f3bb3e">Dependencies: Generate a dependencies graph .dot file</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/60e48c42">Dependencies: Generate Dependencies SVG for each library</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/15654f55">Dependencies: Generate the interactive dependencies graph</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/29bf55f4">Dependencies: Automatically check for accidental dependencies addition</a></li>
+<li><strong><code>Containers</code> Rewrite (<a href="https://pagghiu.github.io/site/blog/2025-02-28-SaneCppLibrariesUpdate.html">February</a>):</strong> The <code>Containers</code> library was rewritten, and the crucial <code>Buffer</code> and <code>SmallBuffer</code> types were born in <code>Foundation</code>, and later on isolated inside the <code>Memory</code> library.</li>
+<li><strong>Advanced Memory Management (<a href="https://pagghiu.github.io/site/blog/2025-03-31-SaneCppLibrariesUpdate.html">March</a>):</strong><br>
+A number of useful features were added:<ul>
+<li><strong>Custom Allocators:</strong><br>
+A global, scoped, non-template-based allocator system for strategies like arena allocation.</li>
+<li><strong>Relative Pointers:</strong><br>
+To enable fast, memcpy-able serialization of complex data structures (if you can accept a little bit of un-avoidable UB...).</li>
+<li><strong>Virtual Memory:</strong><br>
+<code>VirtualAllocator</code> allows reserving large chunks of virtual address space to avoid reallocations.</li>
 </ul>
-<h1 id="build">Build</h1>
-<p>The <code>SC::Build</code> build generator has been transitioned into an application rather than a library.</p>
-<p>The main driver for this change is its significant number of internal dependencies, which makes little sense to reuse as a library.</p>
-<p>A few fixes have also been made.</p>
-<p><strong>Detailed list of commits:</strong></p>
-<ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b079772c">Build: Make Build just a tool rather than a library</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1cc5c5af">Build: Fix incorrect generation of Xcode project</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/909090f1">Build: Only define rules relevant to requested targets in Makefiles</a></li>
+</li>
 </ul>
-<h1 id="gdb-pretty-printer">GDB Pretty Printer</h1>
-<p>A pretty printer is an extension for a debugger that displays data structures in a more human-readable format. For example, it can decode a string with the proper UTF encoding or show the elements of a container rather than its raw implementation details. This is very useful when debugging and is often taken for granted when using the C++ standard library.</p>
-<p><a href="https://x.com/pagghiu_/status/1964226245010350512" target="_blank">
-<img src="https://pagghiu.github.io/site/blog/2025-09-GDBPrettyPrinter.png">
+<p><a href="https://pagghiu.github.io/site/blog/CustomVirtualAllocator.png" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/CustomVirtualAllocator.png">
 </a></p>
-<p>For a project that doesn't use the Standard Library, creating pretty printers for its users is almost a necessity.</p>
-<p>The project already had <code>LLDB</code> and <code>MSVC</code> pretty printers (debug visualizers), with <code>GDB</code> being the only one missing. A new GDB debug visualizer has been added, so be sure to give it a try if <code>GDB</code> is your debugger of choice!</p>
-<p><strong>Detailed list of commits:</strong></p>
+<p><a href="https://pagghiu.github.io/site/blog/StructDump.jpg" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/StructDump.jpg">
+</a></p>
+<h3 id="tooling-and-developer-experience">🛠️ Tooling and Developer Experience</h3>
+<p>A major theme this year was making the libraries easier to use and develop.</p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d7de5f12">DebugVisualizer: Add a GDB debug visualizer</a></li>
+<li><strong>Single-File Libraries (<a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html">August</a>):</strong><br>
+A huge usability win! All libraries can now be amalgamated into single header files.<br>
+A <a href="https://pagghiu.github.io/SaneCppLibraries/page_single_file_libs.html">browser-based tool</a> makes it incredibly easy to generate them.</li>
+<li><strong>GDB Pretty Printer (<a href="https://pagghiu.github.io/site/blog/2025-09-30-SaneCppLibrariesUpdate.html">September</a>):</strong><br>
+With <code>LLDB</code> and <code>MSVC</code> visualizers already present, the addition of a <code>GDB</code> pretty printer completed the set, providing a first-class debugging experience for the project's custom containers.</li>
+<li><strong>Automated Dependency Checking (<a href="https://pagghiu.github.io/site/blog/2025-09-30-SaneCppLibrariesUpdate.html">September</a>):</strong><br>
+The CI now automatically verifies that new code doesn't introduce unwanted dependencies, enforcing architectural hygiene.</li>
+<li><strong>Self-Hosting Bootstrap (<a href="https://pagghiu.github.io/site/blog/2025-10-31-SaneCppLibrariesUpdate.html">October</a>):</strong><br>
+The build tool system (<code>SC::Tools</code>) threw away its dependency on <code>make</code>/<code>nmake</code> and now bootstraps itself with a minimal, dependency-free C++ program (which was later ported to C for even faster startup!).</li>
 </ul>
-<h1 id="contributions">Contributions</h1>
-<p>This month, the project received some really useful contributions from <a href="http://coz.is">Francesco Cozzuto</a> (cozis)!</p>
-<p>This was also an opportunity to fix some issues in the CI for contributors that were not properly set up.</p>
-<p><strong>Detailed list of commits:</strong></p>
+<p><a href="https://pagghiu.github.io/SaneCppLibraries/single_file_libs.html" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/SCAmalgamationGenerator.jpg">
+</a></p>
+<h2 id="community-content-growth">Community, Content &amp; Growth</h2>
+<p>The project is still a solo development effort for the most part, but this year saw a few contributions!<br>
+A special thank you to <strong><a href="http://coz.is">Francesco "cozis" Cozzuto</a></strong> for his useful contributions and bug reports.</p>
+<p>Growth on GitHub has been slow and steady.<br>
+While there's no exponential explosion in stars, the project continues to find its audience, making me happy 😃.</p>
+<p><a href="https://star-history.com/#Pagghiu/SaneCppLibraries&Date" target="_blank">
+  <img src="https://api.star-history.com/svg?repos=Pagghiu/SaneCppLibraries&type=Date" alt="Star History Chart">
+</a></p>
+<p>In terms of content, my focus this year shifted heavily from producing YouTube videos to implementing the architectural changes described above. I may come back to making videos at some point, once I'm more satisfied with the status of the libraries, but the priority for now remains on the code.</p>
+<h2 id="looking-ahead-to-year-three">Looking Ahead to Year Three</h2>
+<p>With the architecture in a much cleaner state, the plan for the third year is to build on this solid foundation.</p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/57cc066e">Async: Use epoll_pwait instead of epoll_pwait2</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b2515366">Build: Add "DebugValgrind" build for SCTest</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/dc8f428d">FileSystem: Add Operations::getCurrentDirectory</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d65ee98f">FileSystem: Run clang-format</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4451c6f1">CI: Allow running the CI jobs on every branch of the repo</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d6ae3d17">CI: Trigger "Documentation and Code Coverage" workflow on pull requests</a></li>
+<li><strong>Mature Existing Libraries:</strong> The main objective is to bring more libraries from <code>Draft</code> and <code>MVP</code> states to <code>Usable</code>.<br>
+The top priority is the <code>Http</code> library, whose overhaul has already begun.</li>
+<li><strong>No New Libraries (Probably!):</strong> I will try <em>not</em> to add any new libraries. The focus will be on hardening and perfecting the existing ones.</li>
+<li><strong>Examples and Documentation:</strong> With the APIs stabilizing, improving documentation and adding more real-world examples will be more important than ever.</li>
 </ul>
-<h1 id="http">Http</h1>
-<p>The <code>SC::Http</code> module has received some improvements to its URL parser, mainly by extending its test coverage.</p>
-<p>However, this is just a small step. <code>SC::Http</code> is still in a 🟥 Draft state and will require substantial work before it can even be considered 🟨 MVP.</p>
-<p><strong>Detailed list of commits:</strong></p>
-<ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3d351d95">Http: Add UTF8 tests for HttpURL Parser</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/531a317a">Http: Improve URL parser to handle case sensitivity, IPV6 and invalid ports</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/424fa577">Http: Improve URL Parser to test more edge cases</a></li>
-</ul>
-<h1 id="miscellaneous">Miscellaneous</h1>
-<p>As with every month, here is a bunch of random fixes!</p>
-<ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3582d554">Everywhere: Support running test suite under XCTest</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/75765a45">File: Check for errors during stdin / stdout / stderr handles duplication</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/22e0f32f">Process: Modify stdout / stderr Span to return how many bytes have been read</a></li>
-</ul>
+<p>It's been a marathon of a year focused on deep, foundational work.<br>
+Thank you to everyone who has followed along, starred the repository, or used the libraries. </p>
+<p>The journey is far from over!</p>
+<p>See you soon! 🎊👋🏼</p>
   </div>
 
     </main>

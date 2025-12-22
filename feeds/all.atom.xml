@@ -1,5 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Sane Coding Blog</title><link href="https://pagghiu.github.io/" rel="alternate"></link><link href="https://pagghiu.github.io/feeds/all.atom.xml" rel="self"></link><id>https://pagghiu.github.io/</id><updated>2025-11-30T00:00:00+01:00</updated><subtitle>Sane Coding Blog</subtitle><entry><title>🌫️ Sane C++ November 25</title><link href="https://pagghiu.github.io/sane-c-november-25.html" rel="alternate"></link><published>2025-11-30T00:00:00+01:00</published><updated>2025-11-30T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-11-30:/sane-c-november-25.html</id><summary type="html">&lt;p&gt;Welcome to the November 2025 update!&lt;br&gt; This month, focus is bringing the long neglected &lt;code&gt;Http&lt;/code&gt; library out of its initial &lt;code&gt;Draft&lt;/code&gt; state!&lt;/p&gt;</summary><content type="html">&lt;h1 id="http"&gt;Http&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Sane Coding Blog</title><link href="https://pagghiu.github.io/" rel="alternate"></link><link href="https://pagghiu.github.io/feeds/all.atom.xml" rel="self"></link><id>https://pagghiu.github.io/</id><updated>2025-12-23T00:00:00+01:00</updated><subtitle>Sane Coding Blog</subtitle><entry><title>2️⃣ Years of Sane C++ Libraries</title><link href="https://pagghiu.github.io/site/blog/2025-12-23-SaneCpp2Year.html" rel="alternate"></link><published>2025-12-23T00:00:00+01:00</published><updated>2025-12-23T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-12-23:/site/blog/2025-12-23-SaneCpp2Year.html</id><summary type="html">&lt;p&gt;A look back at the second year of the Sane C++ Libraries project, highlighting a massive dependency cleanup, the "No Allocations" guarantee, single-file libraries, and much more.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Another year has passed, and it's time to celebrate the second anniversary of Sane C++ Libraries
+&lt;a href="https://github.com/pagghiu/SaneCppLibraries"&gt;https://github.com/pagghiu/SaneCppLibraries&lt;/a&gt;!&lt;br&gt;
+The journey continues toward the goal of providing simple, modern, and dependency-free C++ platform abstraction libraries for macOS, Windows, and Linux.&lt;/p&gt;
+&lt;p&gt;The core principles remain the same:&lt;/p&gt;
+&lt;p&gt;✅ Fast compile times&lt;br&gt;
+✅ Bloat free&lt;br&gt;
+✅ Simple and readable code&lt;br&gt;
+✅ Easy to integrate&lt;br&gt;
+⛔️ No C++ Standard Library / Exceptions / RTTI&lt;br&gt;
+⛔️ No third party build dependencies (prefer OS API)  &lt;/p&gt;
+&lt;p&gt;This second year was defined by a relentless focus on architectural purity, developer experience, and delivering on the project's core promises in a tangible way.&lt;/p&gt;
+&lt;h2 id="the-great-cleanup"&gt;The Great Cleanup&lt;/h2&gt;
+&lt;p class="chapter"&gt;The "No Allocations" Guarantee&lt;/p&gt;
+
+&lt;p&gt;The single most important achievement of this year was a massive dependency cleanup that culminated in making them single-file libraries with clean dependencies.&lt;/p&gt;
+&lt;p&gt;Isn't this final clean internal dependency graph super cool? 😎&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pagghiu.github.io/site/blog/2025-12-23-SaneCpp2Year-Dependencies.svg" target="_blank"&gt;
+&lt;img src="https://pagghiu.github.io/site/blog/2025-12-23-SaneCpp2Year-Dependencies.svg"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A powerful guarantee for most of the libraries has been gained too:&lt;br&gt;
+&lt;strong&gt;No dynamic memory allocations.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;As the official &lt;code&gt;README.md&lt;/code&gt; now states:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;All libraries do not dynamically allocate memory (excluding &lt;code&gt;Memory&lt;/code&gt; and &lt;code&gt;Containers&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;All libraries are designed to work inside user-provided memory buffers.&lt;/li&gt;
+&lt;li&gt;All libraries return error codes when running out of such memory buffers.&lt;/li&gt;
+&lt;li&gt;Third-party container classes, including &lt;code&gt;std::&lt;/code&gt; ones, are supported (see &lt;code&gt;InteropSTL&lt;/code&gt; for an example).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Memory&lt;/code&gt; and &lt;code&gt;Containers&lt;/code&gt; are fully optional and just provided for convenience.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This was a multi-month effort that involved:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Splitting the &lt;code&gt;Memory&lt;/code&gt; library (&lt;a href="https://pagghiu.github.io/site/blog/2025-06-30-SaneCppLibrariesUpdate.html"&gt;June&lt;/a&gt;):&lt;/strong&gt;&lt;br&gt;
+All components responsible for dynamic allocation (&lt;code&gt;Segment&lt;/code&gt;, &lt;code&gt;Buffer&lt;/code&gt;, &lt;code&gt;VirtualMemory&lt;/code&gt;) were moved from &lt;code&gt;Foundation&lt;/code&gt; into their own dedicated library.&lt;br&gt;
+This created a clear architectural boundary.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Aggressive Refactoring (&lt;a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html"&gt;July&lt;/a&gt;-&lt;a href="https://pagghiu.github.io/site/blog/2025-10-31-SaneCppLibrariesUpdate.html"&gt;October&lt;/a&gt;):&lt;/strong&gt;&lt;br&gt;
+Guided by a new &lt;a href="https://pagghiu.github.io/SaneCppLibraries/page_dependencies.html"&gt;automated dependency tracking system&lt;/a&gt;, libraries like &lt;code&gt;File&lt;/code&gt;, &lt;code&gt;Socket&lt;/code&gt;, &lt;code&gt;Process&lt;/code&gt;, &lt;code&gt;FileSystem&lt;/code&gt;, and &lt;code&gt;FileSystemWatcher&lt;/code&gt; were refactored to remove all dependencies on &lt;code&gt;Memory&lt;/code&gt; or &lt;code&gt;Strings&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;"Bring Your Own Containers" (&lt;a href="https://pagghiu.github.io/site/blog/2025-10-31-SaneCppLibrariesUpdate.html"&gt;October&lt;/a&gt;):&lt;/strong&gt;&lt;br&gt;
+To prove this wasn't about locking users in, the &lt;code&gt;InteropSTL&lt;/code&gt; example was created to show how easily &lt;code&gt;std::string&lt;/code&gt; and &lt;code&gt;std::vector&lt;/code&gt; can be used with the libraries, thanks to the lightweight &lt;code&gt;IGrowableBuffer&lt;/code&gt; interface.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now, if you use a library that doesn't depend on &lt;code&gt;Memory&lt;/code&gt; (directly or indirectly), you have a compile-time guarantee that it performs no heap allocations.  &lt;/p&gt;
+&lt;h2 id="the-year-in-review"&gt;The Year in Review&lt;/h2&gt;
+&lt;p class="chapter"&gt;A Look Back at The Updates &lt;/p&gt;
+
+&lt;p&gt;Beyond the architectural overhaul, the year was packed with new features and improvements.&lt;/p&gt;
+&lt;h3 id="async-evolution"&gt;🟨 Async Evolution&lt;/h3&gt;
+&lt;p class="chapter"&gt;Async all the things&lt;/p&gt;
+
+&lt;p&gt;The async ecosystem has been refined consistently throughout the year:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;AsyncStreams&lt;/code&gt; (&lt;a href="https://pagghiu.github.io/site/blog/2024-12-31-SaneCppLibrariesUpdate.html"&gt;December&lt;/a&gt;):&lt;/strong&gt;&lt;br&gt;
+Gained transform streams, demonstrated with an async ZLib compression stream.&lt;br&gt;
+It was later promoted to &lt;strong&gt;MVP&lt;/strong&gt; status (August).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Async&lt;/code&gt; Core (&lt;a href="https://pagghiu.github.io/site/blog/2025-01-31-SaneCppLibrariesUpdate.html"&gt;January&lt;/a&gt;):&lt;/strong&gt;&lt;br&gt;
+The core event loop was refined with a large number of bug fixes and improvements, timers were improved, and the &lt;code&gt;SC::Function&lt;/code&gt; object was optimized to save memory.  Significant effort has been spent trying to unify cancellation behaviors of the wildly different OS APIs.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;AsyncSequence&lt;/code&gt; (&lt;a href="https://pagghiu.github.io/site/blog/2025-05-31-SaneCppLibrariesUpdate.html"&gt;May&lt;/a&gt;):&lt;/strong&gt;&lt;br&gt;
+A major quality-of-life improvement, allowing for easy chaining of async operations without complex callback nesting.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;AsyncFileSystemOperation&lt;/code&gt; (&lt;a href="https://pagghiu.github.io/site/blog/2025-06-30-SaneCppLibrariesUpdate.html"&gt;June&lt;/a&gt;):&lt;/strong&gt;&lt;br&gt;
+A powerful new feature unifying a huge range of async file system operations (&lt;code&gt;copy&lt;/code&gt;, &lt;code&gt;rename&lt;/code&gt;, &lt;code&gt;remove&lt;/code&gt;, etc.) under a single cross-platform API.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UDP Support (&lt;a href="https://pagghiu.github.io/site/blog/2025-06-30-SaneCppLibrariesUpdate.html"&gt;June&lt;/a&gt;):&lt;/strong&gt;&lt;br&gt;
+Added &lt;code&gt;sendTo&lt;/code&gt; and &lt;code&gt;receiveFrom&lt;/code&gt; for unconnected UDP sockets.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Http Async Evolution (&lt;a href="https://pagghiu.github.io/site/blog/2025-11-30-SaneCppLibrariesUpdate.html"&gt;November&lt;/a&gt;):&lt;/strong&gt;&lt;br&gt;
+Work on overhauling the &lt;code&gt;Http&lt;/code&gt; library drove improvements in &lt;code&gt;AsyncStreams&lt;/code&gt;, making it more flexible to handle externally managed buffers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://pagghiu.github.io/site/blog/SCAsyncSequence.png" target="_blank"&gt;
+&lt;img src="https://pagghiu.github.io/site/blog/SCAsyncSequence.png"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="memory-management-revolution-february-march"&gt;🧠 Memory Management Revolution (&lt;a href="https://pagghiu.github.io/site/blog/2025-02-28-SaneCppLibrariesUpdate.html"&gt;February&lt;/a&gt;-&lt;a href="https://pagghiu.github.io/site/blog/2025-03-31-SaneCppLibrariesUpdate.html"&gt;March&lt;/a&gt;)&lt;/h3&gt;
+&lt;p class="chapter"&gt;Do not allocate as if your life depends on it!&lt;/p&gt;
+
+&lt;p&gt;The foundation for the "No Allocations" guarantee was laid early in the year.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Containers&lt;/code&gt; Rewrite (&lt;a href="https://pagghiu.github.io/site/blog/2025-02-28-SaneCppLibrariesUpdate.html"&gt;February&lt;/a&gt;):&lt;/strong&gt; The &lt;code&gt;Containers&lt;/code&gt; library was rewritten, and the crucial &lt;code&gt;Buffer&lt;/code&gt; and &lt;code&gt;SmallBuffer&lt;/code&gt; types were born in &lt;code&gt;Foundation&lt;/code&gt;, and later on isolated inside the &lt;code&gt;Memory&lt;/code&gt; library.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Advanced Memory Management (&lt;a href="https://pagghiu.github.io/site/blog/2025-03-31-SaneCppLibrariesUpdate.html"&gt;March&lt;/a&gt;):&lt;/strong&gt;&lt;br&gt;
+A number of useful features were added:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Custom Allocators:&lt;/strong&gt;&lt;br&gt;
+A global, scoped, non-template-based allocator system for strategies like arena allocation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Relative Pointers:&lt;/strong&gt;&lt;br&gt;
+To enable fast, memcpy-able serialization of complex data structures (if you can accept a little bit of un-avoidable UB...).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Virtual Memory:&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;VirtualAllocator&lt;/code&gt; allows reserving large chunks of virtual address space to avoid reallocations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://pagghiu.github.io/site/blog/CustomVirtualAllocator.png" target="_blank"&gt;
+&lt;img src="https://pagghiu.github.io/site/blog/CustomVirtualAllocator.png"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pagghiu.github.io/site/blog/StructDump.jpg" target="_blank"&gt;
+&lt;img src="https://pagghiu.github.io/site/blog/StructDump.jpg"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="tooling-and-developer-experience"&gt;🛠️ Tooling and Developer Experience&lt;/h3&gt;
+&lt;p&gt;A major theme this year was making the libraries easier to use and develop.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Single-File Libraries (&lt;a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html"&gt;August&lt;/a&gt;):&lt;/strong&gt;&lt;br&gt;
+A huge usability win! All libraries can now be amalgamated into single header files.&lt;br&gt;
+A &lt;a href="https://pagghiu.github.io/SaneCppLibraries/page_single_file_libs.html"&gt;browser-based tool&lt;/a&gt; makes it incredibly easy to generate them.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GDB Pretty Printer (&lt;a href="https://pagghiu.github.io/site/blog/2025-09-30-SaneCppLibrariesUpdate.html"&gt;September&lt;/a&gt;):&lt;/strong&gt;&lt;br&gt;
+With &lt;code&gt;LLDB&lt;/code&gt; and &lt;code&gt;MSVC&lt;/code&gt; visualizers already present, the addition of a &lt;code&gt;GDB&lt;/code&gt; pretty printer completed the set, providing a first-class debugging experience for the project's custom containers.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Automated Dependency Checking (&lt;a href="https://pagghiu.github.io/site/blog/2025-09-30-SaneCppLibrariesUpdate.html"&gt;September&lt;/a&gt;):&lt;/strong&gt;&lt;br&gt;
+The CI now automatically verifies that new code doesn't introduce unwanted dependencies, enforcing architectural hygiene.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Self-Hosting Bootstrap (&lt;a href="https://pagghiu.github.io/site/blog/2025-10-31-SaneCppLibrariesUpdate.html"&gt;October&lt;/a&gt;):&lt;/strong&gt;&lt;br&gt;
+The build tool system (&lt;code&gt;SC::Tools&lt;/code&gt;) threw away its dependency on &lt;code&gt;make&lt;/code&gt;/&lt;code&gt;nmake&lt;/code&gt; and now bootstraps itself with a minimal, dependency-free C++ program (which was later ported to C for even faster startup!).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://pagghiu.github.io/SaneCppLibraries/single_file_libs.html" target="_blank"&gt;
+&lt;img src="https://pagghiu.github.io/site/blog/SCAmalgamationGenerator.jpg"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="community-content-growth"&gt;Community, Content &amp;amp; Growth&lt;/h2&gt;
+&lt;p&gt;The project is still a solo development effort for the most part, but this year saw a few contributions!&lt;br&gt;
+A special thank you to &lt;strong&gt;&lt;a href="http://coz.is"&gt;Francesco "cozis" Cozzuto&lt;/a&gt;&lt;/strong&gt; for his useful contributions and bug reports.&lt;/p&gt;
+&lt;p&gt;Growth on GitHub has been slow and steady.&lt;br&gt;
+While there's no exponential explosion in stars, the project continues to find its audience, making me happy 😃.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://star-history.com/#Pagghiu/SaneCppLibraries&amp;Date" target="_blank"&gt;
+  &lt;img src="https://api.star-history.com/svg?repos=Pagghiu/SaneCppLibraries&amp;type=Date" alt="Star History Chart"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In terms of content, my focus this year shifted heavily from producing YouTube videos to implementing the architectural changes described above. I may come back to making videos at some point, once I'm more satisfied with the status of the libraries, but the priority for now remains on the code.&lt;/p&gt;
+&lt;h2 id="looking-ahead-to-year-three"&gt;Looking Ahead to Year Three&lt;/h2&gt;
+&lt;p&gt;With the architecture in a much cleaner state, the plan for the third year is to build on this solid foundation.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mature Existing Libraries:&lt;/strong&gt; The main objective is to bring more libraries from &lt;code&gt;Draft&lt;/code&gt; and &lt;code&gt;MVP&lt;/code&gt; states to &lt;code&gt;Usable&lt;/code&gt;.&lt;br&gt;
+The top priority is the &lt;code&gt;Http&lt;/code&gt; library, whose overhaul has already begun.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;No New Libraries (Probably!):&lt;/strong&gt; I will try &lt;em&gt;not&lt;/em&gt; to add any new libraries. The focus will be on hardening and perfecting the existing ones.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Examples and Documentation:&lt;/strong&gt; With the APIs stabilizing, improving documentation and adding more real-world examples will be more important than ever.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It's been a marathon of a year focused on deep, foundational work.&lt;br&gt;
+Thank you to everyone who has followed along, starred the repository, or used the libraries. &lt;/p&gt;
+&lt;p&gt;The journey is far from over!&lt;/p&gt;
+&lt;p&gt;See you soon! 🎊👋🏼&lt;/p&gt;</content><category term="C++"></category><category term="c++"></category><category term="sane"></category><category term="libraries"></category><category term="update"></category><category term="anniversary"></category></entry><entry><title>🌫️ Sane C++ November 25</title><link href="https://pagghiu.github.io/site/blog/2025-11-30-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2025-11-30T00:00:00+01:00</published><updated>2025-11-30T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-11-30:/site/blog/2025-11-30-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the November 2025 update!&lt;br&gt; This month, focus is bringing the long neglected &lt;code&gt;Http&lt;/code&gt; library out of its initial &lt;code&gt;Draft&lt;/code&gt; state!&lt;/p&gt;</summary><content type="html">&lt;h1 id="http"&gt;Http&lt;/h1&gt;
 &lt;p&gt;The &lt;code&gt;Http&lt;/code&gt; library was initially put together in a hurry for the first release of Sane C++ Libraries almost two years ago. Since then, it has remained largely unchanged, a simple &lt;code&gt;Draft&lt;/code&gt; that was just enough to demonstrate a basic asynchronous web server.&lt;/p&gt;
 &lt;p&gt;While useful, its minimal implementation and lack of comprehensive tests meant it was often fragile, breaking as other parts of the ecosystem evolved. The time has come to give &lt;code&gt;Http&lt;/code&gt; the attention it deserves and begin the long process of elevating it to a more robust state.&lt;/p&gt;
 &lt;p&gt;The first steps on this journey involve reducing its footprint by removing now-unnecessary dependencies on &lt;code&gt;Containers&lt;/code&gt; and &lt;code&gt;Time&lt;/code&gt;. Concurrently, &lt;code&gt;Http&lt;/code&gt; is being refactored to leverage the &lt;code&gt;AsyncStreams&lt;/code&gt; abstraction instead of dealing with raw socket operations. The next step is to remove the &lt;code&gt;Memory&lt;/code&gt; dependency, leaving &lt;code&gt;AsyncStreams&lt;/code&gt; as its sole dependency and solidifying its foundation.&lt;/p&gt;
@@ -75,7 +202,7 @@
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/107c23b0"&gt;Foundation: Fix type constraints for Span&lt;T&gt; std::initializer_list  constructor&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f7e24260"&gt;Foundation: Make Function LAMBDA_SIZE user configurable&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/144fadd0"&gt;Strings: Add Console methods to enable printing to stderr&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🌧️ Sane C++ October 25</title><link href="https://pagghiu.github.io/sane-c-october-25.html" rel="alternate"></link><published>2025-10-31T00:00:00+01:00</published><updated>2025-10-31T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-10-31:/sane-c-october-25.html</id><summary type="html">&lt;p&gt;Welcome to the October 2025 update!&lt;br&gt; This month internal dependencies have been further removed.&lt;/p&gt;</summary><content type="html">&lt;h1 id="reducing-internal-dependencies"&gt;Reducing Internal Dependencies&lt;/h1&gt;
+&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🌧️ Sane C++ October 25</title><link href="https://pagghiu.github.io/site/blog/2025-10-31-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2025-10-31T00:00:00+01:00</published><updated>2025-10-31T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-10-31:/site/blog/2025-10-31-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the October 2025 update!&lt;br&gt; This month internal dependencies have been further removed.&lt;/p&gt;</summary><content type="html">&lt;h1 id="reducing-internal-dependencies"&gt;Reducing Internal Dependencies&lt;/h1&gt;
 &lt;p&gt;The first part of the month month has been focused on continuing breaking &lt;strong&gt;internal&lt;/strong&gt; dependencies between libraries.&lt;/p&gt;
 &lt;p&gt;The goal is for Sane C++ Libraries to be a collection of libraries that &lt;em&gt;work well together&lt;/em&gt;, rather than a monolithic &lt;em&gt;framework&lt;/em&gt;.
 Users should be able to use a single library in isolation without being forced to adopt the entire ecosystem.&lt;/p&gt;
@@ -184,7 +311,7 @@ I want to thank &lt;a href="http://coz.is"&gt;Francesco (cozis) Cozzuto&lt;/a&gt
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4421c8ed"&gt;Strings: Remove consecutive path separators in Path::normalize&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c16d7143"&gt;Testing: Flush every printed line&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ebca6076"&gt;Testing: Get rid of the trailing 0 when printing red/green emoji&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🍂 Sane C++ September 25</title><link href="https://pagghiu.github.io/sane-c-september-25.html" rel="alternate"></link><published>2025-09-30T00:00:00+02:00</published><updated>2025-09-30T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-09-30:/sane-c-september-25.html</id><summary type="html">&lt;p&gt;Welcome to the September 2025 update!&lt;br&gt; The main focus this month has been on breaking internal dependencies to enhance modularity.&lt;/p&gt;</summary><content type="html">&lt;h1 id="reducing-internal-dependencies"&gt;Reducing Internal Dependencies&lt;/h1&gt;
+&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🍂 Sane C++ September 25</title><link href="https://pagghiu.github.io/site/blog/2025-09-30-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2025-09-30T00:00:00+02:00</published><updated>2025-09-30T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-09-30:/site/blog/2025-09-30-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the September 2025 update!&lt;br&gt; The main focus this month has been on breaking internal dependencies to enhance modularity.&lt;/p&gt;</summary><content type="html">&lt;h1 id="reducing-internal-dependencies"&gt;Reducing Internal Dependencies&lt;/h1&gt;
 &lt;p&gt;The majority of the work this month focused on breaking &lt;strong&gt;internal&lt;/strong&gt; dependencies between libraries.&lt;/p&gt;
 &lt;p&gt;The goal is for Sane C++ Libraries to be a collection of libraries that &lt;em&gt;work well together&lt;/em&gt;, rather than a monolithic &lt;em&gt;framework&lt;/em&gt;. Users should be able to use a single library in isolation without being forced to adopt the entire ecosystem.&lt;/p&gt;
 &lt;p&gt;Sane C++ Libraries is not a project that forces itself to be the central heart of your software project (even if it would probably be a good idea! 😎).&lt;/p&gt;
@@ -316,7 +443,7 @@ I want to thank &lt;a href="http://coz.is"&gt;Francesco (cozis) Cozzuto&lt;/a&gt
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3582d554"&gt;Everywhere: Support running test suite under XCTest&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/75765a45"&gt;File: Check for errors during stdin / stdout / stderr handles duplication&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/22e0f32f"&gt;Process: Modify stdout / stderr Span to return how many bytes have been read&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🌊 Sane C++ August 25</title><link href="https://pagghiu.github.io/sane-c-august-25.html" rel="alternate"></link><published>2025-08-31T00:00:00+02:00</published><updated>2025-08-31T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-08-31:/sane-c-august-25.html</id><summary type="html">&lt;p&gt;Welcome to the update post for August 2025!&lt;br&gt; This month we finally have Single File Libs!!!&lt;/p&gt;</summary><content type="html">&lt;h1 id="single-file-libraries"&gt;Single File Libraries&lt;/h1&gt;
+&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🌊 Sane C++ August 25</title><link href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2025-08-31T00:00:00+02:00</published><updated>2025-08-31T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-08-31:/site/blog/2025-08-31-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the update post for August 2025!&lt;br&gt; This month we finally have Single File Libs!!!&lt;/p&gt;</summary><content type="html">&lt;h1 id="single-file-libraries"&gt;Single File Libraries&lt;/h1&gt;
 &lt;p&gt;One of the core principles of this project is to be "Easy to Integrate".&lt;br&gt;
 I'm always looking for ways to lower the barrier to entry for using these libraries in your own projects.&lt;/p&gt;
 &lt;p&gt;To that end, I'm happy to announce that all Sane Cpp Libraries are now available as &lt;strong&gt;single-file libraries&lt;/strong&gt;!&lt;/p&gt;
@@ -451,7 +578,7 @@ Also the API for Pipe has been changed to make sure properly setting inheritable
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/cd429f4d"&gt;Tools: Generate PDB when building tools on Windows&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/749742c5"&gt;Tools: Run SC-format with default event loop backend&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/70b2d740"&gt;Tools: Update 7zr to 25.01&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🏖️ Sane C++ July 25</title><link href="https://pagghiu.github.io/sane-c-july-25.html" rel="alternate"></link><published>2025-07-31T00:00:00+02:00</published><updated>2025-07-31T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-07-31:/sane-c-july-25.html</id><summary type="html">&lt;p&gt;Welcome to the update post for July 2025!&lt;br&gt; It's dependency cleanup month! 🧹🧹🧹&lt;/p&gt;</summary><content type="html">&lt;h1 id="automatic-dependency-and-loc"&gt;Automatic Dependency and LOC&lt;/h1&gt;
+&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🏖️ Sane C++ July 25</title><link href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2025-07-31T00:00:00+02:00</published><updated>2025-07-31T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-07-31:/site/blog/2025-07-31-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the update post for July 2025!&lt;br&gt; It's dependency cleanup month! 🧹🧹🧹&lt;/p&gt;</summary><content type="html">&lt;h1 id="automatic-dependency-and-loc"&gt;Automatic Dependency and LOC&lt;/h1&gt;
 &lt;p&gt;List of dependencies between libraries and the number of lines of code (LOC) composing them gives an immediate complexity indication.&lt;/p&gt;
 &lt;p&gt;For this reason from this month I've started publishing:&lt;/p&gt;
 &lt;ul&gt;
@@ -615,7 +742,7 @@ This interface abstracts read/write operation to/from &lt;code&gt;Strings&lt;/co
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8945865"&gt;Everywhere: Remove /&lt;em&gt; &lt;/em&gt;/ style comments&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/72fde39"&gt;Everywhere: Get rid of some warnings reported by clangd&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9a922f6"&gt;Tools: Update 7zr to 25.00&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>☀️ Sane C++ June 25</title><link href="https://pagghiu.github.io/sane-c-june-25.html" rel="alternate"></link><published>2025-06-30T00:00:00+02:00</published><updated>2025-06-30T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-06-30:/sane-c-june-25.html</id><summary type="html">&lt;p&gt;Welcome to the update post for June 2025!&lt;br&gt; This month brings a new async file system operations, an enhanced UDP socket support in &lt;a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html"&gt;&lt;code&gt;SC::Async&lt;/code&gt;&lt;/a&gt; and some dependency cleanup with the Memory library split from Foundation!&lt;/p&gt;</summary><content type="html">&lt;h1 id="async-file-system-operations"&gt;Async File System Operations&lt;/h1&gt;
+&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>☀️ Sane C++ June 25</title><link href="https://pagghiu.github.io/site/blog/2025-06-30-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2025-06-30T00:00:00+02:00</published><updated>2025-06-30T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-06-30:/site/blog/2025-06-30-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the update post for June 2025!&lt;br&gt; This month brings a new async file system operations, an enhanced UDP socket support in &lt;a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html"&gt;&lt;code&gt;SC::Async&lt;/code&gt;&lt;/a&gt; and some dependency cleanup with the Memory library split from Foundation!&lt;/p&gt;</summary><content type="html">&lt;h1 id="async-file-system-operations"&gt;Async File System Operations&lt;/h1&gt;
 &lt;p&gt;A major new feature this month is the unified &lt;code&gt;AsyncFileSystemOperation&lt;/code&gt; that provides async file system operations across all platforms. This replaces the previous &lt;code&gt;AsyncFileClose&lt;/code&gt; and &lt;code&gt;AsyncSocketClose&lt;/code&gt; with a more comprehensive and consistent API.&lt;/p&gt;
 &lt;p&gt;The new operations include:&lt;/p&gt;
 &lt;ul&gt;
@@ -705,7 +832,7 @@ As it holds also the encoding, some libraries will convert the string in some in
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/94c8849"&gt;Algorithms: Add contains and output found index from findIf&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c8e251b"&gt;File: Fix infinite loop on FileDescriptor::write (Windows)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🌸 Sane C++ May 25</title><link href="https://pagghiu.github.io/sane-c-may-25.html" rel="alternate"></link><published>2025-05-31T00:00:00+02:00</published><updated>2025-05-31T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-05-31:/sane-c-may-25.html</id><summary type="html">&lt;p&gt;Welcome to the update post for May 2025!&lt;br&gt; This month a new object called &lt;code&gt;AsyncSequence&lt;/code&gt; has been added to &lt;a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html"&gt;&lt;code&gt;SC::Async&lt;/code&gt;&lt;/a&gt; together with a good list of smaller improvements!&lt;/p&gt;</summary><content type="html">&lt;h1 id="deepwiki"&gt;DeepWiki&lt;/h1&gt;
+&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🌸 Sane C++ May 25</title><link href="https://pagghiu.github.io/site/blog/2025-05-31-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2025-05-31T00:00:00+02:00</published><updated>2025-05-31T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-05-31:/site/blog/2025-05-31-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the update post for May 2025!&lt;br&gt; This month a new object called &lt;code&gt;AsyncSequence&lt;/code&gt; has been added to &lt;a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html"&gt;&lt;code&gt;SC::Async&lt;/code&gt;&lt;/a&gt; together with a good list of smaller improvements!&lt;/p&gt;</summary><content type="html">&lt;h1 id="deepwiki"&gt;DeepWiki&lt;/h1&gt;
 &lt;p&gt;I've been feeding the Sane C++ Libraries repo to &lt;a href="https://deepwiki.com" target="_blank"&gt;DeepWiki&lt;/a&gt; and I am actually surprised by how good it has understood the overall codebase structure!
 Some details are wrong and sometimes it analyzes details that are not really worth that much, but it's really amazing how much insight it provides at a glance to someone who is not aware of the internals of the project.&lt;/p&gt;
 &lt;p&gt;Make sure to check it out at:&lt;/p&gt;
@@ -754,7 +881,7 @@ This is now properly handled by stepping the event loop one more time.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6425ccb1"&gt;Async: Store 2 bytes of user flags in AsyncRequest&lt;/a&gt; &lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fb27bfa7"&gt;Async: Do not store event index per each request&lt;/a&gt; &lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ed75c2db"&gt;Async: Migrate code to completion data in AsyncSocketClose&lt;/a&gt; &lt;/li&gt;
-&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>💤 Sane C++ April 25</title><link href="https://pagghiu.github.io/sane-c-april-25.html" rel="alternate"></link><published>2025-04-30T00:00:00+02:00</published><updated>2025-04-30T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-04-30:/sane-c-april-25.html</id><summary type="html">&lt;p&gt;Welcome to the update post for April 2025!&lt;br&gt; This month has been mostly spent adding Process fork, Async vectorized writes and Memory Dump to Containers!&lt;/p&gt;</summary><content type="html">&lt;h1 id="process"&gt;Process&lt;/h1&gt;
+&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>💤 Sane C++ April 25</title><link href="https://pagghiu.github.io/site/blog/2025-04-30-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2025-04-30T00:00:00+02:00</published><updated>2025-04-30T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-04-30:/site/blog/2025-04-30-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the update post for April 2025!&lt;br&gt; This month has been mostly spent adding Process fork, Async vectorized writes and Memory Dump to Containers!&lt;/p&gt;</summary><content type="html">&lt;h1 id="process"&gt;Process&lt;/h1&gt;
 &lt;p&gt;&lt;a href="https://pagghiu.github.io/SaneCppLibraries/library_process.html"&gt;&lt;code&gt;SC::Process&lt;/code&gt;&lt;/a&gt; library allows spawning process across all supported platforms with many features, including I/O redirection and setting environment variables / starting directories.
 This month however it has been gaining a new class called &lt;code&gt;SC::ProcessFork&lt;/code&gt; that uses &lt;code&gt;fork&lt;/code&gt; on Posix and &lt;code&gt;RtlCloneUserProcess&lt;/code&gt; a very well hidden NT Kernel API that we can consider to be some sort of Windows &lt;code&gt;fork&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;A fork duplicates a parent process execution state, os handles and private memory.&lt;/p&gt;
@@ -883,7 +1010,7 @@ Hopefully this now makes more sense than before.&lt;/p&gt;
 &lt;p&gt;And just a single fix that doesn't fit in any of the previous bigger categories!&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/690cf89e"&gt;Strings: Fix reading from potentially unaligned memory&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>☔️ Sane C++ March 25</title><link href="https://pagghiu.github.io/sane-c-march-25.html" rel="alternate"></link><published>2025-03-31T00:00:00+02:00</published><updated>2025-03-31T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-03-31:/sane-c-march-25.html</id><summary type="html">&lt;p&gt;Welcome to the update post for March 2025!&lt;br&gt; This month has been mostly spent adding custom allocators support to all Containers!&lt;/p&gt;</summary><content type="html">&lt;h3 id="scfoundation"&gt;SC::Foundation&lt;/h3&gt;
+&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>☔️ Sane C++ March 25</title><link href="https://pagghiu.github.io/site/blog/2025-03-31-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2025-03-31T00:00:00+02:00</published><updated>2025-03-31T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-03-31:/site/blog/2025-03-31-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the update post for March 2025!&lt;br&gt; This month has been mostly spent adding custom allocators support to all Containers!&lt;/p&gt;</summary><content type="html">&lt;h3 id="scfoundation"&gt;SC::Foundation&lt;/h3&gt;
 &lt;p&gt;The big &lt;code&gt;Segment&lt;/code&gt; refactoring from last month has left so many trails also during March in &lt;a href="https://pagghiu.github.io/SaneCppLibraries/library_foundation.html"&gt;&lt;code&gt;SC::Foundation&lt;/code&gt;&lt;/a&gt;.&lt;br&gt;
 Most notably &lt;code&gt;Segment&lt;/code&gt; now:&lt;/p&gt;
 &lt;ol&gt;
@@ -1013,7 +1140,7 @@ This makes it easier to manually invoke make for them as you don't need the flag
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f60358e0"&gt;Documentation: Fix some typos for build instructions&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/443c38e9"&gt;SerializationBinary: Fix UB on buffer reader&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d003f221"&gt;Containers: Use placementNew in ArenaMap&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🎠 Sane C++ February 25</title><link href="https://pagghiu.github.io/sane-c-february-25.html" rel="alternate"></link><published>2025-02-28T00:00:00+01:00</published><updated>2025-02-28T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-02-28:/sane-c-february-25.html</id><summary type="html">&lt;p&gt;Welcome to the update post for February 2025!&lt;br&gt; This month has been mostly spent re-writing &lt;code&gt;Containers&lt;/code&gt; and &lt;code&gt;SC::Build&lt;/code&gt; libraries!&lt;/p&gt;</summary><content type="html">&lt;h3 id="containers"&gt;Containers&lt;/h3&gt;
+&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🎠 Sane C++ February 25</title><link href="https://pagghiu.github.io/site/blog/2025-02-28-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2025-02-28T00:00:00+01:00</published><updated>2025-02-28T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-02-28:/site/blog/2025-02-28-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the update post for February 2025!&lt;br&gt; This month has been mostly spent re-writing &lt;code&gt;Containers&lt;/code&gt; and &lt;code&gt;SC::Build&lt;/code&gt; libraries!&lt;/p&gt;</summary><content type="html">&lt;h3 id="containers"&gt;Containers&lt;/h3&gt;
 &lt;p&gt;Re-writing &lt;a href="https://pagghiu.github.io/SaneCppLibraries/library_containers.html"&gt;&lt;code&gt;Containers&lt;/code&gt;&lt;/a&gt;...what could be going wrong?&lt;/p&gt;
 &lt;p&gt;Sane C++ Libraries tag-line is "Platform Abstraction Libraries". 
 The main reason for that is that the project doesn't try or want to be a STL replacement.
@@ -1137,7 +1264,7 @@ It's also possible to set a compile flags for a specific set of files, including
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/12f1d236"&gt;Plugin: Move StringHashFNV to PluginHash&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a1254116"&gt;SCTest: More properly group tests by library they belong to&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1614560f"&gt;Strings: Move implementations to internal&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>❄️ Sane C++ January 25</title><link href="https://pagghiu.github.io/sane-c-january-25.html" rel="alternate"></link><published>2025-01-31T00:00:00+01:00</published><updated>2025-01-31T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-01-31:/sane-c-january-25.html</id><summary type="html">&lt;p&gt;Welcome to the update post for January 2025!&lt;br&gt; This month has been mostly spent improving &lt;code&gt;SC::Async&lt;/code&gt; library!&lt;/p&gt;</summary><content type="html">&lt;h3 id="scasync"&gt;SC::Async&lt;/h3&gt;
+&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>❄️ Sane C++ January 25</title><link href="https://pagghiu.github.io/site/blog/2025-01-31-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2025-01-31T00:00:00+01:00</published><updated>2025-01-31T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-01-31:/site/blog/2025-01-31-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the update post for January 2025!&lt;br&gt; This month has been mostly spent improving &lt;code&gt;SC::Async&lt;/code&gt; library!&lt;/p&gt;</summary><content type="html">&lt;h3 id="scasync"&gt;SC::Async&lt;/h3&gt;
 &lt;p&gt;&lt;a target="_new" href="http://pagghiu.github.io/SaneCppLibraries/library_async.html"&gt;&lt;code&gt;SC::Async&lt;/code&gt;&lt;/a&gt; has been the main focus of the month.&lt;/p&gt;
 &lt;p&gt;Simplification:&lt;/p&gt;
 &lt;ul&gt;
@@ -1227,7 +1354,7 @@ This video pauses (for now) the series of videos dedicated to &lt;code&gt;SC::As
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ae1f43d8"&gt;Plugin: Use correct casing for the "nologo" option&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ca1b0c12"&gt;SCExample: Stop timer during close&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/77c26075"&gt;SCExample: Update dear-imgui and sokol&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>☃️ Sane C++ December 24</title><link href="https://pagghiu.github.io/sane-c-december-24.html" rel="alternate"></link><published>2024-12-31T00:00:00+01:00</published><updated>2024-12-31T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-12-31:/sane-c-december-24.html</id><summary type="html">&lt;p&gt;Welcome to the update post for December 2024!&lt;br&gt; This month has been mostly spent improving &lt;code&gt;SC::AsyncStreams&lt;/code&gt; library with Async Transform Streams!&lt;/p&gt;</summary><content type="html">&lt;h3 id="scasyncstreams"&gt;SC::AsyncStreams&lt;/h3&gt;
+&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>☃️ Sane C++ December 24</title><link href="https://pagghiu.github.io/site/blog/2024-12-31-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2024-12-31T00:00:00+01:00</published><updated>2024-12-31T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-12-31:/site/blog/2024-12-31-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the update post for December 2024!&lt;br&gt; This month has been mostly spent improving &lt;code&gt;SC::AsyncStreams&lt;/code&gt; library with Async Transform Streams!&lt;/p&gt;</summary><content type="html">&lt;h3 id="scasyncstreams"&gt;SC::AsyncStreams&lt;/h3&gt;
 &lt;p&gt;Most of the work has been focused on shaping the &lt;a target="_new" href="http://pagghiu.github.io/SaneCppLibraries/library_async_streams.html"&gt;&lt;code&gt;SC::AsyncStreams&lt;/code&gt;&lt;/a&gt; library.&lt;/p&gt;
 &lt;p&gt;Async streams got their own folder and the &lt;code&gt;AsyncPipeline&lt;/code&gt; API has been improved so that it accept transform streams.&lt;br&gt;
 Transform streams are used to concurrently modify data read from a source, before it's being written to one or multiple destinations.
@@ -1313,7 +1440,7 @@ More specifically both File and Socket library got this treatment, so that Socke
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/146608cc"&gt;Cleanup README.md by referencing relevant blogs/videos inside each library&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b0154f33"&gt;Add some Quick Sheets and update README.md&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a7aad864"&gt;Add function to obtain plugins to reload after a file is modified&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>1️⃣ Year of Sane C++</title><link href="https://pagghiu.github.io/1-year-of-sane-c.html" rel="alternate"></link><published>2024-12-23T00:00:00+01:00</published><updated>2024-12-23T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-12-23:/1-year-of-sane-c.html</id><summary type="html">&lt;p&gt;Time flies, it's been already one year since the first public release of Sane C++ Libraries!&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://github.com/pagghiu/SaneCppLibraries" target="_new"&gt;&lt;code&gt;Sane C++ Libraries&lt;/code&gt;&lt;/a&gt; is a set of C++ platform abstraction libraries for macOS, Windows and Linux based on the following &lt;a href="https://pagghiu.github.io/SaneCppLibraries/page_principles.html"&gt;Principles&lt;/a&gt;:&lt;/p&gt;
+&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>1️⃣ Year of Sane C++</title><link href="https://pagghiu.github.io/site/blog/2024-12-23-SaneCpp1Year.html" rel="alternate"></link><published>2024-12-23T00:00:00+01:00</published><updated>2024-12-23T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-12-23:/site/blog/2024-12-23-SaneCpp1Year.html</id><summary type="html">&lt;p&gt;Time flies, it's been already one year since the first public release of Sane C++ Libraries!&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://github.com/pagghiu/SaneCppLibraries" target="_new"&gt;&lt;code&gt;Sane C++ Libraries&lt;/code&gt;&lt;/a&gt; is a set of C++ platform abstraction libraries for macOS, Windows and Linux based on the following &lt;a href="https://pagghiu.github.io/SaneCppLibraries/page_principles.html"&gt;Principles&lt;/a&gt;:&lt;/p&gt;
 &lt;p&gt;✅ Fast compile times&lt;br&gt;
 ✅ Bloat free&lt;br&gt;
 ✅ Simple and readable code&lt;br&gt;
@@ -1550,7 +1677,7 @@ WebSocket should be implemented on top of it.
 It would be great to implement HTTPS support without needing to include and link an external library like OpenSSL.
 Exploring the proper Windows and macOS API to do proper handshake and cryptography will be very useful.&lt;/p&gt;
 &lt;p&gt;How much of these objectives will be achievable highly depends on if the &lt;em&gt;solo development&lt;/em&gt; experience will continue to be the norm.  &lt;/p&gt;
-&lt;p&gt;See you soon!!🎊👋🏼&lt;/p&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🌫️ Sane C++ November 24</title><link href="https://pagghiu.github.io/sane-c-november-24.html" rel="alternate"></link><published>2024-11-30T00:00:00+01:00</published><updated>2024-11-30T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-11-30:/sane-c-november-24.html</id><summary type="html">&lt;p&gt;Welcome to the update post for November 2024! &lt;br&gt; Main focus of the month is the addition of Async Streams!&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
+&lt;p&gt;See you soon!!🎊👋🏼&lt;/p&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🌫️ Sane C++ November 24</title><link href="https://pagghiu.github.io/site/blog/2024-11-30-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2024-11-30T00:00:00+01:00</published><updated>2024-11-30T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-11-30:/site/blog/2024-11-30-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the update post for November 2024! &lt;br&gt; Main focus of the month is the addition of Async Streams!&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
     &lt;nav class="is-sticky-above-lg "&gt;
     &lt;details open=""&gt;
         &lt;summary&gt;Content&lt;/summary&gt;
@@ -1633,7 +1760,7 @@ Nothing specific stands out this update, but for completeness this is the list o
 
 &lt;/ul&gt;          
 &lt;/p&gt;
-&lt;/section&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🌊 Sane C++ August 24</title><link href="https://pagghiu.github.io/sane-c-august-24.html" rel="alternate"></link><published>2024-08-30T00:00:00+02:00</published><updated>2024-08-30T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-08-30:/sane-c-august-24.html</id><summary type="html">&lt;p&gt;Welcome to the update post for August 2024!&lt;br&gt; August has been spent doing some first round of improvements to the &lt;code&gt;SC::Http&lt;/code&gt; library.&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
+&lt;/section&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🌊 Sane C++ August 24</title><link href="https://pagghiu.github.io/site/blog/2024-08-30-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2024-08-30T00:00:00+02:00</published><updated>2024-08-30T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-08-30:/site/blog/2024-08-30-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the update post for August 2024!&lt;br&gt; August has been spent doing some first round of improvements to the &lt;code&gt;SC::Http&lt;/code&gt; library.&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
     &lt;nav class="is-sticky-above-lg "&gt;
     &lt;details open=""&gt;
         &lt;summary&gt;Content&lt;/summary&gt;
@@ -1719,7 +1846,7 @@ Nothing specific stands out this update, but for completeness this is the list o
 
   &lt;/ul&gt;          
   &lt;/p&gt;
-  &lt;/section&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🏖️ Sane C++ July 24</title><link href="https://pagghiu.github.io/sane-c-july-24.html" rel="alternate"></link><published>2024-07-31T00:00:00+02:00</published><updated>2024-07-31T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-07-31:/sane-c-july-24.html</id><summary type="html">&lt;p&gt;Welcome to the update post for July 2024!&lt;br&gt;The focus of the month has been building a nicer showcase for &lt;code&gt;SC::Plugin&lt;/code&gt; and &lt;code&gt;SC::Serialization&lt;/code&gt; libraries.&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
+  &lt;/section&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🏖️ Sane C++ July 24</title><link href="https://pagghiu.github.io/site/blog/2024-07-31-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2024-07-31T00:00:00+02:00</published><updated>2024-07-31T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-07-31:/site/blog/2024-07-31-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the update post for July 2024!&lt;br&gt;The focus of the month has been building a nicer showcase for &lt;code&gt;SC::Plugin&lt;/code&gt; and &lt;code&gt;SC::Serialization&lt;/code&gt; libraries.&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
   &lt;nav class="is-sticky-above-lg "&gt;
     &lt;details open=""&gt;
       &lt;summary&gt;Content&lt;/summary&gt;
@@ -1895,7 +2022,7 @@ I can never stress how important is to use the libraries in a real project or ev
 &lt;/p&gt;
 &lt;/section&gt;
 
-&lt;/div&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>☀️ Sane C++ June 24</title><link href="https://pagghiu.github.io/sane-c-june-24.html" rel="alternate"></link><published>2024-06-30T00:00:00+02:00</published><updated>2024-06-30T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-06-30:/sane-c-june-24.html</id><summary type="html">&lt;p&gt;Welcome to the Sane C++ Libraries June 2024 update post!&lt;br&gt; The month has been spent mainly building SCExample, a small GUI example app to showcase some Libraries (mainly &lt;code&gt;SC::Async&lt;/code&gt; / &lt;code&gt;SC::Plugin&lt;/code&gt; / &lt;code&gt;SC::FileSystemWatcher&lt;/code&gt;).&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
+&lt;/div&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>☀️ Sane C++ June 24</title><link href="https://pagghiu.github.io/site/blog/2024-06-30-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2024-06-30T00:00:00+02:00</published><updated>2024-06-30T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-06-30:/site/blog/2024-06-30-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the Sane C++ Libraries June 2024 update post!&lt;br&gt; The month has been spent mainly building SCExample, a small GUI example app to showcase some Libraries (mainly &lt;code&gt;SC::Async&lt;/code&gt; / &lt;code&gt;SC::Plugin&lt;/code&gt; / &lt;code&gt;SC::FileSystemWatcher&lt;/code&gt;).&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
 &lt;nav class="is-sticky-above-lg "&gt;
 &lt;details open=""&gt;
 &lt;summary&gt;Content&lt;/summary&gt;
@@ -2111,7 +2238,7 @@ All of them have been proudly committed to the main branch!
 &lt;/p&gt;
 &lt;/section&gt;
 
-&lt;/div&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🌸 Sane C++ May 24</title><link href="https://pagghiu.github.io/sane-c-may-24.html" rel="alternate"></link><published>2024-05-31T00:00:00+02:00</published><updated>2024-05-31T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-05-31:/sane-c-may-24.html</id><summary type="html">&lt;p&gt;Welcome to the Sane C++ Libraries May 2024 update post!&lt;br&gt; No big feature has been added this month, so this is a month a bugfixes and incremental improvements.&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
+&lt;/div&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🌸 Sane C++ May 24</title><link href="https://pagghiu.github.io/site/blog/2024-05-31-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2024-05-31T00:00:00+02:00</published><updated>2024-05-31T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-05-31:/site/blog/2024-05-31-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the Sane C++ Libraries May 2024 update post!&lt;br&gt; No big feature has been added this month, so this is a month a bugfixes and incremental improvements.&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
 &lt;nav class="is-sticky-above-lg "&gt;
 &lt;details open=""&gt;
 &lt;summary&gt;Content&lt;/summary&gt;
@@ -2305,7 +2432,7 @@ And then just a usual bunch of fixes and minor additions.
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d4ce9c3"&gt; Tools: Automatically retry building a tool on make failure&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/section&gt;
-&lt;/div&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>💤 Sane C++ April 24</title><link href="https://pagghiu.github.io/sane-c-april-24.html" rel="alternate"></link><published>2024-04-27T00:00:00+02:00</published><updated>2024-04-27T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-04-27:/sane-c-april-24.html</id><summary type="html">&lt;p&gt;Here we are with the forth monthly update for Sane C++ Libraries!&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
+&lt;/div&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>💤 Sane C++ April 24</title><link href="https://pagghiu.github.io/site/blog/2024-04-27-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2024-04-27T00:00:00+02:00</published><updated>2024-04-27T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-04-27:/site/blog/2024-04-27-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Here we are with the forth monthly update for Sane C++ Libraries!&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
 &lt;nav class="is-sticky-above-lg "&gt;
 &lt;details open=""&gt;
 &lt;summary&gt;Content&lt;/summary&gt;
@@ -2536,7 +2663,7 @@ switch and flags to execute sections only if explicitly requested&lt;/a&gt;&lt;/
 &lt;/ul&gt;
 
 &lt;/section&gt;
-&lt;/div&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>☔️ Sane C++ March 24</title><link href="https://pagghiu.github.io/sane-c-march-24.html" rel="alternate"></link><published>2024-03-27T00:00:00+01:00</published><updated>2024-03-27T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-03-27:/sane-c-march-24.html</id><summary type="html">&lt;p&gt;Welcome to the third monthly update for Sane C++ Libraries!&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
+&lt;/div&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>☔️ Sane C++ March 24</title><link href="https://pagghiu.github.io/site/blog/2024-03-27-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2024-03-27T00:00:00+01:00</published><updated>2024-03-27T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-03-27:/site/blog/2024-03-27-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the third monthly update for Sane C++ Libraries!&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
 &lt;nav class="is-sticky-above-lg "&gt;
 &lt;details open=""&gt;
 &lt;summary&gt;Content&lt;/summary&gt;
@@ -3052,7 +3179,7 @@ target="_blank"&gt;Strings: Fix an UB when copying StringView containing null&lt
 &lt;/p&gt;
 
 &lt;/section&gt;
-&lt;/div&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🎠 Sane C++ February 24</title><link href="https://pagghiu.github.io/sane-c-february-24.html" rel="alternate"></link><published>2024-02-23T00:00:00+01:00</published><updated>2024-02-23T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-02-23:/sane-c-february-24.html</id><summary type="html">&lt;p&gt;Two months have passed since the &lt;a href="2023-12-23-SaneCppLibrariesRelease.html"&gt;initial release of Sane C++ Libraries&lt;/a&gt;! 🎉🎉🎉&lt;br&gt; This post collects all relevant events happened during the second month of (public) life of the project.&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
+&lt;/div&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🎠 Sane C++ February 24</title><link href="https://pagghiu.github.io/site/blog/2024-02-23-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2024-02-23T00:00:00+01:00</published><updated>2024-02-23T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-02-23:/site/blog/2024-02-23-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Two months have passed since the &lt;a href="2023-12-23-SaneCppLibrariesRelease.html"&gt;initial release of Sane C++ Libraries&lt;/a&gt;! 🎉🎉🎉&lt;br&gt; This post collects all relevant events happened during the second month of (public) life of the project.&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
 &lt;nav class="is-sticky-above-lg "&gt;
 &lt;details open=""&gt;
 &lt;summary&gt;Content&lt;/summary&gt;
@@ -3184,7 +3311,7 @@ Pagghiu
 &lt;/article&gt;
 
 &lt;/section&gt;
-&lt;/div&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>❄️ Sane C++ January 24</title><link href="https://pagghiu.github.io/sane-c-january-24.html" rel="alternate"></link><published>2024-01-23T00:00:00+01:00</published><updated>2024-01-23T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-01-23:/sane-c-january-24.html</id><summary type="html">&lt;p&gt;One month has passed since the initial release of Sane C++ Libraries 🎉🎉🎉&lt;br&gt;This post collects all relevant events happened during the first month of (public) life of the project.&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
+&lt;/div&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>❄️ Sane C++ January 24</title><link href="https://pagghiu.github.io/site/blog/2024-01-23-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2024-01-23T00:00:00+01:00</published><updated>2024-01-23T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2024-01-23:/site/blog/2024-01-23-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;One month has passed since the initial release of Sane C++ Libraries 🎉🎉🎉&lt;br&gt;This post collects all relevant events happened during the first month of (public) life of the project.&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
 &lt;nav class="is-sticky-above-lg "&gt;
 &lt;details open=""&gt;
 &lt;summary&gt;Content&lt;/summary&gt;
@@ -3340,7 +3467,7 @@ Pagghiu
 &lt;/article&gt;
 
 &lt;/section&gt;
-&lt;/div&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🎉 Sane C++ Libraries</title><link href="https://pagghiu.github.io/sane-c-libraries.html" rel="alternate"></link><published>2023-12-23T00:00:00+01:00</published><updated>2023-12-23T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2023-12-23:/sane-c-libraries.html</id><summary type="html">&lt;p&gt;Let's go!&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
+&lt;/div&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🎉 Sane C++ Libraries</title><link href="https://pagghiu.github.io/site/blog/2023-12-23-SaneCppLibrariesRelease.html" rel="alternate"></link><published>2023-12-23T00:00:00+01:00</published><updated>2023-12-23T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2023-12-23:/site/blog/2023-12-23-SaneCppLibrariesRelease.html</id><summary type="html">&lt;p&gt;Let's go!&lt;/p&gt;</summary><content type="html">&lt;aside id="table-of-contents"&gt;
 &lt;nav class="is-sticky-above-lg "&gt;
 &lt;details open=""&gt;
 &lt;summary&gt;Content&lt;/summary&gt;
