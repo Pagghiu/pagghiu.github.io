@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-        <title>Sane Coding Blog - ❄️ Sane C++ January 24</title>
+      <title>Sane Coding Blog - 🌫️ Sane C++ December 25</title>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" href="https://pagghiu.github.io/images/favicon.png">
@@ -112,7 +112,7 @@
             <ul>
                 <!--- articles_page.object_list --->
                 <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-12-31-SaneCppLibrariesUpdate.html" title="Permalink to 🌫️ Sane C++ December 25">
+                    <a class="secondary" aria-current="page" href="" title="Permalink to 🌫️ Sane C++ December 25">
                     🌫️ Sane C++ December 25
                     <br>
                 </a>
@@ -250,7 +250,7 @@
                 </a>
             </li>
                 <li>
-                    <a class="secondary" aria-current="page" href="" title="Permalink to ❄️ Sane C++ January 24">
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-01-23-SaneCppLibrariesUpdate.html" title="Permalink to ❄️ Sane C++ January 24">
                     ❄️ Sane C++ January 24
                     <br>
                 </a>
@@ -265,182 +265,145 @@
         </details>
     </nav>
 </aside>
-    <hgroup>
-      <p class="chapter">Tue 23 January 2024</p>
-      <h1>❄️ Sane C++ January 24</h1>
-      
-      <figure>
-        <img src="https://pagghiu.github.io/images/2024-01-23-SaneCppLibrariesUpdate/article.png" alt="SC" />
-      </figure>
-      <p>
-        <p>One month has passed since the initial release of Sane C++ Libraries 🎉🎉🎉<br>This post collects all relevant events happened during the first month of (public) life of the project.</p>
-        📄 <a href="../../SaneCppLibraries/index.html" target="_blank">Sane C++ Libraries Documentation</a><br>
-        💻 <a href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Sane C++ Libraries
-            Repository <img src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a> <br>
-        📹 <a href="https://www.youtube.com/@Pagghiu" target="_blank">Sane Coding Youtube channel</a> <img
-            src="https://img.shields.io/youtube/channel/subscribers/UCnmN_whfM12LU6VNQWG0NFg"> <br>
-        💬 <a href="https://discord.gg/tyBfFp33Z6" target="_blank">Sane Coding Discord</a> <a
-            href="https://discord.gg/tyBfFp33Z6"><img src="https://img.shields.io/discord/1195076118307426384"></a>
-              </p>
-    </hgroup>
-    <aside id="table-of-contents">
-<nav class="is-sticky-above-lg ">
-<details open="">
-<summary>Content</summary>
+  <hgroup>
+    <p class="chapter">Wed 31 December 2025</p>
+    <h1 id="section-0">🌫️ Sane C++ December 25</h1>
+    
+    <figure>
+      <img src="https://pagghiu.github.io/images/2025-12-31-SaneCppLibrariesUpdate/article.png" alt="SC" />
+    </figure>
+    <p>
+      <p>Welcome to the December 2025 update!<br> This month the <code>Http</code> library is finally losing its dependency on <code>Memory</code> and gets a lot of reliability fixes!</p>
+    </p>
+  </hgroup>
+  <aside id="table-of-contents">
+    <nav class="is-sticky-above-lg ">
+      <details open="">
+        <summary>Content</summary>
+        <div class="col-lg-3 hidden-xs hidden-sm">
+          <ul>
+            <li><a class="secondary" href="#section-0">December Updates</a></li>
+            <li><a class="secondary" href="#dependencies">Dependencies</a></li>
+            <li><a class="secondary" href="#http">Http</a></li>
+            <li><a class="secondary" href="#asyncstreams">AsyncStreams</a></li>
+            <li><a class="secondary" href="#async">Async</a></li>
+            <li><a class="secondary" href="#others">Others</a></li>
+          </ul>
+        </div>
+      </details>
+    </nav>
+  </aside>
+  <div id="content" role="document">
+    <h1 id="dependencies">Dependencies</h1>
+<p>The bulk of work for this month has been getting rid of the <code>Memory</code> dependency from the <code>Http</code> library.</p>
+<p>This is incredibly important, because allocation is only done by the <code>Memory</code> library!</p>
+<p>This means that excluding <code>Containers</code> and the support <code>ContainersReflection</code> all libraries make <em>No allocation</em> whatsoever.
+All of them can work inside fixed buffers or inside dynamically allocated memory allocated by the user that has knowledge of the entire application context.</p>
+<p>Plus, it finally makes the internal dependencies graph between all libraries look super cool:</p>
+<p><a href="https://pagghiu.github.io/site/blog/2025-12-23-SaneCpp2Year-Dependencies.svg" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/2025-12-23-SaneCpp2Year-Dependencies.svg">
+</a></p>
+<h1 id="http">Http</h1>
+<p>Going back to the actual improvements to Http, I am not sure where to start.
+Multiple iterations of the API have been done and it's probably not over yet...</p>
+<p>The API at the beginning of the month was something like this, with allocating <code>Buffers</code> usage and raw allocations everywhere (so ugly!):</p>
+<p><a href="https://pagghiu.github.io/site/blog/2025-12-HttpAsyncWebServerStart.jpg" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/2025-12-HttpAsyncWebServerStart.jpg">
+</a></p>
+<p>The point has been making sure that a connection should be able to live within a block of memory that is fixed during its initialization.</p>
+<p>This is because most of the time, reasonable defaults and safety limits must be set anyway to control how many Kb of headers can be accepted or how many Kb can be dedicated to streaming large files.</p>
+<p>One example on initializing the web server with compile time fixed buffers is the following:</p>
+<p><a href="https://pagghiu.github.io/site/blog/2025-12-HttpAsyncWebServerFixed.jpg" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/2025-12-HttpAsyncWebServerFixed.jpg">
+</a></p>
+<p>As <code>AsyncStreams</code> have been fully integrated, it's now possible to send even very large file using some tiny fixed buffers.
+If they're too tiny, the transfer is going to become very slow, as a lot of syscall will be needed to fully transmit the file, so it's always as good idea sizing the buffers accordingly.</p>
+<p>If one wants to decide the size of these buffers at runtime, the API will become slightly more verbose but I would say it's not so bad:</p>
+<p><a href="https://pagghiu.github.io/site/blog/2025-12-HttpAsyncWebServerRuntime.jpg" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/2025-12-HttpAsyncWebServerRuntime.jpg">
+</a></p>
+<p>The example shows how to assign memory from <em>Structure Of Arrays</em> style arrangement for these buffers, all equally sized.
+This is using an helper class called <code>StableArray</code> that uses <code>VirtualMemory</code> to reserve space for extremely large buffers and just commits to physical RAM the actually used quantity.
+The <code>WebServerExample</code> in <code>SCExample</code> also shows how to resize such buffers at runtime, while the web-server is running!</p>
+<p><a href="https://pagghiu.github.io/site/blog/2025-12-SCExample.jpg" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/2025-12-SCExample.jpg">
+</a></p>
+<p>It's also possible to just give each connection a buffers of different sizes, making the memory management slightly more complicated.</p>
+<p>The library is still in <code>🟥 Draft</code> state, and it will likely stay like that for the next months. </p>
+<p>I can still see some random lost connections in browser tools from Safari / Firefox / Chrome when trying to visit some test website.</p>
+<p>Also the performance / latency looks quite bad for now, but it doesn't make sense to start working on performance before becoming compliant with the spec to some acceptable level!</p>
+<p><a href="https://pagghiu.github.io/site/blog/2025-12-HttpError.jpg" target="_blank">
+<img src="https://pagghiu.github.io/site/blog/2025-12-HttpError.jpg">
+</a></p>
+<p><strong>Detailed list of commits:</strong></p>
 <ul>
-<li><a class="secondary" href="#section-0">Sane C++ February 2024</a></li>
-<li><a class="secondary" href="#section-1">Code</a></li>
-<li><a class="secondary" href="#section-2">Github Releases</a></li>
-<li><a class="secondary" href="#section-3">Hacker News</a></li>
-<li><a class="secondary" href="#section-4">Github</a></li>
-<li><a class="secondary" href="#section-5">YouTube</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2802e629">Http: Add helper to configure connection buffers and queues at runtime</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d2971b78">Http: Allow declaring fixed size queues side by side with HttpConnection</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a4b7c3c3">Http: Allow resizing server connections array</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ae44d2ab">Http: Allow user to setup header memory for each connection</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/15bb382b">Http: Improve Documentation</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/39ebbc23">Http: Let caller supply the streams for async file server stream</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/7e5d3e53">Http: Make buffers pool and pipeline per connection</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0ce599d7">Http: Make HttpAsyncServer and HttpAsyncFileServer API more symmetric</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c5eac859">Http: Make ThreadPool mandatory to initialize HttpAsyncFileServer</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f2e70243">Http: Move pipeline from file stream to connection object</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f8506b71">Http: Move slice buffers helper to AsyncStreams</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f107b2b3">Http: Parse response in HttpClient to read Content-Length</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f39ee2cf">Http: Remove dependency on Memory (drop HttpClient)</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/802e72ef">Http: Rename HttpServer to HttpConnectionsPool</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/af100a97">Http: Rename HttpWebServer to HttpAsyncFileServer</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b306d315">Http: Use AsyncStreams in HttpResponse</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/52c160ba">Http: Use AsyncStreams in HttpWebServer</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/31395aae">Http: Write response headers to the headers buffer</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/bd657cf0">SCExample: Allow changing buffers sizes at runtime in WebServer Example</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3ed1d515">SCExample: Use virtual memory for all web server buffers</a></li>
 </ul>
-</details>
-</nav>
-</aside>
-<div id="content" role="document">
-<section>
-<article>
-<h5>Code</h5>
-Code is always the most important news!👨🏻‍💻<br>
-This is the month marking official Linux support for all Libraries!! 🐧
-<br>
-<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_async.html" target="_blank">SC::Async</a> got an
-epoll Linux backend.<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_file_system_watcher.html"
-target="_blank">SC::FileSystemWatcher</a> got an inotify Linux backend.<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_process.html" target="_blank">SC::Process</a>
-has been made more solid on Posix in general (including Linux).<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_build.html" target="_blank">SC::Build</a> got a
-Makefile generator for Linux (and macOS).<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_strings.html"
-target="_blank">SC::StringConverter</a> got UTF8 to / from UTF16 code path necessary on Linux.<br>
-✅ <a href="https://pagghiu.github.io/SaneCppLibraries/library_plugin.html" target="_blank">SC::Plugin</a> got
-necessary fixes to run on Linux.<br>
+<h1 id="asyncstreams">AsyncStreams</h1>
+<p>A few changes in <code>AsyncStreams</code> have been made, as consequences of <code>Http</code> improvements.</p>
+<p>Writable streams can now be destroyed and pipelines are automatically un-piped after all sinks have finished writing their data.</p>
+<p>A few fixes also have been applied, like copying listeners during emit event (to allow changing listeners when inside an handler), emptying the read queue on destroy and resetting the request state on init.</p>
+<p>Methods to set queues and buffers for the pool have been separated from initialization, so that they can be set during construction / setup and re-used across multiple successive initializations.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/99b30825">AsyncStreams: Add destroy method for writable stream</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/371edff4">AsyncStreams: Add explicit method to set buffers in the pool</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fed7c057">AsyncStreams: Add method to explicitly set read and write queues</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/7d7db8c1">AsyncStreams: Automatically un-pipe pipelines after all sinks have finished</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ab7efb92">AsyncStreams: Copy listeners during Event emit</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3d0e8b82">AsyncStreams: Empty the readQueue when destroying</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/94ad89f0">AsyncStreams: Explicitly mark buffers to be re-used when their refCount goes to zero</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/71cd7291">AsyncStreams: Reset requests state on stream initialization</a></li>
+</ul>
+<h1 id="async">Async</h1>
+<p>The extensive testing and improvements of <code>Http</code> library has exposed some issues in <code>Async</code>.</p>
+<p>A quite nasty bug in the gather writes has been fixed in Posix, affecting partial writes, that has never been surfacing in the unit tests.</p>
+<p>Also it made sense to ignore reporting errors when cancellations fail to submit on windows.
+This happens when trying to cancel an async operation that has already finished but for which the overlapped status has not been retrieved yet.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b5bbc57d">Async: Add method to check if event loop backend needs thread-pool</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/eb49c425">Async: Do not report errors when cancellations fail to submit</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4dcedcfa">Async: Fix incomplete gather writes on Posix</a></li>
+</ul>
+<h1 id="others">Others</h1>
+<p>The usual mix of fixes this month includes a debug visualizer for <code>Span&lt;T&gt;</code> and properly support exporting types across dynamic libraries (by adding <code>SC_COMPILER_EXPORT</code> in all relevant places).</p>
+<p>During a bad search and replace done a few months ago, <code>Result</code> lost its <code>[[nodiscard]]</code> status, that has been fixed.</p>
+<p><code>GrowableBuffer</code> has now a <code>Span&lt;char&gt;</code> specialization, to allow using things like <code>StringFormat</code> / <code>StringBuilder</code> with raw char arrays.</p>
+<p><code>VirtualMemory</code> class has been cleaned up and improved, with its destructor properly releasing allocated memory.</p>
+<p>A bug in <code>Process</code> was reading incomplete output from child processes terminating very quickly.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/aed874a7">DebugVisualizer: Add debug visualizers for Span<T></a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/7b368e33">Everywhere: Add SC_COMPILER_EXPORT clause to many types</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/43df70bc">File: Add method to read into a fixed buffer until it's full or EOF happens</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a107d6e3">Foundation: Add GrowableBuffer<Span\<char>> specialization</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a9806d78">Foundation: Mark Result as a [[nodiscard]] type again</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4a3f5cbb">Memory: Make VirtualMemory fields private and add destructor</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1f393c01">Process: Read entire process output until in user supplied writable span</a></li>
+</ul>
+<p>See you next month!</p>
+  </div>
 
-<h5>X (Twitter)</h5>
-After the initial announcement I got a very warm social welcome on Twitter!<br>
-This has been definitively the best way to start this journey!
-<blockquote class="twitter-tweet">
-<p lang="en" dir="ltr">Sane C++ Libraries has been open-sourced! 🎉<br><br>✅ Fast compile times<br>✅ Bloat
-free<br>✅ Simple readable code<br>✅ Easy to integrate<br>⛔️ No C++ Standard Library / Exceptions<br>⛔️ No
-third party dependencies<a href="https://t.co/D0DUDuAoSG">https://t.co/D0DUDuAoSG</a><br>Blog:<a
-href="https://t.co/M8hyEQ9YWE">https://t.co/M8hyEQ9YWE</a><br><br>Retweet if you like it ❤️</p>&mdash;
-Stefano Cristiano (@pagghiu_) <a
-href="https://twitter.com/pagghiu_/status/1738349359266197892?ref_src=twsrc%5Etfw">December 23, 2023</a>
-</blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-<h5>Github</h5>
-<p>
-As of today, the Sane C++ Libraries has got 187 ⭐️ stars ⭐️ on <a
-href="https://github.com/pagghiu/SaneCppLibraries" target="_blank">Github</a>
-(<a href="https://github.com/pagghiu/SaneCppLibraries"><img
-src="https://img.shields.io/github/stars/Pagghiu/SaneCppLibraries"></a>).<br>
-The repo has also been in trending list for C++ for a couple of days!!<br>
-This has been leaving me both completely mind-blown 🤯 and super happy about that 😎.<br>
-<img src="https://pagghiu.github.io/site/blog/GithubTrending.jpg" alt="Sane C++ on Github Trending" />
-</p>
-<p>
-For this reason I immediately went on the seaside to celebrate
-(<a href="https://maps.app.goo.gl/53qgxUVyHuKHbuEx8" target="_blank">in Manfredonia</a>)!🍹<br>
-</p>
-
-
-
-<figure>
-<img src="https://pagghiu.github.io/site/blog/SaneCppCelebration.jpg" width=90%>
-<figcaption>Nice sunny south Italy day for being in December ❄️ 🥂 ❄️!</figcaption>
-</figure>
-
-
-<h5>Contributing</h5>
-I have been writing some documents to help figuring out how to contribute to the project.
-<p>
-📃 <a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/CONTRIBUTING.md"
-target="_blank">CONTRIBUTING.md</a><br>
-📃 <a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/Documentation/CodingStyle.md"
-target="_blank">Coding Style</a>
-</p>
-
-I've also starting to create some <a href="https://github.com/Pagghiu/SaneCppLibraries/issues"
-target="_blank">Github Issues</a> with some <b>good first issue</b> labels to
-help a potential contributor trying to look for some task to start with.
-
-<h5>Discord</h5>
-I have created the <a href="https://discord.gg/tyBfFp33Z6">Sane Coding Discord</a>.
-<a href="https://discord.gg/tyBfFp33Z6"><img src="https://img.shields.io/discord/1195076118307426384"></a>
-<br>
-This is a place where to discuss about the library but it's not limited to that.<br>
-Let's see if it can become a place of aggregation for anyone sharing similar ideas as shown in the project.
-
-<h5>Youtube </h5>
-<p>
-In addition to the <a href="https://www.youtube.com/watch?v=5w1_rRXgyv0&t=1170s"
-target="_blank">presentation youtube video</a> to introduce the library,
-I have been producing 8 additional ones in the <a href="https://www.youtube.com/@Pagghiu"
-target="_blank">Sane Coding Youtube channel</a>, mostly as an experiment and to document the process of
-porting the library to Linux.<br>
-I would really like to receive some feedback on the format! 😅<br>
-So far I'm filming myself talking when trying to implement a feature in a reasonable (kinda) amount of time,
-after I've already done research on how
-to implement the feature and I have a pretty clear idea of what to do.<br>
-As there are no cuts in the videos, it's possible sometimes getting to know my ⁉️🤔⁉️ face when something
-doesn't work and I need to debug it.
-</p>
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/2ccW8TBAWWE?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/wYmT3xAzMxU?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/DUZeu6VDGL8?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/gu3x3Y1zZLI?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/-OiVELMxL6Q?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/4rC4aKCD0V8?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/uCsGpJcF2oc?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<iframe width="280" height="157" src="https://www.youtube-nocookie.com/embed/92saVDCRnCI?si=vyQhUZ_vU5Rtn0pi"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-<h5>Next</h5>
-So what's next? I will continue improving the library to make it become solid on all platforms.<br>
-When I will identify some interesting developments, I will make sure to record them in a video 👀.<br>
-<br>
-Thank you for reading this far!<br><br>
-Bye!👋🏼<br>
-Pagghiu
-</article>
-
-</section>
-</div>
-  
     </main>
     <footer>
       <div class=" container">
