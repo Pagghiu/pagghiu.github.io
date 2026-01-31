@@ -1,5 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Sane Coding Blog - SaneCppLibraries</title><link href="https://pagghiu.github.io/" rel="alternate"></link><link href="https://pagghiu.github.io/feeds/sanecpplibraries.atom.xml" rel="self"></link><id>https://pagghiu.github.io/</id><updated>2025-12-31T00:00:00+01:00</updated><subtitle>Sane Coding Blog</subtitle><entry><title>🌫️ Sane C++ December 25</title><link href="https://pagghiu.github.io/site/blog/2025-12-31-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2025-12-31T00:00:00+01:00</published><updated>2025-12-31T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-12-31:/site/blog/2025-12-31-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the December 2025 update!&lt;br&gt; This month the &lt;code&gt;Http&lt;/code&gt; library is finally losing its dependency on &lt;code&gt;Memory&lt;/code&gt; and gets a lot of reliability fixes!&lt;/p&gt;</summary><content type="html">&lt;h1 id="dependencies"&gt;Dependencies&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Sane Coding Blog - SaneCppLibraries</title><link href="https://pagghiu.github.io/" rel="alternate"></link><link href="https://pagghiu.github.io/feeds/sanecpplibraries.atom.xml" rel="self"></link><id>https://pagghiu.github.io/</id><updated>2026-01-31T00:00:00+01:00</updated><subtitle>Sane Coding Blog</subtitle><entry><title>❄️ Sane C++ January 26</title><link href="https://pagghiu.github.io/site/blog/2026-01-31-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2026-01-31T00:00:00+01:00</published><updated>2026-01-31T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2026-01-31:/site/blog/2026-01-31-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the January 2026 update!&lt;br&gt; It looks like AI is taking over the world (starting from writing code better and faster than humans). Probably this entire project is now totally useless and obsolete, but let's do one more monthly update (maybe the last?) !&lt;/p&gt;</summary><content type="html">&lt;h1 id="http"&gt;Http&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;Http&lt;/code&gt; library is being tested with more care and is slowly rising from its 🟥 Draft status to something better.&lt;br&gt;
+It's still not time to declare it 🟨 MVP, but we're making progress.
+There is now support for &lt;code&gt;Keep-Alive&lt;/code&gt; (reusing server connections for multiple requests) and for payloads in PUT/POST.&lt;br&gt;
+Support for &lt;code&gt;multipart/form-data&lt;/code&gt; has also been partially implemented; it's still an initial implementation and may not handle all edge cases.&lt;br&gt;
+What's cool about these new payload/request types is that the library remains allocation-free!&lt;br&gt;
+Everything is streamed through the &lt;code&gt;AsyncStreams&lt;/code&gt; using user-provided initial buffers.&lt;br&gt;
+This has been quite challenging, as the async state machine required to handle these interactions — with many flags that can alter the lifecycle of an async client/connection — is quite complicated.&lt;/p&gt;
+&lt;p&gt;A new sample has been added called &lt;code&gt;AsyncWebServer&lt;/code&gt;.
+There is also a simple pair of &lt;code&gt;.bat&lt;/code&gt; / &lt;code&gt;.sh&lt;/code&gt; scripts to compile and launch it on the fly without generating projects or setting up anything from the repo.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;~/Developer/Projects/SC&amp;gt; ./Examples/AsyncWebServer/BuildAndRun.sh
+Building and running AsyncWebServer example (DEBUG)...
+Address: 127.0.0.1:8090
+Folder : ~/SC/Examples/AsyncWebServer
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;A benchmark has been added to measure the performance of the fully self-hosted HTTP server against the Python HTTP server; the results vary significantly depending on the OS.&lt;/p&gt;
+&lt;p&gt;On Windows I couldn't get it to run; it hangs and needs investigation.&lt;/p&gt;
+&lt;p&gt;On my macOS (M1 Pro 16GB RAM) &lt;code&gt;AsyncWebServer&lt;/code&gt; is about 200% faster than the Python Simple HTTP Server.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Support&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Benchmarks&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Http&lt;/span&gt;&lt;span class="o"&gt;/.&lt;/span&gt;&lt;span class="n"&gt;venv&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Support&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Benchmarks&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Http&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;http_benchmark&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;directory&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;~/SC/_Build/_Documentation/docs&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;8090&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;concurrent&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;mode&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;directory&lt;/span&gt;
+&lt;span class="n"&gt;Assuming&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;AsyncWebServer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;running&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;on&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;8090&lt;/span&gt;
+&lt;span class="n"&gt;Make&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sure&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;with&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="o"&gt;./&lt;/span&gt;&lt;span class="n"&gt;SC&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;AsyncWebServer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;directory&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;~/SC/_Build/_Documentation/docs&amp;quot;&lt;/span&gt;
+
+
+&lt;span class="o"&gt;===&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Benchmarking&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;AsyncWebServer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;===&lt;/span&gt;
+&lt;span class="n"&gt;Server&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;URL&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;8090&lt;/span&gt;
+&lt;span class="n"&gt;Directory&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;SC&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;_Build&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;_Documentation&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;docs&lt;/span&gt;
+&lt;span class="n"&gt;Mode&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;directory&lt;/span&gt;
+&lt;span class="n"&gt;Concurrent&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;
+&lt;span class="n"&gt;Iterations&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;with&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;warmup&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;runs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;Found&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1245&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;benchmark&lt;/span&gt;
+
+&lt;span class="n"&gt;Running&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;warmup&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;iterations&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;
+
+&lt;span class="n"&gt;Running&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;measurement&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;iterations&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;
+&lt;span class="n"&gt;Iteration&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;5.&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;12750.263&lt;/span&gt;
+&lt;span class="n"&gt;Iteration&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;5.&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;10553.894&lt;/span&gt;
+&lt;span class="n"&gt;Iteration&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;5.&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;8616.982&lt;/span&gt;
+&lt;span class="n"&gt;Iteration&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;5.&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;9615.676&lt;/span&gt;
+&lt;span class="n"&gt;Iteration&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;5.&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;10540.048&lt;/span&gt;
+
+&lt;span class="o"&gt;---&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Results&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;---&lt;/span&gt;
+&lt;span class="n"&gt;Median&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Requests&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sec&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;10540.05&lt;/span&gt;
+&lt;span class="n"&gt;Median&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Throughput&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;131.36&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;MB&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;span class="n"&gt;Response&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Min&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.000&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Max&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.022&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Median&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.001&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;span class="n"&gt;Stability&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;RPS&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;CV&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.147&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Throughput&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;CV&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.147&lt;/span&gt;
+&lt;span class="n"&gt;Warning&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;High&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;variability&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;detected&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;CV&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Consider&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;increasing&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;iterations&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;or&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Starting&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Python&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;HTTP&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;on&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;8000&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;serving&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;SC&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;_Build&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;_Documentation&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;docs&lt;/span&gt;
+
+&lt;span class="o"&gt;===&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Benchmarking&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Python&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;HTTP&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Server&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;===&lt;/span&gt;
+&lt;span class="n"&gt;Server&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;URL&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;8000&lt;/span&gt;
+&lt;span class="n"&gt;Directory&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;SC&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;_Build&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;_Documentation&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;docs&lt;/span&gt;
+&lt;span class="n"&gt;Mode&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;directory&lt;/span&gt;
+&lt;span class="n"&gt;Concurrent&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;
+&lt;span class="n"&gt;Iterations&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;with&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;warmup&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;runs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;Found&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1245&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;benchmark&lt;/span&gt;
+
+&lt;span class="n"&gt;Running&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;warmup&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;iterations&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;
+
+&lt;span class="n"&gt;Running&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;measurement&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;iterations&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;
+&lt;span class="n"&gt;Iteration&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;5.&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;3567.009&lt;/span&gt;
+&lt;span class="n"&gt;Iteration&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;5.&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;3589.241&lt;/span&gt;
+&lt;span class="n"&gt;Iteration&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;5.&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;3341.547&lt;/span&gt;
+&lt;span class="n"&gt;Iteration&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;5.&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;3420.329&lt;/span&gt;
+&lt;span class="n"&gt;Iteration&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;5.&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;3430.469&lt;/span&gt;
+
+&lt;span class="o"&gt;---&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Results&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;---&lt;/span&gt;
+&lt;span class="n"&gt;Median&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Requests&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sec&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;3430.47&lt;/span&gt;
+&lt;span class="n"&gt;Median&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Throughput&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;42.76&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;MB&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;span class="n"&gt;Response&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Min&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.001&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Max&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.127&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Median&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.002&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;span class="n"&gt;Stability&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;RPS&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;CV&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.030&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Throughput&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;CV&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.030&lt;/span&gt;
+
+&lt;span class="o"&gt;===&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;COMPARISON&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;===&lt;/span&gt;
+&lt;span class="n"&gt;AsyncWebServer&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;10540.05&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sec&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;131.36&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;MB&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;span class="n"&gt;Python&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;HTTP&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Server&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;3430.47&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sec&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;42.76&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;MB&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;span class="n"&gt;AsyncWebServer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;207.2&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;faster&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sec&lt;/span&gt;
+&lt;span class="n"&gt;AsyncWebServer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;has&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;207.2&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;higher&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;throughput&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;On Linux (in a VM) the situation is reversed: the Python Simple HTTP Server is about 400% faster than AsyncWebServer.&lt;br&gt;
+No investigation has been done yet into why the performance is so much worse on Linux.&lt;br&gt;
+I suspect the Python server may be using &lt;code&gt;sendfile&lt;/code&gt; or similar optimizations, but one would need to spend some time to improve the benchmark.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;=== Benchmarking AsyncWebServer ===
+Server URL: http://localhost:8090
+Directory: /home/stefano/docs_test
+Mode: directory
+Concurrent requests: 10
+Iterations: 5 (with 2 warmup runs)
+Found 1245 files to benchmark
+
+Running 2 warmup iterations...
+
+Running 5 measurement iterations...
+Iteration 1/5... 225.220
+Iteration 2/5... 224.785
+Iteration 3/5... 225.823
+Iteration 4/5... 222.086
+Iteration 5/5... 225.241
+
+--- Results ---
+Median Requests/sec: 225.22
+Median Throughput: 2.81 MB/s
+Response time - Min: 0.001s, Max: 0.057s, Median: 0.044s
+Stability - RPS CV: 0.007, Throughput CV: 0.007
+Starting Python HTTP server on port 8000 serving /home/stefano/docs_test
+
+=== Benchmarking Python HTTP Server ===
+Server URL: http://localhost:8000
+Directory: /home/stefano/docs_test
+Mode: directory
+Concurrent requests: 10
+Iterations: 5 (with 2 warmup runs)
+Found 1245 files to benchmark
+
+Running 2 warmup iterations...
+
+Running 5 measurement iterations...
+Iteration 1/5... 1140.778
+Iteration 2/5... 1124.244
+Iteration 3/5... 1118.280
+Iteration 4/5... 1124.568
+Iteration 5/5... 1135.039
+
+--- Results ---
+Median Requests/sec: 1124.57
+Median Throughput: 14.02 MB/s
+Response time - Min: 0.001s, Max: 1.078s, Median: 0.002s
+Stability - RPS CV: 0.008, Throughput CV: 0.008
+
+=== COMPARISON ===
+AsyncWebServer: 225.22 requests/sec, 2.81 MB/s
+Python HTTP Server: 1124.57 requests/sec, 14.02 MB/s
+Python HTTP Server is 399.3% faster in requests/sec
+Python HTTP Server has 399.3% higher throughput
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fbd2b88c"&gt;Http: Add a couple of font content types&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/105c8c31"&gt;Http: Add a multipart/form-data parser&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/bf578832"&gt;Http: Add a multipart/form-data test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/51946723"&gt;Http: Add postMultipart to test http client&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/415bca07"&gt;Http: Add some anti hang timeouts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2b3b0851"&gt;Http: Add timeout for file test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0573af8e"&gt;Http: Destroy readable socket stream after body has been fully received&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/aa7ea9d6"&gt;Http: Detect Content-Type header in the parser&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b707209a"&gt;Http: Fix buffer memory leak when unshifting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ab210ae8"&gt;Http: Forcefully disable keep-alive when running out of available connections&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6b2c9b9a"&gt;Http: Handle simple requests with body payloads (PUT / POST)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/cc3c87c4"&gt;Http: Handle streaming requests with body payloads (PUT / POST)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b99f18ec"&gt;Http: Handle unexpected client disconnect on keep-alive requests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/7aba1f3b"&gt;Http: Implement support for Keep-alive&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0ca40286"&gt;Http: Remove only the specifically added event listener&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a9a15fa3"&gt;Http: Return connection close according to HTTP 1.1 spec&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5c887eca"&gt;Http: Reuse connections only after full cancellation of async requests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ccab97dc"&gt;Benchmarks: Add http benchmark&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6dbe3cde"&gt;Benchmarks: Fix http benchmark&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e422fa84"&gt;Examples: Add AsyncWebServer Example&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="asyncstreams"&gt;AsyncStreams&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;AsyncStreams&lt;/code&gt; is the backbone of &lt;code&gt;Http&lt;/code&gt;.&lt;br&gt;
+It handles a fairly convoluted state machine (inspired by &lt;code&gt;node.js&lt;/code&gt; streams), making it possible to stream sockets to files and vice versa.&lt;/p&gt;
+&lt;p&gt;The buffer management system can now create child views that reference a memory slice of the parent buffer.&lt;/p&gt;
+&lt;p&gt;It has gained a few functions like &lt;code&gt;unshift&lt;/code&gt; to allow &lt;em&gt;putting back&lt;/em&gt; buffers that were popped from the stream unnecessarily.  &lt;/p&gt;
+&lt;p&gt;For example, the multipart parser pops a buffer, finds the end of the multipart header, creates a child view that points to the start of the binary data, and &lt;em&gt;unshifts&lt;/em&gt; it back to the stream so it can be piped to an &lt;code&gt;AsyncWritableFileStream&lt;/code&gt; without worrying about HTTP protocol delimiters.&lt;/p&gt;
+&lt;p&gt;The destruction lifecycle is now more precise with the addition of an &lt;code&gt;autoDestroy&lt;/code&gt; feature (which automatically destroys a stream when it's ended) and a clear distinction between the &lt;code&gt;end&lt;/code&gt; event (EOF) and the &lt;code&gt;close&lt;/code&gt; event (resource cleanup).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/48b16eee"&gt;AsyncStreams: Add readable stream unshift&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/96e6a705"&gt;AsyncStreams: Change func implementations to virtual functions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b521a0b4"&gt;AsyncStreams: Destroy writable streams only when not already ended or ending&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3cdca1bc"&gt;AsyncStreams: Get rid of getFirstBodySlice by unshifting body buffers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/18ead745"&gt;AsyncStreams: Implement child async buffers view&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/954e3f4b"&gt;AsyncStreams: Listen to eventClose instead of eventEnd in Pipeline&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9cb5df0c"&gt;AsyncStreams: Preserve order when removing listeners&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/99ba6006"&gt;AsyncStreams: Stop async requests if they're not already cancelling&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/103e505e"&gt;AsyncStreams+Http: Implement async destruction&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="async"&gt;Async&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;Async&lt;/code&gt; library is maturing to handle more edge cases.
+This example addresses &lt;code&gt;ERROR_INVALID_HANDLE&lt;/code&gt;, which can be returned when trying to cancel async requests whose handle has already (incorrectly) been closed.&lt;br&gt;
+It's great to see &lt;code&gt;SC::Async&lt;/code&gt; handle such edge cases smoothly, making the user's programming experience easier.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5fe7560d"&gt;Async: Ignore ERROR_INVALID_HANDLE on Windows during cancellations&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id="others"&gt;Others&lt;/h1&gt;
+&lt;p&gt;And as always, this is a list of miscellaneous fixes and improvements made for all the other libraries.&lt;/p&gt;
+&lt;p&gt;One nice addition to &lt;code&gt;Containers&lt;/code&gt; is the &lt;code&gt;VirtualArray&lt;/code&gt; class, which allows reserving a very large amount of virtual address space and committing only what's needed.
+This keeps the memory location of the whole array stable while growing or shrinking it.
+It has been used in the &lt;code&gt;AsyncWebServer&lt;/code&gt; sample (and &lt;code&gt;SCExample&lt;/code&gt;) to show how it can handle many connections at runtime, constrained only by OS resource limits such as RAM and the number of open handles.&lt;/p&gt;
+&lt;p&gt;Also, assertions on functions returning &lt;code&gt;SC::Result&lt;/code&gt; now print the message embedded in the result.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/7f04875b"&gt;Containers: Add VirtualArray class&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/eca08d76"&gt;Everywhere: Add SC_COMPILER_EXPORT clause to some classes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/7c804b60"&gt;Everywhere: Compilation fixes for MSVC 32 bit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/85dc9499"&gt;File: Fix reading from file into fixed span until full or EOF&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e8195e3e"&gt;Foundation: Print reason of failed assertion when using Result type&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/dce51815"&gt;Memory: Use the correct pointer type for __cxa_guard_xxx declarations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/88c02eb1"&gt;Meta: Add .venv to .gitignore&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/40543e2d"&gt;Meta: Always checkout .sh files with LF and .bat with CRLF&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/11142c9d"&gt;Meta: Ignore .cache and compile_commands.json&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/409fea5a"&gt;Socket: Make SocketNetworking initNetworking method void&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/072137be"&gt;Threading: Remove InterlockedExchange forward declarations&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🌫️ Sane C++ December 25</title><link href="https://pagghiu.github.io/site/blog/2025-12-31-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2025-12-31T00:00:00+01:00</published><updated>2025-12-31T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2025-12-31:/site/blog/2025-12-31-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the December 2025 update!&lt;br&gt; This month the &lt;code&gt;Http&lt;/code&gt; library is finally losing its dependency on &lt;code&gt;Memory&lt;/code&gt; and gets a lot of reliability fixes!&lt;/p&gt;</summary><content type="html">&lt;h1 id="dependencies"&gt;Dependencies&lt;/h1&gt;
 &lt;p&gt;The bulk of work for this month has been getting rid of the &lt;code&gt;Memory&lt;/code&gt; dependency from the &lt;code&gt;Http&lt;/code&gt; library.&lt;/p&gt;
 &lt;p&gt;This is incredibly important, because allocation is only done by the &lt;code&gt;Memory&lt;/code&gt; library!&lt;/p&gt;
 &lt;p&gt;This means that excluding &lt;code&gt;Containers&lt;/code&gt; and the support &lt;code&gt;ContainersReflection&lt;/code&gt; all libraries make &lt;em&gt;No allocation&lt;/em&gt; whatsoever.
