@@ -1,5 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Sane Coding Blog</title><link href="https://pagghiu.github.io/" rel="alternate"></link><link href="https://pagghiu.github.io/feeds/all.atom.xml" rel="self"></link><id>https://pagghiu.github.io/</id><updated>2026-01-31T00:00:00+01:00</updated><subtitle>Sane Coding Blog</subtitle><entry><title>❄️ Sane C++ January 26</title><link href="https://pagghiu.github.io/site/blog/2026-01-31-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2026-01-31T00:00:00+01:00</published><updated>2026-01-31T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2026-01-31:/site/blog/2026-01-31-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the January 2026 update!&lt;br&gt; It looks like AI is taking over the world (starting from writing code better and faster than humans). Probably this entire project is now totally useless and obsolete, but let's do one more monthly update (maybe the last?) !&lt;/p&gt;</summary><content type="html">&lt;h1 id="http"&gt;Http&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Sane Coding Blog</title><link href="https://pagghiu.github.io/" rel="alternate"></link><link href="https://pagghiu.github.io/feeds/all.atom.xml" rel="self"></link><id>https://pagghiu.github.io/</id><updated>2026-02-28T00:00:00+01:00</updated><subtitle>Sane Coding Blog</subtitle><entry><title>🔌 Sane C++ February 26</title><link href="https://pagghiu.github.io/site/blog/2026-02-28-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2026-02-28T00:00:00+01:00</published><updated>2026-02-28T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2026-02-28:/site/blog/2026-02-28-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the February 2026 update!&lt;br&gt; This month introduces &lt;code&gt;SerialPort&lt;/code&gt;, named-pipe end-to-end support, and major async backend wakeup/process handling improvements.&lt;/p&gt;</summary><content type="html">&lt;h1 id="serialport-and-named-pipes"&gt;SerialPort and Named Pipes&lt;/h1&gt;
+&lt;p&gt;February has been all about connecting low-level I/O pieces end to end.
+A new cross-platform &lt;code&gt;SerialPort&lt;/code&gt; library landed with dedicated tests (including &lt;code&gt;com0com&lt;/code&gt; coverage), while named-pipe support now spans &lt;code&gt;File&lt;/code&gt;, &lt;code&gt;Async&lt;/code&gt;, and &lt;code&gt;AsyncStreams&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The result is that local IPC and serial communication can now be handled with the same async building blocks used by the rest of the project, with better test coverage across platform-specific behavior.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/92eb611d"&gt;SerialPort: Add cross-platform library to handle serial ports&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8fad4618"&gt;SerialPort: Add com0com test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4dfcfe5a"&gt;File: Add named pipe server/client API and coverage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/63f0c521"&gt;Async: Add named pipe input/output tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/fbb96637"&gt;AsyncStreams: Add PipeDescriptor stream init and named pipe tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2d8b635c"&gt;Async: Add async serial port tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d7cb0b31"&gt;File: Use pipe2 to set CLOEXEC atomically for new pipes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="async-runtime"&gt;Async Runtime&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;Async&lt;/code&gt; received several runtime reliability upgrades this month.
+The new &lt;code&gt;AsyncFileSend&lt;/code&gt; primitive is now part of the core, and multiple fixes improved cancellation safety and timer sequencing.&lt;/p&gt;
+&lt;p&gt;Backend wakeup/process handling was also strengthened with platform-native primitives (&lt;code&gt;eventfd&lt;/code&gt;, &lt;code&gt;EVFILT_USER&lt;/code&gt;, &lt;code&gt;pidfd&lt;/code&gt;) so event loops can coordinate shared wakeups and process exits more predictably, especially on Linux.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a5ce1e83"&gt;Async: Add AsyncFileSend primitive&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/353b61d2"&gt;Async: Only reset Flag_NeedsTeardown if async is accessible&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/288b6787"&gt;Async: Keep sequenced LoopTimeouts in active timer list&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a10314c0"&gt;Async: Keep completion-state invariant during IOCP cancellation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/63d87e83"&gt;Async: Use eventfd on epoll and EVFILT_USER on kqueue for shared wakeups&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ae27e400"&gt;Async: Use pidfd for Linux epoll process exit handling&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="http-and-asyncwebserver"&gt;Http and AsyncWebServer&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;Http&lt;/code&gt; now uses &lt;code&gt;AsyncFileSend&lt;/code&gt; for file server transfers, and header accumulation got a small optimization.
+At the same time, &lt;code&gt;AsyncWebServer&lt;/code&gt; and examples gained more runtime knobs: selecting ports, forcing epoll backend options, and configuring max clients / I/O threads.&lt;/p&gt;
+&lt;p&gt;These changes make it easier to benchmark and stress the server in real scenarios, while keeping setup fully self-hosted.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3ab90246"&gt;Http: Use AsyncFileSend in file server&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2e3b6409"&gt;Http: Header accumulation minor optimization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f7ef1a24"&gt;AsyncWebServer: Expose max clients and io threads as CLI parameters&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2b8fe4d8"&gt;Examples: Add options to force using epoll backend&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/32fbcbca"&gt;Examples: Add port argument to AsyncWebServer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="testing-and-build"&gt;Testing and Build&lt;/h1&gt;
+&lt;p&gt;A good portion of the work focused on making test runs more parallel-friendly and less conflicting.
+&lt;code&gt;BuildTest&lt;/code&gt; and &lt;code&gt;PluginTest&lt;/code&gt; fixtures are now isolated better, while SCTest supports configurable port offsets and opt-in &lt;code&gt;BuildTest&lt;/code&gt; execution for local workflows.&lt;/p&gt;
+&lt;p&gt;This should reduce flakiness when multiple configurations or runs happen at the same time.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a3a0bac4"&gt;Build: Isolate BuildTest outputs for parallel SCTest runs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9759bc32"&gt;Testing: Make BuildTest opt-in locally via --all-tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/78a45340"&gt;Testing: Add configurable SCTest port offsets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b323fc19"&gt;Plugin: Isolate PluginTest fixtures for parallel SCTest runs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="others"&gt;Others&lt;/h1&gt;
+&lt;p&gt;The rest of the month includes practical API and platform cleanups across multiple libraries.
+From read error parsing in &lt;code&gt;File&lt;/code&gt;, to &lt;code&gt;ProcessEnvironment::get&lt;/code&gt;, to exposing &lt;code&gt;SO_REUSEADDR&lt;/code&gt;, this batch improves day-to-day ergonomics while tightening edge-case behavior.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/45ee4a87"&gt;File: Parse read errors in FileDescriptor::readAppend&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6febcee5"&gt;Process: Add ProcessEnvironment::get&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/abc88ebc"&gt;Socket: Expose SO_REUSEADDR&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8abd23b5"&gt;FileSystemWatcher: Increment relative path storage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/be06c23c"&gt;Tools: Update 7zr to 26.00&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;See you next month!&lt;/p&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>❄️ Sane C++ January 26</title><link href="https://pagghiu.github.io/site/blog/2026-01-31-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2026-01-31T00:00:00+01:00</published><updated>2026-01-31T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2026-01-31:/site/blog/2026-01-31-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the January 2026 update!&lt;br&gt; It looks like AI is taking over the world (starting from writing code better and faster than humans). Probably this entire project is now totally useless and obsolete, but let's do one more monthly update (maybe the last?) !&lt;/p&gt;</summary><content type="html">&lt;h1 id="http"&gt;Http&lt;/h1&gt;
 &lt;p&gt;The &lt;code&gt;Http&lt;/code&gt; library is being tested with more care and is slowly rising from its 🟥 Draft status to something better.&lt;br&gt;
 It's still not time to declare it 🟨 MVP, but we're making progress.
 There is now support for &lt;code&gt;Keep-Alive&lt;/code&gt; (reusing server connections for multiple requests) and for payloads in PUT/POST.&lt;br&gt;
