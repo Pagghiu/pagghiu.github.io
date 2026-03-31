@@ -1,5 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Sane Coding Blog</title><link href="https://pagghiu.github.io/" rel="alternate"></link><link href="https://pagghiu.github.io/feeds/all.atom.xml" rel="self"></link><id>https://pagghiu.github.io/</id><updated>2026-02-28T00:00:00+01:00</updated><subtitle>Sane Coding Blog</subtitle><entry><title>🔌 Sane C++ February 26</title><link href="https://pagghiu.github.io/site/blog/2026-02-28-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2026-02-28T00:00:00+01:00</published><updated>2026-02-28T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2026-02-28:/site/blog/2026-02-28-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the February 2026 update!&lt;br&gt; This month introduces &lt;code&gt;SerialPort&lt;/code&gt;, named-pipe end-to-end support, and major async backend wakeup/process handling improvements.&lt;/p&gt;</summary><content type="html">&lt;h1 id="serialport-and-named-pipes"&gt;SerialPort and Named Pipes&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Sane Coding Blog</title><link href="https://pagghiu.github.io/" rel="alternate"></link><link href="https://pagghiu.github.io/feeds/all.atom.xml" rel="self"></link><id>https://pagghiu.github.io/</id><updated>2026-03-31T00:00:00+02:00</updated><subtitle>Sane Coding Blog</subtitle><entry><title>☔️ Sane C++ March 26</title><link href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2026-03-31T00:00:00+02:00</published><updated>2026-03-31T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2026-03-31:/site/blog/2026-03-31-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the March 2026 update!&lt;br&gt; This month focuses on a much more capable native backend in &lt;code&gt;SC::Build&lt;/code&gt;, plus faster &lt;code&gt;Http&lt;/code&gt; parsing and the first standalone &lt;code&gt;HttpClient&lt;/code&gt; library.&lt;/p&gt;</summary><content type="html">&lt;h1 id="build-native-backend"&gt;Build&lt;/h1&gt;
+
+&lt;p&gt;March has been a big month for &lt;a href="https://pagghiu.github.io/SaneCppLibraries/page_build.html"&gt;&lt;code&gt;SC::Build&lt;/code&gt;&lt;/a&gt;.
+Introducing the standalone native backend to build executables directly!
+It now supports static libraries, shared libraries, direct host builds on Windows, binary stripping and more control over exported symbols.&lt;/p&gt;
+&lt;p&gt;Parallel compile jobs and scheduling of independent projects are already in in this first draft, but more features will be coming!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c238ce6f"&gt;Build: Add a standalone build backend and support for static libraries&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f2791292"&gt;Build: Parallelize compile jobs in standalone native backend&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/be4de377"&gt;Build: Add Windows implementation to native backend&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0513465f"&gt;Build: Parallel scheduling of independent projects&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d93081d0"&gt;Build: Add support for binaries stripping&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/39a290ad"&gt;Build: Add support for shared libraries&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/23ce2ebe"&gt;Build: Enable preserving export symbols for given libraries and directories&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a545cae5"&gt;Everywhere: Make it possible to export symbols per library&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e2707a82"&gt;Documentation: Add information about the new Build native backend&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4310bc1c"&gt;Documentation: Improve Build documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="http-and-httpclient"&gt;Http and HttpClient&lt;/h1&gt;
+
+&lt;p&gt;The &lt;code&gt;Http&lt;/code&gt; work this month has been improving the hot path while cleaning up the internal API surface.
+A parser benchmark has been added, the parser itself gained a specialized fast path, and both request parsing and response header emission have been tightened up.&lt;/p&gt;
+&lt;p&gt;On the server side, &lt;code&gt;Http&lt;/code&gt; also gained chunked encoding support and better &lt;code&gt;AsyncFileServer&lt;/code&gt; &lt;code&gt;PUT&lt;/code&gt; handling.
+These are the kind of features that slowly move a draft implementation away from toy examples and toward something that can be stress-tested more seriously.&lt;/p&gt;
+&lt;p&gt;The biggest user-facing addition is probably the new &lt;a href="https://pagghiu.github.io/SaneCppLibraries/library_http_client.html"&gt;&lt;code&gt;HttpClient&lt;/code&gt;&lt;/a&gt; library.
+It is a separate streaming-first HTTP client built on native OS backends (&lt;code&gt;NSURLSession&lt;/code&gt; on Apple, &lt;code&gt;WinHTTP&lt;/code&gt; on Windows and &lt;code&gt;libcurl&lt;/code&gt; on Linux), while keeping the same caller-owned memory style used by the rest of the project.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e96bc33f"&gt;Http: Add parser benchmark&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6c1067a7"&gt;Http: Add a specialized fast path to HttpParser&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1c5edfcd"&gt;Http: Optimize request headers parsing and response headers emission&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/899dbaee"&gt;Http: Improve AsyncFileServer PUT support&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6eb6a893"&gt;Http: Extract common Request/Response code into Incoming/Outgoing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c598b30b"&gt;Http: Improve headers parser&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/57c720f2"&gt;Http: Add server side chunked encoding and draft http client&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/127a0dbc"&gt;HttpClient: Add standalone http(s) client library based on OS API&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="platform-and-runtime"&gt;Platform and Runtime&lt;/h1&gt;
+
+&lt;p&gt;Another major theme of the month has been widening the platform surface exposed by the lower level libraries.
+&lt;code&gt;FileSystem&lt;/code&gt; and &lt;code&gt;File&lt;/code&gt; received a proper batch of metadata, permission and descriptor APIs, including link metadata, &lt;code&gt;stat&lt;/code&gt; / &lt;code&gt;lstat&lt;/code&gt;, path permissions, descriptor &lt;code&gt;stat&lt;/code&gt; / &lt;code&gt;sync&lt;/code&gt; / permissions, and reading stored symlink targets on Windows.&lt;/p&gt;
+&lt;p&gt;These are not especially flashy additions, but they matter because they reduce the amount of platform-specific glue needed by applications built on top of Sane C++.
+The libraries become more useful precisely when they cover this boring but essential operating-system surface in a clean and cross-platform way.&lt;/p&gt;
+&lt;p&gt;At the same time &lt;code&gt;Socket&lt;/code&gt; and &lt;code&gt;Async&lt;/code&gt; keep filling in some gaps with &lt;code&gt;TCP_NODELAY&lt;/code&gt;, multicast, &lt;code&gt;AsyncSignal&lt;/code&gt;, clearer &lt;code&gt;io_uring&lt;/code&gt; diagnostics, explicit wake-up coalescing, easier OS-handle association helpers and a fix to make offset-zero writes use &lt;code&gt;pwrite&lt;/code&gt; / &lt;code&gt;pwritev&lt;/code&gt; instead of silently falling back to &lt;code&gt;write&lt;/code&gt; / &lt;code&gt;writev&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/baf72d67"&gt;Socket: Expose TCP_NODELAY&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0773d746"&gt;Socket: Add multicast support&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/491b4137"&gt;Async: Add AsyncSignal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/52feb0ba"&gt;Async: Explicit offset 0 now uses pwrite/pwritev instead of falling back to write/writev&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5c8f9941"&gt;Async: When stopping flag async with NeedsTeardown on poll‑based backends&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4c87243a"&gt;FileSystem: Add link metadata operations and cross-platform tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d07715c2"&gt;FileSystem: Add stat and lstat metadata APIs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1926000d"&gt;FileSystem: Add path permission operations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/633959ce"&gt;File: Add descriptor stat/sync/permission APIs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ed4bdc66"&gt;FileSystem: Read stored symlink targets on Windows&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a5c9834d"&gt;Async: Add an explicit coalesce option to AsyncLoopWakeUp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/cdb7f904"&gt;Async: Add handy overloads for associating / removing os handles&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/71cdf34b"&gt;Async: Print errno value on io_uring failures&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="asyncstreams-and-tooling"&gt;AsyncStreams and Tooling&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;AsyncStreams&lt;/code&gt; can now reason about backpressure more precisely inside &lt;code&gt;AsyncPipeline&lt;/code&gt;, slice buffers more conveniently, check whether a readable stream can be started, and most importantly it has dropped an internal dependency on &lt;code&gt;Async&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;That same dependency cleanup extends to &lt;code&gt;FileSystemWatcher&lt;/code&gt;, which now uses a template-based approach to avoid depending directly on &lt;code&gt;Async&lt;/code&gt;, while Linux relative-path storage has been improved too.
+These changes are useful because they keep the dependency graph tighter and make the individual libraries easier to reuse in isolation.&lt;/p&gt;
+&lt;p&gt;The month also brought a few practical tooling improvements: a command line parser in &lt;code&gt;Strings&lt;/code&gt;, a more reliable bootstrap timestamp check, updated tool dependencies, and repository skills for the various libraries and workflows.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0a6517c5"&gt;AsyncStreams: Handle backpressure more precisely inside AsyncPipeline&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d43e2512"&gt;AsyncStream: Allow slicing buffer in equal parts up to number of available buffers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/657d4d04"&gt;FileSystemWatcher: Increment relative path storage for Linux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b25f3f3a"&gt;FileSystemWatcher: Use a template to break dependency from Async&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d5007725"&gt;AsyncStreams: Get rid of internal dependency on Async&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4c458e87"&gt;Strings: Add command line parser&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e7bb106f"&gt;Tools: Use high resolution modification time in bootstrap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5f0716b1"&gt;AsyncStreams: Add method to check if a readable stream can be started&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c31c7f39"&gt;Tools: Remove 7zip and update clang to 20.1.8&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d206291e"&gt;Skills: Add skills for all libraries and some additional workflows&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;See you next month!&lt;/p&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>🔌 Sane C++ February 26</title><link href="https://pagghiu.github.io/site/blog/2026-02-28-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2026-02-28T00:00:00+01:00</published><updated>2026-02-28T00:00:00+01:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2026-02-28:/site/blog/2026-02-28-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the February 2026 update!&lt;br&gt; This month introduces &lt;code&gt;SerialPort&lt;/code&gt;, named-pipe end-to-end support, and major async backend wakeup/process handling improvements.&lt;/p&gt;</summary><content type="html">&lt;h1 id="serialport-and-named-pipes"&gt;SerialPort and Named Pipes&lt;/h1&gt;
 &lt;p&gt;February has been all about connecting low-level I/O pieces end to end.
 A new cross-platform &lt;code&gt;SerialPort&lt;/code&gt; library landed with dedicated tests (including &lt;code&gt;com0com&lt;/code&gt; coverage), while named-pipe support now spans &lt;code&gt;File&lt;/code&gt;, &lt;code&gt;Async&lt;/code&gt;, and &lt;code&gt;AsyncStreams&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;The result is that local IPC and serial communication can now be handled with the same async building blocks used by the rest of the project, with better test coverage across platform-specific behavior.&lt;/p&gt;
