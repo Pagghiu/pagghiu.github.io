@@ -112,6 +112,12 @@
             <ul>
                 <!--- articles_page.object_list --->
                 <li>
+                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2026-04-30-SaneCppLibrariesUpdate.html" title="Permalink to 🌷 Sane C++ April 26">
+                    🌷 Sane C++ April 26
+                    <br>
+                </a>
+            </li>
+                <li>
                     <a class="secondary" aria-current="page" href="" title="Permalink to ☔️ Sane C++ March 26">
                     ☔️ Sane C++ March 26
                     <br>
@@ -311,8 +317,7 @@
     </nav>
   </aside>
   <div id="content" role="document">
-    <h1 id="build-native-backend">Build</h1>
-
+    <h1 id="build">Build</h1>
 <p>March has been a big month for <a href="https://pagghiu.github.io/SaneCppLibraries/page_build.html"><code>SC::Build</code></a>.
 Introducing the standalone native backend to build executables directly!
 It now supports static libraries, shared libraries, direct host builds on Windows, binary stripping and more control over exported symbols.</p>
@@ -331,7 +336,6 @@ It now supports static libraries, shared libraries, direct host builds on Window
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4310bc1c">Documentation: Improve Build documentation</a></li>
 </ul>
 <h1 id="http-and-httpclient">Http and HttpClient</h1>
-
 <p>The <code>Http</code> work this month has been improving the hot path while cleaning up the internal API surface.
 A parser benchmark has been added, the parser itself gained a specialized fast path, and both request parsing and response header emission have been tightened up.</p>
 <p>On the server side, <code>Http</code> also gained chunked encoding support and better <code>AsyncFileServer</code> <code>PUT</code> handling.
@@ -350,7 +354,6 @@ It is a separate streaming-first HTTP client built on native OS backends (<code>
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/127a0dbc">HttpClient: Add standalone http(s) client library based on OS API</a></li>
 </ul>
 <h1 id="platform-and-runtime">Platform and Runtime</h1>
-
 <p>Another major theme of the month has been widening the platform surface exposed by the lower level libraries.
 <code>FileSystem</code> and <code>File</code> received a proper batch of metadata, permission and descriptor APIs, including link metadata, <code>stat</code> / <code>lstat</code>, path permissions, descriptor <code>stat</code> / <code>sync</code> / permissions, and reading stored symlink targets on Windows.</p>
 <p>These are not especially flashy additions, but they matter because they reduce the amount of platform-specific glue needed by applications built on top of Sane C++.
@@ -373,7 +376,6 @@ The libraries become more useful precisely when they cover this boring but essen
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/71cdf34b">Async: Print errno value on io_uring failures</a></li>
 </ul>
 <h1 id="asyncstreams-and-tooling">AsyncStreams and Tooling</h1>
-
 <p><code>AsyncStreams</code> can now reason about backpressure more precisely inside <code>AsyncPipeline</code>, slice buffers more conveniently, check whether a readable stream can be started, and most importantly it has dropped an internal dependency on <code>Async</code>.</p>
 <p>That same dependency cleanup extends to <code>FileSystemWatcher</code>, which now uses a template-based approach to avoid depending directly on <code>Async</code>, while Linux relative-path storage has been improved too.
 These changes are useful because they keep the dependency graph tighter and make the individual libraries easier to reuse in isolation.</p>

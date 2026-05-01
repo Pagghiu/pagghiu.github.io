@@ -1,6 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Sane Coding Blog - SaneCppLibraries</title><link href="https://pagghiu.github.io/" rel="alternate"></link><link href="https://pagghiu.github.io/feeds/sanecpplibraries.atom.xml" rel="self"></link><id>https://pagghiu.github.io/</id><updated>2026-03-31T00:00:00+02:00</updated><subtitle>Sane Coding Blog</subtitle><entry><title>☔️ Sane C++ March 26</title><link href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2026-03-31T00:00:00+02:00</published><updated>2026-03-31T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2026-03-31:/site/blog/2026-03-31-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the March 2026 update!&lt;br&gt; This month focuses on a much more capable native backend in &lt;code&gt;SC::Build&lt;/code&gt;, plus faster &lt;code&gt;Http&lt;/code&gt; parsing and the first standalone &lt;code&gt;HttpClient&lt;/code&gt; library.&lt;/p&gt;</summary><content type="html">&lt;h1 id="build-native-backend"&gt;Build&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Sane Coding Blog - SaneCppLibraries</title><link href="https://pagghiu.github.io/" rel="alternate"></link><link href="https://pagghiu.github.io/feeds/sanecpplibraries.atom.xml" rel="self"></link><id>https://pagghiu.github.io/</id><updated>2026-04-30T00:00:00+02:00</updated><subtitle>Sane Coding Blog</subtitle><entry><title>🌷 Sane C++ April 26</title><link href="https://pagghiu.github.io/site/blog/2026-04-30-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2026-04-30T00:00:00+02:00</published><updated>2026-04-30T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2026-04-30:/site/blog/2026-04-30-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the April 2026 update!&lt;br&gt; This month makes &lt;code&gt;SC::Build&lt;/code&gt; much more practical as the default native workflow, a real cross-compilation tool, and an easier entry point for external projects.&lt;/p&gt;</summary><content type="html">&lt;h1 id="build-native-backend"&gt;Build Native Backend&lt;/h1&gt;
+&lt;p&gt;April has been almost entirely about &lt;code&gt;SC::Build&lt;/code&gt;.
+The biggest milestone is that the native generator is now the default on all supported host platforms, so the direct compile / run workflow is no longer some experimental side path.&lt;/p&gt;
+&lt;p&gt;This is where the project is becoming much more interesting to me, because the native backend is also where cross targets, foreign-binary execution and the nicer bootstrap story are all landing.
+Generated backends are still useful, but at this point the standalone builder is clearly becoming the main workflow.&lt;/p&gt;
+&lt;p&gt;There is also now an experimental &lt;code&gt;Fil-C&lt;/code&gt; target in the mix.
+It is still very early, but I really like seeing &lt;code&gt;SC::Build&lt;/code&gt; start to expose weirder compiler / toolchain combinations inside the same workflow.
+I also posted a short note about it here:&lt;/p&gt;
+&lt;blockquote class="twitter-tweet"&gt;
+&lt;a href="https://x.com/pagghiu_/status/2047433895675617445"&gt;&lt;/a&gt;
+&lt;/blockquote&gt;
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
 
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5ab42c5a"&gt;Build: Enable native generator by default on all platforms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1ac6567"&gt;Build: Change default action to compile&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/34f08c06"&gt;Build: Allow C++ 17 in SC-build.cpp configuration files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3900d3cf"&gt;Build: Add new experimental Fil-C target&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="cross-compilation"&gt;Cross-Compilation&lt;/h1&gt;
+&lt;p&gt;The next big theme has been making cross-compilation feel like a real supported workflow instead of a bag of flags.
+&lt;code&gt;SC::Build&lt;/code&gt; now has friendly Linux and Windows target profiles, packaged sysroots, &lt;code&gt;llvm-mingw&lt;/code&gt; support, and raw &lt;code&gt;--triple&lt;/code&gt; / &lt;code&gt;--sysroot&lt;/code&gt; escape hatches for when one wants to go off the beaten path.&lt;/p&gt;
+&lt;p&gt;This is not the flashiest work in the world, but it changes a lot in practice.
+Once target profiles, sysroots and packaged toolchains are wired together properly, building for another platform starts feeling boring in the good way, instead of like a custom one-off setup.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/39930007"&gt;Build: Add first-class Linux native target profiles&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ad9c8e67"&gt;Build: Package host LLVM for Linux target profiles&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/55f8a662"&gt;Everywhere: Support building with musl on Linux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a5176868"&gt;Build: Add packaged Linux sysroots for macOS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3259d083"&gt;Build: Add Linux sysroots and qemu runner support&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/255b6ab2"&gt;Build: Add llvm-mingw cross-compile&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4492e658"&gt;Tools: Add llvm-mingw package&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8ef53944"&gt;Build: Add windows-gnu-arm64 cross target&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/01e4daed"&gt;Build: Add --triple and --sysroot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2cd32111"&gt;Build: Add windows-msvc-x86_64 cross target&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1bc02040"&gt;Build: Add windows-msvc-arm64 cross target&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="runners-and-cross-runs"&gt;Runners and Cross-Runs&lt;/h1&gt;
+&lt;p&gt;Producing foreign binaries is only half the story.
+This month also makes them much easier to execute, with much better Wine and QEMU integration across different host and target combinations.&lt;/p&gt;
+&lt;p&gt;There has been a lot of fiddly work here around Linux ARM64, portable MSVC packaging, auto-resolved wrappers and managed runner registration.
+The nice result on the user side is that &lt;code&gt;build run&lt;/code&gt; is increasingly able to do something sensible automatically even when the executable does not match the host platform, which is exactly what I wanted from this tool.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/07c3a544"&gt;Build: Add Wine runner support for Windows GNU targets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0dde6d98"&gt;Build: Auto-resolve Linux box64 Wine wrappers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/83746e99"&gt;Build: Auto-wrap Linux arm64 Wine runners&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/53243019"&gt;Build: Add explicit portable MSVC package overrides&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/53f4e733"&gt;Build: Validate portable MSVC import packaging&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b6484426"&gt;Build: Repair legacy portable MSVC package layouts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d0bcedc1"&gt;Build: Reuse stored Wine path for portable MSVC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b1da4896"&gt;Build: Repair Linux ARM64 portable MSVC Wine runners&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/298aa429"&gt;Build: Prefer plain Wine for Linux ARM64 console runs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6248c7c7"&gt;Build: Support Linux ARM64 Wine runs for Windows arm64 targets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/768e5ff0"&gt;Build: Validate Windows GNU ARM64 runs on Linux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/54d68d67"&gt;Build: Add managed QEMU runner registration for native cross-runs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="external-builds"&gt;External Builds&lt;/h1&gt;
+&lt;p&gt;Another important change is that &lt;code&gt;SC::Build&lt;/code&gt; is becoming easier to use outside of the main repository.
+The new external launchers and bootstrap flow make it much simpler to point a standalone project at a Sane C++ checkout, or even use a shared cached checkout, without having to copy the repository workflow by hand.&lt;/p&gt;
+&lt;p&gt;This is especially useful for small external experiments and tests, because the build-definition file can stay tiny while still pulling in the Sane C++ libraries and the right public headers automatically.
+The additions around shared helpers, defaults and &lt;code&gt;SC_BUILD&lt;/code&gt; self-detection also make it easier for a single &lt;code&gt;SC-build.cpp&lt;/code&gt; file to act both as build script and as project source when needed, which is a pretty nice trick for tiny examples.&lt;/p&gt;
+&lt;p&gt;For example, an external project can just &lt;code&gt;curl&lt;/code&gt; the launcher, write a tiny &lt;code&gt;SC-build.cpp&lt;/code&gt;, and compile immediately:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;#include&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cpf"&gt;&amp;quot;SaneCppBuild.h&amp;quot;&lt;/span&gt;
+
+&lt;span class="n"&gt;SC&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Result&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;SC::Build::configure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Definition&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;definition&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Parameters&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;parameters&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;Project&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;MyProject&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;SC_TRY&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Build&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;addSaneCppLibraries&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;parameters&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;SC_TRY&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addFile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;main.cpp&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;definition&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addProject&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;move&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;curl&lt;span class="w"&gt; &lt;/span&gt;-L&lt;span class="w"&gt; &lt;/span&gt;-o&lt;span class="w"&gt; &lt;/span&gt;SC-build.sh&lt;span class="w"&gt; &lt;/span&gt;https://raw.githubusercontent.com/Pagghiu/SaneCppLibraries/main/SC-build.sh
+chmod&lt;span class="w"&gt; &lt;/span&gt;+x&lt;span class="w"&gt; &lt;/span&gt;SC-build.sh
+./SC-build.sh&lt;span class="w"&gt; &lt;/span&gt;run
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;I like this a lot because it starts making &lt;code&gt;SC::Build&lt;/code&gt; feel usable as a general standalone tool, not only as the thing used to build this repository itself.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/06d1faea"&gt;Build: Add external SC-build launchers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4caa2ae1"&gt;Build: Add shared addSaneCppLibraries helper&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/26d39729"&gt;Build: Add the SC_BUILD macro to self-detect being targeted by SC::Build&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/689ee2e6"&gt;Build: Add defaults to simplify commonly set options&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="public-headers"&gt;Public Headers&lt;/h1&gt;
+&lt;p&gt;The external-project story is also much better now because there are explicit public headers whose names match the single-file library variants.
+This means external users can include headers such as &lt;code&gt;SaneCppStrings.h&lt;/code&gt; or &lt;code&gt;SaneCppHttp.h&lt;/code&gt; in a much more obvious way, while keeping the door open to switch between single-file and multi-file integration styles with much less friction.&lt;/p&gt;
+&lt;p&gt;I think this is a very nice change for usability.
+If the public header names match the single-file library names, users do not need to care as much about how things are packaged internally, and moving between the two styles becomes much less annoying.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/70cce7a6"&gt;Everywhere: Add explicit external public include headers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="build-ergonomics-and-ci"&gt;Build Ergonomics and CI&lt;/h1&gt;
+&lt;p&gt;There has also been a steady stream of work on polishing the day-to-day experience around the builder and its CI coverage.
+This includes better output handling, more flexible CLI parsing, self-tests for the build system itself, and a lot of cache work to keep workflows lighter and less repetitive.&lt;/p&gt;
+&lt;p&gt;These changes are less visible than target-profile support or cross-runners, but they are the sort of things that stop a build tool from feeling fragile.
+Also, a lot of this month has been about making the CI less wasteful, because waiting on giant caches all the time is just boring.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/19689189"&gt;Build: Add richer native build output handling&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6c6dc4dd"&gt;Build: Support named options after target&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/bb591bd4"&gt;Build: Do not update timestamp if file content is not changed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/70243865"&gt;Build: Add SCBuildTest to the CI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1688c9fd"&gt;Build: Get rid of extra new lines in build test console output&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a450dd32"&gt;Build: Share fixture package caches across runs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/bac8c53a"&gt;Build: Preserve custom driver Linux target fixtures&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6bb6e0f6"&gt;Build: Split workflow package caches by package&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3aa91631"&gt;Build: Shrink docs tool package caches&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/66674a84"&gt;Build: Merge docs package installs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/736ba47f"&gt;Build: Shrink llvm-mingw workflow caches&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2867773d"&gt;Build: Add Windows-host packaged Linux sysroots&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f931d74c"&gt;Build: Warm Windows LLVM and sysroot caches&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/487e334e"&gt;Build: Warm shared Windows caches only once&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/867fc538"&gt;Build: Skip Windows LLVM restores in debug jobs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/39767201"&gt;Build: Restrict Windows cache skips to build matrix&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e12ddcd1"&gt;Build: Restore Posix llvm-mingw cache only in release&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d01fb685"&gt;Build: Shrink Windows LLVM workflow cache&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d0fe8747"&gt;Build: Fix make run target selection for single-project workspaces&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/acdf493d"&gt;Build: Add repository root directory include only in tests&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="others"&gt;Others&lt;/h1&gt;
+&lt;p&gt;Outside &lt;code&gt;SC::Build&lt;/code&gt;, the month also includes a few useful portability and quality-of-life changes.
+&lt;code&gt;Async&lt;/code&gt; loop timeout tests got some stabilization work, runtime path resolution became more portable across build targets, MinGW compilation support improved, and &lt;code&gt;Strings&lt;/code&gt; gained case-insensitive helpers.&lt;/p&gt;
+&lt;p&gt;This section is smaller than usual, but that is mostly because April has been totally dominated by build-system work.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed list of commits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/63c6c004"&gt;CI: Try fixing packages caching&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d4bfa432"&gt;Skills: Unify all skills into one designed for progressive discovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a973b1c8"&gt;Everywhere: Support compiling using MinGW&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/66861b22"&gt;Async: Stabilize loop timeout test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/321be035"&gt;Async: Handle EINTR on io_uring&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/12d60568"&gt;Everywhere: Make runtime path resolution portable across build targets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1ef4eef0"&gt;Async: Stabilizing loop timeout test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c52cd5e1"&gt;Strings: Add case insensitive {startsWith | contains | equals}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;See you next month!&lt;/p&gt;</content><category term="SaneCppLibraries"></category></entry><entry><title>☔️ Sane C++ March 26</title><link href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html" rel="alternate"></link><published>2026-03-31T00:00:00+02:00</published><updated>2026-03-31T00:00:00+02:00</updated><author><name>Stefano Cristiano</name></author><id>tag:pagghiu.github.io,2026-03-31:/site/blog/2026-03-31-SaneCppLibrariesUpdate.html</id><summary type="html">&lt;p&gt;Welcome to the March 2026 update!&lt;br&gt; This month focuses on a much more capable native backend in &lt;code&gt;SC::Build&lt;/code&gt;, plus faster &lt;code&gt;Http&lt;/code&gt; parsing and the first standalone &lt;code&gt;HttpClient&lt;/code&gt; library.&lt;/p&gt;</summary><content type="html">&lt;h1 id="build"&gt;Build&lt;/h1&gt;
 &lt;p&gt;March has been a big month for &lt;a href="https://pagghiu.github.io/SaneCppLibraries/page_build.html"&gt;&lt;code&gt;SC::Build&lt;/code&gt;&lt;/a&gt;.
 Introducing the standalone native backend to build executables directly!
 It now supports static libraries, shared libraries, direct host builds on Windows, binary stripping and more control over exported symbols.&lt;/p&gt;
@@ -19,7 +159,6 @@ It now supports static libraries, shared libraries, direct host builds on Window
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4310bc1c"&gt;Documentation: Improve Build documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="http-and-httpclient"&gt;Http and HttpClient&lt;/h1&gt;
-
 &lt;p&gt;The &lt;code&gt;Http&lt;/code&gt; work this month has been improving the hot path while cleaning up the internal API surface.
 A parser benchmark has been added, the parser itself gained a specialized fast path, and both request parsing and response header emission have been tightened up.&lt;/p&gt;
 &lt;p&gt;On the server side, &lt;code&gt;Http&lt;/code&gt; also gained chunked encoding support and better &lt;code&gt;AsyncFileServer&lt;/code&gt; &lt;code&gt;PUT&lt;/code&gt; handling.
@@ -38,7 +177,6 @@ It is a separate streaming-first HTTP client built on native OS backends (&lt;co
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/127a0dbc"&gt;HttpClient: Add standalone http(s) client library based on OS API&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="platform-and-runtime"&gt;Platform and Runtime&lt;/h1&gt;
-
 &lt;p&gt;Another major theme of the month has been widening the platform surface exposed by the lower level libraries.
 &lt;code&gt;FileSystem&lt;/code&gt; and &lt;code&gt;File&lt;/code&gt; received a proper batch of metadata, permission and descriptor APIs, including link metadata, &lt;code&gt;stat&lt;/code&gt; / &lt;code&gt;lstat&lt;/code&gt;, path permissions, descriptor &lt;code&gt;stat&lt;/code&gt; / &lt;code&gt;sync&lt;/code&gt; / permissions, and reading stored symlink targets on Windows.&lt;/p&gt;
 &lt;p&gt;These are not especially flashy additions, but they matter because they reduce the amount of platform-specific glue needed by applications built on top of Sane C++.
@@ -61,7 +199,6 @@ The libraries become more useful precisely when they cover this boring but essen
 &lt;li&gt;&lt;a href="https://github.com/Pagghiu/SaneCppLibraries/commit/71cdf34b"&gt;Async: Print errno value on io_uring failures&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="asyncstreams-and-tooling"&gt;AsyncStreams and Tooling&lt;/h1&gt;
-
 &lt;p&gt;&lt;code&gt;AsyncStreams&lt;/code&gt; can now reason about backpressure more precisely inside &lt;code&gt;AsyncPipeline&lt;/code&gt;, slice buffers more conveniently, check whether a readable stream can be started, and most importantly it has dropped an internal dependency on &lt;code&gt;Async&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;That same dependency cleanup extends to &lt;code&gt;FileSystemWatcher&lt;/code&gt;, which now uses a template-based approach to avoid depending directly on &lt;code&gt;Async&lt;/code&gt;, while Linux relative-path storage has been improved too.
 These changes are useful because they keep the dependency graph tighter and make the individual libraries easier to reuse in isolation.&lt;/p&gt;
