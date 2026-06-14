@@ -1,0 +1,334 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Http | Sane C++ Libraries</title><meta name="description" content="HTTP parser, server and client"><meta property="og:title" content="Http | Sane C++ Libraries"><meta property="og:description" content="HTTP parser, server and client"><meta property="og:type" content="website"><meta property="og:url" content="https://pagghiu.github.io/SaneCppLibraries/libraries/http/"><link rel="canonical" href="https://pagghiu.github.io/SaneCppLibraries/libraries/http/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=JetBrains+Mono:wght@500;700&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"><script>
+      (() => {
+        const savedTheme = localStorage.getItem("sc-theme");
+        const theme = savedTheme === "light" || savedTheme === "dark"
+          ? savedTheme
+          : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script><style>.maturity-badge[data-astro-cid-blexnnyn]{display:inline-flex;align-items:center;gap:.45rem;padding:.42rem .75rem;border-radius:8px;border:1px solid var(--border);background:#ffffff0a;color:var(--muted-strong);font-size:.82rem;font-weight:700}.maturity-badge[data-astro-cid-blexnnyn].strong{padding:.52rem .9rem;border-color:color-mix(in srgb,var(--badge-color) 35%,var(--border));background:color-mix(in srgb,var(--badge-color) 18%,transparent);color:color-mix(in srgb,var(--badge-color) 28%,var(--text));box-shadow:inset 0 1px #ffffff14}.dot[data-astro-cid-blexnnyn]{width:.58rem;height:.58rem;border-radius:50%;background:var(--badge-color);box-shadow:0 0 .7rem color-mix(in srgb,var(--badge-color) 60%,transparent)}.draft[data-astro-cid-blexnnyn]{--badge-color: #ff6a7b}.mvp[data-astro-cid-blexnnyn]{--badge-color: #ffd166}.usable[data-astro-cid-blexnnyn]{--badge-color: #8deab0}.complete[data-astro-cid-blexnnyn]{--badge-color: #78daff}.unknown[data-astro-cid-blexnnyn]{--badge-color: #b5bfd3}
+</style>
+<link rel="stylesheet" href="/_astro/index.DI-R6BGS.css">
+<link rel="stylesheet" href="/_astro/index.D5v4FFtv.css">
+<style>.library-hero[data-astro-cid-7c432cc5]{padding-top:1rem}.library-heading[data-astro-cid-7c432cc5]{display:grid;gap:1rem;max-width:58rem}.library-heading[data-astro-cid-7c432cc5] h1[data-astro-cid-7c432cc5]{margin:0;font-size:clamp(3rem,7vw,5rem);line-height:.94;letter-spacing:0;text-wrap:balance}.library-heading[data-astro-cid-7c432cc5] p[data-astro-cid-7c432cc5]{margin:0;max-width:48rem;color:var(--muted-strong);font-size:1.18rem;line-height:1.65}.page-grid[data-astro-cid-7c432cc5]{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:1.25rem;margin-top:1.25rem}.article[data-astro-cid-7c432cc5]{padding:1.5rem}.sidebar[data-astro-cid-7c432cc5]{display:grid;gap:1rem;align-self:start}.sidebar[data-astro-cid-7c432cc5] .card[data-astro-cid-7c432cc5]{display:grid;gap:.8rem}.sidebar[data-astro-cid-7c432cc5] a[data-astro-cid-7c432cc5]{color:var(--link)}.sidebar[data-astro-cid-7c432cc5] a[data-astro-cid-7c432cc5]:hover{color:var(--link-hover)}@media(max-width:960px){.library-hero[data-astro-cid-7c432cc5],.page-grid[data-astro-cid-7c432cc5]{grid-template-columns:1fr}}
+</style></head> <body data-astro-cid-37fxchfa> <header class="site-header" data-site-header data-astro-cid-37fxchfa> <div class="shell header-row" data-astro-cid-37fxchfa> <a class="brand" href="/SaneCppLibraries/" data-astro-cid-37fxchfa> <img class="logo-mark" src="/SaneCppLibraries/brand/sc-logo.svg" alt="Sane C++ Libraries logo" width="46" height="46" loading="eager" data-astro-cid-yykneotp>  <span data-astro-cid-37fxchfa> <strong data-astro-cid-37fxchfa>Sane C++ Libraries</strong> <small data-astro-cid-37fxchfa>Platform Abstraction C++ Libraries for Agents</small> </span> </a> <div class="nav-cluster" data-nav-cluster data-astro-cid-37fxchfa> <nav class="desktop-nav" aria-label="Primary" data-astro-cid-37fxchfa> <a href="/SaneCppLibraries/libraries/" data-astro-cid-37fxchfa>Libraries</a><a href="/SaneCppLibraries/guides/" data-astro-cid-37fxchfa>Guides</a><a href="/SaneCppLibraries/skills/" data-astro-cid-37fxchfa>Skills</a><a href="https://pagghiu.github.io" target="_blank" rel="noreferrer" data-astro-cid-37fxchfa>Blog</a><a href="/SaneCppLibraries/reference/" data-astro-cid-37fxchfa>Reference</a><a href="/SaneCppLibraries/community/" data-astro-cid-37fxchfa>Community</a> </nav> <div class="header-actions" data-astro-cid-37fxchfa> <button class="search-trigger" type="button" data-search-open data-astro-cid-otpdt6jm> <span data-astro-cid-otpdt6jm>Search the site</span> <kbd data-astro-cid-otpdt6jm>/</kbd> </button> <dialog class="search-dialog panel" data-search-dialog data-pagefind-base="/SaneCppLibraries/" data-astro-cid-otpdt6jm> <form method="dialog" class="search-shell" data-astro-cid-otpdt6jm> <div class="search-header" data-astro-cid-otpdt6jm> <input type="search" name="q" placeholder="Search libraries, guides, blog, reference..." autocomplete="off" data-search-input data-astro-cid-otpdt6jm> <button type="submit" class="button" data-astro-cid-otpdt6jm>Close</button> </div> <div class="search-results" data-search-results data-astro-cid-otpdt6jm></div> </form> </dialog> <script>
+  const dialog = document.querySelector("[data-search-dialog]");
+  const openButton = document.querySelector("[data-search-open]");
+  const input = document.querySelector("[data-search-input]");
+  const results = document.querySelector("[data-search-results]");
+  const searchBase = dialog?.dataset.pagefindBase || "/";
+  let pagefind;
+
+  async function loadPagefind() {
+    if (!pagefind) {
+      pagefind = await import(`${searchBase}pagefind/pagefind.js`);
+    }
+    return pagefind;
+  }
+
+  async function runSearch(query) {
+    if (!results) return;
+    if (!query.trim()) {
+      results.innerHTML = '<p class="copy-muted">Type to search across libraries, guides, skills, and generated reference.</p>';
+      return;
+    }
+    const pagefindApi = await loadPagefind();
+    const search = await pagefindApi.search(query);
+    const items = await Promise.all(search.results.slice(0, 8).map((item) => item.data()));
+    results.innerHTML = items.length
+      ? items
+          .map(
+            (item) => `
+              <a class="search-result" href="${item.url}">
+                <strong>${item.meta.title ?? item.url}</strong>
+                <span>${item.excerpt ?? ""}</span>
+              </a>`
+          )
+          .join("")
+      : '<p class="copy-muted">No results yet. Try a library name, guide, or feature.</p>';
+  }
+
+  function openSearch() {
+    dialog?.showModal();
+    results.innerHTML = '<p class="copy-muted">Type to search across libraries, guides, skills, and generated reference.</p>';
+    setTimeout(() => input?.focus(), 20);
+  }
+
+  openButton?.addEventListener("click", openSearch);
+  input?.addEventListener("input", (event) => runSearch(event.currentTarget.value));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "/" && !event.metaKey && !event.ctrlKey) {
+      const target = event.target;
+      if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement) return;
+      event.preventDefault();
+      openSearch();
+    }
+    if (event.key === "Escape" && dialog?.open) {
+      dialog.close();
+    }
+  });
+</script>  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme" data-astro-cid-x3pjskd3> <span class="theme-icon" aria-hidden="true" data-astro-cid-x3pjskd3>◐</span> <span class="theme-label" data-astro-cid-x3pjskd3>Theme</span> </button> <script>
+  const themeStorageKey = "sc-theme";
+
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    const button = document.querySelector("[data-theme-toggle]");
+    const label = button?.querySelector(".theme-label");
+    const icon = button?.querySelector(".theme-icon");
+    if (label) {
+      label.textContent = theme === "light" ? "Light" : "Dark";
+    }
+    if (icon) {
+      icon.textContent = theme === "light" ? "☀" : "☾";
+    }
+  }
+
+  function getInitialTheme() {
+    const saved = localStorage.getItem(themeStorageKey);
+    if (saved === "light" || saved === "dark") return saved;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  applyTheme(getInitialTheme());
+
+  document.querySelector("[data-theme-toggle]")?.addEventListener("click", () => {
+    const current = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+    const next = current === "light" ? "dark" : "light";
+    localStorage.setItem(themeStorageKey, next);
+    applyTheme(next);
+  });
+</script>  <a class="button primary" href="https://github.com/Pagghiu/SaneCppLibraries" data-astro-cid-37fxchfa>View GitHub</a> </div> </div> <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="Open navigation" data-astro-cid-37fxchfa> <span class="material-symbols-outlined" aria-hidden="true" data-astro-cid-37fxchfa>menu</span> </button> </div> </header> <main data-astro-cid-37fxchfa>  <section class="shell page-hero library-hero" data-astro-cid-7c432cc5> <div class="library-heading" data-astro-cid-7c432cc5> <div class="eyebrow" data-astro-cid-7c432cc5>Library</div> <h1 data-astro-cid-7c432cc5>Http</h1> <p data-astro-cid-7c432cc5>HTTP parser, server and client</p> <span class="maturity-badge draft strong" data-astro-cid-blexnnyn> <span class="dot" data-astro-cid-blexnnyn></span> <span data-astro-cid-blexnnyn>Draft</span> </span>  </div> </section> <section class="shell meta-grid" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependencies</strong> <p data-astro-cid-7c432cc5>Async, AsyncStreams</p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Single file</strong> <p data-astro-cid-7c432cc5><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppHttp.h" data-astro-cid-7c432cc5>Download release header</a></p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Reference</strong> <p data-astro-cid-7c432cc5><a href="/SaneCppLibraries/reference/doxygen/library_http.html" data-astro-cid-7c432cc5>Open generated API/docs</a></p> </div> </section> <section class="shell page-grid" data-astro-cid-7c432cc5> <article class="panel prose article" data-astro-cid-7c432cc5><p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppHttp.h">SaneCppHttp.h</a> is a library implementing a hand-written HTTP/1.1 parser, server and client.</p>
+<h1>Dependencies</h1>
+<ul>
+<li>Dependencies: <a href="/SaneCppLibraries/libraries/async/">Async</a>, <a href="/SaneCppLibraries/libraries/async-streams/">AsyncStreams</a></li>
+<li>All dependencies: <a href="/SaneCppLibraries/libraries/async/">Async</a>, <a href="/SaneCppLibraries/libraries/async-streams/">AsyncStreams</a>, <a href="/SaneCppLibraries/libraries/file/">File</a>, <a href="/SaneCppLibraries/libraries/file-system/">FileSystem</a>, <a href="/SaneCppLibraries/libraries/socket/">Socket</a>, <a href="/SaneCppLibraries/libraries/threading/">Threading</a></li>
+</ul>
+<p><img src="/SaneCppLibraries/reference/doxygen/Http.svg" alt="Dependency Graph"></p>
+<h1>Features</h1>
+<ul>
+<li>HTTP 1.1 Parser</li>
+<li>HTTP 1.1 Server</li>
+<li>HTTP 1.1 Client</li>
+</ul>
+<h1>Status</h1>
+<p>Draft
+In current state the library is able to host simple static website but it cannot be used for any internet facing application.<br>Additionally its API will be changing heavily as it&#39;s undergoing major re-design to make it fully allocation free and extend it to support more of the HTTP 1.1 standard.</p>
+<h1>Description</h1>
+<p>The HTTP parser is an incremental parser, that will emit events as soon as a valid element has been successfully parsed.
+This allows handling incomplete responses without needing holding it entirely in memory.</p>
+<p>The HTTP server is for now just a basic implementations and it&#39;s missing many important features.
+It&#39;s however capable of serving files through http while staying inside a few user provided fixed buffers, without allocating any kind of dynamic memory.</p>
+<p>The HTTP client follows the same fixed-memory approach used by the server side:</p>
+<ul>
+<li>caller-provided connection storage through <code>SC::HttpAsyncClientConnection</code></li>
+<li>request headers built inside fixed header memory</li>
+<li>fixed-span or streamed request bodies with explicit <code>Content-Length</code></li>
+<li>incremental response-header parsing into fixed buffers</li>
+<li>streamed response bodies exposed through <code>SC::AsyncReadableStream</code></li>
+<li>optional sequential keep-alive reuse for requests targeting the same origin</li>
+</ul>
+<p>The expected client lifecycle is stream-first:</p>
+<ol>
+<li>Create <code>SC::HttpAsyncClientConnection&lt;...&gt;</code> storage and initialize <code>SC::HttpAsyncClient</code></li>
+<li>Call <code>start(loop, method, url)</code> and configure the active <code>SC::HttpAsyncClientRequest</code> inside <code>onPrepareRequest</code>, or use <code>get</code> / <code>put</code> / <code>post</code></li>
+<li>Send headers through <code>HttpAsyncClientRequest::sendHeaders()</code> and write any manual request body through <code>HttpAsyncClientRequest::getWritableStream()</code></li>
+<li>Handle <code>onResponse</code> once headers are parsed and attach to <code>HttpAsyncClientResponse::getReadableStream()</code></li>
+<li>Consume the response body incrementally and use the response readable stream <code>eventEnd</code> as the completion signal</li>
+</ol>
+<p>Current client limitations:</p>
+<ul>
+<li><code>http</code> only, no <code>https</code></li>
+<li>one in-flight request at a time</li>
+<li>no HTTP pipelining</li>
+<li>no redirect policy helper</li>
+</ul>
+<h1>Error Categories</h1>
+<p>HTTP APIs report failures through <code>SC::Result</code> and keep the error text stable enough to diagnose the failing layer.
+The library does not use exceptions or a large error hierarchy; instead, messages are grouped by prefix and by the
+operation that produced them.</p>
+<p>Typical categories:</p>
+<ul>
+<li>Protocol errors: malformed HTTP syntax, invalid URL/request-target data, bad WebSocket frames, invalid masking,
+invalid chunk framing, unsupported transfer encodings, or unexpected response bodies.</li>
+<li>Unsupported feature errors: explicit limits such as unsupported content encodings, WebSocket extensions, pipelined
+body data, non-empty chunk trailers, or TLS when using this library.</li>
+<li>Storage errors: fixed header memory, caller-provided output buffers, stream queues, or <code>AsyncBuffersPool</code> capacity are
+too small for the requested operation.</li>
+<li>Stream/transport errors: socket disconnects, readable/writable stream failures, file stream failures, or backpressure
+that could not be queued.</li>
+<li>Lifecycle errors: calling request/response methods in the wrong order, starting a second client request while one is
+active, using an uninitialized server/client, or writing after a stream has ended.</li>
+</ul>
+<p>Common prefixes point to the owner of the invariant:</p>
+<ul>
+<li><code>HttpIncomingMessage</code>: request/response body framing and chunked decoding.</li>
+<li><code>HttpOutgoingMessage</code> / <code>HttpResponse</code> / <code>HttpAsyncClientRequest</code>: outgoing header/body ordering and fixed header
+storage.</li>
+<li><code>HttpAsyncServer</code> / <code>HttpAsyncClient</code>: async connection lifecycle and transport integration.</li>
+<li><code>HttpAsyncFileServer</code>: safe path extraction, upload policy, file/range/validator formatting.</li>
+<li><code>HttpURLParser</code> / <code>HttpRequestTargetView</code>: URL and origin-form request-target parsing.</li>
+<li><code>HttpWebSocketHandshake</code>, <code>HttpWebSocketFrameReader</code>, <code>HttpWebSocketFrameWriter</code>, <code>HttpWebSocketEndpoint</code>,
+<code>HttpWebSocketConnectionPump</code>, and <code>HttpWebSocketSmallHub</code>: WebSocket handshake, frame protocol, control-frame
+lifecycle, stream pumping, and hub capacity/backpressure.</li>
+</ul>
+<p>When adding new HTTP errors, prefer messages that name the component first, then the violated invariant, for example
+<code>HttpWebSocketFrameReader control frame payload too large</code>. This keeps errors readable without adding allocations or a
+new dependency.</p>
+<h1>Videos</h1>
+<p>This is the list of videos that have been recorded showing some of the internal thoughts that have been going into this library:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=yg438A9Db50">Ep.27 - C++ Async Http Web Server</a></li>
+</ul>
+<h1>Blog</h1>
+<p>Some relevant blog posts are:</p>
+<ul>
+<li><a href="https://pagghiu.github.io/site/blog/2024-08-30-SaneCppLibrariesUpdate.html">August 2024 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-09-30-SaneCppLibrariesUpdate.html">September 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-11-30-SaneCppLibrariesUpdate.html">November 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-12-31-SaneCppLibrariesUpdate.html">December 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-01-31-SaneCppLibrariesUpdate.html">January 2026 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-02-28-SaneCppLibrariesUpdate.html">February 2026 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026 Update</a></li>
+</ul>
+<h2>HttpAsyncServer</h2>
+<h2>HttpAsyncFileServer</h2>
+<h2>HttpAsyncClient</h2>
+<p><code>SC::HttpAsyncClient</code> supports both convenience helpers for fixed in-memory request bodies and the lower-level
+<code>start()</code> flow for streamed or manually written request bodies. The API reference below includes small examples for
+both styles of usage.</p>
+<h1>Validation</h1>
+<p>For HTTP changes, start with the focused test, then run the broader stress and portability checks before merging.</p>
+<p>Local macOS / Linux:</p>
+<pre><code class="language-sh">./SC.sh build compile SCTest Debug
+./SC.sh build run SCTest Debug -- --test &quot;HttpStressTest&quot;
+./SC.sh build run SCTest Debug -- --test &quot;HttpAsyncFileServerTest&quot;
+./SC.sh build compile SCTest Release
+./SC.sh build compile &quot;SCSingleFileLibs:&quot; Release
+./SC.sh build documentation
+</code></pre>
+<p>Linux VM:</p>
+<pre><code class="language-sh">./SC.sh build compile SCTest Debug
+./SC.sh build run SCTest Debug -- --test &quot;HttpStressTest&quot; --port-offset 200
+./SC.sh build run SCTest Debug -- --test &quot;HttpAsyncFileServerTest&quot; --port-offset 200
+./SC.sh build compile SCTest Release
+./SC.sh build compile &quot;SCSingleFileLibs:&quot; Release
+</code></pre>
+<p>Windows VM:</p>
+<pre><code class="language-bat">SC.bat build compile SCTest Debug
+SC.bat build run SCTest Debug -- --test &quot;HttpStressTest&quot; --port-offset 400
+SC.bat build run SCTest Debug -- --test &quot;HttpAsyncFileServerTest&quot; --port-offset 400
+SC.bat build compile SCTest Release
+</code></pre>
+<p><code>HttpStressTest</code> is intentionally bounded and fast. It is a smoke signal for repeated keep-alive requests, chunked
+request burst decoding, and WebSocket fan-out writes through caller-owned buffer pools. <code>HttpAsyncFileServerTest</code> covers
+the heavier HTTP paths, including file requests, range and conditional requests, large PUT uploads, and multipart
+uploads.</p>
+<h1>Error Taxonomy</h1>
+<p>HTTP APIs return <code>Result</code> for protocol, storage, stream, and lifecycle failures. Prefer messages that make the failure
+class obvious:</p>
+<ul>
+<li>Protocol errors: syntactically valid HTTP/WebSocket input that violates the protocol state machine, for example
+unexpected continuations, invalid control-frame fragmentation, or invalid request target usage.</li>
+<li>Malformed input: invalid bytes or incomplete syntax, for example bad request lines, invalid header fields, malformed
+multipart boundaries, or invalid extended WebSocket lengths.</li>
+<li>Unsupported feature: valid input intentionally not implemented by this library layer, for example HTTP trailers in
+request chunked decoding.</li>
+<li>Storage too small: caller-provided fixed storage cannot hold output, headers, copied response bodies, parsed fields, or
+queued async buffers. These errors should never silently truncate.</li>
+<li>Stream or transport failure: async read/write, file, socket, or buffer-pool operations failed below the HTTP parser.</li>
+<li>Lifecycle misuse: APIs were called in the wrong order or after ownership changed, for example writing after upgrade or
+attaching a WebSocket pump twice without detach.</li>
+</ul>
+<h1>API Friction Audit</h1>
+<p>Recent example and test call sites point to these remaining improvement seams:</p>
+<ul>
+<li>Response bodies: use <code>HttpResponse::sendBody</code> / <code>sendJson</code> when the body span stays alive until the async write
+finishes, and <code>HttpConnection::sendBodyCopy</code> / <code>sendTextCopy</code> / <code>sendJsonCopy</code> when stack-owned response text should
+be copied into the connection&#39;s fixed async buffer pool before returning.</li>
+<li>Method routing: <code>HttpRouter::formatAllowHeader</code> can feed <code>HttpResponse::sendMethodNotAllowed</code> directly for the common
+405 + <code>Allow</code> + empty-body response path.</li>
+<li>Redirects: <code>HttpResponse::sendRedirect</code> emits the 3xx status, <code>Location</code>, and empty-body framing as one checked
+operation.</li>
+<li>Header writing: <code>HttpWriteBasicAuthorizationCredentials</code> writes Basic authorization from raw username/password into
+caller-provided storage, avoiding caller-side temporary allocation or ad-hoc base64 helpers.</li>
+<li>Multipart writing: <code>HttpMultipartWriter</code> rejects unsafe boundaries, field names, filenames, and content-type values
+before they can be written into request headers.</li>
+<li>Streaming echo responses: <code>Examples/ApiServer/ApiServer.cpp</code> now uses <code>AsyncPipeline</code> to mirror the request body into
+the response body without collecting it in memory or hand-rolling pause/drain listeners.</li>
+<li>WebSocket examples: <code>Examples/AsyncWebServer/AsyncWebServer.cpp</code> and the collaborative canvas now use
+<code>HttpWebSocketConnectionPump</code> for listener lifecycle and automatic control-frame flushing. The canvas keeps its
+caller-owned message assembler, source-client suppression, and best-effort dropped-broadcast accounting as application
+policy.</li>
+<li>File uploads: <code>HttpAsyncFileServerTest</code> covers PUT and multipart uploads well, and <code>Examples/AsyncWebServer</code> now
+exposes upload enable/disable and max-size policy from the command line. <code>HttpAsyncFileServerOptions</code> also supports
+SPA fallback, validators, ranges, and a zero-allocation MIME lookup hook.</li>
+</ul>
+<h1>Examples</h1>
+<ul>
+<li><a href="/SaneCppLibraries/guides/examples/">SCExample</a> features the <code>WebServerExample</code> sample showing how to use SC::HttpAsyncFileServer and SC::HttpAsyncServer</li>
+<li>Unit tests show how to use <code>SC::HttpAsyncClient</code>, <code>SC::HttpAsyncFileServer</code> and <code>SC::HttpAsyncServer</code></li>
+</ul>
+<h1>Roadmap</h1>
+<p>MVP</p>
+<ul>
+<li>HTTP 1.1 Chunked Encoding</li>
+</ul>
+<p>Usable Features:</p>
+<ul>
+<li>Connection Upgrade</li>
+<li>Multipart streamed encoding</li>
+</ul>
+<p>Complete Features:</p>
+<ul>
+<li>HTTPS</li>
+<li>Support all HTTP verbs / methods</li>
+</ul>
+<p>💡 Unplanned Features:</p>
+<ul>
+<li>Http 2.0 </li>
+<li>Http 3.0</li>
+</ul>
+<h1>Statistics</h1>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Lines Of Code</th>
+<th>Comments</th>
+<th>Sum</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Headers</td>
+<td>1517</td>
+<td>871</td>
+<td>2388</td>
+</tr>
+<tr>
+<td>Sources</td>
+<td>7781</td>
+<td>1050</td>
+<td>8831</td>
+</tr>
+<tr>
+<td>Sum</td>
+<td>9298</td>
+<td>1921</td>
+<td>11219</td>
+</tr>
+</tbody></table>
+</article> <aside class="sidebar" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependency graph</strong> <img src="/SaneCppLibraries/reference/doxygen/Http.svg" alt="Http dependency graph" data-astro-cid-7c432cc5> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Keep exploring</strong> <a href="/SaneCppLibraries/guides/building-user/" data-astro-cid-7c432cc5>How to integrate the libraries</a> <a href="/SaneCppLibraries/reference/" data-astro-cid-7c432cc5>Generated reference and compatibility pages</a> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Related blog posts</strong> <a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌸 Sane C++ May 26</a><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☔️ Sane C++ March 26</a><a href="https://pagghiu.github.io/site/blog/2026-02-28-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🔌 Sane C++ February 26</a><a href="https://pagghiu.github.io/site/blog/2026-01-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>❄️ Sane C++ January 26</a><a href="https://pagghiu.github.io/site/blog/2025-12-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌫️ Sane C++ December 25</a><a href="https://pagghiu.github.io/site/blog/2025-11-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌫️ Sane C++ November 25</a><a href="https://pagghiu.github.io/site/blog/2025-09-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🍂 Sane C++ September 25</a><a href="https://pagghiu.github.io/site/blog/2024-08-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌊 Sane C++ August 24</a> </div> </aside> </section>  </main> <footer class="site-footer" data-astro-cid-37fxchfa> <div class="shell footer-grid" data-astro-cid-37fxchfa> <div data-astro-cid-37fxchfa> <div class="eyebrow" data-astro-cid-37fxchfa>Sane C++</div> <h2 data-astro-cid-37fxchfa>Small cross-platform C++ libraries for coding agents.</h2> <p class="copy-muted" data-astro-cid-37fxchfa>
+A compact set of independent libraries for building efficient programs with coding agents.
+</p> </div> <div class="footer-links" data-astro-cid-37fxchfa> <a href="/SaneCppLibraries/libraries/" data-astro-cid-37fxchfa>Libraries</a> <a href="/SaneCppLibraries/guides/" data-astro-cid-37fxchfa>Guides</a> <a href="/SaneCppLibraries/reference/" data-astro-cid-37fxchfa>Reference</a> <a href="https://github.com/Pagghiu/SaneCppLibraries/discussions" data-astro-cid-37fxchfa>Discussions</a> <a href="https://discord.gg/tyBfFp33Z6" data-astro-cid-37fxchfa>Discord</a> </div> </div> </footer> <script>
+  const siteHeader = document.querySelector("[data-site-header]");
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const menuIcon = menuToggle?.querySelector(".material-symbols-outlined");
+
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = siteHeader?.classList.toggle("menu-open") ?? false;
+    menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+    if (menuIcon) menuIcon.textContent = isOpen ? "close" : "menu";
+  });
+</script> </body></html> 

@@ -1,0 +1,745 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SC::Build | Sane C++ Libraries</title><meta name="description" content="SC::Build is a Tool and public API for describing builds in C++ and then either generating project files or building directly through a standalone native backend."><meta property="og:title" content="SC::Build | Sane C++ Libraries"><meta property="og:description" content="SC::Build is a Tool and public API for describing builds in C++ and then either generating project files or building directly through a standalone native backend."><meta property="og:type" content="website"><meta property="og:url" content="https://pagghiu.github.io/SaneCppLibraries/guides/build/"><link rel="canonical" href="https://pagghiu.github.io/SaneCppLibraries/guides/build/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=JetBrains+Mono:wght@500;700&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"><script>
+      (() => {
+        const savedTheme = localStorage.getItem("sc-theme");
+        const theme = savedTheme === "light" || savedTheme === "dark"
+          ? savedTheme
+          : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script><link rel="stylesheet" href="/_astro/index.DI-R6BGS.css">
+<style>.page-grid[data-astro-cid-lpdweqsn]{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);gap:1.25rem}.article[data-astro-cid-lpdweqsn]{padding:1.5rem}.sidebar[data-astro-cid-lpdweqsn]{display:grid;gap:1rem;align-self:start}.sidebar[data-astro-cid-lpdweqsn] .card[data-astro-cid-lpdweqsn]{display:grid;gap:.75rem}.sidebar[data-astro-cid-lpdweqsn] a[data-astro-cid-lpdweqsn]{color:#ffd8a8}@media(max-width:960px){.page-grid[data-astro-cid-lpdweqsn]{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="/_astro/index.D5v4FFtv.css"></head> <body data-astro-cid-37fxchfa> <header class="site-header" data-site-header data-astro-cid-37fxchfa> <div class="shell header-row" data-astro-cid-37fxchfa> <a class="brand" href="/SaneCppLibraries/" data-astro-cid-37fxchfa> <img class="logo-mark" src="/SaneCppLibraries/brand/sc-logo.svg" alt="Sane C++ Libraries logo" width="46" height="46" loading="eager" data-astro-cid-yykneotp>  <span data-astro-cid-37fxchfa> <strong data-astro-cid-37fxchfa>Sane C++ Libraries</strong> <small data-astro-cid-37fxchfa>Platform Abstraction C++ Libraries for Agents</small> </span> </a> <div class="nav-cluster" data-nav-cluster data-astro-cid-37fxchfa> <nav class="desktop-nav" aria-label="Primary" data-astro-cid-37fxchfa> <a href="/SaneCppLibraries/libraries/" data-astro-cid-37fxchfa>Libraries</a><a href="/SaneCppLibraries/guides/" data-astro-cid-37fxchfa>Guides</a><a href="/SaneCppLibraries/skills/" data-astro-cid-37fxchfa>Skills</a><a href="https://pagghiu.github.io" target="_blank" rel="noreferrer" data-astro-cid-37fxchfa>Blog</a><a href="/SaneCppLibraries/reference/" data-astro-cid-37fxchfa>Reference</a><a href="/SaneCppLibraries/community/" data-astro-cid-37fxchfa>Community</a> </nav> <div class="header-actions" data-astro-cid-37fxchfa> <button class="search-trigger" type="button" data-search-open data-astro-cid-otpdt6jm> <span data-astro-cid-otpdt6jm>Search the site</span> <kbd data-astro-cid-otpdt6jm>/</kbd> </button> <dialog class="search-dialog panel" data-search-dialog data-pagefind-base="/SaneCppLibraries/" data-astro-cid-otpdt6jm> <form method="dialog" class="search-shell" data-astro-cid-otpdt6jm> <div class="search-header" data-astro-cid-otpdt6jm> <input type="search" name="q" placeholder="Search libraries, guides, blog, reference..." autocomplete="off" data-search-input data-astro-cid-otpdt6jm> <button type="submit" class="button" data-astro-cid-otpdt6jm>Close</button> </div> <div class="search-results" data-search-results data-astro-cid-otpdt6jm></div> </form> </dialog> <script>
+  const dialog = document.querySelector("[data-search-dialog]");
+  const openButton = document.querySelector("[data-search-open]");
+  const input = document.querySelector("[data-search-input]");
+  const results = document.querySelector("[data-search-results]");
+  const searchBase = dialog?.dataset.pagefindBase || "/";
+  let pagefind;
+
+  async function loadPagefind() {
+    if (!pagefind) {
+      pagefind = await import(`${searchBase}pagefind/pagefind.js`);
+    }
+    return pagefind;
+  }
+
+  async function runSearch(query) {
+    if (!results) return;
+    if (!query.trim()) {
+      results.innerHTML = '<p class="copy-muted">Type to search across libraries, guides, skills, and generated reference.</p>';
+      return;
+    }
+    const pagefindApi = await loadPagefind();
+    const search = await pagefindApi.search(query);
+    const items = await Promise.all(search.results.slice(0, 8).map((item) => item.data()));
+    results.innerHTML = items.length
+      ? items
+          .map(
+            (item) => `
+              <a class="search-result" href="${item.url}">
+                <strong>${item.meta.title ?? item.url}</strong>
+                <span>${item.excerpt ?? ""}</span>
+              </a>`
+          )
+          .join("")
+      : '<p class="copy-muted">No results yet. Try a library name, guide, or feature.</p>';
+  }
+
+  function openSearch() {
+    dialog?.showModal();
+    results.innerHTML = '<p class="copy-muted">Type to search across libraries, guides, skills, and generated reference.</p>';
+    setTimeout(() => input?.focus(), 20);
+  }
+
+  openButton?.addEventListener("click", openSearch);
+  input?.addEventListener("input", (event) => runSearch(event.currentTarget.value));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "/" && !event.metaKey && !event.ctrlKey) {
+      const target = event.target;
+      if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement) return;
+      event.preventDefault();
+      openSearch();
+    }
+    if (event.key === "Escape" && dialog?.open) {
+      dialog.close();
+    }
+  });
+</script>  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme" data-astro-cid-x3pjskd3> <span class="theme-icon" aria-hidden="true" data-astro-cid-x3pjskd3>◐</span> <span class="theme-label" data-astro-cid-x3pjskd3>Theme</span> </button> <script>
+  const themeStorageKey = "sc-theme";
+
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    const button = document.querySelector("[data-theme-toggle]");
+    const label = button?.querySelector(".theme-label");
+    const icon = button?.querySelector(".theme-icon");
+    if (label) {
+      label.textContent = theme === "light" ? "Light" : "Dark";
+    }
+    if (icon) {
+      icon.textContent = theme === "light" ? "☀" : "☾";
+    }
+  }
+
+  function getInitialTheme() {
+    const saved = localStorage.getItem(themeStorageKey);
+    if (saved === "light" || saved === "dark") return saved;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  applyTheme(getInitialTheme());
+
+  document.querySelector("[data-theme-toggle]")?.addEventListener("click", () => {
+    const current = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+    const next = current === "light" ? "dark" : "light";
+    localStorage.setItem(themeStorageKey, next);
+    applyTheme(next);
+  });
+</script>  <a class="button primary" href="https://github.com/Pagghiu/SaneCppLibraries" data-astro-cid-37fxchfa>View GitHub</a> </div> </div> <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="Open navigation" data-astro-cid-37fxchfa> <span class="material-symbols-outlined" aria-hidden="true" data-astro-cid-37fxchfa>menu</span> </button> </div> </header> <main data-astro-cid-37fxchfa>  <section class="shell page-hero" data-astro-cid-lpdweqsn> <div class="section-heading" data-astro-cid-lpdweqsn> <div class="eyebrow" data-astro-cid-lpdweqsn>Guide</div> <h1 data-astro-cid-lpdweqsn>SC::Build</h1> <p data-astro-cid-lpdweqsn>SC::Build is a Tool and public API for describing builds in C++ and then either generating project files or building directly through a standalone native backend.</p> </div> </section> <section class="shell page-grid" data-astro-cid-lpdweqsn> <article class="panel prose article" data-astro-cid-lpdweqsn><p><code>SC::Build</code> is a <a href="/SaneCppLibraries/guides/tools/">Tool</a> and public API for describing builds in C++ and then either generating project files or building directly through a standalone native backend.</p>
+<h1>Features</h1>
+<ul>
+<li>Describe builds in <code>SC-build.cpp</code> using <a href="/SaneCppLibraries/reference/doxygen/page_build.html"><code>SC::Build::Definition</code></a>, <code>Workspace</code>, <code>Project</code>, and <code>Configuration</code></li>
+<li>Generate XCode 14+ projects, Visual Studio 2019 / 2022 projects, and Makefiles</li>
+<li>Build directly through <a href="/SaneCppLibraries/reference/doxygen/page_build.html"><code>SC::Build::Generator::Native</code></a> on macOS, Linux, and Windows hosts</li>
+<li>Build console executables, GUI applications, shared libraries, and static libraries</li>
+<li>Attach compile/link settings at project, configuration, and per-file granularity</li>
+<li>Build workspace-local static-library dependencies in dependency order on the native backend</li>
+<li>Track header dependencies through compiler-generated dependency information</li>
+<li>Emit <code>compile_commands.json</code> on the native backend and from the Make / XCode generated flows</li>
+<li>Integrate with <code>SC-package</code> from <a href="/SaneCppLibraries/guides/tools/">Tools</a> to download repository dependencies</li>
+<li>Export Sane C++ libraries for <a href="/SaneCppLibraries/libraries/plugin/">Plugin</a> hosts through <code>addExportLibraries</code> and <code>addExportAllLibraries</code></li>
+</ul>
+<h1>Status</h1>
+<p>MVP</p>
+<p><code>SC::Build</code> is used by this repository to generate projects and/or build the test suites, tools, examples, and the <code>SC</code>
+shared library. The standalone native backend is now the default day-to-day workflow on macOS, Linux, and Windows,
+while the generated-project backends remain available for IDE and project-file flows.</p>
+<h1>Description</h1>
+<p>Build descriptions are regular C++ files, conventionally named <code>SC-build.cpp</code>, that are compiled on the fly through the
+repository bootstraps <code>SC.sh</code> / <code>SC.bat</code> or the external-project launchers <code>SC-build.sh</code> / <code>SC-build.bat</code> /
+<code>SC-build.ps1</code>.</p>
+<p>For the external bootstrap workflow, including vendored, shared-checkout, and standalone-cache usage, see
+<a href="/SaneCppLibraries/guides/build-external/">External SC::Build Bootstrap</a>.</p>
+<p>The same public API serves two workflows:</p>
+<ul>
+<li>Generated backends: emit XCode, Visual Studio, or Make projects into <code>_Build/_Projects</code></li>
+<li>Native backend: invoke compiler, linker, and archiver child processes directly without generating project files first</li>
+</ul>
+<p>The repository tool surface is the <code>SC-build</code> tool described in <a href="/SaneCppLibraries/guides/tools/">Tools</a>. Its normal command-line shape
+is:</p>
+<pre><code class="language-text">./SC.sh build compile [workspace:project | project] [options]
+./SC.sh build run [workspace:project | project] [options] [-- extra args...]
+./SC.sh build coverage [workspace:project | project] [options]
+</code></pre>
+<p>Generated-project workflows also use:</p>
+<pre><code class="language-text">./SC.sh build configure [workspace:project | project]
+</code></pre>
+<p>Named options accepted by <code>compile</code>, <code>run</code>, and <code>coverage</code> are:</p>
+<ul>
+<li><code>-c</code>, <code>--config &lt;NAME&gt;</code></li>
+<li><code>-g</code>, <code>--generator &lt;NAME&gt;</code></li>
+<li><code>-a</code>, <code>--arch &lt;NAME&gt;</code></li>
+<li><code>--target &lt;PROFILE&gt;</code> (<code>compile</code> and <code>run</code> only)</li>
+<li><code>--toolchain &lt;NAME&gt;</code></li>
+<li><code>--triple &lt;VALUE&gt;</code></li>
+<li><code>--sysroot &lt;PATH&gt;</code></li>
+<li><code>--runner &lt;MODE&gt;</code> (<code>run</code> only)</li>
+<li><code>--runner-path &lt;PATH&gt;</code> (<code>run</code> only)</li>
+<li><code>-o</code>, <code>--output &lt;MODE&gt;</code> (<code>compile</code> and <code>run</code> only)</li>
+<li><code>-q</code>, <code>--quiet</code> (<code>compile</code> and <code>run</code> only)</li>
+<li><code>--normal</code> (<code>compile</code> and <code>run</code> only)</li>
+<li><code>-v</code>, <code>--verbose</code> (<code>compile</code> and <code>run</code> only)</li>
+</ul>
+<p>Generator values accepted by the tool are:</p>
+<ul>
+<li><code>default</code></li>
+<li><code>native</code></li>
+<li><code>make</code></li>
+<li><code>xcode</code></li>
+<li><code>vs2022</code></li>
+<li><code>vs2019</code></li>
+</ul>
+<p>Architecture values accepted by the tool are:</p>
+<ul>
+<li><code>arm64</code></li>
+<li><code>intel64</code></li>
+<li><code>intel32</code></li>
+<li><code>wasm</code></li>
+<li><code>any</code></li>
+</ul>
+<p>Target profiles accepted by the tool today are:</p>
+<ul>
+<li><code>host</code></li>
+<li><code>native</code></li>
+<li><code>linux-glibc-x86_64</code></li>
+<li><code>linux-glibc-arm64</code></li>
+<li><code>linux-musl-x86_64</code></li>
+<li><code>linux-musl-arm64</code></li>
+<li><code>windows-gnu-x86_64</code></li>
+<li><code>windows-msvc-x86_64</code></li>
+<li><code>windows-msvc-arm64</code></li>
+<li><code>windows-gnu-arm64</code></li>
+</ul>
+<p>Runner values accepted by <code>build run</code> today are:</p>
+<ul>
+<li><code>auto</code></li>
+<li><code>none</code></li>
+<li><code>wine</code></li>
+<li><code>qemu</code></li>
+<li><code>custom</code></li>
+</ul>
+<p>Toolchain values accepted by <code>compile</code> and <code>run</code> today are:</p>
+<ul>
+<li><code>default</code></li>
+<li><code>host-default</code></li>
+<li><code>clang</code></li>
+<li><code>filc</code></li>
+<li><code>gcc</code></li>
+<li><code>msvc</code></li>
+<li><code>clang-cl</code></li>
+<li><code>llvm-mingw</code></li>
+</ul>
+<p>Current CLI behavior:</p>
+<ul>
+<li>If no project is specified, <code>compile</code> builds the whole default workspace</li>
+<li><code>run</code> requires a single executable target and forwards arguments placed after <code>--</code></li>
+<li>If no configuration is specified, <code>Debug</code> is used</li>
+<li>Host-default generator selection is <code>native</code> on Windows, macOS, and Linux</li>
+<li><code>configure</code> is primarily for generated backends; normal native <code>compile</code> / <code>run</code> flows build directly into <code>_Build/_Outputs</code> and <code>_Build/_Intermediates</code></li>
+<li><code>compile</code> / <code>run</code> accept <code>quiet</code>, <code>normal</code>, or <code>verbose</code> output control through <code>--output</code> or the <code>--quiet</code> / <code>--normal</code> / <code>--verbose</code> shortcuts</li>
+<li><code>--target</code> selects a friendly host or cross target profile without requiring the caller to spell the toolchain triple manually</li>
+<li><code>--toolchain</code> selects the compiler family orthogonally to <code>--target</code></li>
+<li><code>--abi</code> is reserved for a future public ABI selector; use <code>--target</code> for glibc, musl, GNU, or MSVC selection today</li>
+<li><code>--triple</code> and <code>--sysroot</code> are raw escape hatches for advanced toolchain overrides</li>
+<li>Raw overrides are applied after <code>--target</code>, so they win over the friendly profile defaults</li>
+<li><code>build run</code> can use <code>--runner</code> / <code>--runner-path</code> to control how foreign executables are launched</li>
+<li><code>--runner auto</code> prefers direct execution for runnable native Linux outputs before falling back to Wine or QEMU</li>
+<li>Contradictory explicit combinations such as mismatched <code>--generator</code>, <code>--arch</code>, <code>--runner</code>, or <code>--triple</code> values now fail early with concrete CLI errors</li>
+<li>Legacy positional compatibility is still supported after <code>target</code> as <code>[configuration] [generator] [architecture] [output-mode]</code></li>
+</ul>
+<p>This is the repository <code>Tools/SC-build.cpp</code> file used to configure the default workspace:
+\include Tools/SC-build.cpp</p>
+<h1>Public API</h1>
+<p>The public API in <code>Tools/SC-build/Build.h</code> currently exposes:</p>
+<ul>
+<li><code>Definition</code>, <code>Workspace</code>, <code>Project</code>, and <code>Configuration</code> for the build graph</li>
+<li><code>Libraries::{SingleFile, Multiple}</code> plus <code>addSaneCppLibraries(...)</code> for adding Sane C++ Libraries to a target</li>
+<li><code>Machine</code> and <code>TargetEnvironment</code> for explicit host / target modeling</li>
+<li><code>TargetType::{ConsoleExecutable, GUIApplication, SharedLibrary, StaticLibrary}</code></li>
+<li><code>Generator::{Native, XCode, VisualStudio2022, VisualStudio2019, Make}</code></li>
+<li><code>Toolchain::{HostDefault, Clang, FilC, GCC, MSVC, ClangCL, LLVMMingw, CustomDriver}</code></li>
+<li><code>RunnerSpec::{Auto, None, Wine, QEMU, Custom}</code></li>
+<li><code>SupportMatrixEntry</code>, <code>SupportStatus</code>, <code>SupportTier</code>, and <code>getNativeBackendSupportMatrix()</code> for the native-backend
+cross-compilation support matrix</li>
+<li><code>ExecutionOptions</code> for native-backend parallelism / verbosity knobs</li>
+<li><code>OutputMode::{Quiet, Normal, Verbose}</code> and <code>ExecutionOptions::outputMode</code> for native-backend presentation control</li>
+<li><code>Directories::projectDirectory</code> for the root of the project being configured, distinct from the SaneCppLibraries checkout</li>
+<li><code>Project::addSpecificFileFlags</code> for per-file flag groups</li>
+<li><code>Project::addExportLibraries</code>, <code>addExportAllLibraries</code>, and <code>addExportDirectories</code> for plugin host exports</li>
+<li><code>Project::saneCpp</code> and <code>Configuration::saneCpp</code> for Sane C++ Libraries specific policy flags such as strict
+no-standard-library mode</li>
+</ul>
+<h1>Consuming Sane C++ Libraries</h1>
+<p>External <code>SC-build.cpp</code> files can add Sane C++ Libraries to a project with:</p>
+<pre><code class="language-cpp">SC_TRY(addSaneCppLibraries(project, parameters));
+</code></pre>
+<p>This defaults to <code>Libraries::SingleFile</code>, which adds <code>SC.cpp</code>.</p>
+<p>To compile the individual library sources instead, use:</p>
+<pre><code class="language-cpp">SC_TRY(addSaneCppLibraries(project, parameters, Libraries::Multiple));
+</code></pre>
+<p>Call the helper after setting the project root directory, typically with
+<code>project.setRootDirectory(parameters.directories.projectDirectory.view())</code>.</p>
+<p>SC-build is a general-purpose build system, so generic C++ standard-library policy lives in generic compile/link flags.
+Normal mode is the default: standard C/C++ headers are available and the C++ standard-library runtime may be linked.
+Sane C++ Libraries specific options are grouped under <code>saneCpp</code> and are enabled automatically by
+<code>addSaneCppLibraries()</code>.</p>
+<p>To request the stricter historical no-stdlib pressure mode for an entire Sane C++ target:</p>
+<pre><code class="language-cpp">project.files.compile.includeStdCpp = false;
+project.link.linkStdCpp = false;
+project.saneCpp.provideCppRuntimeShims = true;
+</code></pre>
+<p>For a single configuration:</p>
+<pre><code class="language-cpp">configuration.compile.includeStdCpp = false;
+configuration.link.linkStdCpp = false;
+configuration.saneCpp.provideCppRuntimeShims = true;
+</code></pre>
+<p>The generic <code>includeStdCpp</code> flag controls whether the backend passes best-effort no-standard-C++-include flags such as
+<code>-nostdinc++</code>. When <code>saneCpp.enabled</code> is true, SC-build also emits <code>SC_INCLUDE_STD_CPP</code> from that generic compile flag.</p>
+<p>Targets that intentionally use STL runtime features can opt into C++ standard-library linkage:</p>
+<pre><code class="language-cpp">project.link.linkStdCpp = true;
+</code></pre>
+<p>If a Sane C++ target avoids linking the C++ runtime, it must either provide the runtime ABI shims itself or obtain them
+from another object/library:</p>
+<pre><code class="language-cpp">project.link.linkStdCpp = false;
+project.saneCpp.provideCppRuntimeShims = true;
+</code></pre>
+<p>SC-build rejects <code>project.link.linkStdCpp = true</code> together with <code>project.saneCpp.provideCppRuntimeShims = true</code> because
+both sides would be trying to provide the same C++ runtime ABI symbols.</p>
+<p>The repository bootstrap keeps broad compiler compatibility for headers by default while still avoiding C++ runtime
+linkage. Set <code>SC_BOOTSTRAP_INCLUDE_STD_CPP=0</code> only when you intentionally want to test or benchmark strict-mode
+bootstrap compilation. Set <code>SC_BOOTSTRAP_LINK_STD_CPP=1</code> if you explicitly want the bootstrap tool to link the C++
+standard-library runtime.</p>
+<h1>Backend Matrix</h1>
+<table>
+<thead>
+<tr>
+<th align="left">Backend</th>
+<th align="left">Platforms</th>
+<th align="left">Target kinds</th>
+<th align="left"><code>compile_commands.json</code></th>
+<th align="left">Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>Native</code></td>
+<td align="left">macOS, Linux, Windows hosts</td>
+<td align="left">Console executable, GUI application, shared library, static library</td>
+<td align="left">Yes</td>
+<td align="left">Direct compile / run / coverage flow; no project files are generated</td>
+</tr>
+<tr>
+<td align="left"><code>XCode</code></td>
+<td align="left">Apple</td>
+<td align="left">Console executable, GUI application, shared library, static library</td>
+<td align="left">Yes</td>
+<td align="left">GUI apps also emit storyboard / assets; <code>Intel32</code> and <code>Wasm</code> architectures are unsupported</td>
+</tr>
+<tr>
+<td align="left"><code>VisualStudio2022</code> / <code>VisualStudio2019</code></td>
+<td align="left">Windows</td>
+<td align="left">Console executable, GUI application, shared library, static library</td>
+<td align="left">No</td>
+<td align="left">Explicit generated-project workflow for Visual Studio</td>
+</tr>
+<tr>
+<td align="left"><code>Make</code></td>
+<td align="left">Apple, Linux</td>
+<td align="left">Console executable, GUI application, shared library, static library</td>
+<td align="left">Yes on clang-style flows</td>
+<td align="left">Explicit generated-project workflow for Make; GCC builds still compile, but Makefile-side compile database generation is unavailable there</td>
+</tr>
+</tbody></table>
+<h1>Native Cross Support Matrix</h1>
+<p>The native backend exposes its current cross-compilation support claims through
+<code>Build::getNativeBackendSupportMatrix()</code>. Documentation and CI should treat that API as the source of truth for
+host / target rows, build support, run support, support tier, runner family, and validation notes.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Host</th>
+<th align="left">Target</th>
+<th align="left">Architecture</th>
+<th align="left">Build</th>
+<th align="left">Run</th>
+<th align="left">Runner</th>
+<th align="left">Tier</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">macOS</td>
+<td align="left">windows-gnu</td>
+<td align="left">x86_64</td>
+<td align="left">supported</td>
+<td align="left">supported</td>
+<td align="left">wine</td>
+<td align="left">tier1</td>
+</tr>
+<tr>
+<td align="left">macOS</td>
+<td align="left">windows-gnu</td>
+<td align="left">arm64</td>
+<td align="left">supported</td>
+<td align="left">not-yet</td>
+<td align="left">wine</td>
+<td align="left">tier1</td>
+</tr>
+<tr>
+<td align="left">macOS</td>
+<td align="left">windows-msvc</td>
+<td align="left">x86_64</td>
+<td align="left">supported</td>
+<td align="left">smoke-supported</td>
+<td align="left">wine</td>
+<td align="left">tier2</td>
+</tr>
+<tr>
+<td align="left">macOS</td>
+<td align="left">windows-msvc</td>
+<td align="left">arm64</td>
+<td align="left">supported</td>
+<td align="left">not-yet</td>
+<td align="left">wine</td>
+<td align="left">tier2</td>
+</tr>
+<tr>
+<td align="left">macOS</td>
+<td align="left">linux-glibc</td>
+<td align="left">x86_64</td>
+<td align="left">supported</td>
+<td align="left">not-yet</td>
+<td align="left">qemu</td>
+<td align="left">tier1</td>
+</tr>
+<tr>
+<td align="left">macOS</td>
+<td align="left">linux-glibc</td>
+<td align="left">arm64</td>
+<td align="left">supported</td>
+<td align="left">not-yet</td>
+<td align="left">qemu</td>
+<td align="left">tier1</td>
+</tr>
+<tr>
+<td align="left">macOS</td>
+<td align="left">linux-musl</td>
+<td align="left">x86_64</td>
+<td align="left">supported</td>
+<td align="left">not-yet</td>
+<td align="left">qemu</td>
+<td align="left">tier1</td>
+</tr>
+<tr>
+<td align="left">macOS</td>
+<td align="left">linux-musl</td>
+<td align="left">arm64</td>
+<td align="left">supported</td>
+<td align="left">not-yet</td>
+<td align="left">qemu</td>
+<td align="left">tier1</td>
+</tr>
+<tr>
+<td align="left">Windows</td>
+<td align="left">linux-glibc</td>
+<td align="left">arm64</td>
+<td align="left">supported</td>
+<td align="left">not-yet</td>
+<td align="left">qemu</td>
+<td align="left">tier2</td>
+</tr>
+<tr>
+<td align="left">Windows</td>
+<td align="left">linux-musl</td>
+<td align="left">x86_64</td>
+<td align="left">supported</td>
+<td align="left">not-yet</td>
+<td align="left">qemu</td>
+<td align="left">tier2</td>
+</tr>
+<tr>
+<td align="left">Linux</td>
+<td align="left">windows-gnu</td>
+<td align="left">x86_64</td>
+<td align="left">supported</td>
+<td align="left">supported</td>
+<td align="left">wine</td>
+<td align="left">tier1</td>
+</tr>
+<tr>
+<td align="left">Linux</td>
+<td align="left">windows-gnu</td>
+<td align="left">arm64</td>
+<td align="left">supported</td>
+<td align="left">smoke-supported</td>
+<td align="left">wine</td>
+<td align="left">tier1</td>
+</tr>
+<tr>
+<td align="left">Linux</td>
+<td align="left">windows-msvc</td>
+<td align="left">x86_64</td>
+<td align="left">supported</td>
+<td align="left">smoke-supported</td>
+<td align="left">wine</td>
+<td align="left">tier2</td>
+</tr>
+<tr>
+<td align="left">Linux</td>
+<td align="left">windows-msvc</td>
+<td align="left">arm64</td>
+<td align="left">supported</td>
+<td align="left">smoke-supported</td>
+<td align="left">wine</td>
+<td align="left">tier2</td>
+</tr>
+</tbody></table>
+<h1>Native Backend</h1>
+<p>The standalone backend is selected through <a href="/SaneCppLibraries/reference/doxygen/page_build.html"><code>SC::Build::Generator::Native</code></a>.</p>
+<p>Current implemented scope:</p>
+<ul>
+<li>Host platforms: macOS, Linux and Windows</li>
+<li>Toolchain families exposed by the API: <code>HostDefault</code>, <code>Clang</code>, <code>FilC</code>, <code>GCC</code>, <code>MSVC</code>, <code>ClangCL</code>, <code>LLVMMingw</code>, and <code>CustomDriver</code></li>
+<li>Experimental compiler-first track: <code>FilC</code> is now exposed by the API and CLI through <code>--toolchain filc</code>, but it is Linux-only, compiler-first, and toolchain-only for now; no public <code>linux-filc-*</code> target profile exists</li>
+<li>Target kinds: console executables, GUI applications, shared libraries, and static libraries</li>
+<li>Dependency tracking: compiler-generated dependency files / dependency output</li>
+<li>Incrementality: skips up-to-date compile and link steps</li>
+<li>Workspace dependency ordering: native executable targets can link workspace-local static libraries by name</li>
+<li>Parallelism: compile fan-out is controlled by <code>ExecutionOptions::maxParallelJobs</code></li>
+<li>Output modes: <code>quiet</code> hides progress lines and successful child output, <code>normal</code> shows progress plus grouped failures and summaries, and <code>verbose</code> also shows rebuild traces, skip lines, and successful compile output</li>
+<li>Output layout: <code>_Build/_Outputs</code>, <code>_Build/_Intermediates</code>, and <code>_Build/_BuildCache</code></li>
+</ul>
+<p>Current cross-compilation scope:</p>
+<ul>
+<li>macOS and Linux hosts can compile <code>windows-gnu-x86_64</code> and <code>windows-gnu-arm64</code> through packaged <code>llvm-mingw</code></li>
+<li>Linux hosts can now experiment with Fil-C through <code>SC-package install filc</code> plus <code>build ... --toolchain filc</code>; this is currently limited to native Linux <code>x86_64</code> output and remains toolchain-only outside the public target-profile matrix</li>
+<li>Linux <code>glibc</code> and <code>musl</code> target profiles now exist as first-class native-backend profiles; they shape canonical target
+triples and sysroot flags, and macOS hosts now auto-select both a packaged LLVM toolchain and packaged Linux sysroots
+for them when the caller has not provided explicit compiler paths</li>
+<li>macOS now has real native-backend <code>SCTest</code> compile validation for <code>linux-glibc-x86_64</code>, <code>linux-glibc-arm64</code>,
+<code>linux-musl-x86_64</code>, and <code>linux-musl-arm64</code></li>
+<li><code>build run</code> can now wrap foreign Linux targets through <code>qemu-user</code>; the native runner can reuse a managed
+<code>SC-package install qemu</code> registration or fall back to host <code>qemu-*</code> executables from <code>PATH</code>, and it passes
+<code>-L &lt;sysroot&gt;</code> so dynamically linked Linux targets can find their loader and libraries</li>
+<li>macOS glibc and musl Linux target runs are still <code>not-yet</code> in the support matrix; real host-QEMU validation remains
+opportunistic until CI can acquire <code>qemu-x86_64</code> and <code>qemu-aarch64</code> deterministically</li>
+<li>Windows hosts have packaged LLVM + Linux sysroot compile validation for representative <code>linux-glibc-arm64</code> and
+<code>linux-musl-x86_64</code> target profiles; Windows-host Linux runs remain pending</li>
+<li>macOS hosts can acquire a portable MSVC + Windows SDK package with <code>./SC.sh package install msvc</code> and compile <code>windows-msvc-x86_64</code> and <code>windows-msvc-arm64</code> through the native backend</li>
+<li>Linux arm64 hosts can now validate the same portable MSVC path end-to-end for <code>windows-msvc-x86_64</code> and
+<code>windows-msvc-arm64</code>; the package tool auto-prefers a generated <code>box64 + wine64</code> wrapper when those host tools are
+installed, can fall back to an auto-installed packaged Linux Wine runner that resolves a maintained generic-arm
+<code>box64</code> build when system <code>box64</code> is absent, and native <code>build run</code> can now auto-install a separate ARM64 Wine
+runtime for <code>windows-*-arm64</code> execution while still accepting plain <code>wine64</code> / <code>wine</code> or an explicit <code>--wine</code> /
+<code>SC_MSVC_WINE</code> override</li>
+<li><code>SC-package install msvc</code> also accepts explicit <code>--import-directory &lt;path&gt;</code> and <code>--wine &lt;path&gt;</code> overrides so imported
+layouts and custom Wine wrappers no longer have to be driven only through environment variables</li>
+<li>Once a portable MSVC package is installed, later native-backend Windows MSVC builds can reuse the recorded wrapper path
+from <code>sc-msvc-package.json</code> instead of requiring <code>SC_MSVC_WINE</code> or host Wine discovery again</li>
+<li>Existing portable MSVC layouts can now repair missing <code>sc-msvc-package.json</code> metadata and wrapper scripts in place, and
+SDK version detection now falls back from <code>Windows Kits/10/bin</code> to <code>Include</code> or <code>Lib</code> when the SDK tools directory is
+absent</li>
+<li>Existing packaged Linux Wine runners now also repair their launcher scripts in place, so later portable MSVC wrapper
+updates do not require deleting the cached runner package first</li>
+<li>Portable MSVC caches are now host-specific (<code>macOS</code> vs <code>Linux</code>) so shared workspaces do not reuse the wrong recorded
+Wine runner path across hosts</li>
+<li>On Linux arm64, the packaged MSVC validation story is now real for both target architectures:
+<code>windows-msvc-x86_64</code> has a clean native-backend <code>SCTest</code> compile validation plus a targeted <code>BaseTest/new-delete</code>
+run through the maintained packaged Box64 runner, and <code>windows-msvc-arm64</code> now also has a clean native-backend
+<code>SCTest</code> compile plus a targeted <code>BaseTest/new-delete</code> run through an auto-installed native ARM64 Wine runner</li>
+<li>On Linux arm64, <code>build run</code> now keeps Windows console targets on plain packaged <code>wine</code> instead of auto-switching to
+<code>wineconsole</code>, because the current Box64 Wine console path is less reliable than plain <code>wine</code> on this host</li>
+<li><code>build run</code> can auto-route <code>windows-gnu-x86_64</code> executables through Wine on macOS and Linux, and Linux arm64 now
+also smoke-runs <code>windows-gnu-arm64</code> through the packaged native ARM64 Wine runner</li>
+<li>On Linux arm64, that same native <code>build run</code> path now auto-prefers generated <code>box64 + wine64</code> wrappers when the host
+provides those commands, and console targets still switch to a sibling <code>wineconsole --backend=curses</code> wrapper when it
+is available on Linux x64 hosts</li>
+<li>The current MSVC-via-Wine validation target is still narrower than the Windows GNU path: macOS has a real compile,
+link, and tiny-start smoke for <code>windows-msvc-x86_64</code>, while Linux arm64 now has targeted <code>SCTest</code>
+<code>BaseTest/new-delete</code> smokes for both <code>windows-msvc-x86_64</code> and <code>windows-msvc-arm64</code></li>
+<li><code>build run</code> now routes Wine launches through <code>cmd /c</code> with Windows-style paths, which fixes real macOS Wine startup for <code>windows-gnu-x86_64</code></li>
+<li><code>windows-gnu-arm64</code> and <code>windows-msvc-arm64</code> are no longer blocked by a hardcoded CLI rule; Linux arm64 now has a
+real ARM64-capable Wine runtime for targeted smokes, while the packaged macOS Wine runner still does not ship an
+ARM64 Windows loader</li>
+<li>Cross-target plugin tests remain out of scope for now because the current plugin test flow assumes MSVC-oriented Windows behavior</li>
+</ul>
+<h2>Cross-Compilation Recipes</h2>
+<p>The friendly <code>--target</code> profiles select the target platform, architecture, environment and default toolchain family.
+Use <code>--toolchain</code>, <code>--triple</code> or <code>--sysroot</code> only when you need to override that resolved profile. <code>build run --runner auto</code> first chooses direct execution for runnable native Linux outputs, then falls back to Wine for Windows
+targets or QEMU for foreign Linux targets when that row is supported by the host.</p>
+<p>Prepare package-managed inputs before relying on a cross row:</p>
+<pre><code class="language-bash">./SC.sh package install llvm
+./SC.sh package install llvm-mingw
+./SC.sh package install linux-sysroot-glibc-arm64
+./SC.sh package install linux-sysroot-musl-x86_64
+./SC.sh package verify
+./SC.sh package lock
+</code></pre>
+<p>Compile Linux targets from macOS with the packaged LLVM and sysroot receipts:</p>
+<pre><code class="language-bash">./SC.sh build compile SCTest --target linux-glibc-arm64 --output quiet
+./SC.sh build compile SCTest --target linux-musl-x86_64 --output quiet
+</code></pre>
+<p>Register QEMU when a host has a known <code>qemu-user</code> layout and you want foreign Linux <code>build run</code> smoke tests:</p>
+<pre><code class="language-bash">./SC.sh package install qemu --import-directory /opt/qemu-user
+./SC.sh package verify qemu
+./SC.sh build run SCTest --target linux-glibc-arm64 --runner auto -- --test &quot;BaseTest&quot; --test-section &quot;new/delete&quot;
+</code></pre>
+<p>Compile and smoke-run Windows GNU targets through the shared Wine runner model:</p>
+<pre><code class="language-bash">./SC.sh build compile SCTest --target windows-gnu-x86_64 --output quiet
+./SC.sh build run SCTest --target windows-gnu-x86_64 --runner auto -- --test &quot;BaseTest&quot; --test-section &quot;new/delete&quot;
+</code></pre>
+<p>Compile portable MSVC targets after acquiring the packaged toolchain:</p>
+<pre><code class="language-bash">./SC.sh package install msvc
+./SC.sh package verify msvc
+./SC.sh build compile SCTest --target windows-msvc-x86_64 --output quiet
+./SC.sh build compile SCTest --target windows-msvc-arm64 --output quiet
+</code></pre>
+<p>On Windows hosts, the Linux rows are compile-only today:</p>
+<pre><code class="language-bat">SC.bat package install llvm
+SC.bat package install linux-sysroot-glibc-arm64
+SC.bat package install linux-sysroot-musl-x86_64
+SC.bat build compile SCTest --target linux-glibc-arm64 --output quiet
+SC.bat build compile SCTest --target linux-musl-x86_64 --output quiet
+</code></pre>
+<p>Future preset hooks should compose the same public vocabulary instead of introducing parallel names:
+<code>target=&lt;profile&gt;</code>, <code>toolchain=&lt;name&gt;</code>, <code>runner=&lt;auto|none|wine|qemu|custom&gt;</code>, <code>runner-path=&lt;path&gt;</code>,
+<code>triple=&lt;value&gt;</code> and <code>sysroot=&lt;path&gt;</code>. A preset for a cross row should therefore expand to the same options shown
+above, plus package checks such as <code>SC-package verify</code> or <code>SC-package lock</code> when it depends on managed inputs.</p>
+<p>Typical native commands:</p>
+<pre><code class="language-bash">./SC.sh build compile SCBuildTest --config Debug
+./SC.sh build compile SCBuildTest -c d -a arm64 --verbose
+./SC.sh package install llvm
+./SC.sh package install qemu --import-directory /opt/qemu-user
+./SC.sh package verify llvm
+./SC.sh build compile SCTest --target linux-glibc-arm64 --output quiet
+./SC.sh build compile SCTest --target linux-musl-x86_64 --output quiet
+./SC.sh build run SCTest --arch intel64 --runner auto -- --test BaseTest
+./SC.sh build compile SCTest --target windows-gnu-x86_64 --output quiet
+./SC.sh build compile SCTest --target windows-gnu-arm64 --output quiet
+./SC.sh package install filc --import-directory /home/user/filc-0.678-linux-x86_64
+./SC.sh build compile SaneHttpGet --toolchain filc --output quiet
+./SC.sh package install zlib-filc
+./SC.sh build run SCTest Debug native --toolchain filc -- --test ZLibStreamTest
+./SC.sh package install msvc
+./SC.sh package install msvc --import-directory /opt/msvc-portable --wine /opt/bin/wine-wrapper
+./SC.sh build compile SCTest --target windows-msvc-x86_64 --output quiet
+./SC.sh build compile SCTest --target windows-msvc-arm64 --output quiet
+./SC.sh build compile SCTest --target windows-gnu-x86_64 --triple x86_64-custom-windows-gnu --sysroot /opt/sysroots/windows
+./SC.sh build run SCTest --target windows-gnu-x86_64 --runner auto -- --test BaseTest --test-section new/delete
+./SC.sh build run SCBuildTest --config Debug -- --test &quot;BuildTest&quot;
+SC.bat build compile SCTest --config Debug
+SC.bat build compile SCTest --target linux-glibc-arm64 --output quiet
+SC.bat build compile SCTest --target linux-musl-x86_64 --output quiet
+</code></pre>
+<p>Important current limits:</p>
+<ul>
+<li>The QEMU runner path can reuse a managed imported <code>qemu-user</code> layout or host <code>qemu-*</code> executables; real host-QEMU
+smoke validation remains opportunistic on macOS until QEMU-user acquisition is deterministic in CI, so macOS Linux
+run support stays <code>not-yet</code></li>
+<li>Windows-host Linux-target support is compile-only today and validated for representative glibc arm64 and musl x86_64
+slices; Windows-host Linux run validation is still pending</li>
+<li>Fil-C is still an experimental compiler-first Linux track: the public shape is <code>--toolchain filc</code>, no public <code>linux-filc-*</code> target profile exists, Linux <code>x86_64</code> is the only intended output slice for the first milestone, and Linux arm64 hosts may still require imported local installs plus host-specific translation/linker helpers during validation</li>
+<li>Fil-C <code>build run</code> installs/rebuilds <code>zlib-filc</code> on demand and prepends that package&#39;s <code>lib</code> directory to
+<code>LD_LIBRARY_PATH</code> so zlib-backed tests load a Fil-C-built <code>libz.so.1</code></li>
+<li>Windows native sysroot selection is not implemented yet</li>
+<li><code>run</code> is valid only for executable targets and only when a single project is selected</li>
+<li>The repository <code>build configure</code> command remains available for generated-project workflows; native builds do not need
+generated project files first</li>
+</ul>
+<h1>Per-file Flags</h1>
+<p><code>Project::addSpecificFileFlags</code> is implemented and used by this repository.</p>
+<p>The current backend behavior is:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Backend</th>
+<th align="left">Per-file behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>Native</code></td>
+<td align="left">Full compile-flag merge for the selected files</td>
+</tr>
+<tr>
+<td align="left"><code>Make</code></td>
+<td align="left">Full compile-flag merge, emitted as grouped per-file variables in the generated Makefile</td>
+</tr>
+<tr>
+<td align="left"><code>XCode</code></td>
+<td align="left">Per-file include paths, defines, and non-MSVC warning disables are emitted; other per-file compile knobs are not yet emitted, and conflicting higher-level flags cannot be removed</td>
+</tr>
+<tr>
+<td align="left"><code>VisualStudio2019</code> / <code>VisualStudio2022</code></td>
+<td align="left">Per-file include paths, defines, and MSVC warning disables are emitted; other per-file compile knobs are not yet emitted</td>
+</tr>
+</tbody></table>
+<p>The repository example lives in <code>Tools/SC-build.cpp</code>, where the <code>SCTest</code> target applies a dedicated define, include path,
+and warning disables to a selected subset of files.</p>
+<h1><code>SC_BUILD</code> Define</h1>
+<p>When <code>SC-build.cpp</code> is compiled as the build-definition tool, <code>SC::Build</code> defines <code>SC_BUILD=1</code> for that compilation.</p>
+<p>This allows one <code>SC-build.cpp</code> file to provide <code>SC::Build::configure(...)</code> in the <code>SC_BUILD</code> branch and a normal
+<code>main()</code> in the <code>#else</code> branch if the same file is also added to the built target.</p>
+<h1>Plugin Host Exports</h1>
+<p>For host executables using the <a href="/SaneCppLibraries/libraries/plugin/">Plugin</a> library:</p>
+<ul>
+<li><code>Project::addExportLibraries</code> adds the needed <code>SC_EXPORT_LIBRARY_&lt;LIBRARY&gt;=1</code> defines to the host executable</li>
+<li><code>Project::addExportAllLibraries</code> does the same for every Sane C++ library</li>
+<li>On Linux both helpers also add <code>-rdynamic</code></li>
+</ul>
+<p><code>LinkFlags::preserveExportedSymbols</code> currently performs fine-grained exported-symbol preservation only on the standalone
+native backend and on generated Makefiles. The XCode backend currently falls back to disabling dead-code stripping when
+preservation is requested.</p>
+<h1>Generated Layout</h1>
+<p>Repository-generated paths are currently:</p>
+<ul>
+<li><code>_Build/_Projects/XCode/SCWorkspace/...</code></li>
+<li><code>_Build/_Projects/VisualStudio2022/SCWorkspace/...</code></li>
+<li><code>_Build/_Projects/VisualStudio2019/SCWorkspace/...</code></li>
+<li><code>_Build/_Projects/Make/SCWorkspace/apple/...</code></li>
+<li><code>_Build/_Projects/Make/SCWorkspace/linux/...</code></li>
+<li><code>_Build/_Outputs/&lt;expanded-configuration&gt;/...</code></li>
+<li><code>_Build/_Intermediates/&lt;project&gt;/&lt;expanded-configuration&gt;/...</code></li>
+<li><code>_Build/_Intermediates/&lt;workspace&gt;/compile_commands.json</code> for native workspace databases</li>
+<li><code>_Build/_BuildCache/...</code> for native-backend state</li>
+</ul>
+<h1>How To Debug</h1>
+<ol>
+<li>Build <code>SC-build</code> itself through one of the repository build tasks or through <code>build compile</code></li>
+<li>Launch the generated <code>SC-build</code> executable under your debugger with the same arguments passed by the bootstrap</li>
+</ol>
+<h1>Generated Project Workflows</h1>
+<p>Use <code>build configure</code> when you explicitly want generated projects for IDEs or Make:</p>
+<pre><code class="language-bash">./SC.sh build configure
+SC.bat build configure
+</code></pre>
+<p>Typical examples:</p>
+<ul>
+<li>XCode: open <code>_Build/_Projects/XCode/SCWorkspace/SCWorkspace.xcworkspace</code></li>
+<li>Visual Studio: open <code>_Build/_Projects/VisualStudio2022/SCWorkspace/SCWorkspace.sln</code></li>
+<li>Make: use <code>_Build/_Projects/Make/SCWorkspace/apple</code> or <code>_Build/_Projects/Make/SCWorkspace/linux</code></li>
+</ul>
+<p>Windows runtime targets are long-path-aware by default. Override this with <code>project.windows.longPathAware</code> or
+<code>config.windows.longPathAware</code> when generating Windows targets. The option is valid for console executables, GUI
+applications, and shared libraries; static libraries reject it during validation.</p>
+<p>With any debugger or IDE other than VSCode, debug <code>_Build/_Tools/&lt;Platform&gt;/SC-build</code> (or
+<code>_Build/_Tools/Windows/SC-build.exe</code>) and pass arguments similar to:</p>
+<pre><code class="language-json">&quot;name&quot;: &quot;Debug SC-build [linux] (lldb)&quot;,
+&quot;type&quot;: &quot;lldb&quot;,
+&quot;request&quot;: &quot;launch&quot;,
+&quot;program&quot;: &quot;${workspaceFolder}/_Build/_Tools/Linux/SC-build&quot;,
+&quot;args&quot;: [
+    &quot;${workspaceFolder}&quot;,
+    &quot;${workspaceFolder}/Tools&quot;,
+    &quot;${workspaceFolder}/_Build&quot;,
+    &quot;build&quot;,
+    &quot;configure&quot;,
+    &quot;SCTest&quot;,
+    &quot;Debug&quot;
+],
+</code></pre>
+<h1>Videos</h1>
+<p>This is the list of videos that have been recorded showing some of the internal thoughts that have been going into this library:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=2ccW8TBAWWE">Ep.02 - Creating a Makefile</a></li>
+<li><a href="https://www.youtube.com/watch?v=wYmT3xAzMxU">Ep.03 - Add Makefile backend to SC::Build</a></li>
+<li><a href="https://www.youtube.com/watch?v=DUZeu6VDGL8">Ep.04 - Start Linux Porting</a></li>
+<li><a href="https://www.youtube.com/watch?v=gu3x3Y1zZLI">Ep.05 - Build Everything on Linux</a></li>
+</ul>
+<h1>Blog</h1>
+<p>Some relevant blog posts are:</p>
+<ul>
+<li><a href="https://pagghiu.github.io/site/blog/2024-03-27-SaneCppLibrariesUpdate.html">March 2024 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2024-05-31-SaneCppLibrariesUpdate.html">May 2024 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2024-06-30-SaneCppLibrariesUpdate.html">June 2024 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2024-07-31-SaneCppLibrariesUpdate.html">July 2024 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-02-28-SaneCppLibrariesUpdate.html">February 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-03-31-SaneCppLibrariesUpdate.html">March 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-04-30-SaneCppLibrariesUpdate.html">April 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html">August 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-09-30-SaneCppLibrariesUpdate.html">September 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-11-30-SaneCppLibrariesUpdate.html">November 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-04-30-SaneCppLibrariesUpdate.html">April 2026 Update</a></li>
+</ul>
+</article> <aside class="sidebar" data-astro-cid-lpdweqsn> <div class="card" data-astro-cid-lpdweqsn> <strong data-astro-cid-lpdweqsn>Reference fallback</strong> <a href="/SaneCppLibraries/reference/doxygen/page_build.html" data-astro-cid-lpdweqsn>Open legacy generated page</a> </div> <div class="card" data-astro-cid-lpdweqsn> <strong data-astro-cid-lpdweqsn>Next places to look</strong> <a href="/SaneCppLibraries/libraries/" data-astro-cid-lpdweqsn>Library catalog</a> <a href="/SaneCppLibraries/reference/" data-astro-cid-lpdweqsn>Generated reference</a> <a href="/SaneCppLibraries/community/" data-astro-cid-lpdweqsn>Contributing and community</a> </div> </aside> </section>  </main> <footer class="site-footer" data-astro-cid-37fxchfa> <div class="shell footer-grid" data-astro-cid-37fxchfa> <div data-astro-cid-37fxchfa> <div class="eyebrow" data-astro-cid-37fxchfa>Sane C++</div> <h2 data-astro-cid-37fxchfa>Small cross-platform C++ libraries for coding agents.</h2> <p class="copy-muted" data-astro-cid-37fxchfa>
+A compact set of independent libraries for building efficient programs with coding agents.
+</p> </div> <div class="footer-links" data-astro-cid-37fxchfa> <a href="/SaneCppLibraries/libraries/" data-astro-cid-37fxchfa>Libraries</a> <a href="/SaneCppLibraries/guides/" data-astro-cid-37fxchfa>Guides</a> <a href="/SaneCppLibraries/reference/" data-astro-cid-37fxchfa>Reference</a> <a href="https://github.com/Pagghiu/SaneCppLibraries/discussions" data-astro-cid-37fxchfa>Discussions</a> <a href="https://discord.gg/tyBfFp33Z6" data-astro-cid-37fxchfa>Discord</a> </div> </div> </footer> <script>
+  const siteHeader = document.querySelector("[data-site-header]");
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const menuIcon = menuToggle?.querySelector(".material-symbols-outlined");
+
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = siteHeader?.classList.toggle("menu-open") ?? false;
+    menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+    if (menuIcon) menuIcon.textContent = isOpen ? "close" : "menu";
+  });
+</script> </body></html> 

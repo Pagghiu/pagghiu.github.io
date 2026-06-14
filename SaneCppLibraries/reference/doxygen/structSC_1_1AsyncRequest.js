@@ -1,0 +1,34 @@
+var structSC_1_1AsyncRequest =
+[
+    [ "Type", "structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524", [
+      [ "LoopTimeout", "structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524a71ee59b61aa037f9247d066a7ef7384d", null ],
+      [ "LoopWakeUp", "structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524ad0ef686c2f1efec57dc91359943dad6d", null ],
+      [ "LoopWork", "structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524affa2555a68a66905750979f46d81bf8b", null ],
+      [ "ProcessExit", "structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524aa3f077cb262fbabb3168de84317d1ec5", null ],
+      [ "Signal", "structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524a085fea7abdc5d904fe69a3081efd7398", null ],
+      [ "SocketAccept", "structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524a67023dca17a49d1311fb32963581b66f", null ],
+      [ "SocketConnect", "structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524ae0abbcdda16ef722717b62fa921473cf", null ],
+      [ "SocketSend", "structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524a0ee37a3e0ab94c4074507fe2ef896a46", null ],
+      [ "SocketSendTo", "structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524a6c4bac20af5e2b4b0f28720f58d88fe2", null ],
+      [ "SocketReceive", "structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524a15554c7d7411245226ffe818516cae90", null ],
+      [ "SocketReceiveFrom", "structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524abf32b4a4a94f9347e2047b2c2818b8f1", null ],
+      [ "FileRead", "structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524aac986feb3052f4ac59400a84056c3839", null ],
+      [ "FileWrite", "structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524a693ed2547c9ef849d2af2c59b0ce818d", null ],
+      [ "FileSend", "structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524abefab43235629b9d62f28ac18a74003d", null ],
+      [ "FilePoll", "structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524ac4a4109fa1a034a514a42877cdc156c8", null ],
+      [ "FileSystemOperation", "structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524a6e839406d7864194e3b461409c536391", null ]
+    ] ],
+    [ "AsyncRequest", "structSC_1_1AsyncRequest.html#a0cad8875aba183bd5c3790f7b0b5cb1b", null ],
+    [ "disableThreadPool", "structSC_1_1AsyncRequest.html#ac30e68d75c7c2e7cd3b245995141af41", null ],
+    [ "executeOn", "structSC_1_1AsyncRequest.html#aefb78bfb0f0f75cc51e79d027d3902c5", null ],
+    [ "executeOn", "structSC_1_1AsyncRequest.html#ae26f07024bc8fba780323976e283a5ad", null ],
+    [ "getCloseCallback", "structSC_1_1AsyncRequest.html#a36ae8a4f8ede7f32ff662c2a27add137", null ],
+    [ "getType", "structSC_1_1AsyncRequest.html#adeb07b4584311a4b54436fcee4344a1d", null ],
+    [ "getUserFlags", "structSC_1_1AsyncRequest.html#a30d6471c05f7834b6cfa810e0e2dcd87", null ],
+    [ "isActive", "structSC_1_1AsyncRequest.html#a61a96b9147bb90615a8352454354607b", null ],
+    [ "isCancelling", "structSC_1_1AsyncRequest.html#a07a607966dcbfd9347e789160578e0c2", null ],
+    [ "isFree", "structSC_1_1AsyncRequest.html#a8536e53b63755127477b5b740140eacb", null ],
+    [ "setUserFlags", "structSC_1_1AsyncRequest.html#adf23c96c573f1b7da6e327232f1e5852", null ],
+    [ "start", "structSC_1_1AsyncRequest.html#a2d427d0658bdfe2739cff3abff6c457e", null ],
+    [ "stop", "structSC_1_1AsyncRequest.html#ae9ea6a7e89ead3d254b317abf8ad90d9", null ]
+];

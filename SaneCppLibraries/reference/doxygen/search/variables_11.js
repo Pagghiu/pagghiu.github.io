@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['search_0',['search',['../structSC_1_1HttpRequestTargetView.html#a07949df65640af02fabe14a1343188cd',1,'SC::HttpRequestTargetView::search'],['../structSC_1_1HttpURLParser.html#aff1a89540110518482908aefe5d86ac2',1,'SC::HttpURLParser::search']]],
+  ['separator_1',['Separator',['../structSC_1_1Path.html#a00d30c9927c174ed7499b7f356638a4c',1,'SC::Path']]],
+  ['signalnumber_2',['signalNumber',['../structSC_1_1AsyncSignal_1_1CompletionData.html#af025f88e6f5e4a0c80f54099bb03459e',1,'SC::AsyncSignal::CompletionData']]],
+  ['singlebuffer_3',['singleBuffer',['../structSC_1_1AsyncSocketSend.html#a1146aca87e65e9762f3553e7c63481cd',1,'SC::AsyncSocketSend::singleBuffer'],['../structSC_1_1AsyncFileWrite.html#ab9f1dd5f308c9366011c39c9d7466d2b',1,'SC::AsyncFileWrite::singleBuffer']]],
+  ['sinks_4',['sinks',['../structSC_1_1AsyncPipeline.html#ab40018c8edd7fd785b4e8524cafecdf3',1,'SC::AsyncPipeline']]],
+  ['size_5',['size',['../structsc__hashing__result__t.html#aa03969d63fce399cec712507a64ea926',1,'sc_hashing_result_t']]],
+  ['sizeinbytes_6',['sizeInBytes',['../structSC_1_1HttpClientRequestBody.html#a34821d4cdb311d97df957d17c7dd1131',1,'SC::HttpClientRequestBody']]],
+  ['source_7',['source',['../structSC_1_1FileSystem_1_1CopyOperation.html#ac4018a9b01d142f80cc65dfa4ccd33ed',1,'SC::FileSystem::CopyOperation']]],
+  ['spafallbackpath_8',['spaFallbackPath',['../structSC_1_1HttpAsyncFileServerOptions.html#ae6cc6433c322eb14cf1990bd9dab1ffc',1,'SC::HttpAsyncFileServerOptions']]],
+  ['specialdevice_9',['specialDevice',['../structSC_1_1FileDescriptorStat.html#a82ec78c7a853d8898355661a14da5b6d',1,'SC::FileDescriptorStat::specialDevice'],['../structSC_1_1FileSystemStat.html#a9d9073ef12d8d3a33c85eaf52a888b73',1,'SC::FileSystemStat::specialDevice']]],
+  ['splittingcharacter_10',['splittingCharacter',['../structSC_1_1StringViewTokenizer.html#ad7749a28ae272b154fa6514a8456b2cc',1,'SC::StringViewTokenizer']]],
+  ['state_11',['state',['../structSC_1_1HttpMultipartParser.html#adceb6922331a5d2e0a679df04062d8dd',1,'SC::HttpMultipartParser::state'],['../structSC_1_1HttpParser.html#a405fd69749acd688e3e36bdd6a71ef3d',1,'SC::HttpParser::state']]],
+  ['statescratch_12',['stateScratch',['../structSC_1_1HttpClientSessionMemory.html#a50538c626acb2d190389b549b88f6774',1,'SC::HttpClientSessionMemory']]],
+  ['statistics_13',['statistics',['../structSC_1_1MemoryAllocator.html#a8c5605d993184c8e77fbecf144df643b',1,'SC::MemoryAllocator']]],
+  ['statuscode_14',['statusCode',['../structSC_1_1HttpParser.html#ab162ff7824b1a47a2f3f36c014c39e93',1,'SC::HttpParser::statusCode'],['../structSC_1_1HttpClientResponse.html#a7952d482e4d825a54b4c36dfcaab7709',1,'SC::HttpClientResponse::statusCode']]],
+  ['sync_15',['sync',['../structSC_1_1FileOpen.html#a68b5dcbaa7db87ae2a06a8c56b3d7e78',1,'SC::FileOpen']]]
+];

@@ -1,0 +1,24 @@
+{
+    "name": "SaneCppFoundation",
+    "includeOrder": [
+        "Compiler.h",
+        "Platform.h",
+        "PrimitiveTypes.h",
+        "../Common/Assert.h",
+        "../Common/InitializerList.h",
+        "../Common/TypeTraits.h",
+        "../Common/AlignedStorage.h",
+        "../Common/Deferred.h",
+        "../Common/Function.h",
+        "../Common/OpaqueObject.h",
+        "../Common/Result.h",
+        "../Common/Span.h",
+        "../Common/StringSpan.h",
+        "../Common/IGrowableBuffer.h",
+        "../Common/IGrowableBufferStringPath.h",
+        "../Common/UniqueHandle.h"
+    ],
+    "implementationOrder": [
+        "Foundation.cpp"
+    ]
+}

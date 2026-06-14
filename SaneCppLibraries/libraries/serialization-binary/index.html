@@ -1,0 +1,254 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Serialization Binary | Sane C++ Libraries</title><meta name="description" content="Serialize to and from a binary format using Reflection"><meta property="og:title" content="Serialization Binary | Sane C++ Libraries"><meta property="og:description" content="Serialize to and from a binary format using Reflection"><meta property="og:type" content="website"><meta property="og:url" content="https://pagghiu.github.io/SaneCppLibraries/libraries/serialization-binary/"><link rel="canonical" href="https://pagghiu.github.io/SaneCppLibraries/libraries/serialization-binary/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=JetBrains+Mono:wght@500;700&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"><script>
+      (() => {
+        const savedTheme = localStorage.getItem("sc-theme");
+        const theme = savedTheme === "light" || savedTheme === "dark"
+          ? savedTheme
+          : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script><style>.maturity-badge[data-astro-cid-blexnnyn]{display:inline-flex;align-items:center;gap:.45rem;padding:.42rem .75rem;border-radius:8px;border:1px solid var(--border);background:#ffffff0a;color:var(--muted-strong);font-size:.82rem;font-weight:700}.maturity-badge[data-astro-cid-blexnnyn].strong{padding:.52rem .9rem;border-color:color-mix(in srgb,var(--badge-color) 35%,var(--border));background:color-mix(in srgb,var(--badge-color) 18%,transparent);color:color-mix(in srgb,var(--badge-color) 28%,var(--text));box-shadow:inset 0 1px #ffffff14}.dot[data-astro-cid-blexnnyn]{width:.58rem;height:.58rem;border-radius:50%;background:var(--badge-color);box-shadow:0 0 .7rem color-mix(in srgb,var(--badge-color) 60%,transparent)}.draft[data-astro-cid-blexnnyn]{--badge-color: #ff6a7b}.mvp[data-astro-cid-blexnnyn]{--badge-color: #ffd166}.usable[data-astro-cid-blexnnyn]{--badge-color: #8deab0}.complete[data-astro-cid-blexnnyn]{--badge-color: #78daff}.unknown[data-astro-cid-blexnnyn]{--badge-color: #b5bfd3}
+</style>
+<link rel="stylesheet" href="/_astro/index.DI-R6BGS.css">
+<link rel="stylesheet" href="/_astro/index.D5v4FFtv.css">
+<style>.library-hero[data-astro-cid-7c432cc5]{padding-top:1rem}.library-heading[data-astro-cid-7c432cc5]{display:grid;gap:1rem;max-width:58rem}.library-heading[data-astro-cid-7c432cc5] h1[data-astro-cid-7c432cc5]{margin:0;font-size:clamp(3rem,7vw,5rem);line-height:.94;letter-spacing:0;text-wrap:balance}.library-heading[data-astro-cid-7c432cc5] p[data-astro-cid-7c432cc5]{margin:0;max-width:48rem;color:var(--muted-strong);font-size:1.18rem;line-height:1.65}.page-grid[data-astro-cid-7c432cc5]{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:1.25rem;margin-top:1.25rem}.article[data-astro-cid-7c432cc5]{padding:1.5rem}.sidebar[data-astro-cid-7c432cc5]{display:grid;gap:1rem;align-self:start}.sidebar[data-astro-cid-7c432cc5] .card[data-astro-cid-7c432cc5]{display:grid;gap:.8rem}.sidebar[data-astro-cid-7c432cc5] a[data-astro-cid-7c432cc5]{color:var(--link)}.sidebar[data-astro-cid-7c432cc5] a[data-astro-cid-7c432cc5]:hover{color:var(--link-hover)}@media(max-width:960px){.library-hero[data-astro-cid-7c432cc5],.page-grid[data-astro-cid-7c432cc5]{grid-template-columns:1fr}}
+</style></head> <body data-astro-cid-37fxchfa> <header class="site-header" data-site-header data-astro-cid-37fxchfa> <div class="shell header-row" data-astro-cid-37fxchfa> <a class="brand" href="/SaneCppLibraries/" data-astro-cid-37fxchfa> <img class="logo-mark" src="/SaneCppLibraries/brand/sc-logo.svg" alt="Sane C++ Libraries logo" width="46" height="46" loading="eager" data-astro-cid-yykneotp>  <span data-astro-cid-37fxchfa> <strong data-astro-cid-37fxchfa>Sane C++ Libraries</strong> <small data-astro-cid-37fxchfa>Platform Abstraction C++ Libraries for Agents</small> </span> </a> <div class="nav-cluster" data-nav-cluster data-astro-cid-37fxchfa> <nav class="desktop-nav" aria-label="Primary" data-astro-cid-37fxchfa> <a href="/SaneCppLibraries/libraries/" data-astro-cid-37fxchfa>Libraries</a><a href="/SaneCppLibraries/guides/" data-astro-cid-37fxchfa>Guides</a><a href="/SaneCppLibraries/skills/" data-astro-cid-37fxchfa>Skills</a><a href="https://pagghiu.github.io" target="_blank" rel="noreferrer" data-astro-cid-37fxchfa>Blog</a><a href="/SaneCppLibraries/reference/" data-astro-cid-37fxchfa>Reference</a><a href="/SaneCppLibraries/community/" data-astro-cid-37fxchfa>Community</a> </nav> <div class="header-actions" data-astro-cid-37fxchfa> <button class="search-trigger" type="button" data-search-open data-astro-cid-otpdt6jm> <span data-astro-cid-otpdt6jm>Search the site</span> <kbd data-astro-cid-otpdt6jm>/</kbd> </button> <dialog class="search-dialog panel" data-search-dialog data-pagefind-base="/SaneCppLibraries/" data-astro-cid-otpdt6jm> <form method="dialog" class="search-shell" data-astro-cid-otpdt6jm> <div class="search-header" data-astro-cid-otpdt6jm> <input type="search" name="q" placeholder="Search libraries, guides, blog, reference..." autocomplete="off" data-search-input data-astro-cid-otpdt6jm> <button type="submit" class="button" data-astro-cid-otpdt6jm>Close</button> </div> <div class="search-results" data-search-results data-astro-cid-otpdt6jm></div> </form> </dialog> <script>
+  const dialog = document.querySelector("[data-search-dialog]");
+  const openButton = document.querySelector("[data-search-open]");
+  const input = document.querySelector("[data-search-input]");
+  const results = document.querySelector("[data-search-results]");
+  const searchBase = dialog?.dataset.pagefindBase || "/";
+  let pagefind;
+
+  async function loadPagefind() {
+    if (!pagefind) {
+      pagefind = await import(`${searchBase}pagefind/pagefind.js`);
+    }
+    return pagefind;
+  }
+
+  async function runSearch(query) {
+    if (!results) return;
+    if (!query.trim()) {
+      results.innerHTML = '<p class="copy-muted">Type to search across libraries, guides, skills, and generated reference.</p>';
+      return;
+    }
+    const pagefindApi = await loadPagefind();
+    const search = await pagefindApi.search(query);
+    const items = await Promise.all(search.results.slice(0, 8).map((item) => item.data()));
+    results.innerHTML = items.length
+      ? items
+          .map(
+            (item) => `
+              <a class="search-result" href="${item.url}">
+                <strong>${item.meta.title ?? item.url}</strong>
+                <span>${item.excerpt ?? ""}</span>
+              </a>`
+          )
+          .join("")
+      : '<p class="copy-muted">No results yet. Try a library name, guide, or feature.</p>';
+  }
+
+  function openSearch() {
+    dialog?.showModal();
+    results.innerHTML = '<p class="copy-muted">Type to search across libraries, guides, skills, and generated reference.</p>';
+    setTimeout(() => input?.focus(), 20);
+  }
+
+  openButton?.addEventListener("click", openSearch);
+  input?.addEventListener("input", (event) => runSearch(event.currentTarget.value));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "/" && !event.metaKey && !event.ctrlKey) {
+      const target = event.target;
+      if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement) return;
+      event.preventDefault();
+      openSearch();
+    }
+    if (event.key === "Escape" && dialog?.open) {
+      dialog.close();
+    }
+  });
+</script>  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme" data-astro-cid-x3pjskd3> <span class="theme-icon" aria-hidden="true" data-astro-cid-x3pjskd3>◐</span> <span class="theme-label" data-astro-cid-x3pjskd3>Theme</span> </button> <script>
+  const themeStorageKey = "sc-theme";
+
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    const button = document.querySelector("[data-theme-toggle]");
+    const label = button?.querySelector(".theme-label");
+    const icon = button?.querySelector(".theme-icon");
+    if (label) {
+      label.textContent = theme === "light" ? "Light" : "Dark";
+    }
+    if (icon) {
+      icon.textContent = theme === "light" ? "☀" : "☾";
+    }
+  }
+
+  function getInitialTheme() {
+    const saved = localStorage.getItem(themeStorageKey);
+    if (saved === "light" || saved === "dark") return saved;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  applyTheme(getInitialTheme());
+
+  document.querySelector("[data-theme-toggle]")?.addEventListener("click", () => {
+    const current = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+    const next = current === "light" ? "dark" : "light";
+    localStorage.setItem(themeStorageKey, next);
+    applyTheme(next);
+  });
+</script>  <a class="button primary" href="https://github.com/Pagghiu/SaneCppLibraries" data-astro-cid-37fxchfa>View GitHub</a> </div> </div> <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="Open navigation" data-astro-cid-37fxchfa> <span class="material-symbols-outlined" aria-hidden="true" data-astro-cid-37fxchfa>menu</span> </button> </div> </header> <main data-astro-cid-37fxchfa>  <section class="shell page-hero library-hero" data-astro-cid-7c432cc5> <div class="library-heading" data-astro-cid-7c432cc5> <div class="eyebrow" data-astro-cid-7c432cc5>Library</div> <h1 data-astro-cid-7c432cc5>Serialization Binary</h1> <p data-astro-cid-7c432cc5>Serialize to and from a binary format using Reflection</p> <span class="maturity-badge mvp strong" data-astro-cid-blexnnyn> <span class="dot" data-astro-cid-blexnnyn></span> <span data-astro-cid-blexnnyn>MVP</span> </span>  </div> </section> <section class="shell meta-grid" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependencies</strong> <p data-astro-cid-7c432cc5>Reflection</p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Single file</strong> <p data-astro-cid-7c432cc5><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppSerializationBinary.h" data-astro-cid-7c432cc5>Download release header</a></p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Reference</strong> <p data-astro-cid-7c432cc5><a href="/SaneCppLibraries/reference/doxygen/library_serialization_binary.html" data-astro-cid-7c432cc5>Open generated API/docs</a></p> </div> </section> <section class="shell page-grid" data-astro-cid-7c432cc5> <article class="panel prose article" data-astro-cid-7c432cc5><p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppSerializationBinary.h">SaneCppSerializationBinary.h</a> implements binary serialization on top of the <a href="/SaneCppLibraries/libraries/reflection/">Reflection</a> library.</p>
+<blockquote>
+<p>Note: You need to include headers from <a href="/SaneCppLibraries/libraries/containers-reflection/">Serialization Adapters</a> in order to use <code>SC::Vector</code> or <code>SC::String</code> or any other serializable class provided by other libraries with this one.</p>
+</blockquote>
+<h1>Dependencies</h1>
+<ul>
+<li>Dependencies: <a href="/SaneCppLibraries/libraries/reflection/">Reflection</a></li>
+<li>All dependencies: <a href="/SaneCppLibraries/libraries/reflection/">Reflection</a></li>
+</ul>
+<p><img src="/SaneCppLibraries/reference/doxygen/SerializationBinary.svg" alt="Dependency Graph"></p>
+<h1>Features</h1>
+<ul>
+<li>No heap allocations</li>
+<li>Serialize primitive types (Little Endian)</li>
+<li>Serialize Vector-like types (including SC::Vector, SC::Array, SC::String)</li>
+<li>Serialize C-Array-like types (<code>T[N]</code>)</li>
+<li>Serialize Structs composed of above types or other structs</li>
+<li>Optimization for <em>Packed</em> types</li>
+<li>Optimized fast code path when deserializing data generated with same schema version</li>
+<li>Automatic <em>versioned</em> deserialization (without losing data) generated with a different schema version for following events:<ul>
+<li>Dropping fields</li>
+<li>Adding new fields</li>
+<li>Dropping excess array members</li>
+<li>Moving fields in structs</li>
+<li>Integer to / from float conversions</li>
+</ul>
+</li>
+</ul>
+<h1>Details</h1>
+<h1>Status</h1>
+<p>MVP
+Under described limitations, the library should be usable but more testing is needed and also supporting all of the relevant additional container data-types.</p>
+<h1>Description</h1>
+<ul>
+<li>Writing data can be done with the SC::SerializationBinary::write.</li>
+<li>Reading data without changing the reflected data structures, can be done with the SC::SerializationBinary::loadExact.</li>
+<li>Reading data generated from a different (past or future) version of the data structure, can be done with the SC::SerializationBinary::loadVersioned and uses <a href="/SaneCppLibraries/libraries/reflection/">Reflection</a> <em>Flat Schema</em>.</li>
+</ul>
+<h2>SerializationBinary::write</h2>
+<h2>SerializationBinary::loadExact</h2>
+<h2>SerializationBinary::loadVersioned</h2>
+<blockquote>
+<p>Note: The versioned serializer is greatly simplified in conjunction with <a href="/SaneCppLibraries/libraries/reflection/">Reflection</a> sorting <code>Packed</code> structs by <code>offsetInBytes</code>.</p>
+</blockquote>
+<h2>SerializationBinaryOptions</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Option</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">allowFloatToIntTruncation</td>
+<td align="left">@copybrief SC::SerializationBinaryOptions::allowFloatToIntTruncation</td>
+</tr>
+<tr>
+<td align="left">allowDropExcessArrayItems</td>
+<td align="left">@copybrief SC::SerializationBinaryOptions::allowDropExcessArrayItems</td>
+</tr>
+<tr>
+<td align="left">allowDropExcessStructMembers</td>
+<td align="left">@copybrief SC::SerializationBinaryOptions::allowDropExcessStructMembers</td>
+</tr>
+</tbody></table>
+<h2>Binary Format</h2>
+<p>The binary format is defined as follows:</p>
+<ul>
+<li>Primitive types (<code>int</code>, <code>float</code> etc) are <code>Packed</code> by definition and get dumped to binary stream as is (with their native endian-ness)</li>
+<li><code>struct</code> are serialized:<ul>
+<li>If <code>Packed</code> == <code>True</code>: In a single <code>memcpy</code>-dump (as if sorted by <code>offsetInBytes</code>)</li>
+<li>If <code>Packed</code> == <code>False</code>: Serializing each field sorted by their visit order (and not the <code>memberTag</code>)</li>
+</ul>
+</li>
+<li><code>T[N]</code> arrays (fixed number of elements) are serialized:<ul>
+<li>If item type <code>Packed</code> == <code>True</code>: In a single <code>memcpy</code>-dump</li>
+<li>If item type <code>Packed</code> == <code>False</code>: Serializing each array item in sequence</li>
+</ul>
+</li>
+<li><code>Vector&lt;T&gt;</code> (variable number of elements) are serialized:<ul>
+<li>Serialize number of elements as an <code>uint64_t</code></li>
+<li>If item type <code>Packed</code> == <code>True</code>: In a single <code>memcpy</code>-dump</li>
+<li>If item type <code>Packed</code> == <code>False</code>: Serializing each vector item in sequence</li>
+</ul>
+</li>
+</ul>
+<h2>Packed types (optimization)</h2>
+<p>If a <code>struct</code>, <code>T[N]</code> array or content of <code>Vector&lt;T&gt;</code> is made of a recursively <code>Packed</code> type (i.e. no padding bytes at any level inside the given type) it will be serialized in a single operation.<br>This can really condense a large number of operations in a single one on types obeying to the <code>Packed</code> property.</p>
+<blockquote>
+<p>Note: It&#39;s possible to <code>static_assert</code> the <code>Packed</code> property of a type, if one wants to be sure not to accidentally introduce padding bytes in serialized types.</p>
+</blockquote>
+<h1>Blog</h1>
+<p>Some relevant blog posts are:</p>
+<ul>
+<li><a href="https://pagghiu.github.io/site/blog/2024-07-31-SaneCppLibrariesUpdate.html">July 2024 Update</a></li>
+</ul>
+<h1>Roadmap</h1>
+<p>The binary serializer is not a streaming one, so loading a large data structure will at some point need double of the required space in memory.<br>This can be solved implementing streaming binary serializer or experimenting with memory mapped files to support really large binary data structures.</p>
+<p>Usable</p>
+<ul>
+<li>SC::ArenaMap serialization</li>
+<li>SC::SmallVector serialization</li>
+<li>SC::SmallString serialization</li>
+</ul>
+<p>Complete Features:</p>
+<ul>
+<li>Streaming serializer</li>
+</ul>
+<p>💡 Unplanned Features:</p>
+<ul>
+<li>None so far</li>
+</ul>
+<h1>Statistics</h1>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Lines Of Code</th>
+<th>Comments</th>
+<th>Sum</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Headers</td>
+<td>570</td>
+<td>280</td>
+<td>850</td>
+</tr>
+<tr>
+<td>Sources</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Sum</td>
+<td>570</td>
+<td>280</td>
+<td>850</td>
+</tr>
+</tbody></table>
+</article> <aside class="sidebar" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependency graph</strong> <img src="/SaneCppLibraries/reference/doxygen/SerializationBinary.svg" alt="Serialization Binary dependency graph" data-astro-cid-7c432cc5> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Keep exploring</strong> <a href="/SaneCppLibraries/guides/building-user/" data-astro-cid-7c432cc5>How to integrate the libraries</a> <a href="/SaneCppLibraries/reference/" data-astro-cid-7c432cc5>Generated reference and compatibility pages</a> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Related blog posts</strong> <a href="https://pagghiu.github.io/site/blog/2024-07-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🏖️ Sane C++ July 24</a> </div> </aside> </section>  </main> <footer class="site-footer" data-astro-cid-37fxchfa> <div class="shell footer-grid" data-astro-cid-37fxchfa> <div data-astro-cid-37fxchfa> <div class="eyebrow" data-astro-cid-37fxchfa>Sane C++</div> <h2 data-astro-cid-37fxchfa>Small cross-platform C++ libraries for coding agents.</h2> <p class="copy-muted" data-astro-cid-37fxchfa>
+A compact set of independent libraries for building efficient programs with coding agents.
+</p> </div> <div class="footer-links" data-astro-cid-37fxchfa> <a href="/SaneCppLibraries/libraries/" data-astro-cid-37fxchfa>Libraries</a> <a href="/SaneCppLibraries/guides/" data-astro-cid-37fxchfa>Guides</a> <a href="/SaneCppLibraries/reference/" data-astro-cid-37fxchfa>Reference</a> <a href="https://github.com/Pagghiu/SaneCppLibraries/discussions" data-astro-cid-37fxchfa>Discussions</a> <a href="https://discord.gg/tyBfFp33Z6" data-astro-cid-37fxchfa>Discord</a> </div> </div> </footer> <script>
+  const siteHeader = document.querySelector("[data-site-header]");
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const menuIcon = menuToggle?.querySelector(".material-symbols-outlined");
+
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = siteHeader?.classList.toggle("menu-open") ?? false;
+    menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+    if (menuIcon) menuIcon.textContent = isOpen ? "close" : "menu";
+  });
+</script> </body></html> 

@@ -1,0 +1,275 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Strings | Sane C++ Libraries</title><meta name="description" content="String formatting / conversion / manipulation (ASCII / UTF8 / UTF16)"><meta property="og:title" content="Strings | Sane C++ Libraries"><meta property="og:description" content="String formatting / conversion / manipulation (ASCII / UTF8 / UTF16)"><meta property="og:type" content="website"><meta property="og:url" content="https://pagghiu.github.io/SaneCppLibraries/libraries/strings/"><link rel="canonical" href="https://pagghiu.github.io/SaneCppLibraries/libraries/strings/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=JetBrains+Mono:wght@500;700&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"><script>
+      (() => {
+        const savedTheme = localStorage.getItem("sc-theme");
+        const theme = savedTheme === "light" || savedTheme === "dark"
+          ? savedTheme
+          : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script><style>.maturity-badge[data-astro-cid-blexnnyn]{display:inline-flex;align-items:center;gap:.45rem;padding:.42rem .75rem;border-radius:8px;border:1px solid var(--border);background:#ffffff0a;color:var(--muted-strong);font-size:.82rem;font-weight:700}.maturity-badge[data-astro-cid-blexnnyn].strong{padding:.52rem .9rem;border-color:color-mix(in srgb,var(--badge-color) 35%,var(--border));background:color-mix(in srgb,var(--badge-color) 18%,transparent);color:color-mix(in srgb,var(--badge-color) 28%,var(--text));box-shadow:inset 0 1px #ffffff14}.dot[data-astro-cid-blexnnyn]{width:.58rem;height:.58rem;border-radius:50%;background:var(--badge-color);box-shadow:0 0 .7rem color-mix(in srgb,var(--badge-color) 60%,transparent)}.draft[data-astro-cid-blexnnyn]{--badge-color: #ff6a7b}.mvp[data-astro-cid-blexnnyn]{--badge-color: #ffd166}.usable[data-astro-cid-blexnnyn]{--badge-color: #8deab0}.complete[data-astro-cid-blexnnyn]{--badge-color: #78daff}.unknown[data-astro-cid-blexnnyn]{--badge-color: #b5bfd3}
+</style>
+<link rel="stylesheet" href="/_astro/index.DI-R6BGS.css">
+<link rel="stylesheet" href="/_astro/index.D5v4FFtv.css">
+<style>.library-hero[data-astro-cid-7c432cc5]{padding-top:1rem}.library-heading[data-astro-cid-7c432cc5]{display:grid;gap:1rem;max-width:58rem}.library-heading[data-astro-cid-7c432cc5] h1[data-astro-cid-7c432cc5]{margin:0;font-size:clamp(3rem,7vw,5rem);line-height:.94;letter-spacing:0;text-wrap:balance}.library-heading[data-astro-cid-7c432cc5] p[data-astro-cid-7c432cc5]{margin:0;max-width:48rem;color:var(--muted-strong);font-size:1.18rem;line-height:1.65}.page-grid[data-astro-cid-7c432cc5]{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:1.25rem;margin-top:1.25rem}.article[data-astro-cid-7c432cc5]{padding:1.5rem}.sidebar[data-astro-cid-7c432cc5]{display:grid;gap:1rem;align-self:start}.sidebar[data-astro-cid-7c432cc5] .card[data-astro-cid-7c432cc5]{display:grid;gap:.8rem}.sidebar[data-astro-cid-7c432cc5] a[data-astro-cid-7c432cc5]{color:var(--link)}.sidebar[data-astro-cid-7c432cc5] a[data-astro-cid-7c432cc5]:hover{color:var(--link-hover)}@media(max-width:960px){.library-hero[data-astro-cid-7c432cc5],.page-grid[data-astro-cid-7c432cc5]{grid-template-columns:1fr}}
+</style></head> <body data-astro-cid-37fxchfa> <header class="site-header" data-site-header data-astro-cid-37fxchfa> <div class="shell header-row" data-astro-cid-37fxchfa> <a class="brand" href="/SaneCppLibraries/" data-astro-cid-37fxchfa> <img class="logo-mark" src="/SaneCppLibraries/brand/sc-logo.svg" alt="Sane C++ Libraries logo" width="46" height="46" loading="eager" data-astro-cid-yykneotp>  <span data-astro-cid-37fxchfa> <strong data-astro-cid-37fxchfa>Sane C++ Libraries</strong> <small data-astro-cid-37fxchfa>Platform Abstraction C++ Libraries for Agents</small> </span> </a> <div class="nav-cluster" data-nav-cluster data-astro-cid-37fxchfa> <nav class="desktop-nav" aria-label="Primary" data-astro-cid-37fxchfa> <a href="/SaneCppLibraries/libraries/" data-astro-cid-37fxchfa>Libraries</a><a href="/SaneCppLibraries/guides/" data-astro-cid-37fxchfa>Guides</a><a href="/SaneCppLibraries/skills/" data-astro-cid-37fxchfa>Skills</a><a href="https://pagghiu.github.io" target="_blank" rel="noreferrer" data-astro-cid-37fxchfa>Blog</a><a href="/SaneCppLibraries/reference/" data-astro-cid-37fxchfa>Reference</a><a href="/SaneCppLibraries/community/" data-astro-cid-37fxchfa>Community</a> </nav> <div class="header-actions" data-astro-cid-37fxchfa> <button class="search-trigger" type="button" data-search-open data-astro-cid-otpdt6jm> <span data-astro-cid-otpdt6jm>Search the site</span> <kbd data-astro-cid-otpdt6jm>/</kbd> </button> <dialog class="search-dialog panel" data-search-dialog data-pagefind-base="/SaneCppLibraries/" data-astro-cid-otpdt6jm> <form method="dialog" class="search-shell" data-astro-cid-otpdt6jm> <div class="search-header" data-astro-cid-otpdt6jm> <input type="search" name="q" placeholder="Search libraries, guides, blog, reference..." autocomplete="off" data-search-input data-astro-cid-otpdt6jm> <button type="submit" class="button" data-astro-cid-otpdt6jm>Close</button> </div> <div class="search-results" data-search-results data-astro-cid-otpdt6jm></div> </form> </dialog> <script>
+  const dialog = document.querySelector("[data-search-dialog]");
+  const openButton = document.querySelector("[data-search-open]");
+  const input = document.querySelector("[data-search-input]");
+  const results = document.querySelector("[data-search-results]");
+  const searchBase = dialog?.dataset.pagefindBase || "/";
+  let pagefind;
+
+  async function loadPagefind() {
+    if (!pagefind) {
+      pagefind = await import(`${searchBase}pagefind/pagefind.js`);
+    }
+    return pagefind;
+  }
+
+  async function runSearch(query) {
+    if (!results) return;
+    if (!query.trim()) {
+      results.innerHTML = '<p class="copy-muted">Type to search across libraries, guides, skills, and generated reference.</p>';
+      return;
+    }
+    const pagefindApi = await loadPagefind();
+    const search = await pagefindApi.search(query);
+    const items = await Promise.all(search.results.slice(0, 8).map((item) => item.data()));
+    results.innerHTML = items.length
+      ? items
+          .map(
+            (item) => `
+              <a class="search-result" href="${item.url}">
+                <strong>${item.meta.title ?? item.url}</strong>
+                <span>${item.excerpt ?? ""}</span>
+              </a>`
+          )
+          .join("")
+      : '<p class="copy-muted">No results yet. Try a library name, guide, or feature.</p>';
+  }
+
+  function openSearch() {
+    dialog?.showModal();
+    results.innerHTML = '<p class="copy-muted">Type to search across libraries, guides, skills, and generated reference.</p>';
+    setTimeout(() => input?.focus(), 20);
+  }
+
+  openButton?.addEventListener("click", openSearch);
+  input?.addEventListener("input", (event) => runSearch(event.currentTarget.value));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "/" && !event.metaKey && !event.ctrlKey) {
+      const target = event.target;
+      if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement) return;
+      event.preventDefault();
+      openSearch();
+    }
+    if (event.key === "Escape" && dialog?.open) {
+      dialog.close();
+    }
+  });
+</script>  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme" data-astro-cid-x3pjskd3> <span class="theme-icon" aria-hidden="true" data-astro-cid-x3pjskd3>◐</span> <span class="theme-label" data-astro-cid-x3pjskd3>Theme</span> </button> <script>
+  const themeStorageKey = "sc-theme";
+
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    const button = document.querySelector("[data-theme-toggle]");
+    const label = button?.querySelector(".theme-label");
+    const icon = button?.querySelector(".theme-icon");
+    if (label) {
+      label.textContent = theme === "light" ? "Light" : "Dark";
+    }
+    if (icon) {
+      icon.textContent = theme === "light" ? "☀" : "☾";
+    }
+  }
+
+  function getInitialTheme() {
+    const saved = localStorage.getItem(themeStorageKey);
+    if (saved === "light" || saved === "dark") return saved;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  applyTheme(getInitialTheme());
+
+  document.querySelector("[data-theme-toggle]")?.addEventListener("click", () => {
+    const current = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+    const next = current === "light" ? "dark" : "light";
+    localStorage.setItem(themeStorageKey, next);
+    applyTheme(next);
+  });
+</script>  <a class="button primary" href="https://github.com/Pagghiu/SaneCppLibraries" data-astro-cid-37fxchfa>View GitHub</a> </div> </div> <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="Open navigation" data-astro-cid-37fxchfa> <span class="material-symbols-outlined" aria-hidden="true" data-astro-cid-37fxchfa>menu</span> </button> </div> </header> <main data-astro-cid-37fxchfa>  <section class="shell page-hero library-hero" data-astro-cid-7c432cc5> <div class="library-heading" data-astro-cid-7c432cc5> <div class="eyebrow" data-astro-cid-7c432cc5>Library</div> <h1 data-astro-cid-7c432cc5>Strings</h1> <p data-astro-cid-7c432cc5>String formatting / conversion / manipulation (ASCII / UTF8 / UTF16)</p> <span class="maturity-badge usable strong" data-astro-cid-blexnnyn> <span class="dot" data-astro-cid-blexnnyn></span> <span data-astro-cid-blexnnyn>Usable</span> </span>  </div> </section> <section class="shell meta-grid" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependencies</strong> <p data-astro-cid-7c432cc5>No library-level dependencies</p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Single file</strong> <p data-astro-cid-7c432cc5><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppStrings.h" data-astro-cid-7c432cc5>Download release header</a></p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Reference</strong> <p data-astro-cid-7c432cc5><a href="/SaneCppLibraries/reference/doxygen/library_strings.html" data-astro-cid-7c432cc5>Open generated API/docs</a></p> </div> </section> <section class="shell page-grid" data-astro-cid-7c432cc5> <article class="panel prose article" data-astro-cid-7c432cc5><p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppStrings.h">SaneCppStrings.h</a> library allow read-only and write string operations and UTF Conversions.
+Path is able to parse and manipulate windows and posix paths.</p>
+<blockquote>
+<p>Note: SC::String and SC::SmallString, the &quot;classic C++ style&quot; string containers are defined in <a href="/SaneCppLibraries/libraries/memory/">Memory</a> because they are based on SC::Buffer and they use dynamic memory allocation provided by the Memory library.</p>
+</blockquote>
+<h1>Dependencies</h1>
+<ul>
+<li>Dependencies: <em>(none)</em></li>
+<li>All dependencies: <em>(none)</em></li>
+</ul>
+<p><img src="/SaneCppLibraries/reference/doxygen/Strings.svg" alt="Dependency Graph"></p>
+<h1>Features</h1>
+<table>
+<thead>
+<tr>
+<th align="left">Class</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">SC::StringBuilder</td>
+<td align="left">@copybrief SC::StringBuilder</td>
+</tr>
+<tr>
+<td align="left">SC::StringConverter</td>
+<td align="left">@copybrief SC::StringConverter</td>
+</tr>
+<tr>
+<td align="left">SC::StringIterator</td>
+<td align="left">@copybrief SC::StringIterator</td>
+</tr>
+<tr>
+<td align="left">SC::StringIteratorASCII</td>
+<td align="left">@copybrief SC::StringIteratorASCII</td>
+</tr>
+<tr>
+<td align="left">SC::StringIteratorUTF8</td>
+<td align="left">@copybrief SC::StringIteratorUTF8</td>
+</tr>
+<tr>
+<td align="left">SC::StringIteratorUTF16</td>
+<td align="left">@copybrief SC::StringIteratorUTF16</td>
+</tr>
+<tr>
+<td align="left">SC::StringView</td>
+<td align="left">@copybrief SC::StringView</td>
+</tr>
+<tr>
+<td align="left">SC::StringAlgorithms</td>
+<td align="left">@copybrief SC::StringAlgorithms</td>
+</tr>
+<tr>
+<td align="left">SC::StringViewTokenizer</td>
+<td align="left">@copybrief SC::StringViewTokenizer</td>
+</tr>
+<tr>
+<td align="left">SC::StringFormat</td>
+<td align="left">@copybrief SC::StringFormat</td>
+</tr>
+<tr>
+<td align="left">SC::Path</td>
+<td align="left">@copybrief SC::Path</td>
+</tr>
+<tr>
+<td align="left">SC::Console</td>
+<td align="left">@copybrief SC::Console</td>
+</tr>
+</tbody></table>
+<h1>Status</h1>
+<p>Usable
+Library is usable and can be successfully used to mix operations with strings made in different encodings.</p>
+<h1>Blog</h1>
+<p>Some relevant blog posts are:</p>
+<ul>
+<li><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html">July 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html">August 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
+</ul>
+<h1>Definition</h1>
+<h2>StringBuilder</h2>
+<h2>StringView</h2>
+<h3>StringView::containsString</h3>
+<h3>StringView::fullyOverlaps</h3>
+<h3>StringView::startsWithAnyOf</h3>
+<h3>StringView::endsWithAnyOf</h3>
+<h3>StringView::startsWith</h3>
+<h3>StringView::endsWith</h3>
+<h3>StringView::containsString</h3>
+<h3>StringView::containsCodePoint</h3>
+<h3>StringView::sliceStartEnd</h3>
+<h3>StringView::sliceStartLength</h3>
+<h3>StringView::sliceStart</h3>
+<h3>StringView::sliceEnd</h3>
+<h3>StringView::trimEndAnyOf</h3>
+<h3>StringView::trimStartAnyOf</h3>
+<h2>StringViewTokenizer</h2>
+<h3>StringViewTokenizer::tokenizeNext</h3>
+<h3>StringViewTokenizer::countTokens</h3>
+<h2>StringIterator</h2>
+<h2>StringFormat</h2>
+<h2>StringConverter</h2>
+<h2>StringAlgorithms</h2>
+<h2>Console</h2>
+<h2>Path</h2>
+<h3>Path::isAbsolute</h3>
+<h3>Path::dirname</h3>
+<h3>Path::basename</h3>
+<h3>Path::parseNameExtension</h3>
+<h3>Path::normalize</h3>
+<h3>Path::relativeFromTo</h3>
+<h1>Implementation</h1>
+<p>A design choice of the library is that strings cannot be modified.
+Strings are either read-only (SC::StringView) or they need to be built from scratch with SC::StringBuilder.
+Another design choice is to support different encodings (<code>ASCII</code>, <code>UTF8</code> or <code>UTF16</code>).
+The reason is that <code>ASCII</code> is efficient when it&#39;s known that the strings manipulated have Code Points made of a single byte.
+UTF8 is useful on Posix platforms and UTF16 is needed because that&#39;s the default encoding used by Win32 API.
+All functions interacting with filesystem, for example the ones in <a href="/SaneCppLibraries/libraries/file-system/">FileSystem</a> or 
+<a href="/SaneCppLibraries/libraries/file-system-iterator/">FileSystemIterator</a>, return strings in the operating system native encoding.
+This means that on windows they will be UTF16 strings and on Apple Devices (or Linux) they are UTF8.</p>
+<h1>Roadmap</h1>
+<p>We need to understand if we want to allow iterating <em>grapheme clusters</em> (perceived end-user &#39;characters&#39;) or advanced
+capabilities like normalization and uppercase / lowercase conversions. As doing these operations from scratch is non trivial
+we will investigate if there OS functions allowing to achieve that functionality</p>
+<p>Complete Features:</p>
+<ul>
+<li>UTF Normalization</li>
+<li>UTF Case Conversion</li>
+</ul>
+<p>💡 Unplanned Features:</p>
+<ul>
+<li>UTF word breaking</li>
+<li>Grapheme Cluster iteration</li>
+</ul>
+<h1>Statistics</h1>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Lines Of Code</th>
+<th>Comments</th>
+<th>Sum</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Headers</td>
+<td>1012</td>
+<td>1081</td>
+<td>2093</td>
+</tr>
+<tr>
+<td>Sources</td>
+<td>3115</td>
+<td>398</td>
+<td>3513</td>
+</tr>
+<tr>
+<td>Sum</td>
+<td>4127</td>
+<td>1479</td>
+<td>5606</td>
+</tr>
+</tbody></table>
+</article> <aside class="sidebar" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependency graph</strong> <img src="/SaneCppLibraries/reference/doxygen/Strings.svg" alt="Strings dependency graph" data-astro-cid-7c432cc5> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Keep exploring</strong> <a href="/SaneCppLibraries/guides/building-user/" data-astro-cid-7c432cc5>How to integrate the libraries</a> <a href="/SaneCppLibraries/reference/" data-astro-cid-7c432cc5>Generated reference and compatibility pages</a> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Related blog posts</strong> <a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☔️ Sane C++ March 26</a><a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌊 Sane C++ August 25</a><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🏖️ Sane C++ July 25</a> </div> </aside> </section>  </main> <footer class="site-footer" data-astro-cid-37fxchfa> <div class="shell footer-grid" data-astro-cid-37fxchfa> <div data-astro-cid-37fxchfa> <div class="eyebrow" data-astro-cid-37fxchfa>Sane C++</div> <h2 data-astro-cid-37fxchfa>Small cross-platform C++ libraries for coding agents.</h2> <p class="copy-muted" data-astro-cid-37fxchfa>
+A compact set of independent libraries for building efficient programs with coding agents.
+</p> </div> <div class="footer-links" data-astro-cid-37fxchfa> <a href="/SaneCppLibraries/libraries/" data-astro-cid-37fxchfa>Libraries</a> <a href="/SaneCppLibraries/guides/" data-astro-cid-37fxchfa>Guides</a> <a href="/SaneCppLibraries/reference/" data-astro-cid-37fxchfa>Reference</a> <a href="https://github.com/Pagghiu/SaneCppLibraries/discussions" data-astro-cid-37fxchfa>Discussions</a> <a href="https://discord.gg/tyBfFp33Z6" data-astro-cid-37fxchfa>Discord</a> </div> </div> </footer> <script>
+  const siteHeader = document.querySelector("[data-site-header]");
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const menuIcon = menuToggle?.querySelector(".material-symbols-outlined");
+
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = siteHeader?.classList.toggle("menu-open") ?? false;
+    menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+    if (menuIcon) menuIcon.textContent = isOpen ? "close" : "menu";
+  });
+</script> </body></html> 

@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['raw_0',['raw',['../structSC_1_1HttpRequestTargetView.html#a5f111b00c10f64cd7f31cfd5a2735db0',1,'SC::HttpRequestTargetView']]],
+  ['readinheritable_1',['readInheritable',['../structSC_1_1PipeOptions.html#a39097e61c0d8697650002504699624d9',1,'SC::PipeOptions']]],
+  ['readpipe_2',['readPipe',['../structSC_1_1PipeDescriptor.html#ab97fa3a07fcf1e113f0cc3cf1273c1e4',1,'SC::PipeDescriptor']]],
+  ['readyoperations_3',['readyOperations',['../structSC_1_1HttpClientOperationSchedulerMemory.html#a203ec1c9d1828793a912080acf7227d1',1,'SC::HttpClientOperationSchedulerMemory']]],
+  ['recursive_4',['recursive',['../structSC_1_1FileSystemIterator_1_1Options.html#ac22d18b589a977f762c8a7ec21770c62',1,'SC::FileSystemIterator::Options']]],
+  ['relativepath_5',['relativePath',['../structSC_1_1FileSystemWatcher_1_1Notification.html#a07b9b9525e5acdc1bce17be7f2e16c28',1,'SC::FileSystemWatcher::Notification']]],
+  ['relativetimeout_6',['relativeTimeout',['../structSC_1_1AsyncLoopTimeout.html#a698314d3c9deee784fbc86f82cd80e07',1,'SC::AsyncLoopTimeout']]],
+  ['remaining_7',['remaining',['../structSC_1_1StringViewTokenizer.html#abf648bf9b7a2fc1ced2ee50e0f6be076',1,'SC::StringViewTokenizer']]],
+  ['removeendpointbeforecreate_8',['removeEndpointBeforeCreate',['../structSC_1_1NamedPipeServerOptions_1_1Posix.html#a4d94e743fb2795d3ce339d600017506b',1,'SC::NamedPipeServerOptions::Posix']]],
+  ['removeendpointonclose_9',['removeEndpointOnClose',['../structSC_1_1NamedPipeServerOptions_1_1Posix.html#a8f40191d58d5947afc2b8d62c801824a',1,'SC::NamedPipeServerOptions::Posix']]],
+  ['reparsetag_10',['reparseTag',['../structSC_1_1FileDescriptorStat.html#a1171dd2f54acc97a82e081baeb4a24b1',1,'SC::FileDescriptorStat::reparseTag'],['../structSC_1_1FileSystemStat.html#a03a6c51c1dfed06a1b37fb5e03c2073f',1,'SC::FileSystemStat::reparseTag']]],
+  ['report_11',['report',['../structSC_1_1TestCase.html#a6f53482f7e87d865194968e21e53a05e',1,'SC::TestCase']]],
+  ['requestcount_12',['requestCount',['../structSC_1_1HttpConnection.html#a9c4058fdc2478077be966564bf1c6325',1,'SC::HttpConnection']]],
+  ['requestheaders_13',['requestHeaders',['../structSC_1_1HttpClientSessionMemory.html#a53f41471ade0ad1fa3842ac3adb0978f',1,'SC::HttpClientSessionMemory']]],
+  ['requesttimeoutms_14',['requestTimeoutMs',['../structSC_1_1HttpClientRequestTimeoutOptions.html#ae6d54eb0974a298ea04b8904e788fc3a',1,'SC::HttpClientRequestTimeoutOptions']]],
+  ['responsebuffermemory_15',['responseBufferMemory',['../structSC_1_1HttpClientOperationMemory.html#a56e32da0a45bc8a4439d38ae53e70b34',1,'SC::HttpClientOperationMemory']]],
+  ['root_16',['root',['../structSC_1_1Path_1_1ParsedView.html#a36b508065c6c943aa546e1e97b2aa272',1,'SC::Path::ParsedView']]],
+  ['runalltests_17',['runAllTests',['../structSC_1_1TestReport.html#af73ac18ab29b87fb8513d6f4eb6676a1',1,'SC::TestReport']]]
+];

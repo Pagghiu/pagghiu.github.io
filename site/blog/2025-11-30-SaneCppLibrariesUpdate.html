@@ -1,337 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-      <title>Sane Coding Blog - 🌫️ Sane C++ November 25</title>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="shortcut icon" href="https://pagghiu.github.io/images/favicon.png">
-      <link rel="icon" type="image/x-icon" href="https://pagghiu.github.io/images/favicon.png">
-      <link rel="apple-touch-icon" href="https://pagghiu.github.io/images/favicon.png" type="image/png" sizes="180x180">    
-        <meta name="description" content="Sane Coding Blog" />
-        <link rel="stylesheet" type="text/css" href="https://pagghiu.github.io/theme/css/pico2/all.css" />
-        <link href="https://pagghiu.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Sane Coding Blog Full Atom Feed" />
-        <link href="https://pagghiu.github.io/feeds/sanecpplibraries.atom.xml" type="application/atom+xml" rel="alternate" title="Sane Coding Blog Categories Atom Feed" />
-
-
-
-
-
-  </head>
-
-  <body style="min-height: 786px;">
-    <header class="is-fixed-above-lg is-fixed">
-      <div class="container">
-        <a aria-label="Sane Coding homepage" href="https://pagghiu.github.io/">
-          <img focusable="false" src="https://pagghiu.github.io/images/logo.png" style="display: block; width: 6rem" />
-        </a>
-        <nav class="container-fluid">
-          <ul>
-            <li class="hide-before-sm">Sane Coding Blog</li>
-          </ul>
-        </nav>
-        <nav>
-          <ul>
-            <li><a class="secondary" href="https://pagghiu.github.io/site/projects/projects.html">Projects</a></li>
-            <li><a class="secondary" href="https://pagghiu.github.io/site/blog/blog.html">Blog</a></li>
-            <li><a class="secondary" href="https://pagghiu.github.io/site/pages/about.html">About</a></li>
-            <li><a class="contrast theme-switcher" aria-label="Turn off dark mode" href=""><svg
-                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="currentColor"
-                  class="icon-theme-toggle">
-                  <clippath id="theme-toggle-cutout">
-                    <path d="M0-11h25a1 1 0 0017 13v30H0Z"></path>
-                  </clippath>
-                  <g clip-path="url(#theme-toggle-cutout)">
-                    <circle cx="16" cy="16" r="8.4"></circle>
-                    <path
-                      d="M18.3 3.2c0 1.3-1 2.3-2.3 2.3s-2.3-1-2.3-2.3S14.7.9 16 .9s2.3 1 2.3 2.3zm-4.6 25.6c0-1.3 1-2.3 2.3-2.3s2.3 1 2.3 2.3-1 2.3-2.3 2.3-2.3-1-2.3-2.3zm15.1-10.5c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zM3.2 13.7c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3S.9 17.3.9 16s1-2.3 2.3-2.3zm5.8-7C9 7.9 7.9 9 6.7 9S4.4 8 4.4 6.7s1-2.3 2.3-2.3S9 5.4 9 6.7zm16.3 21c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zm2.4-21c0 1.3-1 2.3-2.3 2.3S23 7.9 23 6.7s1-2.3 2.3-2.3 2.4 1 2.4 2.3zM6.7 23C8 23 9 24 9 25.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3z">
-                    </path>
-                  </g>
-                </svg>
-                <script src="https://pagghiu.github.io/theme/js/commons.min.pico2.js"></script>
-              </a></li>
-          </ul>
-          <ul class="icons">
-            <li><a rel="noopener noreferrer" class="contrast" aria-label="GitHub repository"
-                href="https://github.com/pagghiu/SaneCppLibraries" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"
-                  height="24" width="24.25" viewBox="0 0 496 512" class="icon-github">
-                  <path
-                    d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
-                  </path>
-                </svg></a></li>
-            <li><a href="https://bsky.app/profile/pagghiu.bsky.social" target="_blank" class="contrast" aria-label="Bluesky"><svg
-                  aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 612 612" width="16px" height="16px">
-                    <path d="m135.72 44.03c66.496 49.921 138.02 151.14 164.28 205.46 26.262-54.316 97.782-155.54 164.28-205.46 47.98-36.021 125.72-63.892 125.72 24.795 0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.3797-3.6904-10.832-3.7077-7.8964-0.0174-2.9357-1.1937 0.51669-3.7077 7.8964-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.4491-163.25-81.433-5.9562-21.282-16.111-152.36-16.111-170.07 0-88.687 77.742-60.816 125.72-24.795z" fill="#1185fe"/>
-                   </svg>
-              </a></li>
-            <li><a rel="noopener noreferrer" class="contrast" aria-label="Twitter" href="https://twitter.com/pagghiu_"
-                target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512"
-                  class="icon-x">
-                  <path
-                    d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z">
-                  </path>
-                </svg></a></li>
-            <li><a href="https://www.youtube.com/@Pagghiu" target="_blank" class="contrast"
-                aria-label="Youtube Channel"><svg aria-hidden="true" focusable="false" role="img"
-                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 180" height="16px">
-                  <path fill="red"
-                    d="M250.346 28.075A32.18 32.18 0 0 0 227.69 5.418C207.824 0 127.87 0 127.87 0S47.912.164 28.046 5.582A32.18 32.18 0 0 0 5.39 28.24c-6.009 35.298-8.34 89.084.165 122.97a32.18 32.18 0 0 0 22.656 22.657c19.866 5.418 99.822 5.418 99.822 5.418s79.955 0 99.82-5.418a32.18 32.18 0 0 0 22.657-22.657c6.338-35.348 8.291-89.1-.164-123.134" />
-                  <path fill="#FFF" d="m102.421 128.06l66.328-38.418l-66.328-38.418z" />
-                </svg></a></li>
-                <li><a href="https://discord.gg/tyBfFp33Z6" target="_blank" class="contrast" aria-label="Discord Chat"><svg
-                  aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 -28.5 256 256" height="16px">
-                  <path
-                    d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"
-                    fill="#5865F2" fill-rule="nonzero"> </path>
-                </svg></a></li>                 
-            <li><a href="https://mastodon.gamedev.place/@pagghiu" target="_blank" class="contrast"
-                aria-label="Mastodon"><svg aria-hidden="true" focusable="false" role="img"
-                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                  style="enable-background:new 0 0 1668.56 1221.19;" height="16px">
-                  <path
-                    d="M21.327 8.566c0-4.339-2.843-5.61-2.843-5.61-1.433-.658-3.894-.935-6.451-.956h-.063c-2.557.021-5.016.298-6.45.956 0 0-2.843 1.272-2.843 5.61 0 .993-.019 2.181.012 3.441.103 4.243.778 8.425 4.701 9.463 1.809.479 3.362.579 4.612.51 2.268-.126 3.541-.809 3.541-.809l-.075-1.646s-1.621.511-3.441.449c-1.804-.062-3.707-.194-3.999-2.409a4.523 4.523 0 0 1-.04-.621s1.77.433 4.014.536c1.372.063 2.658-.08 3.965-.236 2.506-.299 4.688-1.843 4.962-3.254.434-2.223.398-5.424.398-5.424zm-3.353 5.59h-2.081V9.057c0-1.075-.452-1.62-1.357-1.62-1 0-1.501.647-1.501 1.927v2.791h-2.069V9.364c0-1.28-.501-1.927-1.502-1.927-.905 0-1.357.546-1.357 1.62v5.099H6.026V8.903c0-1.074.273-1.927.823-2.558.566-.631 1.307-.955 2.228-.955 1.065 0 1.872.409 2.405 1.228l.518.869.519-.869c.533-.819 1.34-1.228 2.405-1.228.92 0 1.662.324 2.228.955.549.631.822 1.484.822 2.558v5.253z" />
-                </svg></a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <main class="container has-table-of-contents">
-<aside id="documentation-menu">
-    <nav class="is-sticky-above-lg" style="--max-height: 674.75px;">
-        <details open="">
-            <summary>Projects</summary>
-            <ul>
-                <li><a class="secondary" href="https://pagghiu.github.io/site/projects/SaneCppLibraries.html"
-                        title="Permalink to Sane C++ Libraries">Sane C++ Libraries
-                    </a></li>
-            </ul>
-        </details>
-        <details open="">
-            <summary>Blog</summary>
-            <ul>
-                <!--- articles_page.object_list --->
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html" title="Permalink to 🌸 Sane C++ May 26">
-                    🌸 Sane C++ May 26
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2026-04-30-SaneCppLibrariesUpdate.html" title="Permalink to 🌷 Sane C++ April 26">
-                    🌷 Sane C++ April 26
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html" title="Permalink to ☔️ Sane C++ March 26">
-                    ☔️ Sane C++ March 26
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2026-02-28-SaneCppLibrariesUpdate.html" title="Permalink to 🔌 Sane C++ February 26">
-                    🔌 Sane C++ February 26
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2026-01-31-SaneCppLibrariesUpdate.html" title="Permalink to ❄️ Sane C++ January 26">
-                    ❄️ Sane C++ January 26
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-12-31-SaneCppLibrariesUpdate.html" title="Permalink to 🌫️ Sane C++ December 25">
-                    🌫️ Sane C++ December 25
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-12-23-SaneCpp2Year.html" title="Permalink to 2️⃣ Years of Sane C++ Libraries">
-                    2️⃣ Years of Sane C++ Libraries
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" aria-current="page" href="" title="Permalink to 🌫️ Sane C++ November 25">
-                    🌫️ Sane C++ November 25
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-10-31-SaneCppLibrariesUpdate.html" title="Permalink to 🌧️ Sane C++ October 25">
-                    🌧️ Sane C++ October 25
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-09-30-SaneCppLibrariesUpdate.html" title="Permalink to 🍂 Sane C++ September 25">
-                    🍂 Sane C++ September 25
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html" title="Permalink to 🌊 Sane C++ August 25">
-                    🌊 Sane C++ August 25
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html" title="Permalink to 🏖️ Sane C++ July 25">
-                    🏖️ Sane C++ July 25
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-06-30-SaneCppLibrariesUpdate.html" title="Permalink to ☀️ Sane C++ June 25">
-                    ☀️ Sane C++ June 25
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-05-31-SaneCppLibrariesUpdate.html" title="Permalink to 🌸 Sane C++ May 25">
-                    🌸 Sane C++ May 25
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-04-30-SaneCppLibrariesUpdate.html" title="Permalink to 💤 Sane C++ April 25">
-                    💤 Sane C++ April 25
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-03-31-SaneCppLibrariesUpdate.html" title="Permalink to ☔️ Sane C++ March 25">
-                    ☔️ Sane C++ March 25
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-02-28-SaneCppLibrariesUpdate.html" title="Permalink to 🎠 Sane C++ February 25">
-                    🎠 Sane C++ February 25
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2025-01-31-SaneCppLibrariesUpdate.html" title="Permalink to ❄️ Sane C++ January 25">
-                    ❄️ Sane C++ January 25
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-12-31-SaneCppLibrariesUpdate.html" title="Permalink to ☃️ Sane C++ December 24">
-                    ☃️ Sane C++ December 24
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-12-23-SaneCpp1Year.html" title="Permalink to 1️⃣ Year of Sane C++">
-                    1️⃣ Year of Sane C++
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-11-30-SaneCppLibrariesUpdate.html" title="Permalink to 🌫️ Sane C++ November 24">
-                    🌫️ Sane C++ November 24
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-08-30-SaneCppLibrariesUpdate.html" title="Permalink to 🌊 Sane C++ August 24">
-                    🌊 Sane C++ August 24
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-07-31-SaneCppLibrariesUpdate.html" title="Permalink to 🏖️ Sane C++ July 24">
-                    🏖️ Sane C++ July 24
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-06-30-SaneCppLibrariesUpdate.html" title="Permalink to ☀️ Sane C++ June 24">
-                    ☀️ Sane C++ June 24
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-05-31-SaneCppLibrariesUpdate.html" title="Permalink to 🌸 Sane C++ May 24">
-                    🌸 Sane C++ May 24
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-04-27-SaneCppLibrariesUpdate.html" title="Permalink to 💤 Sane C++ April 24">
-                    💤 Sane C++ April 24
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-03-27-SaneCppLibrariesUpdate.html" title="Permalink to ☔️ Sane C++ March 24">
-                    ☔️ Sane C++ March 24
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-02-23-SaneCppLibrariesUpdate.html" title="Permalink to 🎠 Sane C++ February 24">
-                    🎠 Sane C++ February 24
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2024-01-23-SaneCppLibrariesUpdate.html" title="Permalink to ❄️ Sane C++ January 24">
-                    ❄️ Sane C++ January 24
-                    <br>
-                </a>
-            </li>
-                <li>
-                    <a class="secondary" href="https://pagghiu.github.io/site/blog/2023-12-23-SaneCppLibrariesRelease.html" title="Permalink to 🎉 Sane C++ Libraries">
-                    🎉 Sane C++ Libraries
-                    <br>
-                </a>
-            </li>
-            </ul>
-        </details>
-    </nav>
-</aside>
-  <hgroup>
-    <p class="chapter">Sun 30 November 2025</p>
-    <h1 id="section-0">🌫️ Sane C++ November 25</h1>
-    
-    <figure>
-      <img src="https://pagghiu.github.io/images/2025-11-30-SaneCppLibrariesUpdate/article.png" alt="SC" />
-    </figure>
-    <p>
-      <p>Welcome to the November 2025 update!<br> This month, focus is bringing the long neglected <code>Http</code> library out of its initial <code>Draft</code> state!</p>
-    </p>
-  </hgroup>
-  <aside id="table-of-contents">
-    <nav class="is-sticky-above-lg ">
-      <details open="">
-        <summary>Content</summary>
-        <div class="col-lg-3 hidden-xs hidden-sm">
-          <ul>
-            <li><a class="secondary" href="#section-0">November Updates</a></li>
-            <li><a class="secondary" href="#http">Http</a></li>
-            <li><a class="secondary" href="#asyncstreams">AsyncStreams</a></li>
-            <li><a class="secondary" href="#async">Async</a></li>
-            <li><a class="secondary" href="#tools">Tools</a></li>
-            <li><a class="secondary" href="#build">Build</a></li>
-            <li><a class="secondary" href="#others">Others</a></li>
-          </ul>
-        </div>
-      </details>
-    </nav>
-  </aside>
-  <div id="content" role="document">
-    <h1 id="http">Http</h1>
+<!DOCTYPE html><html lang="en" data-theme="light" data-astro-cid-4dqtj3le> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>🌫️ Sane C++ November 25</title><meta name="description" content="Welcome to the November 2025 update! This month, focus is bringing the long neglected Http library out of its initial Draft state!"><meta property="og:title" content="🌫️ Sane C++ November 25"><meta property="og:description" content="Welcome to the November 2025 update! This month, focus is bringing the long neglected Http library out of its initial Draft state!"><meta property="og:type" content="website"><meta property="og:url" content="https://pagghiu.github.io/site/blog/2025-11-30-SaneCppLibrariesUpdate.html/"><link rel="canonical" href="https://pagghiu.github.io/site/blog/2025-11-30-SaneCppLibrariesUpdate.html/"><link rel="alternate" type="application/atom+xml" title="Sane Coding Blog" href="/feeds/all.atom.xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/_astro/index.D5v4FFtv.css">
+<style>.blog-body{color:#1d2430;background:#f7f9fc}.blog-body:before{display:none}.blog-header[data-astro-cid-4dqtj3le]{border-bottom:1px solid rgba(40,54,76,.12);background:#ffffffdb;backdrop-filter:blur(18px);position:sticky;top:0;z-index:10}.blog-nav[data-astro-cid-4dqtj3le]{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:1.4rem}.blog-brand[data-astro-cid-4dqtj3le] strong[data-astro-cid-4dqtj3le],.blog-brand[data-astro-cid-4dqtj3le] span[data-astro-cid-4dqtj3le]{display:block}.blog-brand[data-astro-cid-4dqtj3le] strong[data-astro-cid-4dqtj3le]{font-size:1.05rem}.blog-brand[data-astro-cid-4dqtj3le] span[data-astro-cid-4dqtj3le]{color:#657184;font-size:.9rem;margin-top:.12rem}.blog-nav[data-astro-cid-4dqtj3le] nav[data-astro-cid-4dqtj3le]{display:flex;gap:1rem;font-weight:750;color:#364255}.blog-footer[data-astro-cid-4dqtj3le]{margin-top:4rem;border-top:1px solid rgba(40,54,76,.12);padding:2rem 0;color:#657184}.blog-footer[data-astro-cid-4dqtj3le] .shell[data-astro-cid-4dqtj3le]{display:flex;justify-content:space-between;gap:1rem}@media(max-width:720px){.blog-nav[data-astro-cid-4dqtj3le],.blog-footer[data-astro-cid-4dqtj3le] .shell[data-astro-cid-4dqtj3le]{align-items:flex-start;flex-direction:column}.blog-nav[data-astro-cid-4dqtj3le] nav[data-astro-cid-4dqtj3le]{flex-wrap:wrap}}
+.blog-post[data-astro-cid-r6jj2a6h]{width:min(calc(100% - 2rem),900px);padding-top:3rem}.blog-post[data-astro-cid-r6jj2a6h] header[data-astro-cid-r6jj2a6h]{margin-bottom:2rem}.back-link[data-astro-cid-r6jj2a6h]{display:inline-block;margin-bottom:1.4rem;color:#135bc7;font-weight:750}time[data-astro-cid-r6jj2a6h]{display:block;color:#657184;font-size:.9rem;font-weight:750}h1[data-astro-cid-r6jj2a6h]{margin:.45rem 0 .9rem;color:#1d2430;font-size:clamp(2.5rem,7vw,4.8rem);line-height:1}header[data-astro-cid-r6jj2a6h] p[data-astro-cid-r6jj2a6h]{margin:0;max-width:48rem;color:#657184;font-size:1.14rem;line-height:1.65}.post-hero-image[data-astro-cid-r6jj2a6h]{width:100%;margin-top:1.5rem;border-radius:8px;background:#e9eef6}.blog-prose[data-astro-cid-r6jj2a6h]{color:#2d3748}.blog-prose[data-astro-cid-r6jj2a6h] img{border-radius:8px;margin:1.5rem auto}.blog-prose[data-astro-cid-r6jj2a6h] a{color:#135bc7}
+</style></head> <body class="blog-body" data-astro-cid-4dqtj3le> <header class="blog-header" data-astro-cid-4dqtj3le> <div class="shell blog-nav" data-astro-cid-4dqtj3le> <a class="blog-brand" href="/" data-astro-cid-4dqtj3le> <strong data-astro-cid-4dqtj3le>Sane Coding Blog</strong> <span data-astro-cid-4dqtj3le>Notes on Sane C++ Libraries and practical systems work.</span> </a> <nav aria-label="Primary" data-astro-cid-4dqtj3le> <a href="/" data-astro-cid-4dqtj3le>Blog</a> <a href="/SaneCppLibraries/" data-astro-cid-4dqtj3le>Sane C++ Libraries</a> <a href="https://github.com/Pagghiu" data-astro-cid-4dqtj3le>GitHub</a> </nav> </div> </header> <main data-astro-cid-4dqtj3le>  <article class="shell blog-post" data-astro-cid-r6jj2a6h> <header data-astro-cid-r6jj2a6h> <a class="back-link" href="/" data-astro-cid-r6jj2a6h>Blog</a> <time datetime="2025-11-30" data-astro-cid-r6jj2a6h>2025-11-30</time> <h1 data-astro-cid-r6jj2a6h>🌫️ Sane C++ November 25</h1> <p data-astro-cid-r6jj2a6h>Welcome to the November 2025 update! This month, focus is bringing the long neglected Http library out of its initial Draft state!</p> <img class="post-hero-image" src="/images/2025-11-30-SaneCppLibrariesUpdate/article.png" alt="" loading="eager" data-astro-cid-r6jj2a6h> </header> <div class="prose blog-prose" data-astro-cid-r6jj2a6h><pre><code>    #http,Http
+    #asyncstreams,AsyncStreams
+    #async,Async
+    #tools,Tools
+    #build,Build
+    #others,Others
+</code></pre>
+<h1>Http</h1>
 <p>The <code>Http</code> library was initially put together in a hurry for the first release of Sane C++ Libraries almost two years ago. Since then, it has remained largely unchanged, a simple <code>Draft</code> that was just enough to demonstrate a basic asynchronous web server.</p>
 <p>While useful, its minimal implementation and lack of comprehensive tests meant it was often fragile, breaking as other parts of the ecosystem evolved. The time has come to give <code>Http</code> the attention it deserves and begin the long process of elevating it to a more robust state.</p>
 <p>The first steps on this journey involve reducing its footprint by removing now-unnecessary dependencies on <code>Containers</code> and <code>Time</code>. Concurrently, <code>Http</code> is being refactored to leverage the <code>AsyncStreams</code> abstraction instead of dealing with raw socket operations. The next step is to remove the <code>Memory</code> dependency, leaving <code>AsyncStreams</code> as its sole dependency and solidifying its foundation.</p>
-<p><a href="https://pagghiu.github.io/SaneCppLibraries/page_dependencies.html" target="_blank">
-<img src="https://pagghiu.github.io/site/blog/2025-11-Dependencies.svg">
-</a></p>
+<a href="https://pagghiu.github.io/SaneCppLibraries/page_dependencies.html" target="_blank">
+<img src="/images/2025-11-30-SaneCppLibrariesUpdate/2025-11-Dependencies.svg">
+</a>
+
 <p><strong>Detailed list of commits:</strong></p>
 <ul>
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8f188bae">Http: Fix issues introduced when removing dependency from String</a></li>
@@ -344,14 +28,14 @@
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/31f38dd5">Http: Stop reading data from socket stream before sending response</a></li>
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b1ce27d2">Http: Write request headers to user provided region of memory</a></li>
 </ul>
-<h1 id="asyncstreams">AsyncStreams</h1>
+<h1>AsyncStreams</h1>
 <p>As is often the case, improvements in one library drive the evolution of another. The work on <code>Http</code> exposed some limitations in <code>AsyncStreams</code>.</p>
 <p>Previously, <code>AsyncStreams</code> was strict, only allowing data from its own pre-allocated buffers. This is great for managing memory with a fixed budget, but <code>Http</code> needed more flexibility. It required the ability to handle data from other subsystems without forcing a copy.</p>
-<p>To accommodate this, the buffer system in <code>AsyncStreams</code> is now a hybrid model. It now supports read-only buffers and <code>IGrowableBuffer</code>-based views, where the memory lifetime is managed by the caller. This change, along with several bug fixes to the stream's state machine, makes <code>AsyncStreams</code> more powerful and flexible, ready for the more complex scenarios that the evolving <code>Http</code> library will demand.</p>
+<p>To accommodate this, the buffer system in <code>AsyncStreams</code> is now a hybrid model. It now supports read-only buffers and <code>IGrowableBuffer</code>-based views, where the memory lifetime is managed by the caller. This change, along with several bug fixes to the stream&#39;s state machine, makes <code>AsyncStreams</code> more powerful and flexible, ready for the more complex scenarios that the evolving <code>Http</code> library will demand.</p>
 <p><strong>Detailed list of commits:</strong></p>
 <ul>
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/690750c3">AsyncStreams: Add read only AsyncBufferView</a></li>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/22feff4a">AsyncStreams: Allow re-using streams after they've been stopped, ended or destroyed</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/22feff4a">AsyncStreams: Allow re-using streams after they&#39;ve been stopped, ended or destroyed</a></li>
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2a422952">AsyncStreams: Avoid buffer leak when stopping async streams on close / finish</a></li>
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/065bdcce">AsyncStreams: Free Readable and Growable buffer slots when their refCount expires</a></li>
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/776b38f0">AsyncStreams: Remove the Destroying state</a></li>
@@ -361,17 +45,17 @@
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c6cd8283">AsyncStreams: Wrap Strings / Buffers in AsyncBufferView though type erasure</a></li>
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/cf7313e5">SCExample: Add option to use AsyncStreams in WebServerExample</a></li>
 </ul>
-<h1 id="async">Async</h1>
+<h1>Async</h1>
 <p>Stress-testing the new <code>Http</code> and <code>AsyncStreams</code> integration revealed some subtle edge cases in the core <code>Async</code> library.</p>
-<p>For instance, on Windows, <code>IOCP</code> cancellations can return <code>ERROR_NOT_FOUND</code> if no cancellation was queued, which shouldn't be treated as a critical error by higher-level abstractions.</p>
-<p>More critically, a re-entrancy bug was discovered. Calling the event loop's <code>runOnce</code> method from within a callback could cause the same callback to be invoked again before it had been fully torn down. A new internal flag, <code>Flag_NeedsTeardown</code>, now prevents the same completion from being incorrectly called multiple times.</p>
+<p>For instance, on Windows, <code>IOCP</code> cancellations can return <code>ERROR_NOT_FOUND</code> if no cancellation was queued, which shouldn&#39;t be treated as a critical error by higher-level abstractions.</p>
+<p>More critically, a re-entrancy bug was discovered. Calling the event loop&#39;s <code>runOnce</code> method from within a callback could cause the same callback to be invoked again before it had been fully torn down. A new internal flag, <code>Flag_NeedsTeardown</code>, now prevents the same completion from being incorrectly called multiple times.</p>
 <p><strong>Detailed list of commits:</strong></p>
 <ul>
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e54d8ab1">Async: Do not complete multiple times requests waiting for teardown</a></li>
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6f3ad886">Async: Flag most types for dll export</a></li>
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c1b763ce">Async: Handle ERROR_NOT_FOUND in IOCP cancellations using CancelIOEx</a></li>
 </ul>
-<h1 id="tools">Tools</h1>
+<h1>Tools</h1>
 <p>The <code>ToolsBootstrap</code> utility, which replaces the old bootstrap Makefiles, has received some bug fixes and feature enhancements.</p>
 <p>This tool was largely coded with AI assistance, and in an interesting experiment, it was automatically translated from C++ to C. Why? To get even faster compilation times. While the C++ version was already quick, the C version is <em>faster</em>, and the translation was surprisingly low-effort. So... here it is!</p>
 <p><strong>Detailed list of commits:</strong></p>
@@ -382,15 +66,15 @@
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6562b144">Tools: Make bootstrap return -1 on error</a></li>
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1bdb55e8">Tools: Port ToolsBootstrap to C</a></li>
 </ul>
-<h1 id="build">Build</h1>
+<h1>Build</h1>
 <p><code>SC::Build</code> is steadily maturing. This month, it gained the ability to specify coverage exclusion regexes directly in the <code>SC-Build.cpp</code> file. Additionally, the generated <code>Makefile</code> targets are now smarter, automatically attempting a clean rebuild if a <code>No rule to make target</code> error occurs.</p>
 <p><strong>Detailed list of commits:</strong></p>
 <ul>
-<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0e01bdbd">Build: Automatically rebuild makefiles on "No rule to make target" error</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0e01bdbd">Build: Automatically rebuild makefiles on &quot;No rule to make target&quot; error</a></li>
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d46a112e">Build: De-hardcode coverage regex exclusion</a></li>
 </ul>
-<h1 id="others">Others</h1>
-<p>As with every month, there are numerous small fixes and improvements that don't need their own section but are worth mentioning.</p>
+<h1>Others</h1>
+<p>As with every month, there are numerous small fixes and improvements that don&#39;t need their own section but are worth mentioning.</p>
 <p>A fix for pipe reads on Windows was added to <code>File</code>, and the <code>Function</code> template now has a user-configurable <code>LAMBDA_SIZE</code> to help avoid heap allocations for closures. <code>Console</code> gained methods for printing to <code>stderr</code>, and the limitations of <code>FileSystemWatcher</code> are now better documented thanks to a community-filed issue.</p>
 <p>All these small changes are great indicators of the libraries maturing and hardening over time!</p>
 <p><strong>Detailed list of commits:</strong></p>
@@ -402,34 +86,4 @@
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f7e24260">Foundation: Make Function LAMBDA_SIZE user configurable</a></li>
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/144fadd0">Strings: Add Console methods to enable printing to stderr</a></li>
 </ul>
-  </div>
-
-    </main>
-    <footer>
-      <div class=" container">
-            <section>
-              <nav class="links">
-                <ul>
-                  <li><strong>Projects</strong></li>
-
-                    <li><a  aria-current="page" class="secondary" href="https://pagghiu.github.io/pages/sane-c-libraries.html"
-                        title="Permalink to Sane C++ Libraries">Sane C++ Libraries
-                    </a></li>
-
-                    </ul>
-                <ul>
-                  <li><strong>Blog</strong></li>
-                  <li><a class="secondary" href="https://pagghiu.github.io/site/blog/blog.html">All Posts</a></li>
-                </ul>
-                <ul>
-                  <li><strong>About</strong></li>
-                  <li><a class="secondary" href="https://pagghiu.github.io/site/pages/about.html">About this blog</a></li>
-                </ul>
-              </nav>
-              <p class="build-info">&copy; 2023-2026<!-- --> <a rel="noopener noreferrer" class="secondary"
-                  href="https://pagghiu.github.io/site/pages/about.html" target="_blank">Stefano Cristiano</a>.</p>
-            </section>
-      </div>
-      </footer>
-  </body>
-</html>
+</div> </article>  </main> <footer class="blog-footer" data-astro-cid-4dqtj3le> <div class="shell" data-astro-cid-4dqtj3le> <span data-astro-cid-4dqtj3le>© Stefano Cristiano</span> <a href="/feeds/all.atom.xml" data-astro-cid-4dqtj3le>Atom feed</a> </div> </footer> </body></html> 

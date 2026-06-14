@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['callback_0',['callback',['../structSC_1_1AsyncLoopTimeout.html#a71c9ab224e7491e0ca068ce9a294a530',1,'SC::AsyncLoopTimeout::callback'],['../structSC_1_1AsyncLoopWakeUp.html#a8c5574bae42f75cd0be00ab2b12e7e1e',1,'SC::AsyncLoopWakeUp::callback'],['../structSC_1_1AsyncProcessExit.html#a8405b52c57a41561fae87ff4174ac2c9',1,'SC::AsyncProcessExit::callback'],['../structSC_1_1AsyncSignal.html#a34e648c3fb94ca30a3ba75000581043a',1,'SC::AsyncSignal::callback'],['../structSC_1_1AsyncSocketConnect.html#a6db77d1b4ee50004b61bde88f18ba702',1,'SC::AsyncSocketConnect::callback'],['../structSC_1_1AsyncSocketSend.html#a03dd368f0780961e5ae30f29eb843d3d',1,'SC::AsyncSocketSend::callback'],['../structSC_1_1AsyncSocketReceive.html#ad05f2e7bad560ecfcb96753eedaf4d8c',1,'SC::AsyncSocketReceive::callback'],['../structSC_1_1AsyncFileWrite.html#a44a1cc2aaf6ff4a00e6ad6ae31454c61',1,'SC::AsyncFileWrite::callback'],['../structSC_1_1AsyncFileSend.html#a079a3ab3533ba1e9c30cd922af51fad9',1,'SC::AsyncFileSend::callback'],['../structSC_1_1AsyncLoopWork.html#a62d401bd198c68164a5b97ed57b0d1cd',1,'SC::AsyncLoopWork::callback'],['../structSC_1_1AsyncFileSystemOperation.html#abf0181f7c31e796d3b33f4b2be118ac5',1,'SC::AsyncFileSystemOperation::callback']]],
+  ['category_1',['category',['../structSC_1_1PluginDefinition.html#abe93d715ea50e732a78fad3b63997b6a',1,'SC::PluginDefinition']]],
+  ['clearsequenceoncancel_2',['clearSequenceOnCancel',['../structSC_1_1AsyncSequence.html#ac7e9d47258b6b2dc7bd16794fad0e43c',1,'SC::AsyncSequence']]],
+  ['clearsequenceonerror_3',['clearSequenceOnError',['../structSC_1_1AsyncSequence.html#ab0a2938059e2d5c2a9f13497f0bf8bea',1,'SC::AsyncSequence']]],
+  ['coalesce_4',['coalesce',['../structSC_1_1AsyncLoopWakeUpOptions.html#aa06c0afdcd21289075190f02086da7aa',1,'SC::AsyncLoopWakeUpOptions::coalesce'],['../structSC_1_1AsyncSignalOptions.html#ae4f59b29a2decebe0c7b29b88d256e2e',1,'SC::AsyncSignalOptions::coalesce']]],
+  ['compilerincludepaths_5',['compilerIncludePaths',['../structSC_1_1PluginCompiler.html#acdaf8cf6b5f9223d6f26572cf6eedfb2',1,'SC::PluginCompiler']]],
+  ['compilerlibrarypaths_6',['compilerLibraryPaths',['../structSC_1_1PluginCompiler.html#abea2cb484c194d5af28bc726488f4c63',1,'SC::PluginCompiler']]],
+  ['compilerpath_7',['compilerPath',['../structSC_1_1PluginCompiler.html#ad6a2e3b02e614485ac1a3aeafce07abd',1,'SC::PluginCompiler']]],
+  ['component_8',['component',['../structSC_1_1StringViewTokenizer.html#a12e075718286ba48b21ed2dfa77ac837',1,'SC::StringViewTokenizer']]],
+  ['connectionheaderadded_9',['connectionHeaderAdded',['../structSC_1_1HttpOutgoingMessage.html#a8ab00b4cd4f075c234d0ad1f97121c88',1,'SC::HttpOutgoingMessage']]],
+  ['connectionkeepalive_10',['connectionKeepAlive',['../structSC_1_1HttpParser.html#ae5e387fcde3b2a92dd1a4b51eb651878',1,'SC::HttpParser']]],
+  ['connectionoptions_11',['connectionOptions',['../structSC_1_1NamedPipeServerOptions.html#af49b95de32fb9a472a8d93f5a41682f4',1,'SC::NamedPipeServerOptions::connectionOptions'],['../structSC_1_1NamedPipeClientOptions.html#a6e6a30332478de9bf6dcbb98a419b96f',1,'SC::NamedPipeClientOptions::connectionOptions']]],
+  ['connecttimeoutmilliseconds_12',['connectTimeoutMilliseconds',['../structSC_1_1NamedPipeClientOptions_1_1Windows.html#a54e579aec7e4dc49d64999d1b30d578e',1,'SC::NamedPipeClientOptions::Windows']]],
+  ['contentlength_13',['contentLength',['../structSC_1_1HttpParser.html#ae8d43193a41d31df095e2f8901d75436',1,'SC::HttpParser']]],
+  ['cookies_14',['cookies',['../structSC_1_1HttpClientSessionMemory.html#abd56e8b167f79f80d9d32c437ec21a21',1,'SC::HttpClientSessionMemory']]],
+  ['copyflags_15',['copyFlags',['../structSC_1_1FileSystem_1_1CopyOperation.html#abcd4cd168142a9ebf2d1c526e1c34e5f',1,'SC::FileSystem::CopyOperation']]],
+  ['creationtime_16',['creationTime',['../structSC_1_1FileDescriptorStat.html#af46f64103c9b083ff4adbd2fcec03670',1,'SC::FileDescriptorStat::creationTime'],['../structSC_1_1FileSystemStat.html#a1a770d7d373b2517e9b8ed8ba02c6d02',1,'SC::FileSystemStat::creationTime']]]
+];

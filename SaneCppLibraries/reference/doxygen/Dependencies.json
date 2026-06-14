@@ -1,0 +1,220 @@
+{
+    "Async": {
+        "direct_dependencies": [
+            "File",
+            "FileSystem",
+            "Socket",
+            "Threading"
+        ],
+        "minimal_dependencies": [
+            "File",
+            "FileSystem",
+            "Socket",
+            "Threading"
+        ],
+        "all_dependencies": [
+            "File",
+            "FileSystem",
+            "Socket",
+            "Threading"
+        ]
+    },
+    "AsyncStreams": {
+        "direct_dependencies": [],
+        "minimal_dependencies": [],
+        "all_dependencies": []
+    },
+    "Await": {
+        "direct_dependencies": [
+            "Async"
+        ],
+        "minimal_dependencies": [
+            "Async"
+        ],
+        "all_dependencies": [
+            "Async",
+            "File",
+            "FileSystem",
+            "Socket",
+            "Threading"
+        ]
+    },
+    "Containers": {
+        "direct_dependencies": [
+            "Memory"
+        ],
+        "minimal_dependencies": [
+            "Memory"
+        ],
+        "all_dependencies": [
+            "Memory"
+        ]
+    },
+    "ContainersReflection": {
+        "direct_dependencies": [
+            "Containers",
+            "Memory",
+            "Reflection"
+        ],
+        "minimal_dependencies": [
+            "Containers",
+            "Reflection"
+        ],
+        "all_dependencies": [
+            "Containers",
+            "Memory",
+            "Reflection"
+        ]
+    },
+    "File": {
+        "direct_dependencies": [],
+        "minimal_dependencies": [],
+        "all_dependencies": []
+    },
+    "FileSystem": {
+        "direct_dependencies": [],
+        "minimal_dependencies": [],
+        "all_dependencies": []
+    },
+    "FileSystemIterator": {
+        "direct_dependencies": [],
+        "minimal_dependencies": [],
+        "all_dependencies": []
+    },
+    "FileSystemWatcher": {
+        "direct_dependencies": [],
+        "minimal_dependencies": [],
+        "all_dependencies": []
+    },
+    "Foundation": {
+        "direct_dependencies": [],
+        "minimal_dependencies": [],
+        "all_dependencies": []
+    },
+    "Hashing": {
+        "direct_dependencies": [],
+        "minimal_dependencies": [],
+        "all_dependencies": []
+    },
+    "Http": {
+        "direct_dependencies": [
+            "Async",
+            "AsyncStreams",
+            "FileSystem"
+        ],
+        "minimal_dependencies": [
+            "Async",
+            "AsyncStreams"
+        ],
+        "all_dependencies": [
+            "Async",
+            "AsyncStreams",
+            "File",
+            "FileSystem",
+            "Socket",
+            "Threading"
+        ]
+    },
+    "HttpClient": {
+        "direct_dependencies": [],
+        "minimal_dependencies": [],
+        "all_dependencies": []
+    },
+    "Memory": {
+        "direct_dependencies": [],
+        "minimal_dependencies": [],
+        "all_dependencies": []
+    },
+    "Plugin": {
+        "direct_dependencies": [
+            "Process",
+            "Strings"
+        ],
+        "minimal_dependencies": [
+            "Process",
+            "Strings"
+        ],
+        "all_dependencies": [
+            "File",
+            "Process",
+            "Strings"
+        ]
+    },
+    "Process": {
+        "direct_dependencies": [
+            "File"
+        ],
+        "minimal_dependencies": [
+            "File"
+        ],
+        "all_dependencies": [
+            "File"
+        ]
+    },
+    "Reflection": {
+        "direct_dependencies": [],
+        "minimal_dependencies": [],
+        "all_dependencies": []
+    },
+    "SerialPort": {
+        "direct_dependencies": [
+            "File"
+        ],
+        "minimal_dependencies": [
+            "File"
+        ],
+        "all_dependencies": [
+            "File"
+        ]
+    },
+    "SerializationBinary": {
+        "direct_dependencies": [
+            "Reflection"
+        ],
+        "minimal_dependencies": [
+            "Reflection"
+        ],
+        "all_dependencies": [
+            "Reflection"
+        ]
+    },
+    "SerializationText": {
+        "direct_dependencies": [
+            "Reflection",
+            "Strings"
+        ],
+        "minimal_dependencies": [
+            "Reflection",
+            "Strings"
+        ],
+        "all_dependencies": [
+            "Reflection",
+            "Strings"
+        ]
+    },
+    "Socket": {
+        "direct_dependencies": [],
+        "minimal_dependencies": [],
+        "all_dependencies": []
+    },
+    "Strings": {
+        "direct_dependencies": [],
+        "minimal_dependencies": [],
+        "all_dependencies": []
+    },
+    "Testing": {
+        "direct_dependencies": [],
+        "minimal_dependencies": [],
+        "all_dependencies": []
+    },
+    "Threading": {
+        "direct_dependencies": [],
+        "minimal_dependencies": [],
+        "all_dependencies": []
+    },
+    "Time": {
+        "direct_dependencies": [],
+        "minimal_dependencies": [],
+        "all_dependencies": []
+    }
+}

@@ -1,0 +1,83 @@
+digraph LibraryDependencies {
+  node [shape=box];
+  splines=line;
+
+  Async;
+  AsyncStreams;
+  Await;
+  Containers;
+  ContainersReflection;
+  File;
+  FileSystem;
+  FileSystemIterator;
+  FileSystemWatcher;
+  Foundation;
+  Hashing;
+  Http;
+  HttpClient;
+  Memory;
+  Plugin;
+  Process;
+  Reflection;
+  SerialPort;
+  SerializationBinary;
+  SerializationText;
+  Socket;
+  Strings;
+  Testing;
+  Threading;
+  Time;
+
+  subgraph rank0 {
+    rank=same;
+    AsyncStreams;
+    File;
+    FileSystem;
+    FileSystemIterator;
+    FileSystemWatcher;
+    Foundation;
+    Hashing;
+    HttpClient;
+    Memory;
+    Reflection;
+    Socket;
+    Strings;
+    Testing;
+    Threading;
+    Time;
+  }
+  subgraph rank1 {
+    rank=same;
+    Async;
+    Containers;
+    Process;
+    SerialPort;
+    SerializationBinary;
+    SerializationText;
+  }
+  subgraph rank2 {
+    rank=same;
+    Await;
+    ContainersReflection;
+    Http;
+    Plugin;
+  }
+
+  Async -> File;
+  Async -> FileSystem;
+  Async -> Socket;
+  Async -> Threading;
+  Await -> Async;
+  Containers -> Memory;
+  ContainersReflection -> Containers;
+  ContainersReflection -> Reflection;
+  Http -> Async;
+  Http -> AsyncStreams;
+  Plugin -> Process;
+  Plugin -> Strings;
+  Process -> File;
+  SerialPort -> File;
+  SerializationBinary -> Reflection;
+  SerializationText -> Reflection;
+  SerializationText -> Strings;
+}

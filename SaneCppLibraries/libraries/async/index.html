@@ -1,0 +1,392 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Async | Sane C++ Libraries</title><meta name="description" content="Async I/O (files, sockets, timers, processes, fs events, threads wake-up)"><meta property="og:title" content="Async | Sane C++ Libraries"><meta property="og:description" content="Async I/O (files, sockets, timers, processes, fs events, threads wake-up)"><meta property="og:type" content="website"><meta property="og:url" content="https://pagghiu.github.io/SaneCppLibraries/libraries/async/"><link rel="canonical" href="https://pagghiu.github.io/SaneCppLibraries/libraries/async/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=JetBrains+Mono:wght@500;700&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"><script>
+      (() => {
+        const savedTheme = localStorage.getItem("sc-theme");
+        const theme = savedTheme === "light" || savedTheme === "dark"
+          ? savedTheme
+          : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script><style>.maturity-badge[data-astro-cid-blexnnyn]{display:inline-flex;align-items:center;gap:.45rem;padding:.42rem .75rem;border-radius:8px;border:1px solid var(--border);background:#ffffff0a;color:var(--muted-strong);font-size:.82rem;font-weight:700}.maturity-badge[data-astro-cid-blexnnyn].strong{padding:.52rem .9rem;border-color:color-mix(in srgb,var(--badge-color) 35%,var(--border));background:color-mix(in srgb,var(--badge-color) 18%,transparent);color:color-mix(in srgb,var(--badge-color) 28%,var(--text));box-shadow:inset 0 1px #ffffff14}.dot[data-astro-cid-blexnnyn]{width:.58rem;height:.58rem;border-radius:50%;background:var(--badge-color);box-shadow:0 0 .7rem color-mix(in srgb,var(--badge-color) 60%,transparent)}.draft[data-astro-cid-blexnnyn]{--badge-color: #ff6a7b}.mvp[data-astro-cid-blexnnyn]{--badge-color: #ffd166}.usable[data-astro-cid-blexnnyn]{--badge-color: #8deab0}.complete[data-astro-cid-blexnnyn]{--badge-color: #78daff}.unknown[data-astro-cid-blexnnyn]{--badge-color: #b5bfd3}
+</style>
+<link rel="stylesheet" href="/_astro/index.DI-R6BGS.css">
+<link rel="stylesheet" href="/_astro/index.D5v4FFtv.css">
+<style>.library-hero[data-astro-cid-7c432cc5]{padding-top:1rem}.library-heading[data-astro-cid-7c432cc5]{display:grid;gap:1rem;max-width:58rem}.library-heading[data-astro-cid-7c432cc5] h1[data-astro-cid-7c432cc5]{margin:0;font-size:clamp(3rem,7vw,5rem);line-height:.94;letter-spacing:0;text-wrap:balance}.library-heading[data-astro-cid-7c432cc5] p[data-astro-cid-7c432cc5]{margin:0;max-width:48rem;color:var(--muted-strong);font-size:1.18rem;line-height:1.65}.page-grid[data-astro-cid-7c432cc5]{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:1.25rem;margin-top:1.25rem}.article[data-astro-cid-7c432cc5]{padding:1.5rem}.sidebar[data-astro-cid-7c432cc5]{display:grid;gap:1rem;align-self:start}.sidebar[data-astro-cid-7c432cc5] .card[data-astro-cid-7c432cc5]{display:grid;gap:.8rem}.sidebar[data-astro-cid-7c432cc5] a[data-astro-cid-7c432cc5]{color:var(--link)}.sidebar[data-astro-cid-7c432cc5] a[data-astro-cid-7c432cc5]:hover{color:var(--link-hover)}@media(max-width:960px){.library-hero[data-astro-cid-7c432cc5],.page-grid[data-astro-cid-7c432cc5]{grid-template-columns:1fr}}
+</style></head> <body data-astro-cid-37fxchfa> <header class="site-header" data-site-header data-astro-cid-37fxchfa> <div class="shell header-row" data-astro-cid-37fxchfa> <a class="brand" href="/SaneCppLibraries/" data-astro-cid-37fxchfa> <img class="logo-mark" src="/SaneCppLibraries/brand/sc-logo.svg" alt="Sane C++ Libraries logo" width="46" height="46" loading="eager" data-astro-cid-yykneotp>  <span data-astro-cid-37fxchfa> <strong data-astro-cid-37fxchfa>Sane C++ Libraries</strong> <small data-astro-cid-37fxchfa>Platform Abstraction C++ Libraries for Agents</small> </span> </a> <div class="nav-cluster" data-nav-cluster data-astro-cid-37fxchfa> <nav class="desktop-nav" aria-label="Primary" data-astro-cid-37fxchfa> <a href="/SaneCppLibraries/libraries/" data-astro-cid-37fxchfa>Libraries</a><a href="/SaneCppLibraries/guides/" data-astro-cid-37fxchfa>Guides</a><a href="/SaneCppLibraries/skills/" data-astro-cid-37fxchfa>Skills</a><a href="https://pagghiu.github.io" target="_blank" rel="noreferrer" data-astro-cid-37fxchfa>Blog</a><a href="/SaneCppLibraries/reference/" data-astro-cid-37fxchfa>Reference</a><a href="/SaneCppLibraries/community/" data-astro-cid-37fxchfa>Community</a> </nav> <div class="header-actions" data-astro-cid-37fxchfa> <button class="search-trigger" type="button" data-search-open data-astro-cid-otpdt6jm> <span data-astro-cid-otpdt6jm>Search the site</span> <kbd data-astro-cid-otpdt6jm>/</kbd> </button> <dialog class="search-dialog panel" data-search-dialog data-pagefind-base="/SaneCppLibraries/" data-astro-cid-otpdt6jm> <form method="dialog" class="search-shell" data-astro-cid-otpdt6jm> <div class="search-header" data-astro-cid-otpdt6jm> <input type="search" name="q" placeholder="Search libraries, guides, blog, reference..." autocomplete="off" data-search-input data-astro-cid-otpdt6jm> <button type="submit" class="button" data-astro-cid-otpdt6jm>Close</button> </div> <div class="search-results" data-search-results data-astro-cid-otpdt6jm></div> </form> </dialog> <script>
+  const dialog = document.querySelector("[data-search-dialog]");
+  const openButton = document.querySelector("[data-search-open]");
+  const input = document.querySelector("[data-search-input]");
+  const results = document.querySelector("[data-search-results]");
+  const searchBase = dialog?.dataset.pagefindBase || "/";
+  let pagefind;
+
+  async function loadPagefind() {
+    if (!pagefind) {
+      pagefind = await import(`${searchBase}pagefind/pagefind.js`);
+    }
+    return pagefind;
+  }
+
+  async function runSearch(query) {
+    if (!results) return;
+    if (!query.trim()) {
+      results.innerHTML = '<p class="copy-muted">Type to search across libraries, guides, skills, and generated reference.</p>';
+      return;
+    }
+    const pagefindApi = await loadPagefind();
+    const search = await pagefindApi.search(query);
+    const items = await Promise.all(search.results.slice(0, 8).map((item) => item.data()));
+    results.innerHTML = items.length
+      ? items
+          .map(
+            (item) => `
+              <a class="search-result" href="${item.url}">
+                <strong>${item.meta.title ?? item.url}</strong>
+                <span>${item.excerpt ?? ""}</span>
+              </a>`
+          )
+          .join("")
+      : '<p class="copy-muted">No results yet. Try a library name, guide, or feature.</p>';
+  }
+
+  function openSearch() {
+    dialog?.showModal();
+    results.innerHTML = '<p class="copy-muted">Type to search across libraries, guides, skills, and generated reference.</p>';
+    setTimeout(() => input?.focus(), 20);
+  }
+
+  openButton?.addEventListener("click", openSearch);
+  input?.addEventListener("input", (event) => runSearch(event.currentTarget.value));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "/" && !event.metaKey && !event.ctrlKey) {
+      const target = event.target;
+      if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement) return;
+      event.preventDefault();
+      openSearch();
+    }
+    if (event.key === "Escape" && dialog?.open) {
+      dialog.close();
+    }
+  });
+</script>  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme" data-astro-cid-x3pjskd3> <span class="theme-icon" aria-hidden="true" data-astro-cid-x3pjskd3>◐</span> <span class="theme-label" data-astro-cid-x3pjskd3>Theme</span> </button> <script>
+  const themeStorageKey = "sc-theme";
+
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    const button = document.querySelector("[data-theme-toggle]");
+    const label = button?.querySelector(".theme-label");
+    const icon = button?.querySelector(".theme-icon");
+    if (label) {
+      label.textContent = theme === "light" ? "Light" : "Dark";
+    }
+    if (icon) {
+      icon.textContent = theme === "light" ? "☀" : "☾";
+    }
+  }
+
+  function getInitialTheme() {
+    const saved = localStorage.getItem(themeStorageKey);
+    if (saved === "light" || saved === "dark") return saved;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  applyTheme(getInitialTheme());
+
+  document.querySelector("[data-theme-toggle]")?.addEventListener("click", () => {
+    const current = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+    const next = current === "light" ? "dark" : "light";
+    localStorage.setItem(themeStorageKey, next);
+    applyTheme(next);
+  });
+</script>  <a class="button primary" href="https://github.com/Pagghiu/SaneCppLibraries" data-astro-cid-37fxchfa>View GitHub</a> </div> </div> <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="Open navigation" data-astro-cid-37fxchfa> <span class="material-symbols-outlined" aria-hidden="true" data-astro-cid-37fxchfa>menu</span> </button> </div> </header> <main data-astro-cid-37fxchfa>  <section class="shell page-hero library-hero" data-astro-cid-7c432cc5> <div class="library-heading" data-astro-cid-7c432cc5> <div class="eyebrow" data-astro-cid-7c432cc5>Library</div> <h1 data-astro-cid-7c432cc5>Async</h1> <p data-astro-cid-7c432cc5>Async I/O (files, sockets, timers, processes, fs events, threads wake-up)</p> <span class="maturity-badge mvp strong" data-astro-cid-blexnnyn> <span class="dot" data-astro-cid-blexnnyn></span> <span data-astro-cid-blexnnyn>MVP</span> </span>  </div> </section> <section class="shell meta-grid" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependencies</strong> <p data-astro-cid-7c432cc5>File, FileSystem, Socket, Threading</p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Single file</strong> <p data-astro-cid-7c432cc5><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppAsync.h" data-astro-cid-7c432cc5>Download release header</a></p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Reference</strong> <p data-astro-cid-7c432cc5><a href="/SaneCppLibraries/reference/doxygen/library_async.html" data-astro-cid-7c432cc5>Open generated API/docs</a></p> </div> </section> <section class="shell page-grid" data-astro-cid-7c432cc5> <article class="panel prose article" data-astro-cid-7c432cc5><p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppAsync.h">SaneCppAsync.h</a> is a multi-platform / event-driven asynchronous I/O library.  </p>
+<blockquote>
+<p>Note: Check <a href="/SaneCppLibraries/libraries/async-streams/">library_async_streams</a> for an higher level construct when streaming data</p>
+</blockquote>
+<blockquote>
+<p>Note: Check <a href="/SaneCppLibraries/libraries/await/">library_await</a> for the C++20 coroutine layer that wraps <code>AsyncEventLoop</code> with <code>co_await</code> syntax while
+preserving the same request lifetime expectations. It currently covers a small but useful subset of timers, sockets,
+loop wake-ups, files, file polling, selected filesystem operations, process exit, signals, background work, child tasks,
+task groups, cancellation, and timeouts.</p>
+</blockquote>
+<blockquote>
+<p>Note: <code>Await</code> keeps the same platform caveats as <code>Async</code>: POSIX file polling is exposed directly, while Windows file polling
+for normal file or pipe handles currently fails fast at the Await layer instead of pretending to be portable. File and
+filesystem operations that need blocking work use caller-provided <code>ThreadPool</code> storage.</p>
+</blockquote>
+<blockquote>
+<p>Note: Long-lived callback streams such as <code>FileSystemWatcher</code> should stay callback-style or use an explicit caller-owned
+adapter with bounded event storage. <code>Await</code> intentionally does not model watcher streams as direct <code>AwaitEventLoop</code>
+methods.</p>
+</blockquote>
+<h1>Dependencies</h1>
+<ul>
+<li>Dependencies: <a href="/SaneCppLibraries/libraries/file/">File</a>, <a href="/SaneCppLibraries/libraries/file-system/">FileSystem</a>, <a href="/SaneCppLibraries/libraries/socket/">Socket</a>, <a href="/SaneCppLibraries/libraries/threading/">Threading</a></li>
+<li>All dependencies: <a href="/SaneCppLibraries/libraries/file/">File</a>, <a href="/SaneCppLibraries/libraries/file-system/">FileSystem</a>, <a href="/SaneCppLibraries/libraries/socket/">Socket</a>, <a href="/SaneCppLibraries/libraries/threading/">Threading</a></li>
+</ul>
+<p><img src="/SaneCppLibraries/reference/doxygen/Async.svg" alt="Dependency Graph"></p>
+<h1>Features</h1>
+<p>This is the list of supported async operations:</p>
+<table>
+<thead>
+<tr>
+<th>Async Operation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AsyncSocketConnect</td>
+<td>@copybrief SC::AsyncSocketConnect</td>
+</tr>
+<tr>
+<td>AsyncSocketAccept</td>
+<td>@copybrief SC::AsyncSocketAccept</td>
+</tr>
+<tr>
+<td>AsyncSocketSend</td>
+<td>@copybrief SC::AsyncSocketSend</td>
+</tr>
+<tr>
+<td>AsyncSocketReceive</td>
+<td>@copybrief SC::AsyncSocketReceive</td>
+</tr>
+<tr>
+<td>AsyncSocketSendTo</td>
+<td>@copybrief SC::AsyncSocketSendTo</td>
+</tr>
+<tr>
+<td>AsyncSocketReceiveFrom</td>
+<td>@copybrief SC::AsyncSocketReceiveFrom</td>
+</tr>
+<tr>
+<td>AsyncFileRead</td>
+<td>@copybrief SC::AsyncFileRead</td>
+</tr>
+<tr>
+<td>AsyncFileWrite</td>
+<td>@copybrief SC::AsyncFileWrite</td>
+</tr>
+<tr>
+<td>AsyncLoopTimeout</td>
+<td>@copybrief SC::AsyncLoopTimeout</td>
+</tr>
+<tr>
+<td>AsyncLoopWakeUp</td>
+<td>@copybrief SC::AsyncLoopWakeUp</td>
+</tr>
+<tr>
+<td>AsyncLoopWork</td>
+<td>@copybrief SC::AsyncLoopWork</td>
+</tr>
+<tr>
+<td>AsyncProcessExit</td>
+<td>@copybrief SC::AsyncProcessExit</td>
+</tr>
+<tr>
+<td>AsyncFilePoll</td>
+<td>@copybrief SC::AsyncFilePoll</td>
+</tr>
+<tr>
+<td>AsyncSequence</td>
+<td>@copybrief SC::AsyncSequence</td>
+</tr>
+<tr>
+<td>AsyncFileSystemOperation</td>
+<td>@copybrief SC::AsyncFileSystemOperation</td>
+</tr>
+<tr>
+<td>AsyncSignal</td>
+<td>@copybrief SC::AsyncSignal</td>
+</tr>
+</tbody></table>
+<h1>Details</h1>
+<h1>Status</h1>
+<p>MVP
+This is usable but needs some more testing and a few more features.</p>
+<h1>Videos</h1>
+<p>This is the list of videos that have been recorded showing some of the internal thoughts that have been going into this library:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=4rC4aKCD0V8">Ep.07 - SC::Async Linux epoll 1/2</a></li>
+<li><a href="https://www.youtube.com/watch?v=uCsGpJcF2oc">Ep.08 - SC::Async Linux epoll 2/2</a></li>
+<li><a href="https://www.youtube.com/watch?v=pIGosb2D2Ro">Ep.10 - A Tour of SC::Async</a></li>
+<li><a href="https://www.youtube.com/watch?v=YR935rorb3E">Ep.11 - Linux Async I/O using io_uring (1 of 2)</a></li>
+<li><a href="https://www.youtube.com/watch?v=CgYE0YrpHt0">Ep.12 - Linux Async I/O using io_uring (2 of 2)</a></li>
+<li><a href="https://www.youtube.com/watch?v=WF9beKyEA_E">Ep.14 - Async file read and writes using Thread Pool</a></li>
+<li><a href="https://www.youtube.com/watch?v=huavEjzflHQ">Ep.16 - Implement SC::AsyncLoopWork</a></li>
+<li><a href="https://www.youtube.com/watch?v=3lbyx11qDxM">Ep.18 - BREAK SC::Async IO Event Loop</a></li>
+<li><a href="https://www.youtube.com/watch?v=4acqdGcUQnE">Ep.20 - Pause Immediate Mode UI - Save CPU Time</a></li>
+<li><a href="https://www.youtube.com/watch?v=z7QaTa7drFo">Ep.21 - Add Async IO to Immediate Mode GUI</a></li>
+</ul>
+<h1>Blog</h1>
+<p>Some relevant blog posts are:</p>
+<ul>
+<li><a href="https://pagghiu.github.io/site/blog/2024-04-27-SaneCppLibrariesUpdate.html">April 2024 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2024-05-31-SaneCppLibrariesUpdate.html">May 2024 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2024-06-30-SaneCppLibrariesUpdate.html">June 2024 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2024-07-31-SaneCppLibrariesUpdate.html">July 2024 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2024-08-30-SaneCppLibrariesUpdate.html">August 2024 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2024-12-31-SaneCppLibrariesUpdate.html">December 2024 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-01-31-SaneCppLibrariesUpdate.html">January 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-04-30-SaneCppLibrariesUpdate.html">April 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-05-31-SaneCppLibrariesUpdate.html">May 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-06-30-SaneCppLibrariesUpdate.html">June 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html">July 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html">August 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-11-30-SaneCppLibrariesUpdate.html">November 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-12-31-SaneCppLibrariesUpdate.html">December 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-01-31-SaneCppLibrariesUpdate.html">January 2026 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-02-28-SaneCppLibrariesUpdate.html">February 2026 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026 Update</a></li>
+</ul>
+<h1>Description</h1>
+<h2>AsyncEventLoop</h2>
+<h3>Run modes</h3>
+<p>Event loop can be run in different ways to allow integrated it in multiple ways in applications.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Run mode</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">SC::AsyncEventLoop::run</td>
+<td align="left">@copydoc SC::AsyncEventLoop::run</td>
+</tr>
+<tr>
+<td align="left">SC::AsyncEventLoop::runOnce</td>
+<td align="left">@copydoc SC::AsyncEventLoop::runOnce</td>
+</tr>
+<tr>
+<td align="left">SC::AsyncEventLoop::runNoWait</td>
+<td align="left">@copydoc SC::AsyncEventLoop::runNoWait</td>
+</tr>
+</tbody></table>
+<p>Alternatively user can explicitly use three methods to submit, poll and dispatch events.
+This is very useful to integrate the event loop into applications with other event loops (for example GUI applications).</p>
+<table>
+<thead>
+<tr>
+<th align="left">Run mode</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">SC::AsyncEventLoop::submitRequests</td>
+<td align="left">@copydoc SC::AsyncEventLoop::submitRequests</td>
+</tr>
+<tr>
+<td align="left">SC::AsyncEventLoop::blockingPoll</td>
+<td align="left">@copydoc SC::AsyncEventLoop::blockingPoll</td>
+</tr>
+<tr>
+<td align="left">SC::AsyncEventLoop::dispatchCompletions</td>
+<td align="left">@copydoc SC::AsyncEventLoop::dispatchCompletions</td>
+</tr>
+</tbody></table>
+<h2>AsyncEventLoopMonitor</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Functions</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">SC::AsyncEventLoopMonitor::startMonitoring</td>
+<td align="left">@copydoc SC::AsyncEventLoopMonitor::startMonitoring</td>
+</tr>
+<tr>
+<td align="left">SC::AsyncEventLoopMonitor::stopMonitoringAndDispatchCompletions</td>
+<td align="left">@copydoc SC::AsyncEventLoopMonitor::stopMonitoringAndDispatchCompletions</td>
+</tr>
+</tbody></table>
+<h2>AsyncLoopTimeout</h2>
+<h2>AsyncLoopWakeUp</h2>
+<h2>AsyncLoopWork</h2>
+<h2>AsyncProcessExit</h2>
+<h2>AsyncSignal</h2>
+<h2>AsyncSocketAccept</h2>
+<h2>AsyncSocketConnect</h2>
+<h2>AsyncSocketSend</h2>
+<h2>AsyncSocketReceive</h2>
+<h2>AsyncSocketSendTo</h2>
+<h2>AsyncSocketReceiveFrom</h2>
+<h2>AsyncFileRead</h2>
+<h2>AsyncFileWrite</h2>
+<p>When using offsets, prefer a single contiguous buffer for portable examples and higher-level helpers. Combining
+scatter/gather buffers with an explicit offset needs backend-specific validation before being treated as a portable
+idiom.</p>
+<h2>AsyncFilePoll</h2>
+<h2>AsyncSequence</h2>
+<h2>AsyncTaskSequence</h2>
+<h2>AsyncFileSystemOperation</h2>
+<h1>Implementation</h1>
+<p>Library abstracts async operations by exposing a completion based mechanism.
+This mechanism currently maps on <code>kqueue</code> on macOS and <code>OVERLAPPED</code> on Windows.</p>
+<p>On Linux it tries to create a direct <code>io_uring</code> backend first and falls back to <code>epoll</code> when the kernel or runtime policy does not allow it.
+No <code>liburing</code> shared library is required.</p>
+<p>The api works on file and socket descriptors, that can be obtained from the <a href="/SaneCppLibraries/libraries/file/">File</a> and <a href="/SaneCppLibraries/libraries/socket/">Socket</a> libraries.
+It also works with serial descriptors from <a href="/SaneCppLibraries/libraries/serial-port/">SerialPort</a>, by using AsyncFileRead
+and AsyncFileWrite on an opened SC::SerialDescriptor.
+Pipe endpoints accepted/connected through SC::NamedPipeServer and SC::NamedPipeClient, exposed as SC::PipeDescriptor are also supported.</p>
+<p>On Windows, <code>AsyncTest</code> includes an optional real COM section named <code>serial com0com read/write</code>.
+Set <code>SC_TEST_COM0COM_PORT_A</code> and <code>SC_TEST_COM0COM_PORT_B</code> (values can be <code>COMx</code> or <code>\\.\COMx</code>) to enable it.
+When variables are unset, this section prints a skip message and succeeds.</p>
+<h2>Memory allocation</h2>
+<p>The entire library is free of allocations, as it uses a double linked list inside SC::AsyncRequest.<br>Caller is responsible for keeping AsyncRequest-derived objects memory stable until async callback is called.<br>SC::ArenaMap from the <a href="/SaneCppLibraries/libraries/containers/">Containers</a> can be used to preallocate a bounded pool of Async objects.</p>
+<h1>Roadmap</h1>
+<p>Usable Features:</p>
+<ul>
+<li>More AsyncFileSystemOperations</li>
+<li>Async DNS Resolution</li>
+</ul>
+<p>Complete Features:</p>
+<ul>
+<li>TTY with ANSI Escape Codes</li>
+<li>Signal handling (multi-watcher, cross-platform)</li>
+</ul>
+<h1>Statistics</h1>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Lines Of Code</th>
+<th>Comments</th>
+<th>Sum</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Headers</td>
+<td>885</td>
+<td>830</td>
+<td>1715</td>
+</tr>
+<tr>
+<td>Sources</td>
+<td>6443</td>
+<td>1454</td>
+<td>7897</td>
+</tr>
+<tr>
+<td>Sum</td>
+<td>7328</td>
+<td>2284</td>
+<td>9612</td>
+</tr>
+</tbody></table>
+</article> <aside class="sidebar" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependency graph</strong> <img src="/SaneCppLibraries/reference/doxygen/Async.svg" alt="Async dependency graph" data-astro-cid-7c432cc5> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Keep exploring</strong> <a href="/SaneCppLibraries/guides/building-user/" data-astro-cid-7c432cc5>How to integrate the libraries</a> <a href="/SaneCppLibraries/reference/" data-astro-cid-7c432cc5>Generated reference and compatibility pages</a> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Related blog posts</strong> <a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌸 Sane C++ May 26</a><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☔️ Sane C++ March 26</a><a href="https://pagghiu.github.io/site/blog/2026-02-28-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🔌 Sane C++ February 26</a><a href="https://pagghiu.github.io/site/blog/2026-01-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>❄️ Sane C++ January 26</a><a href="https://pagghiu.github.io/site/blog/2025-12-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌫️ Sane C++ December 25</a><a href="https://pagghiu.github.io/site/blog/2025-11-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌫️ Sane C++ November 25</a><a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌊 Sane C++ August 25</a><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🏖️ Sane C++ July 25</a><a href="https://pagghiu.github.io/site/blog/2025-06-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☀️ Sane C++ June 25</a><a href="https://pagghiu.github.io/site/blog/2025-05-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌸 Sane C++ May 25</a><a href="https://pagghiu.github.io/site/blog/2025-04-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>💤 Sane C++ April 25</a><a href="https://pagghiu.github.io/site/blog/2025-01-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>❄️ Sane C++ January 25</a><a href="https://pagghiu.github.io/site/blog/2024-12-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☃️ Sane C++ December 24</a><a href="https://pagghiu.github.io/site/blog/2024-08-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌊 Sane C++ August 24</a><a href="https://pagghiu.github.io/site/blog/2024-07-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🏖️ Sane C++ July 24</a><a href="https://pagghiu.github.io/site/blog/2024-06-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☀️ Sane C++ June 24</a><a href="https://pagghiu.github.io/site/blog/2024-05-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌸 Sane C++ May 24</a><a href="https://pagghiu.github.io/site/blog/2024-04-27-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>💤 Sane C++ April 24</a> </div> </aside> </section>  </main> <footer class="site-footer" data-astro-cid-37fxchfa> <div class="shell footer-grid" data-astro-cid-37fxchfa> <div data-astro-cid-37fxchfa> <div class="eyebrow" data-astro-cid-37fxchfa>Sane C++</div> <h2 data-astro-cid-37fxchfa>Small cross-platform C++ libraries for coding agents.</h2> <p class="copy-muted" data-astro-cid-37fxchfa>
+A compact set of independent libraries for building efficient programs with coding agents.
+</p> </div> <div class="footer-links" data-astro-cid-37fxchfa> <a href="/SaneCppLibraries/libraries/" data-astro-cid-37fxchfa>Libraries</a> <a href="/SaneCppLibraries/guides/" data-astro-cid-37fxchfa>Guides</a> <a href="/SaneCppLibraries/reference/" data-astro-cid-37fxchfa>Reference</a> <a href="https://github.com/Pagghiu/SaneCppLibraries/discussions" data-astro-cid-37fxchfa>Discussions</a> <a href="https://discord.gg/tyBfFp33Z6" data-astro-cid-37fxchfa>Discord</a> </div> </div> </footer> <script>
+  const siteHeader = document.querySelector("[data-site-header]");
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const menuIcon = menuToggle?.querySelector(".material-symbols-outlined");
+
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = siteHeader?.classList.toggle("menu-open") ?? false;
+    menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+    if (menuIcon) menuIcon.textContent = isOpen ? "close" : "menu";
+  });
+</script> </body></html> 
