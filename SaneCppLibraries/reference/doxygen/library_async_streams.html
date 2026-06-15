@@ -129,49 +129,49 @@ $(function(){initNavTree('library_async_streams.html',''); initResizable(true); 
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md147">Dependencies</a>
+    <a href="#autotoc_md148">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md148">Features</a>
+    <a href="#autotoc_md149">Features</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md149">Details</a>
+    <a href="#autotoc_md150">Details</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md150">Status</a>
+    <a href="#autotoc_md151">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md151">Implementation</a>
+    <a href="#autotoc_md152">Implementation</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md152">Memory allocation</a>
+        <a href="#autotoc_md153">Memory allocation</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md153">Videos</a>
+    <a href="#autotoc_md154">Videos</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md154">Blog</a>
+    <a href="#autotoc_md155">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md155">Roadmap</a>
+    <a href="#autotoc_md156">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md156">Statistics</a>
+    <a href="#autotoc_md157">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟨 Concurrently read, write and transform byte streams</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppAsyncStreams.h">SaneCppAsyncStreams.h</a> is a library that reads and writes data concurrently from async sources to destinations.</p>
-<h1><a class="anchor" id="autotoc_md147"></a>
+<h1><a class="anchor" id="autotoc_md148"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="AsyncStreams.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md148"></a>
+<h1><a class="anchor" id="autotoc_md149"></a>
 Features</h1>
 <p>This is the list of implemented objects stream types</p>
 <table class="markdownTable">
@@ -196,7 +196,7 @@ Features</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="structSC_1_1AsyncWritableSocketStream.html">AsyncWritableSocketStream</a>   </td><td class="markdownTableBodyNone">Uses an <a class="el" href="structSC_1_1AsyncSocketSend.html" title="Starts a socket send operation, sending bytes to a remote endpoint.">SC::AsyncSocketSend</a> to stream data to a socket.      </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md149"></a>
+<h1><a class="anchor" id="autotoc_md150"></a>
 Details</h1>
 <p>Read, writes and transforms happen in parallel if sources and destinations are asynchronous. This library does not allocate any memory, all buffers are supplied by the caller.</p>
 <p>Async Streams are largely inspired by <a href="https://nodejs.org/api/stream.html">node.js Streams</a>, a very powerful tool to process large amounts of data concurrently.</p>
@@ -214,21 +214,21 @@ Details</h1>
 <li>Fixed Layout to create data pipelines (AsyncPipeline)</li>
 <li>onData support only (no readable event)   </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md150"></a>
+<h1><a class="anchor" id="autotoc_md151"></a>
 Status</h1>
 <p>🟨 MVP <br  />
 </p>
 <p>A basic set of stream to pipe Sockets and Files (Pipes included) has been implemented. <br  />
  Also basic transform streams (ZLib based) have been implemented. <br  />
  It's possible that its API will evolve a little bit to be less verbose and there is also lack of nice examples, aside from the tests.</p>
-<h1><a class="anchor" id="autotoc_md151"></a>
+<h1><a class="anchor" id="autotoc_md152"></a>
 Implementation</h1>
 <p>Async Streams support reading from an async source and placing such reads in a bounded request queue that will pause the stream when it becomes full or when there are no available buffers. Data is pushed downstream to listeners of data events, that are either transform streams or writers streams. Writers will eventually emit a <code>drain</code> event to signal that they can write more data. Such event can be used to resume the readable streams that may have been paused. AsyncPipeline doesn't use the <code>drain</code> event but it just resumes readable streams after every successful write. This works because the Readable will pause when running out of buffers, allowing them to resume when a new one is made available.</p>
 <p>ReadableFileStream and WritableFileStream now also support initialization directly from <a class="el" href="structSC_1_1PipeDescriptor.html" title="Read / Write pipe (Process stdin/stdout and IPC communication)">SC::PipeDescriptor</a> (in addition to <a class="el" href="structSC_1_1FileDescriptor.html" title="[UniqueHandleDeclaration2Snippet]">SC::FileDescriptor</a>). This makes named pipes (see <a class="el" href="library_file.html">File</a>) compose directly with Async Streams without manual extraction of <code>readPipe</code> / <code>writePipe</code>.</p>
-<h2><a class="anchor" id="autotoc_md152"></a>
+<h2><a class="anchor" id="autotoc_md153"></a>
 Memory allocation</h2>
 <p>Async streams do not allocate any memory, but use caller provided buffers for handling data and request queues.</p>
-<h1><a class="anchor" id="autotoc_md153"></a>
+<h1><a class="anchor" id="autotoc_md154"></a>
 Videos</h1>
 <p>This is the list of videos that have been recorded showing some of the internal thoughts that have been going into this library:</p>
 <ul>
@@ -240,7 +240,7 @@ Videos</h1>
 <li><a href="https://www.youtube.com/watch?v=KKwohFmAUCk">Ep.33 - C++ Async Transform Streams - Part 2</a></li>
 <li><a href="https://www.youtube.com/watch?v=vCh6vEfiISI">Ep.34 - C++ Async Transform Streams - Part 3</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md154"></a>
+<h1><a class="anchor" id="autotoc_md155"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
@@ -253,7 +253,7 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2026-01-31-SaneCppLibrariesUpdate.html">January 2026 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md155"></a>
+<h1><a class="anchor" id="autotoc_md156"></a>
 Roadmap</h1>
 <p>🟩 Usable features:</p><ul>
 <li>Pipeline pause</li>
@@ -266,7 +266,7 @@ Roadmap</h1>
 <li>Object Mode</li>
 <li>readable + read mode</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md156"></a>
+<h1><a class="anchor" id="autotoc_md157"></a>
 Statistics</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">

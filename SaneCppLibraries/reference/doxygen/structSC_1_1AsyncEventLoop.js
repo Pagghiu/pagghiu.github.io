@@ -23,6 +23,7 @@ var structSC_1_1AsyncEventLoop =
     [ "interrupt", "structSC_1_1AsyncEventLoop.html#ac079f117519d00d84698380ee62c733b", null ],
     [ "isInitialized", "structSC_1_1AsyncEventLoop.html#acdb926a1078be3e64fdf6bd85d09218e", null ],
     [ "needsThreadPoolForFileOperations", "structSC_1_1AsyncEventLoop.html#a0b0992bb7989e26939649b23bcfaa897", null ],
+    [ "postExternalCompletion", "structSC_1_1AsyncEventLoop.html#a8109d5b11f58ed7824fa561979667df1", null ],
     [ "run", "structSC_1_1AsyncEventLoop.html#af77cd7ac7a1a577204e43d14debc45c5", null ],
     [ "runNoWait", "structSC_1_1AsyncEventLoop.html#a1bc6365abc9c05fdbeec9c7f4519c319", null ],
     [ "runOnce", "structSC_1_1AsyncEventLoop.html#aeef889e7c4c8f7cbbfe974ee6be27f09", null ],

@@ -145,19 +145,20 @@ Inheritance diagram for SC::AsyncRequest:</div>
  <div class="center">
   <img src="structSC_1_1AsyncRequest.png" usemap="#SC::AsyncRequest_map" alt=""/>
   <map id="SC::AsyncRequest_map" name="SC::AsyncRequest_map">
-<area href="structSC_1_1AsyncFilePoll.html" title="Starts an handle polling operation." alt="SC::AsyncFilePoll" shape="rect" coords="223,56,436,80"/>
+<area href="structSC_1_1AsyncExternalCompletion.html" title="Integrates externally-submitted completion based operations with AsyncEventLoop." alt="SC::AsyncExternalCompletion" shape="rect" coords="223,56,436,80"/>
 <area href="structSC_1_1AsyncFileRead.html" title="Starts a file read operation, reading bytes from a file (or pipe)." alt="SC::AsyncFileRead" shape="rect" coords="223,112,436,136"/>
-<area href="structSC_1_1AsyncFileSend.html" title="Sends file contents to a socket using zero-copy when available (sendfile, TransmitFile)." alt="SC::AsyncFileSend" shape="rect" coords="223,168,436,192"/>
-<area href="structSC_1_1AsyncFileSystemOperation.html" title="Starts an asynchronous file system operation (open, close, read, write, sendFile, stat,..." alt="SC::AsyncFileSystemOperation" shape="rect" coords="223,224,436,248"/>
-<area href="structSC_1_1AsyncFileWrite.html" title="Starts a file write operation, writing bytes to a file (or pipe)." alt="SC::AsyncFileWrite" shape="rect" coords="223,280,436,304"/>
-<area href="structSC_1_1AsyncLoopTimeout.html" title="Starts a Timeout that is invoked only once after expiration (relative) time has passed." alt="SC::AsyncLoopTimeout" shape="rect" coords="223,336,436,360"/>
-<area href="structSC_1_1AsyncLoopWakeUp.html" title="Starts a wake-up operation, allowing threads to execute callbacks on loop thread." alt="SC::AsyncLoopWakeUp" shape="rect" coords="223,392,436,416"/>
-<area href="structSC_1_1AsyncLoopWork.html" title="Executes work in a thread pool and then invokes a callback on the event loop thread." alt="SC::AsyncLoopWork" shape="rect" coords="223,448,436,472"/>
-<area href="structSC_1_1AsyncProcessExit.html" title="Starts monitoring a process, notifying about its termination." alt="SC::AsyncProcessExit" shape="rect" coords="223,504,436,528"/>
-<area href="structSC_1_1AsyncSignal.html" title="Starts monitoring a signal, notifying about its reception." alt="SC::AsyncSignal" shape="rect" coords="223,560,436,584"/>
-<area href="structSC_1_1AsyncSocketConnect.html" title="Starts a socket connect operation, connecting to a remote endpoint." alt="SC::AsyncSocketConnect" shape="rect" coords="223,616,436,640"/>
-<area href="structSC_1_1AsyncSocketReceive.html" title="Starts a socket receive operation, receiving bytes from a remote endpoint." alt="SC::AsyncSocketReceive" shape="rect" coords="223,672,436,696"/>
-<area href="structSC_1_1AsyncSocketSend.html" title="Starts a socket send operation, sending bytes to a remote endpoint." alt="SC::AsyncSocketSend" shape="rect" coords="223,728,436,752"/>
+<area href="structSC_1_1AsyncFileReadiness.html" title="Starts a file descriptor readiness operation." alt="SC::AsyncFileReadiness" shape="rect" coords="223,168,436,192"/>
+<area href="structSC_1_1AsyncFileSend.html" title="Sends file contents to a socket using zero-copy when available (sendfile, TransmitFile)." alt="SC::AsyncFileSend" shape="rect" coords="223,224,436,248"/>
+<area href="structSC_1_1AsyncFileSystemOperation.html" title="Starts an asynchronous file system operation (open, close, read, write, sendFile, stat,..." alt="SC::AsyncFileSystemOperation" shape="rect" coords="223,280,436,304"/>
+<area href="structSC_1_1AsyncFileWrite.html" title="Starts a file write operation, writing bytes to a file (or pipe)." alt="SC::AsyncFileWrite" shape="rect" coords="223,336,436,360"/>
+<area href="structSC_1_1AsyncLoopTimeout.html" title="Starts a Timeout that is invoked only once after expiration (relative) time has passed." alt="SC::AsyncLoopTimeout" shape="rect" coords="223,392,436,416"/>
+<area href="structSC_1_1AsyncLoopWakeUp.html" title="Starts a wake-up operation, allowing threads to execute callbacks on loop thread." alt="SC::AsyncLoopWakeUp" shape="rect" coords="223,448,436,472"/>
+<area href="structSC_1_1AsyncLoopWork.html" title="Executes work in a thread pool and then invokes a callback on the event loop thread." alt="SC::AsyncLoopWork" shape="rect" coords="223,504,436,528"/>
+<area href="structSC_1_1AsyncProcessExit.html" title="Starts monitoring a process, notifying about its termination." alt="SC::AsyncProcessExit" shape="rect" coords="223,560,436,584"/>
+<area href="structSC_1_1AsyncSignal.html" title="Starts monitoring a signal, notifying about its reception." alt="SC::AsyncSignal" shape="rect" coords="223,616,436,640"/>
+<area href="structSC_1_1AsyncSocketConnect.html" title="Starts a socket connect operation, connecting to a remote endpoint." alt="SC::AsyncSocketConnect" shape="rect" coords="223,672,436,696"/>
+<area href="structSC_1_1AsyncSocketReceive.html" title="Starts a socket receive operation, receiving bytes from a remote endpoint." alt="SC::AsyncSocketReceive" shape="rect" coords="223,728,436,752"/>
+<area href="structSC_1_1AsyncSocketSend.html" title="Starts a socket send operation, sending bytes to a remote endpoint." alt="SC::AsyncSocketSend" shape="rect" coords="223,784,436,808"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -192,7 +193,9 @@ Public Types</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="#af5065f89c50d598913f77f9e6a53c524abefab43235629b9d62f28ac18a74003d">FileSend</a>
 , <br />
-&#160;&#160;<a class="el" href="#af5065f89c50d598913f77f9e6a53c524ac4a4109fa1a034a514a42877cdc156c8">FilePoll</a>
+&#160;&#160;<a class="el" href="#af5065f89c50d598913f77f9e6a53c524ace457daaa18a53ac67fdc847232a3b7c">FileReadiness</a>
+, <br />
+&#160;&#160;<a class="el" href="#af5065f89c50d598913f77f9e6a53c524a92e8726b7924fdef0c0397b5492d9d17">ExternalCompletion</a>
 , <br />
 &#160;&#160;<a class="el" href="#af5065f89c50d598913f77f9e6a53c524a6e839406d7864194e3b461409c536391">FileSystemOperation</a>
 <br />
@@ -368,7 +371,9 @@ If the function returns an invalid Return code or if the operation is manually c
 </td></tr>
 <tr><td class="fieldname"><a id="af5065f89c50d598913f77f9e6a53c524abefab43235629b9d62f28ac18a74003d" name="af5065f89c50d598913f77f9e6a53c524abefab43235629b9d62f28ac18a74003d"></a>FileSend&#160;</td><td class="fielddoc"><p>Request is an <a class="el" href="structSC_1_1AsyncFileSend.html" title="Sends file contents to a socket using zero-copy when available (sendfile, TransmitFile).">AsyncFileSend</a> object. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="af5065f89c50d598913f77f9e6a53c524ac4a4109fa1a034a514a42877cdc156c8" name="af5065f89c50d598913f77f9e6a53c524ac4a4109fa1a034a514a42877cdc156c8"></a>FilePoll&#160;</td><td class="fielddoc"><p>Request is an <a class="el" href="structSC_1_1AsyncFilePoll.html" title="Starts an handle polling operation.">AsyncFilePoll</a> object. </p>
+<tr><td class="fieldname"><a id="af5065f89c50d598913f77f9e6a53c524ace457daaa18a53ac67fdc847232a3b7c" name="af5065f89c50d598913f77f9e6a53c524ace457daaa18a53ac67fdc847232a3b7c"></a>FileReadiness&#160;</td><td class="fielddoc"><p>Request is an <a class="el" href="structSC_1_1AsyncFileReadiness.html" title="Starts a file descriptor readiness operation.">AsyncFileReadiness</a> object. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af5065f89c50d598913f77f9e6a53c524a92e8726b7924fdef0c0397b5492d9d17" name="af5065f89c50d598913f77f9e6a53c524a92e8726b7924fdef0c0397b5492d9d17"></a>ExternalCompletion&#160;</td><td class="fielddoc"><p>Request is an <a class="el" href="structSC_1_1AsyncExternalCompletion.html" title="Integrates externally-submitted completion based operations with AsyncEventLoop.">AsyncExternalCompletion</a> object. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="af5065f89c50d598913f77f9e6a53c524a6e839406d7864194e3b461409c536391" name="af5065f89c50d598913f77f9e6a53c524a6e839406d7864194e3b461409c536391"></a>FileSystemOperation&#160;</td><td class="fielddoc"><p>Request is an <a class="el" href="structSC_1_1AsyncFileSystemOperation.html" title="Starts an asynchronous file system operation (open, close, read, write, sendFile, stat,...">AsyncFileSystemOperation</a> object. </p>
 </td></tr>

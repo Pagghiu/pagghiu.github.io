@@ -148,12 +148,21 @@ Inheritance diagram for SC::FileSystemWatcher::EventLoopRunner:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a4588f392907adc404b127c8d00a2a986" id="r_a4588f392907adc404b127c8d00a2a986"><td class="memItemLeft" align="right" valign="top"><a id="a4588f392907adc404b127c8d00a2a986" name="a4588f392907adc404b127c8d00a2a986"></a>
-virtual Result&#160;</td><td class="memItemRight" valign="bottom"><b>windowsStartFolderFilePoll</b> (<a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;watcher, void *handle)=0</td></tr>
-<tr class="separator:a4588f392907adc404b127c8d00a2a986"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9736f85c38834edadf2538c60326d067" id="r_a9736f85c38834edadf2538c60326d067"><td class="memItemLeft" align="right" valign="top"><a id="a9736f85c38834edadf2538c60326d067" name="a9736f85c38834edadf2538c60326d067"></a>
-virtual Result&#160;</td><td class="memItemRight" valign="bottom"><b>windowsStopFolderFilePoll</b> (<a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;watcher)=0</td></tr>
-<tr class="separator:a9736f85c38834edadf2538c60326d067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeda53c34203f44020bd3fb4162a661af" id="r_aeda53c34203f44020bd3fb4162a661af"><td class="memItemLeft" align="right" valign="top"><a id="aeda53c34203f44020bd3fb4162a661af" name="aeda53c34203f44020bd3fb4162a661af"></a>
+virtual Result&#160;</td><td class="memItemRight" valign="bottom"><b>windowsStartFolderExternalCompletion</b> (<a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;watcher, void *handle)=0</td></tr>
+<tr class="separator:aeda53c34203f44020bd3fb4162a661af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae709d82d3df2dc93a27737e4077ecbb2" id="r_ae709d82d3df2dc93a27737e4077ecbb2"><td class="memItemLeft" align="right" valign="top"><a id="ae709d82d3df2dc93a27737e4077ecbb2" name="ae709d82d3df2dc93a27737e4077ecbb2"></a>
+virtual Result&#160;</td><td class="memItemRight" valign="bottom"><b>windowsRequestStopFolderExternalCompletion</b> (<a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;watcher)=0</td></tr>
+<tr class="separator:ae709d82d3df2dc93a27737e4077ecbb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad241c90329833e0edb0492a3d370347a" id="r_ad241c90329833e0edb0492a3d370347a"><td class="memItemLeft" align="right" valign="top"><a id="ad241c90329833e0edb0492a3d370347a" name="ad241c90329833e0edb0492a3d370347a"></a>
+virtual Result&#160;</td><td class="memItemRight" valign="bottom"><b>windowsWaitFolderExternalCompletionStopped</b> (<a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;watcher)=0</td></tr>
+<tr class="separator:ad241c90329833e0edb0492a3d370347a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afef25a1e9eb1748b72769ba41b8d9f08" id="r_afef25a1e9eb1748b72769ba41b8d9f08"><td class="memItemLeft" align="right" valign="top"><a id="afef25a1e9eb1748b72769ba41b8d9f08" name="afef25a1e9eb1748b72769ba41b8d9f08"></a>
+virtual Result&#160;</td><td class="memItemRight" valign="bottom"><b>windowsMarkFolderExternalCompletionPending</b> (<a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;watcher)=0</td></tr>
+<tr class="separator:afef25a1e9eb1748b72769ba41b8d9f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a113f5452d3ae7f11456be242c48883c7" id="r_a113f5452d3ae7f11456be242c48883c7"><td class="memItemLeft" align="right" valign="top"><a id="a113f5452d3ae7f11456be242c48883c7" name="a113f5452d3ae7f11456be242c48883c7"></a>
+virtual Result&#160;</td><td class="memItemRight" valign="bottom"><b>windowsClearFolderExternalCompletionPending</b> (<a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;watcher)=0</td></tr>
+<tr class="separator:a113f5452d3ae7f11456be242c48883c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49f961e7288fa661ce8355233c616be4" id="r_a49f961e7288fa661ce8355233c616be4"><td class="memItemLeft" align="right" valign="top"><a id="a49f961e7288fa661ce8355233c616be4" name="a49f961e7288fa661ce8355233c616be4"></a>
 virtual void *&#160;</td><td class="memItemRight" valign="bottom"><b>windowsGetOverlapped</b> (<a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;watcher)=0</td></tr>
 <tr class="separator:a49f961e7288fa661ce8355233c616be4"><td class="memSeparator" colspan="2">&#160;</td></tr>

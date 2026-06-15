@@ -129,45 +129,45 @@ $(function(){initNavTree('library_plugin.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md332">Quick Sheet</a>
+    <a href="#autotoc_md333">Quick Sheet</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md333">Dependencies</a>
+    <a href="#autotoc_md334">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md334">Features</a>
+    <a href="#autotoc_md335">Features</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md335">Status</a>
+    <a href="#autotoc_md336">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md336">Description</a>
+    <a href="#autotoc_md337">Description</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md337">Exporting SC symbols without SC::Build</a>
+        <a href="#autotoc_md338">Exporting SC symbols without SC::Build</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md338">Videos</a>
+    <a href="#autotoc_md339">Videos</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md339">Blog</a>
+    <a href="#autotoc_md340">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md340">Examples</a>
+    <a href="#autotoc_md341">Examples</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md341">Roadmap</a>
+    <a href="#autotoc_md342">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md342">Statistics</a>
+    <a href="#autotoc_md343">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟨 Minimal dependency based plugin system with hot-reload</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppPlugin.h">SaneCppPlugin.h</a> is a library that allows extending application compiling C++ source to executable code at runtime.</p>
-<h1><a class="anchor" id="autotoc_md332"></a>
+<h1><a class="anchor" id="autotoc_md333"></a>
 Quick Sheet</h1>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;Libraries/Async/Async.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;Libraries/FileSystemWatcher/FileSystemWatcher.h&quot;</span></div>
@@ -332,14 +332,14 @@ Quick Sheet</h1>
 <div class="ttc" id="astructSC_1_1TestReport_html_aa5cc75aa7564ffc8da3da6f31c68d130"><div class="ttname"><a href="structSC_1_1TestReport.html#aa5cc75aa7564ffc8da3da6f31c68d130">SC::TestReport::libraryRootDirectory</a></div><div class="ttdeci">StringPath libraryRootDirectory</div><div class="ttdoc">Path to sources directory for library.</div><div class="ttdef"><b>Definition</b> Testing.h:65</div></div>
 <div class="ttc" id="astructSC_1_1Time_1_1Milliseconds_html"><div class="ttname"><a href="structSC_1_1Time_1_1Milliseconds.html">SC::Time::Milliseconds</a></div><div class="ttdoc">Type-safe wrapper of uint64 used to represent milliseconds.</div><div class="ttdef"><b>Definition</b> Time.h:50</div></div>
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>The above code is simplified. For a more complete implementation of an hot-reload system see <a class="el" href="page_examples.html">SCExample</a> code (<code>HotReloadSystem.h</code>).</dd></dl>
-<h1><a class="anchor" id="autotoc_md333"></a>
+<h1><a class="anchor" id="autotoc_md334"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <a class="el" href="library_process.html">Process</a>, <a class="el" href="library_strings.html">Strings</a></li>
 <li>All dependencies: <a class="el" href="library_file.html">File</a>, <a class="el" href="library_process.html">Process</a>, <a class="el" href="library_strings.html">Strings</a></li>
 </ul>
 <p><img src="Plugin.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md334"></a>
+<h1><a class="anchor" id="autotoc_md335"></a>
 Features</h1>
 <ul>
 <li>Compile and link cpp files to dynamic library</li>
@@ -350,11 +350,11 @@ Features</h1>
 <li>Allows toolchain customization through <a class="el" href="structSC_1_1PluginSysroot.html" title="Holds include and library paths for a system toolchain, used to let plugins link to libc and libc++.">SC::PluginSysroot</a> and <a class="el" href="structSC_1_1PluginCompiler.html" title="Compiles a plugin to a dynamic library.">SC::PluginCompiler</a></li>
 <li>Forcefully unlock and delete dll being debugged from Visual Studio Debugger</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md335"></a>
+<h1><a class="anchor" id="autotoc_md336"></a>
 Status</h1>
 <p>🟨 MVP <br  />
  This library is expected to work correctly on <code>macOS</code>, <code>Windows</code>, and <code>Linux</code> using <code>MSVC</code>, <code>clang</code> and <code>GCC</code> compiler toolchains.</p>
-<h1><a class="anchor" id="autotoc_md336"></a>
+<h1><a class="anchor" id="autotoc_md337"></a>
 Description</h1>
 <p>The main use case is for now splitting applications in smaller pieces that can be hot-reloaded at runtime. <br  />
  A secondary use case could be allowing customization on a delivered application (mainly on Desktop systems). Plugins are always meant to be delivered in source code form (<code>.cpp</code>) and they're compiled on the fly. A plugin is made of a single <code>.cpp</code> file and it declares itself through a special comment in the source code. Such comment can declare the name, the version, a description / category and a list of dependencies. <br  />
@@ -364,7 +364,7 @@ Description</h1>
 <p>The library doesn't use a build system, but it compiles the <code>.cpp</code> files directly, linking it with symbols exported from the loading executable (using <code>bundle_loader</code> on macOS and linking library exported from loading executable on windows). Host executables must explicitly opt into exporting the needed Sane C++ libraries through <code>SC::Build::Project::addExportLibraries</code> or <code>SC::Build::Project::addExportAllLibraries</code>; normal executables do not export SC symbols by default anymore. Plugin Dynamic Libraries are compiled with <code>nostdlib</code> and <code>nostdlib++</code> and they include a stub the allows defining some symbols needed due to not linking the C++ CRT. <br  />
  Some special build flags however allow using <code>libc</code>, <code>libc++</code> or other sysroot / compiler supplied windows. <br  />
  The idea is that plugins only use functionality provided by the calling executable or by other plugins.</p>
-<h2><a class="anchor" id="autotoc_md337"></a>
+<h2><a class="anchor" id="autotoc_md338"></a>
 Exporting SC symbols without SC::Build</h2>
 <p>If the host executable is not built with <code>SC::Build</code>, you must manually export the Sane C++ libraries that the plugin will use.</p>
 <p><code>SC::Build::Project::addExportLibraries({"Foundation", "Memory", "Strings"})</code> is equivalent to adding preprocessor defines like:</p>
@@ -388,7 +388,7 @@ Exporting SC symbols without SC::Build</h2>
 <p>On Windows, some extra care has been taken to force-unlock the <code>.pdb</code> file from visual studio debugger, that happens if the dll is being loaded on a program being debugged.</p>
 <p>As of today this is all implemented using native dynamic library mechanisms that are being loaded directly in the process. <br  />
  Doing the wrong thing with memory or forgetting to clean everything during shutdown can quickly crash the main executable.</p>
-<h1><a class="anchor" id="autotoc_md338"></a>
+<h1><a class="anchor" id="autotoc_md339"></a>
 Videos</h1>
 <p>This is the list of videos that have been recorded showing some usages of the library:</p>
 <ul>
@@ -396,20 +396,20 @@ Videos</h1>
 <li><a href="https://www.youtube.com/watch?v=6DfykfYCQdY">Ep.24 - Hot-Reload C++ on iOS</a></li>
 <li><a href="https://www.youtube.com/watch?v=d7DXxC6xG_A">Ep.25 - C++ Serialization and Reflection (with Hot-Reload)</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md339"></a>
+<h1><a class="anchor" id="autotoc_md340"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2024-06-30-SaneCppLibrariesUpdate.html">June 2024 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2024-07-31-SaneCppLibrariesUpdate.html">July 2024 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md340"></a>
+<h1><a class="anchor" id="autotoc_md341"></a>
 Examples</h1>
 <ul>
 <li><a class="el" href="page_examples.html">SCExample</a> uses <code>Plugin</code> library for a simple hot-reload system</li>
 <li>Unit test inside <code>PluginTest.cpp</code> show how the API is meant to be used</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md341"></a>
+<h1><a class="anchor" id="autotoc_md342"></a>
 Roadmap</h1>
 <p>There are plans to experiment with out of process plugins using some sort of RPC system (like Audio Unit plugins on macOS) and / or experimenting using WASM as a plugin host to eliminate such instability / security issues. Other ideas include redistribute a minimal C++ toolchain (probably a customized clang) that can compile the plugins without needing a system compiler or a sysroot, as all public headers of libraries in this project do not need any system or compiler header.</p>
 <p>🟩 Usable Features:</p><ul>
@@ -433,7 +433,7 @@ Roadmap</h1>
 <li>Deploy closed-source (already compiled) binary plugins</li>
 <li>Allow plugin to be compiled with different compiler from the one used in the Host</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md342"></a>
+<h1><a class="anchor" id="autotoc_md343"></a>
 Statistics</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">

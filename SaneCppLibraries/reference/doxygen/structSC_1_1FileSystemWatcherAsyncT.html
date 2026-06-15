@@ -156,9 +156,12 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Self</b> = <a class=
 <tr class="memitem:ad4f9801b3426ae7313662c76d8e1a7c6" id="r_ad4f9801b3426ae7313662c76d8e1a7c6"><td class="memItemLeft" align="right" valign="top"><a id="ad4f9801b3426ae7313662c76d8e1a7c6" name="ad4f9801b3426ae7313662c76d8e1a7c6"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>T_AsyncLoopWakeUp</b> = typename T_AsyncEventLoop::LoopWakeUp</td></tr>
 <tr class="separator:ad4f9801b3426ae7313662c76d8e1a7c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbc96cd31c73d05d0f77cfaa5ff0cb89" id="r_afbc96cd31c73d05d0f77cfaa5ff0cb89"><td class="memItemLeft" align="right" valign="top"><a id="afbc96cd31c73d05d0f77cfaa5ff0cb89" name="afbc96cd31c73d05d0f77cfaa5ff0cb89"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>T_AsyncFilePoll</b> = typename T_AsyncEventLoop::FilePoll</td></tr>
-<tr class="separator:afbc96cd31c73d05d0f77cfaa5ff0cb89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad79ffa289e712835ab1a059c106ae8ce" id="r_ad79ffa289e712835ab1a059c106ae8ce"><td class="memItemLeft" align="right" valign="top"><a id="ad79ffa289e712835ab1a059c106ae8ce" name="ad79ffa289e712835ab1a059c106ae8ce"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>T_AsyncFileReadiness</b> = typename T_AsyncEventLoop::FileReadiness</td></tr>
+<tr class="separator:ad79ffa289e712835ab1a059c106ae8ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99a169d1d6f8459ccf7cdeb8b96cbe84" id="r_a99a169d1d6f8459ccf7cdeb8b96cbe84"><td class="memItemLeft" align="right" valign="top"><a id="a99a169d1d6f8459ccf7cdeb8b96cbe84" name="a99a169d1d6f8459ccf7cdeb8b96cbe84"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>T_AsyncExternalCompletion</b> = typename T_AsyncEventLoop::ExternalCompletion</td></tr>
+<tr class="separator:a99a169d1d6f8459ccf7cdeb8b96cbe84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad71cfc5a8b1c5550fd98a8477c62f910" id="r_ad71cfc5a8b1c5550fd98a8477c62f910"><td class="memItemLeft" align="right" valign="top"><a id="ad71cfc5a8b1c5550fd98a8477c62f910" name="ad71cfc5a8b1c5550fd98a8477c62f910"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>T_EventObject</b> = typename T_AsyncEventLoop::EventObjectType</td></tr>
 <tr class="separator:ad71cfc5a8b1c5550fd98a8477c62f910"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -181,15 +184,21 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>FolderWatcher</b> = 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:aad79bb3f51527d0264580718cad9be7c" id="r_aad79bb3f51527d0264580718cad9be7c"><td class="memItemLeft" align="right" valign="top">virtual Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad79bb3f51527d0264580718cad9be7c">windowsStartFolderFilePoll</a> (<a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;watcher, void *handle) override</td></tr>
-<tr class="separator:aad79bb3f51527d0264580718cad9be7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8de5be0bce52e19ac23ba8bf2f10ba1" id="r_ae8de5be0bce52e19ac23ba8bf2f10ba1"><td class="memItemLeft" align="right" valign="top">virtual Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8de5be0bce52e19ac23ba8bf2f10ba1">windowsStopFolderFilePoll</a> (<a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;watcher) override</td></tr>
-<tr class="separator:ae8de5be0bce52e19ac23ba8bf2f10ba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a40c8f7951de26a338bb6a4abc496a2" id="r_a6a40c8f7951de26a338bb6a4abc496a2"><td class="memItemLeft" align="right" valign="top">virtual Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a40c8f7951de26a338bb6a4abc496a2">windowsStartFolderExternalCompletion</a> (<a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;watcher, void *handle) override</td></tr>
+<tr class="separator:a6a40c8f7951de26a338bb6a4abc496a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade09b9782672b96faabb44f3da65463c" id="r_ade09b9782672b96faabb44f3da65463c"><td class="memItemLeft" align="right" valign="top">virtual Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade09b9782672b96faabb44f3da65463c">windowsRequestStopFolderExternalCompletion</a> (<a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;watcher) override</td></tr>
+<tr class="separator:ade09b9782672b96faabb44f3da65463c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b0296e64a89a28aef6da059b466cc44" id="r_a9b0296e64a89a28aef6da059b466cc44"><td class="memItemLeft" align="right" valign="top">virtual Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b0296e64a89a28aef6da059b466cc44">windowsWaitFolderExternalCompletionStopped</a> (<a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;) override</td></tr>
+<tr class="separator:a9b0296e64a89a28aef6da059b466cc44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92c7955d95a5568760089899a966f5c1" id="r_a92c7955d95a5568760089899a966f5c1"><td class="memItemLeft" align="right" valign="top">virtual Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92c7955d95a5568760089899a966f5c1">windowsMarkFolderExternalCompletionPending</a> (<a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;watcher) override</td></tr>
+<tr class="separator:a92c7955d95a5568760089899a966f5c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab02fb11ea3e6478f7a7acdb25fa287f9" id="r_ab02fb11ea3e6478f7a7acdb25fa287f9"><td class="memItemLeft" align="right" valign="top">virtual Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab02fb11ea3e6478f7a7acdb25fa287f9">windowsClearFolderExternalCompletionPending</a> (<a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;watcher) override</td></tr>
+<tr class="separator:ab02fb11ea3e6478f7a7acdb25fa287f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35d9c0d496b5420a354ccc208540eabd" id="r_a35d9c0d496b5420a354ccc208540eabd"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35d9c0d496b5420a354ccc208540eabd">windowsGetOverlapped</a> (<a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;watcher) override</td></tr>
 <tr class="separator:a35d9c0d496b5420a354ccc208540eabd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2aada841e36b84a7ea74f872d632e61" id="r_ab2aada841e36b84a7ea74f872d632e61"><td class="memItemLeft" align="right" valign="top"><a id="ab2aada841e36b84a7ea74f872d632e61" name="ab2aada841e36b84a7ea74f872d632e61"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>onEventLoopNotification</b> (typename T_AsyncFilePoll::Result &amp;result)</td></tr>
-<tr class="separator:ab2aada841e36b84a7ea74f872d632e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab73c34fb18cbf2066afba4b4acdf9229" id="r_ab73c34fb18cbf2066afba4b4acdf9229"><td class="memItemLeft" align="right" valign="top"><a id="ab73c34fb18cbf2066afba4b4acdf9229" name="ab73c34fb18cbf2066afba4b4acdf9229"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>onEventLoopNotification</b> (typename T_AsyncExternalCompletion::Result &amp;result)</td></tr>
+<tr class="separator:ab73c34fb18cbf2066afba4b4acdf9229"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_structSC_1_1FileSystemWatcher_1_1EventLoopRunner"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_structSC_1_1FileSystemWatcher_1_1EventLoopRunner')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="structSC_1_1FileSystemWatcher_1_1EventLoopRunner.html">SC::FileSystemWatcher::EventLoopRunner</a></td></tr>
 <tr class="memitem:a043690f5593b9c25cfc02dc824532f7b inherit pro_methods_structSC_1_1FileSystemWatcher_1_1EventLoopRunner" id="r_a043690f5593b9c25cfc02dc824532f7b"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>internalInit</b> (<a class="el" href="structSC_1_1FileSystemWatcher.html">FileSystemWatcher</a> &amp;fsWatcher, int handle)</td></tr>
@@ -200,9 +209,12 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:af5063570b46fbc6aa3260a7132863897" id="r_af5063570b46fbc6aa3260a7132863897"><td class="memItemLeft" align="right" valign="top"><a id="af5063570b46fbc6aa3260a7132863897" name="af5063570b46fbc6aa3260a7132863897"></a>
 T_AsyncEventLoop *&#160;</td><td class="memItemRight" valign="bottom"><b>eventLoop</b> = nullptr</td></tr>
 <tr class="separator:af5063570b46fbc6aa3260a7132863897"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae72dd7e8e0266fbf12573e3b93a93fe7" id="r_ae72dd7e8e0266fbf12573e3b93a93fe7"><td class="memItemLeft" align="right" valign="top"><a id="ae72dd7e8e0266fbf12573e3b93a93fe7" name="ae72dd7e8e0266fbf12573e3b93a93fe7"></a>
-Function&lt; void(T_AsyncResult &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>onAsyncPollClose</b></td></tr>
-<tr class="separator:ae72dd7e8e0266fbf12573e3b93a93fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae624adc43acff73f73a5fdbf8f1d0479" id="r_ae624adc43acff73f73a5fdbf8f1d0479"><td class="memItemLeft" align="right" valign="top"><a id="ae624adc43acff73f73a5fdbf8f1d0479" name="ae624adc43acff73f73a5fdbf8f1d0479"></a>
+Function&lt; void(T_AsyncResult &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>onAsyncCompletionClose</b></td></tr>
+<tr class="separator:ae624adc43acff73f73a5fdbf8f1d0479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6506f0548542554dd843f51728cdd42" id="r_ab6506f0548542554dd843f51728cdd42"><td class="memItemLeft" align="right" valign="top"><a id="ab6506f0548542554dd843f51728cdd42" name="ab6506f0548542554dd843f51728cdd42"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>windowsFolderCompletionStopped</b> = false</td></tr>
+<tr class="separator:ab6506f0548542554dd843f51728cdd42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_structSC_1_1FileSystemWatcher_1_1EventLoopRunner"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_structSC_1_1FileSystemWatcher_1_1EventLoopRunner')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="structSC_1_1FileSystemWatcher_1_1EventLoopRunner.html">SC::FileSystemWatcher::EventLoopRunner</a></td></tr>
 <tr class="memitem:a135f127a818656e17d8be425cfce9971 inherit pro_attribs_structSC_1_1FileSystemWatcher_1_1EventLoopRunner" id="r_a135f127a818656e17d8be425cfce9971"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="structSC_1_1FileSystemWatcher.html">FileSystemWatcher</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>fileSystemWatcher</b> = nullptr</td></tr>
@@ -251,6 +263,35 @@ struct SC::FileSystemWatcherAsyncT&lt; T_AsyncEventLoop &gt;</div><p><a class="e
 <div class="line">    <span class="comment">// When all watchers have been unwatched and to dispose all system resources</span></div>
 <div class="line">    SC_TRY(fileSystemWatcher.<a class="code hl_function" href="structSC_1_1FileSystemWatcher.html#a4d59b6afcd7686a3800b3f913271813e">close</a>());</div>
 </div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab02fb11ea3e6478f7a7acdb25fa287f9" name="ab02fb11ea3e6478f7a7acdb25fa287f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab02fb11ea3e6478f7a7acdb25fa287f9">&#9670;&#160;</a></span>windowsClearFolderExternalCompletionPending()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_AsyncEventLoop &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Result <a class="el" href="structSC_1_1FileSystemWatcherAsyncT.html">SC::FileSystemWatcherAsyncT</a>&lt; T_AsyncEventLoop &gt;::windowsClearFolderExternalCompletionPending </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>watcher</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="structSC_1_1FileSystemWatcher_1_1EventLoopRunner.html">SC::FileSystemWatcher::EventLoopRunner</a>.</p>
+
+</div>
+</div>
 <a id="a35d9c0d496b5420a354ccc208540eabd" name="a35d9c0d496b5420a354ccc208540eabd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a35d9c0d496b5420a354ccc208540eabd">&#9670;&#160;</a></span>windowsGetOverlapped()</h2>
 
@@ -280,8 +321,8 @@ template&lt;typename T_AsyncEventLoop &gt; </div>
 
 </div>
 </div>
-<a id="aad79bb3f51527d0264580718cad9be7c" name="aad79bb3f51527d0264580718cad9be7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad79bb3f51527d0264580718cad9be7c">&#9670;&#160;</a></span>windowsStartFolderFilePoll()</h2>
+<a id="a92c7955d95a5568760089899a966f5c1" name="a92c7955d95a5568760089899a966f5c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92c7955d95a5568760089899a966f5c1">&#9670;&#160;</a></span>windowsMarkFolderExternalCompletionPending()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -292,7 +333,65 @@ template&lt;typename T_AsyncEventLoop &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual Result <a class="el" href="structSC_1_1FileSystemWatcherAsyncT.html">SC::FileSystemWatcherAsyncT</a>&lt; T_AsyncEventLoop &gt;::windowsStartFolderFilePoll </td>
+          <td class="memname">virtual Result <a class="el" href="structSC_1_1FileSystemWatcherAsyncT.html">SC::FileSystemWatcherAsyncT</a>&lt; T_AsyncEventLoop &gt;::windowsMarkFolderExternalCompletionPending </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>watcher</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="structSC_1_1FileSystemWatcher_1_1EventLoopRunner.html">SC::FileSystemWatcher::EventLoopRunner</a>.</p>
+
+</div>
+</div>
+<a id="ade09b9782672b96faabb44f3da65463c" name="ade09b9782672b96faabb44f3da65463c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade09b9782672b96faabb44f3da65463c">&#9670;&#160;</a></span>windowsRequestStopFolderExternalCompletion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_AsyncEventLoop &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Result <a class="el" href="structSC_1_1FileSystemWatcherAsyncT.html">SC::FileSystemWatcherAsyncT</a>&lt; T_AsyncEventLoop &gt;::windowsRequestStopFolderExternalCompletion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>watcher</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="structSC_1_1FileSystemWatcher_1_1EventLoopRunner.html">SC::FileSystemWatcher::EventLoopRunner</a>.</p>
+
+</div>
+</div>
+<a id="a6a40c8f7951de26a338bb6a4abc496a2" name="a6a40c8f7951de26a338bb6a4abc496a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a40c8f7951de26a338bb6a4abc496a2">&#9670;&#160;</a></span>windowsStartFolderExternalCompletion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_AsyncEventLoop &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Result <a class="el" href="structSC_1_1FileSystemWatcherAsyncT.html">SC::FileSystemWatcherAsyncT</a>&lt; T_AsyncEventLoop &gt;::windowsStartFolderExternalCompletion </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>watcher</em></span>, </td>
         </tr>
@@ -313,8 +412,8 @@ template&lt;typename T_AsyncEventLoop &gt; </div>
 
 </div>
 </div>
-<a id="ae8de5be0bce52e19ac23ba8bf2f10ba1" name="ae8de5be0bce52e19ac23ba8bf2f10ba1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8de5be0bce52e19ac23ba8bf2f10ba1">&#9670;&#160;</a></span>windowsStopFolderFilePoll()</h2>
+<a id="a9b0296e64a89a28aef6da059b466cc44" name="a9b0296e64a89a28aef6da059b466cc44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b0296e64a89a28aef6da059b466cc44">&#9670;&#160;</a></span>windowsWaitFolderExternalCompletionStopped()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -325,9 +424,9 @@ template&lt;typename T_AsyncEventLoop &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual Result <a class="el" href="structSC_1_1FileSystemWatcherAsyncT.html">SC::FileSystemWatcherAsyncT</a>&lt; T_AsyncEventLoop &gt;::windowsStopFolderFilePoll </td>
+          <td class="memname">virtual Result <a class="el" href="structSC_1_1FileSystemWatcherAsyncT.html">SC::FileSystemWatcherAsyncT</a>&lt; T_AsyncEventLoop &gt;::windowsWaitFolderExternalCompletionStopped </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>watcher</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FolderWatcher</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>

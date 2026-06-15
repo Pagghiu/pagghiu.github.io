@@ -191,9 +191,12 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>FileWrite</b> = <a c
 <tr class="memitem:a947a6a836a53d21346a0036037f06224" id="r_a947a6a836a53d21346a0036037f06224"><td class="memItemLeft" align="right" valign="top"><a id="a947a6a836a53d21346a0036037f06224" name="a947a6a836a53d21346a0036037f06224"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>FileSend</b> = <a class="el" href="structSC_1_1AsyncFileSend.html">AsyncFileSend</a></td></tr>
 <tr class="separator:a947a6a836a53d21346a0036037f06224"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acad740ee41421f205ea2d27d910fa24b" id="r_acad740ee41421f205ea2d27d910fa24b"><td class="memItemLeft" align="right" valign="top"><a id="acad740ee41421f205ea2d27d910fa24b" name="acad740ee41421f205ea2d27d910fa24b"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>FilePoll</b> = <a class="el" href="structSC_1_1AsyncFilePoll.html">AsyncFilePoll</a></td></tr>
-<tr class="separator:acad740ee41421f205ea2d27d910fa24b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bbdc3caf9e6d03d192593bbcccdcdbd" id="r_a9bbdc3caf9e6d03d192593bbcccdcdbd"><td class="memItemLeft" align="right" valign="top"><a id="a9bbdc3caf9e6d03d192593bbcccdcdbd" name="a9bbdc3caf9e6d03d192593bbcccdcdbd"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>FileReadiness</b> = <a class="el" href="structSC_1_1AsyncFileReadiness.html">AsyncFileReadiness</a></td></tr>
+<tr class="separator:a9bbdc3caf9e6d03d192593bbcccdcdbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd3d39f7184933dc40489db01106d4bb" id="r_abd3d39f7184933dc40489db01106d4bb"><td class="memItemLeft" align="right" valign="top"><a id="abd3d39f7184933dc40489db01106d4bb" name="abd3d39f7184933dc40489db01106d4bb"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ExternalCompletion</b> = <a class="el" href="structSC_1_1AsyncExternalCompletion.html">AsyncExternalCompletion</a></td></tr>
+<tr class="separator:abd3d39f7184933dc40489db01106d4bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0c585ee5b84c485b66bb84111979d28" id="r_ae0c585ee5b84c485b66bb84111979d28"><td class="memItemLeft" align="right" valign="top"><a id="ae0c585ee5b84c485b66bb84111979d28" name="ae0c585ee5b84c485b66bb84111979d28"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>FileSystemOperation</b> = <a class="el" href="structSC_1_1AsyncFileSystemOperation.html">AsyncFileSystemOperation</a></td></tr>
 <tr class="separator:ae0c585ee5b84c485b66bb84111979d28"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -230,6 +233,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a99323b220bb1c49ee3118fca2bf93ed1" id="r_a99323b220bb1c49ee3118fca2bf93ed1"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99323b220bb1c49ee3118fca2bf93ed1">start</a> (<a class="el" href="structSC_1_1AsyncRequest.html">AsyncRequest</a> &amp;async)</td></tr>
 <tr class="memdesc:a99323b220bb1c49ee3118fca2bf93ed1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queues an async request request that has been correctly setup.  <br /></td></tr>
 <tr class="separator:a99323b220bb1c49ee3118fca2bf93ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8109d5b11f58ed7824fa561979667df1" id="r_a8109d5b11f58ed7824fa561979667df1"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8109d5b11f58ed7824fa561979667df1">postExternalCompletion</a> (<a class="el" href="structSC_1_1AsyncExternalCompletion.html">AsyncExternalCompletion</a> &amp;async, size_t bytesTransferred=0)</td></tr>
+<tr class="memdesc:a8109d5b11f58ed7824fa561979667df1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posts completion for an <a class="el" href="structSC_1_1AsyncExternalCompletion.html" title="Integrates externally-submitted completion based operations with AsyncEventLoop.">AsyncExternalCompletion</a> started in manual mode.  <br /></td></tr>
+<tr class="separator:a8109d5b11f58ed7824fa561979667df1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac079f117519d00d84698380ee62c733b" id="r_ac079f117519d00d84698380ee62c733b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac079f117519d00d84698380ee62c733b">interrupt</a> ()</td></tr>
 <tr class="memdesc:ac079f117519d00d84698380ee62c733b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupts the event loop even if it has active request on it.  <br /></td></tr>
 <tr class="separator:ac079f117519d00d84698380ee62c733b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -866,6 +872,29 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncResult</b></td
 </div><div class="memdoc">
 
 <p>Returns true if backend needs a thread pool for non-blocking fs operations (anything but io_uring basically) </p>
+
+</div>
+</div>
+<a id="a8109d5b11f58ed7824fa561979667df1" name="a8109d5b11f58ed7824fa561979667df1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8109d5b11f58ed7824fa561979667df1">&#9670;&#160;</a></span>postExternalCompletion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::AsyncEventLoop::postExternalCompletion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSC_1_1AsyncExternalCompletion.html">AsyncExternalCompletion</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>async</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>bytesTransferred</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Posts completion for an <a class="el" href="structSC_1_1AsyncExternalCompletion.html" title="Integrates externally-submitted completion based operations with AsyncEventLoop.">AsyncExternalCompletion</a> started in manual mode. </p>
 
 </div>
 </div>

@@ -129,58 +129,58 @@ $(function(){initNavTree('library_socket.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md402">Dependencies</a>
+    <a href="#autotoc_md403">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md403">Features</a>
+    <a href="#autotoc_md404">Features</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md404">Details</a>
+    <a href="#autotoc_md405">Details</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md405">Status</a>
+    <a href="#autotoc_md406">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md406">Blog</a>
+    <a href="#autotoc_md407">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md407">Description</a>
+    <a href="#autotoc_md408">Description</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md408">SocketDescriptor</a>
+        <a href="#autotoc_md409">SocketDescriptor</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md409">SocketServer</a>
+        <a href="#autotoc_md410">SocketServer</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md410">SocketClient</a>
+        <a href="#autotoc_md411">SocketClient</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md411">SocketIPAddress</a>
+        <a href="#autotoc_md412">SocketIPAddress</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md412">SocketDNS</a>
+        <a href="#autotoc_md413">SocketDNS</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md413">Roadmap</a>
+    <a href="#autotoc_md414">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md414">Statistics</a>
+    <a href="#autotoc_md415">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟨 Synchronous socket networking and DNS lookup</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppSocket.h">SaneCppSocket.h</a> is a library implementing synchronous socket networking and DNS lookup.</p>
-<h1><a class="anchor" id="autotoc_md402"></a>
+<h1><a class="anchor" id="autotoc_md403"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Socket.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md403"></a>
+<h1><a class="anchor" id="autotoc_md404"></a>
 Features</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -198,14 +198,14 @@ Features</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1SocketNetworking.html" title="Networking globals initialization (Winsock2 WSAStartup)">SC::SocketNetworking</a>   </td><td class="markdownTableBodyLeft">Networking globals initialization (Winsock2 WSAStartup)      </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md404"></a>
-Details</h1>
 <h1><a class="anchor" id="autotoc_md405"></a>
+Details</h1>
+<h1><a class="anchor" id="autotoc_md406"></a>
 Status</h1>
 <p>🟨 MVP <br  />
  Simple synchronous TCP client / server workflow is supported, but it would need better testing. <br  />
 </p>
-<h1><a class="anchor" id="autotoc_md406"></a>
+<h1><a class="anchor" id="autotoc_md407"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
@@ -213,7 +213,7 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html">July 2025 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md407"></a>
+<h1><a class="anchor" id="autotoc_md408"></a>
 Description</h1>
 <ul>
 <li><a class="el" href="structSC_1_1SocketDescriptor.html" title="Low-level OS socket handle.">SC::SocketDescriptor</a> can create and destroy the OS level socket descriptor.</li>
@@ -223,7 +223,7 @@ Description</h1>
 <li><a class="el" href="structSC_1_1SocketDNS.html" title="Synchronous DNS Resolution.">SC::SocketDNS</a> class allow resolving a StringView to an IP address.</li>
 <li><a class="el" href="structSC_1_1SocketNetworking.html" title="Networking globals initialization (Winsock2 WSAStartup)">SC::SocketNetworking</a> initializes WinSock2 for current process.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md408"></a>
+<h2><a class="anchor" id="autotoc_md409"></a>
 SocketDescriptor</h2>
 <p>It also allow querying inheritability and changing it (and blocking mode) <br  />
 Example (extracted from unit test): </p><div class="fragment"><div class="line">    <span class="keywordtype">bool</span> isInheritable;</div>
@@ -259,7 +259,7 @@ Example (extracted from unit test): </p><div class="fragment"><div class="line">
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="structSC_1_1SocketDescriptor.html#a2720319cda22d466deace32ed65ba291">setTcpNoDelay</a>(<span class="keyword">false</span>));</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.close());</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md409"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md410"></a>
 SocketServer</h2>
 <p>Example: </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1SocketDescriptor.html">SocketDescriptor</a> serverSocket;</div>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1SocketServer.html">SocketServer</a>     server(serverSocket);</div>
@@ -286,7 +286,7 @@ SocketServer</h2>
 <div class="line">    SC_TRY(acceptedClientSocket.isValid());</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// ... Do something with acceptedClientSocket</span></div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md410"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md411"></a>
 SocketClient</h2>
 <p>The socket client can be obtained via <a class="el" href="structSC_1_1SocketServer.html#aeabb14ac60f8530d60292cf87bbf4f26" title="Accepts a new client, blocking while waiting for it.">SC::SocketServer::accept</a> or connected to an endpoint through <a class="el" href="structSC_1_1SocketClient.html#a72b5ed737b5df83f1b74be41fc4aa163" title="Connect to a given address and port combination.">SC::SocketClient::connect</a>.</p>
 <p>Example (accepted client from server, doing a synchronous read): </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1SocketDescriptor.html">SocketDescriptor</a> acceptedClientSocket;</div>
@@ -331,7 +331,7 @@ SocketClient</h2>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Close the socket</span></div>
 <div class="line">    SC_TRY(clientSocket.close());</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md411"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md412"></a>
 SocketIPAddress</h2>
 <p>Example: </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> address;</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not address.<a class="code hl_function" href="structSC_1_1SocketIPAddress.html#a51fa59480b3d743f7f32c87fda744c37">fromAddressPort</a>(<span class="stringliteral">&quot;1223.22.44.1&quot;</span>, 6666));</div>
@@ -343,14 +343,14 @@ SocketIPAddress</h2>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span>  badMemory[]  = <span class="stringliteral">&quot;oh yeah that&#39;s a really broken socket ip address&quot;</span>;</div>
 <div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; badIPAddress = *<span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><a class="code hl_struct" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a>*<span class="keyword">&gt;</span>(&amp;badMemory);</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not badIPAddress.isValid());</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md412"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md413"></a>
 SocketDNS</h2>
 <p>Example: </p><div class="fragment"><div class="line">    <span class="keywordtype">char</span>       buffer[256] = {0};</div>
 <div class="line">    Span&lt;char&gt; ipAddress   = {buffer};</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(SocketDNS::resolveDNS(<span class="stringliteral">&quot;localhost&quot;</span>, ipAddress));</div>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1StringView.html">StringView</a> ipString = <a class="code hl_struct" href="structSC_1_1StringView.html">StringView</a>(ipAddress, <span class="keyword">true</span>, StringEncoding::Ascii);</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(ipString == <span class="stringliteral">&quot;127.0.0.1&quot;</span> or ipString == <span class="stringliteral">&quot;::1&quot;</span>);</div>
-</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md413"></a>
+</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md414"></a>
 Roadmap</h1>
 <p>🟩 Usable</p><ul>
 <li>Add UDP specific socket operations</li>
@@ -361,7 +361,7 @@ Roadmap</h1>
 <p>💡 Unplanned Features:</p><ul>
 <li>None so far</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md414"></a>
+<h1><a class="anchor" id="autotoc_md415"></a>
 Statistics</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">

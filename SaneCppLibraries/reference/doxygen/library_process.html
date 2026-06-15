@@ -129,51 +129,51 @@ $(function(){initNavTree('library_process.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md343">Quick Sheet</a>
+    <a href="#autotoc_md344">Quick Sheet</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md344">Dependencies</a>
+    <a href="#autotoc_md345">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md345">Features</a>
+    <a href="#autotoc_md346">Features</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md346">Status</a>
+    <a href="#autotoc_md347">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md347">Description</a>
+    <a href="#autotoc_md348">Description</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md348">Videos</a>
+    <a href="#autotoc_md349">Videos</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md349">Blog</a>
+    <a href="#autotoc_md350">Blog</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md350">Process</a>
+        <a href="#autotoc_md351">Process</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md351">ProcessChain</a>
+        <a href="#autotoc_md352">ProcessChain</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md352">ProcessEnvironment</a>
+        <a href="#autotoc_md353">ProcessEnvironment</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md353">ProcessFork</a>
+        <a href="#autotoc_md354">ProcessFork</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md354">Roadmap</a>
+    <a href="#autotoc_md355">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md355">Statistics</a>
+    <a href="#autotoc_md356">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟩 Create child processes and chain them (also usable with <a class="el" href="library_async.html">Async</a> library)</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppProcess.h">SaneCppProcess.h</a> is a library that allows launching, chaining input and output, setting working directory and environment variables of child processes.</p>
-<h1><a class="anchor" id="autotoc_md343"></a>
+<h1><a class="anchor" id="autotoc_md344"></a>
 Quick Sheet</h1>
 <div class="fragment"><div class="line"><span class="comment">// 1. Execute child process (launch and wait for it to fully execute)</span></div>
 <div class="line"><a class="code hl_struct" href="structSC_1_1Process.html">Process</a>().<a class="code hl_function" href="structSC_1_1Process.html#a32720740f1ea8e77bb8a92822003f989">exec</a>({<span class="stringliteral">&quot;cmd-exe&quot;</span>, <span class="stringliteral">&quot;-h&quot;</span>});</div>
@@ -222,14 +222,14 @@ Quick Sheet</h1>
 <div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(process7.<a class="code hl_function" href="structSC_1_1Process.html#a3937a07754917aff30f652560cd6f31e">setEnvironment</a>(<span class="stringliteral">&quot;PATH&quot;</span>, <span class="stringliteral">&quot;/usr/sane_cpp_binaries&quot;</span>));</div>
 <div class="line"><span class="comment">// Set the current working directory</span></div>
 <div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(process7.<a class="code hl_function" href="structSC_1_1Process.html#ae270e3fe8309265223236fc7001ff1fe">setWorkingDirectory</a>(<span class="stringliteral">&quot;/usr/home&quot;</span>));</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md344"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md345"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <a class="el" href="library_file.html">File</a></li>
 <li>All dependencies: <a class="el" href="library_file.html">File</a></li>
 </ul>
 <p><img src="Process.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md345"></a>
+<h1><a class="anchor" id="autotoc_md346"></a>
 Features</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -243,20 +243,20 @@ Features</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1ProcessFork.html" title="Forks current process exiting child at end of process A fork duplicates a parent process execution st...">SC::ProcessFork</a>   </td><td class="markdownTableBodyLeft">Forks current process exiting child at end of process A <em>fork</em> duplicates a <em>parent</em> process execution state, os handles and private memory.      </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md346"></a>
+<h1><a class="anchor" id="autotoc_md347"></a>
 Status</h1>
 <p>🟩 Usable <br  />
  Library is being used in <a class="el" href="library_plugin.html">SC::Plugin</a> and in <a class="el" href="page_tools.html">SC::Tools</a>.</p>
-<h1><a class="anchor" id="autotoc_md347"></a>
+<h1><a class="anchor" id="autotoc_md348"></a>
 Description</h1>
 <p>The <a class="el" href="structSC_1_1Process.html" title="Execute a child process with standard file descriptors redirection.">SC::Process</a> class is used when handling a process in isolation, while the <a class="el" href="structSC_1_1ProcessChain.html" title="Execute multiple child processes chaining input / output between them.">SC::ProcessChain</a> is used when there is need to chain inputs and outputs of multiple processes together.</p>
-<h1><a class="anchor" id="autotoc_md348"></a>
+<h1><a class="anchor" id="autotoc_md349"></a>
 Videos</h1>
 <p>This is the list of videos that have been recorded showing some of the internal thoughts that have been going into this library:</p>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=-OiVELMxL6Q">Ep.06 - Posix fork</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md349"></a>
+<h1><a class="anchor" id="autotoc_md350"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
@@ -266,7 +266,7 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html">July 2025 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html">August 2025 Update</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md350"></a>
+<h2><a class="anchor" id="autotoc_md351"></a>
 Process</h2>
 <p>Execute a child process with standard file descriptors redirection.   </p>
 <p><br  />
@@ -331,7 +331,7 @@ Features:</p>
 <div class="line">    <span class="comment">// PATH env var doesn&#39;t exist because of Process::inheritParentEnvironmentVariables(false)</span></div>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1StringView.html">StringView</a> out = output.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>();</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not out.<a class="code hl_function" href="structSC_1_1StringView.html#ae59944bd39c323dde4cea38a12fd9887">containsString</a>(<span class="stringliteral">&quot;PATH=&quot;</span>));</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md351"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md352"></a>
 ProcessChain</h2>
 <p>Execute multiple child processes chaining input / output between them.   </p>
 <p><br  />
@@ -415,7 +415,7 @@ Chains multiple child processes together, so that the output of a process become
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(outputPipe.<a class="code hl_variable" href="structSC_1_1PipeDescriptor.html#ab97fa3a07fcf1e113f0cc3cf1273c1e4">readPipe</a>.<a class="code hl_function" href="structSC_1_1FileDescriptor.html#a3a0c46183b22f201ef7f087b9e7e94e4">readUntilEOF</a>(output));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(chain.<a class="code hl_function" href="structSC_1_1ProcessChain.html#ab69c77b201014118fc5dab505dc1cd04">waitForExitSync</a>());</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(<a class="code hl_struct" href="structSC_1_1StringView.html">StringView</a>(output.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>()).<a class="code hl_function" href="structSC_1_1StringView.html#a485982b02e6830f9d803075cc11d0c6e">startsWith</a>(expectedOutput));</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md352"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md353"></a>
 ProcessEnvironment</h2>
 <p>Reads current process environment variables.   </p>
 <p>Example: Print all environment variables to stdout </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1ProcessEnvironment.html">SC::ProcessEnvironment</a> environment;</div>
@@ -434,7 +434,7 @@ ProcessEnvironment</h2>
 <div class="line">            report.console.printLine(value);</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md353"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md354"></a>
 ProcessFork</h2>
 <p>Forks current process exiting child at end of process A <em>fork</em> duplicates a <em>parent</em> process execution state, os handles and private memory.   </p>
 <p>Its semantics are quite different from platform to platform but on its most common denominator it can be used to carry on "background" operations on snapshots of current program memory. One relevant use case is serializing to disk or network a live, complex and large data structure. Without the fork the program should either:</p>
@@ -513,7 +513,7 @@ ProcessFork</h2>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">break</span>;</div>
 <div class="line">    }</div>
-</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md354"></a>
+</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md355"></a>
 Roadmap</h1>
 <p>🟦 Complete Features:</p><ul>
 <li>To be defined</li>
@@ -521,7 +521,7 @@ Roadmap</h1>
 <p>💡 Unplanned Features:</p><ul>
 <li>None so far</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md355"></a>
+<h1><a class="anchor" id="autotoc_md356"></a>
 Statistics</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">

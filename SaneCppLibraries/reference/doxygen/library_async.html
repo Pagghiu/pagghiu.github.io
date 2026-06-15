@@ -200,32 +200,35 @@ $(function(){initNavTree('library_async.html',''); initResizable(true); });
         <a href="#autotoc_md138">AsyncFileWrite</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md139">AsyncFilePoll</a>
+        <a href="#autotoc_md139">AsyncFileReadiness</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md140">AsyncSequence</a>
+        <a href="#autotoc_md140">AsyncExternalCompletion</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md141">AsyncTaskSequence</a>
+        <a href="#autotoc_md141">AsyncSequence</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md142">AsyncFileSystemOperation</a>
+        <a href="#autotoc_md142">AsyncTaskSequence</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md143">AsyncFileSystemOperation</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md143">Implementation</a>
+    <a href="#autotoc_md144">Implementation</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md144">Memory allocation</a>
+        <a href="#autotoc_md145">Memory allocation</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md145">Roadmap</a>
+    <a href="#autotoc_md146">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md146">Statistics</a>
+    <a href="#autotoc_md147">Statistics</a>
   </li>
 </ul>
 </div>
@@ -234,9 +237,9 @@ $(function(){initNavTree('library_async.html',''); initResizable(true); });
 </p>
 <dl class="section note"><dt>Note</dt><dd>Check <a class="el" href="library_async_streams.html">Async Streams</a> for an higher level construct when streaming data</dd>
 <dd>
-Check <a class="el" href="library_await.html">Await</a> for the C++20 coroutine layer that wraps <code>AsyncEventLoop</code> with <code>co_await</code> syntax while preserving the same request lifetime expectations. It currently covers a small but useful subset of timers, sockets, loop wake-ups, files, file polling, selected filesystem operations, process exit, signals, background work, child tasks, task groups, cancellation, and timeouts.</dd>
+Check <a class="el" href="library_await.html">Await</a> for the C++20 coroutine layer that wraps <code>AsyncEventLoop</code> with <code>co_await</code> syntax while preserving the same request lifetime expectations. It currently covers a small but useful subset of timers, sockets, loop wake-ups, files, file readiness, selected filesystem operations, process exit, signals, background work, child tasks, task groups, cancellation, and timeouts.</dd>
 <dd>
-<code>Await</code> keeps the same platform caveats as <code>Async</code>: POSIX file polling is exposed directly, while Windows file polling for normal file or pipe handles currently fails fast at the Await layer instead of pretending to be portable. File and filesystem operations that need blocking work use caller-provided <code>ThreadPool</code> storage.</dd>
+<code>Await</code> keeps the same platform caveats as <code>Async</code>: POSIX file readiness is exposed directly, while Windows file readiness for normal file or pipe handles currently fails fast at the Await layer instead of pretending to be portable. File and filesystem operations that need blocking work use caller-provided <code>ThreadPool</code> storage.</dd>
 <dd>
 Long-lived callback streams such as <code>FileSystemWatcher</code> should stay callback-style or use an explicit caller-owned adapter with bounded event storage. <code>Await</code> intentionally does not model watcher streams as direct <code>AwaitEventLoop</code> methods.</dd></dl>
 <h1><a class="anchor" id="autotoc_md116"></a>
@@ -277,12 +280,14 @@ Features</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="structSC_1_1AsyncProcessExit.html">AsyncProcessExit</a>   </td><td class="markdownTableBodyNone">Starts monitoring a process, notifying about its termination.       </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="structSC_1_1AsyncFilePoll.html">AsyncFilePoll</a>   </td><td class="markdownTableBodyNone">Starts an handle polling operation.       </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="structSC_1_1AsyncFileReadiness.html">AsyncFileReadiness</a>   </td><td class="markdownTableBodyNone">Starts a file descriptor readiness operation.       </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="structSC_1_1AsyncSequence.html">AsyncSequence</a>   </td><td class="markdownTableBodyNone">Execute AsyncRequests serially, by submitting the next one after the previous one is completed.       </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="structSC_1_1AsyncExternalCompletion.html">AsyncExternalCompletion</a>   </td><td class="markdownTableBodyNone">Integrates externally-submitted completion based operations with AsyncEventLoop.       </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="structSC_1_1AsyncFileSystemOperation.html">AsyncFileSystemOperation</a>   </td><td class="markdownTableBodyNone">Starts an asynchronous file system operation (open, close, read, write, sendFile, stat, lstat, fstat, etc.) Some operations need a file path and others need a file descriptor.       </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="structSC_1_1AsyncSequence.html">AsyncSequence</a>   </td><td class="markdownTableBodyNone">Execute AsyncRequests serially, by submitting the next one after the previous one is completed.       </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="structSC_1_1AsyncFileSystemOperation.html">AsyncFileSystemOperation</a>   </td><td class="markdownTableBodyNone">Starts an asynchronous file system operation (open, close, read, write, sendFile, stat, lstat, fstat, etc.) Some operations need a file path and others need a file descriptor.       </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="structSC_1_1AsyncSignal.html">AsyncSignal</a>   </td><td class="markdownTableBodyNone">Starts monitoring a signal, notifying about its reception.      </td></tr>
 </table>
 <h1><a class="anchor" id="autotoc_md118"></a>
@@ -935,10 +940,14 @@ AsyncFileWrite</h2>
 <div class="line"><span class="comment">// SC_TRY(asyncWriteFile.start(eventLoop));</span></div>
 </div><!-- fragment -->  <p>When using offsets, prefer a single contiguous buffer for portable examples and higher-level helpers. Combining scatter/gather buffers with an explicit offset needs backend-specific validation before being treated as a portable idiom.</p>
 <h2><a class="anchor" id="autotoc_md139"></a>
-AsyncFilePoll</h2>
-<p>Starts an handle polling operation.   </p>
-<p>Uses <code>GetOverlappedResult</code> (windows), <code>kevent</code> (macOS), <code>epoll</code> (Linux) and <code>io_uring</code> (Linux). Callback will be called when any of the three API signals readiness events on the given file descriptor. Check <a class="el" href="library_file_system_watcher.html">File System Watcher</a> for an example usage of this notification.   </p>
+AsyncFileReadiness</h2>
+<p>Starts a file descriptor readiness operation.   </p>
+<p>Uses <code>kevent</code> (macOS), <code>epoll</code> (Linux) and <code>io_uring</code> (Linux). Callback will be called when the OS signals readiness events on the given file descriptor.   </p>
 <h2><a class="anchor" id="autotoc_md140"></a>
+AsyncExternalCompletion</h2>
+<p>Integrates externally-submitted completion based operations with AsyncEventLoop.   </p>
+<p>Manual mode is created with start(eventLoop) and completed with AsyncEventLoop::postExternalCompletion(). On Windows, native mode is created with start(eventLoop, handle) and completed by IOCP using getWindowsOverlapped().   </p>
+<h2><a class="anchor" id="autotoc_md141"></a>
 AsyncSequence</h2>
 <p>Execute AsyncRequests serially, by submitting the next one after the previous one is completed.   </p>
 <p>Requests are being queued on a sequence using AsyncRequest::executeOn. AsyncTaskSequence can be used to force running asyncs on a thread (useful for buffered files) </p><div class="fragment"><div class="line"><span class="comment">// Assuming an already created (and running) AsyncEventLoop named `eventLoop`</span></div>
@@ -985,11 +994,11 @@ AsyncSequence</h2>
 <div class="line"><span class="comment">// but the operation will not be fully async on regular (buffered) files, except on io_uring.</span></div>
 <div class="line"><span class="comment">//</span></div>
 <div class="line"><span class="comment">// SC_TRY(asyncWriteFile.start(eventLoop));</span></div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md141"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md142"></a>
 AsyncTaskSequence</h2>
 <p>An AsyncSequence using a <a class="el" href="structSC_1_1ThreadPool.html" title="Simple thread pool that executes tasks in a fixed number of worker threads.">SC::ThreadPool</a> to execute one or more <a class="el" href="structSC_1_1AsyncRequest.html" title="Base class for all async requests, holding state and type.">SC::AsyncRequest</a> in a background thread.   </p>
 <p>Calling <a class="el" href="structSC_1_1AsyncRequest.html#aefb78bfb0f0f75cc51e79d027d3902c5" title="Adds the request to be executed on a specific AsyncSequence.">SC::AsyncRequest::executeOn</a> on multiple requests with the same <a class="el" href="structSC_1_1AsyncTaskSequence.html" title="An AsyncSequence using a SC::ThreadPool to execute one or more SC::AsyncRequest in a background threa...">SC::AsyncTaskSequence</a> queues them to be serially executed on the same thread.   </p>
-<h2><a class="anchor" id="autotoc_md142"></a>
+<h2><a class="anchor" id="autotoc_md143"></a>
 AsyncFileSystemOperation</h2>
 <p>Starts an asynchronous file system operation (open, close, read, write, sendFile, stat, lstat, fstat, etc.) Some operations need a file path and others need a file descriptor.   </p>
 <dl class="section note"><dt>Note</dt><dd>Operations will run on the thread pool set with AsyncFileSystemOperation::setThreadPool on all backends except when the event loop is using io_uring on Linux. </dd></dl>
@@ -1369,18 +1378,18 @@ AsyncFileSystemOperation</h2>
 <div class="line">    <span class="comment">// Verify the file was removed</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.existsAndIsFile(filePath.view()));</div>
 <div class="line"> </div>
-</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md143"></a>
+</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md144"></a>
 Implementation</h1>
 <p>Library abstracts async operations by exposing a completion based mechanism. This mechanism currently maps on <code>kqueue</code> on macOS and <code>OVERLAPPED</code> on Windows.</p>
 <p>On Linux it tries to create a direct <code>io_uring</code> backend first and falls back to <code>epoll</code> when the kernel or runtime policy does not allow it. No <code>liburing</code> shared library is required.</p>
 <p>The api works on file and socket descriptors, that can be obtained from the <a class="el" href="library_file.html">File</a> and <a class="el" href="library_socket.html">Socket</a> libraries. It also works with serial descriptors from <a class="el" href="library_serial_port.html">SerialPort</a>, by using <a class="el" href="structSC_1_1AsyncFileRead.html">AsyncFileRead</a> and <a class="el" href="structSC_1_1AsyncFileWrite.html">AsyncFileWrite</a> on an opened <a class="el" href="structSC_1_1SerialDescriptor.html" title="Native serial port descriptor with configuration support.">SC::SerialDescriptor</a>. Pipe endpoints accepted/connected through <a class="el" href="structSC_1_1NamedPipeServer.html" title="Named pipe server endpoint.">SC::NamedPipeServer</a> and <a class="el" href="structSC_1_1NamedPipeClient.html" title="Named pipe client endpoint creator.">SC::NamedPipeClient</a>, exposed as <a class="el" href="structSC_1_1PipeDescriptor.html" title="Read / Write pipe (Process stdin/stdout and IPC communication)">SC::PipeDescriptor</a> are also supported.</p>
 <p>On Windows, <code>AsyncTest</code> includes an optional real COM section named <code>serial com0com read/write</code>. Set <code>SC_TEST_COM0COM_PORT_A</code> and <code>SC_TEST_COM0COM_PORT_B</code> (values can be <code>COMx</code> or <code>\\.\COMx</code>) to enable it. When variables are unset, this section prints a skip message and succeeds.</p>
-<h2><a class="anchor" id="autotoc_md144"></a>
+<h2><a class="anchor" id="autotoc_md145"></a>
 Memory allocation</h2>
 <p>The entire library is free of allocations, as it uses a double linked list inside <a class="el" href="structSC_1_1AsyncRequest.html" title="Base class for all async requests, holding state and type.">SC::AsyncRequest</a>. <br  />
  Caller is responsible for keeping AsyncRequest-derived objects memory stable until async callback is called. <br  />
  <a class="el" href="structSC_1_1ArenaMap.html" title="A sparse vector keeping objects at a stable memory location.">SC::ArenaMap</a> from the <a class="el" href="library_containers.html">Containers</a> can be used to preallocate a bounded pool of Async objects.</p>
-<h1><a class="anchor" id="autotoc_md145"></a>
+<h1><a class="anchor" id="autotoc_md146"></a>
 Roadmap</h1>
 <p>🟩 Usable Features:</p><ul>
 <li>More AsyncFileSystemOperations</li>
@@ -1390,7 +1399,7 @@ Roadmap</h1>
 <li>TTY with ANSI Escape Codes</li>
 <li>Signal handling (multi-watcher, cross-platform)</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md146"></a>
+<h1><a class="anchor" id="autotoc_md147"></a>
 Statistics</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">

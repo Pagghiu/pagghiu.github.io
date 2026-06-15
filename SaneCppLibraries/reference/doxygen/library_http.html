@@ -129,79 +129,79 @@ $(function(){initNavTree('library_http.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md278">Dependencies</a>
+    <a href="#autotoc_md279">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md279">Features</a>
+    <a href="#autotoc_md280">Features</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md280">Status</a>
+    <a href="#autotoc_md281">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md281">Description</a>
+    <a href="#autotoc_md282">Description</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md282">Error Categories</a>
+    <a href="#autotoc_md283">Error Categories</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md283">Videos</a>
+    <a href="#autotoc_md284">Videos</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md284">Blog</a>
+    <a href="#autotoc_md285">Blog</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md285">HttpAsyncServer</a>
+        <a href="#autotoc_md286">HttpAsyncServer</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md286">HttpAsyncFileServer</a>
+        <a href="#autotoc_md287">HttpAsyncFileServer</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md287">HttpAsyncClient</a>
+        <a href="#autotoc_md288">HttpAsyncClient</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md288">Validation</a>
+    <a href="#autotoc_md289">Validation</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md289">Error Taxonomy</a>
+    <a href="#autotoc_md290">Error Taxonomy</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md290">API Friction Audit</a>
+    <a href="#autotoc_md291">API Friction Audit</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md291">Examples</a>
+    <a href="#autotoc_md292">Examples</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md292">Roadmap</a>
+    <a href="#autotoc_md293">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md293">Statistics</a>
+    <a href="#autotoc_md294">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟥 HTTP parser, server and client</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppHttp.h">SaneCppHttp.h</a> is a library implementing a hand-written HTTP/1.1 parser, server and client.</p>
-<h1><a class="anchor" id="autotoc_md278"></a>
+<h1><a class="anchor" id="autotoc_md279"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <a class="el" href="library_async.html">Async</a>, <a class="el" href="library_async_streams.html">AsyncStreams</a></li>
 <li>All dependencies: <a class="el" href="library_async.html">Async</a>, <a class="el" href="library_async_streams.html">AsyncStreams</a>, <a class="el" href="library_file.html">File</a>, <a class="el" href="library_file_system.html">FileSystem</a>, <a class="el" href="library_socket.html">Socket</a>, <a class="el" href="library_threading.html">Threading</a></li>
 </ul>
 <p><img src="Http.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md279"></a>
+<h1><a class="anchor" id="autotoc_md280"></a>
 Features</h1>
 <ul>
 <li>HTTP 1.1 Parser</li>
 <li>HTTP 1.1 Server</li>
 <li>HTTP 1.1 Client</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md280"></a>
+<h1><a class="anchor" id="autotoc_md281"></a>
 Status</h1>
 <p>🟥 Draft <br  />
  In current state the library is able to host simple static website but it cannot be used for any internet facing application. <br  />
  Additionally its API will be changing heavily as it's undergoing major re-design to make it fully allocation free and extend it to support more of the HTTP 1.1 standard.</p>
-<h1><a class="anchor" id="autotoc_md281"></a>
+<h1><a class="anchor" id="autotoc_md282"></a>
 Description</h1>
 <p>The HTTP parser is an incremental parser, that will emit events as soon as a valid element has been successfully parsed. This allows handling incomplete responses without needing holding it entirely in memory.</p>
 <p>The HTTP server is for now just a basic implementations and it's missing many important features. It's however capable of serving files through http while staying inside a few user provided fixed buffers, without allocating any kind of dynamic memory.</p>
@@ -226,7 +226,7 @@ Description</h1>
 <li>no HTTP pipelining</li>
 <li>no redirect policy helper</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md282"></a>
+<h1><a class="anchor" id="autotoc_md283"></a>
 Error Categories</h1>
 <p>HTTP APIs report failures through <code>SC::Result</code> and keep the error text stable enough to diagnose the failing layer. The library does not use exceptions or a large error hierarchy; instead, messages are grouped by prefix and by the operation that produced them.</p>
 <p>Typical categories:</p><ul>
@@ -245,13 +245,13 @@ Error Categories</h1>
 <li><code>HttpWebSocketHandshake</code>, <code>HttpWebSocketFrameReader</code>, <code>HttpWebSocketFrameWriter</code>, <code>HttpWebSocketEndpoint</code>, <code>HttpWebSocketConnectionPump</code>, and <code>HttpWebSocketSmallHub</code>: WebSocket handshake, frame protocol, control-frame lifecycle, stream pumping, and hub capacity/backpressure.</li>
 </ul>
 <p>When adding new HTTP errors, prefer messages that name the component first, then the violated invariant, for example <code>HttpWebSocketFrameReader control frame payload too large</code>. This keeps errors readable without adding allocations or a new dependency.</p>
-<h1><a class="anchor" id="autotoc_md283"></a>
+<h1><a class="anchor" id="autotoc_md284"></a>
 Videos</h1>
 <p>This is the list of videos that have been recorded showing some of the internal thoughts that have been going into this library:</p>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=yg438A9Db50">Ep.27 - C++ Async Http Web Server</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md284"></a>
+<h1><a class="anchor" id="autotoc_md285"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
@@ -264,7 +264,7 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026 Update</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md285"></a>
+<h2><a class="anchor" id="autotoc_md286"></a>
 HttpAsyncServer</h2>
 <p>Async Http Server.   </p>
 <p>This class handles a fully asynchronous http server staying inside 5 fixed memory regions passed during init.</p>
@@ -349,7 +349,7 @@ HttpAsyncServer</h2>
 <div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.end());</div>
 <div class="line">    };</div>
 <div class="line"> </div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md286"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md287"></a>
 HttpAsyncFileServer</h2>
 <p>Http file server statically serves files from a directory.   </p>
 <p>This class registers the onRequest callback provided by HttpAsyncServer to serves files from a given directory.</p>
@@ -459,7 +459,7 @@ HttpAsyncFileServer</h2>
 <div class="line">        SC_TRY(httpServer.resize(clients.toSpan()));</div>
 <div class="line">        <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
 <div class="line">    }</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md287"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md288"></a>
 HttpAsyncClient</h2>
 <p><code><a class="el" href="structSC_1_1HttpAsyncClient.html" title="Asynchronous HTTP/1.1 client using caller-provided fixed storage.">SC::HttpAsyncClient</a></code> supports both convenience helpers for fixed in-memory request bodies and the lower-level <code>start()</code> flow for streamed or manually written request bodies. The API reference below includes small examples for both styles of usage.</p>
 <p>Asynchronous HTTP/1.1 client using caller-provided fixed storage.   </p>
@@ -503,7 +503,7 @@ HttpAsyncClient</h2>
 <div class="line">    client.onError = [<span class="keyword">this</span>](Result result) { <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(result); };</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(client.start(loop, HttpParser::Method::HttpPUT, url.view()));</div>
-</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md288"></a>
+</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md289"></a>
 Validation</h1>
 <p>For HTTP changes, start with the focused test, then run the broader stress and portability checks before merging.</p>
 <p>Local macOS / Linux:</p>
@@ -525,7 +525,7 @@ Validation</h1>
 <div class="line">SC.bat build run SCTest Debug -- --test &quot;HttpAsyncFileServerTest&quot; --port-offset 400</div>
 <div class="line">SC.bat build compile SCTest Release</div>
 </div><!-- fragment --><p><code>HttpStressTest</code> is intentionally bounded and fast. It is a smoke signal for repeated keep-alive requests, chunked request burst decoding, and WebSocket fan-out writes through caller-owned buffer pools. <code>HttpAsyncFileServerTest</code> covers the heavier HTTP paths, including file requests, range and conditional requests, large PUT uploads, and multipart uploads.</p>
-<h1><a class="anchor" id="autotoc_md289"></a>
+<h1><a class="anchor" id="autotoc_md290"></a>
 Error Taxonomy</h1>
 <p>HTTP APIs return <code>Result</code> for protocol, storage, stream, and lifecycle failures. Prefer messages that make the failure class obvious:</p>
 <ul>
@@ -536,7 +536,7 @@ Error Taxonomy</h1>
 <li>Stream or transport failure: async read/write, file, socket, or buffer-pool operations failed below the HTTP parser.</li>
 <li>Lifecycle misuse: APIs were called in the wrong order or after ownership changed, for example writing after upgrade or attaching a WebSocket pump twice without detach.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md290"></a>
+<h1><a class="anchor" id="autotoc_md291"></a>
 API Friction Audit</h1>
 <p>Recent example and test call sites point to these remaining improvement seams:</p>
 <ul>
@@ -549,13 +549,13 @@ API Friction Audit</h1>
 <li>WebSocket examples: <code>Examples/AsyncWebServer/AsyncWebServer.cpp</code> and the collaborative canvas now use <code>HttpWebSocketConnectionPump</code> for listener lifecycle and automatic control-frame flushing. The canvas keeps its caller-owned message assembler, source-client suppression, and best-effort dropped-broadcast accounting as application policy.</li>
 <li>File uploads: <code>HttpAsyncFileServerTest</code> covers PUT and multipart uploads well, and <code>Examples/AsyncWebServer</code> now exposes upload enable/disable and max-size policy from the command line. <code>HttpAsyncFileServerOptions</code> also supports SPA fallback, validators, ranges, and a zero-allocation MIME lookup hook.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md291"></a>
+<h1><a class="anchor" id="autotoc_md292"></a>
 Examples</h1>
 <ul>
 <li><a class="el" href="page_examples.html">SCExample</a> features the <code>WebServerExample</code> sample showing how to use <a class="el" href="structSC_1_1HttpAsyncFileServer.html" title="Http file server statically serves files from a directory.">SC::HttpAsyncFileServer</a> and <a class="el" href="structSC_1_1HttpAsyncServer.html" title="Async Http Server.">SC::HttpAsyncServer</a></li>
 <li>Unit tests show how to use <code><a class="el" href="structSC_1_1HttpAsyncClient.html" title="Asynchronous HTTP/1.1 client using caller-provided fixed storage.">SC::HttpAsyncClient</a></code>, <code><a class="el" href="structSC_1_1HttpAsyncFileServer.html" title="Http file server statically serves files from a directory.">SC::HttpAsyncFileServer</a></code> and <code><a class="el" href="structSC_1_1HttpAsyncServer.html" title="Async Http Server.">SC::HttpAsyncServer</a></code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md292"></a>
+<h1><a class="anchor" id="autotoc_md293"></a>
 Roadmap</h1>
 <p>🟨 MVP</p><ul>
 <li>HTTP 1.1 Chunked Encoding</li>
@@ -572,7 +572,7 @@ Roadmap</h1>
 <li>Http 2.0</li>
 <li>Http 3.0</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md293"></a>
+<h1><a class="anchor" id="autotoc_md294"></a>
 Statistics</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">

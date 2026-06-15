@@ -129,62 +129,62 @@ $(function(){initNavTree('library_file_system_watcher.html',''); initResizable(t
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md246">Dependencies</a>
+    <a href="#autotoc_md247">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md247">Features</a>
+    <a href="#autotoc_md248">Features</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md248">Status</a>
+    <a href="#autotoc_md249">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md249">Blog</a>
+    <a href="#autotoc_md250">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md250">Description</a>
+    <a href="#autotoc_md251">Description</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md251">Videos</a>
+    <a href="#autotoc_md252">Videos</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md252">Blog</a>
+    <a href="#autotoc_md253">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md253">Details</a>
+    <a href="#autotoc_md254">Details</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md254">Examples</a>
+    <a href="#autotoc_md255">Examples</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md255">Roadmap</a>
+    <a href="#autotoc_md256">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md256">Statistics</a>
+    <a href="#autotoc_md257">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟩 Notifications {add, remove, rename, modified} for files and directories</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppFileSystemWatcher.h">SaneCppFileSystemWatcher.h</a> is a library that allows watching directories for changes that happen to them. <br  />
 </p>
-<h1><a class="anchor" id="autotoc_md246"></a>
+<h1><a class="anchor" id="autotoc_md247"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="FileSystemWatcher.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md247"></a>
+<h1><a class="anchor" id="autotoc_md248"></a>
 Features</h1>
 <ul>
 <li>Get notified about modified files or directories</li>
 <li>Get notified about added / removed / renamed files or directories</li>
 <li>Async backend support via <code>FileSystemWatcherAsyncT</code> template</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md248"></a>
+<h1><a class="anchor" id="autotoc_md249"></a>
 Status</h1>
 <p>🟩 Usable <br  />
  Library does have basic capabilities and it can be used just fine.</p>
-<h1><a class="anchor" id="autotoc_md249"></a>
+<h1><a class="anchor" id="autotoc_md250"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
@@ -192,7 +192,7 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html">July 2025 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md250"></a>
+<h1><a class="anchor" id="autotoc_md251"></a>
 Description</h1>
 <p>Caller can specify a callback for receiving notifications the <a class="el" href="structSC_1_1FileSystemWatcher.html#a98f3c1b713ac0d6f64584232ca6707a5" title="Starts watching a single directory, calling FolderWatcher::notifyCallback on file events.">SC::FileSystemWatcher::watch</a> method.</p>
 <p>Changes are grouped in two categories:</p><ul>
@@ -289,19 +289,19 @@ The underlying OS APIs monitor directory entries rather than all possible file a
 <div class="line">    <span class="comment">// When all watchers have been unwatched and to dispose all system resources</span></div>
 <div class="line">    SC_TRY(fileSystemWatcher.<a class="code hl_function" href="structSC_1_1FileSystemWatcher.html#a4d59b6afcd7686a3800b3f913271813e">close</a>());</div>
 </div><!-- fragment --><p> [OpaqueDeclarationSnippet]   </p>
-<h1><a class="anchor" id="autotoc_md251"></a>
+<h1><a class="anchor" id="autotoc_md252"></a>
 Videos</h1>
 <p>This is the list of videos that have been recorded showing some of the internal thoughts that have been going into this library:</p>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=92saVDCRnCI">Ep.09 - SC::FileSystemWatcher Linux inotify implementation</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md252"></a>
+<h1><a class="anchor" id="autotoc_md253"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2024-06-30-SaneCppLibrariesUpdate.html">June 2024 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md253"></a>
+<h1><a class="anchor" id="autotoc_md254"></a>
 Details</h1>
 <p>The class tries to unify differences between OS specific API to deliver folder change notifications</p>
 <ul>
@@ -312,14 +312,14 @@ Details</h1>
 </ul>
 <p>The behavior between these different system also depends on the file system where the watched directory resides.</p>
 <dl class="section note"><dt>Note</dt><dd>On iOS <code>FSEvents</code> api is private so using <a class="el" href="structSC_1_1FileSystemWatcher.html" title="Notifies about events (add, remove, rename, modified) on files and directories.">SC::FileSystemWatcher</a> will be very likely causing your app to be rejected from the app store.</dd></dl>
-<h1><a class="anchor" id="autotoc_md254"></a>
+<h1><a class="anchor" id="autotoc_md255"></a>
 Examples</h1>
 <ul>
 <li><a class="el" href="page_examples.html">SCExample</a> uses <a class="el" href="structSC_1_1FileSystemWatcher.html" title="Notifies about events (add, remove, rename, modified) on files and directories.">SC::FileSystemWatcher</a> for a simple hot-reload system</li>
 <li>Tests inside <code>FileSystemWatcherTest.cpp</code> show how the API is meant to be used</li>
 <li>Tests inside <code>FileSystemWatcherAsyncTest.cpp</code> show how the Async API is meant to be used</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md255"></a>
+<h1><a class="anchor" id="autotoc_md256"></a>
 Roadmap</h1>
 <p>🟦 Complete Features:</p><ul>
 <li>Not sure what else could be useful here</li>
@@ -328,7 +328,7 @@ Roadmap</h1>
 <li>Having a thread based polling stat watcher that checks file modifications on intervals as fallback</li>
 <li>Allow users to provide their own thread instead of creating it behind the scenes</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md256"></a>
+<h1><a class="anchor" id="autotoc_md257"></a>
 Statistics</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">

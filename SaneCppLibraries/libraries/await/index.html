@@ -369,7 +369,7 @@ SC_CO_TRY(co_await await.sendAll(socket, buffers, &amp;sent));
 <li>datagram socket <code>sendTo()</code>, scatter/gather <code>sendTo()</code>, and <code>receiveFrom()</code>;</li>
 <li>loop wake-up waiting with <code>AwaitLoopWakeUp</code>;</li>
 <li>file <code>fileRead()</code>, offset <code>fileRead()</code>, <code>fileReadUntilFullOrEOF()</code>, <code>fileWrite()</code>, offset <code>fileWrite()</code>,
-scatter/gather <code>fileWrite()</code>, <code>fileSend()</code>, and POSIX <code>filePoll()</code>;</li>
+scatter/gather <code>fileWrite()</code>, <code>fileSend()</code>, and POSIX file readiness via <code>filePoll()</code>;</li>
 <li>serial descriptors through the existing file awaiters, because <code>SerialDescriptor</code> is a <code>FileDescriptor</code> and <code>Async</code>
 models serial I/O with <code>AsyncFileRead</code> / <code>AsyncFileWrite</code>;</li>
 <li>selected filesystem operations: <code>fsOpen()</code>, <code>fsClose()</code>, <code>fsRead()</code>, <code>fsWrite()</code>, <code>fsCopyFile()</code>,
@@ -379,7 +379,7 @@ models serial I/O with <code>AsyncFileRead</code> / <code>AsyncFileWrite</code>;
 <li>background <code>loopWork()</code>;</li>
 <li>process exit waiting with <code>processExit()</code>;</li>
 <li>one-shot signal waiting with <code>signal()</code>;</li>
-<li>task cancellation for currently suspended operations, including several socket, file polling, wake-up, and task-group
+<li>task cancellation for currently suspended operations, including several socket, file readiness, wake-up, and task-group
 waits covered by tests;</li>
 <li>awaiting explicitly spawned child tasks, or starting and awaiting one with <code>spawnAndWait()</code>;</li>
 <li>structured <code>AwaitTaskGroup</code> waiting with caller-provided task pointer storage, <code>waitAll()</code>, and <code>waitAny()</code>;</li>
@@ -460,7 +460,7 @@ and hiding that behind destructor control flow would be surprising in exceptions
 code that returns <code>Result</code>, such as <code>cancelAll()</code>, <code>await.run()</code>, and <code>clearCompleted()</code>.</p>
 <h1>Platform notes</h1>
 <p><code>Await</code> inherits the platform shape of <code>Async</code>. POSIX backends can use <code>filePoll()</code> for ordinary file or pipe handles;
-on Windows the awaiter fails fast instead of hanging because normal <code>AsyncFilePoll</code> support is not currently exposed for
+on Windows the awaiter fails fast instead of hanging because normal <code>AsyncFileReadiness</code> support is not currently exposed for
 those handles.</p>
 <p>Thread-pool-backed file and filesystem awaiters use <code>AsyncFileRead</code>, <code>AsyncFileWrite</code>, <code>AsyncFileSend</code>, or
 <code>AsyncFileSystemOperation</code> with caller-provided <code>ThreadPool</code> storage. Cancellation is still cooperative: when the work is

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['filepoll_0',['FilePoll',['../structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524ac4a4109fa1a034a514a42877cdc156c8',1,'SC::AsyncRequest']]],
-  ['fileread_1',['FileRead',['../structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524aac986feb3052f4ac59400a84056c3839',1,'SC::AsyncRequest']]],
+  ['fileread_0',['FileRead',['../structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524aac986feb3052f4ac59400a84056c3839',1,'SC::AsyncRequest']]],
+  ['filereadiness_1',['FileReadiness',['../structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524ace457daaa18a53ac67fdc847232a3b7c',1,'SC::AsyncRequest']]],
   ['filesend_2',['FileSend',['../structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524abefab43235629b9d62f28ac18a74003d',1,'SC::AsyncRequest']]],
   ['filesystemoperation_3',['FileSystemOperation',['../structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524a6e839406d7864194e3b461409c536391',1,'SC::AsyncRequest']]],
   ['filewrite_4',['FileWrite',['../structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524a693ed2547c9ef849d2af2c59b0ce818d',1,'SC::AsyncRequest']]],

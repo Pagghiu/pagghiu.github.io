@@ -129,104 +129,104 @@ $(function(){initNavTree('library_await.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md157">Dependencies</a>
+    <a href="#autotoc_md158">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md158">Design Intent</a>
+    <a href="#autotoc_md159">Design Intent</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md159">Features</a>
+    <a href="#autotoc_md160">Features</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md160">Example</a>
+    <a href="#autotoc_md161">Example</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md161">Socket send helpers</a>
+    <a href="#autotoc_md162">Socket send helpers</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md162">Status</a>
+    <a href="#autotoc_md163">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md163">Details</a>
+    <a href="#autotoc_md164">Details</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md164">AwaitEventLoop</a>
+        <a href="#autotoc_md165">AwaitEventLoop</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md165">AwaitTask</a>
+        <a href="#autotoc_md166">AwaitTask</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md166">AwaitAllocator</a>
+        <a href="#autotoc_md167">AwaitAllocator</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md167">Socket receive helpers</a>
+    <a href="#autotoc_md168">Socket receive helpers</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md168">File helpers</a>
+    <a href="#autotoc_md169">File helpers</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md169">Filesystem watcher integration</a>
+    <a href="#autotoc_md170">Filesystem watcher integration</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md170">Helper placement</a>
+    <a href="#autotoc_md171">Helper placement</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md171">Blog</a>
+    <a href="#autotoc_md172">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md172">Task state helpers</a>
+    <a href="#autotoc_md173">Task state helpers</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md173">Platform notes</a>
+    <a href="#autotoc_md174">Platform notes</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md174">Serial descriptors</a>
+    <a href="#autotoc_md175">Serial descriptors</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md175">Stability Criteria</a>
+    <a href="#autotoc_md176">Stability Criteria</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md176">Cancellation</a>
+    <a href="#autotoc_md177">Cancellation</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md177">Lifetime rules</a>
+    <a href="#autotoc_md178">Lifetime rules</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md178">Task groups</a>
+    <a href="#autotoc_md179">Task groups</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md179">Detached tasks</a>
+    <a href="#autotoc_md180">Detached tasks</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md180">Memory allocation</a>
+    <a href="#autotoc_md181">Memory allocation</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md181">Exceptions</a>
+    <a href="#autotoc_md182">Exceptions</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md182">Strict no-stdlib coroutine status</a>
+    <a href="#autotoc_md183">Strict no-stdlib coroutine status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md183">Roadmap</a>
+    <a href="#autotoc_md184">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md184">Statistics</a>
+    <a href="#autotoc_md185">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟨 C++20 coroutine layer over Async</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppAwait.h">SaneCppAwait.h</a> is an experimental library providing <code>co_await</code> syntax on top of <a class="el" href="library_async.html">Async</a>.</p>
 <dl class="section warning"><dt>Warning</dt><dd>This library is currently <b>MVP / Experimental</b>. It covers useful <code>Async</code> workflows, but the API may still change as the coroutine model is refined. Use it for focused experiments and examples, not as a stable public API yet.</dd></dl>
-<h1><a class="anchor" id="autotoc_md157"></a>
+<h1><a class="anchor" id="autotoc_md158"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <a class="el" href="library_async.html">Async</a></li>
 <li>All dependencies: <a class="el" href="library_async.html">Async</a>, <a class="el" href="library_file.html">File</a>, <a class="el" href="library_file_system.html">FileSystem</a>, <a class="el" href="library_socket.html">Socket</a>, <a class="el" href="library_threading.html">Threading</a></li>
 </ul>
 <p><img src="Await.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md158"></a>
+<h1><a class="anchor" id="autotoc_md159"></a>
 Design Intent</h1>
 <p><code>Await</code> is not a replacement for <code>AsyncEventLoop</code>. It wraps an existing <code>AsyncEventLoop&amp;</code> with <code>AwaitEventLoop</code> and keeps the same lifetime expectations: sockets, buffers, requests, output objects, and tasks must remain valid while operations are active.</p>
 <p>The goal is to let the compiler generate the callback state machine while preserving the Sane C++ style:</p>
@@ -237,7 +237,7 @@ Design Intent</h1>
 <li>callback-style <code>SC::Async</code> code can coexist on the same event loop;</li>
 <li>coroutine frame allocation is explicit through a mandatory <code>AwaitAllocator</code>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md159"></a>
+<h1><a class="anchor" id="autotoc_md160"></a>
 Features</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -282,7 +282,7 @@ Features</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1AwaitFileSendAwaiter.html">AwaitFileSendAwaiter</a>   </td><td class="markdownTableBodyLeft">Awaiter for a single AsyncFileSend operation.       </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1AwaitFilePollAwaiter.html">AwaitFilePollAwaiter</a>   </td><td class="markdownTableBodyLeft">Awaiter for a single AsyncFilePoll operation.       </td></tr>
+<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1AwaitFilePollAwaiter.html">AwaitFilePollAwaiter</a>   </td><td class="markdownTableBodyLeft">Awaiter for a single AsyncFileReadiness operation.       </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1AwaitFileSystemOperationAwaiter.html">AwaitFileSystemOperationAwaiter</a>   </td><td class="markdownTableBodyLeft">Awaiter for selected AsyncFileSystemOperation path operations.       </td></tr>
 <tr class="markdownTableRowEven">
@@ -312,7 +312,7 @@ Features</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1AwaitLoopWorkAwaiter.html">AwaitLoopWorkAwaiter</a>   </td><td class="markdownTableBodyLeft">Awaiter for a single AsyncLoopWork operation.      </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md160"></a>
+<h1><a class="anchor" id="autotoc_md161"></a>
 Example</h1>
 <div class="fragment"><div class="line">AwaitTask echoServer(AwaitEventLoop&amp; await, <span class="keyword">const</span> SocketDescriptor&amp; serverSocket, SocketDescriptor&amp; accepted)</div>
 <div class="line">{</div>
@@ -374,7 +374,7 @@ Example</h1>
 <li><code>Examples/AwaitServiceProbe</code>, showing a small service probe with nested task groups, sockets, timeout cancellation, and allocator diagnostics.</li>
 <li><code>Examples/AwaitThreadWakeUp</code>, showing another thread waking an Await coroutine through <code>AwaitLoopWakeUp</code>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md161"></a>
+<h1><a class="anchor" id="autotoc_md162"></a>
 Socket send helpers</h1>
 <p><code>send()</code> is the direct one-shot wrapper over <code>AsyncSocketSend</code>: it completes when the socket reports one send operation, which may be smaller than the caller-provided data.</p>
 <p><code>sendAll()</code> is the higher-level stream helper: it reactivates the underlying send request until all caller-provided data has been sent. When an <code>AwaitSocketSendResult*</code> is provided, <code>numBytes</code> reports the cumulative byte count.</p>
@@ -389,7 +389,7 @@ Socket send helpers</h1>
 <div class="line">AwaitSocketSendResult sent;</div>
 <div class="line"> </div>
 <div class="line">SC_CO_TRY(<span class="keyword">co_await</span> await.sendAll(socket, buffers, &amp;sent));</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md162"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md163"></a>
 Status</h1>
 <p>🟨 MVP / Experimental</p>
 <p>Current support includes:</p>
@@ -399,14 +399,14 @@ Status</h1>
 <li>socket <code>send()</code>, scatter/gather <code>send()</code>, <code>sendAll()</code>, <code>receive()</code>, <code>receiveExact()</code>, and <code>receiveLine()</code>;</li>
 <li>datagram socket <code>sendTo()</code>, scatter/gather <code>sendTo()</code>, and <code>receiveFrom()</code>;</li>
 <li>loop wake-up waiting with <code>AwaitLoopWakeUp</code>;</li>
-<li>file <code>fileRead()</code>, offset <code>fileRead()</code>, <code>fileReadUntilFullOrEOF()</code>, <code>fileWrite()</code>, offset <code>fileWrite()</code>, scatter/gather <code>fileWrite()</code>, <code>fileSend()</code>, and POSIX <code>filePoll()</code>;</li>
+<li>file <code>fileRead()</code>, offset <code>fileRead()</code>, <code>fileReadUntilFullOrEOF()</code>, <code>fileWrite()</code>, offset <code>fileWrite()</code>, scatter/gather <code>fileWrite()</code>, <code>fileSend()</code>, and POSIX file readiness via <code>filePoll()</code>;</li>
 <li>serial descriptors through the existing file awaiters, because <code>SerialDescriptor</code> is a <code>FileDescriptor</code> and <code>Async</code> models serial I/O with <code>AsyncFileRead</code> / <code>AsyncFileWrite</code>;</li>
 <li>selected filesystem operations: <code>fsOpen()</code>, <code>fsClose()</code>, <code>fsRead()</code>, <code>fsWrite()</code>, <code>fsCopyFile()</code>, <code>fsCopyDirectory()</code>, <code>fsRename()</code>, <code>fsRemoveEmptyDirectory()</code>, and <code>fsRemoveFile()</code>;</li>
 <li>filesystem watching remains in <a class="el" href="library_file_system_watcher.html">FileSystemWatcher</a> rather than direct <code>AwaitEventLoop</code> awaiters, because it is a long-lived callback stream instead of a one-shot operation;</li>
 <li>background <code>loopWork()</code>;</li>
 <li>process exit waiting with <code>processExit()</code>;</li>
 <li>one-shot signal waiting with <code>signal()</code>;</li>
-<li>task cancellation for currently suspended operations, including several socket, file polling, wake-up, and task-group waits covered by tests;</li>
+<li>task cancellation for currently suspended operations, including several socket, file readiness, wake-up, and task-group waits covered by tests;</li>
 <li>awaiting explicitly spawned child tasks, or starting and awaiting one with <code>spawnAndWait()</code>;</li>
 <li>structured <code>AwaitTaskGroup</code> waiting with caller-provided task pointer storage, <code>waitAll()</code>, and <code>waitAny()</code>;</li>
 <li>fixed-slot <code>AwaitTaskRegistry</code> ownership for detached/background tasks that are cleaned up explicitly;</li>
@@ -414,31 +414,31 @@ Status</h1>
 <li>mandatory explicit coroutine frame allocation through <code>AwaitAllocator</code>.</li>
 </ul>
 <p><code>Await</code> is tested by <code>SCAwaitTest</code>, which is separate from <code>SCTest</code> because normal Await tests and examples use C++20 coroutines with standard C++ headers enabled. Coroutine frame storage is always explicit through <code>AwaitAllocator</code>, so enabling Await does not add a dependency on the Memory library.</p>
-<h1><a class="anchor" id="autotoc_md163"></a>
+<h1><a class="anchor" id="autotoc_md164"></a>
 Details</h1>
 <p>Await is an experimental wrapper that lets coroutine bodies express asynchronous operations with <code>co_await</code> while still returning plain SC::Result values and using caller-provided output objects.   </p>
-<h2><a class="anchor" id="autotoc_md164"></a>
+<h2><a class="anchor" id="autotoc_md165"></a>
 AwaitEventLoop</h2>
 <p>Coroutine-friendly wrapper around an existing AsyncEventLoop.   </p>
 <p><code>AwaitEventLoop</code> wraps an existing caller-owned <code>AsyncEventLoop&amp;</code>. It does not create, close, or otherwise own the underlying loop; callback-style <code>Async</code> requests and coroutine-style <code>Await</code> tasks can share the same loop as long as their stable objects remain alive while active.</p>
-<h2><a class="anchor" id="autotoc_md165"></a>
+<h2><a class="anchor" id="autotoc_md166"></a>
 AwaitTask</h2>
 <p>Caller-owned coroutine task returning a plain SC::Result.   </p>
-<h2><a class="anchor" id="autotoc_md166"></a>
+<h2><a class="anchor" id="autotoc_md167"></a>
 AwaitAllocator</h2>
 <p>Explicit allocator used by AwaitTask coroutine frame allocation.   </p>
-<h1><a class="anchor" id="autotoc_md167"></a>
+<h1><a class="anchor" id="autotoc_md168"></a>
 Socket receive helpers</h1>
 <p><code>receive()</code> is the direct one-shot wrapper over <code>AsyncSocketReceive</code>: it completes when the socket reports some data, disconnect, or an error, and the returned <code>AwaitSocketReceiveResult::data</code> span may be smaller than the caller buffer.</p>
 <p><code>receiveExact()</code> is the higher-level stream helper: it reactivates the underlying receive request until the caller buffer is full. If the peer disconnects before the buffer is full, it returns an error and, when an output result is provided, the result object describes the partial data received so far.</p>
 <p><code>receiveLine()</code> is a no-allocation line helper for simple text protocols. It reads into caller-provided storage until <code>\n</code>, trims a preceding <code>\r</code> from the reported line span, and fails if the buffer fills before the newline arrives.</p>
-<h1><a class="anchor" id="autotoc_md168"></a>
+<h1><a class="anchor" id="autotoc_md169"></a>
 File helpers</h1>
 <p><code>fileRead()</code> is the direct one-shot wrapper over <code>AsyncFileRead</code>: it may return fewer bytes than the caller buffer holds.</p>
 <p><code>fileReadUntilFullOrEOF()</code> mirrors <code>FileDescriptor::readUntilFullOrEOF()</code> for coroutine code. It reactivates the underlying read request until the caller buffer is full or EOF is reached, and reports the actually-read prefix through <code>AwaitFileReadResult::data</code>.</p>
 <p><code>fileWrite()</code> does not need a separate <code>fileWriteAll()</code> helper today: <code>AsyncFileWrite</code> already keeps writing until the provided single buffer or scatter/gather buffers are fully written, or returns an error.</p>
 <p>For offset writes, prefer a single contiguous buffer in portable examples. Combining scatter/gather file writes with an explicit offset should be treated as backend-sensitive until the underlying <code>AsyncFileWrite</code> semantics are tightened.</p>
-<h1><a class="anchor" id="autotoc_md169"></a>
+<h1><a class="anchor" id="autotoc_md170"></a>
 Filesystem watcher integration</h1>
 <p><code>Await</code> intentionally does not expose direct filesystem watcher awaiters yet. <code>FileSystemWatcher</code> already models this as a long-lived callback stream with stable <code>FileSystemWatcher::FolderWatcher</code> objects and an event-loop runner (<code>FileSystemWatcherAsyncT&lt;AsyncEventLoop&gt;</code>). That shape is closer to an async iterator or channel than to the one-shot <code>AsyncRequest</code> wrappers currently living on <code>AwaitEventLoop</code>.</p>
 <p>For now, coroutine examples should keep using callback-style <code>FileSystemWatcher</code> on the same underlying <code>AsyncEventLoop</code>, or introduce a small caller-owned adapter outside the core <code>AwaitEventLoop</code> surface when a concrete workflow needs it. If a future helper is added, it should be an explicit <code>Await*</code> object carrying the watcher state and caller-provided notification storage, not another thin method on <code>AwaitEventLoop</code>.</p>
@@ -450,32 +450,32 @@ Filesystem watcher integration</h1>
 <li>when the queue fills, the adapter must return an explicit overflow result or set a sticky overflow flag that the consumer observes, rather than allocating or silently dropping events;</li>
 <li>the same shape may be reused for process output or accept loops only after a concrete example proves the bounded queue semantics are pleasant.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md170"></a>
+<h1><a class="anchor" id="autotoc_md171"></a>
 Helper placement</h1>
 <p>Thin convenience helpers currently live on <code>AwaitEventLoop</code> when they preserve the shape of one underlying <code>Async</code> operation and only add a small, no-allocation loop over caller-provided storage. Examples are <code>sendAll()</code>, <code>receiveExact()</code>, <code>receiveLine()</code>, and <code>fileReadUntilFullOrEOF()</code>.</p>
 <p>If future helpers start carrying protocol state, buffering policy, parsing rules, or multiple stable objects, they should move into explicit <code>Await*</code> helper structs instead of making <code>AwaitEventLoop</code> a grab bag.</p>
 <p><code>spawnAndWait()</code> intentionally remains a convenience awaiter for the common "start one child and wait for it" case. The name is a little longer than plain <code>spawn()</code>, but it makes the "starts then awaits" behavior visible and avoids teaching <code>co_await child</code> to secretly start unowned tasks. <code>AwaitTaskGroup</code> is the structured API for multiple children, result aggregation, <code>waitAny()</code>, or custom child cancellation policy.</p>
-<h1><a class="anchor" id="autotoc_md171"></a>
+<h1><a class="anchor" id="autotoc_md172"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md172"></a>
+<h1><a class="anchor" id="autotoc_md173"></a>
 Task state helpers</h1>
 <p><code>AwaitTask</code> exposes explicit state queries (<code>isValid()</code>, <code>isStarted()</code>, <code>isActive()</code>, <code>isCompleted()</code>, and <code>isCancellationRequested()</code>) so shutdown code can stay readable without hiding lifetime rules.</p>
 <p><code>AwaitTaskGroup</code> and <code>AwaitTaskRegistry</code> also expose small storage/state helpers such as <code>isEmpty()</code>, <code>isFull()</code>, and <code>remainingCapacity()</code>. The registry adds <code>hasActiveTasks()</code> and <code>hasCompletedTasks()</code> for shutdown loops. These helpers are only query sugar over caller-owned storage; they do not allocate, drain, cancel, or change task ownership.</p>
 <p>Await does not currently provide an RAII scope guard that cancels and drains tasks in a destructor. Draining can fail, and hiding that behind destructor control flow would be surprising in exceptions-off Sane C++. Prefer explicit shutdown code that returns <code>Result</code>, such as <code>cancelAll()</code>, <code>await.run()</code>, and <code>clearCompleted()</code>.</p>
-<h1><a class="anchor" id="autotoc_md173"></a>
+<h1><a class="anchor" id="autotoc_md174"></a>
 Platform notes</h1>
-<p><code>Await</code> inherits the platform shape of <code>Async</code>. POSIX backends can use <code>filePoll()</code> for ordinary file or pipe handles; on Windows the awaiter fails fast instead of hanging because normal <code>AsyncFilePoll</code> support is not currently exposed for those handles.</p>
+<p><code>Await</code> inherits the platform shape of <code>Async</code>. POSIX backends can use <code>filePoll()</code> for ordinary file or pipe handles; on Windows the awaiter fails fast instead of hanging because normal <code>AsyncFileReadiness</code> support is not currently exposed for those handles.</p>
 <p>Thread-pool-backed file and filesystem awaiters use <code>AsyncFileRead</code>, <code>AsyncFileWrite</code>, <code>AsyncFileSend</code>, or <code>AsyncFileSystemOperation</code> with caller-provided <code>ThreadPool</code> storage. Cancellation is still cooperative: when the work is already running on a worker thread, completion may arrive before the stop request can take effect.</p>
 <p>Local validation for Await changes should run macOS first, then Linux, then Windows. For targeted changes, prefer the smallest relevant <code>SCAwaitTest</code> section when allocator behavior changes. Windows changes should include focused <code>SCAwaitTest</code> Debug and Release runs before committing when the touched awaiter has platform-specific behavior.</p>
-<h1><a class="anchor" id="autotoc_md174"></a>
+<h1><a class="anchor" id="autotoc_md175"></a>
 Serial descriptors</h1>
 <p><code>Await</code> does not currently add separate serial-port awaiter names. <code>SerialDescriptor</code> inherits from <code>FileDescriptor</code>, and the lower-level <code>Async</code> tests exercise serial I/O through <code>AsyncFileRead</code> and <code>AsyncFileWrite</code>; the coroutine layer keeps that shape by using <code>fileRead()</code> / <code>fileWrite()</code> with a <code>SerialDescriptor</code> after it has been associated with the underlying <code>AsyncEventLoop</code>.</p>
 <p>This keeps the surface area small and preserves the plain-<code>Result</code> rule: if a future dedicated serial helper is added, it should still return <code>Result</code> and write any extra output into an explicit caller-owned result object.</p>
-<h1><a class="anchor" id="autotoc_md175"></a>
+<h1><a class="anchor" id="autotoc_md176"></a>
 Stability Criteria</h1>
 <p>Before <code>Await</code> should move from MVP / Experimental to a stable status, the remaining design forks should be resolved:</p>
 <ul>
@@ -483,17 +483,17 @@ Stability Criteria</h1>
 <li>optional helper APIs: whether filesystem watcher stream adapters are useful enough to add as explicit caller-owned <code>Await*</code> objects.</li>
 </ul>
 <p>No-stdlib coroutine support is not required for the current MVP status. <code>Await</code> can remain isolated in <code>SCAwaitTest</code> while the API is still moving; a <code>&lt;coroutine&gt;</code> replacement and normal <code>SCTest</code> participation are stable-track work.</p>
-<h1><a class="anchor" id="autotoc_md176"></a>
+<h1><a class="anchor" id="autotoc_md177"></a>
 Cancellation</h1>
 <p>Cancellation is cooperative and follows the active awaiter's <code>AsyncRequest::stop()</code> when one exists. Cancelled awaits return <code>AwaitCancelledResult()</code>, and callers can use <code>AwaitIsCancelled(result)</code> when cancellation needs to be distinguished from ordinary failure while still preserving the plain <code>Result</code> API.</p>
 <p><code>AwaitTask::cancel()</code> is idempotent after cancellation has been requested. Cancellation is best-effort: if the suspended operation is still active, <code>Await</code> asks the underlying <code>AsyncRequest</code> to stop and resumes the coroutine with the cancellation result. If the operation has already completed, the normal completion result wins. Cancelling an already completed task succeeds and leaves its result unchanged. Awaiter callbacks resume their continuation synchronously, so there is no public "completed but not yet observed" cancellation window; tests cover the observable completion-wins behavior instead.</p>
-<h1><a class="anchor" id="autotoc_md177"></a>
+<h1><a class="anchor" id="autotoc_md178"></a>
 Lifetime rules</h1>
 <p>Awaiters keep the same stable-object rules as <code>Async</code>: sockets, file descriptors, buffers, result objects, wake-up objects, and child tasks must stay alive while the operation is active.</p>
 <p>Destroying an active <code>AwaitTask</code> remains an assert-release programming error rather than a recoverable runtime result. Use <code>AwaitTask::isActive()</code> or registry helpers such as <code>hasActiveTasks()</code> in shutdown code when a diagnostic check is needed before storage goes out of scope.</p>
 <p>When a completed child task is destroyed while an <code>Async</code> callback is still unwinding, <code>AwaitEventLoop</code> defers the actual coroutine frame destruction until <code>run()</code>, <code>runOnce()</code>, or <code>runNoWait()</code> returns. This keeps any embedded <code>AsyncRequest</code> alive until the lower-level event loop has finished its teardown work, without adding dynamic allocation.</p>
 <p>Result objects may contain spans into caller-provided buffers. For example, <code>AwaitSocketReceiveResult::data</code> and <code>AwaitFileReadResult::data</code> point into the receive/read buffer passed to the awaiter. Keep those buffers alive until after the result has been inspected or copied elsewhere.</p>
-<h1><a class="anchor" id="autotoc_md178"></a>
+<h1><a class="anchor" id="autotoc_md179"></a>
 Task groups</h1>
 <p><code>AwaitTaskGroup</code> stores caller-owned task pointers in caller-provided storage. Its default cancellation policy is structured: cancelling the parent task while it is suspended in <code>waitAll()</code> or <code>waitAny()</code> cancels active children before the parent completes. <code>AwaitTaskGroupCancelPolicy::LeaveChildrenRunning</code> exists for advanced cases where child tasks outlive the waiting parent.</p>
 <p>When children are already available as caller-owned task objects, <code>spawnAll()</code> can reduce repeated <code>spawn()</code> calls without hiding storage:</p>
@@ -506,7 +506,7 @@ Task groups</h1>
 <p>After <code>waitAll()</code> returns, <code>collectResults()</code> can copy each child <code>Result</code> into caller-provided storage and optionally fill <code>AwaitTaskGroupResultSummary</code> with counts plus the first failed task. This keeps aggregation no-allocation and still follows Sane C++'s plain-<code>Result</code> style.</p>
 <p>If the caller only needs counts and first-failure metadata, <code>summarizeResults()</code> fills an <code>AwaitTaskGroupResultSummary&amp;</code> without requiring a result span.</p>
 <p>This is intentionally close to Python <code>asyncio.TaskGroup</code> at the control-flow level: spawn related children, wait for the group, and cancel siblings on structured failure paths. <code>Examples/AwaitServiceProbe</code> shows this with an outer group that runs a network exchange and a bounded maintenance check, while the network exchange owns an inner server/client group. The Sane C++ difference is visible storage: the task objects, task-pointer arrays, result arrays, buffers, and allocator backing store are all caller-owned so lifetime and memory use remain auditable.</p>
-<h1><a class="anchor" id="autotoc_md179"></a>
+<h1><a class="anchor" id="autotoc_md180"></a>
 Detached tasks</h1>
 <p>The preferred model remains structured: keep child <code>AwaitTask</code> objects in caller-owned storage and wait through <code>AwaitTaskGroup</code> or <code>spawnAndWait()</code>. When a workflow really needs detached/background ownership, <code>AwaitTaskRegistry</code> provides the no-allocation shape: fixed caller-provided task slots, explicit <code>spawn()</code> into the first free slot, <code>waitAll()</code> to drain currently registered tasks, <code>waitAny()</code> to wait for the first completed slot, <code>cancelAll()</code> during shutdown, and <code>clearCompleted()</code> for cleanup and optional result aggregation.</p>
 <p>Like <code>AwaitTaskGroup::waitAny()</code>, registry <code>waitAny()</code> defaults to cancelling the remaining active tasks after the winner is known. Pass <code>AwaitTaskRegistryWaitAnyPolicy::LeaveRemainingRunning</code> only when the registry storage is a true background lifetime owner and shutdown will later call <code>cancelAll()</code> or drain the active tasks.</p>
@@ -518,7 +518,7 @@ Detached tasks</h1>
 <div class="line">AwaitTaskGroupResultSummary summary;</div>
 <div class="line">registry.clearCompleted(&amp;summary);</div>
 </div><!-- fragment --><p>Calling <code>cancelAll()</code> on an empty or already-cancelled registry is valid. Calling <code>clearCompleted()</code> repeatedly is also valid; it only releases completed slots. If a registry uses <code>waitAny(LeaveRemainingRunning)</code>, the owner must still call <code>cancelAll()</code> or otherwise drain the remaining active tasks before destroying the registry storage.</p>
-<h1><a class="anchor" id="autotoc_md180"></a>
+<h1><a class="anchor" id="autotoc_md181"></a>
 Memory allocation</h1>
 <p><code>AwaitAllocator</code> is mandatory: every <code>AwaitEventLoop</code> receives an already opened allocator, and coroutine frame allocation fails cleanly if no <code>AwaitEventLoop&amp;</code> can be discovered from the coroutine parameters. There is no hidden standard allocation fallback.</p>
 <p>The default and recommended mode is fixed caller-owned storage through <code>createFixed(Span&lt;char&gt;)</code>. This preserves the Sane C++ no-hidden-allocation rule while still allowing coroutine frames to be allocated and released individually.</p>
@@ -546,14 +546,14 @@ Memory allocation</h1>
 <div class="line">}</div>
 <div class="line"><span class="comment">// stats.largestRequestedAllocationSize shows the largest successful frame/allocation request.</span></div>
 </div><!-- fragment --><p>Fixed storage should be sized intentionally per workflow. Prefer using diagnostics to tune the storage over switching to <code>createMalloc()</code> or <code>createVirtual()</code> just to hide a missing sizing decision.</p>
-<h1><a class="anchor" id="autotoc_md181"></a>
+<h1><a class="anchor" id="autotoc_md182"></a>
 Exceptions</h1>
 <p><code>Await</code> does not use exceptions for control flow. The C++20 test, examples, and coroutine-shim probe intentionally keep <code>CompileFlags::enableExceptions</code> disabled, so macOS, Linux, and Windows validation covers the exception-disabled path. <code>AwaitTask::Promise::unhandled_exception()</code> remains present because the C++ coroutine promise interface requires it when compiling coroutine promise types.</p>
-<h1><a class="anchor" id="autotoc_md182"></a>
+<h1><a class="anchor" id="autotoc_md183"></a>
 Strict no-stdlib coroutine status</h1>
 <p>The default/recommended path uses the standard C++ <code>&lt;coroutine&gt;</code> header. A strict <code>SC_INCLUDE_STD_CPP=0</code> path now exists behind the explicit <code>SC_AWAIT_ENABLE_NO_STDLIB_COROUTINE=1</code> opt-in macro. In that mode <code>Libraries/Await/Internal/AwaitCoroutine.h</code> provides the minimal compiler-facing <code>std::coroutine_traits</code>, <code>std::coroutine_handle</code>, <code>std::suspend_always</code>, and <code>std::suspend_never</code> names used by Await, backed by compiler coroutine builtins instead of standard-library headers.</p>
 <p>This shim is intentionally narrow and is covered by the isolated <code>SCAwaitCoroutineShimTest</code> target, not by normal Await examples yet. It proves that a tiny coroutine task can compile and run with standard C++ headers disabled and exceptions disabled on macOS, Linux, and Windows. Full <code>SCTest</code> participation remains Stable-track work: the shim should mature against real <code>AwaitTask</code> usage and single-file-library generation before the main Await test moves out of <code>SCAwaitTest</code>.</p>
-<h1><a class="anchor" id="autotoc_md183"></a>
+<h1><a class="anchor" id="autotoc_md184"></a>
 Roadmap</h1>
 <p>🟨 MVP Follow-ups:</p>
 <ul>
@@ -563,7 +563,7 @@ Roadmap</h1>
 <li>Continue tightening coroutine allocation portability, especially around member coroutine allocation discovery.</li>
 <li>Grow the no-stdlib coroutine shim from isolated probe coverage toward full Await coverage before moving <code>Await</code> into <code>SCTest</code>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md184"></a>
+<h1><a class="anchor" id="autotoc_md185"></a>
 Statistics</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">

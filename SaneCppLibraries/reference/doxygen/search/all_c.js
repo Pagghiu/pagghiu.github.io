@@ -5,10 +5,10 @@ var searchData=
   ['launch_2',['launch',['../structSC_1_1Process.html#ab4d32b0b99d4d7250983bb19b8b8708e',1,'SC::Process::launch()'],['../structSC_1_1ProcessChain.html#a75a9ae441ad4111f78ac1968e4c6d4ec',1,'SC::ProcessChain::launch()']]],
   ['launcher_3',['External SC::Build launcher',['../page_tools.html#autotoc_md101',1,'']]],
   ['launchers_4',['Launchers',['../page_build_external.html#autotoc_md24',1,'']]],
-  ['layer_5',['Session Layer',['../library_http_client.html#autotoc_md312',1,'']]],
+  ['layer_5',['Session Layer',['../library_http_client.html#autotoc_md313',1,'']]],
   ['layout_6',['Layout',['../page_build.html#autotoc_md15',1,'Generated Layout'],['../page_build_external.html#autotoc_md21',1,'Project Layout']]],
-  ['lchmod_7',['lchmod',['../structSC_1_1FileSystem.html#ad6a15dc578e8278551f080d81436e2a5',1,'SC::FileSystem::lchmod()'],['../library_file_system.html#autotoc_md234',1,'lchmod']]],
-  ['lchown_8',['lchown',['../structSC_1_1FileSystem.html#a4ba8e1135033344550c5934c1709e1e9',1,'SC::FileSystem::lchown()'],['../library_file_system.html#autotoc_md233',1,'lchown']]],
+  ['lchmod_7',['lchmod',['../structSC_1_1FileSystem.html#ad6a15dc578e8278551f080d81436e2a5',1,'SC::FileSystem::lchmod()'],['../library_file_system.html#autotoc_md235',1,'lchmod']]],
+  ['lchown_8',['lchown',['../structSC_1_1FileSystem.html#a4ba8e1135033344550c5934c1709e1e9',1,'SC::FileSystem::lchown()'],['../library_file_system.html#autotoc_md234',1,'lchown']]],
   ['learn_20more_9',['Where can I learn more?',['../page_examples.html#autotoc_md83',1,'']]],
   ['leavemulticastgroup_10',['leaveMulticastGroup',['../structSC_1_1SocketDescriptor.html#a845ba37ea726a33fec915b5c3b02be61',1,'SC::SocketDescriptor']]],
   ['length_11',['length',['../structsc__hashing__span__t.html#a83fd713f9b04dc32f9195f98d3d95f6b',1,'sc_hashing_span_t']]],
@@ -20,7 +20,7 @@ var searchData=
   ['library_20notes_17',['HTTP Library Notes',['../md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html',1,'']]],
   ['librarypaths_18',['libraryPaths',['../structSC_1_1PluginSysroot.html#ae8f6962f12e8226099a0b2685aa51bec',1,'SC::PluginSysroot']]],
   ['libraryrootdirectory_19',['libraryRootDirectory',['../structSC_1_1TestReport.html#aa5cc75aa7564ffc8da3da6f31c68d130',1,'SC::TestReport']]],
-  ['lifetime_20rules_20',['Lifetime rules',['../library_await.html#autotoc_md177',1,'']]],
+  ['lifetime_20rules_20',['Lifetime rules',['../library_await.html#autotoc_md178',1,'']]],
   ['like_20std_3a_3astring_20or_20std_3a_3avector_20or_20my_20own_20containers_21',['Can I use STL types like std::string or std::vector or my own containers?',['../page_faq.html#autotoc_md89',1,'']]],
   ['line_22',['line',['../page_building_contributor.html#autotoc_md29',1,'Command-line'],['../page_building_contributor.html#autotoc_md32',1,'Command-line'],['../page_building_contributor.html#autotoc_md46',1,'Command-line']]],
   ['line_20native_20backend_23',['Command-line Native Backend',['../page_building_contributor.html#autotoc_md33',1,'']]],
@@ -39,5 +39,5 @@ var searchData=
   ['looptimeout_36',['LoopTimeout',['../structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524a71ee59b61aa037f9247d066a7ef7384d',1,'SC::AsyncRequest']]],
   ['loopwakeup_37',['LoopWakeUp',['../structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524ad0ef686c2f1efec57dc91359943dad6d',1,'SC::AsyncRequest']]],
   ['loopwork_38',['LoopWork',['../structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524affa2555a68a66905750979f46d81bf8b',1,'SC::AsyncRequest']]],
-  ['lstat_39',['lstat',['../structSC_1_1FileSystem.html#a1c71293fc6fbab346710532dbfd95e18',1,'SC::FileSystem::lstat()'],['../library_file_system.html#autotoc_md229',1,'lstat']]]
+  ['lstat_39',['lstat',['../structSC_1_1FileSystem.html#a1c71293fc6fbab346710532dbfd95e18',1,'SC::FileSystem::lstat()'],['../library_file_system.html#autotoc_md230',1,'lstat']]]
 ];

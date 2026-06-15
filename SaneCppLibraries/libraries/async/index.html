@@ -119,12 +119,12 @@ Check <a href="/SaneCppLibraries/libraries/async-streams/">library_async_streams
 <p>Note:
 Check <a href="/SaneCppLibraries/libraries/await/">library_await</a> for the C++20 coroutine layer that wraps <code>AsyncEventLoop</code> with <code>co_await</code> syntax while
 preserving the same request lifetime expectations. It currently covers a small but useful subset of timers, sockets,
-loop wake-ups, files, file polling, selected filesystem operations, process exit, signals, background work, child tasks,
+loop wake-ups, files, file readiness, selected filesystem operations, process exit, signals, background work, child tasks,
 task groups, cancellation, and timeouts.</p>
 </blockquote>
 <blockquote>
 <p>Note:
-<code>Await</code> keeps the same platform caveats as <code>Async</code>: POSIX file polling is exposed directly, while Windows file polling
+<code>Await</code> keeps the same platform caveats as <code>Async</code>: POSIX file readiness is exposed directly, while Windows file readiness
 for normal file or pipe handles currently fails fast at the Await layer instead of pretending to be portable. File and
 filesystem operations that need blocking work use caller-provided <code>ThreadPool</code> storage.</p>
 </blockquote>
@@ -198,8 +198,12 @@ methods.</p>
 <td>SC::AsyncProcessExit</td>
 </tr>
 <tr>
-<td>AsyncFilePoll</td>
-<td>SC::AsyncFilePoll</td>
+<td>AsyncFileReadiness</td>
+<td>SC::AsyncFileReadiness</td>
+</tr>
+<tr>
+<td>AsyncExternalCompletion</td>
+<td>SC::AsyncExternalCompletion</td>
 </tr>
 <tr>
 <td>AsyncSequence</td>
@@ -335,7 +339,8 @@ This is very useful to integrate the event loop into applications with other eve
 <p>When using offsets, prefer a single contiguous buffer for portable examples and higher-level helpers. Combining
 scatter/gather buffers with an explicit offset needs backend-specific validation before being treated as a portable
 idiom.</p>
-<h2>AsyncFilePoll</h2>
+<h2>AsyncFileReadiness</h2>
+<h2>AsyncExternalCompletion</h2>
 <h2>AsyncSequence</h2>
 <h2>AsyncTaskSequence</h2>
 <h2>AsyncFileSystemOperation</h2>

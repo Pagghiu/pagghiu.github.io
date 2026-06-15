@@ -275,7 +275,9 @@ Additional Inherited Members</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524abefab43235629b9d62f28ac18a74003d">FileSend</a>
 , <br />
-&#160;&#160;<a class="el" href="structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524ac4a4109fa1a034a514a42877cdc156c8">FilePoll</a>
+&#160;&#160;<a class="el" href="structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524ace457daaa18a53ac67fdc847232a3b7c">FileReadiness</a>
+, <br />
+&#160;&#160;<a class="el" href="structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524a92e8726b7924fdef0c0397b5492d9d17">ExternalCompletion</a>
 , <br />
 &#160;&#160;<a class="el" href="structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524a6e839406d7864194e3b461409c536391">FileSystemOperation</a>
 <br />
@@ -303,7 +305,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>queueSubmission</b> (
 <dl class="section note"><dt>Note</dt><dd>On epoll/macOS/Windows this runs synchronously when scheduled and can optionally use a thread pool for better concurrency. </dd>
 <dd>
 On io_uring this uses native async sendfile (IORING_OP_SEND_ZC when available).</dd></dl>
-<h2><a class="anchor" id="autotoc_md496"></a>
+<h2><a class="anchor" id="autotoc_md497"></a>
 File Opening Requirements</h2>
 <p><b>Windows:</b> Files <b>must</b> be opened with <code><a class="el" href="structSC_1_1FileOpen.html#aeab1ae17d0e3c5f8abd6ef230862c443" title="Set to false if file will be used for Async I/O (see Async)">FileOpen::blocking</a> = true</code> because the Windows implementation uses synchronous <code>ReadFile</code>/<code>WSASend</code> internally. Opening files with <code>blocking = false</code> (which adds <code>FILE_FLAG_OVERLAPPED</code>) will cause <code>ReadFile</code> to fail or return 0 bytes. The async aspect comes from being scheduled within the event loop, not from overlapped I/O.</p>
 <p><b>Posix (macOS/Linux with epoll):</b> Files should be opened with <code><a class="el" href="structSC_1_1FileOpen.html#aeab1ae17d0e3c5f8abd6ef230862c443" title="Set to false if file will be used for Async I/O (see Async)">FileOpen::blocking</a> = false</code> to enable non-blocking <code>sendfile</code>. If opened with <code>blocking = true</code>, <code>sendfile</code> will block the event loop thread until completion.</p>

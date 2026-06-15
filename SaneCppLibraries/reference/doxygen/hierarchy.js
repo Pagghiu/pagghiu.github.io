@@ -46,8 +46,9 @@ var hierarchy =
       [ "SC::HttpIncomingMessage::BodyStream", "structSC_1_1HttpIncomingMessage_1_1BodyStream.html", null ]
     ] ],
     [ "SC::AsyncRequest", "structSC_1_1AsyncRequest.html", [
-      [ "SC::AsyncFilePoll", "structSC_1_1AsyncFilePoll.html", null ],
+      [ "SC::AsyncExternalCompletion", "structSC_1_1AsyncExternalCompletion.html", null ],
       [ "SC::AsyncFileRead", "structSC_1_1AsyncFileRead.html", null ],
+      [ "SC::AsyncFileReadiness", "structSC_1_1AsyncFileReadiness.html", null ],
       [ "SC::AsyncFileSend", "structSC_1_1AsyncFileSend.html", null ],
       [ "SC::AsyncFileSystemOperation", "structSC_1_1AsyncFileSystemOperation.html", null ],
       [ "SC::AsyncFileWrite", "structSC_1_1AsyncFileWrite.html", null ],
@@ -177,6 +178,7 @@ var hierarchy =
     [ "SC::CommandLinePositional", "structSC_1_1CommandLinePositional.html", null ],
     [ "SC::CommandLineSpec", "structSC_1_1CommandLineSpec.html", null ],
     [ "SC::CommandLineValue", "structSC_1_1CommandLineValue.html", null ],
+    [ "SC::AsyncExternalCompletion::CompletionData", "structSC_1_1AsyncExternalCompletion_1_1CompletionData.html", null ],
     [ "SC::ConditionVariable", "structSC_1_1ConditionVariable.html", null ],
     [ "SC::HttpConnectionsPool::Configuration", "structSC_1_1HttpConnectionsPool_1_1Configuration.html", null ],
     [ "SC::Console", "structSC_1_1Console.html", null ],

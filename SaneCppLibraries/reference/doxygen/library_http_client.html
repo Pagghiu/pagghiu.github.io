@@ -129,91 +129,91 @@ $(function(){initNavTree('library_http_client.html',''); initResizable(true); })
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md294">Dependencies</a>
+    <a href="#autotoc_md295">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md295">Features</a>
+    <a href="#autotoc_md296">Features</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md296">Status</a>
+    <a href="#autotoc_md297">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md297">Description</a>
+    <a href="#autotoc_md298">Description</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md298">Recommended Patterns</a>
+    <a href="#autotoc_md299">Recommended Patterns</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md299">Allocation-Free Audit</a>
+    <a href="#autotoc_md300">Allocation-Free Audit</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md300">Details</a>
+    <a href="#autotoc_md301">Details</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md301">HttpClient</a>
+        <a href="#autotoc_md302">HttpClient</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md302">HttpClientRequest</a>
+        <a href="#autotoc_md303">HttpClientRequest</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md303">HttpClientResponse</a>
+        <a href="#autotoc_md304">HttpClientResponse</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md304">HttpClientRequestBodyProvider</a>
+        <a href="#autotoc_md305">HttpClientRequestBodyProvider</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md305">HttpClientOperationListener</a>
+        <a href="#autotoc_md306">HttpClientOperationListener</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md306">HttpClientOperationNotifier</a>
+        <a href="#autotoc_md307">HttpClientOperationNotifier</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md307">HttpClientResponseBuffer</a>
+        <a href="#autotoc_md308">HttpClientResponseBuffer</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md308">HttpClientOperationEvent</a>
+        <a href="#autotoc_md309">HttpClientOperationEvent</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md309">HttpClientOperationMemory</a>
+        <a href="#autotoc_md310">HttpClientOperationMemory</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md310">HttpClientOperation</a>
+        <a href="#autotoc_md311">HttpClientOperation</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md311">Async Adapter</a>
+        <a href="#autotoc_md312">Async Adapter</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md312">Session Layer</a>
+        <a href="#autotoc_md313">Session Layer</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md313">Operation Scheduler</a>
+        <a href="#autotoc_md314">Operation Scheduler</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md314">Blog</a>
+    <a href="#autotoc_md315">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md315">Examples</a>
+    <a href="#autotoc_md316">Examples</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md316">Roadmap</a>
+    <a href="#autotoc_md317">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md317">Statistics</a>
+    <a href="#autotoc_md318">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟥 Streaming-first HTTP client with native OS backends</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppHttpClient.h">SaneCppHttpClient.h</a> is a streaming-first HTTP client built on native OS backends.</p>
-<h1><a class="anchor" id="autotoc_md294"></a>
+<h1><a class="anchor" id="autotoc_md295"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="HttpClient.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md295"></a>
+<h1><a class="anchor" id="autotoc_md296"></a>
 Features</h1>
 <ul>
 <li>Native OS backends (NSURLSession on Apple, WinHTTP on Windows, libcurl on Linux)</li>
@@ -224,11 +224,11 @@ Features</h1>
 <li>Async streaming integration available through <code><a class="el" href="structSC_1_1HttpClientAsyncT.html">SC::HttpClientAsyncT</a></code></li>
 <li>Blocking helper for simple synchronous workflows</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md296"></a>
+<h1><a class="anchor" id="autotoc_md297"></a>
 Status</h1>
 <p>🟥 Draft <br  />
  The API is stabilizing and the streaming core is in place, but consider everything HIGHLY experimental.</p>
-<h1><a class="anchor" id="autotoc_md297"></a>
+<h1><a class="anchor" id="autotoc_md298"></a>
 Description</h1>
 <p>HttpClient is designed to stay allocation-free by relying on caller-provided buffers and queues. The core library is poll-driven and independent from <code>Async</code>, <code>AsyncStreams</code>, <code>Threading</code>, and <code>Time</code>. Response headers and transport metadata are written into user-provided buffers, while response body chunks are delivered during <code>poll()</code> through a small listener interface.</p>
 <p><code>HttpClientRequest</code> groups caller-owned headers, body, and transport options into one request object. Request bodies are explicitly framed as fixed-size inline bytes, a fixed-size stream, or a chunked stream by setting <code>HttpClientRequestBody::framing</code>. Redirect, timeout, TLS, and protocol concerns are grouped under <code>HttpClientRequestOptions</code>. Request URL, method, redirect mode, header names, and header values are validated before any backend-specific request setup starts. URLs must use the <code><a href="http://">http://</a></code> or <code><a href="https://">https://</a></code> scheme, include a non-empty host, and avoid whitespace or control bytes. Header names must be HTTP token names, and header values reject CR, LF, and NUL bytes. Request methods, body framing modes, redirect modes, protocol preferences, and proxy modes expose static name helpers for allocation-free diagnostics. <code>HttpClientRequest::validate()</code> exposes the same request-shape checks used by <code>HttpClientOperation::start()</code>. The request object is copied by value when an operation starts, but URL, headers, body bytes, streamed-body providers, and option string views remain caller-owned and must outlive the operation.</p>
@@ -292,7 +292,7 @@ Description</h1>
 <li>Decompression should be built as a caller-owned streaming transform above the raw response body, not as hidden state inside <code>HttpClientOperation</code></li>
 <li><code>AsyncStreams</code> already provides zlib/gzip/deflate transform primitives that callers can compose explicitly when they opt into that dependency</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md298"></a>
+<h1><a class="anchor" id="autotoc_md299"></a>
 Recommended Patterns</h1>
 <p>Blocking: </p><div class="fragment"><div class="line"><a class="code hl_struct" href="structSC_1_1HttpClientRequest.html">SC::HttpClientRequest</a> request;</div>
 <div class="line">request.<a class="code hl_variable" href="structSC_1_1HttpClientRequest.html#a85bd0be3287fa3a2e6fa50019881859c">url</a> = <span class="stringliteral">&quot;https://example.com&quot;</span>_a8;</div>
@@ -330,7 +330,7 @@ Recommended Patterns</h1>
 <div class="line">{</div>
 <div class="line">    SC_TRY(loop.<a class="code hl_function" href="structSC_1_1AsyncEventLoop.html#aeef889e7c4c8f7cbbfe974ee6be27f09">runOnce</a>());</div>
 <div class="line">}</div>
-<div class="ttc" id="astructSC_1_1AsyncEventLoop_html"><div class="ttname"><a href="structSC_1_1AsyncEventLoop.html">SC::AsyncEventLoop</a></div><div class="ttdoc">Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...</div><div class="ttdef"><b>Definition</b> Async.h:1404</div></div>
+<div class="ttc" id="astructSC_1_1AsyncEventLoop_html"><div class="ttname"><a href="structSC_1_1AsyncEventLoop.html">SC::AsyncEventLoop</a></div><div class="ttdoc">Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...</div><div class="ttdef"><b>Definition</b> Async.h:1447</div></div>
 <div class="ttc" id="astructSC_1_1AsyncEventLoop_html_acff1e9afb4330dabb78d5f491ba3d39e"><div class="ttname"><a href="structSC_1_1AsyncEventLoop.html#acff1e9afb4330dabb78d5f491ba3d39e">SC::AsyncEventLoop::create</a></div><div class="ttdeci">Result create(Options options=Options())</div><div class="ttdoc">Creates the event loop kernel object.</div></div>
 <div class="ttc" id="astructSC_1_1AsyncEventLoop_html_aeef889e7c4c8f7cbbfe974ee6be27f09"><div class="ttname"><a href="structSC_1_1AsyncEventLoop.html#aeef889e7c4c8f7cbbfe974ee6be27f09">SC::AsyncEventLoop::runOnce</a></div><div class="ttdeci">Result runOnce()</div><div class="ttdoc">Blocks until at least one request proceeds, ensuring forward progress, dispatching all completions.</div></div>
 <div class="ttc" id="astructSC_1_1HttpClientAsyncT_html"><div class="ttname"><a href="structSC_1_1HttpClientAsyncT.html">SC::HttpClientAsyncT</a></div><div class="ttdef"><b>Definition</b> HttpClientAsync.h:37</div></div>
@@ -347,63 +347,63 @@ Recommended Patterns</h1>
 <div class="line">    SC_TRY(scheduler.pollReady(numPolled, 16));</div>
 <div class="line">}</div>
 <div class="ttc" id="astructSC_1_1HttpClientOperationScheduler_html"><div class="ttname"><a href="structSC_1_1HttpClientOperationScheduler.html">SC::HttpClientOperationScheduler</a></div><div class="ttdoc">Optional coordinator for polling many HttpClientOperation instances.</div><div class="ttdef"><b>Definition</b> HttpClientScheduler.h:25</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md299"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md300"></a>
 Allocation-Free Audit</h1>
 <p>The stabilization audit treats <code>Libraries/HttpClient</code> as a caller-owned layer. The core operation, session helper, and scheduler do not allocate durable state: request/response views point into caller-owned storage, session cookies/auth entries copy into caller-provided scratch, and scheduler readiness uses caller-provided bytes. Native backend APIs may allocate internally, but the library does not introduce heap containers, owned strings, hidden cookie/auth stores, or decompression state. Operation-memory validation rejects missing event queues, response buffers, response-header storage, response-metadata storage, empty per-buffer response storage, and undersized sliced response memory.</p>
-<h1><a class="anchor" id="autotoc_md300"></a>
+<h1><a class="anchor" id="autotoc_md301"></a>
 Details</h1>
-<h2><a class="anchor" id="autotoc_md301"></a>
+<h2><a class="anchor" id="autotoc_md302"></a>
 HttpClient</h2>
 <p>Reusable HTTP backend/session owner.   </p>
-<h2><a class="anchor" id="autotoc_md302"></a>
+<h2><a class="anchor" id="autotoc_md303"></a>
 HttpClientRequest</h2>
 <p>Configuration for an outgoing HTTP request.   </p>
 <p>All views must remain valid until the operation completes or is cancelled. The request object is copied by value, but referenced header/body/provider storage remains caller-owned.   </p>
-<h2><a class="anchor" id="autotoc_md303"></a>
+<h2><a class="anchor" id="autotoc_md304"></a>
 HttpClientResponse</h2>
 <p>Parsed response metadata filled when headers arrive.   </p>
 <p><code>headers</code> and <code>effectiveUrl</code> are views into caller-owned <code>HttpClientOperationMemory</code> buffers.   </p>
-<h2><a class="anchor" id="autotoc_md304"></a>
+<h2><a class="anchor" id="autotoc_md305"></a>
 HttpClientRequestBodyProvider</h2>
 <p>Pull-based provider for streamed request bodies.   </p>
-<h2><a class="anchor" id="autotoc_md305"></a>
+<h2><a class="anchor" id="autotoc_md306"></a>
 HttpClientOperationListener</h2>
 <p>Listener receiving response notifications during HttpClientOperation::poll.   </p>
-<h2><a class="anchor" id="autotoc_md306"></a>
+<h2><a class="anchor" id="autotoc_md307"></a>
 HttpClientOperationNotifier</h2>
 <p>Optional notifier used by external adapters to wake up their own event loop.   </p>
-<h2><a class="anchor" id="autotoc_md307"></a>
+<h2><a class="anchor" id="autotoc_md308"></a>
 HttpClientResponseBuffer</h2>
 <p>Caller-owned response buffer descriptor for one HttpClientOperation.   </p>
-<h2><a class="anchor" id="autotoc_md308"></a>
+<h2><a class="anchor" id="autotoc_md309"></a>
 HttpClientOperationEvent</h2>
 <p>Event slot storage used by HttpClientOperation to hand off backend notifications.   </p>
-<h2><a class="anchor" id="autotoc_md309"></a>
+<h2><a class="anchor" id="autotoc_md310"></a>
 HttpClientOperationMemory</h2>
 <p>Caller-owned memory for one HttpClientOperation.   </p>
 <p><code>responseBuffers</code> and <code>eventQueue</code> are required. Either provide non-empty <code>data</code> for each response buffer, or provide <code>responseBufferMemory</code> to be split equally across them during <code>HttpClientOperation::init()</code>. <code>responseHeaders</code> stores raw response headers, <code>responseMetadata</code> stores transport metadata such as the effective URL, and <code>backendScratch</code> is temporary backend-specific conversion/header workspace.   </p>
-<h2><a class="anchor" id="autotoc_md310"></a>
+<h2><a class="anchor" id="autotoc_md311"></a>
 HttpClientOperation</h2>
 <p>One in-flight HTTP request/response operation.   </p>
-<h2><a class="anchor" id="autotoc_md311"></a>
+<h2><a class="anchor" id="autotoc_md312"></a>
 Async Adapter</h2>
 <p><code><a class="el" href="structSC_1_1HttpClientAsyncT.html">SC::HttpClientAsyncT</a></code> and <code><a class="el" href="structSC_1_1HttpClientAsyncOperationMemoryT.html" title="Caller-owned memory for one HttpClientAsyncT operation.">SC::HttpClientAsyncOperationMemoryT</a></code> are declared in <code><a class="el" href="HttpClientAsync_8h_source.html">Libraries/HttpClient/HttpClientAsync.h</a></code>.</p>
 <p>They provide the optional <code>Async</code> / <code>AsyncStreams</code> integration layer on top of the poll-driven <code>HttpClientOperation</code> core, reusing the same request, response, and caller-owned operation memory model.</p>
 <p>With the standard Async Streams library, instantiate the adapter as <code><a class="el" href="structSC_1_1HttpClientAsyncT.html">SC::HttpClientAsyncT</a>&lt;<a class="el" href="structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">SC::AsyncEventLoop</a>, <a class="el" href="structSC_1_1AsyncStreams.html" title="Traits exposing AsyncStreams public types through a single template parameter.">SC::AsyncStreams</a>&gt;</code> and the adapter memory as <code><a class="el" href="structSC_1_1HttpClientAsyncOperationMemoryT.html" title="Caller-owned memory for one HttpClientAsyncT operation.">SC::HttpClientAsyncOperationMemoryT</a>&lt;<a class="el" href="structSC_1_1AsyncStreams.html" title="Traits exposing AsyncStreams public types through a single template parameter.">SC::AsyncStreams</a>&gt;</code>.</p>
-<h2><a class="anchor" id="autotoc_md312"></a>
+<h2><a class="anchor" id="autotoc_md313"></a>
 Session Layer</h2>
 <p><code><a class="el" href="structSC_1_1HttpClientSession.html" title="Optional caller-owned state layer above the stateless HttpClient core.">SC::HttpClientSession</a></code> is optional and does not own allocations. It can capture <code>Set-Cookie</code> headers into caller-provided cookie slots, add cached <code>Authorization</code> values by exact origin, and track retry attempts for one logical request. It also provides <code>makeBasicAuthorization()</code> to build <code>Authorization</code> or <code>Proxy-Authorization</code> values into caller-owned buffers. Basic authentication challenge helpers can inspect <code>WWW-Authenticate</code> and <code>Proxy-Authenticate</code> response headers and prepare a retry header without storing credentials. Auth challenge target and scheme names are available as static strings for diagnostics. The caller still drives <code>HttpClientOperation</code> directly; the session layer only prepares request metadata and records response metadata. Use <code>findCookie()</code>, <code>hasCookie()</code>, <code>findAuthorization()</code>, <code>hasAuthorization()</code>, <code>getNumCookies()</code>, and <code>getNumAuthorizations()</code> to inspect caller-owned session state without allocating. <code>clearCookies()</code> and <code>clearAuthorizations()</code> clear their slots independently; use <code>clear()</code> when you also want to reclaim session scratch space. Retry helpers expose idempotent-method checks, retryable-status checks, and remaining-attempt state without hiding the transport <code>Result</code> that caused the retry decision.</p>
-<h2><a class="anchor" id="autotoc_md313"></a>
+<h2><a class="anchor" id="autotoc_md314"></a>
 Operation Scheduler</h2>
 <p><code><a class="el" href="structSC_1_1HttpClientOperationScheduler.html" title="Optional coordinator for polling many HttpClientOperation instances.">SC::HttpClientOperationScheduler</a></code> is optional and caller-owned. Register initialized <code>HttpClientOperation</code> pointers plus one ready byte per operation, start requests normally, then call <code>pollReady()</code> from the application loop. The scheduler uses the existing notifier hook and never changes the single-operation request/response contract. Use <code>getNumOperations()</code>, <code>isOperationRegistered()</code>, and <code>getNumRequestsInFlight()</code> for allocation-free orchestration diagnostics.</p>
-<h1><a class="anchor" id="autotoc_md314"></a>
+<h1><a class="anchor" id="autotoc_md315"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md315"></a>
+<h1><a class="anchor" id="autotoc_md316"></a>
 Examples</h1>
 <ul>
 <li><code>Examples/SaneHttpGet</code> shows the blocking helper with caller-owned buffers</li>
@@ -412,7 +412,7 @@ Examples</h1>
 <li>Unit tests in <code>Tests/Libraries/HttpClient</code> show blocking, poll-driven, session, scheduler, and upload usage patterns</li>
 <li>AsyncStreams examples show how to integrate streaming pipelines with <code>AsyncReadableStream</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md316"></a>
+<h1><a class="anchor" id="autotoc_md317"></a>
 Roadmap</h1>
 <p>🟨 MVP</p><ul>
 <li>No remaining MVP item in the allocation-free core; non-Basic authentication schemes remain application- or backend-specific policy.</li>
@@ -427,7 +427,7 @@ Roadmap</h1>
 <p>💡 Unplanned Features:</p><ul>
 <li>HTTP/3</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md317"></a>
+<h1><a class="anchor" id="autotoc_md318"></a>
 Statistics</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">

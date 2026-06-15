@@ -129,48 +129,48 @@ $(function(){initNavTree('library_containers.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md185">Dependencies</a>
+    <a href="#autotoc_md186">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md186">Features</a>
+    <a href="#autotoc_md187">Features</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md187">Status</a>
+    <a href="#autotoc_md188">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md188">Description</a>
+    <a href="#autotoc_md189">Description</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md189">Blog</a>
+    <a href="#autotoc_md190">Blog</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md190">Vector</a>
+        <a href="#autotoc_md191">Vector</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md191">Array</a>
+        <a href="#autotoc_md192">Array</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md192">SmallVector</a>
+        <a href="#autotoc_md193">SmallVector</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md193">VectorMap</a>
+        <a href="#autotoc_md194">VectorMap</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md194">VectorSet</a>
+        <a href="#autotoc_md195">VectorSet</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md195">ArenaMap</a>
+        <a href="#autotoc_md196">ArenaMap</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md196">Details</a>
+    <a href="#autotoc_md197">Details</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md197">Roadmap</a>
+    <a href="#autotoc_md198">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md198">Statistics</a>
+    <a href="#autotoc_md199">Statistics</a>
   </li>
 </ul>
 </div>
@@ -178,14 +178,14 @@ $(function(){initNavTree('library_containers.html',''); initResizable(true); });
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppContainers.h">SaneCppContainers.h</a> is a library holding some commonly used templated data structures.</p>
 <p>While all libraries are designed to let you use your favorite externally provided <code>string</code> / <code>vector</code> classes, there is also an choice of basic containers (mainly <code>Vector&lt;T&gt;</code> incarnations), with support for inline buffer and custom scoped allocators provided by <a class="el" href="library_memory.html">Memory</a> library.</p>
 <dl class="section note"><dt>Note</dt><dd>See <code>Tests/InteropSTL/*.cpp</code> for an example of externally provided Container classes.</dd></dl>
-<h1><a class="anchor" id="autotoc_md185"></a>
+<h1><a class="anchor" id="autotoc_md186"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <a class="el" href="library_memory.html">Memory</a></li>
 <li>All dependencies: <a class="el" href="library_memory.html">Memory</a></li>
 </ul>
 <p><img src="Containers.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md186"></a>
+<h1><a class="anchor" id="autotoc_md187"></a>
 Features</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -203,12 +203,12 @@ Features</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1ArenaMap.html" title="A sparse vector keeping objects at a stable memory location.">SC::ArenaMap</a>   </td><td class="markdownTableBodyLeft">A sparse vector keeping objects at a stable memory location.      </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md187"></a>
+<h1><a class="anchor" id="autotoc_md188"></a>
 Status</h1>
 <p>🟨 MVP <br  />
  All classes defined in the library should be reasonably stable and safe to use. <br  />
 </p>
-<h1><a class="anchor" id="autotoc_md188"></a>
+<h1><a class="anchor" id="autotoc_md189"></a>
 Description</h1>
 <p>Generic data structures are a fundamental building blocks for almost every application. <br  />
  These are some of commonly used ones for common tasks, and the library will grow adding what's needed.</p>
@@ -218,13 +218,13 @@ Description</h1>
 <p><a class="el" href="structSC_1_1SmallVector.html" title="A Vector that can hold up to N elements inline and &gt; N on heap.">SC::SmallVector</a> is the middle ground between <a class="el" href="structSC_1_1Array.html" title="A contiguous sequence of elements kept inside its inline storage.">SC::Array</a> and <a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a>. <br  />
  It's a vector with inline storage for <code>N</code> elements, deriving from <a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a> and it's designed to be passed everywhere a reference to <a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a> is needed. This allows the caller to get rid of temporary heap allocations if an estimate of the space required is already known or if it's possible providing a reasonable default. <br  />
  If this estimation is wrong, heap allocation will happen.</p>
-<h1><a class="anchor" id="autotoc_md189"></a>
+<h1><a class="anchor" id="autotoc_md190"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2025-02-28-SaneCppLibrariesUpdate.html">February 2025 Update</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md190"></a>
+<h2><a class="anchor" id="autotoc_md191"></a>
 Vector</h2>
 <p>A contiguous sequence of heap allocated elements.   </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -244,7 +244,7 @@ Assignment and Copy / move construct operators will just assert as they can't re
 <div class="line">    SC_TRY(myVector.pop_back());</div>
 <div class="line">    SC_TRY(myVector.pop_front());</div>
 <div class="line">    console.<a class="code hl_function" href="structSC_1_1Console.html#a90ab19d2e3479df328c87dc8c51f3c4a">print</a>(<span class="stringliteral">&quot;Vector&lt;int&gt; is {}&quot;</span>, myVector.isEmpty() ? <span class="stringliteral">&quot;empty&quot;</span> : <span class="stringliteral">&quot;not empty&quot;</span>);</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md191"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md192"></a>
 Array</h2>
 <p>A contiguous sequence of elements kept inside its inline storage.   </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -267,7 +267,7 @@ Only up to <a class="el" href="structSC_1_1Segment.html#a3141efbbe65178600af0fc9
 <div class="line">    SC_TRY(myVector.pop_front());</div>
 <div class="line">    (void)myVector.pop_front(); <span class="comment">// &lt;-- This will fail</span></div>
 <div class="line">    console.<a class="code hl_function" href="structSC_1_1Console.html#a90ab19d2e3479df328c87dc8c51f3c4a">print</a>(<span class="stringliteral">&quot;Array&lt;int, 3&gt; is {}&quot;</span>, myVector.isEmpty() ? <span class="stringliteral">&quot;empty&quot;</span> : <span class="stringliteral">&quot;not empty&quot;</span>);</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md192"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md193"></a>
 SmallVector</h2>
 <p>A Vector that can hold up to <code>N</code> elements inline and <code>&gt; N</code> on heap.   </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -298,7 +298,7 @@ When the <code>size()</code> becomes less than <code>N</code> the container will
 <div class="line">    <span class="comment">// ... later on</span></div>
 <div class="line"> </div>
 <div class="line">    SC_TRY(mySmallVector.pop_back()); <span class="comment">// &lt;-- Vector is moved back to SmallVector inline storage</span></div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md193"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md194"></a>
 VectorMap</h2>
 <p>A map holding VectorMapItem key-value pairs in an unsorted Vector.   </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -316,7 +316,7 @@ VectorMap</h2>
 <div class="line">    SC_TRY(map.<a class="code hl_function" href="structSC_1_1VectorMap.html#a88ff9fd626e6b9254aa7acfbb55285be">contains</a>(<span class="stringliteral">&quot;A&quot;</span>, value) &amp;&amp; *value == 2); <span class="comment">// &lt;-- &quot;A&quot; is a StringView, avoiding allocation</span></div>
 <div class="line">    SC_TRY(map.<a class="code hl_function" href="structSC_1_1VectorMap.html#a88ff9fd626e6b9254aa7acfbb55285be">contains</a>(<span class="stringliteral">&quot;B&quot;</span>, value) &amp;&amp; *value == 3); <span class="comment">// &lt;-- &quot;B&quot; is a StringView, avoiding allocation</span></div>
 <div class="line">    SC_TRY(not map.<a class="code hl_function" href="structSC_1_1VectorMap.html#a88ff9fd626e6b9254aa7acfbb55285be">contains</a>(<span class="stringliteral">&quot;C&quot;</span>));                   <span class="comment">// &lt;-- &quot;C&quot; is a StringView, avoiding allocation</span></div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md194"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md195"></a>
 VectorSet</h2>
 <p>A set built on an unsorted Vector, ensuring no item duplication.   </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -343,7 +343,7 @@ VectorSet</h2>
 <div class="line">    {</div>
 <div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(item == <span class="stringliteral">&quot;456&quot;</span>);</div>
 <div class="line">    }</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md195"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md196"></a>
 ArenaMap</h2>
 <p>A sparse vector keeping objects at a stable memory location.   </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -370,7 +370,7 @@ Internally it hold sparse objects inside of a <a class="el" href="structSC_1_1Ve
 <div class="line">    SC_TRY(map.get(keys[0])-&gt;view() == <span class="stringliteral">&quot;ASD&quot;</span>); <span class="comment">// Get first element</span></div>
 <div class="line">    SC_TRY(map.get(keys[1])-&gt;view() == <span class="stringliteral">&quot;DSA&quot;</span>); <span class="comment">// Get second element</span></div>
 <div class="line">    SC_TRY(map.get(keys[2])-&gt;view() == <span class="stringliteral">&quot;BDA&quot;</span>); <span class="comment">// Get third element</span></div>
-</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md196"></a>
+</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md197"></a>
 Details</h1>
 <ul>
 <li><a class="el" href="structSC_1_1Segment.html" title="A slice of contiguous memory, prefixed by and header containing size and capacity.">SC::Segment</a> is the class representing a variable and contiguous slice of bytes or objects backing both <a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a>, <a class="el" href="structSC_1_1SmallVector.html" title="A Vector that can hold up to N elements inline and &gt; N on heap.">SC::SmallVector</a>, <a class="el" href="structSC_1_1Array.html" title="A contiguous sequence of elements kept inside its inline storage.">SC::Array</a>, <a class="el" href="structSC_1_1Buffer.html" title="An heap allocated byte buffer that can optionally use an inline buffer.">SC::Buffer</a> and <a class="el" href="structSC_1_1SmallBuffer.html" title="A SC::Buffer with a dedicated custom inline buffer to avoid heap allocation.">SC::SmallBuffer</a>. <br  />
@@ -378,7 +378,7 @@ Details</h1>
 <li>Memory layout of a segment is a SC::SegmentHeader holding size and capacity of the segment followed by the actual elements.</li>
 <li>SC::SegmentHeader is aligned to <code>uint64_t</code>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md197"></a>
+<h1><a class="anchor" id="autotoc_md198"></a>
 Roadmap</h1>
 <p>🟩 Usable Features:</p><ul>
 <li>Add option to let user disable heap allocations in <a class="el" href="structSC_1_1SmallVector.html" title="A Vector that can hold up to N elements inline and &gt; N on heap.">SC::SmallVector</a></li>
@@ -392,7 +392,7 @@ Roadmap</h1>
 <p>💡 Unplanned Features:</p><ul>
 <li>None</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md198"></a>
+<h1><a class="anchor" id="autotoc_md199"></a>
 Statistics</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
