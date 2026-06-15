@@ -1,15 +1,15 @@
-<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Coding Style | Sane C++ Libraries</title><meta name="description" content="Note: this document will be updated regularly clarifying existing rules and adding missing guidelines that will emerge from discussions or pull requests being reviewed."><meta property="og:title" content="Coding Style | Sane C++ Libraries"><meta property="og:description" content="Note: this document will be updated regularly clarifying existing rules and adding missing guidelines that will emerge from discussions or pull requests being reviewed."><meta property="og:type" content="website"><meta property="og:url" content="https://pagghiu.github.io/SaneCppLibraries/guides/coding-style/"><link rel="canonical" href="https://pagghiu.github.io/SaneCppLibraries/guides/coding-style/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=JetBrains+Mono:wght@500;700&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"><script>
+<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Coding Style | Sane C++ Libraries</title><meta name="description" content="Formatting, naming, error-handling, and API rules for code that should remain readable to humans and agents."><meta property="og:title" content="Coding Style | Sane C++ Libraries"><meta property="og:description" content="Formatting, naming, error-handling, and API rules for code that should remain readable to humans and agents."><meta property="og:type" content="website"><meta property="og:url" content="https://pagghiu.github.io/SaneCppLibraries/guides/coding-style/"><link rel="canonical" href="https://pagghiu.github.io/SaneCppLibraries/guides/coding-style/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=JetBrains+Mono:wght@500;700&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"><script>
       (() => {
         const savedTheme = localStorage.getItem("sc-theme");
         const theme = savedTheme === "light" || savedTheme === "dark"
           ? savedTheme
-          : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          : "dark";
         document.documentElement.dataset.theme = theme;
       })();
     </script><link rel="stylesheet" href="/_astro/index.BDNR5CoH.css">
-<link rel="stylesheet" href="/_astro/index.CChoFbeJ.css">
-<style>.page-grid[data-astro-cid-lpdweqsn]{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);gap:1.25rem}.article[data-astro-cid-lpdweqsn]{padding:1.5rem}.sidebar[data-astro-cid-lpdweqsn]{display:grid;gap:1rem;align-self:start}.sidebar[data-astro-cid-lpdweqsn] .card[data-astro-cid-lpdweqsn]{display:grid;gap:.75rem}.sidebar[data-astro-cid-lpdweqsn] a[data-astro-cid-lpdweqsn]{color:var(--link);font-weight:700}.sidebar[data-astro-cid-lpdweqsn] a[data-astro-cid-lpdweqsn]:hover{color:var(--link-hover)}@media(max-width:960px){.page-grid[data-astro-cid-lpdweqsn]{grid-template-columns:1fr}}
-</style></head> <body data-astro-cid-37fxchfa> <header class="site-header" data-site-header data-astro-cid-37fxchfa> <div class="shell header-row" data-astro-cid-37fxchfa> <a class="brand" href="/SaneCppLibraries/" data-astro-cid-37fxchfa> <img class="logo-mark" src="/SaneCppLibraries/brand/sc-logo.svg" alt="Sane C++ Libraries logo" width="46" height="46" loading="eager" data-astro-cid-yykneotp>  <span data-astro-cid-37fxchfa> <strong data-astro-cid-37fxchfa>Sane C++ Libraries</strong> <small data-astro-cid-37fxchfa> <span data-astro-cid-37fxchfa>Platform Abstraction C++ Libraries</span> </small> </span> </a> <div class="nav-cluster" data-nav-cluster data-astro-cid-37fxchfa> <nav class="desktop-nav" aria-label="Primary" data-astro-cid-37fxchfa> <a href="/SaneCppLibraries/libraries/" data-astro-cid-37fxchfa>Libraries</a><a href="/SaneCppLibraries/guides/" data-astro-cid-37fxchfa>Guides</a><a href="/SaneCppLibraries/skills/" data-astro-cid-37fxchfa>Skills</a><a href="https://pagghiu.github.io" target="_blank" rel="noreferrer" data-astro-cid-37fxchfa>Blog</a><a href="/SaneCppLibraries/reference/" data-astro-cid-37fxchfa>Reference</a><a href="/SaneCppLibraries/community/" data-astro-cid-37fxchfa>Community</a> </nav> <div class="header-actions" data-astro-cid-37fxchfa> <button class="search-trigger" type="button" data-search-open data-astro-cid-otpdt6jm> <span data-astro-cid-otpdt6jm>Search the site</span> <kbd data-astro-cid-otpdt6jm>/</kbd> </button> <dialog class="search-dialog panel" data-search-dialog data-pagefind-base="/SaneCppLibraries/" data-astro-cid-otpdt6jm> <form method="dialog" class="search-shell" data-astro-cid-otpdt6jm> <div class="search-header" data-astro-cid-otpdt6jm> <input type="search" name="q" placeholder="Search libraries, guides, blog, reference..." autocomplete="off" data-search-input data-astro-cid-otpdt6jm> <button type="submit" class="button" data-astro-cid-otpdt6jm>Close</button> </div> <div class="search-results" data-search-results data-astro-cid-otpdt6jm></div> </form> </dialog> <script>
+<link rel="stylesheet" href="/_astro/index.DjrIxY4C.css">
+<style>.page-grid[data-astro-cid-lpdweqsn]{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);gap:1.25rem;min-width:0}.article[data-astro-cid-lpdweqsn]{min-width:0;max-width:100%;padding:1.5rem;overflow:hidden}.sidebar[data-astro-cid-lpdweqsn]{display:grid;gap:1rem;align-self:start}.sidebar[data-astro-cid-lpdweqsn] .card[data-astro-cid-lpdweqsn]{display:grid;gap:.75rem}.sidebar[data-astro-cid-lpdweqsn] a[data-astro-cid-lpdweqsn]{color:var(--link);font-weight:700}.sidebar[data-astro-cid-lpdweqsn] a[data-astro-cid-lpdweqsn]:hover{color:var(--link-hover)}@media(max-width:960px){.page-grid[data-astro-cid-lpdweqsn]{grid-template-columns:1fr}}
+</style></head> <body data-astro-cid-37fxchfa> <header class="site-header" data-site-header data-astro-cid-37fxchfa> <div class="shell header-row" data-astro-cid-37fxchfa> <a class="brand" href="/SaneCppLibraries/" data-astro-cid-37fxchfa> <img class="logo-mark" src="/SaneCppLibraries/brand/sc-logo.svg" alt="Sane C++ Libraries logo" width="46" height="46" loading="eager" data-astro-cid-yykneotp>  <span data-astro-cid-37fxchfa> <strong data-astro-cid-37fxchfa>Sane C++ Libraries</strong> <small data-astro-cid-37fxchfa> <span data-astro-cid-37fxchfa>Platform Abstraction C++ Libraries</span> </small> </span> </a> <div class="nav-cluster" data-nav-cluster data-astro-cid-37fxchfa> <nav class="desktop-nav" aria-label="Primary" data-astro-cid-37fxchfa> <a href="/SaneCppLibraries/libraries/" data-astro-cid-37fxchfa>Libraries</a><a href="/SaneCppLibraries/guides/" data-astro-cid-37fxchfa>Guides</a><a href="/SaneCppLibraries/skills/" data-astro-cid-37fxchfa>Skills</a><a href="https://pagghiu.github.io" target="_blank" rel="noreferrer" data-astro-cid-37fxchfa>Blog</a><a href="/SaneCppLibraries/reference/" data-astro-cid-37fxchfa>Reference</a><a href="/SaneCppLibraries/community/" data-astro-cid-37fxchfa>Community</a> </nav> <div class="header-actions" data-astro-cid-37fxchfa> <button class="search-trigger" type="button" data-search-open data-astro-cid-otpdt6jm> <span data-astro-cid-otpdt6jm>Search the site</span> <kbd data-astro-cid-otpdt6jm>/</kbd> </button> <dialog class="search-dialog panel" data-search-dialog data-pagefind-base="/" data-astro-cid-otpdt6jm> <form method="dialog" class="search-shell" data-astro-cid-otpdt6jm> <div class="search-header" data-astro-cid-otpdt6jm> <input type="search" name="q" placeholder="Search libraries, guides, blog, reference..." autocomplete="off" data-search-input data-astro-cid-otpdt6jm> <button type="submit" class="button" data-astro-cid-otpdt6jm>Close</button> </div> <div class="search-results" data-search-results data-astro-cid-otpdt6jm></div> </form> </dialog> <script>
   const dialog = document.querySelector("[data-search-dialog]");
   const openButton = document.querySelector("[data-search-open]");
   const input = document.querySelector("[data-search-input]");
@@ -24,26 +24,39 @@
     return pagefind;
   }
 
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;");
+  }
+
   async function runSearch(query) {
     if (!results) return;
     if (!query.trim()) {
       results.innerHTML = '<p class="copy-muted">Type to search across libraries, guides, skills, and generated reference.</p>';
       return;
     }
-    const pagefindApi = await loadPagefind();
-    const search = await pagefindApi.search(query);
-    const items = await Promise.all(search.results.slice(0, 8).map((item) => item.data()));
-    results.innerHTML = items.length
-      ? items
-          .map(
-            (item) => `
-              <a class="search-result" href="${item.url}">
-                <strong>${item.meta.title ?? item.url}</strong>
-                <span>${item.excerpt ?? ""}</span>
-              </a>`
-          )
-          .join("")
-      : '<p class="copy-muted">No results yet. Try a library name, guide, or feature.</p>';
+    try {
+      const pagefindApi = await loadPagefind();
+      const search = await pagefindApi.search(query);
+      const items = await Promise.all(search.results.slice(0, 8).map((item) => item.data()));
+      results.innerHTML = items.length
+        ? items
+            .map(
+              (item) => `
+                <a class="search-result" href="${escapeHtml(item.url)}">
+                  <strong>${escapeHtml(item.meta.title ?? item.url)}</strong>
+                  <span>${item.excerpt ?? ""}</span>
+                </a>`
+            )
+            .join("")
+        : '<p class="copy-muted">No results yet. Try a library name, guide, or feature.</p>';
+    } catch (error) {
+      console.warn("Pagefind search failed", error);
+      results.innerHTML = '<p class="copy-muted">Search index is not available. Run a production build before testing search locally.</p>';
+    }
   }
 
   function openSearch() {
@@ -84,7 +97,7 @@
   function getInitialTheme() {
     const saved = localStorage.getItem(themeStorageKey);
     if (saved === "light" || saved === "dark") return saved;
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    return "dark";
   }
 
   applyTheme(getInitialTheme());
@@ -95,11 +108,12 @@
     localStorage.setItem(themeStorageKey, next);
     applyTheme(next);
   });
-</script>  <a class="button primary" href="https://github.com/Pagghiu/SaneCppLibraries" data-astro-cid-37fxchfa>View GitHub</a> </div> </div> <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="Open navigation" data-astro-cid-37fxchfa> <span class="material-symbols-outlined" aria-hidden="true" data-astro-cid-37fxchfa>menu</span> </button> </div> </header> <main data-astro-cid-37fxchfa>  <section class="shell page-hero" data-astro-cid-lpdweqsn> <div class="section-heading" data-astro-cid-lpdweqsn> <div class="eyebrow" data-astro-cid-lpdweqsn>Guide</div> <h1 data-astro-cid-lpdweqsn>Coding Style</h1> <p data-astro-cid-lpdweqsn>Note: this document will be updated regularly clarifying existing rules and adding missing guidelines that will emerge from discussions or pull requests being reviewed.</p> </div> </section> <section class="shell page-grid" data-astro-cid-lpdweqsn> <article class="panel prose article" data-astro-cid-lpdweqsn><blockquote>
+</script>  <a class="button primary" href="https://github.com/Pagghiu/SaneCppLibraries" data-astro-cid-37fxchfa>View GitHub</a> </div> </div> <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="Open navigation" data-astro-cid-37fxchfa> <span class="material-symbols-outlined" aria-hidden="true" data-astro-cid-37fxchfa>menu</span> </button> </div> </header> <main data-astro-cid-37fxchfa>  <section class="shell page-hero" data-astro-cid-lpdweqsn> <div class="section-heading" data-astro-cid-lpdweqsn> <div class="eyebrow" data-astro-cid-lpdweqsn>Guide</div> <h1 data-astro-cid-lpdweqsn>Coding Style</h1> <p data-astro-cid-lpdweqsn>Formatting, naming, error-handling, and API rules for code that should remain readable to humans and agents.</p> </div> </section> <section class="shell page-grid" data-astro-cid-lpdweqsn> <article class="panel prose article" data-astro-cid-lpdweqsn><blockquote>
 <p>Note: this document will be updated regularly clarifying existing rules and adding missing guidelines that will emerge from discussions or pull requests being reviewed.</p>
 </blockquote>
 <blockquote>
-<p>Note: If you would like to contribute, check <a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> for the current issue-first and agent-friendly workflow.</p>
+<p>Note:
+If you would like to contribute, check <a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> for the current issue-first and agent-friendly workflow.</p>
 </blockquote>
 <h1>Formatting</h1>
 <p>All files should be formatted according to the <code>.clang-format</code> file using <code>clang-format</code> version 20.1.8.  </p>
