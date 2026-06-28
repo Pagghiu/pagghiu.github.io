@@ -40,7 +40,7 @@ var searchData=
   ['removeallassociationsfor_37',['removeAllAssociationsFor',['../structSC_1_1AsyncEventLoop.html#a222055fdd7013026b0d37c07d142948a',1,'SC::AsyncEventLoop::removeAllAssociationsFor(SocketDescriptor &amp;outDescriptor)'],['../structSC_1_1AsyncEventLoop.html#aebd580d4dc73709ec9d8b0789b08ceec',1,'SC::AsyncEventLoop::removeAllAssociationsFor(FileDescriptor &amp;outDescriptor)']]],
   ['removeallassociationsforfiledescriptorhandle_38',['removeAllAssociationsForFileDescriptorHandle',['../structSC_1_1AsyncEventLoop.html#ae92909831a5f856533bd6b24ce47f0dd',1,'SC::AsyncEventLoop']]],
   ['removeallassociationsforsockethandle_39',['removeAllAssociationsForSocketHandle',['../structSC_1_1AsyncEventLoop.html#ace938c3ab49a3e489f09962ad6c06b3d',1,'SC::AsyncEventLoop']]],
-  ['removeallbuildproducts_40',['removeAllBuildProducts',['../structSC_1_1PluginRegistry.html#a66a4211a7889c04f33aefd1f095ee523',1,'SC::PluginRegistry']]],
+  ['removeallbuildproducts_40',['removeAllBuildProducts',['../structSC_1_1PluginRegistry.html#ab8eb06ca2b420bb685f3bf6979e69f47',1,'SC::PluginRegistry']]],
   ['removeat_41',['removeAt',['../structSC_1_1Segment.html#a8396bbe4618623471eb8fc405f45dbff',1,'SC::Segment']]],
   ['removedirectoriesrecursive_42',['removeDirectoriesRecursive',['../structSC_1_1FileSystem.html#a494c2a5455ae69b756c4001fbc445f71',1,'SC::FileSystem']]],
   ['removedirectoryrecursive_43',['removeDirectoryRecursive',['../structSC_1_1FileSystem.html#a83c97e78517a179fe4c7458a5b912863',1,'SC::FileSystem::removeDirectoryRecursive()'],['../library_file_system.html#autotoc_md220',1,'removeDirectoryRecursive']]],

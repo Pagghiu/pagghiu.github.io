@@ -156,9 +156,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acdfe884c52fea57207cd5d87b4d7a020" id="r_acdfe884c52fea57207cd5d87b4d7a020"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdfe884c52fea57207cd5d87b4d7a020">compile</a> (const <a class="el" href="structSC_1_1PluginDefinition.html">PluginDefinition</a> &amp;definition, const <a class="el" href="structSC_1_1PluginSysroot.html">PluginSysroot</a> &amp;sysroot, const <a class="el" href="structSC_1_1PluginCompilerEnvironment.html">PluginCompilerEnvironment</a> &amp;environment, Span&lt; char &gt; &amp;compilerLog) const</td></tr>
 <tr class="memdesc:acdfe884c52fea57207cd5d87b4d7a020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compiles a Definition to an object file.  <br /></td></tr>
 <tr class="separator:acdfe884c52fea57207cd5d87b4d7a020"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e47e863c5feb1ac7d229a5e77763443" id="r_a1e47e863c5feb1ac7d229a5e77763443"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e47e863c5feb1ac7d229a5e77763443">link</a> (const <a class="el" href="structSC_1_1PluginDefinition.html">PluginDefinition</a> &amp;definition, const <a class="el" href="structSC_1_1PluginSysroot.html">PluginSysroot</a> &amp;sysroot, const <a class="el" href="structSC_1_1PluginCompilerEnvironment.html">PluginCompilerEnvironment</a> &amp;environment, <a class="el" href="structSC_1_1StringView.html">StringView</a> executablePath, Span&lt; char &gt; &amp;linkerLog) const</td></tr>
-<tr class="memdesc:a1e47e863c5feb1ac7d229a5e77763443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Links a Definition into a dynamic library, with symbols from <code>executablePath</code>  <br /></td></tr>
-<tr class="separator:a1e47e863c5feb1ac7d229a5e77763443"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b7ea1fe74678f69ee0e8e791ea43f2c" id="r_a0b7ea1fe74678f69ee0e8e791ea43f2c"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b7ea1fe74678f69ee0e8e791ea43f2c">link</a> (const <a class="el" href="structSC_1_1PluginDefinition.html">PluginDefinition</a> &amp;definition, const <a class="el" href="structSC_1_1PluginSysroot.html">PluginSysroot</a> &amp;sysroot, const <a class="el" href="structSC_1_1PluginCompilerEnvironment.html">PluginCompilerEnvironment</a> &amp;environment, StringSpan executablePath, Span&lt; char &gt; &amp;linkerLog) const</td></tr>
+<tr class="memdesc:a0b7ea1fe74678f69ee0e8e791ea43f2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Links a Definition into a dynamic library, with symbols from <code>executablePath</code>  <br /></td></tr>
+<tr class="separator:a0b7ea1fe74678f69ee0e8e791ea43f2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -292,8 +292,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1e47e863c5feb1ac7d229a5e77763443" name="a1e47e863c5feb1ac7d229a5e77763443"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e47e863c5feb1ac7d229a5e77763443">&#9670;&#160;</a></span>link()</h2>
+<a id="a0b7ea1fe74678f69ee0e8e791ea43f2c" name="a0b7ea1fe74678f69ee0e8e791ea43f2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b7ea1fe74678f69ee0e8e791ea43f2c">&#9670;&#160;</a></span>link()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -316,7 +316,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structSC_1_1StringView.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>executablePath</em></span>, </td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>executablePath</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

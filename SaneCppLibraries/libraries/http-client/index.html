@@ -166,6 +166,12 @@ caller-provided bytes so callers can poll signaled operations instead of scannin
 <li><code>Http2Preferred</code> enables HTTP/2 where available while allowing HTTP/1.1 fallback</li>
 <li><code>Http2Required</code> rejects unsupported backends and rejects negotiated HTTP/1.1 responses</li>
 </ul>
+<p>TLS policy:</p>
+<ul>
+<li><code>verifyPeer</code> defaults to enabled; disabling it fails fast on backends that do not expose that policy</li>
+<li><code>caCertificatesPath</code> is caller-owned and must not contain NUL or other control bytes</li>
+<li>Unsupported custom CA paths fail in preflight instead of falling back to backend defaults</li>
+</ul>
 <p>Proxy policy:</p>
 <ul>
 <li><code>Default</code> keeps the backend/system proxy behavior</li>
@@ -301,6 +307,12 @@ challenge helpers can inspect <code>WWW-Authenticate</code> and <code>Proxy-Auth
 prepare a retry header without storing credentials. Auth challenge target and scheme names are
 available as static strings for diagnostics. The caller still drives <code>HttpClientOperation</code> directly;
 the session layer only prepares request metadata and records response metadata.
+Cookie capture rejects unrelated <code>Domain</code> attributes, ignores URL ports when matching hosts, derives
+the default cookie path from the response request URL, and matches paths at segment boundaries. It is
+a deliberately small transport helper rather than a complete browser cookie store.
+Cached authorization origins must be exact <code>http://</code> or <code>https://</code> origins with no path, query, or
+fragment. Cached authorization values are copied into caller-provided session scratch and reject CR,
+LF, and NUL bytes before they can become prepared request headers.
 Use <code>findCookie()</code>, <code>hasCookie()</code>, <code>findAuthorization()</code>, <code>hasAuthorization()</code>, <code>getNumCookies()</code>,
 and <code>getNumAuthorizations()</code> to inspect caller-owned session state without allocating.
 <code>clearCookies()</code> and <code>clearAuthorizations()</code> clear their slots independently; use <code>clear()</code> when

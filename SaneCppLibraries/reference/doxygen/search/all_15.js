@@ -2,7 +2,7 @@ var searchData=
 [
   ['uid_0',['uid',['../structSC_1_1FileDescriptorStat.html#a15852eb000ae5ba1750ff9fe6444aa0b',1,'SC::FileDescriptorStat::uid'],['../structSC_1_1FileSystemStat.html#a9ec8a16ded1e342e585192109604d788',1,'SC::FileSystemStat::uid']]],
   ['uniquehandle_1',['UniqueHandle',['../library_foundation.html#autotoc_md269',1,'']]],
-  ['unloadplugin_2',['unloadPlugin',['../structSC_1_1PluginRegistry.html#a317867e40e733e5b9df04e8e69a6e2cc',1,'SC::PluginRegistry']]],
+  ['unloadplugin_2',['unloadPlugin',['../structSC_1_1PluginRegistry.html#aaa55e26c6ee4ae93477b65d7bbaa2c22',1,'SC::PluginRegistry']]],
   ['unlockread_3',['unlockRead',['../structSC_1_1RWLock.html#ae73e1919c3befdb3e6a584342ed7587f',1,'SC::RWLock']]],
   ['unlockwrite_4',['unlockWrite',['../structSC_1_1RWLock.html#a46d16c8ef0737e6a24ca36ad7e721053',1,'SC::RWLock']]],
   ['unpipe_5',['unpipe',['../structSC_1_1AsyncPipeline.html#a1ac20d8702b483f87083b3932ba94291',1,'SC::AsyncPipeline']]],

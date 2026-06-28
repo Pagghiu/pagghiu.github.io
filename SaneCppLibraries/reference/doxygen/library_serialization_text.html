@@ -170,8 +170,8 @@ $(function(){initNavTree('library_serialization_text.html',''); initResizable(tr
 <h1><a class="anchor" id="autotoc_md384"></a>
 Dependencies</h1>
 <ul>
-<li>Dependencies: <a class="el" href="library_reflection.html">Reflection</a>, <a class="el" href="library_strings.html">Strings</a></li>
-<li>All dependencies: <a class="el" href="library_reflection.html">Reflection</a>, <a class="el" href="library_strings.html">Strings</a></li>
+<li>Dependencies: <a class="el" href="library_reflection.html">Reflection</a></li>
+<li>All dependencies: <a class="el" href="library_reflection.html">Reflection</a></li>
 </ul>
 <p><img src="SerializationText.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
 <h1><a class="anchor" id="autotoc_md385"></a>
@@ -263,7 +263,7 @@ Let's consider the following structure described by <a class="el" href="library_
 <div class="line"><span class="stringliteral"></span> </div>
 <div class="line"><span class="stringliteral">    Test test;</span></div>
 <div class="line"><span class="stringliteral">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(SerializationJson::write(test, buffer));</span></div>
-<div class="line"><span class="stringliteral">    </span><span class="comment">// Note: StringFormatOutput will NOT null terminate the string</span></div>
+<div class="line"><span class="stringliteral">    </span><span class="comment">// Note: SerializationJson::write will NOT null terminate the string</span></div>
 <div class="line">    <span class="keyword">const</span> StringView serializedJSON({buffer.data(), buffer.size()}, <span class="keyword">false</span>, StringEncoding::Ascii);</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(serializedJSON == testJSON);</div>
 <div class="line"> </div>
@@ -315,7 +315,7 @@ Let's consider the following structure described by <a class="el" href="library_
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(versionedVector.items[1].first == 2);</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(versionedVector.items[1].second == <span class="stringliteral">&quot;c&quot;</span>);</div>
 <div class="line"> </div>
-</div><!-- fragment --><p>This is a special loader to deserialize the class from the exact same JSON that was output by the serializer itself. Whitespace changes are fine, but changing the order in which two fields exists or removing one will make deserialization fail. If these limitations are fine for the usage (for example the generated json files are not meant to be manually edited by users) than maybe it could be worth using it, as this code path is a lot simpler (*) than <a class="el" href="structSC_1_1SerializationJson.html#a1f3ef0a95b0163d6455a982e8708f181" title="Parses a JSON buffer and writes C++ objects supporting reordered or missing fields.">SC::SerializationJson::loadVersioned</a>. </p><div class="fragment"><div class="line">    <span class="keyword">constexpr</span> StringView testJSON = R<span class="stringliteral">&quot;({&quot;x&quot;:2,&quot;y&quot;:1.50,&quot;xy&quot;:[1,3],&quot;myTest&quot;:&quot;asdf&quot;,&quot;myVector&quot;:[&quot;Str1&quot;,&quot;Str2&quot;]})&quot;_a8;</span></div>
+</div><!-- fragment --><p>This is a special loader to deserialize the class from the exact same JSON that was output by the serializer itself. Whitespace changes are fine, but changing the order in which two fields exists or removing one will make deserialization fail. If these limitations are fine for the usage (for example the generated json files are not meant to be manually edited by users) than maybe it could be worth using it, as this code path is a lot simpler (*) than <a class="el" href="structSC_1_1SerializationJson.html#ad1b08c940c93fe01fc8ed79544c17e46" title="Parses a JSON buffer and writes C++ objects supporting reordered or missing fields.">SC::SerializationJson::loadVersioned</a>. </p><div class="fragment"><div class="line">    <span class="keyword">constexpr</span> StringView testJSON = R<span class="stringliteral">&quot;({&quot;x&quot;:2,&quot;y&quot;:1.50,&quot;xy&quot;:[1,3],&quot;myTest&quot;:&quot;asdf&quot;,&quot;myVector&quot;:[&quot;Str1&quot;,&quot;Str2&quot;]})&quot;_a8;</span></div>
 <div class="line"><span class="stringliteral"></span> </div>
 <div class="line"><span class="stringliteral">    Test test;</span></div>
 <div class="line"><span class="stringliteral">    test.x        = 1;</span></div>

@@ -74,10 +74,8 @@ digraph LibraryDependencies {
   Http -> Async;
   Http -> AsyncStreams;
   Plugin -> Process;
-  Plugin -> Strings;
   Process -> File;
   SerialPort -> File;
   SerializationBinary -> Reflection;
   SerializationText -> Reflection;
-  SerializationText -> Strings;
 }

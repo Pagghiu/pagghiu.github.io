@@ -127,17 +127,14 @@
     },
     "Plugin": {
         "direct_dependencies": [
-            "Process",
-            "Strings"
+            "Process"
         ],
         "minimal_dependencies": [
-            "Process",
-            "Strings"
+            "Process"
         ],
         "all_dependencies": [
             "File",
-            "Process",
-            "Strings"
+            "Process"
         ]
     },
     "Process": {
@@ -180,16 +177,13 @@
     },
     "SerializationText": {
         "direct_dependencies": [
-            "Reflection",
-            "Strings"
+            "Reflection"
         ],
         "minimal_dependencies": [
-            "Reflection",
-            "Strings"
+            "Reflection"
         ],
         "all_dependencies": [
-            "Reflection",
-            "Strings"
+            "Reflection"
         ]
     },
     "Socket": {

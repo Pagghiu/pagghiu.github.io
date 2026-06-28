@@ -148,14 +148,14 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac07380aa702fcbba0b0ea946d030caf6"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac07380aa702fcbba0b0ea946d030caf6">write</a> (T &amp;object, B &amp;buffer, <a class="el" href="structSC_1_1SerializationJson_1_1Options.html">Options</a> options=<a class="el" href="structSC_1_1SerializationJson_1_1Options.html">Options</a>())</td></tr>
 <tr class="memdesc:ac07380aa702fcbba0b0ea946d030caf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a C++ object to JSON using <a class="el" href="namespaceSC_1_1Reflection.html" title="Describe C++ types at compile time for serialization (see Reflection).">Reflection</a>.  <br /></td></tr>
 <tr class="separator:ac07380aa702fcbba0b0ea946d030caf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf528263c08c287b7e6a9a089b37788d" id="r_abf528263c08c287b7e6a9a089b37788d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:abf528263c08c287b7e6a9a089b37788d"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#abf528263c08c287b7e6a9a089b37788d">loadExact</a> (T &amp;object, <a class="el" href="structSC_1_1StringView.html">StringView</a> text)</td></tr>
-<tr class="memdesc:abf528263c08c287b7e6a9a089b37788d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a JSON produced by <a class="el" href="#ac07380aa702fcbba0b0ea946d030caf6" title="Writes a C++ object to JSON using Reflection.">SerializationJson::write</a> loading its values into a C++ object Read a JSON buffer as output by <a class="el" href="#ac07380aa702fcbba0b0ea946d030caf6" title="Writes a C++ object to JSON using Reflection.">SerializationJson::write</a>, that means mainly not changing the relative order of struct fields in the json text.  <br /></td></tr>
-<tr class="separator:abf528263c08c287b7e6a9a089b37788d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f3ef0a95b0163d6455a982e8708f181" id="r_a1f3ef0a95b0163d6455a982e8708f181"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a1f3ef0a95b0163d6455a982e8708f181"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1f3ef0a95b0163d6455a982e8708f181">loadVersioned</a> (T &amp;object, <a class="el" href="structSC_1_1StringView.html">StringView</a> text)</td></tr>
-<tr class="memdesc:a1f3ef0a95b0163d6455a982e8708f181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a JSON buffer and writes C++ objects supporting reordered or missing fields.  <br /></td></tr>
-<tr class="separator:a1f3ef0a95b0163d6455a982e8708f181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9174c6e44957563bd00c50148a360b8c" id="r_a9174c6e44957563bd00c50148a360b8c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a9174c6e44957563bd00c50148a360b8c"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a9174c6e44957563bd00c50148a360b8c">loadExact</a> (T &amp;object, StringSpan text)</td></tr>
+<tr class="memdesc:a9174c6e44957563bd00c50148a360b8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a JSON produced by <a class="el" href="#ac07380aa702fcbba0b0ea946d030caf6" title="Writes a C++ object to JSON using Reflection.">SerializationJson::write</a> loading its values into a C++ object Read a JSON buffer as output by <a class="el" href="#ac07380aa702fcbba0b0ea946d030caf6" title="Writes a C++ object to JSON using Reflection.">SerializationJson::write</a>, that means mainly not changing the relative order of struct fields in the json text.  <br /></td></tr>
+<tr class="separator:a9174c6e44957563bd00c50148a360b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1b08c940c93fe01fc8ed79544c17e46" id="r_ad1b08c940c93fe01fc8ed79544c17e46"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad1b08c940c93fe01fc8ed79544c17e46"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad1b08c940c93fe01fc8ed79544c17e46">loadVersioned</a> (T &amp;object, StringSpan text)</td></tr>
+<tr class="memdesc:ad1b08c940c93fe01fc8ed79544c17e46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a JSON buffer and writes C++ objects supporting reordered or missing fields.  <br /></td></tr>
+<tr class="separator:ad1b08c940c93fe01fc8ed79544c17e46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="structSC_1_1SerializationJson.html" title="SC::SerializationJson reads or writes C++ structures to / from json using Reflection information.">SC::SerializationJson</a> reads or writes C++ structures to / from json using <a class="el" href="library_reflection.html">Reflection</a> information. </p>
@@ -228,7 +228,7 @@ Let's consider the following structure described by <a class="el" href="library_
 <div class="line"><span class="stringliteral"></span> </div>
 <div class="line"><span class="stringliteral">    Test test;</span></div>
 <div class="line"><span class="stringliteral">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(SerializationJson::write(test, buffer));</span></div>
-<div class="line"><span class="stringliteral">    </span><span class="comment">// Note: StringFormatOutput will NOT null terminate the string</span></div>
+<div class="line"><span class="stringliteral">    </span><span class="comment">// Note: SerializationJson::write will NOT null terminate the string</span></div>
 <div class="line">    <span class="keyword">const</span> StringView serializedJSON({buffer.data(), buffer.size()}, <span class="keyword">false</span>, StringEncoding::Ascii);</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(serializedJSON == testJSON);</div>
 <div class="line"> </div>
@@ -280,7 +280,7 @@ Let's consider the following structure described by <a class="el" href="library_
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(versionedVector.items[1].first == 2);</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(versionedVector.items[1].second == <span class="stringliteral">&quot;c&quot;</span>);</div>
 <div class="line"> </div>
-</div><!-- fragment --><p>This is a special loader to deserialize the class from the exact same JSON that was output by the serializer itself. Whitespace changes are fine, but changing the order in which two fields exists or removing one will make deserialization fail. If these limitations are fine for the usage (for example the generated json files are not meant to be manually edited by users) than maybe it could be worth using it, as this code path is a lot simpler (*) than <a class="el" href="#a1f3ef0a95b0163d6455a982e8708f181" title="Parses a JSON buffer and writes C++ objects supporting reordered or missing fields.">SC::SerializationJson::loadVersioned</a>. </p><div class="fragment"><div class="line">    <span class="keyword">constexpr</span> StringView testJSON = R<span class="stringliteral">&quot;({&quot;x&quot;:2,&quot;y&quot;:1.50,&quot;xy&quot;:[1,3],&quot;myTest&quot;:&quot;asdf&quot;,&quot;myVector&quot;:[&quot;Str1&quot;,&quot;Str2&quot;]})&quot;_a8;</span></div>
+</div><!-- fragment --><p>This is a special loader to deserialize the class from the exact same JSON that was output by the serializer itself. Whitespace changes are fine, but changing the order in which two fields exists or removing one will make deserialization fail. If these limitations are fine for the usage (for example the generated json files are not meant to be manually edited by users) than maybe it could be worth using it, as this code path is a lot simpler (*) than <a class="el" href="#ad1b08c940c93fe01fc8ed79544c17e46" title="Parses a JSON buffer and writes C++ objects supporting reordered or missing fields.">SC::SerializationJson::loadVersioned</a>. </p><div class="fragment"><div class="line">    <span class="keyword">constexpr</span> StringView testJSON = R<span class="stringliteral">&quot;({&quot;x&quot;:2,&quot;y&quot;:1.50,&quot;xy&quot;:[1,3],&quot;myTest&quot;:&quot;asdf&quot;,&quot;myVector&quot;:[&quot;Str1&quot;,&quot;Str2&quot;]})&quot;_a8;</span></div>
 <div class="line"><span class="stringliteral"></span> </div>
 <div class="line"><span class="stringliteral">    Test test;</span></div>
 <div class="line"><span class="stringliteral">    test.x        = 1;</span></div>
@@ -306,8 +306,8 @@ Let's consider the following structure described by <a class="el" href="library_
 <div class="line"><span class="stringliteral">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not SerializationJson::loadExact(borrowed, escapedBorrowedJSON));</span></div>
 </div><!-- fragment --> <dl class="section note"><dt>Note</dt><dd>(*) simpler code probably means faster code, even if it has not been properly benchmarked yet so the hypothetical performance gain is yet to be defined. </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="abf528263c08c287b7e6a9a089b37788d" name="abf528263c08c287b7e6a9a089b37788d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf528263c08c287b7e6a9a089b37788d">&#9670;&#160;</a></span>loadExact()</h2>
+<a id="a9174c6e44957563bd00c50148a360b8c" name="a9174c6e44957563bd00c50148a360b8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9174c6e44957563bd00c50148a360b8c">&#9670;&#160;</a></span>loadExact()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -325,7 +325,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structSC_1_1StringView.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>text</em></span>&#160;)</td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>text</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -336,7 +336,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Parses a JSON produced by <a class="el" href="#ac07380aa702fcbba0b0ea946d030caf6" title="Writes a C++ object to JSON using Reflection.">SerializationJson::write</a> loading its values into a C++ object Read a JSON buffer as output by <a class="el" href="#ac07380aa702fcbba0b0ea946d030caf6" title="Writes a C++ object to JSON using Reflection.">SerializationJson::write</a>, that means mainly not changing the relative order of struct fields in the json text. </p>
-<dl class="section note"><dt>Note</dt><dd>This code path does less checks that <a class="el" href="#a1f3ef0a95b0163d6455a982e8708f181" title="Parses a JSON buffer and writes C++ objects supporting reordered or missing fields.">SerializationJson::loadVersioned</a> and it could be potentially faster. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This code path does less checks that <a class="el" href="#ad1b08c940c93fe01fc8ed79544c17e46" title="Parses a JSON buffer and writes C++ objects supporting reordered or missing fields.">SerializationJson::loadVersioned</a> and it could be potentially faster. </dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Type of object to load </td></tr>
@@ -355,8 +355,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a1f3ef0a95b0163d6455a982e8708f181" name="a1f3ef0a95b0163d6455a982e8708f181"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f3ef0a95b0163d6455a982e8708f181">&#9670;&#160;</a></span>loadVersioned()</h2>
+<a id="ad1b08c940c93fe01fc8ed79544c17e46" name="ad1b08c940c93fe01fc8ed79544c17e46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1b08c940c93fe01fc8ed79544c17e46">&#9670;&#160;</a></span>loadVersioned()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -374,7 +374,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structSC_1_1StringView.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>text</em></span>&#160;)</td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>text</em></span>&#160;)</td>
         </tr>
       </table>
   </td>

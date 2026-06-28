@@ -46,7 +46,7 @@ var searchData=
   ['sc_5fhashing_5ftype_5fsha1_43',['SC_HASHING_TYPE_SHA1',['../group__group__sc__hashing.html#gga849e86d2472750ad6a1913696c4bdbf1a78c8143adbf9194b8674679f85f205bf',1,'HashingCBindings.h']]],
   ['sc_5fhashing_5ftype_5fsha256_44',['SC_HASHING_TYPE_SHA256',['../group__group__sc__hashing.html#gga849e86d2472750ad6a1913696c4bdbf1ac6e04d6f7944ea8c92c8ff0c4022be81',1,'HashingCBindings.h']]],
   ['sc_5ftest_5fexpect_45',['SC_TEST_EXPECT',['../group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8',1,'Testing.h']]],
-  ['scandirectory_46',['scanDirectory',['../structSC_1_1PluginScanner.html#aea11a6d7ff7b54216e81b57607bfcbe5',1,'SC::PluginScanner']]],
+  ['scandirectory_46',['scanDirectory',['../structSC_1_1PluginScanner.html#a8487e2a7acd3e0d8e2e9ae653a443b58',1,'SC::PluginScanner']]],
   ['scexample_47',['SCExample',['../page_examples.html#autotoc_md78',1,'']]],
   ['scheduler_48',['Operation Scheduler',['../library_http_client.html#autotoc_md314',1,'']]],
   ['schema_49',['Schema',['../group__group__reflection.html#ga91581cf3bfbe4dae31b1c4312df64226',1,'SC::Reflection']]],

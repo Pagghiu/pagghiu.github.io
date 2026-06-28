@@ -49,7 +49,7 @@ var searchData=
   ['getpagesize_46',['getPageSize',['../structSC_1_1VirtualMemory.html#ad43ea85cfefeb9a428da363152a82abc',1,'SC::VirtualMemory']]],
   ['getparser_47',['getParser',['../structSC_1_1HttpIncomingMessage.html#a42293fa9f9b57b295cb272005ba7b9d6',1,'SC::HttpIncomingMessage']]],
   ['getplugindynamiclibraryat_48',['getPluginDynamicLibraryAt',['../structSC_1_1PluginRegistry.html#a804997c206a1e1880fa0452c61c534e2',1,'SC::PluginRegistry']]],
-  ['getpluginstoreloadbecauseof_49',['getPluginsToReloadBecauseOf',['../structSC_1_1PluginRegistry.html#a01039cde379b40af1711425149790488',1,'SC::PluginRegistry']]],
+  ['getpluginstoreloadbecauseof_49',['getPluginsToReloadBecauseOf',['../structSC_1_1PluginRegistry.html#a6999a4037a0469210379ffa793b86fbc',1,'SC::PluginRegistry']]],
   ['getport_50',['getPort',['../structSC_1_1SocketIPAddress.html#a1a8b8269f72adedac4ab83e222be1eac',1,'SC::SocketIPAddress']]],
   ['getqueryvalue_51',['getQueryValue',['../structSC_1_1HttpRequestTargetView.html#a7637be52348bdd342a11861ef7bbef29',1,'SC::HttpRequestTargetView::getQueryValue()'],['../structSC_1_1HttpURLParser.html#ad5d5c0c42a4fea0c77f4594261dc5060',1,'SC::HttpURLParser::getQueryValue(StringSpan name, StringSpan &amp;value) const'],['../structSC_1_1HttpURLParser.html#a8b2edcf7e4ab7e706a2862aa7a7863f3',1,'SC::HttpURLParser::getQueryValue(StringSpan search, StringSpan name, StringSpan &amp;value)']]],
   ['getreadabledata_52',['getReadableData',['../structSC_1_1AsyncBuffersPool.html#a0b89fd54f77a8f6530f7ba80af6f3604',1,'SC::AsyncBuffersPool']]],

@@ -155,12 +155,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a35ea5e12279b0b3f935572603c5d0789" id="r_a35ea5e12279b0b3f935572603c5d0789"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35ea5e12279b0b3f935572603c5d0789">find</a> (const <a class="el" href="structSC_1_1StringView.html">StringView</a> text, <a class="el" href="structSC_1_1StringView.html">StringView</a> &amp;extracted)</td></tr>
-<tr class="memdesc:a35ea5e12279b0b3f935572603c5d0789"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts the plugin definition (SC_BEGIN_PLUGIN / SC_END_PLUGIN) comment from a .cpp file.  <br /></td></tr>
-<tr class="separator:a35ea5e12279b0b3f935572603c5d0789"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2e9d063b145852df24f776bdb4376fa" id="r_aa2e9d063b145852df24f776bdb4376fa"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2e9d063b145852df24f776bdb4376fa">parse</a> (<a class="el" href="structSC_1_1StringView.html">StringView</a> text, <a class="el" href="structSC_1_1PluginDefinition.html">PluginDefinition</a> &amp;pluginDefinition)</td></tr>
-<tr class="memdesc:aa2e9d063b145852df24f776bdb4376fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses an extracted plugin definition text.  <br /></td></tr>
-<tr class="separator:aa2e9d063b145852df24f776bdb4376fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15476b941cd0af1c894696d71d7c7939" id="r_a15476b941cd0af1c894696d71d7c7939"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15476b941cd0af1c894696d71d7c7939">find</a> (StringSpan text, StringSpan &amp;extracted)</td></tr>
+<tr class="memdesc:a15476b941cd0af1c894696d71d7c7939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts the plugin definition (SC_BEGIN_PLUGIN / SC_END_PLUGIN) comment from a .cpp file.  <br /></td></tr>
+<tr class="separator:a15476b941cd0af1c894696d71d7c7939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf039c8f32766f9685c2eef720b74bb6" id="r_acf039c8f32766f9685c2eef720b74bb6"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf039c8f32766f9685c2eef720b74bb6">parse</a> (StringSpan text, <a class="el" href="structSC_1_1PluginDefinition.html">PluginDefinition</a> &amp;pluginDefinition)</td></tr>
+<tr class="memdesc:acf039c8f32766f9685c2eef720b74bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses an extracted plugin definition text.  <br /></td></tr>
+<tr class="separator:acf039c8f32766f9685c2eef720b74bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -195,8 +195,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PluginScanner</b></
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Plugin description, category, dependencies, files and directory location. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a35ea5e12279b0b3f935572603c5d0789" name="a35ea5e12279b0b3f935572603c5d0789"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35ea5e12279b0b3f935572603c5d0789">&#9670;&#160;</a></span>find()</h2>
+<a id="a15476b941cd0af1c894696d71d7c7939" name="a15476b941cd0af1c894696d71d7c7939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15476b941cd0af1c894696d71d7c7939">&#9670;&#160;</a></span>find()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -207,12 +207,12 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PluginScanner</b></
         <tr>
           <td class="memname">static bool SC::PluginDefinition::find </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structSC_1_1StringView.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structSC_1_1StringView.html">StringView</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>extracted</em></span>&#160;)</td>
+          <td class="paramtype">StringSpan &amp;</td>          <td class="paramname"><span class="paramname"><em>extracted</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -342,8 +342,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PluginScanner</b></
 
 </div>
 </div>
-<a id="aa2e9d063b145852df24f776bdb4376fa" name="aa2e9d063b145852df24f776bdb4376fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2e9d063b145852df24f776bdb4376fa">&#9670;&#160;</a></span>parse()</h2>
+<a id="acf039c8f32766f9685c2eef720b74bb6" name="acf039c8f32766f9685c2eef720b74bb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf039c8f32766f9685c2eef720b74bb6">&#9670;&#160;</a></span>parse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -354,7 +354,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PluginScanner</b></
         <tr>
           <td class="memname">static bool SC::PluginDefinition::parse </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structSC_1_1StringView.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -372,7 +372,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PluginScanner</b></
 <p>Parses an extracted plugin definition text. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td>An extracted plugin definition text (<code>extracted</code> of <a class="el" href="#a35ea5e12279b0b3f935572603c5d0789" title="Extracts the plugin definition (SC_BEGIN_PLUGIN / SC_END_PLUGIN) comment from a .cpp file.">PluginDefinition::find</a>) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td>An extracted plugin definition text (<code>extracted</code> of <a class="el" href="#a15476b941cd0af1c894696d71d7c7939" title="Extracts the plugin definition (SC_BEGIN_PLUGIN / SC_END_PLUGIN) comment from a .cpp file.">PluginDefinition::find</a>) </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">pluginDefinition</td><td>A valid <a class="el" href="structSC_1_1PluginDefinition.html" title="Plugin description, category, dependencies, files and directory location.">PluginDefinition</a> parsed from the given text </td></tr>
   </table>
   </dd>

@@ -30,7 +30,7 @@ var group__group__plugin =
         [ "MicrosoftCompiler", "structSC_1_1PluginCompiler.html#acb6e80ac884acb67ec167d350f77db68aa4440d5f72c4fadebbaae3e3e9e34773", null ]
       ] ],
       [ "compile", "structSC_1_1PluginCompiler.html#acdfe884c52fea57207cd5d87b4d7a020", null ],
-      [ "link", "structSC_1_1PluginCompiler.html#a1e47e863c5feb1ac7d229a5e77763443", null ],
+      [ "link", "structSC_1_1PluginCompiler.html#a0b7ea1fe74678f69ee0e8e791ea43f2c", null ],
       [ "compilerIncludePaths", "structSC_1_1PluginCompiler.html#acdaf8cf6b5f9223d6f26572cf6eedfb2", null ],
       [ "compilerLibraryPaths", "structSC_1_1PluginCompiler.html#abea2cb484c194d5af28bc726488f4c63", null ],
       [ "compilerPath", "structSC_1_1PluginCompiler.html#ad6a2e3b02e614485ac1a3aeafce07abd", null ],
@@ -49,7 +49,7 @@ var group__group__plugin =
       [ "definition", "structSC_1_1PluginDynamicLibrary.html#a538f2ae50e3679fb07d4896a5555db70", null ],
       [ "dynamicLibrary", "structSC_1_1PluginDynamicLibrary.html#a1d14d7bf25b60e25883407829f667426", null ],
       [ "errorStorage", "structSC_1_1PluginDynamicLibrary.html#af740021d80a8fb4605348f1b9908b895", null ],
-      [ "lastErrorLog", "structSC_1_1PluginDynamicLibrary.html#a5d9854871df27fbf5f3398d3ab59192d", null ],
+      [ "lastErrorLog", "structSC_1_1PluginDynamicLibrary.html#a46fb468c8450d377ab840abd7656b557", null ],
       [ "lastLoadTime", "structSC_1_1PluginDynamicLibrary.html#a352f6f42013e180390e6fd7330aea9ae", null ],
       [ "numReloads", "structSC_1_1PluginDynamicLibrary.html#a74dedb2628232810a7baf45144a77c97", null ]
     ] ],
@@ -59,15 +59,15 @@ var group__group__plugin =
         [ "Reload", "structSC_1_1PluginRegistry.html#a0ab8576eabd1ec66c5093af93f7d0513a4d1c8263ba1036754f8db14a98f9f006", null ]
       ] ],
       [ "close", "structSC_1_1PluginRegistry.html#aac855eaebfbcfc92ed8ca477104e0024", null ],
-      [ "findPlugin", "structSC_1_1PluginRegistry.html#adb9623ce5451904803ead5c11dbbd54e", null ],
+      [ "findPlugin", "structSC_1_1PluginRegistry.html#a14bb30fc789c448a09f5ddb118368ac1", null ],
       [ "getIdentifierAt", "structSC_1_1PluginRegistry.html#ab31b3e3bc134d1d2908cc15850692e4a", null ],
       [ "getNumberOfEntries", "structSC_1_1PluginRegistry.html#a4e09645535bf9a6a427d204badb7c348", null ],
       [ "getPluginDynamicLibraryAt", "structSC_1_1PluginRegistry.html#a804997c206a1e1880fa0452c61c534e2", null ],
-      [ "getPluginsToReloadBecauseOf", "structSC_1_1PluginRegistry.html#a01039cde379b40af1711425149790488", null ],
+      [ "getPluginsToReloadBecauseOf", "structSC_1_1PluginRegistry.html#a6999a4037a0469210379ffa793b86fbc", null ],
       [ "init", "structSC_1_1PluginRegistry.html#a1d95d2bcfa848f41ebcf0db2edf56b0c", null ],
-      [ "loadPlugin", "structSC_1_1PluginRegistry.html#a3df98f00be812c78bc8c7899ad43e3cf", null ],
-      [ "removeAllBuildProducts", "structSC_1_1PluginRegistry.html#a66a4211a7889c04f33aefd1f095ee523", null ],
+      [ "loadPlugin", "structSC_1_1PluginRegistry.html#a9422c35d5ed7f8a34aad38cad0c2b572", null ],
+      [ "removeAllBuildProducts", "structSC_1_1PluginRegistry.html#ab8eb06ca2b420bb685f3bf6979e69f47", null ],
       [ "replaceDefinitions", "structSC_1_1PluginRegistry.html#ab46dbf4dae5a931aedc46d283478513b", null ],
-      [ "unloadPlugin", "structSC_1_1PluginRegistry.html#a317867e40e733e5b9df04e8e69a6e2cc", null ]
+      [ "unloadPlugin", "structSC_1_1PluginRegistry.html#aaa55e26c6ee4ae93477b65d7bbaa2c22", null ]
     ] ]
 ];

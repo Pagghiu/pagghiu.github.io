@@ -158,18 +158,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab46dbf4dae5a931aedc46d283478513b" id="r_ab46dbf4dae5a931aedc46d283478513b"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab46dbf4dae5a931aedc46d283478513b">replaceDefinitions</a> (Span&lt; <a class="el" href="structSC_1_1PluginDefinition.html">PluginDefinition</a> &gt; &amp;&amp;definitions)</td></tr>
 <tr class="memdesc:ab46dbf4dae5a931aedc46d283478513b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends the definitions to registry.  <br /></td></tr>
 <tr class="separator:ab46dbf4dae5a931aedc46d283478513b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3df98f00be812c78bc8c7899ad43e3cf" id="r_a3df98f00be812c78bc8c7899ad43e3cf"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3df98f00be812c78bc8c7899ad43e3cf">loadPlugin</a> (const <a class="el" href="structSC_1_1StringView.html">StringView</a> identifier, const <a class="el" href="structSC_1_1PluginCompiler.html">PluginCompiler</a> &amp;compiler, const <a class="el" href="structSC_1_1PluginSysroot.html">PluginSysroot</a> &amp;sysroot, <a class="el" href="structSC_1_1StringView.html">StringView</a> executablePath, <a class="el" href="#a0ab8576eabd1ec66c5093af93f7d0513">LoadMode</a> loadMode=LoadMode::Load)</td></tr>
-<tr class="memdesc:a3df98f00be812c78bc8c7899ad43e3cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a plugin with given identifier, compiling it with given <a class="el" href="structSC_1_1PluginCompiler.html" title="Compiles a plugin to a dynamic library.">PluginCompiler</a>.  <br /></td></tr>
-<tr class="separator:a3df98f00be812c78bc8c7899ad43e3cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a317867e40e733e5b9df04e8e69a6e2cc" id="r_a317867e40e733e5b9df04e8e69a6e2cc"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a317867e40e733e5b9df04e8e69a6e2cc">unloadPlugin</a> (const <a class="el" href="structSC_1_1StringView.html">StringView</a> identifier)</td></tr>
-<tr class="memdesc:a317867e40e733e5b9df04e8e69a6e2cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unloads an already loaded plugin by its identifier.  <br /></td></tr>
-<tr class="separator:a317867e40e733e5b9df04e8e69a6e2cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66a4211a7889c04f33aefd1f095ee523" id="r_a66a4211a7889c04f33aefd1f095ee523"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66a4211a7889c04f33aefd1f095ee523">removeAllBuildProducts</a> (const <a class="el" href="structSC_1_1StringView.html">StringView</a> identifier)</td></tr>
-<tr class="memdesc:a66a4211a7889c04f33aefd1f095ee523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all temporary build products of the Plugin with given identifier.  <br /></td></tr>
-<tr class="separator:a66a4211a7889c04f33aefd1f095ee523"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb9623ce5451904803ead5c11dbbd54e" id="r_adb9623ce5451904803ead5c11dbbd54e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1PluginDynamicLibrary.html">PluginDynamicLibrary</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb9623ce5451904803ead5c11dbbd54e">findPlugin</a> (const <a class="el" href="structSC_1_1StringView.html">StringView</a> identifier)</td></tr>
-<tr class="memdesc:adb9623ce5451904803ead5c11dbbd54e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a <a class="el" href="structSC_1_1PluginDynamicLibrary.html" title="A plugin dynamic library loaded from a SC::PluginRegistry.">PluginDynamicLibrary</a> in the registry with a given identifier.  <br /></td></tr>
-<tr class="separator:adb9623ce5451904803ead5c11dbbd54e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9422c35d5ed7f8a34aad38cad0c2b572" id="r_a9422c35d5ed7f8a34aad38cad0c2b572"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9422c35d5ed7f8a34aad38cad0c2b572">loadPlugin</a> (StringSpan identifier, const <a class="el" href="structSC_1_1PluginCompiler.html">PluginCompiler</a> &amp;compiler, const <a class="el" href="structSC_1_1PluginSysroot.html">PluginSysroot</a> &amp;sysroot, StringSpan executablePath, <a class="el" href="#a0ab8576eabd1ec66c5093af93f7d0513">LoadMode</a> loadMode=LoadMode::Load)</td></tr>
+<tr class="memdesc:a9422c35d5ed7f8a34aad38cad0c2b572"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a plugin with given identifier, compiling it with given <a class="el" href="structSC_1_1PluginCompiler.html" title="Compiles a plugin to a dynamic library.">PluginCompiler</a>.  <br /></td></tr>
+<tr class="separator:a9422c35d5ed7f8a34aad38cad0c2b572"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa55e26c6ee4ae93477b65d7bbaa2c22" id="r_aaa55e26c6ee4ae93477b65d7bbaa2c22"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa55e26c6ee4ae93477b65d7bbaa2c22">unloadPlugin</a> (StringSpan identifier)</td></tr>
+<tr class="memdesc:aaa55e26c6ee4ae93477b65d7bbaa2c22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unloads an already loaded plugin by its identifier.  <br /></td></tr>
+<tr class="separator:aaa55e26c6ee4ae93477b65d7bbaa2c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8eb06ca2b420bb685f3bf6979e69f47" id="r_ab8eb06ca2b420bb685f3bf6979e69f47"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8eb06ca2b420bb685f3bf6979e69f47">removeAllBuildProducts</a> (StringSpan identifier)</td></tr>
+<tr class="memdesc:ab8eb06ca2b420bb685f3bf6979e69f47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all temporary build products of the Plugin with given identifier.  <br /></td></tr>
+<tr class="separator:ab8eb06ca2b420bb685f3bf6979e69f47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14bb30fc789c448a09f5ddb118368ac1" id="r_a14bb30fc789c448a09f5ddb118368ac1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1PluginDynamicLibrary.html">PluginDynamicLibrary</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14bb30fc789c448a09f5ddb118368ac1">findPlugin</a> (StringSpan identifier)</td></tr>
+<tr class="memdesc:a14bb30fc789c448a09f5ddb118368ac1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a <a class="el" href="structSC_1_1PluginDynamicLibrary.html" title="A plugin dynamic library loaded from a SC::PluginRegistry.">PluginDynamicLibrary</a> in the registry with a given identifier.  <br /></td></tr>
+<tr class="separator:a14bb30fc789c448a09f5ddb118368ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e09645535bf9a6a427d204badb7c348" id="r_a4e09645535bf9a6a427d204badb7c348"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e09645535bf9a6a427d204badb7c348">getNumberOfEntries</a> () const</td></tr>
 <tr class="memdesc:a4e09645535bf9a6a427d204badb7c348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the total number of registry entries (counting both loaded and unloaded plugins)  <br /></td></tr>
 <tr class="separator:a4e09645535bf9a6a427d204badb7c348"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -179,9 +179,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a804997c206a1e1880fa0452c61c534e2" id="r_a804997c206a1e1880fa0452c61c534e2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structSC_1_1PluginDynamicLibrary.html">PluginDynamicLibrary</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a804997c206a1e1880fa0452c61c534e2">getPluginDynamicLibraryAt</a> (size_t index)</td></tr>
 <tr class="memdesc:a804997c206a1e1880fa0452c61c534e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the PluginIdentifier corresponding to the index entry of the registry.  <br /></td></tr>
 <tr class="separator:a804997c206a1e1880fa0452c61c534e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01039cde379b40af1711425149790488" id="r_a01039cde379b40af1711425149790488"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01039cde379b40af1711425149790488">getPluginsToReloadBecauseOf</a> (<a class="el" href="structSC_1_1StringView.html">StringView</a> relativePath, TimeMs tolerance, Function&lt; void(const PluginIdentifier &amp;)&gt; onPlugin)</td></tr>
-<tr class="memdesc:a01039cde379b40af1711425149790488"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerates all plugins that must be reloaded when relativePath is modified.  <br /></td></tr>
-<tr class="separator:a01039cde379b40af1711425149790488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6999a4037a0469210379ffa793b86fbc" id="r_a6999a4037a0469210379ffa793b86fbc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6999a4037a0469210379ffa793b86fbc">getPluginsToReloadBecauseOf</a> (StringSpan relativePath, TimeMs tolerance, Function&lt; void(const PluginIdentifier &amp;)&gt; onPlugin)</td></tr>
+<tr class="memdesc:a6999a4037a0469210379ffa793b86fbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerates all plugins that must be reloaded when relativePath is modified.  <br /></td></tr>
+<tr class="separator:a6999a4037a0469210379ffa793b86fbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Holds a registry of plugins, loading and compiling them on the fly. </p>
@@ -230,8 +230,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="adb9623ce5451904803ead5c11dbbd54e" name="adb9623ce5451904803ead5c11dbbd54e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb9623ce5451904803ead5c11dbbd54e">&#9670;&#160;</a></span>findPlugin()</h2>
+<a id="a14bb30fc789c448a09f5ddb118368ac1" name="a14bb30fc789c448a09f5ddb118368ac1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14bb30fc789c448a09f5ddb118368ac1">&#9670;&#160;</a></span>findPlugin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -242,7 +242,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="structSC_1_1PluginDynamicLibrary.html">PluginDynamicLibrary</a> * SC::PluginRegistry::findPlugin </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structSC_1_1StringView.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>identifier</em></span></td><td>)</td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>identifier</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -345,8 +345,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a01039cde379b40af1711425149790488" name="a01039cde379b40af1711425149790488"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01039cde379b40af1711425149790488">&#9670;&#160;</a></span>getPluginsToReloadBecauseOf()</h2>
+<a id="a6999a4037a0469210379ffa793b86fbc" name="a6999a4037a0469210379ffa793b86fbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6999a4037a0469210379ffa793b86fbc">&#9670;&#160;</a></span>getPluginsToReloadBecauseOf()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -354,7 +354,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void SC::PluginRegistry::getPluginsToReloadBecauseOf </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structSC_1_1StringView.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>relativePath</em></span>, </td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>relativePath</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -400,8 +400,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3df98f00be812c78bc8c7899ad43e3cf" name="a3df98f00be812c78bc8c7899ad43e3cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3df98f00be812c78bc8c7899ad43e3cf">&#9670;&#160;</a></span>loadPlugin()</h2>
+<a id="a9422c35d5ed7f8a34aad38cad0c2b572" name="a9422c35d5ed7f8a34aad38cad0c2b572"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9422c35d5ed7f8a34aad38cad0c2b572">&#9670;&#160;</a></span>loadPlugin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -409,7 +409,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">Result SC::PluginRegistry::loadPlugin </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structSC_1_1StringView.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>identifier</em></span>, </td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>identifier</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -424,7 +424,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structSC_1_1StringView.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>executablePath</em></span>, </td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>executablePath</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -449,8 +449,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a66a4211a7889c04f33aefd1f095ee523" name="a66a4211a7889c04f33aefd1f095ee523"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66a4211a7889c04f33aefd1f095ee523">&#9670;&#160;</a></span>removeAllBuildProducts()</h2>
+<a id="ab8eb06ca2b420bb685f3bf6979e69f47" name="ab8eb06ca2b420bb685f3bf6979e69f47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8eb06ca2b420bb685f3bf6979e69f47">&#9670;&#160;</a></span>removeAllBuildProducts()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -458,7 +458,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">Result SC::PluginRegistry::removeAllBuildProducts </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structSC_1_1StringView.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>identifier</em></span></td><td>)</td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>identifier</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -501,8 +501,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a317867e40e733e5b9df04e8e69a6e2cc" name="a317867e40e733e5b9df04e8e69a6e2cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a317867e40e733e5b9df04e8e69a6e2cc">&#9670;&#160;</a></span>unloadPlugin()</h2>
+<a id="aaa55e26c6ee4ae93477b65d7bbaa2c22" name="aaa55e26c6ee4ae93477b65d7bbaa2c22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa55e26c6ee4ae93477b65d7bbaa2c22">&#9670;&#160;</a></span>unloadPlugin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -510,7 +510,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">Result SC::PluginRegistry::unloadPlugin </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structSC_1_1StringView.html">StringView</a></td>          <td class="paramname"><span class="paramname"><em>identifier</em></span></td><td>)</td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>identifier</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>

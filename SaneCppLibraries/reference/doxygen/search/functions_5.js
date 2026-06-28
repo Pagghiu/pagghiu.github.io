@@ -1,12 +1,12 @@
 var searchData=
 [
   ['finalize_0',['finalize',['../structSC_1_1StringBuilderFor.html#ac86a6b734f2ef8394cb517d5c324f6b5',1,'SC::StringBuilderFor']]],
-  ['find_1',['find',['../structSC_1_1Array.html#a408cf0f6726d535c484ca677f891da84',1,'SC::Array::find()'],['../structSC_1_1Vector.html#a9019d0d1e92a3f393a0129ba1e7c7a3d',1,'SC::Vector::find()'],['../structSC_1_1PluginDefinition.html#a35ea5e12279b0b3f935572603c5d0789',1,'SC::PluginDefinition::find()']]],
+  ['find_1',['find',['../structSC_1_1Array.html#a408cf0f6726d535c484ca677f891da84',1,'SC::Array::find()'],['../structSC_1_1Vector.html#a9019d0d1e92a3f393a0129ba1e7c7a3d',1,'SC::Vector::find()'],['../structSC_1_1PluginDefinition.html#a15476b941cd0af1c894696d71d7c7939',1,'SC::PluginDefinition::find()']]],
   ['findbestcompiler_2',['findBestCompiler',['../structSC_1_1PluginCompiler.html#acc296342e172f5b1a629b7f279f09a3b',1,'SC::PluginCompiler']]],
   ['findbestsysroot_3',['findBestSysroot',['../structSC_1_1PluginSysroot.html#a5a4c839c707f12621fcc75f6d43b40a1',1,'SC::PluginSysroot']]],
   ['findearliestlooptimeout_4',['findEarliestLoopTimeout',['../structSC_1_1AsyncEventLoop.html#ab09e50288612c8d15124bde63486d6c9',1,'SC::AsyncEventLoop']]],
   ['findparsertoken_5',['findParserToken',['../structSC_1_1HttpIncomingMessage.html#a71c2605b15aa28d61e042b33e0635e11',1,'SC::HttpIncomingMessage']]],
-  ['findplugin_6',['findPlugin',['../structSC_1_1PluginRegistry.html#adb9623ce5451904803ead5c11dbbd54e',1,'SC::PluginRegistry']]],
+  ['findplugin_6',['findPlugin',['../structSC_1_1PluginRegistry.html#a14bb30fc789c448a09f5ddb118368ac1',1,'SC::PluginRegistry']]],
   ['finisheddestroyingreadable_7',['finishedDestroyingReadable',['../structSC_1_1AsyncReadableStream.html#a3c9e694b3a8537e0401d73448f128c66',1,'SC::AsyncReadableStream']]],
   ['finisheddestroyingwritable_8',['finishedDestroyingWritable',['../structSC_1_1AsyncWritableStream.html#a1db6856f22420b853db836cb90e44518',1,'SC::AsyncWritableStream']]],
   ['finishedwriting_9',['finishedWriting',['../structSC_1_1AsyncWritableStream.html#a8f1d231043001ffbd4c38b7d5fdb9e9d',1,'SC::AsyncWritableStream']]],

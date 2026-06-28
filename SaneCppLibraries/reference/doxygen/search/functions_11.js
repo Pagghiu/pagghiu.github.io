@@ -4,7 +4,7 @@ var searchData=
   ['sc_5fhashing_5fclose_1',['sc_hashing_close',['../group__group__sc__hashing.html#gaa27ea9872382fa6c864a0b25602cc258',1,'HashingCBindings.h']]],
   ['sc_5fhashing_5fget_2',['sc_hashing_get',['../group__group__sc__hashing.html#ga084d9c7645df08136f06c9a1496345fe',1,'HashingCBindings.h']]],
   ['sc_5fhashing_5finit_3',['sc_hashing_init',['../group__group__sc__hashing.html#gac5021c67b99d876ce061479d77326d22',1,'HashingCBindings.h']]],
-  ['scandirectory_4',['scanDirectory',['../structSC_1_1PluginScanner.html#aea11a6d7ff7b54216e81b57607bfcbe5',1,'SC::PluginScanner']]],
+  ['scandirectory_4',['scanDirectory',['../structSC_1_1PluginScanner.html#a8487e2a7acd3e0d8e2e9ae653a443b58',1,'SC::PluginScanner']]],
   ['seek_5',['seek',['../structSC_1_1FileDescriptor.html#a3cc02813b7a9f125d5408bfa8a8f2a54',1,'SC::FileDescriptor']]],
   ['semaphore_6',['Semaphore',['../structSC_1_1Semaphore.html#a4c67a769baa41ffd54100475063ba445',1,'SC::Semaphore']]],
   ['sendbody_7',['sendBody',['../structSC_1_1HttpResponse.html#a9fd805b16e688577affd216948fe7127',1,'SC::HttpResponse']]],
