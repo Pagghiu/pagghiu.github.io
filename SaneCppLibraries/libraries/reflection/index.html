@@ -328,32 +328,37 @@ Inside the visit function, it&#39;s possible to let the Reflection system <em>kn
 <p>This simple data structure allows to describe hierarchically all types in a structure decomposing it into its primitive types or into special classes that must be handled specifically (SC::Vector, SC::Array etc.).<br>It also has an additional nice property that it&#39;s trivially serializable by dumping this (compile time known) array with a single <code>memcpy</code> or by calculating an <code>hash</code> that can act as a unique signature of the entire type itself (for versioning purposes).  </p>
 <p>It&#39;s possible associating a <code>string</code> literal with each type or member, so that text based serializer can refer to it, as used by the JSON <a href="/SaneCppLibraries/libraries/serialization-text/">Serialization Text</a>.<br>Lastly it&#39;s also possible associating to a field an <code>MemberTag</code> integer field, that can be leveraged by by binary serializers to keep track of the field position in binary formats. This allows binary formats to avoid using strings at all for format versioning/evolution, allowing some executable size benefits. This makes also possible not breaking binary file formats just because a field / member was renamed. This is leveraged by the <a href="/SaneCppLibraries/libraries/serialization-binary/">Serialization Binary</a>.</p>
 <h1>Statistics</h1>
+<p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Reflection</code>.
+Single File counts
+<code>SaneCppReflection.h</code>.
+Standalone counts <code>SaneCppReflectionStandalone.h</code> and intentionally includes dependency
+payloads.</p>
 <table>
 <thead>
 <tr>
-<th>Type</th>
-<th>Lines Of Code</th>
-<th>Comments</th>
+<th>Metric</th>
+<th>Header</th>
+<th>Source</th>
 <th>Sum</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Headers</td>
-<td>605</td>
-<td>268</td>
-<td>873</td>
+<td>Library</td>
+<td>616</td>
+<td>0</td>
+<td>616</td>
 </tr>
 <tr>
-<td>Sources</td>
+<td>Single File</td>
+<td>930</td>
 <td>0</td>
-<td>0</td>
-<td>0</td>
+<td>930</td>
 </tr>
 <tr>
-<td>Sum</td>
-<td>605</td>
-<td>268</td>
-<td>873</td>
+<td>Standalone</td>
+<td>930</td>
+<td>0</td>
+<td>930</td>
 </tr>
 </tbody></table>
 </article> <aside class="sidebar" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependency graph</strong> <img src="/SaneCppLibraries/reference/doxygen/Reflection.svg" alt="Reflection dependency graph" data-astro-cid-7c432cc5> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Keep exploring</strong> <a href="/SaneCppLibraries/guides/building-user/" data-astro-cid-7c432cc5>How to integrate the libraries</a> <a href="/SaneCppLibraries/reference/" data-astro-cid-7c432cc5>Generated reference and compatibility pages</a> </div>  </aside> </section>  </main> <footer class="site-footer" data-astro-cid-37fxchfa> <div class="shell footer-grid" data-astro-cid-37fxchfa> <div data-astro-cid-37fxchfa> <div class="eyebrow" data-astro-cid-37fxchfa>Platform Abstraction C++ Libraries</div> <h2 data-astro-cid-37fxchfa>Sane C++ Libraries</h2> <p class="copy-muted" data-astro-cid-37fxchfa>

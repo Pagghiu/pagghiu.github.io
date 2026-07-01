@@ -232,7 +232,7 @@ $(function(){initNavTree('library_async.html',''); initResizable(true); });
   </li>
 </ul>
 </div>
-<div class="textblock"><p>🟨 Async I/O (files, sockets, timers, processes, fs events, threads wake-up)</p>
+<div class="textblock"><p>🟨 Async I/O (files, sockets, timers, processes, fs events, threads, signals)</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppAsync.h">SaneCppAsync.h</a> is a multi-platform / event-driven asynchronous I/O library. <br  />
 </p>
 <dl class="section note"><dt>Note</dt><dd>Check <a class="el" href="library_async_streams.html">Async Streams</a> for an higher level construct when streaming data</dd>
@@ -293,7 +293,7 @@ Features</h1>
 <h1><a class="anchor" id="autotoc_md118"></a>
 Details</h1>
 <p>It exposes async programming model for common IO operations like reading / writing to / from a file or tcp socket.</p>
-<p>Synchronous I/O operations could block the current thread of execution for an undefined amount of time, making it difficult to scale an application to a large number of concurrent operations, or to coexist with other even loop, like for example a GUI event loop. Such async programming model uses a common pattern, where the call fills an AsyncRequest with the required data. The AsyncRequest is added to an AsyncEventLoop that will queue the request to some low level OS IO queue. The event loop can then monitor all the requests in a single call to <a class="el" href="structSC_1_1AsyncEventLoop.html#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more active queued requests, dispatching all completions.">SC::AsyncEventLoop::run</a>, <a class="el" href="structSC_1_1AsyncEventLoop.html#aeef889e7c4c8f7cbbfe974ee6be27f09" title="Blocks until at least one request proceeds, ensuring forward progress, dispatching all completions.">SC::AsyncEventLoop::runOnce</a> or <a class="el" href="structSC_1_1AsyncEventLoop.html#a1bc6365abc9c05fdbeec9c7f4519c319" title="Process active requests if any, dispatching their completions, or returns immediately without blockin...">SC::AsyncEventLoop::runNoWait</a>. These three different run methods cover different integration use cases of the event loop inside of an applications.</p>
+<p>Synchronous I/O operations could block the current thread of execution for an undefined amount of time, making it difficult to scale an application to a large number of concurrent operations, or to coexist with other even loop, like for example a GUI event loop. Such async programming model uses a common pattern, where the call fills an AsyncRequest with the required data. The AsyncRequest is added to an AsyncEventLoop that will queue the request to some low level OS IO queue. The event loop can then monitor all the requests in a single call to <a class="el" href="structSC_1_1AsyncEventLoop.html#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more counted active, submitted, or cancelling requests, dispatching complet...">SC::AsyncEventLoop::run</a>, <a class="el" href="structSC_1_1AsyncEventLoop.html#aeef889e7c4c8f7cbbfe974ee6be27f09" title="Blocks until at least one request proceeds, ensuring forward progress, dispatching ready completions.">SC::AsyncEventLoop::runOnce</a> or <a class="el" href="structSC_1_1AsyncEventLoop.html#a1bc6365abc9c05fdbeec9c7f4519c319" title="Process ready requests if any, dispatching their completions, or returns immediately without blocking...">SC::AsyncEventLoop::runNoWait</a>. These three different run methods cover different integration use cases of the event loop inside of an applications.</p>
 <p>The kernel Async API used on each operating systems are the following:</p><ul>
 <li><code>IOCP</code> on Windows</li>
 <li><code>kqueue</code> on macOS</li>
@@ -301,7 +301,7 @@ Details</h1>
 <li><code>epoll</code> on Linux</li>
 </ul>
 <dl class="section note"><dt>Note</dt><dd>If direct <code>io_uring</code> setup is not available on the system, the library will fallback to epoll.</dd></dl>
-<p>If an async operation is not supported by the OS, the caller can provide a <a class="el" href="structSC_1_1ThreadPool.html" title="Simple thread pool that executes tasks in a fixed number of worker threads.">SC::ThreadPool</a> to run it on a thread. See <a class="el" href="structSC_1_1AsyncFileRead.html" title="Starts a file read operation, reading bytes from a file (or pipe).">SC::AsyncFileRead</a> / <a class="el" href="structSC_1_1AsyncFileWrite.html" title="Starts a file write operation, writing bytes to a file (or pipe).">SC::AsyncFileWrite</a> for an example.   </p>
+<p>If an operation may require blocking work on a backend, the caller must provide a <a class="el" href="structSC_1_1ThreadPool.html" title="Simple thread pool that executes tasks in a fixed number of worker threads.">SC::ThreadPool</a> through the operation-specific API. Backends that can perform the operation natively, such as Linux <code>io_uring</code> file I/O, prefer native async by default. Pass SC::AsyncThreadPoolMode::ForceThreadPool to force using the supplied pool.   </p>
 <h1><a class="anchor" id="autotoc_md119"></a>
 Status</h1>
 <p>🟨 MVP <br  />
@@ -345,6 +345,7 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-06-30-SaneCppLibrariesUpdate.html">June 2026 Update</a></li>
 </ul>
 <h1><a class="anchor" id="autotoc_md122"></a>
 Description</h1>
@@ -400,11 +401,11 @@ Run modes</h3>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Run mode   </th><th class="markdownTableHeadLeft">Description    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1AsyncEventLoop.html#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more active queued requests, dispatching all completions.">SC::AsyncEventLoop::run</a>   </td><td class="markdownTableBodyLeft"><p class="starttd">Blocks until there are no more active queued requests, dispatching all completions.   </p>
-<p class="endtd">It's useful for applications where the eventLoop is the only (or the main) loop. One example could be a console based app doing socket IO or a web server. Waiting on kernel events blocks the current thread with 0% CPU utilization. </p><dl class="section see"><dt>See also</dt><dd>AsyncEventLoop::blockingPoll to integrate the loop with a GUI event loop      </dd></dl>
+<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1AsyncEventLoop.html#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more counted active, submitted, or cancelling requests, dispatching complet...">SC::AsyncEventLoop::run</a>   </td><td class="markdownTableBodyLeft"><p class="starttd">Blocks until there are no more counted active, submitted, or cancelling requests, dispatching completions.   </p>
+<p class="endtd">It's useful for applications where the eventLoop is the only (or the main) loop. One example could be a console based app doing socket IO or a web server. Waiting on kernel events blocks the current thread with 0% CPU utilization. AsyncEventLoop::interrupt makes this function return before active work has drained. Requests excluded with AsyncEventLoop::excludeFromActiveCount do not keep this function alive. </p><dl class="section see"><dt>See also</dt><dd>AsyncEventLoop::blockingPoll to integrate the loop with a GUI event loop      </dd></dl>
 </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1AsyncEventLoop.html#aeef889e7c4c8f7cbbfe974ee6be27f09" title="Blocks until at least one request proceeds, ensuring forward progress, dispatching all completions.">SC::AsyncEventLoop::runOnce</a>   </td><td class="markdownTableBodyLeft"><p class="starttd">Blocks until at least one request proceeds, ensuring forward progress, dispatching all completions.   </p>
+<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1AsyncEventLoop.html#aeef889e7c4c8f7cbbfe974ee6be27f09" title="Blocks until at least one request proceeds, ensuring forward progress, dispatching ready completions.">SC::AsyncEventLoop::runOnce</a>   </td><td class="markdownTableBodyLeft"><p class="starttd">Blocks until at least one request proceeds, ensuring forward progress, dispatching ready completions.   </p>
 <p class="intertd">It's useful for application where it's needed to run some idle work after every IO event. Waiting on requests blocks the current thread with 0% CPU utilization.</p>
 <p class="endtd">This function is a shortcut invoking async event loop building blocks:</p><ul>
 <li>AsyncEventLoop::submitRequests</li>
@@ -414,7 +415,7 @@ Run modes</h3>
 </ul>
 </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1AsyncEventLoop.html#a1bc6365abc9c05fdbeec9c7f4519c319" title="Process active requests if any, dispatching their completions, or returns immediately without blockin...">SC::AsyncEventLoop::runNoWait</a>   </td><td class="markdownTableBodyLeft"><p class="starttd">Process active requests if any, dispatching their completions, or returns immediately without blocking.   </p>
+<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1AsyncEventLoop.html#a1bc6365abc9c05fdbeec9c7f4519c319" title="Process ready requests if any, dispatching their completions, or returns immediately without blocking...">SC::AsyncEventLoop::runNoWait</a>   </td><td class="markdownTableBodyLeft"><p class="starttd">Process ready requests if any, dispatching their completions, or returns immediately without blocking.   </p>
 <p class="endtd">It's useful for game-like applications where the event loop runs every frame and one would like to check and dispatch its I/O callbacks in-between frames. This call allows poll-checking I/O without blocking. </p><dl class="section see"><dt>See also</dt><dd>AsyncEventLoop::blockingPoll to integrate the loop with a GUI event loop     </dd></dl>
 </td></tr>
 </table>
@@ -423,19 +424,19 @@ Run modes</h3>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Run mode   </th><th class="markdownTableHeadLeft">Description    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1AsyncEventLoop.html#a76c7d12a2689a730471371881ec8d096" title="Submits all queued async requests.">SC::AsyncEventLoop::submitRequests</a>   </td><td class="markdownTableBodyLeft"><p class="starttd">Submits all queued async requests.   </p>
+<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1AsyncEventLoop.html#a76c7d12a2689a730471371881ec8d096" title="Submits all queued async requests without running user callbacks.">SC::AsyncEventLoop::submitRequests</a>   </td><td class="markdownTableBodyLeft"><p class="starttd">Submits all queued async requests without running user callbacks.   </p>
 <p class="intertd">An AsyncRequest becomes queued after user calls its specific AsyncRequest::start method.</p>
 <dl class="section see"><dt>See also</dt><dd>AsyncEventLoop::blockingPoll for a description on how to integrate AsyncEventLoop with another event loop      </dd></dl>
 </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1AsyncEventLoop.html#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">SC::AsyncEventLoop::blockingPoll</a>   </td><td class="markdownTableBodyLeft"><p class="starttd">Blocks until at least one event happens, ensuring forward progress, without executing completions.   </p>
-<p class="intertd">It's one of the three building blocks of AsyncEventLoop::runOnce allowing co-operation of AsyncEventLoop within another event loop (for example a GUI event loop or another IO event loop).</p>
+<p class="intertd">It's one of the three building blocks of AsyncEventLoop::runOnce allowing co-operation of AsyncEventLoop within another event loop (for example a GUI event loop or another IO event loop). User callbacks are not invoked by this function; they run when AsyncEventLoop::dispatchCompletions is called. AsyncEventLoopListeners callbacks, if installed, are invoked around this blocking poll.</p>
 <p class="intertd">One possible example of such integration with a GUI event loop could:</p>
 <ul>
 <li>Call AsyncEventLoop::submitRequests on the GUI thread to queue some requests</li>
-<li>Call AsyncEventLoop::blockingPoll on a secondary thread, storying AsyncKernelEvents</li>
+<li>Call AsyncEventLoop::blockingPoll on a secondary thread, storing AsyncKernelEvents</li>
 <li>Wake up the GUI event loop from the secondary thread after AsyncEventLoop::blockingPoll returns</li>
-<li>Call AsyncEventLoop:dispatchCompletions on the GUI event loop to dispatch callbacks on GUI thread</li>
+<li>Call AsyncEventLoop::dispatchCompletions on the GUI event loop to dispatch callbacks on GUI thread</li>
 <li>Repeat all steps</li>
 </ul>
 <p class="endtd">Waiting on requests blocks the current thread with 0% CPU utilization. </p><dl class="params"><dt>Parameters</dt><dd>
@@ -452,7 +453,7 @@ AsyncEventLoop::setListeners sets function called before and after entering kern
 </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1AsyncEventLoop.html#ab74ce20bd1429b6a2eaba0e2bbfaad8c" title="Invokes completions for the AsyncKernelEvents collected by a call to AsyncEventLoop::blockingPoll.">SC::AsyncEventLoop::dispatchCompletions</a>   </td><td class="markdownTableBodyLeft"><p class="starttd">Invokes completions for the AsyncKernelEvents collected by a call to AsyncEventLoop::blockingPoll.   </p>
-<p class="endtd">This is typically done when user wants to pool for events on a thread (calling AsyncEventLoop::blockingPoll) and dispatch the callbacks on another thread (calling AsyncEventLoop::dispatchCompletions). The typical example would be integrating AsyncEventLoop with a GUI event loop. </p><dl class="section see"><dt>See also</dt><dd>AsyncEventLoop::blockingPoll for a description on how to integrate AsyncEventLoop with another event loop     </dd></dl>
+<p class="endtd">This is typically done when user wants to poll for events on a thread (calling AsyncEventLoop::blockingPoll) and dispatch the callbacks on another thread (calling AsyncEventLoop::dispatchCompletions). User callbacks run on the thread calling this function. The typical example would be integrating AsyncEventLoop with a GUI event loop. </p><dl class="section see"><dt>See also</dt><dd>AsyncEventLoop::blockingPoll for a description on how to integrate AsyncEventLoop with another event loop     </dd></dl>
 </td></tr>
 </table>
 <h2><a class="anchor" id="autotoc_md125"></a>
@@ -494,9 +495,9 @@ AsyncLoopTimeout</h2>
 AsyncLoopWakeUp</h2>
 <p>Starts a wake-up operation, allowing threads to execute callbacks on loop thread.   </p>
 <p><br  />
-<a class="el" href="structSC_1_1AsyncLoopWakeUp.html#a8c5574bae42f75cd0be00ab2b12e7e1e" title="Callback called by SC::AsyncEventLoop::run after SC::AsyncLoopWakeUp::wakeUp.">SC::AsyncLoopWakeUp::callback</a> will be invoked on the thread running <a class="el" href="structSC_1_1AsyncEventLoop.html#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more active queued requests, dispatching all completions.">SC::AsyncEventLoop::run</a> (or its variations) after <a class="el" href="structSC_1_1AsyncLoopWakeUp.html#a9aa7597d6dbce5c62b52bf1388c9e842" title="Wakes up event loop, scheduling AsyncLoopWakeUp::callback on next AsyncEventLoop::run (or its variati...">SC::AsyncLoopWakeUp::wakeUp</a> has been called. </p><dl class="section note"><dt>Note</dt><dd>There is no guarantee that after calling AsyncLoopWakeUp::start the callback has actually finished execution. An optional <a class="el" href="structSC_1_1EventObject.html" title="An automatically reset event object to synchronize two threads.">SC::EventObject</a> passed to <a class="el" href="structSC_1_1AsyncLoopWakeUp.html#ad429cc83ecfb1b9aca8cbbf686511fa6" title="Sets async request members and calls AsyncEventLoop::start.">SC::AsyncLoopWakeUp::start</a> can be used for synchronization. By default repeated pending wakeUp() calls are coalesced like libuv uv_async_t. Set AsyncLoopWakeUpOptions::coalesce to false to receive one callback per pending wake-up instead. </dd>
+<a class="el" href="structSC_1_1AsyncLoopWakeUp.html#a8c5574bae42f75cd0be00ab2b12e7e1e" title="Callback called by SC::AsyncEventLoop::run after SC::AsyncLoopWakeUp::wakeUp.">SC::AsyncLoopWakeUp::callback</a> will be invoked on the thread running <a class="el" href="structSC_1_1AsyncEventLoop.html#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more counted active, submitted, or cancelling requests, dispatching complet...">SC::AsyncEventLoop::run</a> (or its variations) after <a class="el" href="structSC_1_1AsyncLoopWakeUp.html#a9aa7597d6dbce5c62b52bf1388c9e842" title="Wakes up event loop, scheduling AsyncLoopWakeUp::callback on next AsyncEventLoop::run (or its variati...">SC::AsyncLoopWakeUp::wakeUp</a> has been called. </p><dl class="section note"><dt>Note</dt><dd>There is no guarantee that after calling AsyncLoopWakeUp::start the callback has actually finished execution. An optional <a class="el" href="structSC_1_1EventObject.html" title="An automatically reset event object to synchronize two threads.">SC::EventObject</a> passed to <a class="el" href="structSC_1_1AsyncLoopWakeUp.html#ad429cc83ecfb1b9aca8cbbf686511fa6" title="Sets async request members and calls AsyncEventLoop::start.">SC::AsyncLoopWakeUp::start</a> can be used for synchronization. By default repeated pending wakeUp() calls are coalesced like libuv uv_async_t. Set AsyncLoopWakeUpOptions::coalesce to false to receive one callback per pending wake-up instead. </dd>
 <dd>
-AsyncLoopWakeUp stays active only until its callback runs. To continue receiving wake-ups after a callback, call AsyncLoopWakeUp::Result::reactivateRequest(true) from inside the callback.</dd></dl>
+AsyncLoopWakeUp stays active only until its callback runs. To continue receiving wake-ups after a callback, call AsyncLoopWakeUp::Result::reactivateRequest(true) from inside the callback. Persistent async-send wrappers should reactivate from the callback before returning. Calling wakeUp() after the request is free is tolerated for cross-thread race handling, but should not be used as an application-level notification mechanism.</dd></dl>
 <div class="fragment"><div class="line"><span class="comment">// Assuming an already created (and running) AsyncEventLoop named eventLoop</span></div>
 <div class="line"><span class="comment">// ...</span></div>
 <div class="line"><span class="comment">// This code runs on some different thread from the one calling SC::AsyncEventLoop::run.</span></div>
@@ -594,7 +595,14 @@ AsyncProcessExit</h2>
 </div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md130"></a>
 AsyncSignal</h2>
 <p>Starts monitoring a signal, notifying about its reception.   </p>
-<p>Multiple watchers can be registered for the same signal on the same or different loops (fanout). On POSIX systems, signals like <code>SIGINT</code>, <code>SIGTERM</code>, <code>SIGHUP</code> are supported. On Windows, console control signals <code>CTRL_C_EVENT</code>, <code>CTRL_BREAK_EVENT</code>, and <code>CTRL_CLOSE_EVENT</code> are mapped to <code>SIGINT</code> (2), signal 21, and <code>SIGTERM</code> (15) respectively.</p>
+<p>AsyncSignal follows the base AsyncRequest lifecycle: after a delivered signal, the request is completed unless the callback calls Result::reactivateRequest(true). AsyncSignalOptions::mode and coalesce are kept as explicit policy fields for future backend-parity work, but portable code should not rely on them for automatic reactivation.</p>
+<p>On POSIX systems, signals like <code>SIGINT</code>, <code>SIGTERM</code>, <code>SIGHUP</code> are supported. On Windows, console control signals <code>CTRL_C_EVENT</code>, <code>CTRL_BREAK_EVENT</code>, and <code>CTRL_CLOSE_EVENT</code> are mapped to <code>SIGINT</code> (2), signal 21, and <code>SIGTERM</code> (15) respectively.</p>
+<p>Signal watcher capabilities:</p><ul>
+<li>one watcher for a given signal is supported on all backends.</li>
+<li>multiple different signals on the same loop are supported on all backends.</li>
+<li>multiple watchers for the same signal on Windows are supported through the process-wide console signal registry.</li>
+<li>multiple POSIX watchers for the same signal are backend-dependent and should not be used as a portable fanout mechanism. Prefer one AsyncSignal per process signal and fan out from that callback when portable behavior matters.</li>
+</ul>
 <div class="fragment"><div class="line"><span class="comment">// Assuming an already created (and running) AsyncEventLoop named eventLoop</span></div>
 <div class="line"><span class="comment">// ...</span></div>
 <div class="line">AsyncSignal asyncSignal;</div>
@@ -813,7 +821,7 @@ Alternatively <a class="el" href="structSC_1_1AsyncEventLoop.html#ae95130c4c6460
 AsyncFileRead</h2>
 <p>Starts a file read operation, reading bytes from a file (or pipe).   </p>
 <p>Callback will be called when the data read from the file (or pipe) is available. <br  />
- Call AsyncRequest::executeOn to set a thread pool if this is a buffered file and not a pipe. This is important on APIs with blocking behaviour on buffered file I/O (all apis with the exception of <code>io_uring</code>).</p>
+ Call AsyncRequest::executeOn to set a thread pool if this is a buffered file and not a pipe. This is important on APIs with blocking behaviour on buffered file I/O (all APIs except <code>io_uring</code>).</p>
 <p><a class="el" href="library_file.html">File</a> library can be used to open the file and obtain a file (or pipe) descriptor handle.</p>
 <dl class="section note"><dt>Note</dt><dd>Pipes or files opened using Posix <code>O_DIRECT</code> or Windows <code>FILE_FLAG_WRITE_THROUGH</code> &amp; <code>FILE_FLAG_NO_BUFFERING</code> should instead avoid using the <code>Task</code> parameter for best performance.</dd></dl>
 <p>When not using the <code>Task</code> remember to:</p><ul>
@@ -823,7 +831,8 @@ AsyncFileRead</h2>
 <p>Additional notes:</p><ul>
 <li>When reactivating the AsyncRequest, remember to increment the offset (SC::AsyncFileRead::offset)</li>
 <li>SC::AsyncFileRead::CompletionData::endOfFile signals end of file reached</li>
-<li><code>io_uring</code> backend will not use thread pool because that API allows proper async file read/writes</li>
+<li><code>io_uring</code> backend will not use thread pool by default because that API allows proper async file read/writes</li>
+<li>Pass <code>AsyncThreadPoolMode::ForceThreadPool</code> to <code>executeOn</code> to force using the supplied thread pool</li>
 </ul>
 <div class="fragment"><div class="line"><span class="comment">// Assuming an already created (and running) AsyncEventLoop named `eventLoop`</span></div>
 <div class="line"><span class="comment">// ...</span></div>
@@ -887,12 +896,16 @@ AsyncFileRead</h2>
 AsyncFileWrite</h2>
 <p>Starts a file write operation, writing bytes to a file (or pipe).   </p>
 <p>Callback will be called when the file is ready to receive more bytes to write. <br  />
- Call AsyncRequest::executeOn to set a thread pool if this is a buffered file and not a pipe. This is important on APIs with blocking behaviour on buffered file I/O (all apis with the exception of <code>io_uring</code>).</p>
+ Call AsyncRequest::executeOn to set a thread pool if this is a buffered file and not a pipe. This is important on APIs with blocking behaviour on buffered file I/O (all APIs except <code>io_uring</code>).</p>
 <p><a class="el" href="library_file.html">File</a> library can be used to open the file and obtain a blocking or non-blocking file descriptor handle. <br  />
  </p><dl class="section note"><dt>Note</dt><dd>Pipes or files opened using Posix <code>O_DIRECT</code> or Windows <code>FILE_FLAG_WRITE_THROUGH</code> &amp; <code>FILE_FLAG_NO_BUFFERING</code> should instead avoid using the <code>Task</code> parameter for best performance.</dd></dl>
 <p>When not using the <code>Task</code> remember to:</p><ul>
 <li>Open the file descriptor for non-blocking IO (SC::File::OpenOptions::blocking == <code>false</code>)</li>
 <li>Call <a class="el" href="structSC_1_1AsyncEventLoop.html#a10f7a7f846c5879a2ad6c66e77e1d56a" title="Associates a previously created File Descriptor with the eventLoop.">SC::AsyncEventLoop::associateExternallyCreatedFileDescriptor</a> on the file descriptor</li>
+</ul>
+<p>Additional notes:</p><ul>
+<li><code>io_uring</code> backend will not use thread pool by default because that API allows proper async file read/writes</li>
+<li>Pass <code>AsyncThreadPoolMode::ForceThreadPool</code> to <code>executeOn</code> to force using the supplied thread pool</li>
 </ul>
 <div class="fragment"><div class="line"><span class="comment">// Assuming an already created (and running) AsyncEventLoop named `eventLoop`</span></div>
 <div class="line"><span class="comment">// ...</span></div>
@@ -1001,7 +1014,7 @@ AsyncTaskSequence</h2>
 <h2><a class="anchor" id="autotoc_md143"></a>
 AsyncFileSystemOperation</h2>
 <p>Starts an asynchronous file system operation (open, close, read, write, sendFile, stat, lstat, fstat, etc.) Some operations need a file path and others need a file descriptor.   </p>
-<dl class="section note"><dt>Note</dt><dd>Operations will run on the thread pool set with AsyncFileSystemOperation::setThreadPool on all backends except when the event loop is using io_uring on Linux. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Operations will run on the thread pool set with AsyncFileSystemOperation::setThreadPool on all backends except when the event loop is using io_uring on Linux, unless <code>AsyncThreadPoolMode::ForceThreadPool</code> is used. </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>File paths must be encoded in the native encoding of the OS, that is UTF-8 on Posix and UTF-16 on Windows.</dd></dl>
 <p>Example of async open operation: </p><div class="fragment"><div class="line">    <span class="comment">// Create Thread Pool where to run fs operations</span></div>
 <div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> NUM_THREADS = 1;</div>
@@ -1401,15 +1414,16 @@ Roadmap</h1>
 </ul>
 <h1><a class="anchor" id="autotoc_md147"></a>
 Statistics</h1>
+<p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Async</code>. Single File counts <code>SaneCppAsync.h</code>. Standalone counts <code>SaneCppAsyncStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Lines Of Code   </th><th class="markdownTableHeadNone">Comments   </th><th class="markdownTableHeadNone">Sum    </th></tr>
+<th class="markdownTableHeadNone">Metric   </th><th class="markdownTableHeadNone">Header   </th><th class="markdownTableHeadNone">Source   </th><th class="markdownTableHeadNone">Sum    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Headers   </td><td class="markdownTableBodyNone">885   </td><td class="markdownTableBodyNone">830   </td><td class="markdownTableBodyNone">1715    </td></tr>
+<td class="markdownTableBodyNone">Library   </td><td class="markdownTableBodyNone">1926   </td><td class="markdownTableBodyNone">5842   </td><td class="markdownTableBodyNone">7768    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Sources   </td><td class="markdownTableBodyNone">6443   </td><td class="markdownTableBodyNone">1454   </td><td class="markdownTableBodyNone">7897    </td></tr>
+<td class="markdownTableBodyNone">Single File   </td><td class="markdownTableBodyNone">1646   </td><td class="markdownTableBodyNone">6974   </td><td class="markdownTableBodyNone">8620    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Sum   </td><td class="markdownTableBodyNone">7328   </td><td class="markdownTableBodyNone">2284   </td><td class="markdownTableBodyNone">9612   </td></tr>
+<td class="markdownTableBodyNone">Standalone   </td><td class="markdownTableBodyNone">6190   </td><td class="markdownTableBodyNone">13279   </td><td class="markdownTableBodyNone">19469   </td></tr>
 </table>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

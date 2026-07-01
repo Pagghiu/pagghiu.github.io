@@ -131,7 +131,7 @@ $(function(){initNavTree('structSC_1_1AsyncKernelEvents.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 
-<p>Allows user to supply a block of memory that will store kernel I/O events retrieved from <a class="el" href="structSC_1_1AsyncEventLoop.html#aeef889e7c4c8f7cbbfe974ee6be27f09" title="Blocks until at least one request proceeds, ensuring forward progress, dispatching all completions.">AsyncEventLoop::runOnce</a>.  
+<p>Allows user to supply a block of memory that will store kernel I/O events retrieved from <a class="el" href="structSC_1_1AsyncEventLoop.html#aeef889e7c4c8f7cbbfe974ee6be27f09" title="Blocks until at least one request proceeds, ensuring forward progress, dispatching ready completions.">AsyncEventLoop::runOnce</a>.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Async_8h_source.html">Async.h</a>&gt;</code></p>
@@ -152,8 +152,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncEventLoopMonit
 <tr class="separator:a3055fb2fd4fb28add72f5991c03d0792"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Allows user to supply a block of memory that will store kernel I/O events retrieved from <a class="el" href="structSC_1_1AsyncEventLoop.html#aeef889e7c4c8f7cbbfe974ee6be27f09" title="Blocks until at least one request proceeds, ensuring forward progress, dispatching all completions.">AsyncEventLoop::runOnce</a>. </p>
-<p>Such events can then be later passed to <a class="el" href="structSC_1_1AsyncEventLoop.html#ab74ce20bd1429b6a2eaba0e2bbfaad8c" title="Invokes completions for the AsyncKernelEvents collected by a call to AsyncEventLoop::blockingPoll.">AsyncEventLoop::dispatchCompletions</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structSC_1_1AsyncEventLoop.html#aeef889e7c4c8f7cbbfe974ee6be27f09" title="Blocks until at least one request proceeds, ensuring forward progress, dispatching all completions.">AsyncEventLoop::runOnce</a> </dd></dl>
+<div class="textblock"><p>Allows user to supply a block of memory that will store kernel I/O events retrieved from <a class="el" href="structSC_1_1AsyncEventLoop.html#aeef889e7c4c8f7cbbfe974ee6be27f09" title="Blocks until at least one request proceeds, ensuring forward progress, dispatching ready completions.">AsyncEventLoop::runOnce</a>. </p>
+<p>Such events can then be later passed to <a class="el" href="structSC_1_1AsyncEventLoop.html#ab74ce20bd1429b6a2eaba0e2bbfaad8c" title="Invokes completions for the AsyncKernelEvents collected by a call to AsyncEventLoop::blockingPoll.">AsyncEventLoop::dispatchCompletions</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structSC_1_1AsyncEventLoop.html#aeef889e7c4c8f7cbbfe974ee6be27f09" title="Blocks until at least one request proceeds, ensuring forward progress, dispatching ready completions.">AsyncEventLoop::runOnce</a> </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a73eb95a6df2c0a8c868a4ac58e9476db" name="a73eb95a6df2c0a8c868a4ac58e9476db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a73eb95a6df2c0a8c868a4ac58e9476db">&#9670;&#160;</a></span>eventsMemory</h2>

@@ -287,8 +287,7 @@ template&lt;typename T &gt; </div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Deserialization</span></div>
 <div class="line">SC_TRY(SerializerReader::loadExact(deserializedObject, buffer.toSpanConst()));</div>
-<div class="line">SC_SERIALIZATION_BINARY_ASSERT_RELEASE(objectToSerialize.nestedStruct.doubleVal ==</div>
-<div class="line">deserializedObject.nestedStruct.doubleVal);</div>
+<div class="line">ASSERT(objectToSerialize.nestedStruct.doubleVal == deserializedObject.nestedStruct.doubleVal);</div>
 <div class="ttc" id="astructSC_1_1Vector_html"><div class="ttname"><a href="structSC_1_1Vector.html">SC::Vector</a></div><div class="ttdoc">A contiguous sequence of heap allocated elements.</div><div class="ttdef"><b>Definition</b> Vector.h:190</div></div>
 </div><!-- fragment --> 
 </div>

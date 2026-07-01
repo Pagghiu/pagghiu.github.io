@@ -255,7 +255,7 @@ $(function(){initNavTree('library_strings.html',''); initResizable(true); });
   </li>
 </ul>
 </div>
-<div class="textblock"><p>🟩 String formatting / conversion / manipulation (ASCII / UTF8 / UTF16)</p>
+<div class="textblock"><p>🟩 UTF String formatting / conversion / manipulation</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppStrings.h">SaneCppStrings.h</a> library allow read-only and write string operations and UTF Conversions. Path is able to parse and manipulate windows and posix paths.</p>
 <dl class="section note"><dt>Note</dt><dd><a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a> and <a class="el" href="structSC_1_1SmallString.html" title="String with compile time configurable inline storage (small string optimization)">SC::SmallString</a>, the "classic C++ style" string containers are defined in <a class="el" href="library_memory.html">Memory</a> because they are based on <a class="el" href="structSC_1_1Buffer.html" title="An heap allocated byte buffer that can optionally use an inline buffer.">SC::Buffer</a> and they use dynamic memory allocation provided by the Memory library.</dd></dl>
 <h1><a class="anchor" id="autotoc_md416"></a>
@@ -770,15 +770,16 @@ Roadmap</h1>
 </ul>
 <h1><a class="anchor" id="autotoc_md454"></a>
 Statistics</h1>
+<p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Strings</code>. Single File counts <code>SaneCppStrings.h</code>. Standalone counts <code>SaneCppStringsStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Lines Of Code   </th><th class="markdownTableHeadNone">Comments   </th><th class="markdownTableHeadNone">Sum    </th></tr>
+<th class="markdownTableHeadNone">Metric   </th><th class="markdownTableHeadNone">Header   </th><th class="markdownTableHeadNone">Source   </th><th class="markdownTableHeadNone">Sum    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Headers   </td><td class="markdownTableBodyNone">1012   </td><td class="markdownTableBodyNone">1081   </td><td class="markdownTableBodyNone">2093    </td></tr>
+<td class="markdownTableBodyNone">Library   </td><td class="markdownTableBodyNone">1056   </td><td class="markdownTableBodyNone">3143   </td><td class="markdownTableBodyNone">4199    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Sources   </td><td class="markdownTableBodyNone">3115   </td><td class="markdownTableBodyNone">398   </td><td class="markdownTableBodyNone">3513    </td></tr>
+<td class="markdownTableBodyNone">Single File   </td><td class="markdownTableBodyNone">2076   </td><td class="markdownTableBodyNone">3399   </td><td class="markdownTableBodyNone">5475    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Sum   </td><td class="markdownTableBodyNone">4127   </td><td class="markdownTableBodyNone">1479   </td><td class="markdownTableBodyNone">5606   </td></tr>
+<td class="markdownTableBodyNone">Standalone   </td><td class="markdownTableBodyNone">2076   </td><td class="markdownTableBodyNone">3399   </td><td class="markdownTableBodyNone">5475   </td></tr>
 </table>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

@@ -220,9 +220,9 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Result</b> = <a clas
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a675cf08185db088b4e7caa55d3606ba5" id="r_a675cf08185db088b4e7caa55d3606ba5"><td class="memItemLeft" align="right" valign="top">SC::Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a675cf08185db088b4e7caa55d3606ba5">setThreadPool</a> (<a class="el" href="structSC_1_1ThreadPool.html">ThreadPool</a> &amp;threadPool)</td></tr>
-<tr class="memdesc:a675cf08185db088b4e7caa55d3606ba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the thread pool to use for the operation.  <br /></td></tr>
-<tr class="separator:a675cf08185db088b4e7caa55d3606ba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41f3df5ccdc90a400ca0e90a5fe95be0" id="r_a41f3df5ccdc90a400ca0e90a5fe95be0"><td class="memItemLeft" align="right" valign="top">SC::Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41f3df5ccdc90a400ca0e90a5fe95be0">setThreadPool</a> (<a class="el" href="structSC_1_1ThreadPool.html">ThreadPool</a> &amp;threadPool, AsyncThreadPoolMode mode=AsyncThreadPoolMode::NativePreferred)</td></tr>
+<tr class="memdesc:a41f3df5ccdc90a400ca0e90a5fe95be0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the thread pool to use for the operation.  <br /></td></tr>
+<tr class="separator:a41f3df5ccdc90a400ca0e90a5fe95be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04019b0fcdd0aadb0eb354729a7b711f" id="r_a04019b0fcdd0aadb0eb354729a7b711f"><td class="memItemLeft" align="right" valign="top">SC::Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04019b0fcdd0aadb0eb354729a7b711f">stop</a> (<a class="el" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a> &amp;eventLoop, Function&lt; void(<a class="el" href="structSC_1_1AsyncResult.html">AsyncResult</a> &amp;)&gt; *afterStopped=nullptr)</td></tr>
 <tr class="memdesc:a04019b0fcdd0aadb0eb354729a7b711f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the operation, including the internal thread-pool work item when used.  <br /></td></tr>
 <tr class="separator:a04019b0fcdd0aadb0eb354729a7b711f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -260,9 +260,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDebugName</b> (con
 <tr class="memitem:aefb78bfb0f0f75cc51e79d027d3902c5 inherit pub_methods_structSC_1_1AsyncRequest" id="r_aefb78bfb0f0f75cc51e79d027d3902c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1AsyncRequest.html#aefb78bfb0f0f75cc51e79d027d3902c5">executeOn</a> (<a class="el" href="structSC_1_1AsyncSequence.html">AsyncSequence</a> &amp;sequence)</td></tr>
 <tr class="memdesc:aefb78bfb0f0f75cc51e79d027d3902c5 inherit pub_methods_structSC_1_1AsyncRequest"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the request to be executed on a specific <a class="el" href="structSC_1_1AsyncSequence.html" title="Execute AsyncRequests serially, by submitting the next one after the previous one is completed.">AsyncSequence</a>.  <br /></td></tr>
 <tr class="separator:aefb78bfb0f0f75cc51e79d027d3902c5 inherit pub_methods_structSC_1_1AsyncRequest"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae26f07024bc8fba780323976e283a5ad inherit pub_methods_structSC_1_1AsyncRequest" id="r_ae26f07024bc8fba780323976e283a5ad"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1AsyncRequest.html#ae26f07024bc8fba780323976e283a5ad">executeOn</a> (<a class="el" href="structSC_1_1AsyncTaskSequence.html">AsyncTaskSequence</a> &amp;task, <a class="el" href="structSC_1_1ThreadPool.html">ThreadPool</a> &amp;pool)</td></tr>
-<tr class="memdesc:ae26f07024bc8fba780323976e283a5ad inherit pub_methods_structSC_1_1AsyncRequest"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the request to be executed on a specific <a class="el" href="structSC_1_1AsyncTaskSequence.html" title="An AsyncSequence using a SC::ThreadPool to execute one or more SC::AsyncRequest in a background threa...">AsyncTaskSequence</a>.  <br /></td></tr>
-<tr class="separator:ae26f07024bc8fba780323976e283a5ad inherit pub_methods_structSC_1_1AsyncRequest"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a727220e17e563511d79a8ca1bdd6c724 inherit pub_methods_structSC_1_1AsyncRequest" id="r_a727220e17e563511d79a8ca1bdd6c724"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1AsyncRequest.html#a727220e17e563511d79a8ca1bdd6c724">executeOn</a> (<a class="el" href="structSC_1_1AsyncTaskSequence.html">AsyncTaskSequence</a> &amp;task, <a class="el" href="structSC_1_1ThreadPool.html">ThreadPool</a> &amp;pool, AsyncThreadPoolMode mode=AsyncThreadPoolMode::NativePreferred)</td></tr>
+<tr class="memdesc:a727220e17e563511d79a8ca1bdd6c724 inherit pub_methods_structSC_1_1AsyncRequest"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the request to be executed on a specific <a class="el" href="structSC_1_1AsyncTaskSequence.html" title="An AsyncSequence using a SC::ThreadPool to execute one or more SC::AsyncRequest in a background threa...">AsyncTaskSequence</a>.  <br /></td></tr>
+<tr class="separator:a727220e17e563511d79a8ca1bdd6c724 inherit pub_methods_structSC_1_1AsyncRequest"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac30e68d75c7c2e7cd3b245995141af41 inherit pub_methods_structSC_1_1AsyncRequest" id="r_ac30e68d75c7c2e7cd3b245995141af41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1AsyncRequest.html#ac30e68d75c7c2e7cd3b245995141af41">disableThreadPool</a> ()</td></tr>
 <tr class="memdesc:ac30e68d75c7c2e7cd3b245995141af41 inherit pub_methods_structSC_1_1AsyncRequest"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the thread-pool usage for this request.  <br /></td></tr>
 <tr class="separator:ac30e68d75c7c2e7cd3b245995141af41 inherit pub_methods_structSC_1_1AsyncRequest"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -331,6 +331,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>queueSubmission</b> (
 <tr class="memitem:a6a7fe4e1a88e576a3061d02d250ec874 inherit pro_methods_structSC_1_1AsyncRequest" id="r_a6a7fe4e1a88e576a3061d02d250ec874"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="structSC_1_1AsyncTaskSequence.html">AsyncTaskSequence</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getTask</b> ()</td></tr>
 <tr class="separator:a6a7fe4e1a88e576a3061d02d250ec874 inherit pro_methods_structSC_1_1AsyncRequest"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc06831ef20df0feb118001c721a8a0f inherit pro_methods_structSC_1_1AsyncRequest" id="r_adc06831ef20df0feb118001c721a8a0f"><td class="memItemLeft" align="right" valign="top">
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isThreadPoolForced</b> () const</td></tr>
+<tr class="separator:adc06831ef20df0feb118001c721a8a0f inherit pro_methods_structSC_1_1AsyncRequest"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_structSC_1_1AsyncRequest"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_structSC_1_1AsyncRequest')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="structSC_1_1AsyncRequest.html">SC::AsyncRequest</a></td></tr>
 <tr class="memitem:a092e95888a9bc39926c600fce972ed4f inherit pro_attribs_structSC_1_1AsyncRequest" id="r_a092e95888a9bc39926c600fce972ed4f"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="structSC_1_1AsyncSequence.html">AsyncSequence</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>sequence</b> = nullptr</td></tr>
@@ -338,7 +341,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>queueSubmission</b> (
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Starts an asynchronous file system operation (open, close, read, write, sendFile, stat, lstat, fstat, etc.) Some operations need a file path and others need a file descriptor. </p>
-<dl class="section note"><dt>Note</dt><dd>Operations will run on the thread pool set with <a class="el" href="#a675cf08185db088b4e7caa55d3606ba5" title="Sets the thread pool to use for the operation.">AsyncFileSystemOperation::setThreadPool</a> on all backends except when the event loop is using io_uring on Linux. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Operations will run on the thread pool set with <a class="el" href="#a41f3df5ccdc90a400ca0e90a5fe95be0" title="Sets the thread pool to use for the operation.">AsyncFileSystemOperation::setThreadPool</a> on all backends except when the event loop is using io_uring on Linux, unless <code>AsyncThreadPoolMode::ForceThreadPool</code> is used. </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>File paths must be encoded in the native encoding of the OS, that is UTF-8 on Posix and UTF-16 on Windows.</dd></dl>
 <p>Example of async open operation: </p><div class="fragment"><div class="line">    <span class="comment">// Create Thread Pool where to run fs operations</span></div>
 <div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> NUM_THREADS = 1;</div>
@@ -1334,8 +1337,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>queueSubmission</b> (
 
 </div>
 </div>
-<a id="a675cf08185db088b4e7caa55d3606ba5" name="a675cf08185db088b4e7caa55d3606ba5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a675cf08185db088b4e7caa55d3606ba5">&#9670;&#160;</a></span>setThreadPool()</h2>
+<a id="a41f3df5ccdc90a400ca0e90a5fe95be0" name="a41f3df5ccdc90a400ca0e90a5fe95be0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41f3df5ccdc90a400ca0e90a5fe95be0">&#9670;&#160;</a></span>setThreadPool()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1343,8 +1346,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>queueSubmission</b> (
         <tr>
           <td class="memname">SC::Result SC::AsyncFileSystemOperation::setThreadPool </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structSC_1_1ThreadPool.html">ThreadPool</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>threadPool</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structSC_1_1ThreadPool.html">ThreadPool</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>threadPool</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">AsyncThreadPoolMode</td>          <td class="paramname"><span class="paramname"><em>mode</em></span><span class="paramdefsep"> = </span><span class="paramdefval">AsyncThreadPoolMode::NativePreferred</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

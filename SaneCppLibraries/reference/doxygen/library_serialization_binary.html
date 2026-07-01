@@ -358,8 +358,7 @@ SerializationBinary::loadExact</h2>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Deserialization</span></div>
 <div class="line">SC_TRY(SerializerReader::loadExact(deserializedObject, buffer.toSpanConst()));</div>
-<div class="line">SC_SERIALIZATION_BINARY_ASSERT_RELEASE(objectToSerialize.nestedStruct.doubleVal ==</div>
-<div class="line">deserializedObject.nestedStruct.doubleVal);</div>
+<div class="line">ASSERT(objectToSerialize.nestedStruct.doubleVal == deserializedObject.nestedStruct.doubleVal);</div>
 </div><!-- fragment -->   <h2><a class="anchor" id="autotoc_md377"></a>
 SerializationBinary::loadVersioned</h2>
 <p>The versioned read serializer <a class="el" href="structSC_1_1SerializationBinary.html#acfb86dc1e6fba20444e2b495272d4556" title="Deserialize object T from a Binary buffer with a reflection schema not matching T schema.">SC::SerializationBinary::loadVersioned</a> must be used when source and destination schemas do not match. <em>Compatibility</em> flags can be customized through <a class="el" href="structSC_1_1SerializationBinaryOptions.html" title="Conversion options for the binary versioned deserializer.">SC::SerializationBinaryOptions</a> object, allowing to remap data coming from an older (or just different) version of the schema to the current one. SerializationBinary::loadVersioned will try to match the <code>memberTag</code> field specified in [Reflection](<a class="el" href="library_reflection.html">Reflection</a>) to match fields between source and destination schemas. When the types of the fields are different, a few options allow controlling the behaviour. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -490,15 +489,16 @@ Roadmap</h1>
 </ul>
 <h1><a class="anchor" id="autotoc_md383"></a>
 Statistics</h1>
+<p>LOC counts exclude comments. Library counts files physically under <code>Libraries/SerializationBinary</code>. Single File counts <code>SaneCppSerializationBinary.h</code>. Standalone counts <code>SaneCppSerializationBinaryStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Lines Of Code   </th><th class="markdownTableHeadNone">Comments   </th><th class="markdownTableHeadNone">Sum    </th></tr>
+<th class="markdownTableHeadNone">Metric   </th><th class="markdownTableHeadNone">Header   </th><th class="markdownTableHeadNone">Source   </th><th class="markdownTableHeadNone">Sum    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Headers   </td><td class="markdownTableBodyNone">570   </td><td class="markdownTableBodyNone">280   </td><td class="markdownTableBodyNone">850    </td></tr>
+<td class="markdownTableBodyNone">Library   </td><td class="markdownTableBodyNone">593   </td><td class="markdownTableBodyNone">0   </td><td class="markdownTableBodyNone">593    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Sources   </td><td class="markdownTableBodyNone">0   </td><td class="markdownTableBodyNone">0   </td><td class="markdownTableBodyNone">0    </td></tr>
+<td class="markdownTableBodyNone">Single File   </td><td class="markdownTableBodyNone">1013   </td><td class="markdownTableBodyNone">0   </td><td class="markdownTableBodyNone">1013    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Sum   </td><td class="markdownTableBodyNone">570   </td><td class="markdownTableBodyNone">280   </td><td class="markdownTableBodyNone">850   </td></tr>
+<td class="markdownTableBodyNone">Standalone   </td><td class="markdownTableBodyNone">1943   </td><td class="markdownTableBodyNone">0   </td><td class="markdownTableBodyNone">1943   </td></tr>
 </table>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

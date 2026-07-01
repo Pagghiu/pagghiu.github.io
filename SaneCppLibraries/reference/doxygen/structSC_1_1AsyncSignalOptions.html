@@ -144,16 +144,16 @@ Public Types</h2></td></tr>
 &#160;&#160;<a class="el" href="#a407f916d2f68d9b84ac7dc201291dfa3ac7fc2ee61fad0e2bba6754efdee31481">OneShot</a>
 <br />
  }</td></tr>
-<tr class="memdesc:a407f916d2f68d9b84ac7dc201291dfa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mode of signal watching.  <a href="#a407f916d2f68d9b84ac7dc201291dfa3">More...</a><br /></td></tr>
+<tr class="memdesc:a407f916d2f68d9b84ac7dc201291dfa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserved signal watching policy.  <a href="#a407f916d2f68d9b84ac7dc201291dfa3">More...</a><br /></td></tr>
 <tr class="separator:a407f916d2f68d9b84ac7dc201291dfa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a52584377e6c98801c9388beb6c825227" id="r_a52584377e6c98801c9388beb6c825227"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a407f916d2f68d9b84ac7dc201291dfa3">Mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52584377e6c98801c9388beb6c825227">mode</a> = <a class="el" href="#a407f916d2f68d9b84ac7dc201291dfa3a5fe7b9358c9cb1b9eaa8d5aec000def4">Mode::Persistent</a></td></tr>
-<tr class="memdesc:a52584377e6c98801c9388beb6c825227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default mode is Persistent.  <br /></td></tr>
+<tr class="memdesc:a52584377e6c98801c9388beb6c825227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Currently does not bypass the <a class="el" href="structSC_1_1AsyncRequest.html" title="Base class for all async requests, holding state and type.">AsyncRequest</a> reactivation contract.  <br /></td></tr>
 <tr class="separator:a52584377e6c98801c9388beb6c825227"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4f59b29a2decebe0c7b29b88d256e2e" id="r_ae4f59b29a2decebe0c7b29b88d256e2e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4f59b29a2decebe0c7b29b88d256e2e">coalesce</a> = true</td></tr>
-<tr class="memdesc:ae4f59b29a2decebe0c7b29b88d256e2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merge repeated pending deliveries (default true)  <br /></td></tr>
+<tr class="memdesc:ae4f59b29a2decebe0c7b29b88d256e2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backend hint; portable code should inspect CompletionData::deliveryCount.  <br /></td></tr>
 <tr class="separator:ae4f59b29a2decebe0c7b29b88d256e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -179,11 +179,12 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Mode of signal watching. </p>
+<p>Reserved signal watching policy. </p>
+<p>Current portable behavior follows the normal <a class="el" href="structSC_1_1AsyncRequest.html" title="Base class for all async requests, holding state and type.">AsyncRequest</a> completion contract: a signal callback receives one delivery and must call Result::reactivateRequest(true) to keep watching for later deliveries. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a407f916d2f68d9b84ac7dc201291dfa3a5fe7b9358c9cb1b9eaa8d5aec000def4" name="a407f916d2f68d9b84ac7dc201291dfa3a5fe7b9358c9cb1b9eaa8d5aec000def4"></a>Persistent&#160;</td><td class="fielddoc"><p>Callback runs on every delivery until stopped (default) </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a407f916d2f68d9b84ac7dc201291dfa3a5fe7b9358c9cb1b9eaa8d5aec000def4" name="a407f916d2f68d9b84ac7dc201291dfa3a5fe7b9358c9cb1b9eaa8d5aec000def4"></a>Persistent&#160;</td><td class="fielddoc"><p>Default policy; future backend parity work may use it for automatic persistence. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a407f916d2f68d9b84ac7dc201291dfa3ac7fc2ee61fad0e2bba6754efdee31481" name="a407f916d2f68d9b84ac7dc201291dfa3ac7fc2ee61fad0e2bba6754efdee31481"></a>OneShot&#160;</td><td class="fielddoc"><p>Request auto-stops after first successful callback dispatch. </p>
+<tr><td class="fieldname"><a id="a407f916d2f68d9b84ac7dc201291dfa3ac7fc2ee61fad0e2bba6754efdee31481" name="a407f916d2f68d9b84ac7dc201291dfa3ac7fc2ee61fad0e2bba6754efdee31481"></a>OneShot&#160;</td><td class="fielddoc"><p>Future policy for explicit one-shot watchers. </p>
 </td></tr>
 </table>
 
@@ -202,7 +203,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Merge repeated pending deliveries (default true) </p>
+<p>Backend hint; portable code should inspect CompletionData::deliveryCount. </p>
 
 </div>
 </div>
@@ -218,7 +219,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Default mode is Persistent. </p>
+<p>Currently does not bypass the <a class="el" href="structSC_1_1AsyncRequest.html" title="Base class for all async requests, holding state and type.">AsyncRequest</a> reactivation contract. </p>
 
 </div>
 </div>

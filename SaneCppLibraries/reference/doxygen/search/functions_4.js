@@ -11,7 +11,7 @@ var searchData=
   ['excludefromactivecount_8',['excludeFromActiveCount',['../structSC_1_1AsyncEventLoop.html#af64d10939116c3d9c8e4710bf0080d1d',1,'SC::AsyncEventLoop']]],
   ['exec_9',['exec',['../structSC_1_1Process.html#a32720740f1ea8e77bb8a92822003f989',1,'SC::Process::exec()'],['../structSC_1_1ProcessChain.html#aa9e17da1f7dd1b8b3827e21480475b6e',1,'SC::ProcessChain::exec()']]],
   ['executeblocking_10',['executeBlocking',['../structSC_1_1HttpClient.html#ab01b95969f2be586015dc8d3aeb1f7b4',1,'SC::HttpClient']]],
-  ['executeon_11',['executeOn',['../structSC_1_1AsyncRequest.html#aefb78bfb0f0f75cc51e79d027d3902c5',1,'SC::AsyncRequest::executeOn(AsyncSequence &amp;sequence)'],['../structSC_1_1AsyncRequest.html#ae26f07024bc8fba780323976e283a5ad',1,'SC::AsyncRequest::executeOn(AsyncTaskSequence &amp;task, ThreadPool &amp;pool)']]],
+  ['executeon_11',['executeOn',['../structSC_1_1AsyncRequest.html#aefb78bfb0f0f75cc51e79d027d3902c5',1,'SC::AsyncRequest::executeOn(AsyncSequence &amp;sequence)'],['../structSC_1_1AsyncRequest.html#a727220e17e563511d79a8ca1bdd6c724',1,'SC::AsyncRequest::executeOn(AsyncTaskSequence &amp;task, ThreadPool &amp;pool, AsyncThreadPoolMode mode=AsyncThreadPoolMode::NativePreferred)']]],
   ['exists_12',['exists',['../structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73',1,'SC::FileSystem']]],
   ['existsandisdirectory_13',['existsAndIsDirectory',['../structSC_1_1FileSystem.html#a57f57af54061e2370bef5e164ab44335',1,'SC::FileSystem']]],
   ['existsandisfile_14',['existsAndIsFile',['../structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762',1,'SC::FileSystem']]],

@@ -237,7 +237,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a8109d5b11f58ed7824fa561979667df1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posts completion for an <a class="el" href="structSC_1_1AsyncExternalCompletion.html" title="Integrates externally-submitted completion based operations with AsyncEventLoop.">AsyncExternalCompletion</a> started in manual mode.  <br /></td></tr>
 <tr class="separator:a8109d5b11f58ed7824fa561979667df1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac079f117519d00d84698380ee62c733b" id="r_ac079f117519d00d84698380ee62c733b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac079f117519d00d84698380ee62c733b">interrupt</a> ()</td></tr>
-<tr class="memdesc:ac079f117519d00d84698380ee62c733b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupts the event loop even if it has active request on it.  <br /></td></tr>
+<tr class="memdesc:ac079f117519d00d84698380ee62c733b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupts <a class="el" href="#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more counted active, submitted, or cancelling requests, dispatching complet...">AsyncEventLoop::run</a>, causing it to return even if counted active work remains.  <br /></td></tr>
 <tr class="separator:ac079f117519d00d84698380ee62c733b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdb926a1078be3e64fdf6bd85d09218e" id="r_acdb926a1078be3e64fdf6bd85d09218e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdb926a1078be3e64fdf6bd85d09218e">isInitialized</a> () const</td></tr>
 <tr class="memdesc:acdb926a1078be3e64fdf6bd85d09218e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> if create has been already called (successfully)  <br /></td></tr>
@@ -246,16 +246,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0b0992bb7989e26939649b23bcfaa897"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if backend needs a thread pool for non-blocking fs operations (anything but io_uring basically)  <br /></td></tr>
 <tr class="separator:a0b0992bb7989e26939649b23bcfaa897"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af77cd7ac7a1a577204e43d14debc45c5" id="r_af77cd7ac7a1a577204e43d14debc45c5"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af77cd7ac7a1a577204e43d14debc45c5">run</a> ()</td></tr>
-<tr class="memdesc:af77cd7ac7a1a577204e43d14debc45c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until there are no more active queued requests, dispatching all completions.  <br /></td></tr>
+<tr class="memdesc:af77cd7ac7a1a577204e43d14debc45c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until there are no more counted active, submitted, or cancelling requests, dispatching completions.  <br /></td></tr>
 <tr class="separator:af77cd7ac7a1a577204e43d14debc45c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeef889e7c4c8f7cbbfe974ee6be27f09" id="r_aeef889e7c4c8f7cbbfe974ee6be27f09"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeef889e7c4c8f7cbbfe974ee6be27f09">runOnce</a> ()</td></tr>
-<tr class="memdesc:aeef889e7c4c8f7cbbfe974ee6be27f09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until at least one request proceeds, ensuring forward progress, dispatching all completions.  <br /></td></tr>
+<tr class="memdesc:aeef889e7c4c8f7cbbfe974ee6be27f09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until at least one request proceeds, ensuring forward progress, dispatching ready completions.  <br /></td></tr>
 <tr class="separator:aeef889e7c4c8f7cbbfe974ee6be27f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bc6365abc9c05fdbeec9c7f4519c319" id="r_a1bc6365abc9c05fdbeec9c7f4519c319"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1bc6365abc9c05fdbeec9c7f4519c319">runNoWait</a> ()</td></tr>
-<tr class="memdesc:a1bc6365abc9c05fdbeec9c7f4519c319"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structSC_1_1Process.html" title="Execute a child process with standard file descriptors redirection.">Process</a> active requests if any, dispatching their completions, or returns immediately without blocking.  <br /></td></tr>
+<tr class="memdesc:a1bc6365abc9c05fdbeec9c7f4519c319"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structSC_1_1Process.html" title="Execute a child process with standard file descriptors redirection.">Process</a> ready requests if any, dispatching their completions, or returns immediately without blocking.  <br /></td></tr>
 <tr class="separator:a1bc6365abc9c05fdbeec9c7f4519c319"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76c7d12a2689a730471371881ec8d096" id="r_a76c7d12a2689a730471371881ec8d096"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76c7d12a2689a730471371881ec8d096">submitRequests</a> (<a class="el" href="structSC_1_1AsyncKernelEvents.html">AsyncKernelEvents</a> &amp;kernelEvents)</td></tr>
-<tr class="memdesc:a76c7d12a2689a730471371881ec8d096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Submits all queued async requests.  <br /></td></tr>
+<tr class="memdesc:a76c7d12a2689a730471371881ec8d096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Submits all queued async requests without running user callbacks.  <br /></td></tr>
 <tr class="separator:a76c7d12a2689a730471371881ec8d096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6549a068bb5305b1e44216c20b97f509" id="r_a6549a068bb5305b1e44216c20b97f509"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6549a068bb5305b1e44216c20b97f509">blockingPoll</a> (<a class="el" href="structSC_1_1AsyncKernelEvents.html">AsyncKernelEvents</a> &amp;kernelEvents)</td></tr>
 <tr class="memdesc:a6549a068bb5305b1e44216c20b97f509"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until at least one event happens, ensuring forward progress, without executing completions.  <br /></td></tr>
@@ -264,10 +264,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab74ce20bd1429b6a2eaba0e2bbfaad8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes completions for the <a class="el" href="structSC_1_1AsyncKernelEvents.html" title="Allows user to supply a block of memory that will store kernel I/O events retrieved from AsyncEventLo...">AsyncKernelEvents</a> collected by a call to <a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">AsyncEventLoop::blockingPoll</a>.  <br /></td></tr>
 <tr class="separator:ab74ce20bd1429b6a2eaba0e2bbfaad8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac08e964a25067172dea500e070c2ee42" id="r_ac08e964a25067172dea500e070c2ee42"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac08e964a25067172dea500e070c2ee42">wakeUpFromExternalThread</a> (<a class="el" href="structSC_1_1AsyncLoopWakeUp.html">AsyncLoopWakeUp</a> &amp;wakeUp)</td></tr>
-<tr class="memdesc:ac08e964a25067172dea500e070c2ee42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wake up the event loop from a thread different than the one where <a class="el" href="#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more active queued requests, dispatching all completions.">run()</a> is called (and potentially blocked).  <br /></td></tr>
+<tr class="memdesc:ac08e964a25067172dea500e070c2ee42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wake up the event loop from a thread different than the one where <a class="el" href="#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more counted active, submitted, or cancelling requests, dispatching complet...">run()</a> is called (and potentially blocked).  <br /></td></tr>
 <tr class="separator:ac08e964a25067172dea500e070c2ee42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a140955a0922bc27bcdee15e4d4fdf03a" id="r_a140955a0922bc27bcdee15e4d4fdf03a"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a140955a0922bc27bcdee15e4d4fdf03a">wakeUpFromExternalThread</a> ()</td></tr>
-<tr class="memdesc:a140955a0922bc27bcdee15e4d4fdf03a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wake up the event loop from a thread different than the one where <a class="el" href="#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more active queued requests, dispatching all completions.">run()</a> is called (and potentially blocked)  <br /></td></tr>
+<tr class="memdesc:a140955a0922bc27bcdee15e4d4fdf03a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wake up the event loop from a thread different than the one where <a class="el" href="#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more counted active, submitted, or cancelling requests, dispatching complet...">run()</a> is called (and potentially blocked)  <br /></td></tr>
 <tr class="separator:a140955a0922bc27bcdee15e4d4fdf03a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add7fd25e710032ebadfb9c40a479f6a3" id="r_add7fd25e710032ebadfb9c40a479f6a3"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add7fd25e710032ebadfb9c40a479f6a3">createAsyncTCPSocket</a> (<a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a> family, <a class="el" href="structSC_1_1SocketDescriptor.html">SocketDescriptor</a> &amp;outDescriptor)</td></tr>
 <tr class="memdesc:add7fd25e710032ebadfb9c40a479f6a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an async TCP (IPV4 / IPV6) socket registered with the eventLoop.  <br /></td></tr>
@@ -303,16 +303,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab09e50288612c8d15124bde63486d6c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next <a class="el" href="structSC_1_1AsyncLoopTimeout.html" title="Starts a Timeout that is invoked only once after expiration (relative) time has passed.">AsyncLoopTimeout</a> that will be executed (shortest relativeTimeout)  <br /></td></tr>
 <tr class="separator:ab09e50288612c8d15124bde63486d6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af64d10939116c3d9c8e4710bf0080d1d" id="r_af64d10939116c3d9c8e4710bf0080d1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af64d10939116c3d9c8e4710bf0080d1d">excludeFromActiveCount</a> (<a class="el" href="structSC_1_1AsyncRequest.html">AsyncRequest</a> &amp;async)</td></tr>
-<tr class="memdesc:af64d10939116c3d9c8e4710bf0080d1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Excludes the request from active handles count (to avoid it keeping event loop alive)  <br /></td></tr>
+<tr class="memdesc:af64d10939116c3d9c8e4710bf0080d1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Excludes the request from active handles count so it does not keep <a class="el" href="#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more counted active, submitted, or cancelling requests, dispatching complet...">AsyncEventLoop::run</a> alive.  <br /></td></tr>
 <tr class="separator:af64d10939116c3d9c8e4710bf0080d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc53f172dce14b7748753b032aefaf10" id="r_afc53f172dce14b7748753b032aefaf10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc53f172dce14b7748753b032aefaf10">includeInActiveCount</a> (<a class="el" href="structSC_1_1AsyncRequest.html">AsyncRequest</a> &amp;async)</td></tr>
 <tr class="memdesc:afc53f172dce14b7748753b032aefaf10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses the effect of excludeFromActiveCount for the request.  <br /></td></tr>
 <tr class="separator:afc53f172dce14b7748753b032aefaf10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e89402ba3b7f12af08d91898a1da173" id="r_a7e89402ba3b7f12af08d91898a1da173"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e89402ba3b7f12af08d91898a1da173">enumerateRequests</a> (Function&lt; void(<a class="el" href="structSC_1_1AsyncRequest.html">AsyncRequest</a> &amp;)&gt; enumerationCallback)</td></tr>
-<tr class="memdesc:a7e89402ba3b7f12af08d91898a1da173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerates all requests objects associated with this loop.  <br /></td></tr>
+<tr class="memdesc:a7e89402ba3b7f12af08d91898a1da173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerates user-visible request objects associated with this loop.  <br /></td></tr>
 <tr class="separator:a7e89402ba3b7f12af08d91898a1da173"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab14e163c661bc4f810f0e5f459632ee9" id="r_ab14e163c661bc4f810f0e5f459632ee9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab14e163c661bc4f810f0e5f459632ee9">setListeners</a> (<a class="el" href="structSC_1_1AsyncEventLoopListeners.html">AsyncEventLoopListeners</a> *listeners)</td></tr>
-<tr class="memdesc:ab14e163c661bc4f810f0e5f459632ee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets reference to listeners that will signal different events in loop lifetime.  <br /></td></tr>
+<tr class="memdesc:ab14e163c661bc4f810f0e5f459632ee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets listeners invoked around <a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">AsyncEventLoop::blockingPoll</a>.  <br /></td></tr>
 <tr class="separator:ab14e163c661bc4f810f0e5f459632ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69cbec781d3133478a28cda8df403bd5" id="r_a69cbec781d3133478a28cda8df403bd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69cbec781d3133478a28cda8df403bd5">clearSequence</a> (<a class="el" href="structSC_1_1AsyncSequence.html">AsyncSequence</a> &amp;sequence)</td></tr>
 <tr class="memdesc:a69cbec781d3133478a28cda8df403bd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the sequence.  <br /></td></tr>
@@ -333,7 +333,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae92909831a5f856533bd6b24ce47f0dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes association of a File Descriptor handle with any event loop.  <br /></td></tr>
 <tr class="separator:ae92909831a5f856533bd6b24ce47f0dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a547594da772dbef11df8eb0cb9667c2e" id="r_a547594da772dbef11df8eb0cb9667c2e"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a547594da772dbef11df8eb0cb9667c2e">isExcludedFromActiveCount</a> (const <a class="el" href="structSC_1_1AsyncRequest.html">AsyncRequest</a> &amp;async)</td></tr>
-<tr class="memdesc:a547594da772dbef11df8eb0cb9667c2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <a class="el" href="#af64d10939116c3d9c8e4710bf0080d1d" title="Excludes the request from active handles count (to avoid it keeping event loop alive)">excludeFromActiveCount()</a> has been called on the given request.  <br /></td></tr>
+<tr class="memdesc:a547594da772dbef11df8eb0cb9667c2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <a class="el" href="#af64d10939116c3d9c8e4710bf0080d1d" title="Excludes the request from active handles count so it does not keep AsyncEventLoop::run alive.">excludeFromActiveCount()</a> has been called on the given request.  <br /></td></tr>
 <tr class="separator:a547594da772dbef11df8eb0cb9667c2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4730487bb6295964fee2f930b182f18c" id="r_a4730487bb6295964fee2f930b182f18c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4730487bb6295964fee2f930b182f18c">tryProbingIOUring</a> ()</td></tr>
 <tr class="memdesc:a4730487bb6295964fee2f930b182f18c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if io_uring can be created directly (only on Linux)  <br /></td></tr>
@@ -463,13 +463,13 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncResult</b></td
 </div><div class="memdoc">
 
 <p>Blocks until at least one event happens, ensuring forward progress, without executing completions. </p>
-<p>It's one of the three building blocks of <a class="el" href="#aeef889e7c4c8f7cbbfe974ee6be27f09" title="Blocks until at least one request proceeds, ensuring forward progress, dispatching all completions.">AsyncEventLoop::runOnce</a> allowing co-operation of <a class="el" href="structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">AsyncEventLoop</a> within another event loop (for example a GUI event loop or another IO event loop).</p>
+<p>It's one of the three building blocks of <a class="el" href="#aeef889e7c4c8f7cbbfe974ee6be27f09" title="Blocks until at least one request proceeds, ensuring forward progress, dispatching ready completions.">AsyncEventLoop::runOnce</a> allowing co-operation of <a class="el" href="structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">AsyncEventLoop</a> within another event loop (for example a GUI event loop or another IO event loop). User callbacks are not invoked by this function; they run when <a class="el" href="#ab74ce20bd1429b6a2eaba0e2bbfaad8c" title="Invokes completions for the AsyncKernelEvents collected by a call to AsyncEventLoop::blockingPoll.">AsyncEventLoop::dispatchCompletions</a> is called. <a class="el" href="structSC_1_1AsyncEventLoopListeners.html" title="Allow library user to provide callbacks signaling different phases of async event loop cycle.">AsyncEventLoopListeners</a> callbacks, if installed, are invoked around this blocking poll.</p>
 <p>One possible example of such integration with a GUI event loop could:</p>
 <ul>
-<li>Call <a class="el" href="#a76c7d12a2689a730471371881ec8d096" title="Submits all queued async requests.">AsyncEventLoop::submitRequests</a> on the GUI thread to queue some requests</li>
-<li>Call <a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">AsyncEventLoop::blockingPoll</a> on a secondary thread, storying <a class="el" href="structSC_1_1AsyncKernelEvents.html" title="Allows user to supply a block of memory that will store kernel I/O events retrieved from AsyncEventLo...">AsyncKernelEvents</a></li>
+<li>Call <a class="el" href="#a76c7d12a2689a730471371881ec8d096" title="Submits all queued async requests without running user callbacks.">AsyncEventLoop::submitRequests</a> on the GUI thread to queue some requests</li>
+<li>Call <a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">AsyncEventLoop::blockingPoll</a> on a secondary thread, storing <a class="el" href="structSC_1_1AsyncKernelEvents.html" title="Allows user to supply a block of memory that will store kernel I/O events retrieved from AsyncEventLo...">AsyncKernelEvents</a></li>
 <li>Wake up the GUI event loop from the secondary thread after <a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">AsyncEventLoop::blockingPoll</a> returns</li>
-<li>Call <a class="el" href="structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">AsyncEventLoop</a>:dispatchCompletions on the GUI event loop to dispatch callbacks on GUI thread</li>
+<li>Call <a class="el" href="#ab74ce20bd1429b6a2eaba0e2bbfaad8c" title="Invokes completions for the AsyncKernelEvents collected by a call to AsyncEventLoop::blockingPoll.">AsyncEventLoop::dispatchCompletions</a> on the GUI event loop to dispatch callbacks on GUI thread</li>
 <li>Repeat all steps</li>
 </ul>
 <p>Waiting on requests blocks the current thread with 0% CPU utilization. </p><dl class="params"><dt>Parameters</dt><dd>
@@ -478,11 +478,11 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncResult</b></td
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a76c7d12a2689a730471371881ec8d096" title="Submits all queued async requests.">AsyncEventLoop::submitRequests</a> sends async requests to kernel before calling <a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">blockingPoll</a> </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a76c7d12a2689a730471371881ec8d096" title="Submits all queued async requests without running user callbacks.">AsyncEventLoop::submitRequests</a> sends async requests to kernel before calling <a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">blockingPoll</a> </dd>
 <dd>
 <a class="el" href="#ab74ce20bd1429b6a2eaba0e2bbfaad8c" title="Invokes completions for the AsyncKernelEvents collected by a call to AsyncEventLoop::blockingPoll.">AsyncEventLoop::dispatchCompletions</a> invokes callbacks associated with kernel events after <a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">blockingPoll</a> </dd>
 <dd>
-<a class="el" href="#ab14e163c661bc4f810f0e5f459632ee9" title="Sets reference to listeners that will signal different events in loop lifetime.">AsyncEventLoop::setListeners</a> sets function called before and after entering kernel poll </dd></dl>
+<a class="el" href="#ab14e163c661bc4f810f0e5f459632ee9" title="Sets listeners invoked around AsyncEventLoop::blockingPoll.">AsyncEventLoop::setListeners</a> sets function called before and after entering kernel poll </dd></dl>
 
 </div>
 </div>
@@ -605,7 +605,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncResult</b></td
 </div><div class="memdoc">
 
 <p>Invokes completions for the <a class="el" href="structSC_1_1AsyncKernelEvents.html" title="Allows user to supply a block of memory that will store kernel I/O events retrieved from AsyncEventLo...">AsyncKernelEvents</a> collected by a call to <a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">AsyncEventLoop::blockingPoll</a>. </p>
-<p>This is typically done when user wants to pool for events on a thread (calling <a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">AsyncEventLoop::blockingPoll</a>) and dispatch the callbacks on another thread (calling <a class="el" href="#ab74ce20bd1429b6a2eaba0e2bbfaad8c" title="Invokes completions for the AsyncKernelEvents collected by a call to AsyncEventLoop::blockingPoll.">AsyncEventLoop::dispatchCompletions</a>). The typical example would be integrating <a class="el" href="structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">AsyncEventLoop</a> with a GUI event loop. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">AsyncEventLoop::blockingPoll</a> for a description on how to integrate <a class="el" href="structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">AsyncEventLoop</a> with another event loop </dd></dl>
+<p>This is typically done when user wants to poll for events on a thread (calling <a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">AsyncEventLoop::blockingPoll</a>) and dispatch the callbacks on another thread (calling <a class="el" href="#ab74ce20bd1429b6a2eaba0e2bbfaad8c" title="Invokes completions for the AsyncKernelEvents collected by a call to AsyncEventLoop::blockingPoll.">AsyncEventLoop::dispatchCompletions</a>). User callbacks run on the thread calling this function. The typical example would be integrating <a class="el" href="structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">AsyncEventLoop</a> with a GUI event loop. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">AsyncEventLoop::blockingPoll</a> for a description on how to integrate <a class="el" href="structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">AsyncEventLoop</a> with another event loop </dd></dl>
 
 </div>
 </div>
@@ -624,7 +624,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncResult</b></td
       </table>
 </div><div class="memdoc">
 
-<p>Enumerates all requests objects associated with this loop. </p>
+<p>Enumerates user-visible request objects associated with this loop. </p>
+<dl class="section note"><dt>Note</dt><dd>Submitted requests, typed active requests, active sequenced requests, and manual-completion requests are enumerated. Internal requests are skipped. Cancelling requests are not part of the portable enumeration contract. </dd></dl>
 
 </div>
 </div>
@@ -643,7 +644,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncResult</b></td
       </table>
 </div><div class="memdoc">
 
-<p>Excludes the request from active handles count (to avoid it keeping event loop alive) </p>
+<p>Excludes the request from active handles count so it does not keep <a class="el" href="#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more counted active, submitted, or cancelling requests, dispatching complet...">AsyncEventLoop::run</a> alive. </p>
+<dl class="section note"><dt>Note</dt><dd>The request remains owned by the event loop and can still receive callbacks while another request drives the loop. </dd></dl>
 
 </div>
 </div>
@@ -790,7 +792,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncResult</b></td
       </table>
 </div><div class="memdoc">
 
-<p>Interrupts the event loop even if it has active request on it. </p>
+<p>Interrupts <a class="el" href="#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more counted active, submitted, or cancelling requests, dispatching complet...">AsyncEventLoop::run</a>, causing it to return even if counted active work remains. </p>
+<p>Already-owned requests remain owned by the loop and must still complete, be stopped, or be released by <a class="el" href="#adf307341059dd5332183b092281c8129" title="Closes the event loop kernel object.">close()</a>. </p>
 
 </div>
 </div>
@@ -817,7 +820,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncResult</b></td
 </table>
 </div><div class="memdoc">
 
-<p>Checks if <a class="el" href="#af64d10939116c3d9c8e4710bf0080d1d" title="Excludes the request from active handles count (to avoid it keeping event loop alive)">excludeFromActiveCount()</a> has been called on the given request. </p>
+<p>Checks if <a class="el" href="#af64d10939116c3d9c8e4710bf0080d1d" title="Excludes the request from active handles count so it does not keep AsyncEventLoop::run alive.">excludeFromActiveCount()</a> has been called on the given request. </p>
 
 </div>
 </div>
@@ -1021,8 +1024,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncResult</b></td
       </table>
 </div><div class="memdoc">
 
-<p>Blocks until there are no more active queued requests, dispatching all completions. </p>
-<p>It's useful for applications where the eventLoop is the only (or the main) loop. One example could be a console based app doing socket IO or a web server. Waiting on kernel events blocks the current thread with 0% CPU utilization. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">AsyncEventLoop::blockingPoll</a> to integrate the loop with a GUI event loop </dd></dl>
+<p>Blocks until there are no more counted active, submitted, or cancelling requests, dispatching completions. </p>
+<p>It's useful for applications where the eventLoop is the only (or the main) loop. One example could be a console based app doing socket IO or a web server. Waiting on kernel events blocks the current thread with 0% CPU utilization. <a class="el" href="#ac079f117519d00d84698380ee62c733b" title="Interrupts AsyncEventLoop::run, causing it to return even if counted active work remains.">AsyncEventLoop::interrupt</a> makes this function return before active work has drained. Requests excluded with <a class="el" href="#af64d10939116c3d9c8e4710bf0080d1d" title="Excludes the request from active handles count so it does not keep AsyncEventLoop::run alive.">AsyncEventLoop::excludeFromActiveCount</a> do not keep this function alive. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">AsyncEventLoop::blockingPoll</a> to integrate the loop with a GUI event loop </dd></dl>
 
 </div>
 </div>
@@ -1041,7 +1044,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncResult</b></td
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="structSC_1_1Process.html" title="Execute a child process with standard file descriptors redirection.">Process</a> active requests if any, dispatching their completions, or returns immediately without blocking. </p>
+<p><a class="el" href="structSC_1_1Process.html" title="Execute a child process with standard file descriptors redirection.">Process</a> ready requests if any, dispatching their completions, or returns immediately without blocking. </p>
 <p>It's useful for game-like applications where the event loop runs every frame and one would like to check and dispatch its I/O callbacks in-between frames. This call allows poll-checking I/O without blocking. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">AsyncEventLoop::blockingPoll</a> to integrate the loop with a GUI event loop </dd></dl>
 
 </div>
@@ -1061,10 +1064,10 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncResult</b></td
       </table>
 </div><div class="memdoc">
 
-<p>Blocks until at least one request proceeds, ensuring forward progress, dispatching all completions. </p>
+<p>Blocks until at least one request proceeds, ensuring forward progress, dispatching ready completions. </p>
 <p>It's useful for application where it's needed to run some idle work after every IO event. Waiting on requests blocks the current thread with 0% CPU utilization.</p>
 <p>This function is a shortcut invoking async event loop building blocks:</p><ul>
-<li><a class="el" href="#a76c7d12a2689a730471371881ec8d096" title="Submits all queued async requests.">AsyncEventLoop::submitRequests</a></li>
+<li><a class="el" href="#a76c7d12a2689a730471371881ec8d096" title="Submits all queued async requests without running user callbacks.">AsyncEventLoop::submitRequests</a></li>
 <li><a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">AsyncEventLoop::blockingPoll</a></li>
 <li><a class="el" href="#ab74ce20bd1429b6a2eaba0e2bbfaad8c" title="Invokes completions for the AsyncKernelEvents collected by a call to AsyncEventLoop::blockingPoll.">AsyncEventLoop::dispatchCompletions</a> <dl class="section see"><dt>See also</dt><dd><a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">AsyncEventLoop::blockingPoll</a> for a description on how to integrate <a class="el" href="structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">AsyncEventLoop</a> with another event loop </dd></dl>
 </li>
@@ -1087,8 +1090,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncResult</b></td
       </table>
 </div><div class="memdoc">
 
-<p>Sets reference to listeners that will signal different events in loop lifetime. </p>
-<dl class="section note"><dt>Note</dt><dd>The structure pointed by this pointer must be valid throughout loop lifetime </dd></dl>
+<p>Sets listeners invoked around <a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">AsyncEventLoop::blockingPoll</a>. </p>
+<dl class="section note"><dt>Note</dt><dd>The structure pointed by this pointer must be valid while installed. </dd></dl>
 
 </div>
 </div>
@@ -1127,7 +1130,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncResult</b></td
       </table>
 </div><div class="memdoc">
 
-<p>Submits all queued async requests. </p>
+<p>Submits all queued async requests without running user callbacks. </p>
 <p>An <a class="el" href="structSC_1_1AsyncRequest.html" title="Base class for all async requests, holding state and type.">AsyncRequest</a> becomes queued after user calls its specific <a class="el" href="structSC_1_1AsyncRequest.html#a2d427d0658bdfe2739cff3abff6c457e" title="Shortcut for AsyncEventLoop::start.">AsyncRequest::start</a> method.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="#a6549a068bb5305b1e44216c20b97f509" title="Blocks until at least one event happens, ensuring forward progress, without executing completions.">AsyncEventLoop::blockingPoll</a> for a description on how to integrate <a class="el" href="structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">AsyncEventLoop</a> with another event loop </dd></dl>
 
@@ -1195,7 +1198,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncResult</b></td
       </table>
 </div><div class="memdoc">
 
-<p>Wake up the event loop from a thread different than the one where <a class="el" href="#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more active queued requests, dispatching all completions.">run()</a> is called (and potentially blocked) </p>
+<p>Wake up the event loop from a thread different than the one where <a class="el" href="#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more counted active, submitted, or cancelling requests, dispatching complet...">run()</a> is called (and potentially blocked) </p>
 
 </div>
 </div>
@@ -1214,7 +1217,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncResult</b></td
       </table>
 </div><div class="memdoc">
 
-<p>Wake up the event loop from a thread different than the one where <a class="el" href="#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more active queued requests, dispatching all completions.">run()</a> is called (and potentially blocked). </p>
+<p>Wake up the event loop from a thread different than the one where <a class="el" href="#af77cd7ac7a1a577204e43d14debc45c5" title="Blocks until there are no more counted active, submitted, or cancelling requests, dispatching complet...">run()</a> is called (and potentially blocked). </p>
 <p>The parameter is an <a class="el" href="structSC_1_1AsyncLoopWakeUp.html" title="Starts a wake-up operation, allowing threads to execute callbacks on loop thread.">AsyncLoopWakeUp</a> that must have been previously started (with <a class="el" href="structSC_1_1AsyncLoopWakeUp.html#ad429cc83ecfb1b9aca8cbbf686511fa6" title="Sets async request members and calls AsyncEventLoop::start.">AsyncLoopWakeUp::start</a>). </p>
 
 </div>

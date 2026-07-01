@@ -176,7 +176,7 @@ $(function(){initNavTree('library_memory.html',''); initResizable(true); });
   </li>
 </ul>
 </div>
-<div class="textblock"><p>🟩 Heap Allocation, Custom allocators, Virtual Memory, Buffer, Segment</p>
+<div class="textblock"><p>🟩 Heap Allocation, Custom allocators, Virtual Memory, Buffer</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppMemory.h">SaneCppMemory.h</a> is library tracking and limiting runtime / dynamic allocations through the use of custom allocators.</p>
 <p>All libraries are designed to let you use your favorite externally provided <code>string</code> / <code>vector</code> classes BUT if you've been sold on using also the <a class="el" href="library_containers.html">Containers</a> library then here you will find scoped <code>allocator</code> / <code>arena</code> infrastructure used by them.</p>
 <dl class="section note"><dt>Note</dt><dd>See <code>Tests/InteropSTL/*.cpp</code> for an example of externally provided Container classes.</dd></dl>
@@ -496,15 +496,16 @@ Roadmap</h1>
 <dl class="section note"><dt>Note</dt><dd>In <a class="el" href="page_principles.html">Principles</a> there is a rule that discourages allocations of large number of tiny objects and also creating systems with unclear or shared memory ownership. For this reason this library is missing Smart Pointers.</dd></dl>
 <h1><a class="anchor" id="autotoc_md332"></a>
 Statistics</h1>
+<p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Memory</code>. Single File counts <code>SaneCppMemory.h</code>. Standalone counts <code>SaneCppMemoryStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Lines Of Code   </th><th class="markdownTableHeadNone">Comments   </th><th class="markdownTableHeadNone">Sum    </th></tr>
+<th class="markdownTableHeadNone">Metric   </th><th class="markdownTableHeadNone">Header   </th><th class="markdownTableHeadNone">Source   </th><th class="markdownTableHeadNone">Sum    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Headers   </td><td class="markdownTableBodyNone">524   </td><td class="markdownTableBodyNone">415   </td><td class="markdownTableBodyNone">939    </td></tr>
+<td class="markdownTableBodyNone">Library   </td><td class="markdownTableBodyNone">554   </td><td class="markdownTableBodyNone">1053   </td><td class="markdownTableBodyNone">1607    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Sources   </td><td class="markdownTableBodyNone">1026   </td><td class="markdownTableBodyNone">211   </td><td class="markdownTableBodyNone">1237    </td></tr>
+<td class="markdownTableBodyNone">Single File   </td><td class="markdownTableBodyNone">1566   </td><td class="markdownTableBodyNone">1183   </td><td class="markdownTableBodyNone">2749    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Sum   </td><td class="markdownTableBodyNone">1550   </td><td class="markdownTableBodyNone">626   </td><td class="markdownTableBodyNone">2176   </td></tr>
+<td class="markdownTableBodyNone">Standalone   </td><td class="markdownTableBodyNone">1566   </td><td class="markdownTableBodyNone">1183   </td><td class="markdownTableBodyNone">2749   </td></tr>
 </table>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

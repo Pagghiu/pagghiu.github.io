@@ -4,7 +4,14 @@
   <link href="https://pagghiu.github.io/feeds/all.atom.xml" rel="self"/>
   <link href="https://pagghiu.github.io/"/>
   <id>https://pagghiu.github.io/</id>
-  <updated>2026-05-31T00:00:00Z</updated>
+  <updated>2026-06-30T00:00:00Z</updated>
+<entry>
+  <title>☀️ Sane C++ June 26</title>
+  <link href="https://pagghiu.github.io/site/blog/2026-06-30-SaneCppLibrariesUpdate.html"/>
+  <id>https://pagghiu.github.io/site/blog/2026-06-30-SaneCppLibrariesUpdate.html</id>
+  <updated>2026-06-30T00:00:00Z</updated>
+  <summary>Welcome to the June 2026 update! This month is about cleaner common foundations, more dependency-free libraries, agent-friendly repository workflows, Windows long-path support, and a large pass on Async contracts.</summary>
+</entry>
 <entry>
   <title>🌸 Sane C++ May 26</title>
   <link href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html"/>
