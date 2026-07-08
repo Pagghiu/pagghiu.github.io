@@ -129,62 +129,62 @@ $(function(){initNavTree('library_serialization_binary.html',''); initResizable(
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md370">Dependencies</a>
+    <a href="#autotoc_md402">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md371">Features</a>
+    <a href="#autotoc_md403">Features</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md372">Details</a>
+    <a href="#autotoc_md404">Details</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md373">Status</a>
+    <a href="#autotoc_md405">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md374">Description</a>
+    <a href="#autotoc_md406">Description</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md375">SerializationBinary::write</a>
+        <a href="#autotoc_md407">SerializationBinary::write</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md376">SerializationBinary::loadExact</a>
+        <a href="#autotoc_md408">SerializationBinary::loadExact</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md377">SerializationBinary::loadVersioned</a>
+        <a href="#autotoc_md409">SerializationBinary::loadVersioned</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md378">SerializationBinaryOptions</a>
+        <a href="#autotoc_md410">SerializationBinaryOptions</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md379">Binary Format</a>
+        <a href="#autotoc_md411">Binary Format</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md380">Packed types (optimization)</a>
+        <a href="#autotoc_md412">Packed types (optimization)</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md381">Blog</a>
+    <a href="#autotoc_md413">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md382">Roadmap</a>
+    <a href="#autotoc_md414">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md383">Statistics</a>
+    <a href="#autotoc_md415">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟨 Serialize to and from a binary format using <a class="el" href="library_reflection.html">Reflection</a></p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppSerializationBinary.h">SaneCppSerializationBinary.h</a> implements binary serialization on top of the <a class="el" href="library_reflection.html">Reflection</a> library.</p>
 <dl class="section note"><dt>Note</dt><dd>You need to include headers from <a class="el" href="library_containers_reflection.html">Serialization Adapters</a> in order to use <code><a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a></code> or <code><a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a></code> or any other serializable class provided by other libraries with this one.</dd></dl>
-<h1><a class="anchor" id="autotoc_md370"></a>
+<h1><a class="anchor" id="autotoc_md402"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <a class="el" href="library_reflection.html">Reflection</a></li>
 <li>All dependencies: <a class="el" href="library_reflection.html">Reflection</a></li>
 </ul>
 <p><img src="SerializationBinary.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md371"></a>
+<h1><a class="anchor" id="autotoc_md403"></a>
 Features</h1>
 <ul>
 <li>No heap allocations</li>
@@ -203,22 +203,22 @@ Features</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md372"></a>
+<h1><a class="anchor" id="autotoc_md404"></a>
 Details</h1>
 <p>This is a versioned binary serializer / deserializer built on top of <a class="el" href="library_reflection.html">Reflection</a>. <br  />
 It uses struct member iterators on Reflection schema serialize all members and the recursively <code>Packed</code> property for optimizations, reducing the number of read / writes (or <code>memcpy</code>) needed.   </p>
-<h1><a class="anchor" id="autotoc_md373"></a>
+<h1><a class="anchor" id="autotoc_md405"></a>
 Status</h1>
 <p>🟨 MVP <br  />
  Under described limitations, the library should be usable but more testing is needed and also supporting all of the relevant additional container data-types.</p>
-<h1><a class="anchor" id="autotoc_md374"></a>
+<h1><a class="anchor" id="autotoc_md406"></a>
 Description</h1>
 <ul>
 <li>Writing data can be done with the <a class="el" href="structSC_1_1SerializationBinary.html#aa7e2093475d04f0ede8390edf4a3da09" title="Writes object T to a binary buffer.">SC::SerializationBinary::write</a>.</li>
 <li>Reading data without changing the reflected data structures, can be done with the <a class="el" href="structSC_1_1SerializationBinary.html#a29017d4a69ab6b8adf042ff44d75ead7" title="Loads object T from binary buffer as written by SerializationBinary::write.">SC::SerializationBinary::loadExact</a>.</li>
 <li>Reading data generated from a different (past or future) version of the data structure, can be done with the <a class="el" href="structSC_1_1SerializationBinary.html#acfb86dc1e6fba20444e2b495272d4556" title="Deserialize object T from a Binary buffer with a reflection schema not matching T schema.">SC::SerializationBinary::loadVersioned</a> and uses <a class="el" href="library_reflection.html">Reflection</a> <em>Flat Schema</em>.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md375"></a>
+<h2><a class="anchor" id="autotoc_md407"></a>
 SerializationBinary::write</h2>
 <p><a class="el" href="structSC_1_1SerializationBinary.html#aa7e2093475d04f0ede8390edf4a3da09" title="Writes object T to a binary buffer.">SC::SerializationBinary::write</a> is used to serialize data. The schema itself is not used at all but it could written along with the binary data so that when reading back the data in a later version of the program, the correct choice can be made between deserializing using SerializationBinary::loadVersioned (slower but allows for missing fields and conversion) or deserializing using SerializationBinary::loadExact (faster, but schema must match 1:1). <br  />
 </p><dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -265,7 +265,7 @@ SerializationBinary::write</h2>
 </div><!-- fragment --><p> <code>PrimitiveStruct</code> can be written to a binary buffer with the following code: </p><div class="fragment"><div class="line">PrimitiveStruct objectToSerialize;</div>
 <div class="line">Vector buffer;</div>
 <div class="line">SC_TRY(SerializerWriter::write(objectToSerialize, buffer));</div>
-</div><!-- fragment -->   <h2><a class="anchor" id="autotoc_md376"></a>
+</div><!-- fragment -->   <h2><a class="anchor" id="autotoc_md408"></a>
 SerializationBinary::loadExact</h2>
 <p><a class="el" href="structSC_1_1SerializationBinary.html#a29017d4a69ab6b8adf042ff44d75ead7" title="Loads object T from binary buffer as written by SerializationBinary::write.">SC::SerializationBinary::loadExact</a> can deserialize binary data into a struct whose schema has not changed from when SerializationBinary::write has been used to generate that same binary data. In other words if the schema of the type passed to SerializationBinary::write must match the one of current type being deserialized. If the two schemas hash match then it's possible to use this fast path, that skips all versioning checks. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -359,7 +359,7 @@ SerializationBinary::loadExact</h2>
 <div class="line"><span class="comment">// Deserialization</span></div>
 <div class="line">SC_TRY(SerializerReader::loadExact(deserializedObject, buffer.toSpanConst()));</div>
 <div class="line">ASSERT(objectToSerialize.nestedStruct.doubleVal == deserializedObject.nestedStruct.doubleVal);</div>
-</div><!-- fragment -->   <h2><a class="anchor" id="autotoc_md377"></a>
+</div><!-- fragment -->   <h2><a class="anchor" id="autotoc_md409"></a>
 SerializationBinary::loadVersioned</h2>
 <p>The versioned read serializer <a class="el" href="structSC_1_1SerializationBinary.html#acfb86dc1e6fba20444e2b495272d4556" title="Deserialize object T from a Binary buffer with a reflection schema not matching T schema.">SC::SerializationBinary::loadVersioned</a> must be used when source and destination schemas do not match. <em>Compatibility</em> flags can be customized through <a class="el" href="structSC_1_1SerializationBinaryOptions.html" title="Conversion options for the binary versioned deserializer.">SC::SerializationBinaryOptions</a> object, allowing to remap data coming from an older (or just different) version of the schema to the current one. SerializationBinary::loadVersioned will try to match the <code>memberTag</code> field specified in [Reflection](<a class="el" href="library_reflection.html">Reflection</a>) to match fields between source and destination schemas. When the types of the fields are different, a few options allow controlling the behaviour. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -425,7 +425,7 @@ Assuming the following structs: </p><div class="fragment"><div class="line">stru
 <div class="line"><span class="comment">// Deserialization</span></div>
 <div class="line">SC_TRY(SerializerReader::loadVersioned(deserializedObject, buffer.toSpanConst(), schema.typeInfos));</div>
 </div><!-- fragment -->   <dl class="section note"><dt>Note</dt><dd>The versioned serializer is greatly simplified in conjunction with <a class="el" href="library_reflection.html">Reflection</a> sorting <code>Packed</code> structs by <code>offsetInBytes</code>.</dd></dl>
-<h2><a class="anchor" id="autotoc_md378"></a>
+<h2><a class="anchor" id="autotoc_md410"></a>
 SerializationBinaryOptions</h2>
 <p>Conversion options for the binary versioned deserializer.   </p>
 <table class="markdownTable">
@@ -438,7 +438,7 @@ SerializationBinaryOptions</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1SerializationBinaryOptions.html#a1ea21f76f55780944040b5cdc93f7cfb">allowDropExcessStructMembers</a>   </td><td class="markdownTableBodyLeft">Can drop fields not matching any memberTag in destination struct.      </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md379"></a>
+<h2><a class="anchor" id="autotoc_md411"></a>
 Binary Format</h2>
 <p>The binary format is defined as follows:</p>
 <ul>
@@ -460,18 +460,18 @@ Binary Format</h2>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md380"></a>
+<h2><a class="anchor" id="autotoc_md412"></a>
 Packed types (optimization)</h2>
 <p>If a <code>struct</code>, <code>T[N]</code> array or content of <code>Vector&lt;T&gt;</code> is made of a recursively <code>Packed</code> type (i.e. no padding bytes at any level inside the given type) it will be serialized in a single operation. <br  />
  This can really condense a large number of operations in a single one on types obeying to the <code>Packed</code> property.</p>
 <dl class="section note"><dt>Note</dt><dd>It's possible to <code>static_assert</code> the <code>Packed</code> property of a type, if one wants to be sure not to accidentally introduce padding bytes in serialized types.</dd></dl>
-<h1><a class="anchor" id="autotoc_md381"></a>
+<h1><a class="anchor" id="autotoc_md413"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2024-07-31-SaneCppLibrariesUpdate.html">July 2024 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md382"></a>
+<h1><a class="anchor" id="autotoc_md414"></a>
 Roadmap</h1>
 <p>The binary serializer is not a streaming one, so loading a large data structure will at some point need double of the required space in memory. <br  />
  This can be solved implementing streaming binary serializer or experimenting with memory mapped files to support really large binary data structures.</p>
@@ -487,7 +487,7 @@ Roadmap</h1>
 <p>💡 Unplanned Features:</p><ul>
 <li>None so far</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md383"></a>
+<h1><a class="anchor" id="autotoc_md415"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/SerializationBinary</code>. Single File counts <code>SaneCppSerializationBinary.h</code>. Standalone counts <code>SaneCppSerializationBinaryStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

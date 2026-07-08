@@ -129,44 +129,44 @@ $(function(){initNavTree('library_file_system_iterator.html',''); initResizable(
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md240">Dependencies</a>
+    <a href="#autotoc_md272">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md241">Features</a>
+    <a href="#autotoc_md273">Features</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md242">Status</a>
+    <a href="#autotoc_md274">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md243">Blog</a>
+    <a href="#autotoc_md275">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md244">Description</a>
+    <a href="#autotoc_md276">Description</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md245">Roadmap</a>
+    <a href="#autotoc_md277">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md246">Statistics</a>
+    <a href="#autotoc_md278">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟩 Enumerates files and directories inside a given path</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppFileSystemIterator.h">SaneCppFileSystemIterator.h</a> is a library that enumerates files and directories at a given path.</p>
-<h1><a class="anchor" id="autotoc_md240"></a>
+<h1><a class="anchor" id="autotoc_md272"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="FileSystemIterator.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md241"></a>
+<h1><a class="anchor" id="autotoc_md273"></a>
 Features</h1>
 <ul>
 <li>Iterate files in directory</li>
 <li>Handle recursive iteration</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md242"></a>
+<h1><a class="anchor" id="autotoc_md274"></a>
 Status</h1>
 <p>🟩 Usable <br  />
  The library is simple but gets the job done. <br  />
@@ -175,14 +175,14 @@ Status</h1>
 <li>On Windows it expects paths in UTF8 or UTF16 and outputs paths as UTF16.</li>
 <li>On Posix it expects and outputs paths in UTF8.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md243"></a>
+<h1><a class="anchor" id="autotoc_md275"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2025-06-30-SaneCppLibrariesUpdate.html">June 2025 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html">July 2025 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md244"></a>
+<h1><a class="anchor" id="autotoc_md276"></a>
 Description</h1>
 <p>FileSystemIterator uses an iterator pattern to enumerate files instead of a callback. This allows avoiding blocking on enumeration of very large directories and also the allocation of a huge number of strings to hold all filenames. When configuring an iteration, the caller can ask for a fully recursive enumeration or manually call <a class="el" href="structSC_1_1FileSystemIterator.html#aa8cf8da817e4783df2f2b1892b31d50d" title="Recurse into current item (assuming Entry::isDirectory == true)">SC::FileSystemIterator::recurseSubdirectory</a> when the current <a class="el" href="structSC_1_1FileSystemIterator_1_1Entry.html" title="Contains information on a file or directory.">SC::FileSystemIterator::Entry</a> item (obtained with <a class="el" href="structSC_1_1FileSystemIterator.html#a3095bc292f512c4c8e4c022172d413dc" title="Get current Entry being iterated.">SC::FileSystemIterator::get</a>) matches a directory of interest. The maximum number of nested recursion levels that will be allowed depends on the size of the FileSystemIterator::FolderState span (can be a static array) passed in during init by the caller.</p>
 <dl class="section note"><dt>Note</dt><dd>This class doesn't allocate any dynamic memory.</dd></dl>
@@ -212,7 +212,7 @@ Description</h1>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fsIterator.<a class="code hl_function" href="structSC_1_1FileSystemIterator.html#a6a766755dbf3cc07e95c0ec36590b5d8">checkErrors</a>());</div>
-</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md245"></a>
+</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md277"></a>
 Roadmap</h1>
 <p>🟦 Complete Features:</p><ul>
 <li>Not sure what else could be useful here</li>
@@ -220,7 +220,7 @@ Roadmap</h1>
 <p>💡 Unplanned Features:</p><ul>
 <li>No hypothesis has been made so far</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md246"></a>
+<h1><a class="anchor" id="autotoc_md278"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/FileSystemIterator</code>. Single File counts <code>SaneCppFileSystemIterator.h</code>. Standalone counts <code>SaneCppFileSystemIteratorStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

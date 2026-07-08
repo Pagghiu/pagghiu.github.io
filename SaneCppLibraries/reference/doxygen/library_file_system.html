@@ -129,100 +129,100 @@ $(function(){initNavTree('library_file_system.html',''); initResizable(true); })
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md211">Quick Sheet</a>
+    <a href="#autotoc_md243">Quick Sheet</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md212">Dependencies</a>
+    <a href="#autotoc_md244">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md213">Features</a>
+    <a href="#autotoc_md245">Features</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md214">Status</a>
+    <a href="#autotoc_md246">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md215">Blog</a>
+    <a href="#autotoc_md247">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md216">Description</a>
+    <a href="#autotoc_md248">Description</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md217">FileSystem</a>
+    <a href="#autotoc_md249">FileSystem</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md218">copyFile</a>
+        <a href="#autotoc_md250">copyFile</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md219">copyDirectory</a>
+        <a href="#autotoc_md251">copyDirectory</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md220">removeDirectoryRecursive</a>
+        <a href="#autotoc_md252">removeDirectoryRecursive</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md221">makeDirectoryRecursive</a>
+        <a href="#autotoc_md253">makeDirectoryRecursive</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md222">existsAndIsFile</a>
+        <a href="#autotoc_md254">existsAndIsFile</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md223">existsAndIsDirectory</a>
+        <a href="#autotoc_md255">existsAndIsDirectory</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md224">rename</a>
+        <a href="#autotoc_md256">rename</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md225">createSymbolicLink</a>
+        <a href="#autotoc_md257">createSymbolicLink</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md226">createHardLink</a>
+        <a href="#autotoc_md258">createHardLink</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md227">existsAndIsLink</a>
+        <a href="#autotoc_md259">existsAndIsLink</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md228">canAccess</a>
+        <a href="#autotoc_md260">canAccess</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md229">stat</a>
+        <a href="#autotoc_md261">stat</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md230">lstat</a>
+        <a href="#autotoc_md262">lstat</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md231">readSymbolicLink</a>
+        <a href="#autotoc_md263">readSymbolicLink</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md232">chmod</a>
+        <a href="#autotoc_md264">chmod</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md233">chown</a>
+        <a href="#autotoc_md265">chown</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md234">lchown</a>
+        <a href="#autotoc_md266">lchown</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md235">lchmod</a>
+        <a href="#autotoc_md267">lchmod</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md236">write</a>
+        <a href="#autotoc_md268">write</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md237">read</a>
+        <a href="#autotoc_md269">read</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md238">Roadmap</a>
+    <a href="#autotoc_md270">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md239">Statistics</a>
+    <a href="#autotoc_md271">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟩 File System ops { exists, copy, delete } for { files, directories }</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppFileSystem.h">SaneCppFileSystem.h</a> is a library enabling manipulation of files and directories. <br  />
 </p>
-<h1><a class="anchor" id="autotoc_md211"></a>
+<h1><a class="anchor" id="autotoc_md243"></a>
 Quick Sheet</h1>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
 <div class="line"><span class="comment">// Make all operations relative to applicationRootDirectory</span></div>
@@ -265,14 +265,14 @@ Quick Sheet</h1>
 <div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>));</div>
 <div class="line"><span class="comment">// Remove the entire tree of directories for the copy</span></div>
 <div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a83c97e78517a179fe4c7458a5b912863">removeDirectoryRecursive</a>(<span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md212"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md244"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="FileSystem.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md213"></a>
+<h1><a class="anchor" id="autotoc_md245"></a>
 Features</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -364,24 +364,24 @@ Features</h1>
 <p class="endtd"></p>
 </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md214"></a>
+<h1><a class="anchor" id="autotoc_md246"></a>
 Status</h1>
 <p>🟩 Usable <br  />
  The library contains commonly used function including links, access checks and richer path metadata. Some lower level filesystem features are still missing, especially filesystem-level queries. SC::FileSystem::getFileTime and <a class="el" href="structSC_1_1FileSystem.html#a49555df8f65b725bc140a01f3be4b3fa" title="Change last modified time of a given file.">SC::FileSystem::setLastModifiedTime</a> will probably be refactored in a future dedicated class for handling <code>stat</code> based operations.</p>
-<h1><a class="anchor" id="autotoc_md215"></a>
+<h1><a class="anchor" id="autotoc_md247"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html">July 2025 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md216"></a>
+<h1><a class="anchor" id="autotoc_md248"></a>
 Description</h1>
 <p><a class="el" href="structSC_1_1FileSystem.html" title="Execute fs operations { exists, copy, delete } for { files and directories }.">SC::FileSystem</a> allows all typical file operations ( exists | copy | delete | make files or directory). Some less used functions are SC::FileSystem::getFileTime and <a class="el" href="structSC_1_1FileSystem.html#a49555df8f65b725bc140a01f3be4b3fa" title="Change last modified time of a given file.">SC::FileSystem::setLastModifiedTime</a> . The library also supports symlink and hardlink creation, reading symlink targets and checking path accessibility. The library doesn't allow reading or writing seeking inside a file, as that is domain of the <a class="el" href="library_file.html">File</a> library. <a class="el" href="structSC_1_1FileSystem.html#a1fd637d740d1784669730c832631baaf" title="Call init function when instantiating the class to set directory for all operations using relative pa...">SC::FileSystem::init</a> needs an absolute path to a directory and makes it a the <em>base directory</em>. All paths passed later on as arguments to all methods can be either absolute paths or relative. If they are relative, they will be interpreted as relative to the base directory and <b>NOT</b> current directory of the process. The class wants explicitly to make sure its behavior doesn't implicitly depend on current directory of process (unless it's passed explicitly to <a class="el" href="structSC_1_1FileSystem.html#a1fd637d740d1784669730c832631baaf" title="Call init function when instantiating the class to set directory for all operations using relative pa...">SC::FileSystem::init</a> of course).</p>
 <p>Use <a class="el" href="structSC_1_1Path.html" title="Parse and compose filesystem paths for windows and posix.">SC::Path</a> from <a class="el" href="library_strings.html">Strings</a> library to parse and compose paths.</p>
-<h1><a class="anchor" id="autotoc_md217"></a>
+<h1><a class="anchor" id="autotoc_md249"></a>
 FileSystem</h1>
-<h2><a class="anchor" id="autotoc_md218"></a>
+<h2><a class="anchor" id="autotoc_md250"></a>
 copyFile</h2>
 <p>Copy a single file.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -428,7 +428,7 @@ copyFile</h2>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a09129409620b045d6551e46ef02cb680">removeFiles</a>({<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>}));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>));</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md219"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md251"></a>
 copyDirectory</h2>
 <p>Copy a single directory.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -473,7 +473,7 @@ copyDirectory</h2>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a1465c729e64880777d2d25c98179a8ab">removeFile</a>(<span class="stringliteral">&quot;COPY_copyDirectory/subdirectory/testFile.txt&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;COPY_copyDirectory/subdirectory&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md220"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md252"></a>
 removeDirectoryRecursive</h2>
 <p>Remove single directory with its entire content (like posix <code>rm -rf</code>)   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -501,7 +501,7 @@ removeDirectoryRecursive</h2>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;removeDirectoryTest/another/yeah.txt&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a>(<span class="stringliteral">&quot;removeDirectoryTest/another&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a>(<span class="stringliteral">&quot;removeDirectoryTest&quot;</span>));</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md221"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md253"></a>
 makeDirectoryRecursive</h2>
 <p>Create a new directory, creating also intermediate non existing directories (like posix <code>mkdir -p</code>)   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -525,7 +525,7 @@ makeDirectoryRecursive</h2>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;Test3/Subdir&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;Test3&quot;</span>));</div>
 </div><!-- fragment -->  </dd></dl>
-<h2><a class="anchor" id="autotoc_md222"></a>
+<h2><a class="anchor" id="autotoc_md254"></a>
 existsAndIsFile</h2>
 <p>Check if a file exists at given path.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -570,7 +570,7 @@ existsAndIsFile</h2>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a09129409620b045d6551e46ef02cb680">removeFiles</a>({<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>}));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>));</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md223"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md255"></a>
 existsAndIsDirectory</h2>
 <p>Check if a directory exists at given path.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -580,7 +580,7 @@ existsAndIsDirectory</h2>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if a directory exists at the given path   </dd></dl>
-<h2><a class="anchor" id="autotoc_md224"></a>
+<h2><a class="anchor" id="autotoc_md256"></a>
 rename</h2>
 <p>Rename a file or directory.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -647,7 +647,7 @@ rename</h2>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Remove all directories created by the test</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a83c97e78517a179fe4c7458a5b912863">removeDirectoryRecursive</a>(<span class="stringliteral">&quot;renameDirectoryTest2&quot;</span>));</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md225"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md257"></a>
 createSymbolicLink</h2>
 <p>Creates a symbolic link at location linkFile pointing at sourceFileOrDirectory.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -658,7 +658,7 @@ createSymbolicLink</h2>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Invalid result if it's not possible creating the requested symbolic link   </dd></dl>
-<h2><a class="anchor" id="autotoc_md226"></a>
+<h2><a class="anchor" id="autotoc_md258"></a>
 createHardLink</h2>
 <p>Creates a hard link at location linkFile pointing at sourceFile.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -669,7 +669,7 @@ createHardLink</h2>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Invalid result if it's not possible creating the requested hard link   </dd></dl>
-<h2><a class="anchor" id="autotoc_md227"></a>
+<h2><a class="anchor" id="autotoc_md259"></a>
 existsAndIsLink</h2>
 <p>Check if a link exists at given path.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -679,7 +679,7 @@ existsAndIsLink</h2>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if a file exists at the given path   </dd></dl>
-<h2><a class="anchor" id="autotoc_md228"></a>
+<h2><a class="anchor" id="autotoc_md260"></a>
 canAccess</h2>
 <p>Check whether the current process can access a path with the requested mode.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -690,7 +690,7 @@ canAccess</h2>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the requested access is allowed   </dd></dl>
-<h2><a class="anchor" id="autotoc_md229"></a>
+<h2><a class="anchor" id="autotoc_md261"></a>
 stat</h2>
 <p>Obtains richer metadata about a path, following symbolic links.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -701,7 +701,7 @@ stat</h2>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if file stats for the given file was successfully read   </dd></dl>
-<h2><a class="anchor" id="autotoc_md230"></a>
+<h2><a class="anchor" id="autotoc_md262"></a>
 lstat</h2>
 <p>Obtains richer metadata about a path without following symbolic links.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -712,7 +712,7 @@ lstat</h2>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if file stats for the given file was successfully read   </dd></dl>
-<h2><a class="anchor" id="autotoc_md231"></a>
+<h2><a class="anchor" id="autotoc_md263"></a>
 readSymbolicLink</h2>
 <p>Reads the target path stored by a symbolic link.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -723,7 +723,7 @@ readSymbolicLink</h2>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if link target was successfully read   </dd></dl>
-<h2><a class="anchor" id="autotoc_md232"></a>
+<h2><a class="anchor" id="autotoc_md264"></a>
 chmod</h2>
 <p>Change file permission bits for a path, following symbolic links.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -734,7 +734,7 @@ chmod</h2>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if permissions were updated successfully   </dd></dl>
-<h2><a class="anchor" id="autotoc_md233"></a>
+<h2><a class="anchor" id="autotoc_md265"></a>
 chown</h2>
 <p>Change owner and group for a path, following symbolic links.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -746,7 +746,7 @@ chown</h2>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if ownership was updated successfully   </dd></dl>
-<h2><a class="anchor" id="autotoc_md234"></a>
+<h2><a class="anchor" id="autotoc_md266"></a>
 lchown</h2>
 <p>Change owner and group for a path without following symbolic links.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -758,7 +758,7 @@ lchown</h2>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if ownership was updated successfully   </dd></dl>
-<h2><a class="anchor" id="autotoc_md235"></a>
+<h2><a class="anchor" id="autotoc_md267"></a>
 lchmod</h2>
 <p>Change file permission bits for a symbolic link without following it.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -769,7 +769,7 @@ lchmod</h2>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if permissions were updated successfully   </dd></dl>
-<h2><a class="anchor" id="autotoc_md236"></a>
+<h2><a class="anchor" id="autotoc_md268"></a>
 write</h2>
 <p>Writes a block of memory to a file.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -798,7 +798,7 @@ write</h2>
 <div class="line">    <span class="comment">// Remove all files created by the test</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a1465c729e64880777d2d25c98179a8ab">removeFile</a>(<span class="stringliteral">&quot;file.txt&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;file.txt&quot;</span>));</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md237"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md269"></a>
 read</h2>
 <p>Read contents of a file into a String or Buffer.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -810,12 +810,12 @@ read</h2>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if the entire file has been read successfully </dd></dl>
 <dl class="section see"><dt>See also</dt><dd>write (for an usage example)   </dd></dl>
-<h1><a class="anchor" id="autotoc_md238"></a>
+<h1><a class="anchor" id="autotoc_md270"></a>
 Roadmap</h1>
 <p>🟦 Complete Features:</p><ul>
 <li><code>statfs</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md239"></a>
+<h1><a class="anchor" id="autotoc_md271"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/FileSystem</code>. Single File counts <code>SaneCppFileSystem.h</code>. Standalone counts <code>SaneCppFileSystemStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

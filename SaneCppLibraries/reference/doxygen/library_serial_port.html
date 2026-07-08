@@ -129,44 +129,44 @@ $(function(){initNavTree('library_serial_port.html',''); initResizable(true); })
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md394">Dependencies</a>
+    <a href="#autotoc_md426">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md395">Features</a>
+    <a href="#autotoc_md427">Features</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md396">Status</a>
+    <a href="#autotoc_md428">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md397">Blog</a>
+    <a href="#autotoc_md429">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md398">Details</a>
+    <a href="#autotoc_md430">Details</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md399">Example</a>
+    <a href="#autotoc_md431">Example</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md400">Optional Windows Real COM Test (com0com)</a>
+    <a href="#autotoc_md432">Optional Windows Real COM Test (com0com)</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md401">Roadmap</a>
+    <a href="#autotoc_md433">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md402">Statistics</a>
+    <a href="#autotoc_md434">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟨 Synchronous serial port descriptor and configuration</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppSerialPort.h">SaneCppSerialPort.h</a> is a library implementing cross-platform serial port open/configuration APIs.</p>
-<h1><a class="anchor" id="autotoc_md394"></a>
+<h1><a class="anchor" id="autotoc_md426"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <a class="el" href="library_file.html">File</a></li>
 <li>All dependencies: <a class="el" href="library_file.html">File</a></li>
 </ul>
 <p><img src="SerialPort.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md395"></a>
+<h1><a class="anchor" id="autotoc_md427"></a>
 Features</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -178,19 +178,19 @@ Features</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1SerialOpenOptions.html" title="Open options for a serial descriptor.">SC::SerialOpenOptions</a>   </td><td class="markdownTableBodyLeft">Open options for a serial descriptor.      </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md396"></a>
+<h1><a class="anchor" id="autotoc_md428"></a>
 Status</h1>
 <p>🟨 MVP <br  />
  The v1 scope focuses on byte-stream descriptors and core serial settings.</p>
-<h1><a class="anchor" id="autotoc_md397"></a>
+<h1><a class="anchor" id="autotoc_md429"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2026-02-28-SaneCppLibrariesUpdate.html">February 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md398"></a>
+<h1><a class="anchor" id="autotoc_md430"></a>
 Details</h1>
-<h1><a class="anchor" id="autotoc_md399"></a>
+<h1><a class="anchor" id="autotoc_md431"></a>
 Example</h1>
 <div class="fragment"><div class="line">    SerialDescriptor serial;</div>
 <div class="line">    SerialOpenOptions options;</div>
@@ -218,7 +218,7 @@ Example</h1>
 <div class="line">    Span&lt;char&gt; rxData;</div>
 <div class="line">    SC_TRY(serial.read({rxBuffer, sizeof(rxBuffer)}, rxData));</div>
 <div class="line">    <span class="comment">// rxData is a slice of rxBuffer with the actual received bytes</span></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md400"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md432"></a>
 Optional Windows Real COM Test (com0com)</h1>
 <p><code>SerialPortTest</code> includes an optional section named <code>windows com0com open/config/readback</code>.</p>
 <ul>
@@ -228,7 +228,7 @@ Optional Windows Real COM Test (com0com)</h1>
 <li>If only one variable is set (or values are malformed), the section fails with a configuration error.</li>
 </ul>
 <p>Example command: <code>SC.bat build run SCTest Debug vs2022 -- --test "SerialPortTest" --test-section "windows com0com open/config/readback"</code></p>
-<h1><a class="anchor" id="autotoc_md401"></a>
+<h1><a class="anchor" id="autotoc_md433"></a>
 Roadmap</h1>
 <p>🟩 Usable</p><ul>
 <li>Validate against more USB-to-serial adapters and edge-case drivers.</li>
@@ -239,7 +239,7 @@ Roadmap</h1>
 <p>💡 Unplanned Features:</p><ul>
 <li>Port enumeration and hotplug monitoring</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md402"></a>
+<h1><a class="anchor" id="autotoc_md434"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/SerialPort</code>. Single File counts <code>SaneCppSerialPort.h</code>. Standalone counts <code>SaneCppSerialPortStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

@@ -20,7 +20,7 @@ var searchData=
   ['normal_20mode_20versus_20strict_20mode_17',['Can I benchmark normal mode versus strict mode?',['../page_faq.html#autotoc_md87',1,'']]],
   ['normalize_18',['normalize',['../structSC_1_1Path.html#ad6948f655a87bb4b2ecf845201a1c3cd',1,'SC::Path']]],
   ['notes_19',['HTTP Library Notes',['../md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html',1,'']]],
-  ['notes_20',['notes',['../md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md503',1,'Client-specific notes'],['../library_await.html#autotoc_md174',1,'Platform notes']]],
+  ['notes_20',['notes',['../md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md535',1,'Client-specific notes'],['../library_await.html#autotoc_md174',1,'Platform notes']]],
   ['notification_21',['Notification',['../structSC_1_1FileSystemWatcher_1_1Notification.html',1,'SC::FileSystemWatcher']]],
   ['notifycallback_22',['notifyCallback',['../structSC_1_1FileSystemWatcher_1_1FolderWatcher.html#a5e385be5f0997604bb77b0d199855e44',1,'SC::FileSystemWatcher::FolderWatcher']]],
   ['notifyhttpclientoperation_23',['notifyHttpClientOperation',['../structSC_1_1HttpClientOperationNotifier.html#a1c2de9615705be8e8d3f0f67761ddfae',1,'SC::HttpClientOperationNotifier']]],

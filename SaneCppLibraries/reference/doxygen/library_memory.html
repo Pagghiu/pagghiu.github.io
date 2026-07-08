@@ -129,50 +129,50 @@ $(function(){initNavTree('library_memory.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md319">Dependencies</a>
+    <a href="#autotoc_md351">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md320">Features</a>
+    <a href="#autotoc_md352">Features</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md321">Classes</a>
+        <a href="#autotoc_md353">Classes</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md322">Status</a>
+    <a href="#autotoc_md354">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md323">Description</a>
+    <a href="#autotoc_md355">Description</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md324">Buffer</a>
+        <a href="#autotoc_md356">Buffer</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md325">String</a>
+        <a href="#autotoc_md357">String</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md326">SmallString</a>
+        <a href="#autotoc_md358">SmallString</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md327">Memory</a>
+        <a href="#autotoc_md359">Memory</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md328">VirtualMemory</a>
+        <a href="#autotoc_md360">VirtualMemory</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md329">Globals</a>
+        <a href="#autotoc_md361">Globals</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md330">Blog</a>
+    <a href="#autotoc_md362">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md331">Roadmap</a>
+    <a href="#autotoc_md363">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md332">Statistics</a>
+    <a href="#autotoc_md364">Statistics</a>
   </li>
 </ul>
 </div>
@@ -182,16 +182,16 @@ $(function(){initNavTree('library_memory.html',''); initResizable(true); });
 <dl class="section note"><dt>Note</dt><dd>See <code>Tests/InteropSTL/*.cpp</code> for an example of externally provided Container classes.</dd></dl>
 <p>The "owned" String class is here and not in <a class="el" href="library_strings.html">Strings</a> library because it needs allocator support.</p>
 <dl class="section note"><dt>Note</dt><dd>If a library doesn't directly or indirectly depend on the Memory library, you can assume that it will not do any runtime / dynamic allocation.</dd></dl>
-<h1><a class="anchor" id="autotoc_md319"></a>
+<h1><a class="anchor" id="autotoc_md351"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Memory.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md320"></a>
+<h1><a class="anchor" id="autotoc_md352"></a>
 Features</h1>
-<h2><a class="anchor" id="autotoc_md321"></a>
+<h2><a class="anchor" id="autotoc_md353"></a>
 Classes</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -209,16 +209,16 @@ Classes</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1SmallString.html" title="String with compile time configurable inline storage (small string optimization)">SC::SmallString</a>   </td><td class="markdownTableBodyLeft">String with compile time configurable inline storage (small string optimization)      </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md322"></a>
+<h1><a class="anchor" id="autotoc_md354"></a>
 Status</h1>
 <p>🟩 Usable <br  />
  The library is solid. The Buffer implementation has been evolved and fine tuned to be minimal but effective.</p>
-<h1><a class="anchor" id="autotoc_md323"></a>
+<h1><a class="anchor" id="autotoc_md355"></a>
 Description</h1>
 <p>Memory library helps tracking and limit runtime / dynamic allocations through the use of custom allocators. A classic dynamically expandable binary buffer <a class="el" href="structSC_1_1Buffer.html" title="An heap allocated byte buffer that can optionally use an inline buffer.">SC::Buffer</a> is provided and it's largely shared to form the more <em>object model oriented</em> <a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a> class from <a class="el" href="library_containers.html">Containers</a> Library.</p>
 <p>All allocations throughout all downstream dependant libraries are centrally tracked by the <a class="el" href="structSC_1_1Globals.html" title="Customizable thread-local and global variables for memory handling.">SC::Globals</a> class, that also allows re-defining custom thread-local allocators.</p>
 <p>Such allocators can be just fixed buffers, regular heap memory or reserved <a class="el" href="structSC_1_1VirtualMemory.html" title="Reserves a contiguous slice of virtual memory committing just a portion of it.">SC::VirtualMemory</a> using only limited amounts of Physical memory.</p>
-<h2><a class="anchor" id="autotoc_md324"></a>
+<h2><a class="anchor" id="autotoc_md356"></a>
 Buffer</h2>
 <p>An heap allocated byte buffer that can optionally use an inline buffer.   </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structSC_1_1SmallBuffer.html" title="A SC::Buffer with a dedicated custom inline buffer to avoid heap allocation.">SC::SmallBuffer</a> to use an inline buffer that can optionally become heap allocated as needed. </dd></dl>
@@ -296,11 +296,11 @@ Buffer</h2>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(smallBuffer.isInline());</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(smallBuffer.capacity() == 128);</div>
 <div class="line">}</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md325"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md357"></a>
 String</h2>
 <p>A non-modifiable owning string with associated encoding.   </p>
 <p><a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a> is (currently) implemented as a <a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a> with the associated string encoding. A SC::StringSpan can be obtained from it calling <a class="el" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4" title="Obtain a null-terminated StringSpan from current String.">SC::String::view</a> method but it's up to the user making sure that the usage of such SC::StringSpan doesn't exceed lifetime of the <a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a> it originated from (but thankfully Address Sanitizer will catch the issue if it goes un-noticed).   </p>
-<h2><a class="anchor" id="autotoc_md326"></a>
+<h2><a class="anchor" id="autotoc_md358"></a>
 SmallString</h2>
 <p>String with compile time configurable inline storage (small string optimization)   </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -309,10 +309,10 @@ SmallString</h2>
   </table>
   </dd>
 </dl>
-<h2><a class="anchor" id="autotoc_md327"></a>
+<h2><a class="anchor" id="autotoc_md359"></a>
 Memory</h2>
 <p>Centralized functions to allocate, reallocate and deallocate memory.   </p>
-<h2><a class="anchor" id="autotoc_md328"></a>
+<h2><a class="anchor" id="autotoc_md360"></a>
 VirtualMemory</h2>
 <p>Reserves a contiguous slice of virtual memory committing just a portion of it.   </p>
 <p>This class is useful on 64-bit systems where the address space is so large that it's feasible reserving large chunks of memory to commit and de-commit (shrink) as needed. <br  />
@@ -368,7 +368,7 @@ Reservation ensures that the returned address will not change and will be sized 
 <div class="line">    <span class="comment">// Finally release (don&#39;t forget, VirtualMemory has no destructor!)</span></div>
 <div class="line">    virtualMemory.release();</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(virtualMemory.data() == <span class="keyword">nullptr</span>);</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md329"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md361"></a>
 Globals</h2>
 <p>Customizable thread-local and global variables for memory handling.   </p>
 <p>This class holds pointers to systems that must be globally available, like the memory allocator. It allows "stacking" different Globals through a push / pop mechanism, connecting them through a linked list. The Default allocator is automatically setup and uses standard <code>malloc</code>, <code>realloc</code>, <code>free</code> for allocations. </p><dl class="section note"><dt>Note</dt><dd>Globals use no locking mechanism so they are thread-unsafe. Every method however requires a Globals::Type parameter that can be set to Globals::ThreadLocal to avoid such issues.</dd></dl>
@@ -470,7 +470,7 @@ Globals</h2>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(modifiable.someStrings[0] == <span class="stringliteral">&quot;First&quot;</span>);</div>
 <div class="line">    modifiable.someStrings[0] = <span class="stringliteral">&quot;First modified&quot;</span>;</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(modifiable.someStrings[0] == <span class="stringliteral">&quot;First modified&quot;</span>);</div>
-</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md330"></a>
+</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md362"></a>
 Blog</h1>
 <p>These blogs have been written before the split from Foundation into the Memory library:</p>
 <ul>
@@ -482,7 +482,7 @@ Blog</h1>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2025-06-30-SaneCppLibrariesUpdate.html">June 2025 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md331"></a>
+<h1><a class="anchor" id="autotoc_md363"></a>
 Roadmap</h1>
 <p>🟦 Complete Features:</p><ul>
 <li>Things will be added as needed</li>
@@ -494,7 +494,7 @@ Roadmap</h1>
 <li>UniquePtr</li>
 </ul>
 <dl class="section note"><dt>Note</dt><dd>In <a class="el" href="page_principles.html">Principles</a> there is a rule that discourages allocations of large number of tiny objects and also creating systems with unclear or shared memory ownership. For this reason this library is missing Smart Pointers.</dd></dl>
-<h1><a class="anchor" id="autotoc_md332"></a>
+<h1><a class="anchor" id="autotoc_md364"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Memory</code>. Single File counts <code>SaneCppMemory.h</code>. Standalone counts <code>SaneCppMemoryStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

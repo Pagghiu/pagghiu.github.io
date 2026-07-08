@@ -129,53 +129,53 @@ $(function(){initNavTree('library_foundation.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md258">Dependencies</a>
+    <a href="#autotoc_md290">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md259">Features</a>
+    <a href="#autotoc_md291">Features</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md260">Classes</a>
+        <a href="#autotoc_md292">Classes</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md261">Macros</a>
+        <a href="#autotoc_md293">Macros</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md262">Type Traits</a>
+        <a href="#autotoc_md294">Type Traits</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md263">Utilities</a>
+        <a href="#autotoc_md295">Utilities</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md264">Status</a>
+    <a href="#autotoc_md296">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md265">Description</a>
+    <a href="#autotoc_md297">Description</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md266">Function</a>
+        <a href="#autotoc_md298">Function</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md267">Deferred</a>
+        <a href="#autotoc_md299">Deferred</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md268">OpaqueObject</a>
+        <a href="#autotoc_md300">OpaqueObject</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md269">UniqueHandle</a>
+        <a href="#autotoc_md301">UniqueHandle</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md270">Blog</a>
+    <a href="#autotoc_md302">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md271">Roadmap</a>
+    <a href="#autotoc_md303">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md272">Statistics</a>
+    <a href="#autotoc_md304">Statistics</a>
   </li>
 </ul>
 </div>
@@ -183,16 +183,16 @@ $(function(){initNavTree('library_foundation.html',''); initResizable(true); });
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppFoundation.h">SaneCppFoundation.h</a> is a library that provides many fundamental type definitions and types widely used by other libraries. <br  />
  As this is included and needed by almost every other library, it tries to keep bloat to the bare minimum. <br  />
  Detailed documentation is in the <a class="el" href="group__group__foundation.html">Foundation</a> topic.</p>
-<h1><a class="anchor" id="autotoc_md258"></a>
+<h1><a class="anchor" id="autotoc_md290"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Foundation.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md259"></a>
+<h1><a class="anchor" id="autotoc_md291"></a>
 Features</h1>
-<h2><a class="anchor" id="autotoc_md260"></a>
+<h2><a class="anchor" id="autotoc_md292"></a>
 Classes</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -214,18 +214,18 @@ Classes</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">SC::UniqueHandle   </td><td class="markdownTableBodyLeft">Move-only RAII wrapper for handles   </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md261"></a>
+<h2><a class="anchor" id="autotoc_md293"></a>
 Macros</h2>
 <ul>
 <li><a class="el" href="group__group__foundation__compiler__macros.html">Compiler Macros</a>:    </li>
 </ul>
 <p>Compiler Macros Preprocessor macros to detect compiler and platform features.   </p>
-<h2><a class="anchor" id="autotoc_md262"></a>
+<h2><a class="anchor" id="autotoc_md294"></a>
 Type Traits</h2>
 <ul>
 <li>Type traits: small compile-time helpers used by Foundation and embedded Common fragments</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md263"></a>
+<h2><a class="anchor" id="autotoc_md295"></a>
 Utilities</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -235,27 +235,27 @@ Utilities</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">SC::AlignedStorage   </td><td class="markdownTableBodyLeft">Fixed-size aligned storage for hiding implementation details   </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md264"></a>
+<h1><a class="anchor" id="autotoc_md296"></a>
 Status</h1>
 <p>🟩 Usable <br  />
  The library is very simple it it has what is needed so far by the other libraries.</p>
-<h1><a class="anchor" id="autotoc_md265"></a>
+<h1><a class="anchor" id="autotoc_md297"></a>
 Description</h1>
 <p>There is an hard rule in the library <a class="el" href="page_principles.html">Principles</a> not to include system and compiler headers in public headers. <br  />
  Foundation provides all primitive types to be used in headers and classes like SC::UniqueHandle, SC::OpaqueObject, SC::AlignedStorage to encourage static PIMPL in order to hide platform specific implementation details everywhere.</p>
-<h2><a class="anchor" id="autotoc_md266"></a>
+<h2><a class="anchor" id="autotoc_md298"></a>
 Function</h2>
 <p>Fixed-storage callable wrapper used when APIs need callbacks without dynamic allocations.</p>
-<h2><a class="anchor" id="autotoc_md267"></a>
+<h2><a class="anchor" id="autotoc_md299"></a>
 Deferred</h2>
 <p>Scope-exit helper used to run explicit cleanup code when leaving a scope.</p>
-<h2><a class="anchor" id="autotoc_md268"></a>
+<h2><a class="anchor" id="autotoc_md300"></a>
 OpaqueObject</h2>
 <p>Fixed-size opaque storage used to hide private implementation details in public headers.</p>
-<h2><a class="anchor" id="autotoc_md269"></a>
+<h2><a class="anchor" id="autotoc_md301"></a>
 UniqueHandle</h2>
 <p>Move-only RAII wrapper used to close or release handles deterministically.</p>
-<h1><a class="anchor" id="autotoc_md270"></a>
+<h1><a class="anchor" id="autotoc_md302"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
@@ -265,12 +265,12 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-06-30-SaneCppLibrariesUpdate.html">June 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md271"></a>
+<h1><a class="anchor" id="autotoc_md303"></a>
 Roadmap</h1>
 <p>🟦 Complete Features:</p><ul>
 <li>Things will be added as needed</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md272"></a>
+<h1><a class="anchor" id="autotoc_md304"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Foundation</code>. Single File counts <code>SaneCppFoundation.h</code>. Standalone counts <code>SaneCppFoundationStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

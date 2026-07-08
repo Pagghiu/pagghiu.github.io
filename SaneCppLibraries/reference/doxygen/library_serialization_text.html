@@ -129,54 +129,54 @@ $(function(){initNavTree('library_serialization_text.html',''); initResizable(tr
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md384">Dependencies</a>
+    <a href="#autotoc_md416">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md385">Features</a>
+    <a href="#autotoc_md417">Features</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md386">JSON Serializer</a>
+        <a href="#autotoc_md418">JSON Serializer</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md387">Details</a>
+    <a href="#autotoc_md419">Details</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md388">Status</a>
+    <a href="#autotoc_md420">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md389">JSON Serializer</a>
+    <a href="#autotoc_md421">JSON Serializer</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md390">Architecture</a>
+    <a href="#autotoc_md422">Architecture</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md391">Json Tokenizer</a>
+        <a href="#autotoc_md423">Json Tokenizer</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md392">Roadmap</a>
+    <a href="#autotoc_md424">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md393">Statistics</a>
+    <a href="#autotoc_md425">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟨 Serialize to / from text formats (JSON) using <a class="el" href="library_reflection.html">Reflection</a></p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppSerializationText.h">SaneCppSerializationText.h</a> implements binary serialization on top of the <a class="el" href="library_reflection.html">Reflection</a> library.</p>
 <dl class="section note"><dt>Note</dt><dd>You need to include headers from <a class="el" href="library_containers_reflection.html">Serialization Adapters</a> in order to use <code><a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a></code> or <code><a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a></code> or any other serializable class provided by other libraries with this one.</dd></dl>
-<h1><a class="anchor" id="autotoc_md384"></a>
+<h1><a class="anchor" id="autotoc_md416"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <a class="el" href="library_reflection.html">Reflection</a></li>
 <li>All dependencies: <a class="el" href="library_reflection.html">Reflection</a></li>
 </ul>
 <p><img src="SerializationText.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md385"></a>
+<h1><a class="anchor" id="autotoc_md417"></a>
 Features</h1>
-<h2><a class="anchor" id="autotoc_md386"></a>
+<h2><a class="anchor" id="autotoc_md418"></a>
 JSON Serializer</h2>
 <ul>
 <li>Serialize primitive types</li>
@@ -184,14 +184,14 @@ JSON Serializer</h2>
 <li>Serialize <code>T[N]</code> arrays</li>
 <li>Serialize structs made of above types or other structs</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md387"></a>
+<h1><a class="anchor" id="autotoc_md419"></a>
 Details</h1>
 <p>Serialization Text uses <a class="el" href="library_reflection.html">Reflection</a>, to serialize C++ objects to text based formats that currently includes a JSON serializer / deserializer.   </p>
-<h1><a class="anchor" id="autotoc_md388"></a>
+<h1><a class="anchor" id="autotoc_md420"></a>
 Status</h1>
 <p>🟨 MVP <br  />
  Only JSON has been implemented and it needs additional testing.</p>
-<h1><a class="anchor" id="autotoc_md389"></a>
+<h1><a class="anchor" id="autotoc_md421"></a>
 JSON Serializer</h1>
 <p><a class="el" href="structSC_1_1SerializationJson.html" title="SC::SerializationJson reads or writes C++ structures to / from json using Reflection information.">SC::SerializationJson</a> reads or writes C++ structures to / from json using <a class="el" href="library_reflection.html">Reflection</a> information.   </p>
 <p><br  />
@@ -340,7 +340,7 @@ Let's consider the following structure described by <a class="el" href="library_
 <div class="line">    <span class="keyword">constexpr</span> StringView escapedBorrowedJSON = R<span class="stringliteral">&quot;({&quot;spanValue&quot;:&quot;line\n&quot;,&quot;viewValue&quot;:&quot;view&quot;})&quot;_a8;</span></div>
 <div class="line"><span class="stringliteral">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not SerializationJson::loadExact(borrowed, escapedBorrowedJSON));</span></div>
 </div><!-- fragment --> <dl class="section note"><dt>Note</dt><dd>(*) simpler code probably means faster code, even if it has not been properly benchmarked yet so the hypothetical performance gain is yet to be defined.   </dd></dl>
-<h1><a class="anchor" id="autotoc_md390"></a>
+<h1><a class="anchor" id="autotoc_md422"></a>
 Architecture</h1>
 <p><code>SC::detail::SerializationTextReadVersioned</code> provides common framework for all text / structured formats, walking the data structure using reflection information. <br  />
  Every writer or reader needs to implement methods like <code>startObject</code> / <code>endObject</code> and <code>startArray</code> / <code>endArray</code>, so that only a minimal amount of work is needed to support a new output format. <br  />
@@ -348,10 +348,10 @@ Architecture</h1>
 </p>
 <p>Also this serializer has an <b>exact</b> and a <b>versioned</b> variant. <br  />
  The <b>exact</b> json deserializer (<code>SC::detail::SerializationTextReadWriteExact</code>) must receive as input a file with fields in the exact same order as output by the json writer, so it makes it a little bit inflexible but maybe it could provide some performance boost as it's clearly doing less work (even if it should always be measured to verify it's actually faster in the specific use case).</p>
-<h2><a class="anchor" id="autotoc_md391"></a>
+<h2><a class="anchor" id="autotoc_md423"></a>
 Json Tokenizer</h2>
 <p><code>SC::JsonTokenizer</code> verifies the correctness of JSON elements but it will not validate Strings or parse numbers. The design is a stateful streaming tokenizer, so it can ingest documents of arbitrary size. It allocates just a single enum value for every <em>nesting level</em> of json objects. This small allocation can be controlled by the caller through a <a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a>. The allocation can be eliminated by passing a <a class="el" href="structSC_1_1SmallVector.html" title="A Vector that can hold up to N elements inline and &gt; N on heap.">SC::SmallVector</a> with an bounded level of json nesting. The design of being a <em>tokenizer</em> implies that we are not building any tree / hierarchy / DOM, even if it can be trivially done by just pushing the outputs of the tokenizer into a hierarchical data structure.</p>
-<h1><a class="anchor" id="autotoc_md392"></a>
+<h1><a class="anchor" id="autotoc_md424"></a>
 Roadmap</h1>
 <p>🟩 Usable <br  />
 </p><ul>
@@ -368,7 +368,7 @@ Roadmap</h1>
 <li>XML Serializer</li>
 <li>YAML Serializer</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md393"></a>
+<h1><a class="anchor" id="autotoc_md425"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/SerializationText</code>. Single File counts <code>SaneCppSerializationText.h</code>. Standalone counts <code>SaneCppSerializationTextStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

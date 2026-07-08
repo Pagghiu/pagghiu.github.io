@@ -129,67 +129,67 @@ $(function(){initNavTree('library_threading.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md463">Dependencies</a>
+    <a href="#autotoc_md495">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md464">Features</a>
+    <a href="#autotoc_md496">Features</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md465">Status</a>
+    <a href="#autotoc_md497">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md466">Blog</a>
+    <a href="#autotoc_md498">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md467">Videos</a>
+    <a href="#autotoc_md499">Videos</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md468">SC::Thread</a>
+        <a href="#autotoc_md500">SC::Thread</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md469">SC::ThreadPool</a>
+        <a href="#autotoc_md501">SC::ThreadPool</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md470">SC::Mutex</a>
+        <a href="#autotoc_md502">SC::Mutex</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md471">SC::EventObject</a>
+        <a href="#autotoc_md503">SC::EventObject</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md472">SC::Atomic</a>
+        <a href="#autotoc_md504">SC::Atomic</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md473">SC::Semaphore</a>
+        <a href="#autotoc_md505">SC::Semaphore</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md474">SC::RWLock</a>
+        <a href="#autotoc_md506">SC::RWLock</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md475">SC::Barrier</a>
+        <a href="#autotoc_md507">SC::Barrier</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md476">SC::ConditionVariable</a>
+        <a href="#autotoc_md508">SC::ConditionVariable</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md477">Roadmap</a>
+    <a href="#autotoc_md509">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md478">Statistics</a>
+    <a href="#autotoc_md510">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟩 Atomic, thread, pool, mutex, semaphore, barrier and more</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppThreading.h">SaneCppThreading.h</a> is a library defining basic primitives for user-space threading and synchronization.</p>
-<h1><a class="anchor" id="autotoc_md463"></a>
+<h1><a class="anchor" id="autotoc_md495"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Threading.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md464"></a>
+<h1><a class="anchor" id="autotoc_md496"></a>
 Features</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -213,24 +213,24 @@ Features</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1EventObject.html" title="An automatically reset event object to synchronize two threads.">SC::EventObject</a>   </td><td class="markdownTableBodyLeft">An automatically reset event object to synchronize two threads.      </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md465"></a>
+<h1><a class="anchor" id="autotoc_md497"></a>
 Status</h1>
 <p>🟩 Usable <br  />
  All the main threading primitives are there. <br  />
  The Atomic header is really only being implemented for a few data types and needs some love to extend and improve it.</p>
-<h1><a class="anchor" id="autotoc_md466"></a>
+<h1><a class="anchor" id="autotoc_md498"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html">August 2025 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md467"></a>
+<h1><a class="anchor" id="autotoc_md499"></a>
 Videos</h1>
 <p>This is the list of videos that have been recorded showing some of the internal thoughts that have been going into this library:</p>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=e48ruImESxI">Ep.13 - Simple ThreadPool</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md468"></a>
+<h2><a class="anchor" id="autotoc_md500"></a>
 SC::Thread</h2>
 <p>A native OS thread.   </p>
 <p>Example: </p><div class="fragment"><div class="line">Thread thread;</div>
@@ -247,7 +247,7 @@ SC::Thread</h2>
 <div class="line"> </div>
 <div class="line">thread.detach(); <span class="comment">// To keep thread running after Thread destructor</span></div>
 </div><!-- fragment --><dl class="section warning"><dt>Warning</dt><dd>Thread destructor will assert if <a class="el" href="structSC_1_1Thread.html#a7ec0ae5d34ef6821aa884452c17c5046" title="Detaches the thread so that its resources are automatically released back to the system without Threa...">SC::Thread::detach()</a> or <a class="el" href="structSC_1_1Thread.html#aad66dfb65ebdca81f0dea267e7a35c08" title="Waits for thread to finish and releases its resources.">SC::Thread::join()</a> has not been called.   </dd></dl>
-<h2><a class="anchor" id="autotoc_md469"></a>
+<h2><a class="anchor" id="autotoc_md501"></a>
 SC::ThreadPool</h2>
 <p>Simple thread pool that executes tasks in a fixed number of worker threads.   </p>
 <p>This class is not copyable / moveable due to it containing Mutex and Condition variable. Additionally, this class does not allocate any memory by itself, and expects the caller to supply SC::ThreadPool::Task objects.</p>
@@ -301,7 +301,7 @@ SC::ThreadPool</h2>
 <div class="line">    <span class="comment">// Note: destructor will wait for tasks to finish, but this avoids it from accessing invalid tasks,</span></div>
 <div class="line">    <span class="comment">// as stack objects are reclaimed in inverse declaration order</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(threadPool.<a class="code hl_function" href="structSC_1_1ThreadPool.html#a1627e46fb137380bb55e816c08ce2cb0">destroy</a>());</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md470"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md502"></a>
 SC::Mutex</h2>
 <p>A native OS mutex to synchronize access to shared resources.   </p>
 <p>Example: </p><div class="fragment"><div class="line">    Mutex  mutex;</div>
@@ -328,7 +328,7 @@ SC::Mutex</h2>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(thread1.join());</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(thread2.join());</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(globalVariable == 2);</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md471"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md503"></a>
 SC::EventObject</h2>
 <p>An automatically reset event object to synchronize two threads.   </p>
 <p><br  />
@@ -356,7 +356,7 @@ Example: </p><div class="fragment"><div class="line">    EventObject eventObject
 <div class="line">    <span class="comment">// Prints:</span></div>
 <div class="line">    <span class="comment">// Signal</span></div>
 <div class="line">    <span class="comment">// After waiting</span></div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md472"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md504"></a>
 SC::Atomic</h2>
 <p>Atomic variables (only for <code>int</code> and <code>bool</code> for now).   </p>
 <p><br  />
@@ -366,7 +366,7 @@ Example: </p><div class="fragment"><div class="line">Atomic&lt;bool&gt; test = <
 <div class="line">test.exchange(<span class="keyword">false</span>);</div>
 <div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not test.load());</div>
 <div class="ttc" id="agroup__group__testing_html_gae99d5c969c290b1234140c49bb9d8cf8"><div class="ttname"><a href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a></div><div class="ttdeci">#define SC_TEST_EXPECT(e)</div><div class="ttdoc">Records a test expectation (eventually aborting or breaking o n failed test)</div><div class="ttdef"><b>Definition</b> Testing.h:187</div></div>
-</div><!-- fragment -->   <h2><a class="anchor" id="autotoc_md473"></a>
+</div><!-- fragment -->   <h2><a class="anchor" id="autotoc_md505"></a>
 SC::Semaphore</h2>
 <p>A semaphore synchronization primitive that maintains a count for resource management.   </p>
 <p>Example: </p><div class="fragment"><div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> maxResources        = 2; <span class="comment">// Only 2 threads can access resource at once</span></div>
@@ -414,7 +414,7 @@ SC::Semaphore</h2>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Verify final state</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(ctx.sharedResource == 0);</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md474"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md506"></a>
 SC::RWLock</h2>
 <p>A Read-Write lock that allows multiple concurrent readers but only one writer.   </p>
 <p>Example: </p><div class="fragment"><div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> numReaders    = 3;</div>
@@ -464,7 +464,7 @@ SC::RWLock</h2>
 <div class="line">    }</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(writer.join());</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(sharedData == numIterations);</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md475"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md507"></a>
 SC::Barrier</h2>
 <p>A synchronization point that blocks threads until the required number of threads have reached it.   </p>
 <p>Example: </p><div class="fragment"><div class="line">    <span class="keyword">constexpr</span> uint32_t numThreads          = 8;</div>
@@ -504,15 +504,15 @@ SC::Barrier</h2>
 <div class="line">    {</div>
 <div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(threads[i].join());</div>
 <div class="line">    }</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md476"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md508"></a>
 SC::ConditionVariable</h2>
 <p>A native OS condition variable.   </p>
-<h1><a class="anchor" id="autotoc_md477"></a>
+<h1><a class="anchor" id="autotoc_md509"></a>
 Roadmap</h1>
 <p>🟦 Complete Features:</p><ul>
 <li>Support more types in Atomic&lt;T&gt;</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md478"></a>
+<h1><a class="anchor" id="autotoc_md510"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Threading</code>. Single File counts <code>SaneCppThreading.h</code>. Standalone counts <code>SaneCppThreadingStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

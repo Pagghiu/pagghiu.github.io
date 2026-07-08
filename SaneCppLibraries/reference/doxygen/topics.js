@@ -5,6 +5,8 @@ var topics =
     [ "Await", "group__group__await.html", null ],
     [ "C Bindings", "group__group__c__bindings.html", "group__group__c__bindings" ],
     [ "Containers", "group__group__containers.html", "group__group__containers" ],
+    [ "Fibers", "group__group__fibers.html", null ],
+    [ "FibersAsync", "group__group__fibers__async.html", null ],
     [ "File", "group__group__file.html", "group__group__file" ],
     [ "FileSystem", "group__group__file__system.html", "group__group__file__system" ],
     [ "FileSystem Iterator", "group__group__file__system__iterator.html", "group__group__file__system__iterator" ],

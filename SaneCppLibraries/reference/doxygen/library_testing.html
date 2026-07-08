@@ -129,43 +129,43 @@ $(function(){initNavTree('library_testing.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md455">Dependencies</a>
+    <a href="#autotoc_md487">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md456">Features</a>
+    <a href="#autotoc_md488">Features</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md457">Status</a>
+    <a href="#autotoc_md489">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md458">Description</a>
+    <a href="#autotoc_md490">Description</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md459">SC::TestCase</a>
+        <a href="#autotoc_md491">SC::TestCase</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md460">SC::TestReport</a>
+        <a href="#autotoc_md492">SC::TestReport</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md461">Roadmap</a>
+    <a href="#autotoc_md493">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md462">Statistics</a>
+    <a href="#autotoc_md494">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟨 Simple testing framework used by all of the other libraries</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppTesting.h">SaneCppTesting.h</a> is a very simple test framework that allows splitting tests in sections and record successful/failed expectations.</p>
-<h1><a class="anchor" id="autotoc_md455"></a>
+<h1><a class="anchor" id="autotoc_md487"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Testing.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md456"></a>
+<h1><a class="anchor" id="autotoc_md488"></a>
 Features</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -175,14 +175,14 @@ Features</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1TestReport.html" title="Collects multiple TestCase and reports their results.">SC::TestReport</a>   </td><td class="markdownTableBodyLeft">Collects multiple TestCase and reports their results.      </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md457"></a>
+<h1><a class="anchor" id="autotoc_md489"></a>
 Status</h1>
 <p>🟨 MVP <br  />
  Testing library is minimal but it's useful as is for now.</p>
-<h1><a class="anchor" id="autotoc_md458"></a>
+<h1><a class="anchor" id="autotoc_md490"></a>
 Description</h1>
 <p>Testing integrates with the SC::Result object provided by the Common fragments. So far it doesn't support test discovery and all tests must be manually invoked in the main test file.</p>
-<h2><a class="anchor" id="autotoc_md459"></a>
+<h2><a class="anchor" id="autotoc_md491"></a>
 SC::TestCase</h2>
 <p>A test case that can be split into multiple sections.   </p>
 <p>To create a test case derive from <a class="el" href="structSC_1_1TestCase.html" title="A test case that can be split into multiple sections.">SC::TestCase</a> and run tests in the constructor</p>
@@ -225,11 +225,11 @@ SC::TestCase</h2>
 <div class="line">{</div>
 <div class="line"><span class="keywordtype">void</span> runConsoleTest(<a class="code hl_struct" href="structSC_1_1TestReport.html">SC::TestReport</a>&amp; report) { ConsoleTest test(report); }</div>
 <div class="line">} <span class="comment">// namespace SC</span></div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md460"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md492"></a>
 SC::TestReport</h2>
 <p>Collects multiple TestCase and reports their results.   </p>
 <p>This is passed as argument to <a class="el" href="structSC_1_1TestCase.html" title="A test case that can be split into multiple sections.">SC::TestCase</a> derived classes, and contains handle to <em>globals</em> like a console, paths to the library and application root, path to executable etc.   </p>
-<h1><a class="anchor" id="autotoc_md461"></a>
+<h1><a class="anchor" id="autotoc_md493"></a>
 Roadmap</h1>
 <p>🟩 Usable</p><ul>
 <li>Test discovery</li>
@@ -240,7 +240,7 @@ Roadmap</h1>
 <p>💡 Unplanned Features:</p><ul>
 <li>Template tests</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md462"></a>
+<h1><a class="anchor" id="autotoc_md494"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Testing</code>. Single File counts <code>SaneCppTesting.h</code>. Standalone counts <code>SaneCppTestingStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

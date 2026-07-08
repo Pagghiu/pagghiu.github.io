@@ -3,6 +3,7 @@ var group__group__process =
     [ "SC::ProcessID", "structSC_1_1ProcessID.html", null ],
     [ "SC::Process", "structSC_1_1Process.html", [
       [ "Options", "structSC_1_1Process_1_1Options.html", [
+        [ "windowsCreateNewProcessGroup", "structSC_1_1Process_1_1Options.html#a862db4fb8658b84ca0857be3dd64a446", null ],
         [ "windowsHide", "structSC_1_1Process_1_1Options.html#a57133817ee45fc9fd02a9a50249045b4", null ]
       ] ],
       [ "StdIn", "structSC_1_1Process_1_1StdIn.html", [

@@ -308,7 +308,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isThreadPoolForced</b
 <dl class="section note"><dt>Note</dt><dd>On epoll/macOS/Windows this runs synchronously when scheduled and can optionally use a thread pool for better concurrency. </dd>
 <dd>
 On io_uring this uses native async sendfile (IORING_OP_SEND_ZC when available).</dd></dl>
-<h2><a class="anchor" id="autotoc_md497"></a>
+<h2><a class="anchor" id="autotoc_md529"></a>
 File Opening Requirements</h2>
 <p><b>Windows:</b> Files <b>must</b> be opened with <code><a class="el" href="structSC_1_1FileOpen.html#aeab1ae17d0e3c5f8abd6ef230862c443" title="Set to false if file will be used for Async I/O (see Async)">FileOpen::blocking</a> = true</code> because the Windows implementation uses synchronous <code>ReadFile</code>/<code>WSASend</code> internally. Opening files with <code>blocking = false</code> (which adds <code>FILE_FLAG_OVERLAPPED</code>) will cause <code>ReadFile</code> to fail or return 0 bytes. The async aspect comes from being scheduled within the event loop, not from overlapped I/O.</p>
 <p><b>Posix (macOS/Linux with epoll):</b> Files should be opened with <code><a class="el" href="structSC_1_1FileOpen.html#aeab1ae17d0e3c5f8abd6ef230862c443" title="Set to false if file will be used for Async I/O (see Async)">FileOpen::blocking</a> = false</code> to enable non-blocking <code>sendfile</code>. If opened with <code>blocking = true</code>, <code>sendfile</code> will block the event loop thread until completion.</p>

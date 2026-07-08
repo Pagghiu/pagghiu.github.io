@@ -77,7 +77,7 @@ var searchData=
   ['getwritequeuesize_74',['getWriteQueueSize',['../structSC_1_1AsyncWritableStream.html#a0e642fc23558f237b99659679aa7da94',1,'SC::AsyncWritableStream']]],
   ['gid_75',['gid',['../structSC_1_1FileDescriptorStat.html#ae2d0c7e297d3fb33ea12de2ed00e6bc1',1,'SC::FileDescriptorStat::gid'],['../structSC_1_1FileSystemStat.html#a79607eee61d62818f28a84cf34ddae68',1,'SC::FileSystemStat::gid']]],
   ['global_76',['Global',['../structSC_1_1Globals.html#a758b86fb7ced33605a278e6c3522c4e0a45aa6041fcd28872d2d487dbe44b36db',1,'SC::Globals']]],
-  ['globals_77',['Globals',['../structSC_1_1Globals.html',1,'SC::Globals'],['../library_memory.html#autotoc_md329',1,'Globals']]],
+  ['globals_77',['Globals',['../structSC_1_1Globals.html',1,'SC::Globals'],['../library_memory.html#autotoc_md361',1,'Globals']]],
   ['globals_20static_20member_20variables_78',['Globals / Static member variables',['../page_coding_style.html#autotoc_md73',1,'']]],
   ['globalsettings_79',['GlobalSettings',['../structSC_1_1GlobalSettings.html',1,'SC']]],
   ['group_5ffoundation_5futility_80',['Group_foundation_utility',['../group__group__foundation__utility.html',1,'']]],

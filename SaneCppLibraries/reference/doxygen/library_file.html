@@ -129,39 +129,39 @@ $(function(){initNavTree('library_file.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md204">Dependencies</a>
+    <a href="#autotoc_md236">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md205">Features</a>
+    <a href="#autotoc_md237">Features</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md206">Status</a>
+    <a href="#autotoc_md238">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md207">Blog</a>
+    <a href="#autotoc_md239">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md208">Description</a>
+    <a href="#autotoc_md240">Description</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md209">Roadmap</a>
+    <a href="#autotoc_md241">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md210">Statistics</a>
+    <a href="#autotoc_md242">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟩 Synchronous Disk File I/O</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppFile.h">SaneCppFile.h</a> is a library implementing synchronous I/O operations on files and pipes. <br  />
 </p>
-<h1><a class="anchor" id="autotoc_md204"></a>
+<h1><a class="anchor" id="autotoc_md236"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="File.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md205"></a>
+<h1><a class="anchor" id="autotoc_md237"></a>
 Features</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -233,11 +233,11 @@ Features</h1>
 <p class="endtd"></p>
 </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md206"></a>
+<h1><a class="anchor" id="autotoc_md238"></a>
 Status</h1>
 <p>🟩 Usable <br  />
  This library now covers synchronous descriptor I/O together with descriptor metadata, synchronization and descriptor-bound permission/ownership updates. <code>sendfile</code> is still intentionally deferred until a dependency-safe cross-library API is defined.</p>
-<h1><a class="anchor" id="autotoc_md207"></a>
+<h1><a class="anchor" id="autotoc_md239"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
@@ -246,7 +246,7 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2026-02-28-SaneCppLibrariesUpdate.html">February 2026 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md208"></a>
+<h1><a class="anchor" id="autotoc_md240"></a>
 Description</h1>
 <p><a class="el" href="structSC_1_1FileDescriptor.html" title="[UniqueHandleDeclaration2Snippet]">SC::FileDescriptor</a> object can be created by <a class="el" href="structSC_1_1FileDescriptor.html#abb9e7b63235cd19a0926f6e838eca79b" title="Opens a file descriptor handle from a file system path.">SC::FileDescriptor::open</a>-ing a path on file system and it can be <a class="el" href="structSC_1_1FileDescriptor.html#a7872531dfb1a1f7eddeb1591452f684c" title="Reads bytes at offset into user supplied span.">SC::FileDescriptor::read</a> or <a class="el" href="structSC_1_1FileDescriptor.html#a5551f0d07b77177e38dfc777fbb8aabf" title="Writes bytes at offset from start of the file descriptor.">SC::FileDescriptor::write</a>. <br  />
  Also non-blocking mode can be controlled with SC::FileDescriptor::setBlocking. <br  />
@@ -255,7 +255,7 @@ Description</h1>
  It can also be used to read or write the standard input, output or error from current process into a binary buffer or a string (as done by SC::ProcessChain::readStdOutUntilEOFSync or other similar methods).</p>
 <p><a class="el" href="structSC_1_1NamedPipeServer.html" title="Named pipe server endpoint.">SC::NamedPipeServer</a> and <a class="el" href="structSC_1_1NamedPipeClient.html" title="Named pipe client endpoint creator.">SC::NamedPipeClient</a> provide named endpoint creation and connection. Accepted/connected named pipe endpoints are exposed as <a class="el" href="structSC_1_1PipeDescriptor.html" title="Read / Write pipe (Process stdin/stdout and IPC communication)">SC::PipeDescriptor</a>, so they can be used with the same read/write APIs and with <a class="el" href="library_async.html">Async</a> / <a class="el" href="library_async_streams.html">Async Streams</a> compositions. <a class="el" href="structSC_1_1NamedPipeName.html#a65b74f2d5ee5c0e266094d956d8c4da1" title="Builds a platform-native named pipe endpoint path.">SC::NamedPipeName::build</a> can be used to compose platform-native endpoint names from a logical pipe name, avoiding platform-specific <code>#if</code> path conventions at call sites.</p>
 <p>Open, read and write to/from a file descriptor (like a file or pipe).   </p>
-<h1><a class="anchor" id="autotoc_md209"></a>
+<h1><a class="anchor" id="autotoc_md241"></a>
 Roadmap</h1>
 <p>🟦 Complete Features:</p><ul>
 <li><code>sendfile</code> deferred until a dependency-safe API is defined</li>
@@ -263,7 +263,7 @@ Roadmap</h1>
 <p>💡 Unplanned Features:</p><ul>
 <li>None for now</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md210"></a>
+<h1><a class="anchor" id="autotoc_md242"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/File</code>. Single File counts <code>SaneCppFile.h</code>. Standalone counts <code>SaneCppFileStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

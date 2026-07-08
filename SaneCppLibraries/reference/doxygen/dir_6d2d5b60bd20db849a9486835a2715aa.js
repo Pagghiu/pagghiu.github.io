@@ -4,6 +4,8 @@ var dir_6d2d5b60bd20db849a9486835a2715aa =
     [ "AsyncStreams", "dir_cd56bb473fdb398dac983d7165782cdf.html", "dir_cd56bb473fdb398dac983d7165782cdf" ],
     [ "Await", "dir_a338c80bbba52e56429380b527205b84.html", "dir_a338c80bbba52e56429380b527205b84" ],
     [ "Containers", "dir_85593c046217bb9cfcbaecbbc0af605b.html", "dir_85593c046217bb9cfcbaecbbc0af605b" ],
+    [ "Fibers", "dir_b83ab53a939723dbf43f358a43675b1b.html", "dir_b83ab53a939723dbf43f358a43675b1b" ],
+    [ "FibersAsync", "dir_e862762325a0de39bb4ccb4477167cf3.html", "dir_e862762325a0de39bb4ccb4477167cf3" ],
     [ "File", "dir_e8841d979ab1c366712c33d0ac5b340a.html", "dir_e8841d979ab1c366712c33d0ac5b340a" ],
     [ "FileSystem", "dir_183044703a0775b11e2e5c269b5f3038.html", "dir_183044703a0775b11e2e5c269b5f3038" ],
     [ "FileSystemIterator", "dir_a76df76ed1273a6f4326fba7b9172c5f.html", "dir_a76df76ed1273a6f4326fba7b9172c5f" ],

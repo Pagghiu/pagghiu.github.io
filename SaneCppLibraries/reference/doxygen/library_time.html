@@ -129,81 +129,81 @@ $(function(){initNavTree('library_time.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md479">Dependencies</a>
+    <a href="#autotoc_md511">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md480">Features</a>
+    <a href="#autotoc_md512">Features</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md481">Status</a>
+    <a href="#autotoc_md513">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md482">Description</a>
+    <a href="#autotoc_md514">Description</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md483">SC::Time::Absolute</a>
+        <a href="#autotoc_md515">SC::Time::Absolute</a>
         <ul>
           <li class="level3">
-            <a href="#autotoc_md484">SC::Time::Absolute::parseLocal</a>
+            <a href="#autotoc_md516">SC::Time::Absolute::parseLocal</a>
           </li>
         </ul>
       </li>
       <li class="level2">
-        <a href="#autotoc_md485">SC::Time::Monotonic</a>
+        <a href="#autotoc_md517">SC::Time::Monotonic</a>
         <ul>
           <li class="level3">
-            <a href="#autotoc_md486">SC::Time::Monotonic::now</a>
+            <a href="#autotoc_md518">SC::Time::Monotonic::now</a>
           </li>
         </ul>
       </li>
       <li class="level2">
-        <a href="#autotoc_md487">SC::Time::Realtime</a>
+        <a href="#autotoc_md519">SC::Time::Realtime</a>
         <ul>
           <li class="level3">
-            <a href="#autotoc_md488">SC::Time::Realtime::now</a>
+            <a href="#autotoc_md520">SC::Time::Realtime::now</a>
           </li>
         </ul>
       </li>
       <li class="level2">
-        <a href="#autotoc_md489">SC::Time::Relative</a>
+        <a href="#autotoc_md521">SC::Time::Relative</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md490">SC::Time::HighResolutionCounter</a>
+        <a href="#autotoc_md522">SC::Time::HighResolutionCounter</a>
         <ul>
           <li class="level3">
-            <a href="#autotoc_md491">SC::Time::HighResolutionCounter::snap</a>
+            <a href="#autotoc_md523">SC::Time::HighResolutionCounter::snap</a>
           </li>
           <li class="level3">
-            <a href="#autotoc_md492">SC::Time::HighResolutionCounter::subtractApproximate</a>
+            <a href="#autotoc_md524">SC::Time::HighResolutionCounter::subtractApproximate</a>
           </li>
           <li class="level3">
-            <a href="#autotoc_md493">SC::Time::HighResolutionCounter::isLaterThanOrEqualTo</a>
+            <a href="#autotoc_md525">SC::Time::HighResolutionCounter::isLaterThanOrEqualTo</a>
           </li>
         </ul>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md494">Blog</a>
+    <a href="#autotoc_md526">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md495">Roadmap</a>
+    <a href="#autotoc_md527">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md496">Statistics</a>
+    <a href="#autotoc_md528">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟨 Time handling (relative, absolute, high resolution)</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppTime.h">SaneCppTime.h</a> contains classes to measure time and compute or measure time intervals.</p>
-<h1><a class="anchor" id="autotoc_md479"></a>
+<h1><a class="anchor" id="autotoc_md511"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Time.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md480"></a>
+<h1><a class="anchor" id="autotoc_md512"></a>
 Features</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -219,19 +219,19 @@ Features</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1Time_1_1HighResolutionCounter.html" title="An high resolution time counter.">SC::Time::HighResolutionCounter</a>   </td><td class="markdownTableBodyLeft">An high resolution time counter.      </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md481"></a>
+<h1><a class="anchor" id="autotoc_md513"></a>
 Status</h1>
 <p>🟨 MVP <br  />
  This library is in MVP state but it doesn't have a clear roadmap.</p>
-<h1><a class="anchor" id="autotoc_md482"></a>
+<h1><a class="anchor" id="autotoc_md514"></a>
 Description</h1>
-<h2><a class="anchor" id="autotoc_md483"></a>
+<h2><a class="anchor" id="autotoc_md515"></a>
 SC::Time::Absolute</h2>
 <p>Absolute time as realtime or monotonically increasing clock.   </p>
 <dl class="section see"><dt>See also</dt><dd>Monotonic </dd>
 <dd>
 Realtime   </dd></dl>
-<h3><a class="anchor" id="autotoc_md484"></a>
+<h3><a class="anchor" id="autotoc_md516"></a>
 SC::Time::Absolute::parseLocal</h3>
 <p>Parses local time to a Parsed structure.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -251,25 +251,25 @@ Example: <div class="fragment"><div class="line">    Time::Absolute::ParseResult
 <div class="line"> </div>
 <div class="line">    report.console.printLine(result.view());</div>
 </div><!-- fragment -->  </dd></dl>
-<h2><a class="anchor" id="autotoc_md485"></a>
+<h2><a class="anchor" id="autotoc_md517"></a>
 SC::Time::Monotonic</h2>
 <p>Represent monotonically increasing time (use Monotonic::now for current time)   </p>
-<h3><a class="anchor" id="autotoc_md486"></a>
+<h3><a class="anchor" id="autotoc_md518"></a>
 SC::Time::Monotonic::now</h3>
 <p>Obtain time according to monotonic clock.   </p>
-<h2><a class="anchor" id="autotoc_md487"></a>
+<h2><a class="anchor" id="autotoc_md519"></a>
 SC::Time::Realtime</h2>
 <p>Represents a realtime clock in milliseconds since epoch (use Realtime::now for current time)   </p>
-<h3><a class="anchor" id="autotoc_md488"></a>
+<h3><a class="anchor" id="autotoc_md520"></a>
 SC::Time::Realtime::now</h3>
 <p>Obtain time according to realtime clock.   </p>
-<h2><a class="anchor" id="autotoc_md489"></a>
+<h2><a class="anchor" id="autotoc_md521"></a>
 SC::Time::Relative</h2>
 <p>Interval of time represented with 64 bit double precision float.   </p>
-<h2><a class="anchor" id="autotoc_md490"></a>
+<h2><a class="anchor" id="autotoc_md522"></a>
 SC::Time::HighResolutionCounter</h2>
 <p>An high resolution time counter.   </p>
-<h3><a class="anchor" id="autotoc_md491"></a>
+<h3><a class="anchor" id="autotoc_md523"></a>
 SC::Time::HighResolutionCounter::snap</h3>
 <p>Sets HighResolutionCounter to current instant <br  />
 Example:   </p>
@@ -296,7 +296,7 @@ Example:   </p>
 <div class="line"> </div>
 <div class="line">    Time::Relative approxTime = end.subtractApproximate(start);</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(approxTime &gt; Time::Relative::fromSeconds(0.05));</div>
-</div><!-- fragment -->  <h3><a class="anchor" id="autotoc_md492"></a>
+</div><!-- fragment -->  <h3><a class="anchor" id="autotoc_md524"></a>
 SC::Time::HighResolutionCounter::subtractApproximate</h3>
 <p>Subtracts another HighResolutionCounter from this one, returning an approximate Relative.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -347,7 +347,7 @@ Example: <div class="fragment"><div class="line">    Time::HighResolutionCounter
 <div class="line">    Time::Milliseconds          posDiffMs = posDiff.toMilliseconds();</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(posDiffMs == Time::Milliseconds(400)); <span class="comment">// +0.4 seconds</span></div>
 </div><!-- fragment -->  </dd></dl>
-<h3><a class="anchor" id="autotoc_md493"></a>
+<h3><a class="anchor" id="autotoc_md525"></a>
 SC::Time::HighResolutionCounter::isLaterThanOrEqualTo</h3>
 <p>Check if this HighResolutionCounter is later or equal to another HighResolutionCounter.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -363,13 +363,13 @@ Example: <div class="fragment"><div class="line">    Time::HighResolutionCounter
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(end.isLaterThanOrEqualTo(start));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not start.isLaterThanOrEqualTo(end));</div>
 </div><!-- fragment -->  </dd></dl>
-<h1><a class="anchor" id="autotoc_md494"></a>
+<h1><a class="anchor" id="autotoc_md526"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2025-01-31-SaneCppLibrariesUpdate.html">January 2025 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md495"></a>
+<h1><a class="anchor" id="autotoc_md527"></a>
 Roadmap</h1>
 <p>🟩 Usable</p><ul>
 <li>No Plan</li>
@@ -380,7 +380,7 @@ Roadmap</h1>
 <p>💡 Unplanned Features:</p><ul>
 <li>No Plan</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md496"></a>
+<h1><a class="anchor" id="autotoc_md528"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Time</code>. Single File counts <code>SaneCppTime.h</code>. Standalone counts <code>SaneCppTimeStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">
