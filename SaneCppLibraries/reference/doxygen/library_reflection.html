@@ -129,125 +129,91 @@ $(function(){initNavTree('library_reflection.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md389">Dependencies</a>
+    <a href="#autotoc_md325">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md390">Features</a>
+    <a href="#autotoc_md326">When Reflection Fits</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md391">Details</a>
+    <a href="#autotoc_md327">The Description You Write</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md392">Status</a>
+    <a href="#autotoc_md328">Two Ways Consumers Use It</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md393">Roadmap</a>
+    <a href="#autotoc_md329">Packing Is a Serialization Property</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md394">Description</a>
-    <ul>
-      <li class="level2">
-        <a href="#autotoc_md395">Packed attribute</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md396">How to use it</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md397">Struct member info</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md398">Reflection Macros</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md399">Example (print schema)</a>
-      </li>
-    </ul>
+    <a href="#autotoc_md330">Allocation, Ownership, and Lifetime</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md400">Implementation</a>
+    <a href="#autotoc_md331">Relationship to Neighboring Libraries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md401">Statistics</a>
+    <a href="#autotoc_md332">Status and Practical Limits</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md333">Statistics</a>
   </li>
 </ul>
 </div>
-<div class="textblock"><p>🟩 Describe C++ types at compile time for serialization</p>
-<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppReflection.h">SaneCppReflection.h</a> is a library building a compile time schema describing a struct with the main objective of serialization.</p>
-<dl class="section note"><dt>Note</dt><dd>You need to include headers from <a class="el" href="library_containers_reflection.html">Serialization Adapters</a> in order to use <code><a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a></code> or <code><a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a></code> or any other reflect-able class provided by other libraries with this one.</dd></dl>
-<h1><a class="anchor" id="autotoc_md389"></a>
+<div class="textblock"><p>🟩 Describe C++ object structure at compile time, primarily for serialization.</p>
+<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppReflection.h">SaneCppReflection.h</a> lets an application describe the fields of its own C++ structures without adding metadata to those structures. The description is <code>constexpr</code>, allocation-free, and deliberately small: primitive values, C arrays, structures, and adapter-defined vector-like types.</p>
+<p>Reflection is infrastructure rather than a general-purpose introspection system. Its main consumers are <a class="el" href="library_serialization_binary.html">Serialization Binary</a> and <a class="el" href="library_serialization_text.html">Serialization Text</a>. It does not discover arbitrary C++ members, access fields by a dynamic string API, perform I/O, or manage object storage.</p>
+<h1><a class="anchor" id="autotoc_md325"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Reflection.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md390"></a>
-Features</h1>
+<h1><a class="anchor" id="autotoc_md326"></a>
+When Reflection Fits</h1>
+<p>Use Reflection when the set of serializable fields is known at compile time and you are willing to register those fields explicitly. It is a good fit for application state, messages, settings, or file-format structures that need one shared description for binary and textual serialization.</p>
+<p>It is less suitable when you need runtime registration, arbitrary graph traversal, polymorphic object construction, or transparent support for pointers and references. Those types have no built-in reflection model. Reflection also does not preserve C++ invariants during deserialization by itself; that policy belongs to the serializer and the reflected type design.</p>
+<p>The library has no dependency on SC containers. Primitive types, C arrays, and user structures work directly. If an object graph contains <code><a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a></code>, <code><a class="el" href="structSC_1_1Array.html" title="A contiguous sequence of elements kept inside its inline storage.">SC::Array</a></code>, <code><a class="el" href="structSC_1_1VectorMap.html" title="A map holding VectorMapItem key-value pairs in an unsorted Vector.">SC::VectorMap</a></code>, <code><a class="el" href="structSC_1_1Buffer.html" title="An heap allocated byte buffer that can optionally use an inline buffer.">SC::Buffer</a></code>, or <code><a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a></code>, include the opt-in <a class="el" href="library_containers_reflection.html">Containers Reflection</a> adapters. This keeps the base library independent, but means container support is not automatic merely because the container header is visible.</p>
+<h1><a class="anchor" id="autotoc_md327"></a>
+The Description You Write</h1>
+<p>A reflected structure specializes <code>SC::Reflection::Reflect&lt;T&gt;</code> outside the structure itself. Its <code>visit</code> function presents each selected member as four pieces of information:</p>
 <ul>
-<li>Reflection info is built at compile time</li>
-<li>Free of heap allocations</li>
-<li>Describe primitive types</li>
-<li>Describe C-Arrays</li>
-<li>Describe <a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a>, <a class="el" href="structSC_1_1VectorMap.html" title="A map holding VectorMapItem key-value pairs in an unsorted Vector.">SC::VectorMap</a>, <a class="el" href="structSC_1_1Array.html" title="A contiguous sequence of elements kept inside its inline storage.">SC::Array</a>, <a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a></li>
-<li>Describe Structs composition of any supported type</li>
-<li>Identify types that can be serialized with a single memcpy</li>
+<li>a numeric member tag;</li>
+<li>a pointer-to-member;</li>
+<li>a textual field name;</li>
+<li>the byte offset within the containing structure.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md391"></a>
-Details</h1>
-<p>Reflection generates compile time information of fields in a structure or class. <br  />
-Typically this library is used with one of the serialization libraries ( <a class="el" href="library_serialization_binary.html">Serialization Binary</a> or <a class="el" href="library_serialization_text.html">Serialization Text</a>).</p>
-<dl class="section note"><dt>Note</dt><dd>Reflection uses more complex C++ constructs compared to other libraries in this repository. To limit the issue, effort has been spent trying not to use obscure C++ meta-programming techniques. The library uses only template partial specialization and <code>constexpr</code>.   </dd></dl>
-<h1><a class="anchor" id="autotoc_md392"></a>
-Status</h1>
-<p>🟩 Usable <br  />
- Under described limitations, the library should be usable.</p>
-<h1><a class="anchor" id="autotoc_md393"></a>
-Roadmap</h1>
-<p>🟦 Complete Features:</p><ul>
-<li>To be decided</li>
-</ul>
-<p>💡 Unplanned Features:</p><ul>
-<li>None so far</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md394"></a>
-Description</h1>
-<p>The main target use case is generating reflection information to be used for automatic serialization. There are many rules and limitations so far, and the main one is not supporting any type of reference or pointer. The output of the process is a <em>schema</em> of the reflected type. This schema is an array of SC::Reflection::TypeInfo tracking the type and offset location (in bytes) of the field in the structure it belongs to. <br  />
- Fields that refer to non-primitive types (like other structs for example) can follow a <em>link</em> index that describes that field elsewhere in the scheme.</p>
-<h2><a class="anchor" id="autotoc_md395"></a>
-Packed attribute</h2>
-<p>The schema contains information about all the types of all fields of the structure and the <em>packing state</em>. <br  />
- A <em>packed struct</em> is made of primitive types that are described to the Reflection system so that there are no padding bytes left in the struct. <br  />
- Example of packed struct: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>Vec3</div>
+<p>The member pointer is how serializers access the value without casting from a byte offset. Text serializers use the name, while versioned binary serialization uses the numeric tag. Keeping both explicit lets a C++ member be renamed without necessarily breaking the binary format, or lets a textual name change independently when a format intentionally changes. Tags therefore belong to the persisted format: do not renumber them casually, and do not reuse a removed tag for a different meaning.</p>
+<p>The <code>SC_REFLECT_STRUCT_VISIT</code>, <code>SC_REFLECT_STRUCT_FIELD</code>, and <code>SC_REFLECT_STRUCT_LEAVE</code> macros are the usual spelling. This test-backed example shows composition and SC container adapters in the same object graph:</p>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>TestNamespace::IntermediateStructure</div>
 <div class="line">{</div>
-<div class="line">    <span class="keywordtype">float</span> x;</div>
-<div class="line">    <span class="keywordtype">float</span> y;</div>
-<div class="line">    <span class="keywordtype">float</span> z;</div>
-<div class="line">};</div>
-</div><!-- fragment --><p> Example of non-packed struct: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>Vec3</div>
-<div class="line">{</div>
-<div class="line">    <span class="keywordtype">float</span> x;</div>
-<div class="line">    uint16_t y; </div>
-<div class="line">    <span class="comment">// we have 4 bytes of padding between y and z</span></div>
-<div class="line">    <span class="keywordtype">float</span> z;</div>
-<div class="line">};</div>
-</div><!-- fragment --><p> A <em>recursively packed struct</em> is a struct made of other structs or arrays of structs without any padding bytes inside of themselves. Example of recursively packed struct: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>ArrayOfVec3</div>
-<div class="line">{</div>
-<div class="line">    Vec3 array[10];</div>
+<div class="line">    <a class="code hl_struct" href="structSC_1_1Vector.html">SC::Vector&lt;int&gt;</a> vectorOfInt;</div>
+<div class="line">    SimpleStructure simpleStructure;</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">struct </span>Vec3</div>
+<div class="line">SC_REFLECT_STRUCT_VISIT(TestNamespace::IntermediateStructure)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(1, vectorOfInt)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(0, simpleStructure)</div>
+<div class="line">SC_REFLECT_STRUCT_LEAVE()</div>
+<div class="line"> </div>
+<div class="line">struct TestNamespace::ComplexStructure</div>
 <div class="line">{</div>
-<div class="line">    int32_t someNumber;</div>
-<div class="line">    ArrayOfVec3 array;</div>
+<div class="line">    SC::uint8_t                 f1 = 0;</div>
+<div class="line">    SimpleStructure             simpleStructure;</div>
+<div class="line">    SimpleStructure             simpleStructure2;</div>
+<div class="line">    SC::uint16_t                f4 = 0;</div>
+<div class="line">    IntermediateStructure       intermediateStructure;</div>
+<div class="line">    <a class="code hl_struct" href="structSC_1_1Vector.html">SC::Vector&lt;SimpleStructure&gt;</a> vectorOfStructs;</div>
 <div class="line">};</div>
-</div><!-- fragment --><p>The <em>recursively packed</em> property allows binary serializers and deserializer to optimize reading / writing with a single <code>memcpy</code> (for example <a class="el" href="library_serialization_binary.html">Serialization Binary</a>). <br  />
-</p>
-<dl class="section note"><dt>Note</dt><dd>This means that serializers like <a class="el" href="library_serialization_binary.html">Serialization Binary</a> will not invoke type constructor when deserializing a Packed type, as all members are explicitly written by serialization.</dd></dl>
-<h2><a class="anchor" id="autotoc_md396"></a>
-How to use it</h2>
-<p>Describing a structure is done externally to the struct itself, specializing a SC::Reflection::Reflect&lt;&gt; struct. <br  />
-</p>
-<p>For Example: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>TestNamespace::SimpleStructure</div>
+<div class="line"> </div>
+<div class="line">SC_REFLECT_STRUCT_VISIT(TestNamespace::ComplexStructure)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(0, f1)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(1, simpleStructure)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(2, simpleStructure2)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(3, f4)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(4, intermediateStructure)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(5, vectorOfStructs)</div>
+<div class="line">SC_REFLECT_STRUCT_LEAVE()</div>
+</div><!-- fragment --><p>The order written is normally the visit order used by exact serializers. The field name is produced from the member token by the macro. For unusual mappings, the underlying explicit <code>Reflect&lt;T&gt;</code> specialization remains available; the complete form is exercised here:</p>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>TestNamespace::SimpleStructure</div>
 <div class="line">{</div>
 <div class="line">    SC::uint8_t  f0 = 0;</div>
 <div class="line">    SC::uint16_t f1 = 1;</div>
@@ -288,359 +254,42 @@ How to use it</h2>
 <div class="line">};</div>
 <div class="line">} <span class="comment">// namespace Reflection</span></div>
 <div class="line">} <span class="comment">// namespace SC</span></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md397"></a>
-Struct member info</h2>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md328"></a>
+Two Ways Consumers Use It</h1>
+<p>The member visitor is the simplest mental model. A consumer calls <code>Reflect&lt;T&gt;::visit(visitor)</code>, and the visitor receives each registered pointer-to-member plus its metadata. Exact binary and text serializers use this path directly, recursing into the member's reflected type.</p>
+<p>For versioning and type-level inspection, <code>SC::Reflection::Schema::compile&lt;T&gt;()</code> converts the same description into a flat compile-time schema. Each entry is an eight-byte <code>SC::Reflection::TypeInfo</code>. A structure entry is followed by entries for its fields; a non-primitive field links to the later entry that describes that structure or array. Repeated complex types share their linked description rather than expanding forever.</p>
+<p>The result contains parallel fixed-size arrays of type information and type names, trimmed at compile time to the entries actually used. Schema compilation performs no heap allocation and creates no runtime registry. Its default compile-time working limits are 20 distinct complex links and 100 total type entries; callers with a larger model can override both template arguments. The stored representation itself uses an eight-bit link index and child count and 16-bit sizes and offsets. Although the member-tag field occupies 16 bits, the current registration and schema-building interfaces accept an eight-bit tag. This is intentionally a compact schema rather than an unbounded metadata format.</p>
+<h1><a class="anchor" id="autotoc_md329"></a>
+Packing Is a Serialization Property</h1>
+<p>Reflection computes <code>ExtendedTypeInfo&lt;T&gt;::IsPacked</code> recursively. A structure is considered packed only when every reflected member is packed and the sum of their sizes equals <code>sizeof(T)</code>. C arrays inherit the packing state of their element type. This detects padding between reflected fields and padding introduced by nested types.</p>
+<p>The name can be misleading: Reflection does not apply a compiler packing attribute and does not change layout. It only reports that the reflected bytes already form a gap-free span. <a class="el" href="library_serialization_binary.html">Serialization Binary</a> can use that fact to copy an exact-format value in one operation; for a packed structure it may therefore write or restore member bytes without invoking per-member construction logic. A type whose invariants require setters, validation, or custom construction should not rely on that fast path merely because its physical layout happens to be packed.</p>
+<p>For packed structures, the compiled flat schema sorts immediate member entries by byte offset. Non-packed structures retain registration order. This is an implementation contract used by binary serialization, not a reason to depend on schema order in application code.</p>
+<h1><a class="anchor" id="autotoc_md330"></a>
+Allocation, Ownership, and Lifetime</h1>
+<p>Reflection owns no object data and allocates no memory. A <code>Reflect&lt;T&gt;</code> specialization contains compile-time functions; a compiled schema is a <code>constexpr</code> value whose storage belongs to the caller or program image. Type and field names are non-owning views into compiler-generated names or string literals and are expected to have static lifetime.</p>
+<p>The library also does not allocate while visiting an object. Allocation can still occur in a higher-level operation: for example, a versioned deserializer may need to resize an owning vector or string through <a class="el" href="library_containers_reflection.html">Containers Reflection</a>. That allocation policy and any failure reporting come from the container adapter and serializer, not from Reflection.</p>
+<p>Offsets and sizes are narrowed into the compact schema representation. Very large structures, members beyond the representable offset, or very large schemas should be treated as outside the intended design rather than assumed to degrade gracefully. <code>Schema::compile</code> reports exhausted compile-time capacity as a compile error, but narrowing a size or offset is not a general runtime bounds-checking facility.</p>
+<h1><a class="anchor" id="autotoc_md331"></a>
+Relationship to Neighboring Libraries</h1>
 <ul>
-<li>These fields are required for binary and text serialization with <b>Versioning</b> support<ul>
-<li><code>MemberTag</code> (integer)</li>
-<li><code>Pointer to Member</code></li>
-<li><code>Field Name</code> (string)</li>
-<li><code>Field Byte Offset</code> in its parent struct</li>
+<li><a class="el" href="library_containers_reflection.html">Containers Reflection</a> adds reflection and resize/data traits for SC owning containers. Use it only when those types occur in the reflected graph.</li>
+<li><a class="el" href="library_serialization_binary.html">Serialization Binary</a> consumes member tags, layout information, packing state, and compiled schemas for exact or version-aware binary formats.</li>
+<li><a class="el" href="library_serialization_text.html">Serialization Text</a> consumes field names and member visitors for JSON and other textual traversal.</li>
+<li><a class="el" href="library_containers.html">Containers</a> and <a class="el" href="library_memory.html">Memory</a> provide storage types, but Reflection intentionally does not depend on them.</li>
 </ul>
-</li>
-<li>This means being able to deserialize data from an older version of the program:<ul>
-<li>For <b>Binary Formats</b>: retaining data in struct members with matching <code>MemberTag</code></li>
-<li>For <b>Textual Formats</b>: retaining data in struct members with matching <code>Field Name</code></li>
-<li>Specifying both of them allow refactoring names of c++ struct members without breaking serialization formats</li>
-</ul>
-</li>
-<li>The <code>Field Byte Offset</code> is necessary to generate an unique versioning signature of a given Struct</li>
-<li>The <code>Pointer to Member</code> allows serializing / deserializing without <code>reinterpret_cast&lt;&gt;</code> (we could use <code>Field Byte Offset</code> as an alternative)</li>
-</ul>
-<dl class="section note"><dt>Note</dt><dd>Additional considerations regarding the level of <em>repetition</em>:<ul>
-<li>There are techniques to get <em>field name as string</em> from member pointer on all compilers, but they're all C++ 20+. <br  />
-</li>
-<li>There are techniques to get compile-time offset of field from member pointer but they are complex and increase compile time unnecessarily.</li>
-<li>We could hash the <code>Field Name</code> to obtain <code>MemberTag</code> but an explicit integer has been preferred to allow breaking textual formats and binary formats independently.</li>
-</ul>
-</dd></dl>
-<h2><a class="anchor" id="autotoc_md398"></a>
-Reflection Macros</h2>
-<p>With some handy macros one can save typing and they're generally preferable.</p>
-<div class="fragment"><div class="line">SC_REFLECT_STRUCT_VISIT(TestNamespace::SimpleStructure)</div>
-<div class="line"> </div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(0, f0)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(1, f1)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(2, f2)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(3, f3)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(4, f4)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(5, f5)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(6, f6)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(7, f7)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(8, f8)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(9, f9)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(10, arrayOfInt);</div>
-<div class="line"> </div>
-<div class="line">SC_REFLECT_STRUCT_LEAVE()</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md399"></a>
-Example (print schema)</h2>
-<p>To understand a little bit more how Serialization library can use this information, let's try to print the schema. <br  />
- The <em>compile time</em> flat schema can be obtained by calling SC::Reflection::Schema::compile:</p>
-<div class="fragment"><div class="line"><span class="keyword">using namespace </span>SC;</div>
-<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespaceSC_1_1Reflection.html">SC::Reflection</a>;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">constexpr</span> <span class="keyword">auto</span> SimpleStructureFlatSchema = Schema::compile&lt;TestNamespace::SimpleStructure&gt;();</div>
-<div class="ttc" id="anamespaceSC_1_1Reflection_html"><div class="ttname"><a href="namespaceSC_1_1Reflection.html">SC::Reflection</a></div><div class="ttdoc">Describe C++ types at compile time for serialization (see Reflection).</div><div class="ttdef"><b>Definition</b> String.h:13</div></div>
-</div><!-- fragment --><p>For example we could print the schema with the following code:</p>
-<div class="fragment"><div class="line"><span class="comment">// Copyright (c) Stefano Cristiano</span></div>
-<div class="line"><span class="comment">// SPDX-License-Identifier: MIT</span></div>
-<div class="line"><span class="preprocessor">#include &quot;Libraries/Common/CompilerMacrosUnusedResult.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;Libraries/Memory/String.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;Libraries/Reflection/Reflection.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;Libraries/Strings/Console.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;Libraries/Strings/StringBuilder.h&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>SC</div>
-<div class="line">{</div>
-<div class="line"><span class="keyword">inline</span> <span class="keyword">const</span> StringView typeCategoryToStringView(<a class="code hl_enumeration" href="group__group__reflection.html#ga51ba295f91ad01d05b37e7b9cd0fe4df">Reflection::TypeCategory</a> type)</div>
-<div class="line">{</div>
-<div class="line">    <span class="keywordflow">switch</span> (type)</div>
-<div class="line">    {</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfadbe97bac1645d61541b5cf414044099f">Reflection::TypeCategory::TypeInvalid</a>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;TypeInvalid &quot;</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa100c558255ca652572b396c3fd27c9d7">Reflection::TypeCategory::TypeBOOL</a>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;TypeBOOL   &quot;</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa9baa9611c7081806481ab5b61d7c63c7">Reflection::TypeCategory::TypeUINT8</a>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;TypeUINT8   &quot;</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa0d59bcc7abf90a4de8cd6e8a9aeae891">Reflection::TypeCategory::TypeUINT16</a>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;TypeUINT16  &quot;</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa092792ef382d8eaae4b06c5ce1335275">Reflection::TypeCategory::TypeUINT32</a>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;TypeUINT32  &quot;</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa2d42c7ff850cb13a383af089327edaec">Reflection::TypeCategory::TypeUINT64</a>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;TypeUINT64  &quot;</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa8ad908d9ddbc6655b1ef3885985b0b80">Reflection::TypeCategory::TypeINT8</a>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;TypeINT8    &quot;</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa72499d938d70729a121d976d343412b6">Reflection::TypeCategory::TypeINT16</a>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;TypeINT16   &quot;</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa7de98cb2c92a46e4dabf6bf04f0943f9">Reflection::TypeCategory::TypeINT32</a>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;TypeINT32   &quot;</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa778e00d0d9a57e14a6c5d69df4e3420d">Reflection::TypeCategory::TypeINT64</a>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;TypeINT64   &quot;</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa8d0c2109d5e5be1a4a614c6db8604393">Reflection::TypeCategory::TypeFLOAT32</a>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;TypeFLOAT32 &quot;</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfaa7587438792cf65b2ba0fecadf3545b0">Reflection::TypeCategory::TypeDOUBLE64</a>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;TypeDOUBLE64&quot;</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa9c147791ce8bcfc2393561bf6c880d1c">Reflection::TypeCategory::TypeStruct</a>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;TypeStruct  &quot;</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa40768bb89ee70d0db382b835306466c0">Reflection::TypeCategory::TypeArray</a>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;TypeArray   &quot;</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa7e80d7f10043a5b0514d6d088c12beb4">Reflection::TypeCategory::TypeVector</a>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;TypeVector  &quot;</span>;</div>
-<div class="line">    }</div>
-<div class="line">    Assert::unreachable();</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> NUM_TYPES, <span class="keyword">typename</span> ConsoleType&gt;</div>
-<div class="line"><span class="keyword">inline</span> <span class="keywordtype">void</span> printFlatSchema(ConsoleType&amp; console, <span class="keyword">const</span> Reflection::TypeInfo (&amp;type)[NUM_TYPES],</div>
-<div class="line">                            <span class="keyword">const</span> Reflection::TypeStringView (&amp;names)[NUM_TYPES])</div>
-<div class="line">{</div>
-<div class="line">    String buffer(StringEncoding::Ascii);</div>
-<div class="line">    <span class="keywordtype">int</span>    typeIndex = 0;</div>
-<div class="line">    <span class="keywordflow">while</span> (typeIndex &lt; NUM_TYPES)</div>
-<div class="line">    {</div>
-<div class="line">        <span class="keyword">auto</span> builder = <a class="code hl_function" href="structSC_1_1StringBuilder.html#a56f4883dfda497b7bb8ba809235045fa">StringBuilder::create</a>(buffer);</div>
-<div class="line">        typeIndex += printTypes(builder, typeIndex, type + typeIndex, names + typeIndex) + 1;</div>
-<div class="line">        console.print(builder.finalize());</div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">inline</span> <span class="keywordtype">int</span> printTypes(StringBuilder&amp; builder, <span class="keywordtype">int</span> typeIndex, <span class="keyword">const</span> Reflection::TypeInfo* types,</div>
-<div class="line">                      <span class="keyword">const</span> Reflection::TypeStringView* typeNames)</div>
-<div class="line">{</div>
-<div class="line">    SC_COMPILER_WARNING_PUSH_UNUSED_RESULT;</div>
-<div class="line">    <span class="keyword">const</span> StringView typeName({typeNames[0].data, typeNames[0].length}, <span class="keyword">false</span>, StringEncoding::Ascii);</div>
-<div class="line">    builder.append(<span class="stringliteral">&quot;[{:02}] {}&quot;</span>, typeIndex, typeName);</div>
-<div class="line">    <span class="keywordflow">switch</span> (types[0].type)</div>
-<div class="line">    {</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa9c147791ce8bcfc2393561bf6c880d1c">Reflection::TypeCategory::TypeStruct</a>:</div>
-<div class="line">        builder.append(<span class="stringliteral">&quot; (Struct with {} members - Packed = {})&quot;</span>, types[0].getNumberOfChildren(),</div>
-<div class="line">                       types[0].structInfo.isPacked ? <span class="stringliteral">&quot;true&quot;</span> : <span class="stringliteral">&quot;false&quot;</span>);</div>
-<div class="line">        <span class="keywordflow">break</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa40768bb89ee70d0db382b835306466c0">Reflection::TypeCategory::TypeArray</a>:</div>
-<div class="line">        builder.append(<span class="stringliteral">&quot; (Array of size {} with {} children - Packed = {})&quot;</span>, types[0].arrayInfo.numElements,</div>
-<div class="line">                       types[0].getNumberOfChildren(), types[0].arrayInfo.isPacked ? <span class="stringliteral">&quot;true&quot;</span> : <span class="stringliteral">&quot;false&quot;</span>);</div>
-<div class="line">        <span class="keywordflow">break</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa7e80d7f10043a5b0514d6d088c12beb4">Reflection::TypeCategory::TypeVector</a>:</div>
-<div class="line">        builder.append(<span class="stringliteral">&quot; (Vector with {} children)&quot;</span>, types[0].getNumberOfChildren());</div>
-<div class="line">        <span class="keywordflow">break</span>;</div>
-<div class="line">    <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
-<div class="line">    }</div>
-<div class="line">    builder.append(<span class="stringliteral">&quot;\n{\n&quot;</span>);</div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> idx = 0; idx &lt; types[0].getNumberOfChildren(); ++idx)</div>
-<div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> Reflection::TypeInfo&amp; field = types[idx + 1];</div>
-<div class="line">        builder.append(<span class="stringliteral">&quot;[{:02}] &quot;</span>, typeIndex + idx + 1);</div>
-<div class="line"> </div>
-<div class="line">        <span class="keyword">const</span> StringView fieldName({typeNames[idx + 1].data, typeNames[idx + 1].length}, <span class="keyword">false</span>, StringEncoding::Ascii);</div>
-<div class="line">        <span class="keywordflow">if</span> (types[0].type == <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa9c147791ce8bcfc2393561bf6c880d1c">Reflection::TypeCategory::TypeStruct</a>)</div>
-<div class="line">        {</div>
-<div class="line">            builder.append(<span class="stringliteral">&quot;Type={}\tOffset={}\tSize={}\tName={}&quot;</span>, typeCategoryToStringView(field.type),</div>
-<div class="line">                           field.memberInfo.offsetInBytes, field.sizeInBytes, fieldName);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">        {</div>
-<div class="line">            builder.append(<span class="stringliteral">&quot;Type={}\t         \tSize={}\tName={}&quot;</span>, typeCategoryToStringView(field.type),</div>
-<div class="line">                           field.sizeInBytes, fieldName);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">if</span> (field.hasValidLinkIndex())</div>
-<div class="line">        {</div>
-<div class="line">            builder.append(<span class="stringliteral">&quot;\t[LinkIndex={}]&quot;</span>, field.getLinkIndex());</div>
-<div class="line">        }</div>
-<div class="line">        builder.append(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    builder.append(<span class="stringliteral">&quot;}\n&quot;</span>);</div>
-<div class="line">    SC_COMPILER_WARNING_POP_UNUSED_RESULT;</div>
-<div class="line">    <span class="keywordflow">return</span> types[0].getNumberOfChildren();</div>
-<div class="line">}</div>
-<div class="line">} <span class="comment">// namespace SC</span></div>
-<div class="ttc" id="agroup__group__reflection_html_ga51ba295f91ad01d05b37e7b9cd0fe4df"><div class="ttname"><a href="group__group__reflection.html#ga51ba295f91ad01d05b37e7b9cd0fe4df">SC::Reflection::TypeCategory</a></div><div class="ttdeci">TypeCategory</div><div class="ttdoc">Enumeration of possible category types recognized by Reflection.</div><div class="ttdef"><b>Definition</b> Reflection.h:39</div></div>
-<div class="ttc" id="agroup__group__reflection_html_gga51ba295f91ad01d05b37e7b9cd0fe4dfa092792ef382d8eaae4b06c5ce1335275"><div class="ttname"><a href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa092792ef382d8eaae4b06c5ce1335275">SC::Reflection::TypeCategory::TypeUINT32</a></div><div class="ttdeci">@ TypeUINT32</div><div class="ttdoc">Type is uint32_t</div></div>
-<div class="ttc" id="agroup__group__reflection_html_gga51ba295f91ad01d05b37e7b9cd0fe4dfa0d59bcc7abf90a4de8cd6e8a9aeae891"><div class="ttname"><a href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa0d59bcc7abf90a4de8cd6e8a9aeae891">SC::Reflection::TypeCategory::TypeUINT16</a></div><div class="ttdeci">@ TypeUINT16</div><div class="ttdoc">Type is uint16_t</div></div>
-<div class="ttc" id="agroup__group__reflection_html_gga51ba295f91ad01d05b37e7b9cd0fe4dfa100c558255ca652572b396c3fd27c9d7"><div class="ttname"><a href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa100c558255ca652572b396c3fd27c9d7">SC::Reflection::TypeCategory::TypeBOOL</a></div><div class="ttdeci">@ TypeBOOL</div><div class="ttdoc">Type is bool</div></div>
-<div class="ttc" id="agroup__group__reflection_html_gga51ba295f91ad01d05b37e7b9cd0fe4dfa2d42c7ff850cb13a383af089327edaec"><div class="ttname"><a href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa2d42c7ff850cb13a383af089327edaec">SC::Reflection::TypeCategory::TypeUINT64</a></div><div class="ttdeci">@ TypeUINT64</div><div class="ttdoc">Type is uint64_t</div></div>
-<div class="ttc" id="agroup__group__reflection_html_gga51ba295f91ad01d05b37e7b9cd0fe4dfa40768bb89ee70d0db382b835306466c0"><div class="ttname"><a href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa40768bb89ee70d0db382b835306466c0">SC::Reflection::TypeCategory::TypeArray</a></div><div class="ttdeci">@ TypeArray</div><div class="ttdoc">Type is an array type.</div></div>
-<div class="ttc" id="agroup__group__reflection_html_gga51ba295f91ad01d05b37e7b9cd0fe4dfa72499d938d70729a121d976d343412b6"><div class="ttname"><a href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa72499d938d70729a121d976d343412b6">SC::Reflection::TypeCategory::TypeINT16</a></div><div class="ttdeci">@ TypeINT16</div><div class="ttdoc">Type is int16_t</div></div>
-<div class="ttc" id="agroup__group__reflection_html_gga51ba295f91ad01d05b37e7b9cd0fe4dfa778e00d0d9a57e14a6c5d69df4e3420d"><div class="ttname"><a href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa778e00d0d9a57e14a6c5d69df4e3420d">SC::Reflection::TypeCategory::TypeINT64</a></div><div class="ttdeci">@ TypeINT64</div><div class="ttdoc">Type is int64_t</div></div>
-<div class="ttc" id="agroup__group__reflection_html_gga51ba295f91ad01d05b37e7b9cd0fe4dfa7de98cb2c92a46e4dabf6bf04f0943f9"><div class="ttname"><a href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa7de98cb2c92a46e4dabf6bf04f0943f9">SC::Reflection::TypeCategory::TypeINT32</a></div><div class="ttdeci">@ TypeINT32</div><div class="ttdoc">Type is int32_t</div></div>
-<div class="ttc" id="agroup__group__reflection_html_gga51ba295f91ad01d05b37e7b9cd0fe4dfa7e80d7f10043a5b0514d6d088c12beb4"><div class="ttname"><a href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa7e80d7f10043a5b0514d6d088c12beb4">SC::Reflection::TypeCategory::TypeVector</a></div><div class="ttdeci">@ TypeVector</div><div class="ttdoc">Type is a vector type.</div></div>
-<div class="ttc" id="agroup__group__reflection_html_gga51ba295f91ad01d05b37e7b9cd0fe4dfa8ad908d9ddbc6655b1ef3885985b0b80"><div class="ttname"><a href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa8ad908d9ddbc6655b1ef3885985b0b80">SC::Reflection::TypeCategory::TypeINT8</a></div><div class="ttdeci">@ TypeINT8</div><div class="ttdoc">Type is int8_t</div></div>
-<div class="ttc" id="agroup__group__reflection_html_gga51ba295f91ad01d05b37e7b9cd0fe4dfa8d0c2109d5e5be1a4a614c6db8604393"><div class="ttname"><a href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa8d0c2109d5e5be1a4a614c6db8604393">SC::Reflection::TypeCategory::TypeFLOAT32</a></div><div class="ttdeci">@ TypeFLOAT32</div><div class="ttdoc">Type is float</div></div>
-<div class="ttc" id="agroup__group__reflection_html_gga51ba295f91ad01d05b37e7b9cd0fe4dfa9baa9611c7081806481ab5b61d7c63c7"><div class="ttname"><a href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa9baa9611c7081806481ab5b61d7c63c7">SC::Reflection::TypeCategory::TypeUINT8</a></div><div class="ttdeci">@ TypeUINT8</div><div class="ttdoc">Type is uint8_t</div></div>
-<div class="ttc" id="agroup__group__reflection_html_gga51ba295f91ad01d05b37e7b9cd0fe4dfa9c147791ce8bcfc2393561bf6c880d1c"><div class="ttname"><a href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa9c147791ce8bcfc2393561bf6c880d1c">SC::Reflection::TypeCategory::TypeStruct</a></div><div class="ttdeci">@ TypeStruct</div><div class="ttdoc">Type is a struct type.</div></div>
-<div class="ttc" id="agroup__group__reflection_html_gga51ba295f91ad01d05b37e7b9cd0fe4dfaa7587438792cf65b2ba0fecadf3545b0"><div class="ttname"><a href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfaa7587438792cf65b2ba0fecadf3545b0">SC::Reflection::TypeCategory::TypeDOUBLE64</a></div><div class="ttdeci">@ TypeDOUBLE64</div><div class="ttdoc">Type is double</div></div>
-<div class="ttc" id="agroup__group__reflection_html_gga51ba295f91ad01d05b37e7b9cd0fe4dfadbe97bac1645d61541b5cf414044099f"><div class="ttname"><a href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfadbe97bac1645d61541b5cf414044099f">SC::Reflection::TypeCategory::TypeInvalid</a></div><div class="ttdeci">@ TypeInvalid</div><div class="ttdoc">Invalid type sentinel.</div></div>
-<div class="ttc" id="astructSC_1_1StringBuilder_html_a56f4883dfda497b7bb8ba809235045fa"><div class="ttname"><a href="structSC_1_1StringBuilder.html#a56f4883dfda497b7bb8ba809235045fa">SC::StringBuilder::create</a></div><div class="ttdeci">static StringBuilderFor&lt; T &gt; create(T &amp;stringOrBuffer) noexcept</div><div class="ttdoc">Creates a StringBuilder for the given string or buffer, replacing its current contents.</div><div class="ttdef"><b>Definition</b> StringBuilder.h:30</div></div>
-</div><!-- fragment --><p>Called with the following code </p><div class="fragment"><div class="line"> </div>
-<div class="line">printFlatSchema(report.console, SimpleStructureFlatSchema.typeInfos.values, SimpleStructureFlatSchema.typeNames.values);</div>
-</div><!-- fragment --><p>It will print the following output for the above struct:</p>
-<div class="fragment"><div class="line">[00] TestNamespace::SimpleStructure (Struct with 11 members - Packed = false)</div>
-<div class="line">{</div>
-<div class="line">[01] Type=TypeUINT8     Offset=0    Size=1  Name=f0</div>
-<div class="line">[02] Type=TypeUINT16    Offset=2    Size=2  Name=f1</div>
-<div class="line">[03] Type=TypeUINT32    Offset=4    Size=4  Name=f2</div>
-<div class="line">[04] Type=TypeUINT64    Offset=8    Size=8  Name=f3</div>
-<div class="line">[05] Type=TypeINT8      Offset=16   Size=1  Name=f4</div>
-<div class="line">[06] Type=TypeINT16     Offset=18   Size=2  Name=f5</div>
-<div class="line">[07] Type=TypeINT32     Offset=20   Size=4  Name=f6</div>
-<div class="line">[08] Type=TypeINT64     Offset=24   Size=8  Name=f7</div>
-<div class="line">[09] Type=TypeFLOAT32   Offset=32   Size=4  Name=f8</div>
-<div class="line">[10] Type=TypeDOUBLE64  Offset=40   Size=8  Name=f9</div>
-<div class="line">[11] Type=TypeArray     Offset=48   Size=12 Name=arrayOfInt [LinkIndex=12]</div>
-<div class="line">}</div>
-<div class="line">[12] Array (Array of size 3 with 1 children)</div>
-<div class="line">{</div>
-<div class="line">[13] Type=TypeINT32                 Size=4  Name=int</div>
-<div class="line">}</div>
-</div><!-- fragment --><p> Another example with a more complex structure building on top of the simple one:</p>
-<div class="fragment"><div class="line"><span class="keyword">struct </span>TestNamespace::IntermediateStructure</div>
-<div class="line">{</div>
-<div class="line">    <a class="code hl_struct" href="structSC_1_1Vector.html">SC::Vector&lt;int&gt;</a> vectorOfInt;</div>
-<div class="line">    SimpleStructure simpleStructure;</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line">SC_REFLECT_STRUCT_VISIT(TestNamespace::IntermediateStructure)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(1, vectorOfInt)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(0, simpleStructure)</div>
-<div class="line">SC_REFLECT_STRUCT_LEAVE()</div>
-<div class="line"> </div>
-<div class="line">struct TestNamespace::ComplexStructure</div>
-<div class="line">{</div>
-<div class="line">    SC::uint8_t                 f1 = 0;</div>
-<div class="line">    SimpleStructure             simpleStructure;</div>
-<div class="line">    SimpleStructure             simpleStructure2;</div>
-<div class="line">    SC::uint16_t                f4 = 0;</div>
-<div class="line">    IntermediateStructure       intermediateStructure;</div>
-<div class="line">    <a class="code hl_struct" href="structSC_1_1Vector.html">SC::Vector&lt;SimpleStructure&gt;</a> vectorOfStructs;</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line">SC_REFLECT_STRUCT_VISIT(TestNamespace::ComplexStructure)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(0, f1)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(1, simpleStructure)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(2, simpleStructure2)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(3, f4)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(4, intermediateStructure)</div>
-<div class="line">SC_REFLECT_STRUCT_FIELD(5, vectorOfStructs)</div>
-<div class="line">SC_REFLECT_STRUCT_LEAVE()</div>
-</div><!-- fragment --><p>Printing the schema of <code>ComplexStructure</code> outputs the following:</p>
-<dl class="section note"><dt>Note</dt><dd><code>Packed</code> structs will get their members sorted by <code>offsetInBytes</code>. <br  />
- For regular structs, they are left in the same order as the visit sequence. <br  />
- This allows some substantial simplifications in <a class="el" href="library_serialization_binary.html">Serialization Binary</a> implementation.</dd></dl>
-<div class="fragment"><div class="line">[00] TestNamespace::ComplexStructure (Struct with 6 members - Packed = false)</div>
-<div class="line">{</div>
-<div class="line">[01] Type=TypeUINT8     Offset=0    Size=1  Name=f1</div>
-<div class="line">[02] Type=TypeStruct    Offset=8    Size=64 Name=simpleStructure    [LinkIndex=7]</div>
-<div class="line">[03] Type=TypeStruct    Offset=72   Size=64 Name=simpleStructure2   [LinkIndex=7]</div>
-<div class="line">[04] Type=TypeUINT16    Offset=136  Size=2  Name=f4</div>
-<div class="line">[05] Type=TypeStruct    Offset=144  Size=72 Name=intermediateStructure  [LinkIndex=19]</div>
-<div class="line">[06] Type=TypeVector    Offset=216  Size=8  Name=vectorOfStructs    [LinkIndex=22]</div>
-<div class="line">}</div>
-<div class="line">[07] TestNamespace::SimpleStructure (Struct with 11 members - Packed = false)</div>
-<div class="line">{</div>
-<div class="line">[08] Type=TypeUINT8     Offset=0    Size=1  Name=f0</div>
-<div class="line">[09] Type=TypeUINT16    Offset=2    Size=2  Name=f1</div>
-<div class="line">[10] Type=TypeUINT32    Offset=4    Size=4  Name=f2</div>
-<div class="line">[11] Type=TypeUINT64    Offset=8    Size=8  Name=f3</div>
-<div class="line">[12] Type=TypeINT8      Offset=16   Size=1  Name=f4</div>
-<div class="line">[13] Type=TypeINT16     Offset=18   Size=2  Name=f5</div>
-<div class="line">[14] Type=TypeINT32     Offset=20   Size=4  Name=f6</div>
-<div class="line">[15] Type=TypeINT64     Offset=24   Size=8  Name=f7</div>
-<div class="line">[16] Type=TypeFLOAT32   Offset=32   Size=4  Name=f8</div>
-<div class="line">[17] Type=TypeDOUBLE64  Offset=40   Size=8  Name=f9</div>
-<div class="line">[18] Type=TypeArray     Offset=48   Size=12 Name=arrayOfInt [LinkIndex=24]</div>
-<div class="line">}</div>
-<div class="line">[19] TestNamespace::IntermediateStructure (Struct with 2 members - Packed = false)</div>
-<div class="line">{</div>
-<div class="line">[20] Type=TypeVector    Offset=0    Size=8  Name=vectorOfInt    [LinkIndex=26]</div>
-<div class="line">[21] Type=TypeStruct    Offset=8    Size=64 Name=simpleStructure    [LinkIndex=7]</div>
-<div class="line">}</div>
-<div class="line">[22] SC::Vector (Vector with 1 children)</div>
-<div class="line">{</div>
-<div class="line">[23] Type=TypeStruct                Size=64 Name=TestNamespace::SimpleStructure [LinkIndex=7]</div>
-<div class="line">}</div>
-<div class="line">[24] Array (Array of size 3 with 1 children - Packed = true)</div>
-<div class="line">{</div>
-<div class="line">[25] Type=TypeINT32                 Size=4  Name=int</div>
-<div class="line">}</div>
-<div class="line">[26] SC::Vector (Vector with 1 children)</div>
-<div class="line">{</div>
-<div class="line">[27] Type=TypeINT32                 Size=4  Name=int</div>
-<div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md400"></a>
-Implementation</h1>
-<p>As already said in the introduction, effort has been put to keep the library as <em>readable</em> as possible, within the limits of C++. <br  />
- The only technique used is template partial specialization and some care in writing functions that are valid in <code>constexpr</code> context. <br  />
- For example generation of the schema is done through partial specialization of the SC::Reflection::Reflect template, by redefining the <code>visit</code> constexpr static member function for a given type. Inside the visit function, it's possible to let the Reflection system <em>know</em> about a given field.</p>
-<p>The output of reflection is an array of SC::Reflection::TypeInfo referred to as <b>Flat Schema</b> at compile time. <br  />
- Such compile time information is used when serializing and deserializing data that has missing fields.</p>
-<div class="fragment"><div class="line"><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group__group__reflection.html#ga51ba295f91ad01d05b37e7b9cd0fe4df">TypeCategory</a> : uint8_t</div>
-<div class="line">{</div>
-<div class="line">    <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfadbe97bac1645d61541b5cf414044099f">TypeInvalid</a> = 0, </div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Primitive types</span></div>
-<div class="line">    <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa100c558255ca652572b396c3fd27c9d7">TypeBOOL</a>     = 1,  </div>
-<div class="line">    <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa9baa9611c7081806481ab5b61d7c63c7">TypeUINT8</a>    = 2,  </div>
-<div class="line">    <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa0d59bcc7abf90a4de8cd6e8a9aeae891">TypeUINT16</a>   = 3,  </div>
-<div class="line">    <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa092792ef382d8eaae4b06c5ce1335275">TypeUINT32</a>   = 4,  </div>
-<div class="line">    <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa2d42c7ff850cb13a383af089327edaec">TypeUINT64</a>   = 5,  </div>
-<div class="line">    <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa8ad908d9ddbc6655b1ef3885985b0b80">TypeINT8</a>     = 6,  </div>
-<div class="line">    <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa72499d938d70729a121d976d343412b6">TypeINT16</a>    = 7,  </div>
-<div class="line">    <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa7de98cb2c92a46e4dabf6bf04f0943f9">TypeINT32</a>    = 8,  </div>
-<div class="line">    <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa778e00d0d9a57e14a6c5d69df4e3420d">TypeINT64</a>    = 9,  </div>
-<div class="line">    <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa8d0c2109d5e5be1a4a614c6db8604393">TypeFLOAT32</a>  = 10, </div>
-<div class="line">    <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfaa7587438792cf65b2ba0fecadf3545b0">TypeDOUBLE64</a> = 11, </div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Non primitive types</span></div>
-<div class="line">    <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa9c147791ce8bcfc2393561bf6c880d1c">TypeStruct</a> = 12, </div>
-<div class="line">    <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa40768bb89ee70d0db382b835306466c0">TypeArray</a>  = 13, </div>
-<div class="line">    <a class="code hl_enumvalue" href="group__group__reflection.html#gga51ba295f91ad01d05b37e7b9cd0fe4dfa7e80d7f10043a5b0514d6d088c12beb4">TypeVector</a> = 14, </div>
-<div class="line">};</div>
-</div><!-- fragment --><div class="fragment"><div class="line"><span class="keyword">struct </span>TypeInfo</div>
-<div class="line">{</div>
-<div class="line">    <span class="keywordtype">bool</span>         hasLink : 1; </div>
-<div class="line">    <a class="code hl_enumeration" href="group__group__reflection.html#ga51ba295f91ad01d05b37e7b9cd0fe4df">TypeCategory</a> type    : 7; </div>
-<div class="line">    <span class="keyword">union</span></div>
-<div class="line">    {</div>
-<div class="line">        uint8_t numberOfChildren; </div>
-<div class="line">        uint8_t linkIndex;        </div>
-<div class="line">    };</div>
-<div class="line">    uint16_t sizeInBytes; </div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">struct </span>EmptyInfo</div>
-<div class="line">    {</div>
-<div class="line">    };</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">struct </span>MemberInfo</div>
-<div class="line">    {</div>
-<div class="line">        uint16_t memberTag;     </div>
-<div class="line">        uint16_t offsetInBytes; </div>
-<div class="line">        <span class="keyword">constexpr</span> MemberInfo(uint8_t memberTag, uint16_t offsetInBytes)</div>
-<div class="line">            : memberTag(memberTag), offsetInBytes(offsetInBytes)</div>
-<div class="line">        {}</div>
-<div class="line">    };</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">struct </span>StructInfo</div>
-<div class="line">    {</div>
-<div class="line">        <span class="keywordtype">bool</span> isPacked : 1; </div>
-<div class="line">        <span class="keyword">constexpr</span> StructInfo(<span class="keywordtype">bool</span> isPacked) : isPacked(isPacked) {}</div>
-<div class="line">    };</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">struct </span>ArrayInfo</div>
-<div class="line">    {</div>
-<div class="line">        uint32_t isPacked    : 1;  </div>
-<div class="line">        uint32_t numElements : 31; </div>
-<div class="line">        <span class="keyword">constexpr</span> ArrayInfo(<span class="keywordtype">bool</span> isPacked, uint32_t numElements) : isPacked(isPacked), numElements(numElements) {}</div>
-<div class="line">    };</div>
-<div class="line">    <span class="keyword">union</span></div>
-<div class="line">    {</div>
-<div class="line">        EmptyInfo  emptyInfo;</div>
-<div class="line">        MemberInfo memberInfo;</div>
-<div class="line">        StructInfo structInfo;</div>
-<div class="line">        ArrayInfo  arrayInfo;</div>
-<div class="line">    };</div>
-</div><!-- fragment --><p>The flat schema is generated by SC::Reflection::SchemaCompiler, that walks the structures and building an array of SC::Reflection::TypeInfo describing each field. <br  />
-</p>
+<p>That separation is the main tradeoff. The base abstraction remains dependency-free and allocation-free, while applications must opt into adapters for every non-primitive family they want serializers to understand. Custom vector-like types are possible, but require more than a name: they need a <code>Reflect</code> category/build description, <code>ExtendedTypeInfo</code> access and resizing operations, and serializer specializations appropriate to each format. The Serialization example demonstrates that full extension seam with <code>ImVector&lt;T&gt;</code>.</p>
+<h1><a class="anchor" id="autotoc_md332"></a>
+Status and Practical Limits</h1>
+<p>🟩 Usable under the documented model.</p>
+<p>The stable center is explicit reflection of value-like structures for SC serialization. Important limits to evaluate up front are:</p>
 <ul>
-<li>Primitive types just need a single SC::Reflection::TypeInfo. <br  />
-</li>
-<li>Complex types are described using multiple SC::Reflection::TypeInfo. <br  />
-</li>
+<li>no built-in pointers, references, polymorphic graphs, enums, variants, or arbitrary standard-library containers;</li>
+<li>metadata must be registered explicitly and kept consistent with format compatibility decisions;</li>
+<li>the compact flat schema has bounded integer fields and compile-time capacities;</li>
+<li>container ownership and deserialization allocation require separate adapters;</li>
+<li>packing enables byte-copy optimizations whose semantics may be inappropriate for invariant-heavy types.</li>
 </ul>
-<p>For example a struct is defined by a SC::Reflection::TypeInfo that contains information on the <code>numberOfChildren</code> of the struct, corresponding to the number of fields. <code>numberOfChildren</code> SC::Reflection::TypeInfo exist immediately after the struct itself in the flat schema array. <br  />
- If type of one of these fields is complex (for example it refers to another struct) it contains a <em>link</em>. <br  />
- A Link is an index/offset in the flat schema array (<code>linkIndex</code> field). <br  />
-</p>
-<p>This simple data structure allows to describe hierarchically all types in a structure decomposing it into its primitive types or into special classes that must be handled specifically (<a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a>, <a class="el" href="structSC_1_1Array.html" title="A contiguous sequence of elements kept inside its inline storage.">SC::Array</a> etc.). <br  />
- It also has an additional nice property that it's trivially serializable by dumping this (compile time known) array with a single <code>memcpy</code> or by calculating an <code>hash</code> that can act as a unique signature of the entire type itself (for versioning purposes). <br  />
-</p>
-<p>It's possible associating a <code>string</code> literal with each type or member, so that text based serializer can refer to it, as used by the JSON <a class="el" href="library_serialization_text.html">Serialization Text</a>. <br  />
- Lastly it's also possible associating to a field an <code>MemberTag</code> integer field, that can be leveraged by by binary serializers to keep track of the field position in binary formats. This allows binary formats to avoid using strings at all for format versioning/evolution, allowing some executable size benefits. This makes also possible not breaking binary file formats just because a field / member was renamed. This is leveraged by the <a class="el" href="library_serialization_binary.html">Serialization Binary</a>.</p>
-<h1><a class="anchor" id="autotoc_md401"></a>
+<h1><a class="anchor" id="autotoc_md333"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Reflection</code>. Single File counts <code>SaneCppReflection.h</code>. Standalone counts <code>SaneCppReflectionStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

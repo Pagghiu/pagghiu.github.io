@@ -129,37 +129,198 @@ $(function(){initNavTree('library_containers_reflection.html',''); initResizable
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md200">Dependencies</a>
+    <a href="#autotoc_md175">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md201">Status</a>
+    <a href="#autotoc_md176">What Containers Reflection Is For</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md202">Description</a>
+    <a href="#autotoc_md177">Choose The Adapter Header</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md203">Statistics</a>
+    <a href="#autotoc_md178">Mental Model</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md179">Nested Containers Need No Per-Field Adapter</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md180">The Same Types Flow Into Serialization</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md181">Boundaries And Tradeoffs</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md182">Status</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md183">Where To Go Next</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md184">Statistics</a>
   </li>
 </ul>
 </div>
-<div class="textblock"><p>🟨 Containers specializations for <a class="el" href="library_reflection.html">Reflection</a> and Serialization.</p>
-<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppContainersReflection.h">SaneCppContainersReflection.h</a> is a support library holding all partial specializations for <a class="el" href="library_reflection.html">Reflection</a>, <a class="el" href="library_serialization_binary.html">Serialization Binary</a> and <a class="el" href="library_serialization_text.html">Serialization Text</a>. <br  />
- Its headers are only meant to be included anywhere the reflection / serialization systems are being used so that both systems "know" how to handle things like <code><a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a></code> or <code><a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a></code>.</p>
-<h1><a class="anchor" id="autotoc_md200"></a>
+<div class="textblock"><p>🟨 Opt-in reflection and serialization adapters for SC containers and owning memory types.</p>
+<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppContainersReflection.h">SaneCppContainersReflection.h</a> connects the generic <a class="el" href="library_reflection.html">Reflection</a>, <a class="el" href="library_serialization_binary.html">Serialization Binary</a>, and <a class="el" href="library_serialization_text.html">Serialization Text</a> machinery to SC's owning containers. Include its adapters where a reflected object graph contains types such as <code><a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a></code>, <code><a class="el" href="structSC_1_1Array.html" title="A contiguous sequence of elements kept inside its inline storage.">SC::Array</a></code>, <code><a class="el" href="structSC_1_1VectorMap.html" title="A map holding VectorMapItem key-value pairs in an unsorted Vector.">SC::VectorMap</a></code>, <code><a class="el" href="structSC_1_1Buffer.html" title="An heap allocated byte buffer that can optionally use an inline buffer.">SC::Buffer</a></code>, or <code><a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a></code>.</p>
+<h1><a class="anchor" id="autotoc_md175"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <a class="el" href="library_containers.html">Containers</a>, <a class="el" href="library_reflection.html">Reflection</a></li>
 <li>All dependencies: <a class="el" href="library_containers.html">Containers</a>, <a class="el" href="library_memory.html">Memory</a>, <a class="el" href="library_reflection.html">Reflection</a></li>
 </ul>
 <p><img src="ContainersReflection.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md201"></a>
+<h1><a class="anchor" id="autotoc_md176"></a>
+What Containers Reflection Is For</h1>
+<p>Reflection can describe structures and primitive values without knowing about growable storage. Serialization can walk that description without choosing which container library an application uses. Containers Reflection supplies the missing, opt-in knowledge for SC's own containers.</p>
+<p>This separation matters because SC libraries do not acquire dependencies merely for convenience. Reflection and the serialization libraries remain usable without <a class="el" href="library_containers.html">Containers</a> or <a class="el" href="library_memory.html">Memory</a>; an application pays for these adapters only when its reflected types need them.</p>
+<p>Use this library when:</p>
+<ul>
+<li>a reflected structure contains an <code><a class="el" href="structSC_1_1Array.html" title="A contiguous sequence of elements kept inside its inline storage.">SC::Array</a></code>, <code><a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a></code>, <code><a class="el" href="structSC_1_1VectorMap.html" title="A map holding VectorMapItem key-value pairs in an unsorted Vector.">SC::VectorMap</a></code>, <code><a class="el" href="structSC_1_1Buffer.html" title="An heap allocated byte buffer that can optionally use an inline buffer.">SC::Buffer</a></code>, or <code><a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a></code>;</li>
+<li>binary or text serialization must resize an owning SC container while reading;</li>
+<li>you want the standard SC representation of these types rather than writing application-specific reflection traits.</li>
+</ul>
+<p>It is usually not something an application calls directly. Its public surface consists of template specializations selected by the compiler after the appropriate header is included.</p>
+<h1><a class="anchor" id="autotoc_md177"></a>
+Choose The Adapter Header</h1>
+<p>The library keeps container and memory adapters separate, and keeps reflection-only use separate from serialization:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Include   </th><th class="markdownTableHeadNone">Adds support for    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>ContainersReflection.h</code>   </td><td class="markdownTableBodyNone">Reflecting <code><a class="el" href="structSC_1_1Array.html" title="A contiguous sequence of elements kept inside its inline storage.">SC::Array</a></code>, <code><a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a></code>, and <code><a class="el" href="structSC_1_1VectorMap.html" title="A map holding VectorMapItem key-value pairs in an unsorted Vector.">SC::VectorMap</a></code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>MemoryReflection.h</code>   </td><td class="markdownTableBodyNone">Reflecting <code><a class="el" href="structSC_1_1Buffer.html" title="An heap allocated byte buffer that can optionally use an inline buffer.">SC::Buffer</a></code>, <code><a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a></code>, and <code>SC::StringEncoding</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>ContainersSerialization.h</code>   </td><td class="markdownTableBodyNone">Binary and text serialization of <code><a class="el" href="structSC_1_1Array.html" title="A contiguous sequence of elements kept inside its inline storage.">SC::Array</a></code> and <code><a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a></code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>MemorySerialization.h</code>   </td><td class="markdownTableBodyNone">Binary serialization of <code><a class="el" href="structSC_1_1Buffer.html" title="An heap allocated byte buffer that can optionally use an inline buffer.">SC::Buffer</a></code> and text serialization of <code><a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a></code>   </td></tr>
+</table>
+<p>The serialization headers include their corresponding reflection headers. Include only the layer the translation unit uses; there is no initialization function or object to retain.</p>
+<h1><a class="anchor" id="autotoc_md178"></a>
+Mental Model</h1>
+<p>Reflection treats <code><a class="el" href="structSC_1_1Array.html" title="A contiguous sequence of elements kept inside its inline storage.">SC::Array</a></code> and <code><a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a></code> as vector-like values: it can obtain their size and data, identify their element type, and ask them to resize. A fixed-capacity <code><a class="el" href="structSC_1_1Array.html" title="A contiguous sequence of elements kept inside its inline storage.">SC::Array</a>&lt;T, N&gt;</code> clamps adapter resize requests to <code>N</code>; a <code><a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a>&lt;T&gt;</code> can grow as far as its allocator permits. <code><a class="el" href="structSC_1_1Buffer.html" title="An heap allocated byte buffer that can optionally use an inline buffer.">SC::Buffer</a></code> follows the same vector-like model for bytes. That clamp is a capacity boundary, not a general promise that oversized exact-format input is accepted: input sizes still need to match the guarantees of the serializer being used.</p>
+<p><code><a class="el" href="structSC_1_1VectorMap.html" title="A map holding VectorMapItem key-value pairs in an unsorted Vector.">SC::VectorMap</a></code> is different. Its reflection describes the map through its <code>items</code> storage, preserving the container's actual representation instead of inventing a separate wire-level map abstraction. <code><a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a></code> is reflected through its encoding and data members, while text serialization has direct string handling.</p>
+<p>The adapters contain no per-object state and perform growth only through the adapted object. Deserializing a vector, buffer, or string may therefore allocate through that object's configured allocator. A failed resize makes the surrounding serialization operation fail; existing contents should not be treated as a transactionally preserved value unless the selected serializer explicitly provides that guarantee.</p>
+<h1><a class="anchor" id="autotoc_md179"></a>
+Nested Containers Need No Per-Field Adapter</h1>
+<p>Once <code>ContainersReflection.h</code> is included, ordinary reflection declarations can contain nested vectors. The following compiled test reflects both <code>Vector&lt;int&gt;</code> and <code>Vector&lt;SimpleStructure&gt;</code> fields:</p>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>TestNamespace::IntermediateStructure</div>
+<div class="line">{</div>
+<div class="line">    <a class="code hl_struct" href="structSC_1_1Vector.html">SC::Vector&lt;int&gt;</a> vectorOfInt;</div>
+<div class="line">    SimpleStructure simpleStructure;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">SC_REFLECT_STRUCT_VISIT(TestNamespace::IntermediateStructure)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(1, vectorOfInt)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(0, simpleStructure)</div>
+<div class="line">SC_REFLECT_STRUCT_LEAVE()</div>
+<div class="line"> </div>
+<div class="line">struct TestNamespace::ComplexStructure</div>
+<div class="line">{</div>
+<div class="line">    SC::uint8_t                 f1 = 0;</div>
+<div class="line">    SimpleStructure             simpleStructure;</div>
+<div class="line">    SimpleStructure             simpleStructure2;</div>
+<div class="line">    SC::uint16_t                f4 = 0;</div>
+<div class="line">    IntermediateStructure       intermediateStructure;</div>
+<div class="line">    <a class="code hl_struct" href="structSC_1_1Vector.html">SC::Vector&lt;SimpleStructure&gt;</a> vectorOfStructs;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">SC_REFLECT_STRUCT_VISIT(TestNamespace::ComplexStructure)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(0, f1)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(1, simpleStructure)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(2, simpleStructure2)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(3, f4)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(4, intermediateStructure)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(5, vectorOfStructs)</div>
+<div class="line">SC_REFLECT_STRUCT_LEAVE()</div>
+</div><!-- fragment --><p>The structure still declares its own fields, but it does not explain how a vector is sized, traversed, or resized. That knowledge comes from this library's <code>Reflect</code> and <code>ExtendedTypeInfo</code> specializations.</p>
+<h1><a class="anchor" id="autotoc_md180"></a>
+The Same Types Flow Into Serialization</h1>
+<p>The serialization adapters reuse that model. This compiled JSON test combines a built-in fixed array, <code><a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a></code>, and <code><a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a>&lt;<a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a>&gt;</code> in one reflected object:</p>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>SC::Test</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">int</span>    x      = 2;</div>
+<div class="line">    <span class="keywordtype">float</span>  y      = 1.5f;</div>
+<div class="line">    <span class="keywordtype">int</span>    xy[2]  = {1, 3};</div>
+<div class="line">    String myTest = <span class="stringliteral">&quot;asdf&quot;</span>_a8;</div>
+<div class="line"> </div>
+<div class="line">    Vector&lt;String&gt; myVector = {<span class="stringliteral">&quot;Str1&quot;</span>_a8, <span class="stringliteral">&quot;Str2&quot;</span>_a8};</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> Test&amp; other)<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        <span class="keywordflow">return</span> x == other.x and y == other.y and                   <span class="comment">//</span></div>
+<div class="line">               xy[0] == other.xy[0] and xy[1] == other.xy[1] and   <span class="comment">//</span></div>
+<div class="line">               myTest == other.myTest and myVector.size() == 2 and <span class="comment">//</span></div>
+<div class="line">               myVector.size() == other.myVector.size() and        <span class="comment">//</span></div>
+<div class="line">               myVector[0] == other.myVector[0] and myVector[1] == other.myVector[1];</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line">SC_REFLECT_STRUCT_VISIT(SC::Test)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(0, x)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(1, y)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(2, xy)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(3, myTest)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(4, myVector)</div>
+<div class="line">SC_REFLECT_STRUCT_LEAVE()</div>
+<div class="line"> </div>
+<div class="line">struct SC::EscapedStringTest</div>
+<div class="line">{</div>
+<div class="line">    String value;</div>
+<div class="line">};</div>
+<div class="line">SC_REFLECT_STRUCT_VISIT(SC::EscapedStringTest)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(0, value)</div>
+<div class="line">SC_REFLECT_STRUCT_LEAVE()</div>
+<div class="line"> </div>
+<div class="line">struct SC::BorrowedStringTest</div>
+<div class="line">{</div>
+<div class="line">    StringSpan spanValue;</div>
+<div class="line">    StringView viewValue;</div>
+<div class="line">};</div>
+<div class="line">SC_REFLECT_STRUCT_VISIT(SC::BorrowedStringTest)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(0, spanValue)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(1, viewValue)</div>
+<div class="line">SC_REFLECT_STRUCT_LEAVE()</div>
+<div class="line"> </div>
+<div class="line">struct SC::VersionedVectorItem</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">int</span>    first = 0;</div>
+<div class="line">    String second;</div>
+<div class="line">};</div>
+<div class="line">SC_REFLECT_STRUCT_VISIT(SC::VersionedVectorItem)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(0, first)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(1, second)</div>
+<div class="line">SC_REFLECT_STRUCT_LEAVE()</div>
+<div class="line"> </div>
+<div class="line">struct SC::VersionedVectorTest</div>
+<div class="line">{</div>
+<div class="line">    Vector&lt;VersionedVectorItem&gt; items;</div>
+<div class="line">};</div>
+<div class="line">SC_REFLECT_STRUCT_VISIT(SC::VersionedVectorTest)</div>
+<div class="line">SC_REFLECT_STRUCT_FIELD(0, items)</div>
+<div class="line">SC_REFLECT_STRUCT_LEAVE()</div>
+<div class="line"> </div>
+</div><!-- fragment --><p>Including <code>ContainersSerialization.h</code> and <code>MemorySerialization.h</code> makes those fields available to the generic text and binary serializers. The adapters do not choose an allocator, hide capacity failures, or change the lifetime rules of the objects being loaded.</p>
+<h1><a class="anchor" id="autotoc_md181"></a>
+Boundaries And Tradeoffs</h1>
+<ul>
+<li>Support is opt-in and compile-time. Omitting an adapter header produces a missing specialization at compilation, rather than a runtime registration failure.</li>
+<li><code><a class="el" href="structSC_1_1VectorMap.html" title="A map holding VectorMapItem key-value pairs in an unsorted Vector.">SC::VectorMap</a></code> gains reflection here, but no direct serialization specialization. Its default reflected shape is a structure with an <code>items</code> field; it is not serialized as a format-specific map or JSON object.</li>
+<li>The standard adapters describe SC's concrete representation. If a stable external format must differ from that representation, define an explicit schema or application-level conversion instead of relying on the default shape.</li>
+<li>Owning values may allocate while loading. Borrowed views and spans have different lifetime and input-buffer rules and are handled by their respective serialization facilities, not turned into owning containers here.</li>
+<li>This library is intentionally coupled to both sides of the seam. Adding support for another container belongs here when doing so would otherwise force Reflection or Serialization to depend on that container library.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md182"></a>
 Status</h1>
-<p>🟩 Usable <br  />
-</p>
-<h1><a class="anchor" id="autotoc_md202"></a>
-Description</h1>
-<p>The reason for this library to exist is only to allow <a class="el" href="library_reflection.html">Reflection</a>, <a class="el" href="library_serialization_binary.html">Serialization Binary</a> and <a class="el" href="library_serialization_text.html">Serialization Text</a> libraries not to be depending on <a class="el" href="library_containers.html">Containers</a> and <a class="el" href="library_memory.html">Memory</a>.</p>
-<h1><a class="anchor" id="autotoc_md203"></a>
+<p>🟩 Usable</p>
+<h1><a class="anchor" id="autotoc_md183"></a>
+Where To Go Next</h1>
+<ul>
+<li><a class="el" href="library_reflection.html">Reflection</a> explains how to declare fields and compile schemas.</li>
+<li><a class="el" href="library_serialization_binary.html">Serialization Binary</a> covers exact and versioned binary formats.</li>
+<li><a class="el" href="library_serialization_text.html">Serialization Text</a> covers JSON and text-oriented loading.</li>
+<li><a class="el" href="library_containers.html">Containers</a> and <a class="el" href="library_memory.html">Memory</a> document allocation, ownership, and capacity behavior of the adapted types.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md184"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/ContainersReflection</code>. Single File counts <code>SaneCppContainersReflection.h</code>. Standalone counts <code>SaneCppContainersReflectionStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

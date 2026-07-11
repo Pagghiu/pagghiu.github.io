@@ -236,7 +236,8 @@ Reservation ensures that the returned address will not change and will be sized 
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(virtualMemory.decommit(0));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(memory == virtualMemory.data());</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Finally release (don&#39;t forget, VirtualMemory has no destructor!)</span></div>
+<div class="line">    <span class="comment">// Release explicitly when the reservation should be returned before scope exit.</span></div>
+<div class="line">    <span class="comment">// The VirtualMemory destructor would otherwise release it automatically.</span></div>
 <div class="line">    virtualMemory.release();</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(virtualMemory.data() == <span class="keyword">nullptr</span>);</div>
 </div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>

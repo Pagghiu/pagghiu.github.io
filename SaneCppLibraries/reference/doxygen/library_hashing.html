@@ -129,57 +129,55 @@ $(function(){initNavTree('library_hashing.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md305">Dependencies</a>
+    <a href="#autotoc_md261">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md306">Features</a>
+    <a href="#autotoc_md262">When Hashing fits</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md307">Status</a>
+    <a href="#autotoc_md263">A hash is one incremental session</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md308">Description</a>
+    <a href="#autotoc_md264">Storage, allocation and lifetime</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md309">Roadmap</a>
+    <a href="#autotoc_md265">Platform and integration boundaries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md310">Statistics</a>
+    <a href="#autotoc_md266">Status</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md267">Roadmap</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md268">Statistics</a>
   </li>
 </ul>
 </div>
-<div class="textblock"><p>🟩 Compute <code>MD5</code>, <code>SHA1</code> or <code>SHA256</code> hashes for a stream of bytes</p>
-<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppHashing.h">SaneCppHashing.h</a> library abstracts OS API to compute MD5, SHA1 and SHA256 hashes. <br  />
-</p>
-<h1><a class="anchor" id="autotoc_md305"></a>
+<div class="textblock"><p>🟩 Incremental MD5, SHA-1 and SHA-256 hashing over byte spans</p>
+<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppHashing.h">SaneCppHashing.h</a> is a small, allocation-free adapter over the host operating system's hashing facilities. It is intended for code that receives a byte stream in pieces—such as a file read through a fixed buffer—and needs one MD5, SHA-1 or SHA-256 digest without collecting the complete input in memory.</p>
+<h1><a class="anchor" id="autotoc_md261"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Hashing.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md306"></a>
-Features</h1>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadLeft">Hashing Algorithm   </th><th class="markdownTableHeadLeft">Description    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1Hashing.html#a9e6526d460ccfe42f9ac6d67e27e588aa1a7d3c03f95c7c0190a0f7a2eabfa5c0" title="Compute MD5 hash for the incoming stream of bytes.">SC::Hashing::TypeMD5</a>   </td><td class="markdownTableBodyLeft">Compute MD5 hash for the incoming stream of bytes.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1Hashing.html#a9e6526d460ccfe42f9ac6d67e27e588aa49d36710cb58c10926fd6e02ccb3d81e" title="Compute SHA1 hash for the incoming stream of bytes.">SC::Hashing::TypeSHA1</a>   </td><td class="markdownTableBodyLeft">Compute SHA1 hash for the incoming stream of bytes.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1Hashing.html#a9e6526d460ccfe42f9ac6d67e27e588aac32d7d196554da59edffaf8d3ec7065a" title="Compute SHA256 hash for the incoming stream of bytes.">SC::Hashing::TypeSHA256</a>   </td><td class="markdownTableBodyLeft">Compute SHA256 hash for the incoming stream of bytes.      </td></tr>
-</table>
-<h1><a class="anchor" id="autotoc_md307"></a>
-Status</h1>
-<p>🟩 Usable <br  />
- The library is very simple it it has what is needed so far (mainly by <a class="el" href="page_build.html">Build</a>).</p>
-<h1><a class="anchor" id="autotoc_md308"></a>
-Description</h1>
-<p>Compute MD5, SHA1 or SHA256 hash for stream of data.   </p>
-<p><br  />
-Data can be added until needed with <a class="el" href="structSC_1_1Hashing.html#a2432bc5c372bf4428c2a279843b5b53d" title="Add data to be hashed.">SC::Hashing::add</a> call. <a class="el" href="structSC_1_1Hashing.html#af1c58ce39f19535d0bd3a52d05d56552" title="Finalize hash computation that has been pushed through Hashing::add.">SC::Hashing::getHash</a> will generate an actual <a class="el" href="structSC_1_1Hashing_1_1Result.html">SC::Hashing::Result</a> holding the computed <em>hash</em>.</p>
-<p>Example: </p><div class="fragment"><div class="line">            <a class="code hl_struct" href="structSC_1_1Hashing.html">Hashing</a> hash;</div>
+<h1><a class="anchor" id="autotoc_md262"></a>
+When Hashing fits</h1>
+<p>Use <code>Hashing</code> for compatibility checksums, content identity and integrity checks where one of its three fixed algorithms is the required wire or file format. The package tool is a representative use: it reads a download in 4 KiB chunks, feeds each chunk to <code>Hashing</code>, converts the final digest to hexadecimal with <a class="el" href="library_strings.html">Strings</a>, and compares it with the expected value.</p>
+<p>The algorithm choice is deliberately narrow. MD5 and SHA-1 remain useful when interoperating with existing formats, but they are collision-broken and should not be selected for new security-sensitive designs. SHA-256 is the strongest option provided here, but a plain digest does not authenticate who produced the data. This library does not provide HMAC, password hashing, key derivation, signatures, encryption, a pluggable algorithm interface, or constant-time digest comparison. Use a dedicated cryptographic library when any of those properties are part of the requirement.</p>
+<h1><a class="anchor" id="autotoc_md263"></a>
+A hash is one incremental session</h1>
+<p>The mental model is a small state machine:</p>
+<ol type="1">
+<li>Construct <code><a class="el" href="structSC_1_1Hashing.html" title="Compute MD5, SHA1 or SHA256 hash for stream of data.">SC::Hashing</a></code>, then call <code>setType()</code> to select and initialize an algorithm.</li>
+<li>Call <code>add()</code> zero or more times. Chunk boundaries do not become part of the digest; hashing <code>"test"</code> twice is the same byte stream as hashing <code>"testtest"</code> once.</li>
+<li>Call <code>getHash()</code> to finalize into a caller-owned <code><a class="el" href="structSC_1_1Hashing_1_1Result.html">SC::Hashing::Result</a></code>.</li>
+</ol>
+<p>Treat the session as consumed after <code>getHash()</code>. Call <code>setType()</code> again—even with the same type—before hashing another stream; that explicitly resets the platform state and gives portable behavior across the OS backends. <code>Hashing</code> is move-disabled and copy-disabled because it owns that in-progress native state.</p>
+<p>This compiled test shows the full sequence, including conversion of the binary result to printable hexadecimal:</p>
+<div class="fragment"><div class="line">            <a class="code hl_struct" href="structSC_1_1Hashing.html">Hashing</a> hash;</div>
 <div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(hash.<a class="code hl_function" href="structSC_1_1Hashing.html#a9538231ae7b11b3300a250f1779893b1">setType</a>(Hashing::TypeMD5));</div>
 <div class="line"> </div>
 <div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(hash.<a class="code hl_function" href="structSC_1_1Hashing.html#a2432bc5c372bf4428c2a279843b5b53d">add</a>(<span class="stringliteral">&quot;test&quot;</span>_a8.toBytesSpan()));</div>
@@ -191,28 +189,34 @@ Data can be added until needed with <a class="el" href="structSC_1_1Hashing.html
 <div class="line">                StringBuilder::create(test).appendHex(res.toBytesSpan(), StringBuilder::AppendHexCase::UpperCase));</div>
 <div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(test == <span class="stringliteral">&quot;098F6BCD4621D373CADE4E832627B4F6&quot;</span>_a8);</div>
 <div class="line">            report.console.printLine(test.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>());</div>
-</div><!-- fragment --><p>Example with update (for hashing longer streams of data): </p><div class="fragment"><div class="line">            <a class="code hl_struct" href="structSC_1_1Hashing.html">Hashing</a> hash;</div>
-<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(hash.<a class="code hl_function" href="structSC_1_1Hashing.html#a9538231ae7b11b3300a250f1779893b1">setType</a>(Hashing::TypeMD5));</div>
-<div class="line"> </div>
-<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(hash.<a class="code hl_function" href="structSC_1_1Hashing.html#a2432bc5c372bf4428c2a279843b5b53d">add</a>(<span class="stringliteral">&quot;test&quot;</span>_a8.toBytesSpan()));</div>
-<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(hash.<a class="code hl_function" href="structSC_1_1Hashing.html#a2432bc5c372bf4428c2a279843b5b53d">add</a>(<span class="stringliteral">&quot;test&quot;</span>_a8.toBytesSpan()));</div>
-<div class="line">            <a class="code hl_struct" href="structSC_1_1Hashing_1_1Result.html">Hashing::Result</a> res;</div>
-<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(hash.<a class="code hl_function" href="structSC_1_1Hashing.html#af1c58ce39f19535d0bd3a52d05d56552">getHash</a>(res));</div>
-<div class="line"> </div>
-<div class="line">            <a class="code hl_struct" href="structSC_1_1String.html">String</a> test;</div>
-<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(</div>
-<div class="line">                StringBuilder::create(test).appendHex(res.toBytesSpan(), StringBuilder::AppendHexCase::UpperCase));</div>
-<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(test == <span class="stringliteral">&quot;05A671C66AEFEA124CC08B76EA6D30BB&quot;</span>_a8);</div>
-</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md309"></a>
+</div><!-- fragment --><p>Every operation that can touch the native backend returns <code>bool</code>. Check <code>setType()</code>, every <code>add()</code>, and <code>getHash()</code>; a failure means the requested operation was not completed. Calling <code>add()</code> or <code>getHash()</code> before a successful <code>setType()</code> also fails. The API reports success or failure only—it does not expose an OS error code or diagnostic string.</p>
+<h1><a class="anchor" id="autotoc_md264"></a>
+Storage, allocation and lifetime</h1>
+<p><code>add()</code> borrows an <code>SC::Span&lt;const uint8_t&gt;</code> only for the duration of the call. The input buffer can therefore be reused for the next file, socket or parser chunk as soon as <code>add()</code> returns. The library does not retain input bytes and does not allocate a buffer proportional to the stream, so the total input size is not limited by the hashing object.</p>
+<p><code><a class="el" href="structSC_1_1Hashing_1_1Result.html">SC::Hashing::Result</a></code> contains an inline 32-byte array plus the actual digest length: 16 bytes for MD5, 20 for SHA-1 and 32 for SHA-256. <code>Result::toBytesSpan()</code> is a view into that array, not an owning copy. The result object must outlive the span, and hexadecimal or Base64 text requires a separate encoding step and caller-chosen storage. [Strings](<a class="el" href="library_strings.html">Strings</a>) provides <code>StringBuilder::appendHex</code>; Hashing intentionally does not depend on it.</p>
+<p>There is no dynamic allocation in the Hashing library itself. On Apple platforms the algorithm context lives inline in the object. Windows and Linux implementations acquire native cryptographic handles or sockets, so construction and <code>setType()</code> can still consume fallible OS resources; destruction releases them. A <code>Hashing</code> instance and its active session should stay on one thread unless the caller supplies its own synchronization.</p>
+<h1><a class="anchor" id="autotoc_md265"></a>
+Platform and integration boundaries</h1>
+<p>The same public workflow maps to CommonCrypto on Apple platforms, CryptoAPI on Windows, and the kernel <code>AF_ALG</code> hashing interface on Linux. Other targets currently compile a stub whose operations return <code>false</code>; support should therefore be verified for the deployment target rather than inferred from the header being available. Backend selection is an implementation detail, but it explains why the API is fallible even though the object and digest storage are fixed-size.</p>
+<p>Hashing sits below the libraries that own I/O and presentation policy:</p>
+<ul>
+<li><a class="el" href="library_file.html">File</a> or <a class="el" href="library_async.html">Async</a> supplies chunks; Hashing neither opens files nor schedules I/O.</li>
+<li><a class="el" href="library_strings.html">Strings</a> can encode a digest for logs, manifests or comparison; Hashing returns binary bytes.</li>
+<li><a class="el" href="page_build.html">Build</a> uses Hashing while checking downloaded package archives, but Hashing has no dependency on the build or package tooling.</li>
+</ul>
+<p>The separate <a class="el" href="group__group__sc__hashing.html">C bindings</a> expose the same initialize/add/finalize lifecycle with caller-owned opaque storage. C callers must pair <code><a class="el" href="group__group__sc__hashing.html#gac5021c67b99d876ce061479d77326d22" title="Initializes OS objects to compute hash (call sc_hashing_close when done).">sc_hashing_init()</a></code> with <code><a class="el" href="group__group__sc__hashing.html#gaa27ea9872382fa6c864a0b25602cc258" title="Releases os resources allocated by sc_hashing_init.">sc_hashing_close()</a></code> so native resources are released.</p>
+<p>For exact types and signatures, see the <a class="el" href="group__group__hashing.html">Hashing API group</a>.</p>
+<h1><a class="anchor" id="autotoc_md266"></a>
+Status</h1>
+<p>🟩 Usable</p>
+<p>The library is intentionally small and is used by the package tooling. Its main limitations are the fixed legacy-oriented algorithm set, boolean-only error reporting, and lack of a supported backend outside Apple, Windows and Linux.</p>
+<h1><a class="anchor" id="autotoc_md267"></a>
 Roadmap</h1>
-<p>🟦 Complete Features:</p><ul>
-<li>None for now</li>
+<p>💡 Unplanned Features:</p>
+<ul>
+<li>No additions are currently planned. New cryptographic primitives should be driven by a concrete security model rather than added as algorithm names alone.</li>
 </ul>
-<p>💡 Unplanned Features: <br  />
-</p><ul>
-<li>None for now</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md310"></a>
+<h1><a class="anchor" id="autotoc_md268"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Hashing</code>. Single File counts <code>SaneCppHashing.h</code>. Standalone counts <code>SaneCppHashingStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

@@ -129,101 +129,66 @@ $(function(){initNavTree('library_file_system.html',''); initResizable(true); })
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md243">Quick Sheet</a>
+    <a href="#autotoc_md223">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md244">Dependencies</a>
+    <a href="#autotoc_md224">When to use File System</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md245">Features</a>
+    <a href="#autotoc_md225">The mental model: a private path base</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md246">Status</a>
+    <a href="#autotoc_md226">Storage, lifetime and failure behavior</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md247">Blog</a>
+    <a href="#autotoc_md227">Paths, encodings and the low-level escape hatch</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md248">Description</a>
+    <a href="#autotoc_md228">Metadata and links require deliberate semantics</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md249">FileSystem</a>
-    <ul>
-      <li class="level2">
-        <a href="#autotoc_md250">copyFile</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md251">copyDirectory</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md252">removeDirectoryRecursive</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md253">makeDirectoryRecursive</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md254">existsAndIsFile</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md255">existsAndIsDirectory</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md256">rename</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md257">createSymbolicLink</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md258">createHardLink</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md259">existsAndIsLink</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md260">canAccess</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md261">stat</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md262">lstat</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md263">readSymbolicLink</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md264">chmod</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md265">chown</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md266">lchown</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md267">lchmod</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md268">write</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md269">read</a>
-      </li>
-    </ul>
+    <a href="#autotoc_md229">Boundaries and tradeoffs</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md270">Roadmap</a>
+    <a href="#autotoc_md230">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md271">Statistics</a>
+    <a href="#autotoc_md231">Blog</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md232">Roadmap</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md233">Statistics</a>
   </li>
 </ul>
 </div>
-<div class="textblock"><p>🟩 File System ops { exists, copy, delete } for { files, directories }</p>
-<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppFileSystem.h">SaneCppFileSystem.h</a> is a library enabling manipulation of files and directories. <br  />
-</p>
-<h1><a class="anchor" id="autotoc_md243"></a>
-Quick Sheet</h1>
+<div class="textblock"><p>🟩 Synchronous, path-based file and directory operations</p>
+<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppFileSystem.h">SaneCppFileSystem.h</a> provides portable operations on filesystem paths: create, copy, rename and remove entries; read or replace complete files; inspect metadata; and work with links and permissions.</p>
+<h1><a class="anchor" id="autotoc_md223"></a>
+Dependencies</h1>
+<ul>
+<li>Dependencies: <em>(none)</em></li>
+<li>All dependencies: <em>(none)</em></li>
+</ul>
+<p><img src="FileSystem.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md224"></a>
+When to use File System</h1>
+<p>Use File System when the unit of work is a <b>path or directory tree</b>, rather than an already-open byte stream. It fits setup and cleanup code, installers, build tools, caches, configuration loading and other synchronous workflows that need the same behavior on Windows, macOS and Linux.</p>
+<p>The library covers the common path-level operations:</p>
+<ul>
+<li>creating one directory or an entire missing hierarchy;</li>
+<li>copying, renaming and removing files or directory trees;</li>
+<li>replacing, appending or reading a complete file;</li>
+<li>checking entry type and access, or retrieving richer metadata;</li>
+<li>creating and inspecting symbolic links and hard links; and</li>
+<li>querying executable, application-root and process working-directory paths.</li>
+</ul>
+<p>It is not a directory enumerator, an open-file abstraction or an asynchronous filesystem. Use <a class="el" href="library_file_system_iterator.html">File System Iterator</a> to discover directory contents, <a class="el" href="library_file.html">File</a> for incremental reads, writes, seeking, durability and descriptor ownership, and <a class="el" href="library_async.html">Async</a> when blocking the calling thread is unacceptable.</p>
+<h1><a class="anchor" id="autotoc_md225"></a>
+The mental model: a private path base</h1>
+<p>An <a class="el" href="structSC_1_1FileSystem.html" title="Execute fs operations { exists, copy, delete } for { files and directories }.">SC::FileSystem</a> object holds a base directory. Call <a class="el" href="structSC_1_1FileSystem.html#a1fd637d740d1784669730c832631baaf" title="Call init function when instantiating the class to set directory for all operations using relative pa...">SC::FileSystem::init</a> with an absolute directory, then every relative path passed to that object is resolved against this base. Absolute paths remain absolute. Importantly, relative operations do <b>not</b> depend on the process-wide current working directory, so a library or another thread changing that global state does not silently redirect them. <a class="el" href="structSC_1_1FileSystem.html#a314148c633cf60a45a5700af7e524607" title="Changes current directory.">SC::FileSystem::changeDirectory</a> changes only this object's base.</p>
+<p>This source-backed example is compiled and run as part of <code>FileSystemTest</code>:</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
 <div class="line"><span class="comment">// Make all operations relative to applicationRootDirectory</span></div>
 <div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
@@ -265,557 +230,50 @@ Quick Sheet</h1>
 <div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>));</div>
 <div class="line"><span class="comment">// Remove the entire tree of directories for the copy</span></div>
 <div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a83c97e78517a179fe4c7458a5b912863">removeDirectoryRecursive</a>(<span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md244"></a>
-Dependencies</h1>
+</div><!-- fragment --><p>The example also shows the deliberately conservative copy default: an existing destination is an error. Set <a class="el" href="structSC_1_1FileSystemCopyFlags.html#ab9bc31581c16b39d10baec04db8314b4" title="If true copy will overwrite existing files in the destination.">SC::FileSystemCopyFlags::overwrite</a> explicitly when replacement is intended. Filesystem cloning is requested by default where the platform supports it; disabling that optimization asks for a regular copy without changing the result's logical contents.</p>
+<p>Several plural operations accept caller-provided spans, such as <a class="el" href="structSC_1_1FileSystem.html#a496fdbb8cbf227307c754dc6f97b7646" title="Copies many files.">SC::FileSystem::copyFiles</a> and <a class="el" href="structSC_1_1FileSystem.html#a09129409620b045d6551e46ef02cb680" title="Remove multiple files.">SC::FileSystem::removeFiles</a>. They are convenience batches, not transactions: processing stops at the first failure and earlier successful operations are not rolled back.</p>
+<h1><a class="anchor" id="autotoc_md226"></a>
+Storage, lifetime and failure behavior</h1>
+<p><a class="el" href="structSC_1_1FileSystem.html" title="Execute fs operations { exists, copy, delete } for { files and directories }.">SC::FileSystem</a> owns fixed-capacity path-conversion and error buffers. Ordinary path operations do not allocate internally, and SC::StringSpan inputs are borrowed only for the duration of the call. The practical consequence is that paths must fit SC::StringPath capacity; overlong or unrepresentable paths fail through SC::Result rather than growing hidden storage.</p>
+<p>Whole-file writes borrow the supplied SC::Span or SC::StringSpan. Whole-file reads are different: the caller supplies a <code>String</code>, <code>Buffer</code>, <code>SmallString</code> or another growable-buffer-compatible destination, and that destination decides whether growth allocates or fails at fixed capacity. For large files, bounded memory, seeking or partial I/O, use <a class="el" href="library_file.html">File</a> instead.</p>
+<p>Mutating and metadata operations return SC::Result and can fail for normal filesystem reasons: missing parents, access rules, occupied destinations, unsupported operations or I/O errors. Boolean queries such as <a class="el" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73" title="Check if a file or directory exists at a given path.">SC::FileSystem::exists</a> and <a class="el" href="structSC_1_1FileSystem.html#ab0998b050e3530b43d053ac82b279094" title="Check whether the current process can access a path with the requested mode.">SC::FileSystem::canAccess</a> intentionally collapse "no" and lookup failure into <code>false</code>; use a Result-returning operation when the distinction matters. Setting <a class="el" href="structSC_1_1FileSystem.html#ab4f4015b0c578f09469206286efbfb9c" title="Formats errors in an internal buffer when returning failed Result.">SC::FileSystem::preciseErrorMessages</a> asks the object to format platform error detail into its internal fixed buffer; it does not change success semantics.</p>
+<p>The API is synchronous. A recursive copy or removal may take an unbounded amount of wall-clock time even though its memory use is controlled, so it should not run on a latency-sensitive event-loop thread.</p>
+<h1><a class="anchor" id="autotoc_md227"></a>
+Paths, encodings and the low-level escape hatch</h1>
+<p>The object API performs path normalization and encoding conversion. On Windows it accepts UTF-8 or UTF-16 string spans and uses UTF-16 for native calls; on POSIX paths are UTF-8/native byte strings. Returned filesystem paths use the operating system's native encoding. <a class="el" href="library_strings.html">Strings</a>, especially <a class="el" href="structSC_1_1Path.html" title="Parse and compose filesystem paths for windows and posix.">SC::Path</a>, is the companion library for parsing and composing paths before passing them here.</p>
+<p><a class="el" href="structSC_1_1FileSystem_1_1Operations.html" title="Low level filesystem API, requiring paths in native encoding (UTF-16 on Windows, UTF-8 elsewhere)">SC::FileSystem::Operations</a> exposes the underlying stateless operations when paths are already in native encoding: UTF-16 on Windows and UTF-8 on POSIX. It also provides SC::FileSystem::Operations::getExecutablePath, SC::FileSystem::Operations::getApplicationRootDirectory and SC::FileSystem::Operations::getCurrentWorkingDirectory, all writing into a caller-owned SC::StringPath. Prefer the object API for application paths; <code>Operations</code> deliberately gives up the object's stable base and conversion layer.</p>
+<h1><a class="anchor" id="autotoc_md228"></a>
+Metadata and links require deliberate semantics</h1>
+<p><a class="el" href="structSC_1_1FileSystem.html#a60a20f1d08b8643bbd746281d2de0f6d" title="Obtains richer metadata about a path, following symbolic links.">SC::FileSystem::stat</a> follows a symbolic link, while <a class="el" href="structSC_1_1FileSystem.html#a1c71293fc6fbab346710532dbfd95e18" title="Obtains richer metadata about a path without following symbolic links.">SC::FileSystem::lstat</a> describes the link itself. Both fill <a class="el" href="structSC_1_1FileSystemStat.html" title="A structure to describe file stats.">SC::FileSystemStat</a> with portable entry type, size, link count and timestamps, plus platform-specific POSIX identity/mode fields or Windows attributes and file identity. <a class="el" href="structSC_1_1FileSystem.html#a5bc7e8751c69ce9af3c82f911e898b3a" title="Legacy convenience alias for stat(StringSpan, FileStat&amp;)">SC::FileSystem::getFileStat</a> is retained as a legacy alias for <code>stat</code>.</p>
+<p><a class="el" href="structSC_1_1FileSystem.html#af83b9e24cd82181539e17e24c1b0bfec" title="Check if a link exists at given path.">SC::FileSystem::existsAndIsLink</a> and <a class="el" href="structSC_1_1FileSystem.html#a1d22f2cbbd7dd503256be7715ca1d26a" title="Reads the target path stored by a symbolic link.">SC::FileSystem::readSymbolicLink</a> operate on the link rather than its target. <a class="el" href="structSC_1_1FileSystem.html#a3c6b47d0b18c00dc7aa0a07d1652cbb9" title="Remove a single link, giving no error if it doesn&#39;t exist.">SC::FileSystem::removeLinkIfExists</a> is the corresponding explicit cleanup operation. Ownership and permission calls expose native numeric concepts: <code>chmod</code> and <code>chown</code> follow links, while <code>lchmod</code> and <code>lchown</code> target the link where the operating system supports that distinction. These APIs are portable entry points, not a promise that Windows and POSIX permission models are equivalent.</p>
+<p>Recursive directory operations deserve the same caution. <a class="el" href="structSC_1_1FileSystem.html#a83c97e78517a179fe4c7458a5b912863" title="Remove single directory with its entire content (like posix rm -rf)">SC::FileSystem::removeDirectoryRecursive</a> is the equivalent of an <code>rm -rf</code>-style destructive operation, and <a class="el" href="structSC_1_1FileSystem.html#aa2c49712608e73c143022d2a7d61ebfc" title="Copy a single directory.">SC::FileSystem::copyDirectory</a> recursively materializes a tree. Neither is an atomic snapshot or recovery mechanism. Applications that replace durable state should build their own staging, sync and rename protocol using File and File System primitives.</p>
+<h1><a class="anchor" id="autotoc_md229"></a>
+Boundaries and tradeoffs</h1>
+<p>File System favors explicit buffers, synchronous results and a small portable surface over a <code>std::filesystem</code>-like object graph. It does not allocate path objects for every entry, throw exceptions, preserve a process-global working-directory assumption, traverse directories, watch for changes or provide filesystem transactions.</p>
+<p>That makes it a good fit for controlled system operations where the caller owns memory and error policy. It is a poor fit for streaming multi-gigabyte files, interactive event loops, directory search or change notification. The neighboring libraries divide those responsibilities cleanly:</p>
 <ul>
-<li>Dependencies: <em>(none)</em></li>
-<li>All dependencies: <em>(none)</em></li>
+<li><a class="el" href="library_file.html">File</a> owns open descriptors and performs incremental byte I/O;</li>
+<li><a class="el" href="library_file_system_iterator.html">File System Iterator</a> enumerates directory entries;</li>
+<li><a class="el" href="library_file_system_watcher.html">File System Watcher</a> reports later changes; and</li>
+<li><a class="el" href="library_async.html">Async</a> integrates supported I/O with an event loop.</li>
 </ul>
-<p><img src="FileSystem.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md245"></a>
-Features</h1>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadLeft"><a class="el" href="structSC_1_1FileSystem.html" title="Execute fs operations { exists, copy, delete } for { files and directories }.">SC::FileSystem</a>   </th><th class="markdownTableHeadLeft">Execute fs operations { exists, copy, delete } for { files and directories }.       </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><b>Copy Files</b>   </td><td class="markdownTableBodyLeft"></td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#ad30ad24318fc6caa998ff817825702a7" title="Copy a single file.">SC::FileSystem::copyFile</a>   </td><td class="markdownTableBodyLeft">Copy a single file.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><b>Delete Files</b>   </td><td class="markdownTableBodyLeft"></td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#a1465c729e64880777d2d25c98179a8ab" title="Remove a single file.">SC::FileSystem::removeFile</a>   </td><td class="markdownTableBodyLeft">Remove a single file.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#a5d376d2cdace056ade8bd5ac59359c37" title="Remove a single file, giving no error if it doesn&#39;t exist.">SC::FileSystem::removeFileIfExists</a>   </td><td class="markdownTableBodyLeft">Remove a single file, giving no error if it doesn't exist.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><b>Copy Directories</b>   </td><td class="markdownTableBodyLeft"></td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#aa2c49712608e73c143022d2a7d61ebfc" title="Copy a single directory.">SC::FileSystem::copyDirectory</a>   </td><td class="markdownTableBodyLeft">Copy a single directory.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><b>Delete Directories</b>   </td><td class="markdownTableBodyLeft"></td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#ae59bf3574eb30df766ef37af11c709bb" title="Removes an empty directory.">SC::FileSystem::removeEmptyDirectory</a>   </td><td class="markdownTableBodyLeft">Removes an empty directory.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#a83c97e78517a179fe4c7458a5b912863" title="Remove single directory with its entire content (like posix rm -rf)">SC::FileSystem::removeDirectoryRecursive</a>   </td><td class="markdownTableBodyLeft">Remove single directory with its entire content (like posix <code>rm -rf</code>)       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><b>Create Directories</b>   </td><td class="markdownTableBodyLeft"></td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#a6f1643f6603faca2c299e0239ef3a026" title="Creates a new directory that does not already exist.">SC::FileSystem::makeDirectory</a>   </td><td class="markdownTableBodyLeft">Creates a new directory that does not already exist.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#adcdea3f7a7aaef028ff84181fc74bc7f" title="Creates a new directory, if it doesn&#39;t already exists at the given path.">SC::FileSystem::makeDirectoryIfNotExists</a>   </td><td class="markdownTableBodyLeft">Creates a new directory, if it doesn't already exists at the given path.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#a54293925bbb6a67ffec893d5ccd77930" title="Create a new directory, creating also intermediate non existing directories (like posix mkdir -p)">SC::FileSystem::makeDirectoryRecursive</a>   </td><td class="markdownTableBodyLeft">Create a new directory, creating also intermediate non existing directories (like posix <code>mkdir -p</code>)       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><b>Create Links</b>   </td><td class="markdownTableBodyLeft"></td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#ab05006d72848fd4565bdd519d67184b9" title="Creates a symbolic link at location linkFile pointing at sourceFileOrDirectory.">SC::FileSystem::createSymbolicLink</a>   </td><td class="markdownTableBodyLeft">Creates a symbolic link at location linkFile pointing at sourceFileOrDirectory.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#aa9cb6bcaf3fd3d5369c6a0c0a2686f5a" title="Creates a hard link at location linkFile pointing at sourceFile.">SC::FileSystem::createHardLink</a>   </td><td class="markdownTableBodyLeft">Creates a hard link at location linkFile pointing at sourceFile.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><b>Check Existence</b>   </td><td class="markdownTableBodyLeft"></td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73" title="Check if a file or directory exists at a given path.">SC::FileSystem::exists</a>   </td><td class="markdownTableBodyLeft">Check if a file or directory exists at a given path.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762" title="Check if a file exists at given path.">SC::FileSystem::existsAndIsFile</a>   </td><td class="markdownTableBodyLeft">Check if a file exists at given path.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#a57f57af54061e2370bef5e164ab44335" title="Check if a directory exists at given path.">SC::FileSystem::existsAndIsDirectory</a>   </td><td class="markdownTableBodyLeft">Check if a directory exists at given path.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#af83b9e24cd82181539e17e24c1b0bfec" title="Check if a link exists at given path.">SC::FileSystem::existsAndIsLink</a>   </td><td class="markdownTableBodyLeft">Check if a link exists at given path.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#ab0998b050e3530b43d053ac82b279094" title="Check whether the current process can access a path with the requested mode.">SC::FileSystem::canAccess</a>   </td><td class="markdownTableBodyLeft">Check whether the current process can access a path with the requested mode.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><b>Rename files or directories</b>   </td><td class="markdownTableBodyLeft"></td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#a6b4aa48531a6c63039184a18cee0749d" title="Rename a file or directory.">SC::FileSystem::rename</a>   </td><td class="markdownTableBodyLeft">Rename a file or directory.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><b>Read / Change modification time</b>   </td><td class="markdownTableBodyLeft"></td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#a60a20f1d08b8643bbd746281d2de0f6d" title="Obtains richer metadata about a path, following symbolic links.">SC::FileSystem::stat</a>   </td><td class="markdownTableBodyLeft">Obtains richer metadata about a path, following symbolic links.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#a1c71293fc6fbab346710532dbfd95e18" title="Obtains richer metadata about a path without following symbolic links.">SC::FileSystem::lstat</a>   </td><td class="markdownTableBodyLeft">Obtains richer metadata about a path without following symbolic links.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#a5bc7e8751c69ce9af3c82f911e898b3a" title="Legacy convenience alias for stat(StringSpan, FileStat&amp;)">SC::FileSystem::getFileStat</a>   </td><td class="markdownTableBodyLeft">Legacy convenience alias for stat(StringSpan, FileStat&amp;)       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#a49555df8f65b725bc140a01f3be4b3fa" title="Change last modified time of a given file.">SC::FileSystem::setLastModifiedTime</a>   </td><td class="markdownTableBodyLeft">Change last modified time of a given file.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#a1d22f2cbbd7dd503256be7715ca1d26a" title="Reads the target path stored by a symbolic link.">SC::FileSystem::readSymbolicLink</a>   </td><td class="markdownTableBodyLeft">Reads the target path stored by a symbolic link.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#a934a1bfa3acda9759e4c612c96bb1813" title="Change file permission bits for a path, following symbolic links.">SC::FileSystem::chmod</a>   </td><td class="markdownTableBodyLeft">Change file permission bits for a path, following symbolic links.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#a1d13ef9394c49e07dccd27a91069b011" title="Change owner and group for a path, following symbolic links.">SC::FileSystem::chown</a>   </td><td class="markdownTableBodyLeft">Change owner and group for a path, following symbolic links.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#a4ba8e1135033344550c5934c1709e1e9" title="Change owner and group for a path without following symbolic links.">SC::FileSystem::lchown</a>   </td><td class="markdownTableBodyLeft">Change owner and group for a path without following symbolic links.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem.html#ad6a15dc578e8278551f080d81436e2a5" title="Change file permission bits for a symbolic link without following it.">SC::FileSystem::lchmod</a>   </td><td class="markdownTableBodyLeft">Change file permission bits for a symbolic link without following it.      </td></tr>
-</table>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadLeft">Miscellaneous Classes   </th><th class="markdownTableHeadLeft"></th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FileSystem_1_1Operations.html" title="Low level filesystem API, requiring paths in native encoding (UTF-16 on Windows, UTF-8 elsewhere)">SC::FileSystem::Operations</a>   </td><td class="markdownTableBodyLeft">Low level filesystem API, requiring paths in native encoding (UTF-16 on Windows, UTF-8 elsewhere)       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><b>Get Executable / Application Path</b>   </td><td class="markdownTableBodyLeft"></td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">SC::FileSystem::Operations::getExecutablePath   </td><td class="markdownTableBodyLeft"><p class="starttd"></p>
-<p class="endtd"></p>
-</td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">SC::FileSystem::Operations::getApplicationRootDirectory   </td><td class="markdownTableBodyLeft"><p class="starttd"></p>
-<p class="endtd"></p>
-</td></tr>
-</table>
-<h1><a class="anchor" id="autotoc_md246"></a>
+<p>For the complete API surface and option fields, see the <a class="el" href="group__group__file__system.html">FileSystem module</a>.</p>
+<h1><a class="anchor" id="autotoc_md230"></a>
 Status</h1>
-<p>🟩 Usable <br  />
- The library contains commonly used function including links, access checks and richer path metadata. Some lower level filesystem features are still missing, especially filesystem-level queries. SC::FileSystem::getFileTime and <a class="el" href="structSC_1_1FileSystem.html#a49555df8f65b725bc140a01f3be4b3fa" title="Change last modified time of a given file.">SC::FileSystem::setLastModifiedTime</a> will probably be refactored in a future dedicated class for handling <code>stat</code> based operations.</p>
-<h1><a class="anchor" id="autotoc_md247"></a>
+<p>🟩 Usable The library covers common path operations, links, access checks and rich path metadata. Filesystem-level queries such as <code>statfs</code> are not yet implemented. Permission, ownership, link and clone behavior necessarily retains platform-specific limits, and callers should handle an unsupported or access-denied Result.</p>
+<h1><a class="anchor" id="autotoc_md231"></a>
 Blog</h1>
-<p>Some relevant blog posts are:</p>
+<p>Relevant development updates:</p>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html">July 2025 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md248"></a>
-Description</h1>
-<p><a class="el" href="structSC_1_1FileSystem.html" title="Execute fs operations { exists, copy, delete } for { files and directories }.">SC::FileSystem</a> allows all typical file operations ( exists | copy | delete | make files or directory). Some less used functions are SC::FileSystem::getFileTime and <a class="el" href="structSC_1_1FileSystem.html#a49555df8f65b725bc140a01f3be4b3fa" title="Change last modified time of a given file.">SC::FileSystem::setLastModifiedTime</a> . The library also supports symlink and hardlink creation, reading symlink targets and checking path accessibility. The library doesn't allow reading or writing seeking inside a file, as that is domain of the <a class="el" href="library_file.html">File</a> library. <a class="el" href="structSC_1_1FileSystem.html#a1fd637d740d1784669730c832631baaf" title="Call init function when instantiating the class to set directory for all operations using relative pa...">SC::FileSystem::init</a> needs an absolute path to a directory and makes it a the <em>base directory</em>. All paths passed later on as arguments to all methods can be either absolute paths or relative. If they are relative, they will be interpreted as relative to the base directory and <b>NOT</b> current directory of the process. The class wants explicitly to make sure its behavior doesn't implicitly depend on current directory of process (unless it's passed explicitly to <a class="el" href="structSC_1_1FileSystem.html#a1fd637d740d1784669730c832631baaf" title="Call init function when instantiating the class to set directory for all operations using relative pa...">SC::FileSystem::init</a> of course).</p>
-<p>Use <a class="el" href="structSC_1_1Path.html" title="Parse and compose filesystem paths for windows and posix.">SC::Path</a> from <a class="el" href="library_strings.html">Strings</a> library to parse and compose paths.</p>
-<h1><a class="anchor" id="autotoc_md249"></a>
-FileSystem</h1>
-<h2><a class="anchor" id="autotoc_md250"></a>
-copyFile</h2>
-<p>Copy a single file.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">source</td><td>Source file path </td></tr>
-    <tr><td class="paramname">destination</td><td>Destination file path </td></tr>
-    <tr><td class="paramname">copyFlags</td><td>Copy flags (overwrite, use clone api etc.) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Valid Result if copy succeeded</dd></dl>
-<p>Example: </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
-<div class="line">    <span class="comment">// Make all operations relative to applicationRootDirectory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create a File names &#39;sourceFile.txt&#39;</span></div>
-<div class="line">    <a class="code hl_struct" href="structSC_1_1StringView.html">StringView</a> contentSource = <span class="stringliteral">&quot;this is some content&quot;</span>;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#afe1fb31f6a2e6ecfc31133b17fa69eda">writeString</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, contentSource));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Check that &#39;sourceFile.txt&#39; exist, but not &#39;destinationFile.txt&#39;</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Ask to copy sourceFile.txt to destinationFile.txt (eventually overwriting, but without cloning)</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#ad30ad24318fc6caa998ff817825702a7">copyFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>,</div>
-<div class="line">                               <a class="code hl_struct" href="structSC_1_1FileSystemCopyFlags.html">FileSystem::CopyFlags</a>().<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a7a7bbd09647669be8d2c087a9fe91f22">setOverwrite</a>(<span class="keyword">true</span>).<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a05995644e6811c1569619244c9f37557">setUseCloneIfSupported</a>(<span class="keyword">false</span>)));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Now read the destinationFile.txt content and check if it&#39;s the same as source</span></div>
-<div class="line">    <a class="code hl_struct" href="structSC_1_1String.html">String</a> content = StringEncoding::Ascii;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a3079e4e57bf371f1ba6323f6a85f92b1">read</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>, content));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(content.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>() == contentSource);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Copy again sourceFile.txt to destinationFile.txt but using clone this time</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#ad30ad24318fc6caa998ff817825702a7">copyFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>,</div>
-<div class="line">                               <a class="code hl_struct" href="structSC_1_1FileSystemCopyFlags.html">FileSystem::CopyFlags</a>().<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a7a7bbd09647669be8d2c087a9fe91f22">setOverwrite</a>(<span class="keyword">true</span>).<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a05995644e6811c1569619244c9f37557">setUseCloneIfSupported</a>(<span class="keyword">true</span>)));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Check again if file exists and its content</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a3079e4e57bf371f1ba6323f6a85f92b1">read</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>, content));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(content.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>() == contentSource);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Remove all files created by the test</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a09129409620b045d6551e46ef02cb680">removeFiles</a>({<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>}));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>));</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md251"></a>
-copyDirectory</h2>
-<p>Copy a single directory.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">source</td><td>Source directory path </td></tr>
-    <tr><td class="paramname">destination</td><td>Destination directory path </td></tr>
-    <tr><td class="paramname">copyFlags</td><td>Copy flags (overwrite, use clone api etc.) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Valid Result if copy succeeded</dd></dl>
-<p>Example: </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
-<div class="line">    <span class="comment">// Make all operations relative to applicationRootDirectory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create a nested directory structure with some files too</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a6f1643f6603faca2c299e0239ef3a026">makeDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a957e09ef70c51f82fdf6147f09403af0">write</a>(<span class="stringliteral">&quot;copyDirectory/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;copyDirectory/testFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a6f1643f6603faca2c299e0239ef3a026">makeDirectory</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a957e09ef70c51f82fdf6147f09403af0">write</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Copy the directory (recursively)</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#aa2c49712608e73c143022d2a7d61ebfc">copyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>, <span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Check that file exists in the new copied directory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;COPY_copyDirectory/testFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;COPY_copyDirectory/subdirectory/testFile.txt&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Copying again fails (because we&#39;re not overwriting)</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#aa2c49712608e73c143022d2a7d61ebfc">copyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>, <span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Try copying again but now we ask to overwrite destination</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#aa2c49712608e73c143022d2a7d61ebfc">copyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>, <span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>, <a class="code hl_struct" href="structSC_1_1FileSystemCopyFlags.html">FileSystem::CopyFlags</a>().<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a7a7bbd09647669be8d2c087a9fe91f22">setOverwrite</a>(<span class="keyword">true</span>)));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Remove all files created by the test</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a1465c729e64880777d2d25c98179a8ab">removeFile</a>(<span class="stringliteral">&quot;copyDirectory/testFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a1465c729e64880777d2d25c98179a8ab">removeFile</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory/testFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a1465c729e64880777d2d25c98179a8ab">removeFile</a>(<span class="stringliteral">&quot;COPY_copyDirectory/testFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a1465c729e64880777d2d25c98179a8ab">removeFile</a>(<span class="stringliteral">&quot;COPY_copyDirectory/subdirectory/testFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;COPY_copyDirectory/subdirectory&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md252"></a>
-removeDirectoryRecursive</h2>
-<p>Remove single directory with its entire content (like posix <code>rm -rf</code>)   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">directory</td><td>Directory to remove </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Valid Result if directory contents has been successfully deleted</dd></dl>
-<p>Example: </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
-<div class="line">    <span class="comment">// Make all operations relative to applicationRootDirectory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create a nested directory structure with some files too</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a6f1643f6603faca2c299e0239ef3a026">makeDirectory</a>(<span class="stringliteral">&quot;removeDirectoryTest&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a957e09ef70c51f82fdf6147f09403af0">write</a>(<span class="stringliteral">&quot;removeDirectoryTest/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a6f1643f6603faca2c299e0239ef3a026">makeDirectory</a>(<span class="stringliteral">&quot;removeDirectoryTest/another&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a957e09ef70c51f82fdf6147f09403af0">write</a>(<span class="stringliteral">&quot;removeDirectoryTest/another/yeah.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Remove the entire tree of directories</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a83c97e78517a179fe4c7458a5b912863">removeDirectoryRecursive</a>(<span class="stringliteral">&quot;removeDirectoryTest&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Check that all files and directories have been removed</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;removeDirectoryTest/testFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;removeDirectoryTest/another/yeah.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a>(<span class="stringliteral">&quot;removeDirectoryTest/another&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a>(<span class="stringliteral">&quot;removeDirectoryTest&quot;</span>));</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md253"></a>
-makeDirectoryRecursive</h2>
-<p>Create a new directory, creating also intermediate non existing directories (like posix <code>mkdir -p</code>)   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">directory</td><td>Path where to create such directory </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Invalid Result in case of I/O or access error <div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
-<div class="line">    <span class="comment">// Make all operations relative to applicationRootDirectory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create a directory with 2 levels of nesting</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a54293925bbb6a67ffec893d5ccd77930">makeDirectoryRecursive</a>(<span class="stringliteral">&quot;Test3/Subdir&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Check that both levels have been created</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a>(<span class="stringliteral">&quot;Test3&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a>(<span class="stringliteral">&quot;Test3/Subdir&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Remove both levels of directory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;Test3/Subdir&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;Test3&quot;</span>));</div>
-</div><!-- fragment -->  </dd></dl>
-<h2><a class="anchor" id="autotoc_md254"></a>
-existsAndIsFile</h2>
-<p>Check if a file exists at given path.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">file</td><td>File path to check </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if a file exists at the given path</dd></dl>
-<p>Example: </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
-<div class="line">    <span class="comment">// Make all operations relative to applicationRootDirectory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create a File names &#39;sourceFile.txt&#39;</span></div>
-<div class="line">    <a class="code hl_struct" href="structSC_1_1StringView.html">StringView</a> contentSource = <span class="stringliteral">&quot;this is some content&quot;</span>;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#afe1fb31f6a2e6ecfc31133b17fa69eda">writeString</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, contentSource));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Check that &#39;sourceFile.txt&#39; exist, but not &#39;destinationFile.txt&#39;</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Ask to copy sourceFile.txt to destinationFile.txt (eventually overwriting, but without cloning)</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#ad30ad24318fc6caa998ff817825702a7">copyFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>,</div>
-<div class="line">                               <a class="code hl_struct" href="structSC_1_1FileSystemCopyFlags.html">FileSystem::CopyFlags</a>().<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a7a7bbd09647669be8d2c087a9fe91f22">setOverwrite</a>(<span class="keyword">true</span>).<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a05995644e6811c1569619244c9f37557">setUseCloneIfSupported</a>(<span class="keyword">false</span>)));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Now read the destinationFile.txt content and check if it&#39;s the same as source</span></div>
-<div class="line">    <a class="code hl_struct" href="structSC_1_1String.html">String</a> content = StringEncoding::Ascii;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a3079e4e57bf371f1ba6323f6a85f92b1">read</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>, content));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(content.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>() == contentSource);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Copy again sourceFile.txt to destinationFile.txt but using clone this time</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#ad30ad24318fc6caa998ff817825702a7">copyFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>,</div>
-<div class="line">                               <a class="code hl_struct" href="structSC_1_1FileSystemCopyFlags.html">FileSystem::CopyFlags</a>().<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a7a7bbd09647669be8d2c087a9fe91f22">setOverwrite</a>(<span class="keyword">true</span>).<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a05995644e6811c1569619244c9f37557">setUseCloneIfSupported</a>(<span class="keyword">true</span>)));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Check again if file exists and its content</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a3079e4e57bf371f1ba6323f6a85f92b1">read</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>, content));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(content.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>() == contentSource);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Remove all files created by the test</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a09129409620b045d6551e46ef02cb680">removeFiles</a>({<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>}));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>));</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md255"></a>
-existsAndIsDirectory</h2>
-<p>Check if a directory exists at given path.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">directory</td><td>Directory path to check </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if a directory exists at the given path   </dd></dl>
-<h2><a class="anchor" id="autotoc_md256"></a>
-rename</h2>
-<p>Rename a file or directory.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">path</td><td>The path to the file or directory to rename </td></tr>
-    <tr><td class="paramname">newPath</td><td>The new path to the file or directory </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Valid Result if the file or directory was renamed</dd></dl>
-<p>Example: </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create a file and check that it exists</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#afe1fb31f6a2e6ecfc31133b17fa69eda">writeString</a>(<span class="stringliteral">&quot;renameTest.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameTest.txt&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Rename the file</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a6b4aa48531a6c63039184a18cee0749d">rename</a>(<span class="stringliteral">&quot;renameTest.txt&quot;</span>, <span class="stringliteral">&quot;renameTest2.txt&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Check that the file has been renamed</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameTest2.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameTest.txt&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Rename the file again</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a6b4aa48531a6c63039184a18cee0749d">rename</a>(<span class="stringliteral">&quot;renameTest2.txt&quot;</span>, <span class="stringliteral">&quot;renameTest.txt&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Check that the file has been renamed</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameTest.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameTest2.txt&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Remove all files created by the test</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a1465c729e64880777d2d25c98179a8ab">removeFile</a>(<span class="stringliteral">&quot;renameTest.txt&quot;</span>));</div>
-</div><!-- fragment --> <div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create a directory and check that it exists</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a6f1643f6603faca2c299e0239ef3a026">makeDirectory</a>(<span class="stringliteral">&quot;renameDirectoryTest&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a>(<span class="stringliteral">&quot;renameDirectoryTest&quot;</span>));</div>
-<div class="line">    <span class="comment">// Create a file in the directory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#afe1fb31f6a2e6ecfc31133b17fa69eda">writeString</a>(<span class="stringliteral">&quot;renameDirectoryTest/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameDirectoryTest/testFile.txt&quot;</span>));</div>
-<div class="line">    <span class="comment">// Create a subdirectory in the directory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a6f1643f6603faca2c299e0239ef3a026">makeDirectory</a>(<span class="stringliteral">&quot;renameDirectoryTest/subdirectory&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a>(<span class="stringliteral">&quot;renameDirectoryTest/subdirectory&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create a file in the subdirectory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#afe1fb31f6a2e6ecfc31133b17fa69eda">writeString</a>(<span class="stringliteral">&quot;renameDirectoryTest/subdirectory/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameDirectoryTest/subdirectory/testFile.txt&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Rename the directory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a6b4aa48531a6c63039184a18cee0749d">rename</a>(<span class="stringliteral">&quot;renameDirectoryTest&quot;</span>, <span class="stringliteral">&quot;renameDirectoryTest2&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Check that the directory has been renamed</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a>(<span class="stringliteral">&quot;renameDirectoryTest2&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a>(<span class="stringliteral">&quot;renameDirectoryTest&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Check that the file in the directory has been renamed</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameDirectoryTest2/testFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameDirectoryTest/testFile.txt&quot;</span>));</div>
-<div class="line">    <span class="comment">// Check that the file in the subdirectory has been renamed</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameDirectoryTest2/subdirectory/testFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameDirectoryTest/subdirectory/testFile.txt&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Remove all directories created by the test</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a83c97e78517a179fe4c7458a5b912863">removeDirectoryRecursive</a>(<span class="stringliteral">&quot;renameDirectoryTest2&quot;</span>));</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md257"></a>
-createSymbolicLink</h2>
-<p>Creates a symbolic link at location linkFile pointing at sourceFileOrDirectory.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sourceFileOrDirectory</td><td>The target of the link (can be a folder or directory) </td></tr>
-    <tr><td class="paramname">linkFile</td><td>The location where the symbolic link will be created </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Invalid result if it's not possible creating the requested symbolic link   </dd></dl>
-<h2><a class="anchor" id="autotoc_md258"></a>
-createHardLink</h2>
-<p>Creates a hard link at location linkFile pointing at sourceFile.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sourceFile</td><td>The target file of the hard link </td></tr>
-    <tr><td class="paramname">linkFile</td><td>The location where the hard link will be created </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Invalid result if it's not possible creating the requested hard link   </dd></dl>
-<h2><a class="anchor" id="autotoc_md259"></a>
-existsAndIsLink</h2>
-<p>Check if a link exists at given path.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">file</td><td>Link path to check </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if a file exists at the given path   </dd></dl>
-<h2><a class="anchor" id="autotoc_md260"></a>
-canAccess</h2>
-<p>Check whether the current process can access a path with the requested mode.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fileOrDirectory</td><td>Path to check </td></tr>
-    <tr><td class="paramname">accessMode</td><td>Requested access mode </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the requested access is allowed   </dd></dl>
-<h2><a class="anchor" id="autotoc_md261"></a>
-stat</h2>
-<p>Obtains richer metadata about a path, following symbolic links.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">file</td><td>Path to the file of interest </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">fileStat</td><td>Destination structure that will receive statistics about the file </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Valid Result if file stats for the given file was successfully read   </dd></dl>
-<h2><a class="anchor" id="autotoc_md262"></a>
-lstat</h2>
-<p>Obtains richer metadata about a path without following symbolic links.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">file</td><td>Path to the file of interest </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">fileStat</td><td>Destination structure that will receive statistics about the file </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Valid Result if file stats for the given file was successfully read   </dd></dl>
-<h2><a class="anchor" id="autotoc_md263"></a>
-readSymbolicLink</h2>
-<p>Reads the target path stored by a symbolic link.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">linkFile</td><td>Path to the symbolic link </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">destination</td><td>Destination receiving the native-encoded target path </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Valid Result if link target was successfully read   </dd></dl>
-<h2><a class="anchor" id="autotoc_md264"></a>
-chmod</h2>
-<p>Change file permission bits for a path, following symbolic links.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">path</td><td>Path to the file or directory of interest </td></tr>
-    <tr><td class="paramname">mode</td><td>Platform-native numeric mode bits </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Valid Result if permissions were updated successfully   </dd></dl>
-<h2><a class="anchor" id="autotoc_md265"></a>
-chown</h2>
-<p>Change owner and group for a path, following symbolic links.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">path</td><td>Path to the file or directory of interest </td></tr>
-    <tr><td class="paramname">uid</td><td>Platform-native numeric owner identifier </td></tr>
-    <tr><td class="paramname">gid</td><td>Platform-native numeric group identifier </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Valid Result if ownership was updated successfully   </dd></dl>
-<h2><a class="anchor" id="autotoc_md266"></a>
-lchown</h2>
-<p>Change owner and group for a path without following symbolic links.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">path</td><td>Path to the file or directory of interest </td></tr>
-    <tr><td class="paramname">uid</td><td>Platform-native numeric owner identifier </td></tr>
-    <tr><td class="paramname">gid</td><td>Platform-native numeric group identifier </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Valid Result if ownership was updated successfully   </dd></dl>
-<h2><a class="anchor" id="autotoc_md267"></a>
-lchmod</h2>
-<p>Change file permission bits for a symbolic link without following it.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">path</td><td>Path to the symbolic link of interest </td></tr>
-    <tr><td class="paramname">mode</td><td>Platform-native numeric mode bits </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Valid Result if permissions were updated successfully   </dd></dl>
-<h2><a class="anchor" id="autotoc_md268"></a>
-write</h2>
-<p>Writes a block of memory to a file.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">file</td><td>Path to the file that is meant to be written </td></tr>
-    <tr><td class="paramname">data</td><td>Block of memory to write </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Valid Result if the memory was successfully written</dd></dl>
-<p>Example: </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
-<div class="line">    <span class="comment">// Make all operations relative to applicationRootDirectory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
-<div class="line">    <a class="code hl_struct" href="structSC_1_1StringView.html">StringView</a> content = <span class="stringliteral">&quot;ASDF content&quot;</span>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Check that file doesn&#39;t exists before write-ing it and then check that it exist</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;file.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#afe1fb31f6a2e6ecfc31133b17fa69eda">writeString</a>(<span class="stringliteral">&quot;file.txt&quot;</span>, content));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;file.txt&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Read the file and check its content</span></div>
-<div class="line">    <a class="code hl_struct" href="structSC_1_1String.html">String</a> newString = StringEncoding::Ascii;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a3079e4e57bf371f1ba6323f6a85f92b1">read</a>(<span class="stringliteral">&quot;file.txt&quot;</span>, newString));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(newString.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>() == content);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Remove all files created by the test</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a1465c729e64880777d2d25c98179a8ab">removeFile</a>(<span class="stringliteral">&quot;file.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;file.txt&quot;</span>));</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md269"></a>
-read</h2>
-<p>Read contents of a file into a String or Buffer.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">file</td><td>Path to the file to read </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Destination String or Buffer that will receive file contents </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Valid Result if the entire file has been read successfully </dd></dl>
-<dl class="section see"><dt>See also</dt><dd>write (for an usage example)   </dd></dl>
-<h1><a class="anchor" id="autotoc_md270"></a>
+<h1><a class="anchor" id="autotoc_md232"></a>
 Roadmap</h1>
 <p>🟦 Complete Features:</p><ul>
 <li><code>statfs</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md271"></a>
+<h1><a class="anchor" id="autotoc_md233"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/FileSystem</code>. Single File counts <code>SaneCppFileSystem.h</code>. Standalone counts <code>SaneCppFileSystemStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

@@ -129,145 +129,221 @@ $(function(){initNavTree('library_http.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md311">Dependencies</a>
+    <a href="#autotoc_md269">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md312">Features</a>
+    <a href="#autotoc_md270">The model: messages moving through fixed storage</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md313">Status</a>
+    <a href="#autotoc_md271">Choosing memory limits</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md314">Description</a>
+    <a href="#autotoc_md272">Representative server</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md315">Error Categories</a>
+    <a href="#autotoc_md273">Representative client</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md316">Videos</a>
+    <a href="#autotoc_md274">Protocol helpers and deliberate boundaries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md317">Blog</a>
+    <a href="#autotoc_md275">Operational notes</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md276">Further material</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md277">API reference</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md318">HttpAsyncServer</a>
+        <a href="#autotoc_md278">HttpAsyncServer</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md319">HttpAsyncFileServer</a>
+        <a href="#autotoc_md279">HttpAsyncFileServer</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md320">HttpAsyncClient</a>
+        <a href="#autotoc_md280">HttpAsyncClient</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md321">Validation</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md322">Error Taxonomy</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md323">API Friction Audit</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md324">Examples</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md325">Roadmap</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md326">Statistics</a>
+    <a href="#autotoc_md281">Statistics</a>
   </li>
 </ul>
 </div>
-<div class="textblock"><p>🟥 HTTP parser, server and client</p>
-<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppHttp.h">SaneCppHttp.h</a> is a library implementing a hand-written HTTP/1.1 parser, server and client.</p>
-<h1><a class="anchor" id="autotoc_md311"></a>
+<div class="textblock"><p>🟥 Allocation-free HTTP/1.1 client, server, parser, and WebSocket building blocks</p>
+<p><code>Http</code> is the low-level HTTP/1.1 stack for applications already built around SC's asynchronous event loop and streams. It provides an incremental parser, an asynchronous client and server, static-file serving, routing and header helpers, multipart processing, and WebSocket handshake and framing support. The implementation does not allocate: connection capacity, stream queues, header space, and body buffering are chosen and owned by the caller.</p>
+<p>That control is the main reason to choose this library. It is a good fit when memory bounds and transport integration matter more than a high-level, batteries-included HTTP API. It is not currently a general replacement for a mature internet-facing HTTP stack: applications must supply policy such as redirects, authentication, retries, request limits, and security hardening, and some valid protocol features are deliberately rejected rather than partially handled.</p>
+<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppHttp.h">SaneCppHttp.h</a> packages the library as a single-file distribution.</p>
+<h1><a class="anchor" id="autotoc_md269"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <a class="el" href="library_async.html">Async</a>, <a class="el" href="library_async_streams.html">AsyncStreams</a></li>
 <li>All dependencies: <a class="el" href="library_async.html">Async</a>, <a class="el" href="library_async_streams.html">AsyncStreams</a>, <a class="el" href="library_file.html">File</a>, <a class="el" href="library_file_system.html">FileSystem</a>, <a class="el" href="library_socket.html">Socket</a>, <a class="el" href="library_threading.html">Threading</a></li>
 </ul>
 <p><img src="Http.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md312"></a>
-Features</h1>
+<h1><a class="anchor" id="autotoc_md270"></a>
+The model: messages moving through fixed storage</h1>
+<p>The parser consumes whatever bytes are currently available and reports tokens as soon as they are complete. Headers do not require the entire message body to be resident, and bodies remain streams. This is the same model at every level:</p>
 <ul>
-<li>HTTP 1.1 Parser</li>
-<li>HTTP 1.1 Server</li>
-<li>HTTP 1.1 Client</li>
+<li><code>HttpRequest</code> and <code>HttpAsyncClientResponse</code> are incoming messages. They expose parsed headers and an <code>AsyncReadableStream</code> for the body.</li>
+<li><code>HttpResponse</code> and <code>HttpAsyncClientRequest</code> are outgoing messages. They build headers in fixed storage and expose an <code>AsyncWritableStream</code> for the body.</li>
+<li><code>HttpConnectionBase</code> holds the active streams and buffer pool. Server-side <code>HttpConnection</code> adds the request/response pair; <code>HttpAsyncClient</code> owns the inverse request/response pair over caller-provided connection storage.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md313"></a>
-Status</h1>
-<p>🟥 Draft <br  />
- In current state the library is able to host simple static website but it cannot be used for any internet facing application. <br  />
- Additionally its API will be changing heavily as it's undergoing major re-design to make it fully allocation free and extend it to support more of the HTTP 1.1 standard.</p>
-<h1><a class="anchor" id="autotoc_md314"></a>
-Description</h1>
-<p>The HTTP parser is an incremental parser, that will emit events as soon as a valid element has been successfully parsed. This allows handling incomplete responses without needing holding it entirely in memory.</p>
-<p>The HTTP server is for now just a basic implementations and it's missing many important features. It's however capable of serving files through http while staying inside a few user provided fixed buffers, without allocating any kind of dynamic memory. <code>HttpAsyncServer</code> accepts plain TCP connections and can be composed with an alternate transport through its transport setup hooks. TLS-backed HTTPS composition lives in the separate <code>Https</code> library.</p>
-<p>The HTTP client follows the same fixed-memory approach used by the server side:</p><ul>
-<li>caller-provided connection storage through <code><a class="el" href="structSC_1_1HttpAsyncClientConnection.html">SC::HttpAsyncClientConnection</a></code></li>
-<li>request headers built inside fixed header memory</li>
-<li>fixed-span or streamed request bodies with explicit <code>Content-Length</code></li>
-<li>incremental response-header parsing into fixed buffers</li>
-<li>streamed response bodies exposed through <code><a class="el" href="structSC_1_1AsyncReadableStream.html" title="Async source abstraction emitting data events in caller provided byte buffers.">SC::AsyncReadableStream</a></code></li>
-<li>optional sequential keep-alive reuse for requests targeting the same origin</li>
-<li>transport-neutral post-connect setup and teardown hooks that can replace the active streams, inspect the URL, and use the connected native socket handle when a transport adapter needs it</li>
+<p>This symmetry makes streaming explicit. Receiving response headers is not request completion: attach body listeners to <code>HttpAsyncClientResponse::getReadableStream()</code> and treat its <code>eventEnd</code> as completion. Likewise, a server callback may start a response while the request body is still arriving; it must consume, pipe, or deliberately reject that body.</p>
+<p>The incremental design has a cost. Parsed URL and header views exposed by an active connection point into its header storage. They are meaningful only for the current message and must not be retained after the connection is reused. Spans passed to asynchronous writes must also remain alive until the write completes. Where stack-owned response text cannot meet that lifetime, use the <code>HttpConnection::sendBodyCopy</code>, <code>sendTextCopy</code>, or <code>sendJsonCopy</code> helpers; these copy into the connection's fixed buffer pool and can fail when that pool is full.</p>
+<h1><a class="anchor" id="autotoc_md271"></a>
+Choosing memory limits</h1>
+<p><code>HttpAsyncConnection&lt;ReadQueue, WriteQueue, HeaderBytes, StreamBytes&gt;</code> and <code>HttpAsyncClientConnection&lt;ReadQueue, WriteQueue, HeaderBytes, StreamBytes&gt;</code> make the common configuration a type-level choice. On the server, the span passed to <code>HttpAsyncServer::init()</code> fixes maximum concurrent connections. Each element contains its own read queue, write queue, stream storage, and shared request/response header space.</p>
+<p>These limits are behavior, not tuning hints:</p>
+<ul>
+<li>a request or response whose headers exceed available header storage fails;</li>
+<li>a burst that cannot fit the fixed async queues applies backpressure or reports an error;</li>
+<li>full-message assembly, decompression output, multipart field collection, and WebSocket message assembly need explicit caller storage when requested;</li>
+<li>increasing concurrent connection count multiplies the per-connection storage chosen by the application.</li>
 </ul>
-<p>The expected client lifecycle is stream-first:</p><ol type="1">
-<li>Create <code><a class="el" href="structSC_1_1HttpAsyncClientConnection.html">SC::HttpAsyncClientConnection</a>&lt;...&gt;</code> storage and initialize <code><a class="el" href="structSC_1_1HttpAsyncClient.html" title="Asynchronous HTTP/1.1 client using caller-provided fixed storage.">SC::HttpAsyncClient</a></code></li>
-<li>Call <code>start(loop, method, url)</code> and configure the active <code><a class="el" href="structSC_1_1HttpAsyncClientRequest.html" title="Outgoing HTTP request sent by the client.">SC::HttpAsyncClientRequest</a></code> inside <code>onPrepareRequest</code>, or use <code>get</code> / <code>put</code> / <code>post</code></li>
-<li>Send headers through <code>HttpAsyncClientRequest::sendHeaders()</code> and write any manual request body through <code>HttpAsyncClientRequest::getWritableStream()</code></li>
-<li>Handle <code>onResponse</code> once headers are parsed and attach to <code>HttpAsyncClientResponse::getReadableStream()</code></li>
-<li>Consume the response body incrementally and use the response readable stream <code>eventEnd</code> as the completion signal</li>
-</ol>
-<p>Current client limitations:</p><ul>
-<li><code>http</code> is active by default</li>
-<li><code>https</code> URLs require an installed transport adapter; <code>HttpsClientTransport</code> provides the TLS implementation</li>
-<li>one in-flight request at a time</li>
-<li>no HTTP pipelining</li>
-<li>no redirect policy helper</li>
+<p>The library reports these conditions through <code>Result</code>; it does not silently truncate and does not throw. Error messages usually name the layer enforcing the invariant (<code>HttpIncomingMessage</code>, <code>HttpAsyncClient</code>, <code>HttpWebSocketFrameReader</code>, and so on), which is more useful here than a large exception hierarchy.</p>
+<h1><a class="anchor" id="autotoc_md272"></a>
+Representative server</h1>
+<p>The server owns no connection allocation. This tested example fixes capacity at three connections and sizes each connection's queues and storage at compile time. The callback reads the parsed request and writes the response through that connection; shutdown must finish before the connection array is reclaimed. The example deliberately uses an application-owned <code>String</code> for its response body to exercise asynchronous span lifetime. That allocation is in the test application, not the server; a bounded application can instead write caller-owned fixed storage or use the connection's fixed-pool copy helpers.</p>
+<div class="fragment"><div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> MAX_CONNECTIONS = 3;        <span class="comment">// Max number of concurrent http connections</span></div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> REQUEST_SLICES  = 2;        <span class="comment">// Number of slices of the request buffer for each connection</span></div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> REQUEST_SIZE    = 1 * 1024; <span class="comment">// How many bytes are allocated to stream data for each connection</span></div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> HEADER_SIZE     = 8 * 1024; <span class="comment">// How many bytes are dedicated to hold request and response headers</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// The size of the header and request memory, and length of read/write queues are fixed here, but user can</span></div>
+<div class="line">    <span class="comment">// set any arbitrary size for such queues doing the same being done in HttpAsyncConnection constructor.</span></div>
+<div class="line">    <span class="keyword">using </span>HttpConnectionType = HttpAsyncConnection&lt;REQUEST_SLICES, REQUEST_SLICES, HEADER_SIZE, REQUEST_SIZE&gt;;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// 1. Memory to hold all http connections (single array for simplicity).</span></div>
+<div class="line">    <span class="comment">// WebServerExample (SCExample) shows how to leverage virtual memory, to handle dynamic number of clients</span></div>
+<div class="line">    HttpConnectionType connections[MAX_CONNECTIONS];</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Initialize and start the http server</span></div>
+<div class="line">    HttpAsyncServer httpServer;</div>
+<div class="line">    <span class="keyword">const</span> uint16_t  serverPort = report.<a class="code hl_function" href="structSC_1_1TestReport.html#a3d88d7ad21e3367c272851e4def46471">mapPort</a>(6152);</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(httpServer.init(Span&lt;HttpConnectionType&gt;(connections)));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(httpServer.start(eventLoop, <span class="stringliteral">&quot;127.0.0.1&quot;</span>, serverPort));</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">struct </span>ServerContext</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordtype">int</span> numRequests;</div>
+<div class="line">    } serverContext = {0};</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Handle the request and answer accordingly</span></div>
+<div class="line">    httpServer.onRequest = [<span class="keyword">this</span>, &amp;serverContext](HttpConnection&amp; client)</div>
+<div class="line">    {</div>
+<div class="line">        HttpRequest&amp;  request  = client.request;</div>
+<div class="line">        HttpResponse&amp; response = client.response;</div>
+<div class="line">        <span class="keywordflow">if</span> (request.getParser().method != HttpParser::Method::HttpGET)</div>
+<div class="line">        {</div>
+<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.startResponse(405));</div>
+<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.addHeader(<span class="stringliteral">&quot;Allow&quot;</span>, <span class="stringliteral">&quot;GET&quot;</span>));</div>
+<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.sendHeaders());</div>
+<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.end());</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">if</span> (request.getRequestTarget() != <span class="stringliteral">&quot;/index.html&quot;</span> and request.getRequestTarget() != <span class="stringliteral">&quot;/&quot;</span>)</div>
+<div class="line">        {</div>
+<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.startResponse(404));</div>
+<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.sendHeaders());</div>
+<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.end());</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line">        serverContext.numRequests++;</div>
+<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.startResponse(200));</div>
+<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.addHeader(<span class="stringliteral">&quot;Connection&quot;</span>, <span class="stringliteral">&quot;Closed&quot;</span>));</div>
+<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.addHeader(<span class="stringliteral">&quot;Content-Type&quot;</span>, <span class="stringliteral">&quot;text/html&quot;</span>));</div>
+<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.addHeader(<span class="stringliteral">&quot;Server&quot;</span>, <span class="stringliteral">&quot;SC&quot;</span>));</div>
+<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.addHeader(<span class="stringliteral">&quot;Date&quot;</span>, <span class="stringliteral">&quot;Mon, 27 Aug 2023 16:37:00 GMT&quot;</span>));</div>
+<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.addHeader(<span class="stringliteral">&quot;Last-Modified&quot;</span>, <span class="stringliteral">&quot;Wed, 27 Aug 2023 16:37:00 GMT&quot;</span>));</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">char</span> sampleHtml[] = <span class="stringliteral">&quot;&lt;html&gt;\r\n&quot;</span></div>
+<div class="line">                                  <span class="stringliteral">&quot;&lt;body bgcolor=\&quot;#000000\&quot; text=\&quot;#ffffff\&quot;&gt;\r\n&quot;</span></div>
+<div class="line">                                  <span class="stringliteral">&quot;&lt;h1&gt;This is a title {}!&lt;/h1&gt;\r\n&quot;</span></div>
+<div class="line">                                  <span class="stringliteral">&quot;We must start from somewhere\r\n&quot;</span></div>
+<div class="line">                                  <span class="stringliteral">&quot;&lt;/body&gt;\r\n&quot;</span></div>
+<div class="line">                                  <span class="stringliteral">&quot;&lt;/html&gt;\r\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Create a &quot;user provided&quot; dynamically allocated string, to show this is possible</span></div>
+<div class="line">        String content;</div>
+<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(StringBuilder::format(content, sampleHtml, serverContext.numRequests));</div>
+<div class="line">        SmallString&lt;16&gt; contentLength;</div>
+<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(StringBuilder::format(contentLength, <span class="stringliteral">&quot;{}&quot;</span>, content.view().sizeInBytes()));</div>
+<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.addHeader(<span class="stringliteral">&quot;Content-Length&quot;</span>, contentLength.view()));</div>
+<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.sendHeaders());</div>
+<div class="line">        <span class="comment">// Note that the system takes ownership of the dynamically allocated user provided string</span></div>
+<div class="line">        <span class="comment">// through type erasure and it will invoke its destructor after th write operation will finish,</span></div>
+<div class="line">        <span class="comment">// freeing user memory as expected.</span></div>
+<div class="line">        <span class="comment">// This write operation succeeds because EXTRA_SLICES allocates one more slot buffer exactly</span></div>
+<div class="line">        <span class="comment">// to hold this user provided buffer, that is not part of the &quot;re-usable&quot; buffers created</span></div>
+<div class="line">        <span class="comment">// at the beginning of this sample.</span></div>
+<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.getWritableStream().write(move(content)));</div>
+<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.end());</div>
+<div class="line">    };</div>
+<div class="line"> </div>
+</div><!-- fragment --><p>For an API server, place <code>HttpRouter</code> in the callback to match a method and path template without allocation. It is a small dispatcher, not a framework: middleware, request contexts, authorization, and response schemas remain application code. <code>Examples/ApiServer/ApiServer.cpp</code> is the more representative source when evaluating that shape.</p>
+<p>For files, <code>HttpAsyncFileServer</code> composes with <code>HttpAsyncServer</code> and the File/Threading stack. It streams GET responses and uploads, and supports ranges, validators, MIME lookup, upload limits, and optional SPA fallback. Its root directory, option strings, connection storage, and per-request stream objects are caller-owned; it is convenient infrastructure, not a hardened reverse proxy.</p>
+<h1><a class="anchor" id="autotoc_md273"></a>
+Representative client</h1>
+<p>The client processes one request at a time. Convenience methods cover bodyless requests and fixed-span PUT/POST/PATCH; <code>start()</code> plus <code>onPrepareRequest</code> is the lower-level path for streamed or manually written bodies. Response bodies are always consumed as streams, even when the application chooses to collect them.</p>
+<p>Before the tested excerpt, the application creates an <code>HttpAsyncClientConnection&lt;...&gt;</code>, passes it to <code>client.init()</code>, and builds the URL in caller-owned storage. The <code>ResponseCollector</code> shown here attaches stream listeners and invokes its completion callback on <code>eventEnd</code>; an allocation-free application would collect into a fixed span or process each data event directly. Run the event loop after starting the request, then close the client before reclaiming its connection storage.</p>
+<div class="fragment"><div class="line">    client.onResponse = [<span class="keyword">this</span>, &amp;ctx](HttpAsyncClientResponse&amp; response)</div>
+<div class="line">    {</div>
+<div class="line">        ctx.collector.attach(response,</div>
+<div class="line">                             [<span class="keyword">this</span>, &amp;ctx](HttpAsyncClientResponse&amp; completedResponse)</div>
+<div class="line">                             {</div>
+<div class="line">                                 ctx.collector.detach();</div>
+<div class="line">                                 <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(completedResponse.getParser().statusCode == 200);</div>
+<div class="line">                                 <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(StringView(ctx.collector.view()) == <span class="stringliteral">&quot;hello&quot;</span>);</div>
+<div class="line">                                 <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(ctx.httpServer.stop());</div>
+<div class="line">                             });</div>
+<div class="line">    };</div>
+<div class="line">    client.onError = [<span class="keyword">this</span>](Result result) { <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(result); };</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(client.get(loop, url.view()));</div>
+</div><!-- fragment --><p>Sequential keep-alive reuse is supported for the same origin. A different origin reconnects; pipelining is not supported. Redirect handling is application policy. Plain <code>http</code> uses the socket streams directly. An <code>https</code> URL is rejected unless a transport setup adapter is installed; the neighboring <code>Https</code> library supplies the TLS composition without putting TLS inside the HTTP message layer.</p>
+<p>Optional gzip/deflate response decoding is also a composition: the client inserts AsyncStreams transform streams when enabled, while the caller still consumes the decoded readable stream and provides the fixed storage used by the connection.</p>
+<h1><a class="anchor" id="autotoc_md274"></a>
+Protocol helpers and deliberate boundaries</h1>
+<p>The library includes focused pieces that can also be used below the client/server surfaces:</p>
+<ul>
+<li><code>HttpParser</code> incrementally tokenizes HTTP/1.x request or response headers.</li>
+<li><code>HttpURLParser</code>, <code>HttpRequestTargetView</code>, and query/form iterators return zero-copy raw slices; percent/form decoding writes into caller-provided storage.</li>
+<li><code>HttpHeaders</code> helpers parse and format common cookie, authorization, cache-control, and content-type values.</li>
+<li><code>HttpMultipartParser</code> parses streamed multipart bodies, while <code>HttpMultipartWriter</code> emits validated multipart request content.</li>
+<li><code>HttpRouter</code> matches methods and path parameters against caller-owned route tables and parameter storage.</li>
+<li><code>HttpWebSocketHandshake</code>, frame reader/writer, endpoint, stream pump, and small hub cover RFC 6455 handshakes, framing, control frames, and bounded fan-out without turning WebSockets into a separate networking runtime.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md315"></a>
-Error Categories</h1>
-<p>HTTP APIs report failures through <code>SC::Result</code> and keep the error text stable enough to diagnose the failing layer. The library does not use exceptions or a large error hierarchy; instead, messages are grouped by prefix and by the operation that produced them.</p>
-<p>Typical categories:</p><ul>
-<li>Protocol errors: malformed HTTP syntax, invalid URL/request-target data, bad WebSocket frames, invalid masking, invalid chunk framing, unsupported transfer encodings, or unexpected response bodies.</li>
-<li>Unsupported feature errors: explicit limits such as unsupported content encodings, WebSocket extensions, pipelined body data, non-empty chunk trailers, or an <code>https</code> URL without a configured transport adapter.</li>
-<li>Storage errors: fixed header memory, caller-provided output buffers, stream queues, or <code>AsyncBuffersPool</code> capacity are too small for the requested operation.</li>
-<li>Stream/transport errors: socket disconnects, readable/writable stream failures, file stream failures, or backpressure that could not be queued.</li>
-<li>Lifecycle errors: calling request/response methods in the wrong order, starting a second client request while one is active, using an uninitialized server/client, or writing after a stream has ended.</li>
+<p>Unsupported input is generally rejected explicitly. Current boundaries include one in-flight client request, no HTTP pipelining or client redirect-following policy, no HTTP/2 or HTTP/3, no WebSocket extension negotiation, and limited trailer support. Server responses do have a checked <code>HttpResponse::sendRedirect</code> formatting helper. TLS belongs to <code>Https</code>; DNS and sockets belong to <code>Socket</code>; asynchronous byte ownership and backpressure belong to <code>AsyncStreams</code>. Keeping those seams visible avoids pulling transport and policy concerns into the HTTP message layer, but it also means an application integrates more pieces itself.</p>
+<h1><a class="anchor" id="autotoc_md275"></a>
+Operational notes</h1>
+<p><code>HttpAsyncServer::stop()</code> begins asynchronous shutdown; <code>close()</code> waits for outstanding work and releases references to caller memory. The same ownership rule applies to the client: close it before destroying its connection storage. For servers, set an explicit maximum header size and bound uploads and keep-alive request counts for the deployment.</p>
+<p>The focused executable examples are useful complements to the snippets:</p>
+<ul>
+<li><code>Examples/ApiServer</code> shows method/path routing and streaming echo responses.</li>
+<li><code>Examples/AsyncWebServer</code> shows static files, uploads, and WebSocket connection pumping.</li>
+<li><code>Examples/HttpClientAsyncGet</code> shows the public asynchronous client lifecycle.</li>
+<li><a class="el" href="page_examples.html">SCExample</a> contains the GUI-integrated <code>WebServerExample</code>.</li>
 </ul>
-<p>Common prefixes point to the owner of the invariant:</p><ul>
-<li><code>HttpIncomingMessage</code>: request/response body framing and chunked decoding.</li>
-<li><code>HttpOutgoingMessage</code> / <code>HttpResponse</code> / <code>HttpAsyncClientRequest</code>: outgoing header/body ordering and fixed header storage.</li>
-<li><code>HttpAsyncServer</code> / <code>HttpAsyncClient</code>: async connection lifecycle and transport integration.</li>
-<li><code>HttpAsyncFileServer</code>: safe path extraction, upload policy, file/range/validator formatting.</li>
-<li><code>HttpURLParser</code> / <code>HttpRequestTargetView</code>: URL and origin-form request-target parsing.</li>
-<li><code>HttpWebSocketHandshake</code>, <code>HttpWebSocketFrameReader</code>, <code>HttpWebSocketFrameWriter</code>, <code>HttpWebSocketEndpoint</code>, <code>HttpWebSocketConnectionPump</code>, and <code>HttpWebSocketSmallHub</code>: WebSocket handshake, frame protocol, control-frame lifecycle, stream pumping, and hub capacity/backpressure.</li>
-</ul>
-<p>When adding new HTTP errors, prefer messages that name the component first, then the violated invariant, for example <code>HttpWebSocketFrameReader control frame payload too large</code>. This keeps errors readable without adding allocations or a new dependency.</p>
-<h1><a class="anchor" id="autotoc_md316"></a>
-Videos</h1>
-<p>This is the list of videos that have been recorded showing some of the internal thoughts that have been going into this library:</p>
+<p>The implementation is still marked draft. Before adopting it for an exposed service, evaluate the supported protocol surface against your threat model and put a production proxy in front where appropriate. The bounded <code>HttpStressTest</code> exercises repeated keep-alive requests, chunked request bursts, and WebSocket fan-out; it is a regression signal, not a claim of protocol conformance or internet hardening.</p>
+<h1><a class="anchor" id="autotoc_md276"></a>
+Further material</h1>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=yg438A9Db50">Ep.27 - C++ Async Http Web Server</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2024-08-30-SaneCppLibrariesUpdate.html">August 2024 update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-09-30-SaneCppLibrariesUpdate.html">September 2025 update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-11-30-SaneCppLibrariesUpdate.html">November 2025 update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-12-31-SaneCppLibrariesUpdate.html">December 2025 update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-01-31-SaneCppLibrariesUpdate.html">January 2026 update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-02-28-SaneCppLibrariesUpdate.html">February 2026 update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026 update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-06-30-SaneCppLibrariesUpdate.html">June 2026 update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md317"></a>
-Blog</h1>
-<p>Some relevant blog posts are:</p>
-<ul>
-<li><a href="https://pagghiu.github.io/site/blog/2024-08-30-SaneCppLibrariesUpdate.html">August 2024 Update</a></li>
-<li><a href="https://pagghiu.github.io/site/blog/2025-09-30-SaneCppLibrariesUpdate.html">September 2025 Update</a></li>
-<li><a href="https://pagghiu.github.io/site/blog/2025-11-30-SaneCppLibrariesUpdate.html">November 2025 Update</a></li>
-<li><a href="https://pagghiu.github.io/site/blog/2025-12-31-SaneCppLibrariesUpdate.html">December 2025 Update</a></li>
-<li><a href="https://pagghiu.github.io/site/blog/2026-01-31-SaneCppLibrariesUpdate.html">January 2026 Update</a></li>
-<li><a href="https://pagghiu.github.io/site/blog/2026-02-28-SaneCppLibrariesUpdate.html">February 2026 Update</a></li>
-<li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
-<li><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026 Update</a></li>
-<li><a href="https://pagghiu.github.io/site/blog/2026-06-30-SaneCppLibrariesUpdate.html">June 2026 Update</a></li>
-</ul>
-<h2><a class="anchor" id="autotoc_md318"></a>
+<h1><a class="anchor" id="autotoc_md277"></a>
+API reference</h1>
+<p>The reference is intentionally secondary to the model and examples above.</p>
+<h2><a class="anchor" id="autotoc_md278"></a>
 HttpAsyncServer</h2>
 <p>Async Http Server.   </p>
 <p>This class handles a fully asynchronous http server staying inside 5 fixed memory regions passed during init.</p>
@@ -352,7 +428,7 @@ HttpAsyncServer</h2>
 <div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(response.end());</div>
 <div class="line">    };</div>
 <div class="line"> </div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md319"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md279"></a>
 HttpAsyncFileServer</h2>
 <p>Http file server statically serves files from a directory.   </p>
 <p>This class registers the onRequest callback provided by HttpAsyncServer to serves files from a given directory.</p>
@@ -462,9 +538,8 @@ HttpAsyncFileServer</h2>
 <div class="line">        SC_TRY(httpServer.resize(clients.toSpan()));</div>
 <div class="line">        <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
 <div class="line">    }</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md320"></a>
+</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md280"></a>
 HttpAsyncClient</h2>
-<p><code><a class="el" href="structSC_1_1HttpAsyncClient.html" title="Asynchronous HTTP/1.1 client using caller-provided fixed storage.">SC::HttpAsyncClient</a></code> supports both convenience helpers for fixed in-memory request bodies and the lower-level <code>start()</code> flow for streamed or manually written request bodies. The API reference below includes small examples for both styles of usage.</p>
 <p>Asynchronous HTTP/1.1 client using caller-provided fixed storage.   </p>
 <p><code>HttpAsyncClient</code> processes a single request at a time and can sequentially reuse the same connection when keep-alive is enabled and the next request targets the same host and port.</p>
 <p>Use the convenience wrappers (<code>get</code>, <code>head</code>, <code>put</code>, <code>post</code>, <code>patch</code>, <code>deleteRequest</code>, <code>options</code>, <code>postMultipart</code>) when the request body is already available in memory. Use <code>start()</code> when the request must be customized inside <code>onPrepareRequest</code>, for example to stream the request body with <code>HttpAsyncClientRequest::setBody(AsyncReadableStream&amp;, uint64_t)</code> or to write it manually through <code>HttpAsyncClientRequest::getWritableStream()</code>.</p>
@@ -506,76 +581,7 @@ HttpAsyncClient</h2>
 <div class="line">    client.onError = [<span class="keyword">this</span>](Result result) { <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(result); };</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(client.start(loop, HttpParser::Method::HttpPUT, url.view()));</div>
-</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md321"></a>
-Validation</h1>
-<p>For HTTP changes, start with the focused test, then run the broader stress and portability checks before merging.</p>
-<p>Local macOS / Linux:</p>
-<div class="fragment"><div class="line">./SC.sh build compile SCTest Debug</div>
-<div class="line">./SC.sh build run SCTest Debug -- --test &quot;HttpStressTest&quot;</div>
-<div class="line">./SC.sh build run SCTest Debug -- --test &quot;HttpAsyncFileServerTest&quot;</div>
-<div class="line">./SC.sh build compile SCTest Release</div>
-<div class="line">./SC.sh build compile &quot;SCSingleFileLibs:&quot; Release</div>
-<div class="line">./SC.sh build documentation</div>
-</div><!-- fragment --><p>Linux VM:</p>
-<div class="fragment"><div class="line">./SC.sh build compile SCTest Debug</div>
-<div class="line">./SC.sh build run SCTest Debug -- --test &quot;HttpStressTest&quot; --port-offset 200</div>
-<div class="line">./SC.sh build run SCTest Debug -- --test &quot;HttpAsyncFileServerTest&quot; --port-offset 200</div>
-<div class="line">./SC.sh build compile SCTest Release</div>
-<div class="line">./SC.sh build compile &quot;SCSingleFileLibs:&quot; Release</div>
-</div><!-- fragment --><p>Windows VM:</p>
-<div class="fragment"><div class="line">SC.bat build compile SCTest Debug</div>
-<div class="line">SC.bat build run SCTest Debug -- --test &quot;HttpStressTest&quot; --port-offset 400</div>
-<div class="line">SC.bat build run SCTest Debug -- --test &quot;HttpAsyncFileServerTest&quot; --port-offset 400</div>
-<div class="line">SC.bat build compile SCTest Release</div>
-</div><!-- fragment --><p><code>HttpStressTest</code> is intentionally bounded and fast. It is a smoke signal for repeated keep-alive requests, chunked request burst decoding, and WebSocket fan-out writes through caller-owned buffer pools. <code>HttpAsyncFileServerTest</code> covers the heavier HTTP paths, including file requests, range and conditional requests, large PUT uploads, and multipart uploads.</p>
-<h1><a class="anchor" id="autotoc_md322"></a>
-Error Taxonomy</h1>
-<p>HTTP APIs return <code>Result</code> for protocol, storage, stream, and lifecycle failures. Prefer messages that make the failure class obvious:</p>
-<ul>
-<li>Protocol errors: syntactically valid HTTP/WebSocket input that violates the protocol state machine, for example unexpected continuations, invalid control-frame fragmentation, or invalid request target usage.</li>
-<li>Malformed input: invalid bytes or incomplete syntax, for example bad request lines, invalid header fields, malformed multipart boundaries, or invalid extended WebSocket lengths.</li>
-<li>Unsupported feature: valid input intentionally not implemented by this library layer, for example HTTP trailers in request chunked decoding.</li>
-<li>Storage too small: caller-provided fixed storage cannot hold output, headers, copied response bodies, parsed fields, or queued async buffers. These errors should never silently truncate.</li>
-<li>Stream or transport failure: async read/write, file, socket, or buffer-pool operations failed below the HTTP parser.</li>
-<li>Lifecycle misuse: APIs were called in the wrong order or after ownership changed, for example writing after upgrade or attaching a WebSocket pump twice without detach.</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md323"></a>
-API Friction Audit</h1>
-<p>Recent example and test call sites point to these remaining improvement seams:</p>
-<ul>
-<li>Response bodies: use <code>HttpResponse::sendBody</code> / <code>sendJson</code> when the body span stays alive until the async write finishes, and <code>HttpConnection::sendBodyCopy</code> / <code>sendTextCopy</code> / <code>sendJsonCopy</code> when stack-owned response text should be copied into the connection's fixed async buffer pool before returning.</li>
-<li>Method routing: <code>HttpRouter::formatAllowHeader</code> can feed <code>HttpResponse::sendMethodNotAllowed</code> directly for the common 405 + <code>Allow</code> + empty-body response path.</li>
-<li>Redirects: <code>HttpResponse::sendRedirect</code> emits the 3xx status, <code>Location</code>, and empty-body framing as one checked operation.</li>
-<li>Header writing: <code>HttpWriteBasicAuthorizationCredentials</code> writes Basic authorization from raw username/password into caller-provided storage, avoiding caller-side temporary allocation or ad-hoc base64 helpers.</li>
-<li>Multipart writing: <code>HttpMultipartWriter</code> rejects unsafe boundaries, field names, filenames, and content-type values before they can be written into request headers.</li>
-<li>Streaming echo responses: <code>Examples/ApiServer/ApiServer.cpp</code> now uses <code>AsyncPipeline</code> to mirror the request body into the response body without collecting it in memory or hand-rolling pause/drain listeners.</li>
-<li>WebSocket examples: <code>Examples/AsyncWebServer/AsyncWebServer.cpp</code> and the collaborative canvas now use <code>HttpWebSocketConnectionPump</code> for listener lifecycle and automatic control-frame flushing. The canvas keeps its caller-owned message assembler, source-client suppression, and best-effort dropped-broadcast accounting as application policy.</li>
-<li>File uploads: <code>HttpAsyncFileServerTest</code> covers PUT and multipart uploads well, and <code>Examples/AsyncWebServer</code> now exposes upload enable/disable and max-size policy from the command line. <code>HttpAsyncFileServerOptions</code> also supports SPA fallback, validators, ranges, and a zero-allocation MIME lookup hook.</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md324"></a>
-Examples</h1>
-<ul>
-<li><a class="el" href="page_examples.html">SCExample</a> features the <code>WebServerExample</code> sample showing how to use <a class="el" href="structSC_1_1HttpAsyncFileServer.html" title="Http file server statically serves files from a directory.">SC::HttpAsyncFileServer</a> and <a class="el" href="structSC_1_1HttpAsyncServer.html" title="Async Http Server.">SC::HttpAsyncServer</a></li>
-<li>Unit tests show how to use <code><a class="el" href="structSC_1_1HttpAsyncClient.html" title="Asynchronous HTTP/1.1 client using caller-provided fixed storage.">SC::HttpAsyncClient</a></code>, <code><a class="el" href="structSC_1_1HttpAsyncFileServer.html" title="Http file server statically serves files from a directory.">SC::HttpAsyncFileServer</a></code> and <code><a class="el" href="structSC_1_1HttpAsyncServer.html" title="Async Http Server.">SC::HttpAsyncServer</a></code></li>
-</ul>
-<h1><a class="anchor" id="autotoc_md325"></a>
-Roadmap</h1>
-<p>🟨 MVP</p><ul>
-<li>HTTP 1.1 Chunked Encoding</li>
-</ul>
-<p>🟩 Usable Features:</p><ul>
-<li>Connection Upgrade</li>
-<li>Multipart streamed encoding</li>
-</ul>
-<p>🟦 Complete Features:</p><ul>
-<li>HTTPS</li>
-<li>Support all HTTP verbs / methods</li>
-</ul>
-<p>💡 Unplanned Features:</p><ul>
-<li>Http 2.0</li>
-<li>Http 3.0</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md326"></a>
+</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md281"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Http</code>. Single File counts <code>SaneCppHttp.h</code>. Standalone counts <code>SaneCppHttpStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

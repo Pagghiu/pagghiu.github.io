@@ -129,133 +129,131 @@ $(function(){initNavTree('library_foundation.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md290">Dependencies</a>
+    <a href="#autotoc_md251">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md291">Features</a>
-    <ul>
-      <li class="level2">
-        <a href="#autotoc_md292">Classes</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md293">Macros</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md294">Type Traits</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md295">Utilities</a>
-      </li>
-    </ul>
+    <a href="#autotoc_md252">The mental model</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md296">Status</a>
+    <a href="#autotoc_md253">Representative use</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md297">Description</a>
-    <ul>
-      <li class="level2">
-        <a href="#autotoc_md298">Function</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md299">Deferred</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md300">OpaqueObject</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md301">UniqueHandle</a>
-      </li>
-    </ul>
+    <a href="#autotoc_md254">Allocation, errors, and lifetime</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md302">Blog</a>
+    <a href="#autotoc_md255">Where Foundation stops</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md303">Roadmap</a>
+    <a href="#autotoc_md256">Portability layer</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md304">Statistics</a>
+    <a href="#autotoc_md257">Maturity</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md258">Blog</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md259">Roadmap</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md260">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟩 Primitive types, asserts, compiler macros, Function, Span, Result</p>
-<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppFoundation.h">SaneCppFoundation.h</a> is a library that provides many fundamental type definitions and types widely used by other libraries. <br  />
- As this is included and needed by almost every other library, it tries to keep bloat to the bare minimum. <br  />
- Detailed documentation is in the <a class="el" href="group__group__foundation.html">Foundation</a> topic.</p>
-<h1><a class="anchor" id="autotoc_md290"></a>
+<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppFoundation.h">SaneCppFoundation.h</a> is the small, allocation-free vocabulary shared by the other Sane C++ Libraries. It provides primitive and platform types, non-owning views, explicit error propagation, fixed-storage callbacks, assertions, compiler portability macros, and a few ownership tools for native resources.</p>
+<p>Foundation is useful on its own when those constraints are desirable, but it is primarily the seam that lets the rest of SC expose public C++ APIs without the STL, exceptions, RTTI, system headers, or hidden heap allocation. Detailed API reference remains available in the <a class="el" href="group__group__foundation.html">Foundation</a> topic; this page explains the choices a caller needs to make.</p>
+<h1><a class="anchor" id="autotoc_md251"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Foundation.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md291"></a>
-Features</h1>
-<h2><a class="anchor" id="autotoc_md292"></a>
-Classes</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadLeft">Class   </th><th class="markdownTableHeadLeft">Description    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">SC::Span   </td><td class="markdownTableBodyLeft">Non-owning contiguous view over caller-provided memory    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">SC::StringSpan   </td><td class="markdownTableBodyLeft">Non-owning string view with explicit encoding    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">SC::StringPath   </td><td class="markdownTableBodyLeft">Non-owning path string view    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">SC::Result   </td><td class="markdownTableBodyLeft">Small success/error result type for APIs without exceptions    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">SC::Function   </td><td class="markdownTableBodyLeft">Fixed-storage callable wrapper    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">SC::Deferred   </td><td class="markdownTableBodyLeft">Scope-exit helper for explicit cleanup    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">SC::OpaqueObject   </td><td class="markdownTableBodyLeft">Fixed-size opaque storage for static PIMPL    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">SC::UniqueHandle   </td><td class="markdownTableBodyLeft">Move-only RAII wrapper for handles   </td></tr>
-</table>
-<h2><a class="anchor" id="autotoc_md293"></a>
-Macros</h2>
+<h1><a class="anchor" id="autotoc_md252"></a>
+The mental model</h1>
+<p>Foundation separates <em>access</em> from <em>ownership</em>.</p>
 <ul>
-<li><a class="el" href="group__group__foundation__compiler__macros.html">Compiler Macros</a>:    </li>
+<li><code>Span&lt;T&gt;</code> is a pointer and an element count. <code>StringSpan</code> adds an explicit ASCII, UTF-8, UTF-16, or native encoding and records whether a terminator follows the viewed bytes. Neither type owns or extends the lifetime of its data. <code>StringPath</code> is the deliberate exception: it owns one fixed-capacity, native-encoded path buffer.</li>
+<li><code>Result</code> is a <code>[[nodiscard]]</code> success/failure value. <code>SC_TRY</code> forwards a failure without exceptions. It deliberately carries only a stable ASCII error-message pointer, not an arbitrary error payload.</li>
+<li><code>Function&lt;Signature&gt;</code> stores a free function, member binding, functor, or lambda inline. Its default callable storage is <code>2 * sizeof(void*)</code>; an oversized capture is a compile-time error rather than a heap allocation.</li>
+<li><code>UniqueHandle</code> owns one native-style handle and releases it deterministically. <code>Deferred</code> runs local cleanup at scope exit. <code>OpaqueObject</code> reserves platform-sized inline storage so a public header can hide an implementation defined in a <code>.cpp</code> file without allocating a PIMPL.</li>
 </ul>
-<p>Compiler Macros Preprocessor macros to detect compiler and platform features.   </p>
-<h2><a class="anchor" id="autotoc_md294"></a>
-Type Traits</h2>
+<p>The common thread is fixed, visible cost. A caller supplies the memory behind a view, chooses the lifetime of a callback capture, and sees failure in the return type. Foundation does not turn borrowed data into owned data behind the API.</p>
+<h1><a class="anchor" id="autotoc_md253"></a>
+Representative use</h1>
+<p><code>Function</code> is representative of the library's approach: several callable forms share one value type, but the storage budget stays part of the type and is checked at compile time.</p>
+<div class="fragment"><div class="line"><span class="comment">// A regular class with a member function</span></div>
+<div class="line"><span class="keyword">struct </span>SomeClass</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">float</span> memberValue = 2.0;</div>
+<div class="line">    <span class="keywordtype">int</span>   memberFunc(<span class="keywordtype">float</span> a) { <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(a + memberValue); }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// A Functor with operator ()</span></div>
+<div class="line"><span class="keyword">struct </span>SomeFunctor</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">float</span> memberValue = 2.0;</div>
+<div class="line">    <span class="keywordtype">int</span>   operator()(<span class="keywordtype">float</span> a) { <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(a + memberValue); }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Free function</span></div>
+<div class="line"><span class="keywordtype">int</span> someFunc(<span class="keywordtype">float</span> a) { <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(a * 2); }</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Class too big to be grabbed by copy</span></div>
+<div class="line"><span class="keyword">struct </span>BigClass</div>
+<div class="line">{</div>
+<div class="line">    SC::uint64_t values[4];</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> SC::FunctionTest::functionDocumentationSnippet()</div>
+<div class="line">{</div>
+<div class="line">    SomeClass someClass;</div>
+<div class="line"> </div>
+<div class="line">    Function&lt;int(<span class="keywordtype">float</span>)&gt; func;</div>
+<div class="line"> </div>
+<div class="line">    func = &amp;someFunc;                                                <span class="comment">// Bind free func</span></div>
+<div class="line">    func.bind&lt;SomeClass, &amp;SomeClass::memberFunc&gt;(someClass);         <span class="comment">// Bind member func</span></div>
+<div class="line">    func = [](<span class="keywordtype">float</span> a) -&gt; <span class="keywordtype">int</span> { <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(a + 1.5); }; <span class="comment">// Bind lambda func</span></div>
+<div class="line">    func = SomeFunctor{2.5};                                         <span class="comment">// Bind a functor</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// If you feel brave enough you can retrieve the bound functor by knowing its type</span></div>
+<div class="line">    SC_ASSERT_RELEASE(func.dynamicCastTo&lt;SomeFunctor&gt;()-&gt;memberValue == 2.5f);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// This will static_assert because sizeof(BigClass) is bigger than LAMBDA_SIZE</span></div>
+<div class="line">    <span class="comment">// BigClass bigClass;</span></div>
+<div class="line">    <span class="comment">// func = [bigClass](float a) -&gt; int { return static_cast&lt;int&gt;(a);};</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><p>For buffer-oriented APIs, pass an array or <code>(pointer, count)</code> as a <code>Span&lt;T&gt;</code>. Slicing reports invalid ranges instead of creating an unchecked view. A mutable span permits mutation of the referenced objects; a <code>Span&lt;const T&gt;</code> does not. In both cases, the backing array must outlive every use of the span.</p>
+<p><code>StringSpan</code> is intentionally narrower than a general string library. It is suitable for passing encoded text and native paths through low-level APIs, and can compare ASCII, UTF-8, and UTF-16 code points. It does not own, normalize, format, or tokenize the text. Its conversion support is limited to writing native-encoded, null-terminated text into caller-provided storage; it is not a general-purpose Unicode conversion API.</p>
+<h1><a class="anchor" id="autotoc_md254"></a>
+Allocation, errors, and lifetime</h1>
+<p>Foundation itself performs no dynamic allocation. That promise has practical consequences:</p>
 <ul>
-<li>Type traits: small compile-time helpers used by Foundation and embedded Common fragments</li>
+<li>A <code>Span</code> or <code>StringSpan</code> can dangle. Returning one is safe only when its backing storage remains alive. <code>StringPath</code> instead owns its buffer, but rejects content beyond its platform-specific <code>MaxPath</code> capacity.</li>
+<li>A <code>Result</code> created with <code>Result::Error("literal")</code> is self-contained enough for normal propagation because the literal has static storage. <code>Result::FromStableCharPointer</code> instead makes the caller responsible for keeping the message pointer valid until it is inspected.</li>
+<li>A <code>Function</code> owns its inline functor or lambda, but references captured by that callable still follow normal C++ lifetime rules. Increase the second template argument for a deliberately larger inline budget, or capture a pointer to longer-lived state; there is no allocating fallback.</li>
+<li><code>UniqueHandle</code> is move-only. <code>detach()</code> stops the wrapper from releasing the handle; because it does not return the raw value, the caller must already retain that value. Its destructor cannot report a release failure, so code that needs that result should call <code>close()</code> explicitly.</li>
+<li><code>OpaqueObject</code> trades heap-free encapsulation for a fixed ABI budget. Each platform size and alignment must cover the private object; growing that private object beyond the declared budget requires changing the public definition.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md295"></a>
-Utilities</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadLeft">Class   </th><th class="markdownTableHeadLeft">Description    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">SC::Assert   </td><td class="markdownTableBodyLeft">Foundation-owned assertion provider    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">SC::AlignedStorage   </td><td class="markdownTableBodyLeft">Fixed-size aligned storage for hiding implementation details   </td></tr>
-</table>
-<h1><a class="anchor" id="autotoc_md296"></a>
-Status</h1>
-<p>🟩 Usable <br  />
- The library is very simple it it has what is needed so far by the other libraries.</p>
-<h1><a class="anchor" id="autotoc_md297"></a>
-Description</h1>
-<p>There is an hard rule in the library <a class="el" href="page_principles.html">Principles</a> not to include system and compiler headers in public headers. <br  />
- Foundation provides all primitive types to be used in headers and classes like SC::UniqueHandle, SC::OpaqueObject, SC::AlignedStorage to encourage static PIMPL in order to hide platform specific implementation details everywhere.</p>
-<h2><a class="anchor" id="autotoc_md298"></a>
-Function</h2>
-<p>Fixed-storage callable wrapper used when APIs need callbacks without dynamic allocations.</p>
-<h2><a class="anchor" id="autotoc_md299"></a>
-Deferred</h2>
-<p>Scope-exit helper used to run explicit cleanup code when leaving a scope.</p>
-<h2><a class="anchor" id="autotoc_md300"></a>
-OpaqueObject</h2>
-<p>Fixed-size opaque storage used to hide private implementation details in public headers.</p>
-<h2><a class="anchor" id="autotoc_md301"></a>
-UniqueHandle</h2>
-<p>Move-only RAII wrapper used to close or release handles deterministically.</p>
-<h1><a class="anchor" id="autotoc_md302"></a>
+<p>These are low-level tools, not runtime safety mechanisms: bounds are carried by <code>Span</code>, but <code>operator[]</code> is not a checked accessor, and borrowed lifetime remains a design obligation.</p>
+<h1><a class="anchor" id="autotoc_md255"></a>
+Where Foundation stops</h1>
+<p>Foundation has no library dependencies and is intentionally smaller than its neighboring SC libraries:</p>
+<ul>
+<li>Use <a class="el" href="library_memory.html">Memory</a> when data must grow dynamically or be owned through an explicit allocator (<code>Buffer</code>, <code>String</code>, or <code>SmallString</code>). Depending on Foundation alone is a useful signal that a library cannot allocate through SC Memory; Foundation's own ownership types use fixed inline storage or native handles instead.</li>
+<li>Use <a class="el" href="library_containers.html">Containers</a> for owning typed collections such as <code>Vector</code>; continue to expose <code>Span</code> at boundaries when ownership does not need to cross them.</li>
+<li>Use <a class="el" href="library_strings.html">Strings</a> for <code>StringView</code>, iteration, conversion, formatting, parsing, and path manipulation. <code>StringSpan</code> exists so lower-level libraries can carry encoded text without taking that larger dependency.</li>
+<li>Platform libraries build their public interfaces from <code>Result</code>, <code>Span</code>, <code>Function</code>, <code>UniqueHandle</code>, and <code>OpaqueObject</code>, keeping operating-system types and headers in implementation files.</li>
+</ul>
+<p>Foundation is therefore a good fit for small, portable API boundaries with caller-controlled storage. It is not a replacement for owning containers, rich diagnostics, general Unicode processing, or dynamically sized type erasure.</p>
+<h1><a class="anchor" id="autotoc_md256"></a>
+Portability layer</h1>
+<p>Foundation also supplies SC primitive aliases, compiler/feature detection, export and warning macros, assertions, placement construction, type traits, and small move/forward utilities. These are mostly infrastructure for SC headers, not an attempt to reproduce the full standard library. See <a class="el" href="group__group__foundation__compiler__macros.html">Compiler Macros</a> and the <a class="el" href="group__group__foundation.html">Foundation</a> reference when integrating at that level.</p>
+<h1><a class="anchor" id="autotoc_md257"></a>
+Maturity</h1>
+<p>🟩 Usable. Foundation is exercised across the supported compilers and platforms because almost every SC library builds on it. Its surface grows when another library needs a dependency-free primitive; it is not intended to accumulate convenience APIs speculatively.</p>
+<h1><a class="anchor" id="autotoc_md258"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
@@ -265,12 +263,12 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-06-30-SaneCppLibrariesUpdate.html">June 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md303"></a>
+<h1><a class="anchor" id="autotoc_md259"></a>
 Roadmap</h1>
 <p>🟦 Complete Features:</p><ul>
 <li>Things will be added as needed</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md304"></a>
+<h1><a class="anchor" id="autotoc_md260"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Foundation</code>. Single File counts <code>SaneCppFoundation.h</code>. Standalone counts <code>SaneCppFoundationStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

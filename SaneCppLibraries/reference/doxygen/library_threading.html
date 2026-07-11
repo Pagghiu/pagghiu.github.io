@@ -129,130 +129,105 @@ $(function(){initNavTree('library_threading.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md495">Dependencies</a>
+    <a href="#autotoc_md396">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md496">Features</a>
+    <a href="#autotoc_md397">When Threading Fits</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md497">Status</a>
+    <a href="#autotoc_md398">Threads Have Explicit Terminal Ownership</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md498">Blog</a>
+    <a href="#autotoc_md399">Choosing A Synchronization Primitive</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md499">Videos</a>
-    <ul>
-      <li class="level2">
-        <a href="#autotoc_md500">SC::Thread</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md501">SC::ThreadPool</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md502">SC::Mutex</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md503">SC::EventObject</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md504">SC::Atomic</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md505">SC::Semaphore</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md506">SC::RWLock</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md507">SC::Barrier</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md508">SC::ConditionVariable</a>
-      </li>
-    </ul>
+    <a href="#autotoc_md400">A Bounded-By-Ownership Thread Pool</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md509">Roadmap</a>
+    <a href="#autotoc_md401">Atomics Are Intentionally Narrow</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md510">Statistics</a>
+    <a href="#autotoc_md402">Relationship To Neighboring Libraries</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md403">Status And Further Material</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md404">Roadmap</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md405">Statistics</a>
   </li>
 </ul>
 </div>
-<div class="textblock"><p>🟩 Atomic, thread, pool, mutex, semaphore, barrier and more</p>
-<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppThreading.h">SaneCppThreading.h</a> is a library defining basic primitives for user-space threading and synchronization.</p>
-<h1><a class="anchor" id="autotoc_md495"></a>
+<div class="textblock"><p>🟩 Native threads, synchronization primitives, and a caller-owned task pool</p>
+<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppThreading.h">SaneCppThreading.h</a> provides small cross-platform wrappers around native threads and synchronization primitives, plus a fixed-worker thread pool. It is intended for code that wants explicit lifetime and storage control without the STL, exceptions, RTTI, or a general-purpose job runtime.</p>
+<h1><a class="anchor" id="autotoc_md396"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Threading.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md496"></a>
-Features</h1>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadLeft">Class   </th><th class="markdownTableHeadLeft">Description    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1Thread.html" title="A native OS thread.">SC::Thread</a>   </td><td class="markdownTableBodyLeft">A native OS thread.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1ThreadPool.html" title="Simple thread pool that executes tasks in a fixed number of worker threads.">SC::ThreadPool</a>   </td><td class="markdownTableBodyLeft">Simple thread pool that executes tasks in a fixed number of worker threads.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1Mutex.html" title="A native OS mutex to synchronize access to shared resources.">SC::Mutex</a>   </td><td class="markdownTableBodyLeft">A native OS mutex to synchronize access to shared resources.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1RWLock.html" title="A Read-Write lock that allows multiple concurrent readers but only one writer.">SC::RWLock</a>   </td><td class="markdownTableBodyLeft">A Read-Write lock that allows multiple concurrent readers but only one writer.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1Barrier.html" title="A synchronization point that blocks threads until the required number of threads have reached it.">SC::Barrier</a>   </td><td class="markdownTableBodyLeft">A synchronization point that blocks threads until the required number of threads have reached it.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1Semaphore.html" title="A semaphore synchronization primitive that maintains a count for resource management.">SC::Semaphore</a>   </td><td class="markdownTableBodyLeft">A semaphore synchronization primitive that maintains a count for resource management.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1ConditionVariable.html" title="A native OS condition variable.">SC::ConditionVariable</a>   </td><td class="markdownTableBodyLeft">A native OS condition variable.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1Atomic.html" title="Atomic variables (only for int and bool for now).">SC::Atomic</a>   </td><td class="markdownTableBodyLeft">Atomic variables (only for <code>int</code> and <code>bool</code> for now).       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1EventObject.html" title="An automatically reset event object to synchronize two threads.">SC::EventObject</a>   </td><td class="markdownTableBodyLeft">An automatically reset event object to synchronize two threads.      </td></tr>
-</table>
-<h1><a class="anchor" id="autotoc_md497"></a>
-Status</h1>
-<p>🟩 Usable <br  />
- All the main threading primitives are there. <br  />
- The Atomic header is really only being implemented for a few data types and needs some love to extend and improve it.</p>
-<h1><a class="anchor" id="autotoc_md498"></a>
-Blog</h1>
-<p>Some relevant blog posts are:</p>
+<h1><a class="anchor" id="autotoc_md397"></a>
+When Threading Fits</h1>
+<p>Use <code>Threading</code> when an application needs a few long-lived native threads, direct mutex/condition-variable style synchronization, or a simple pool for blocking work. The library exposes familiar low-level pieces without introducing an allocator or a scheduler policy of its own.</p>
+<p>It is deliberately not a replacement for the C++ standard concurrency library. There are no RAII lock guards, futures, timed waits, cancellation tokens, work stealing, or dynamically growing task queues. Those omissions keep the surface small and ownership visible, but application code must build any higher-level policy it needs.</p>
+<p>The public building blocks are:</p>
 <ul>
-<li><a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html">August 2025 Update</a></li>
+<li><code>Thread</code>, a single native thread with explicit <code>start()</code>, <code>join()</code>, or <code>detach()</code>;</li>
+<li><code>Mutex</code> and <code>ConditionVariable</code>, direct blocking synchronization primitives;</li>
+<li><code>RWLock</code>, <code>Semaphore</code>, <code>Barrier</code>, and <code>EventObject</code>, implemented from those primitives;</li>
+<li><code>Atomic&lt;int32_t&gt;</code> and <code>Atomic&lt;bool&gt;</code>, with explicit memory-order operations;</li>
+<li><code>ThreadPool</code>, a fixed set of native workers consuming caller-owned tasks from an intrusive FIFO.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md499"></a>
-Videos</h1>
-<p>This is the list of videos that have been recorded showing some of the internal thoughts that have been going into this library:</p>
+<h1><a class="anchor" id="autotoc_md398"></a>
+Threads Have Explicit Terminal Ownership</h1>
+<p>A <code>Thread</code> stores its callable inside the thread object and creates one native operating-system thread. The object is not copyable or movable, so its address and callable storage remain stable while the thread runs. After a successful <code>start()</code>, the owner must call either <code>join()</code> or <code>detach()</code> before destroying the <code>Thread</code>; the destructor asserts in debug builds when that obligation is missed.</p>
+<p>The callable uses <code>SC::Function</code>, whose capture storage has a fixed inline capacity. An oversized capturing lambda is rejected rather than heap-allocated; capture a pointer to caller-owned context when the state does not fit, and keep that context alive for the whole execution.</p>
+<p><code>join()</code> waits for completion and releases the native thread handle. <code>detach()</code> releases ownership of that handle but does not wait for the callable to finish. The running entry point still refers to the <code>Thread</code> object and its stored callable, so the object and everything referenced by its captures must outlive the actual detached execution. Reusing or destroying that storage merely because <code>detach()</code> returned is unsafe; detached completion needs an external protocol if the owner must know when reclamation is safe.</p>
+<p>Thread creation can fail and returns <code>Result</code>. Although the library performs no heap allocation itself, creating a native thread allocates operating-system resources and a platform stack. <code>Thread::Sleep()</code> and thread naming are thin platform operations; <code>setThreadName()</code> must be called by the thread being named.</p>
+<h1><a class="anchor" id="autotoc_md399"></a>
+Choosing A Synchronization Primitive</h1>
+<p><code>Mutex</code> is the basic exclusive lock. <code>ConditionVariable::wait()</code> expects an already locked <code>Mutex</code>, releases it while waiting, and returns with it locked again. Waiting code must check its predicate in a loop. The API intentionally does not provide a lock guard, so every control path is responsible for unlocking.</p>
+<p>This compiled test shows the complete mutex shape:</p>
+<div class="fragment"><div class="line">    Mutex  mutex;</div>
+<div class="line">    <span class="keywordtype">int</span>    globalVariable = 0;</div>
+<div class="line">    Thread thread1;</div>
+<div class="line">    <span class="keyword">auto</span>   thread1Func = [&amp;](Thread&amp; thread)</div>
+<div class="line">    {</div>
+<div class="line">        thread.setThreadName(SC_NATIVE_STR(<span class="stringliteral">&quot;Thread1&quot;</span>));</div>
+<div class="line">        mutex.lock();</div>
+<div class="line">        globalVariable++;</div>
+<div class="line">        mutex.unlock();</div>
+<div class="line">    };</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(thread1.start(thread1Func));</div>
+<div class="line"> </div>
+<div class="line">    Thread thread2;</div>
+<div class="line">    <span class="keyword">auto</span>   thread2Func = [&amp;](Thread&amp; thread)</div>
+<div class="line">    {</div>
+<div class="line">        thread.setThreadName(SC_NATIVE_STR(<span class="stringliteral">&quot;Signaling2&quot;</span>));</div>
+<div class="line">        mutex.lock();</div>
+<div class="line">        globalVariable++;</div>
+<div class="line">        mutex.unlock();</div>
+<div class="line">    };</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(thread2.start(thread2Func));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(thread1.join());</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(thread2.join());</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(globalVariable == 2);</div>
+</div><!-- fragment --><p>The higher-level primitives encode a small amount of policy:</p>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=e48ruImESxI">Ep.13 - Simple ThreadPool</a></li>
+<li><code>RWLock</code> allows concurrent readers and gives waiting writers priority over new readers.</li>
+<li><code>Semaphore</code> blocks at a zero count and wakes one waiter on <code>release()</code>; it has no timed or non-blocking acquire.</li>
+<li><code>Barrier</code> is reusable across generations. Every generation needs exactly the configured number of arrivals; losing a participant leaves the others blocked.</li>
+<li><code>EventObject</code> retains a signal and, by default, automatically consumes it in one waiter. Setting its public <code>autoReset</code> field to <code>false</code> retains the signaled state, but <code>signal()</code> still wakes only one existing waiter rather than broadcasting. It is therefore not a complete manual-reset event, and the type has no separate reset operation.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md500"></a>
-SC::Thread</h2>
-<p>A native OS thread.   </p>
-<p>Example: </p><div class="fragment"><div class="line">Thread thread;</div>
-<div class="line">thread.start([](Thread&amp; thread)</div>
-<div class="line">{</div>
-<div class="line">    <span class="comment">// It&#39;s highly recommended setting a name for the thread</span></div>
-<div class="line">    thread.setThreadName(SC_NATIVE_STR(<span class="stringliteral">&quot;My Thread&quot;</span>));</div>
-<div class="line">    <span class="comment">// Do something on the thread</span></div>
-<div class="line">    Thread::Sleep(1000); <span class="comment">// Sleep for 1 second</span></div>
-<div class="line">});</div>
-<div class="line">thread.join(); <span class="comment">// wait until thread has finished executing</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// ...or</span></div>
-<div class="line"> </div>
-<div class="line">thread.detach(); <span class="comment">// To keep thread running after Thread destructor</span></div>
-</div><!-- fragment --><dl class="section warning"><dt>Warning</dt><dd>Thread destructor will assert if <a class="el" href="structSC_1_1Thread.html#a7ec0ae5d34ef6821aa884452c17c5046" title="Detaches the thread so that its resources are automatically released back to the system without Threa...">SC::Thread::detach()</a> or <a class="el" href="structSC_1_1Thread.html#aad66dfb65ebdca81f0dea267e7a35c08" title="Waits for thread to finish and releases its resources.">SC::Thread::join()</a> has not been called.   </dd></dl>
-<h2><a class="anchor" id="autotoc_md501"></a>
-SC::ThreadPool</h2>
-<p>Simple thread pool that executes tasks in a fixed number of worker threads.   </p>
-<p>This class is not copyable / moveable due to it containing Mutex and Condition variable. Additionally, this class does not allocate any memory by itself, and expects the caller to supply SC::ThreadPool::Task objects.</p>
-<dl class="section warning"><dt>Warning</dt><dd>The caller is responsible of keeping Task address stable until the it will be completed. If it's not already completed the task must still be valid during ThreadPool::destroy or ThreadPool destructor.</dd></dl>
-<p>Example: </p><div class="fragment"><div class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> wantedThreads = 4;</div>
+<p>None of these operations accept cancellation or timeouts. If shutdown must interrupt a blocked thread, that protocol has to be represented in shared state and signaled explicitly by the application.</p>
+<h1><a class="anchor" id="autotoc_md400"></a>
+A Bounded-By-Ownership Thread Pool</h1>
+<p><code>ThreadPool</code> creates a fixed number of detached native workers. It does not allocate task nodes: each <code>ThreadPool::Task</code> supplied by the caller contains its callable and the intrusive links used by the FIFO. This makes queueing allocation-free inside the library and naturally prevents the same task object from being queued twice or used by two pools at once. Task callables have the same fixed <code>SC::Function</code> capture capacity as thread callables.</p>
+<p>The following SCTest example is compiled on every supported test build:</p>
+<div class="fragment"><div class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> wantedThreads = 4;</div>
 <div class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> numTasks      = 100;</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// 1. Create the threadpool with the wanted number of threads</span></div>
@@ -301,218 +276,38 @@ SC::ThreadPool</h2>
 <div class="line">    <span class="comment">// Note: destructor will wait for tasks to finish, but this avoids it from accessing invalid tasks,</span></div>
 <div class="line">    <span class="comment">// as stack objects are reclaimed in inverse declaration order</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(threadPool.<a class="code hl_function" href="structSC_1_1ThreadPool.html#a1627e46fb137380bb55e816c08ce2cb0">destroy</a>());</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md502"></a>
-SC::Mutex</h2>
-<p>A native OS mutex to synchronize access to shared resources.   </p>
-<p>Example: </p><div class="fragment"><div class="line">    Mutex  mutex;</div>
-<div class="line">    <span class="keywordtype">int</span>    globalVariable = 0;</div>
-<div class="line">    Thread thread1;</div>
-<div class="line">    <span class="keyword">auto</span>   thread1Func = [&amp;](Thread&amp; thread)</div>
-<div class="line">    {</div>
-<div class="line">        thread.setThreadName(SC_NATIVE_STR(<span class="stringliteral">&quot;Thread1&quot;</span>));</div>
-<div class="line">        mutex.lock();</div>
-<div class="line">        globalVariable++;</div>
-<div class="line">        mutex.unlock();</div>
-<div class="line">    };</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(thread1.start(thread1Func));</div>
-<div class="line"> </div>
-<div class="line">    Thread thread2;</div>
-<div class="line">    <span class="keyword">auto</span>   thread2Func = [&amp;](Thread&amp; thread)</div>
-<div class="line">    {</div>
-<div class="line">        thread.setThreadName(SC_NATIVE_STR(<span class="stringliteral">&quot;Signaling2&quot;</span>));</div>
-<div class="line">        mutex.lock();</div>
-<div class="line">        globalVariable++;</div>
-<div class="line">        mutex.unlock();</div>
-<div class="line">    };</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(thread2.start(thread2Func));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(thread1.join());</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(thread2.join());</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(globalVariable == 2);</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md503"></a>
-SC::EventObject</h2>
-<p>An automatically reset event object to synchronize two threads.   </p>
-<p><br  />
-Example: </p><div class="fragment"><div class="line">    EventObject eventObject;</div>
-<div class="line"> </div>
-<div class="line">    Thread threadWaiting;</div>
-<div class="line">    <span class="keyword">auto</span>   waitingFunc = [&amp;](Thread&amp; thread)</div>
-<div class="line">    {</div>
-<div class="line">        thread.setThreadName(SC_NATIVE_STR(<span class="stringliteral">&quot;Thread waiting&quot;</span>));</div>
-<div class="line">        eventObject.wait();</div>
-<div class="line">        report.console.printLine(<span class="stringliteral">&quot;After waiting&quot;</span>);</div>
-<div class="line">    };</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(threadWaiting.start(waitingFunc));</div>
-<div class="line"> </div>
-<div class="line">    Thread threadSignaling;</div>
-<div class="line">    <span class="keyword">auto</span>   signalingFunc = [&amp;](Thread&amp; thread)</div>
-<div class="line">    {</div>
-<div class="line">        thread.setThreadName(SC_NATIVE_STR(<span class="stringliteral">&quot;Signaling thread&quot;</span>));</div>
-<div class="line">        report.console.printLine(<span class="stringliteral">&quot;Signal&quot;</span>);</div>
-<div class="line">        eventObject.signal();</div>
-<div class="line">    };</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(threadSignaling.start(signalingFunc));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(threadWaiting.join());</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(threadSignaling.join());</div>
-<div class="line">    <span class="comment">// Prints:</span></div>
-<div class="line">    <span class="comment">// Signal</span></div>
-<div class="line">    <span class="comment">// After waiting</span></div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md504"></a>
-SC::Atomic</h2>
-<p>Atomic variables (only for <code>int</code> and <code>bool</code> for now).   </p>
-<p><br  />
-Example: </p><div class="fragment"><div class="line">Atomic&lt;bool&gt; test = <span class="keyword">true</span>;</div>
-<div class="line"> </div>
-<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(test.load());</div>
-<div class="line">test.exchange(<span class="keyword">false</span>);</div>
-<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not test.load());</div>
-<div class="ttc" id="agroup__group__testing_html_gae99d5c969c290b1234140c49bb9d8cf8"><div class="ttname"><a href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a></div><div class="ttdeci">#define SC_TEST_EXPECT(e)</div><div class="ttdoc">Records a test expectation (eventually aborting or breaking o n failed test)</div><div class="ttdef"><b>Definition</b> Testing.h:187</div></div>
-</div><!-- fragment -->   <h2><a class="anchor" id="autotoc_md505"></a>
-SC::Semaphore</h2>
-<p>A semaphore synchronization primitive that maintains a count for resource management.   </p>
-<p>Example: </p><div class="fragment"><div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> maxResources        = 2; <span class="comment">// Only 2 threads can access resource at once</span></div>
-<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> numThreads          = 4; <span class="comment">// Total number of threads trying to access</span></div>
-<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> operationsPerThread = 3; <span class="comment">// Each thread will do 3 operations</span></div>
-<div class="line"> </div>
-<div class="line">    Semaphore semaphore(maxResources); <span class="comment">// Initialize with 2 available resources</span></div>
-<div class="line">    <span class="keyword">struct </span>Context</div>
-<div class="line">    {</div>
-<div class="line">        Semaphore&amp; semaphore;</div>
-<div class="line">        Mutex      counterMutex;       <span class="comment">// To protect sharedResource counter</span></div>
-<div class="line">        <span class="keywordtype">int</span>        sharedResource = 0; <span class="comment">// Counter to verify correct synchronization</span></div>
-<div class="line">    } ctx{semaphore, {}};</div>
-<div class="line"> </div>
-<div class="line">    Thread threads[numThreads];</div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; numThreads; i++)</div>
-<div class="line">    {</div>
-<div class="line">        <span class="keyword">auto</span> threadFunc = [<span class="keyword">this</span>, &amp;ctx](Thread&amp; thread)</div>
-<div class="line">        {</div>
-<div class="line">            thread.setThreadName(SC_NATIVE_STR(<span class="stringliteral">&quot;Worker Thread&quot;</span>));</div>
-<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; operationsPerThread; j++)</div>
-<div class="line">            {</div>
-<div class="line">                ctx.semaphore.acquire(); <span class="comment">// Wait for resource to be available</span></div>
-<div class="line"> </div>
-<div class="line">                <span class="comment">// Critical section</span></div>
-<div class="line">                ctx.counterMutex.lock();</div>
-<div class="line">                ctx.sharedResource++;</div>
-<div class="line">                <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(ctx.sharedResource &lt;= maxResources); <span class="comment">// Never more than maxResources threads</span></div>
-<div class="line">                Thread::Sleep(1);                                   <span class="comment">// Simulate some work</span></div>
-<div class="line">                ctx.sharedResource--;</div>
-<div class="line">                ctx.counterMutex.unlock();</div>
-<div class="line"> </div>
-<div class="line">                ctx.semaphore.release(); <span class="comment">// Release the resource</span></div>
-<div class="line">                Thread::Sleep(1);        <span class="comment">// Give other threads a chance</span></div>
-<div class="line">            }</div>
-<div class="line">        };</div>
-<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(threads[i].start(threadFunc));</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Wait for all threads to finish</span></div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; numThreads; i++)</div>
-<div class="line">    {</div>
-<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(threads[i].join());</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Verify final state</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(ctx.sharedResource == 0);</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md506"></a>
-SC::RWLock</h2>
-<p>A Read-Write lock that allows multiple concurrent readers but only one writer.   </p>
-<p>Example: </p><div class="fragment"><div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> numReaders    = 3;</div>
-<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> numIterations = 100;</div>
-<div class="line"> </div>
-<div class="line">    RWLock rwlock;</div>
-<div class="line">    <span class="keywordtype">int</span>    sharedData = 0;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Start multiple reader threads</span></div>
-<div class="line">    Thread readers[numReaders];</div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; numReaders; i++)</div>
-<div class="line">    {</div>
-<div class="line">        <span class="keyword">auto</span> readerFunc = [&amp;](Thread&amp; thread)</div>
-<div class="line">        {</div>
-<div class="line">            thread.setThreadName(SC_NATIVE_STR(<span class="stringliteral">&quot;Reader&quot;</span>));</div>
-<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; numIterations; j++)</div>
-<div class="line">            {</div>
-<div class="line">                rwlock.lockRead();</div>
-<div class="line">                <span class="keyword">volatile</span> <span class="keywordtype">int</span> value = sharedData; <span class="comment">// Prevent optimization</span></div>
-<div class="line">                (void)value;</div>
-<div class="line">                rwlock.unlockRead();</div>
-<div class="line">                Thread::Sleep(1); <span class="comment">// Small delay to increase contention</span></div>
-<div class="line">            }</div>
-<div class="line">        };</div>
-<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(readers[i].start(readerFunc));</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Start a writer thread</span></div>
-<div class="line">    Thread writer;</div>
-<div class="line">    <span class="keyword">auto</span>   writerFunc = [&amp;](Thread&amp; thread)</div>
-<div class="line">    {</div>
-<div class="line">        thread.setThreadName(SC_NATIVE_STR(<span class="stringliteral">&quot;Writer&quot;</span>));</div>
-<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; numIterations; i++)</div>
-<div class="line">        {</div>
-<div class="line">            rwlock.lockWrite();</div>
-<div class="line">            sharedData++;</div>
-<div class="line">            rwlock.unlockWrite();</div>
-<div class="line">            Thread::Sleep(1); <span class="comment">// Small delay to increase contention</span></div>
-<div class="line">        }</div>
-<div class="line">    };</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(writer.start(writerFunc));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Wait for all threads to finish</span></div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; numReaders; i++)</div>
-<div class="line">    {</div>
-<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(readers[i].join());</div>
-<div class="line">    }</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(writer.join());</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(sharedData == numIterations);</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md507"></a>
-SC::Barrier</h2>
-<p>A synchronization point that blocks threads until the required number of threads have reached it.   </p>
-<p>Example: </p><div class="fragment"><div class="line">    <span class="keyword">constexpr</span> uint32_t numThreads          = 8;</div>
-<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">int</span>      incrementsPerThread = 1000;</div>
-<div class="line"> </div>
-<div class="line">    Thread threads[numThreads];</div>
-<div class="line"> </div>
-<div class="line">    Barrier barrier(numThreads);</div>
-<div class="line">    <span class="keyword">struct </span>Context</div>
-<div class="line">    {</div>
-<div class="line">        Barrier&amp;        barrier;</div>
-<div class="line">        Atomic&lt;int32_t&gt; sharedCounter;</div>
-<div class="line">    } ctx = {barrier, 0};</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; numThreads; i++)</div>
-<div class="line">    {</div>
-<div class="line">        <span class="keyword">auto</span> threadFunc = [<span class="keyword">this</span>, &amp;ctx](Thread&amp; thread)</div>
-<div class="line">        {</div>
-<div class="line">            thread.setThreadName(SC_NATIVE_STR(<span class="stringliteral">&quot;Barrier&quot;</span>));</div>
-<div class="line"> </div>
-<div class="line">            <span class="comment">// Phase 1: Each thread increments the counter</span></div>
-<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; incrementsPerThread; ++j)</div>
-<div class="line">            {</div>
-<div class="line">                ctx.sharedCounter++;</div>
-<div class="line">            }</div>
-<div class="line">            ctx.barrier.wait();</div>
-<div class="line"> </div>
-<div class="line">            <span class="comment">// Phase 2: All threads should see the final value</span></div>
-<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(ctx.sharedCounter == numThreads * incrementsPerThread);</div>
-<div class="line">            ctx.barrier.wait();</div>
-<div class="line">        };</div>
-<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(threads[i].start(threadFunc));</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Wait for all threads to finish</span></div>
-<div class="line">    <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; numThreads; i++)</div>
-<div class="line">    {</div>
-<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(threads[i].join());</div>
-<div class="line">    }</div>
-</div><!-- fragment -->  <h2><a class="anchor" id="autotoc_md508"></a>
-SC::ConditionVariable</h2>
-<p>A native OS condition variable.   </p>
-<h1><a class="anchor" id="autotoc_md509"></a>
+</div><!-- fragment --><p>The important constraint is address and lifetime, not just capacity. A queued task must stay at the same address until it finishes or the pool releases it during destruction. Everything referenced by its callable must remain valid for the same interval. Arrays, arenas, or other caller-owned stable storage are natural ways to bound the number of tasks.</p>
+<p><code>waitForTask()</code> waits for one task and <code>waitForAllTasks()</code> drains all queued and running work. <code>destroy()</code> has different semantics: it removes tasks that have not started, asks workers to stop, and waits only for work already running. Call <code>waitForAllTasks()</code> before <code>destroy()</code> when every accepted task must execute.</p>
+<p>Declaration order matters for stack-owned pools and tasks. Because local objects are destroyed in reverse order, declare task storage before the pool, or explicitly drain and destroy the pool before task storage leaves scope. The pool destructor calls <code>destroy()</code>, but it cannot make already-invalid task addresses safe.</p>
+<p>This pool is a good fit for coarse blocking jobs and for libraries such as <a class="el" href="library_async.html">Async</a> that need a caller-supplied blocking backend. It is less suitable for very small jobs, dependency graphs, priorities, recursive parallelism, or workloads that need work stealing.</p>
+<h1><a class="anchor" id="autotoc_md401"></a>
+Atomics Are Intentionally Narrow</h1>
+<p><code>Atomic</code> currently has specializations only for <code>int32_t</code> and <code>bool</code>. The integer specialization provides load/store, exchange, fetch-add/subtract, compare-exchange, and increment/decrement; the Boolean specialization omits arithmetic. Both accept the library's <code>memory_order</code> values and default to sequential consistency.</p>
+<p>This is enough for counters, flags, and small coordination protocols, but it is not a general <code>std::atomic&lt;T&gt;</code> substitute: there are no pointer, 64-bit, user-defined, wait/notify, or atomic-flag specializations. Prefer the default ordering unless a protocol has been designed and tested with weaker ordering.</p>
+<h1><a class="anchor" id="autotoc_md402"></a>
+Relationship To Neighboring Libraries</h1>
+<p><code>Threading</code> sits below several higher-level SC libraries but depends on none of them:</p>
+<ul>
+<li><a class="el" href="library_async.html">Async</a> multiplexes operating-system I/O and can use <code>ThreadPool</code> for operations that may block. Choose it when one thread should coordinate many I/O operations rather than dedicating a thread to each operation.</li>
+<li><a class="el" href="library_await.html">Await</a> adds C++20 coroutine syntax over <code>Async</code>; it does not change the underlying request and thread-pool lifetime rules.</li>
+<li><a class="el" href="library_fibers.html">Fibers</a> is a stackful task scheduler with explicit stacks, task groups, and work distribution. Choose it when tasks need to suspend through ordinary call stacks or participate in a scheduler rather than merely run to completion on a simple FIFO worker pool.</li>
+<li><a class="el" href="library_fibers_async.html">FibersAsync</a> connects fiber suspension to the asynchronous I/O loop.</li>
+</ul>
+<p>Direct <code>Threading</code> primitives remain appropriate at application boundaries, for coarse background ownership, and when building a deliberately small synchronization protocol. Moving to a neighboring library trades that directness for a richer execution model.</p>
+<h1><a class="anchor" id="autotoc_md403"></a>
+Status And Further Material</h1>
+<p>🟩 Usable. The main native threading and synchronization primitives are implemented. The clearest current limitation is the deliberately small set of <code>Atomic&lt;T&gt;</code> specializations; the pool also remains intentionally simple rather than aiming to be a full job system.</p>
+<p>Development background:</p>
+<ul>
+<li><a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html">August 2025 Update</a></li>
+<li><a href="https://www.youtube.com/watch?v=e48ruImESxI">Ep.13 - Simple ThreadPool</a></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md404"></a>
 Roadmap</h1>
 <p>🟦 Complete Features:</p><ul>
-<li>Support more types in Atomic&lt;T&gt;</li>
+<li>Support more types in <code>Atomic&lt;T&gt;</code>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md510"></a>
+<h1><a class="anchor" id="autotoc_md405"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Threading</code>. Single File counts <code>SaneCppThreading.h</code>. Standalone counts <code>SaneCppThreadingStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

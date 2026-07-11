@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Async Streams | Sane C++ Libraries</title><meta name="description" content="Concurrently read, write and transform byte streams"><meta property="og:title" content="Async Streams | Sane C++ Libraries"><meta property="og:description" content="Concurrently read, write and transform byte streams"><meta property="og:type" content="website"><meta property="og:url" content="https://pagghiu.github.io/SaneCppLibraries/libraries/async-streams/"><link rel="canonical" href="https://pagghiu.github.io/SaneCppLibraries/libraries/async-streams/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=JetBrains+Mono:wght@500;700&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"><script>
+<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Async Streams | Sane C++ Libraries</title><meta name="description" content="Bounded byte-stream pipelines with explicit backpressure"><meta property="og:title" content="Async Streams | Sane C++ Libraries"><meta property="og:description" content="Bounded byte-stream pipelines with explicit backpressure"><meta property="og:type" content="website"><meta property="og:url" content="https://pagghiu.github.io/SaneCppLibraries/libraries/async-streams/"><link rel="canonical" href="https://pagghiu.github.io/SaneCppLibraries/libraries/async-streams/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=JetBrains+Mono:wght@500;700&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"><script>
       (() => {
         const savedTheme = localStorage.getItem("sc-theme");
         const theme = savedTheme === "light" || savedTheme === "dark"
@@ -112,105 +112,163 @@
 </script>  <a class="button primary" href="https://github.com/Pagghiu/SaneCppLibraries" data-astro-cid-37fxchfa>View GitHub</a> </div> </div> <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="Open navigation" data-astro-cid-37fxchfa> <span class="material-symbols-outlined" aria-hidden="true" data-astro-cid-37fxchfa>menu</span> </button> </div> </header> <main class="site-main" data-astro-cid-37fxchfa> <div class="site-main-shell" data-astro-cid-37fxchfa> <aside class="docs-sidebar" aria-label="Sane C++ documentation" data-astro-cid-qrwn6rcr> <details open data-default-open="true" data-astro-cid-qrwn6rcr> <summary data-astro-cid-qrwn6rcr> <span data-astro-cid-qrwn6rcr>Libraries</span> <span class="count" data-astro-cid-qrwn6rcr>27</span> </summary> <nav aria-label="Libraries" data-astro-cid-qrwn6rcr> <a href="/SaneCppLibraries/libraries/" data-astro-cid-qrwn6rcr>Library index</a> <a href="/SaneCppLibraries/libraries/async/" data-astro-cid-qrwn6rcr> Async </a><a class="active" href="/SaneCppLibraries/libraries/async-streams/" aria-current="page" data-astro-cid-qrwn6rcr> Async Streams </a><a href="/SaneCppLibraries/libraries/await/" data-astro-cid-qrwn6rcr> Await </a><a href="/SaneCppLibraries/libraries/containers/" data-astro-cid-qrwn6rcr> Containers </a><a href="/SaneCppLibraries/libraries/containers-reflection/" data-astro-cid-qrwn6rcr> Containers Reflection </a><a href="/SaneCppLibraries/libraries/fibers/" data-astro-cid-qrwn6rcr> Fibers </a><a href="/SaneCppLibraries/libraries/fibers-async/" data-astro-cid-qrwn6rcr> FibersAsync </a><a href="/SaneCppLibraries/libraries/file/" data-astro-cid-qrwn6rcr> File </a><a href="/SaneCppLibraries/libraries/file-system/" data-astro-cid-qrwn6rcr> File System </a><a href="/SaneCppLibraries/libraries/file-system-iterator/" data-astro-cid-qrwn6rcr> File System Iterator </a><a href="/SaneCppLibraries/libraries/file-system-watcher/" data-astro-cid-qrwn6rcr> File System Watcher </a><a href="/SaneCppLibraries/libraries/foundation/" data-astro-cid-qrwn6rcr> Foundation </a><a href="/SaneCppLibraries/libraries/hashing/" data-astro-cid-qrwn6rcr> Hashing </a><a href="/SaneCppLibraries/libraries/http/" data-astro-cid-qrwn6rcr> Http </a><a href="/SaneCppLibraries/libraries/http-client/" data-astro-cid-qrwn6rcr> Http Client </a><a href="/SaneCppLibraries/libraries/memory/" data-astro-cid-qrwn6rcr> Memory </a><a href="/SaneCppLibraries/libraries/plugin/" data-astro-cid-qrwn6rcr> Plugin </a><a href="/SaneCppLibraries/libraries/process/" data-astro-cid-qrwn6rcr> Process </a><a href="/SaneCppLibraries/libraries/reflection/" data-astro-cid-qrwn6rcr> Reflection </a><a href="/SaneCppLibraries/libraries/serialization-binary/" data-astro-cid-qrwn6rcr> Serialization Binary </a><a href="/SaneCppLibraries/libraries/serialization-text/" data-astro-cid-qrwn6rcr> Serialization Text </a><a href="/SaneCppLibraries/libraries/serial-port/" data-astro-cid-qrwn6rcr> SerialPort </a><a href="/SaneCppLibraries/libraries/socket/" data-astro-cid-qrwn6rcr> Socket </a><a href="/SaneCppLibraries/libraries/strings/" data-astro-cid-qrwn6rcr> Strings </a><a href="/SaneCppLibraries/libraries/testing/" data-astro-cid-qrwn6rcr> Testing </a><a href="/SaneCppLibraries/libraries/threading/" data-astro-cid-qrwn6rcr> Threading </a><a href="/SaneCppLibraries/libraries/time/" data-astro-cid-qrwn6rcr> Time </a> </nav> </details> <details data-default-open="false" data-astro-cid-qrwn6rcr> <summary data-astro-cid-qrwn6rcr> <span data-astro-cid-qrwn6rcr>Guides</span> <span class="count" data-astro-cid-qrwn6rcr>13</span> </summary> <nav aria-label="Guides" data-astro-cid-qrwn6rcr> <a href="/SaneCppLibraries/guides/" data-astro-cid-qrwn6rcr>Guide index</a> <a href="/SaneCppLibraries/guides/build/" data-astro-cid-qrwn6rcr> SC::Build </a><a href="/SaneCppLibraries/guides/build-external/" data-astro-cid-qrwn6rcr> External SC::Build Bootstrap </a><a href="/SaneCppLibraries/guides/building-contributor/" data-astro-cid-qrwn6rcr> Building (Contributor) </a><a href="/SaneCppLibraries/guides/building-user/" data-astro-cid-qrwn6rcr> Building (User) </a><a href="/SaneCppLibraries/guides/coding-style/" data-astro-cid-qrwn6rcr> Coding Style </a><a href="/SaneCppLibraries/guides/examples/" data-astro-cid-qrwn6rcr> Examples </a><a href="/SaneCppLibraries/guides/faq/" data-astro-cid-qrwn6rcr> FAQ </a><a href="/SaneCppLibraries/guides/libraries/" data-astro-cid-qrwn6rcr> Libraries </a><a href="/SaneCppLibraries/guides/platforms/" data-astro-cid-qrwn6rcr> Platforms </a><a href="/SaneCppLibraries/guides/principles/" data-astro-cid-qrwn6rcr> Principles </a><a href="/SaneCppLibraries/guides/single-file-libs/" data-astro-cid-qrwn6rcr> Single File Amalgamation </a><a href="/SaneCppLibraries/guides/tests/" data-astro-cid-qrwn6rcr> Tests </a><a href="/SaneCppLibraries/guides/tools/" data-astro-cid-qrwn6rcr> Tools </a> </nav> </details> </aside> <script type="module">const t=window.matchMedia("(max-width: 1100px)"),s=document.querySelectorAll(".docs-sidebar details"),a=()=>{s.forEach(e=>{e.open=t.matches?!1:e.dataset.defaultOpen==="true"})};a();t.addEventListener("change",a);</script>  <div class="site-content" data-astro-cid-37fxchfa>  <section class="docs-layout" data-astro-cid-7c432cc5> <details class="mobile-context-nav" data-astro-cid-7c432cc5> <summary data-astro-cid-7c432cc5>On this page</summary> <div class="generated-toc" aria-label="Page sections" data-astro-cid-7c432cc5><div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md148">Dependencies</a>
+    <a href="#autotoc_md130">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md149">Features</a>
+    <a href="#autotoc_md131">What Async Streams Is For</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md150">Details</a>
+    <a href="#autotoc_md132">Mental Model</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md151">Status</a>
+    <a href="#autotoc_md133">Supplying A Bounded Buffer Pool</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md152">Implementation</a>
-    <ul>
-      <li class="level2">
-        <a href="#autotoc_md153">Memory allocation</a>
-      </li>
-    </ul>
+    <a href="#autotoc_md134">A File-To-File Pipeline</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md154">Videos</a>
+    <a href="#autotoc_md135">Backpressure And Buffer Lifetime</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md155">Blog</a>
+    <a href="#autotoc_md136">Transforms And Fan-Out</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md156">Roadmap</a>
+    <a href="#autotoc_md137">Errors, Ending, And Destruction</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md157">Statistics</a>
+    <a href="#autotoc_md138">Allocation Model</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md139">Choosing The Neighboring Abstraction</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md140">Details</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md141">Status</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md142">Videos</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md143">Blog</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md144">Roadmap</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md145">Statistics</a>
   </li>
 </ul>
-</div></div> </details> <div class="library-main" data-astro-cid-7c432cc5> <section class="page-hero library-hero" data-astro-cid-7c432cc5> <div class="library-heading" data-astro-cid-7c432cc5> <div class="eyebrow" data-astro-cid-7c432cc5>Library</div> <h1 data-astro-cid-7c432cc5>Async Streams</h1> <p data-astro-cid-7c432cc5>Concurrently read, write and transform byte streams</p> <span class="maturity-badge mvp strong" data-astro-cid-blexnnyn> <span class="dot" data-astro-cid-blexnnyn></span> <span data-astro-cid-blexnnyn>MVP</span> </span>  </div> </section> <section class="meta-grid" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependencies</strong> <p data-astro-cid-7c432cc5>No library-level dependencies</p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Single file</strong> <p data-astro-cid-7c432cc5><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppAsyncStreams.h" data-astro-cid-7c432cc5>Download release header</a></p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Reference</strong> <p data-astro-cid-7c432cc5><a href="/SaneCppLibraries/reference/doxygen/library_async_streams.html" data-astro-cid-7c432cc5>Open generated API/docs</a></p> </div> </section> <article class="panel prose article doxygen-content" data-astro-cid-7c432cc5><div class="textblock"><p>🟨 Concurrently read, write and transform byte streams</p>
-<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppAsyncStreams.h">SaneCppAsyncStreams.h</a> is a library that reads and writes data concurrently from async sources to destinations.</p>
-<h1><a class="anchor" id="autotoc_md148"></a>
+</div></div> </details> <div class="library-main" data-astro-cid-7c432cc5> <section class="page-hero library-hero" data-astro-cid-7c432cc5> <div class="library-heading" data-astro-cid-7c432cc5> <div class="eyebrow" data-astro-cid-7c432cc5>Library</div> <h1 data-astro-cid-7c432cc5>Async Streams</h1> <p data-astro-cid-7c432cc5>Bounded byte-stream pipelines with explicit backpressure</p> <span class="maturity-badge mvp strong" data-astro-cid-blexnnyn> <span class="dot" data-astro-cid-blexnnyn></span> <span data-astro-cid-blexnnyn>MVP</span> </span>  </div> </section> <section class="meta-grid" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependencies</strong> <p data-astro-cid-7c432cc5>No library-level dependencies</p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Single file</strong> <p data-astro-cid-7c432cc5><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppAsyncStreams.h" data-astro-cid-7c432cc5>Download release header</a></p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Reference</strong> <p data-astro-cid-7c432cc5><a href="/SaneCppLibraries/reference/doxygen/library_async_streams.html" data-astro-cid-7c432cc5>Open generated API/docs</a></p> </div> </section> <article class="panel prose article doxygen-content" data-astro-cid-7c432cc5><div class="textblock"><p>🟨 Bounded byte-stream pipelines with explicit backpressure</p>
+<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppAsyncStreams.h">SaneCppAsyncStreams.h</a> provides allocation-free readable, writable, transform, and pipeline state machines for moving bytes between asynchronous producers and consumers.</p>
+<h1><a class="anchor" id="autotoc_md130"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="/SaneCppLibraries/reference/doxygen/AsyncStreams.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md149"></a>
-Features</h1>
-<p>This is the list of implemented objects stream types</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Async Stream   </th><th class="markdownTableHeadNone">Description    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncReadableStream.html">AsyncReadableStream</a>   </td><td class="markdownTableBodyNone">Async source abstraction emitting data events in caller provided byte buffers.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncWritableStream.html">AsyncWritableStream</a>   </td><td class="markdownTableBodyNone">Async destination abstraction where bytes can be written to.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncDuplexStream.html">AsyncDuplexStream</a>   </td><td class="markdownTableBodyNone">A stream that can both produce and consume buffers.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncTransformStream.html">AsyncTransformStream</a>   </td><td class="markdownTableBodyNone">A duplex stream that produces new buffers transforming received buffers.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncPipeline.html">AsyncPipeline</a>   </td><td class="markdownTableBodyNone">Pipes read data from <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncReadableStream.html" title="Async source abstraction emitting data events in caller provided byte buffers.">SC::AsyncReadableStream</a>, forwarding them to <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncWritableStream.html" title="Async destination abstraction where bytes can be written to.">SC::AsyncWritableStream</a>.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncReadableFileStream.html">AsyncReadableFileStream</a>   </td><td class="markdownTableBodyNone">Uses an <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncFileRead.html" title="Starts a file read operation, reading bytes from a file (or pipe).">SC::AsyncFileRead</a> to stream data from a file.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncWritableFileStream.html">AsyncWritableFileStream</a>   </td><td class="markdownTableBodyNone">Uses an <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncFileWrite.html" title="Starts a file write operation, writing bytes to a file (or pipe).">SC::AsyncFileWrite</a> to stream data to a file.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncReadableSocketStream.html">AsyncReadableSocketStream</a>   </td><td class="markdownTableBodyNone">Uses an <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncSocketReceive.html" title="Starts a socket receive operation, receiving bytes from a remote endpoint.">SC::AsyncSocketReceive</a> to stream data from a socket.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncWritableSocketStream.html">AsyncWritableSocketStream</a>   </td><td class="markdownTableBodyNone">Uses an <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncSocketSend.html" title="Starts a socket send operation, sending bytes to a remote endpoint.">SC::AsyncSocketSend</a> to stream data to a socket.      </td></tr>
-</table>
-<h1><a class="anchor" id="autotoc_md150"></a>
+<h1><a class="anchor" id="autotoc_md131"></a>
+What Async Streams Is For</h1>
+<p>Async Streams is for workloads where data arrives or leaves over time and should be processed without first collecting the entire payload in memory. A source can read a file or socket into a bounded pool of buffers, transforms can process those buffers incrementally, and one or more sinks can consume them concurrently.</p>
+<p>The core library defines the stream and pipeline state machines without depending on <a class="el" href="/SaneCppLibraries/libraries/async/">Async</a>, File, or Socket. <code><a class="el" href="/SaneCppLibraries/reference/doxygen/AsyncRequestStreams_8h_source.html">AsyncRequestStreams.h</a></code> supplies templates that adapt compatible asynchronous request and event-loop types; the file and socket compositions in this repository instantiate them with <a class="el" href="/SaneCppLibraries/libraries/async/">Async</a>.</p>
+<p>Use Async Streams when you need:</p>
+<ul>
+<li>incremental byte processing over asynchronous sources and destinations;</li>
+<li>bounded memory usage selected by the caller;</li>
+<li>backpressure when a sink, transform, or buffer pool cannot keep up;</li>
+<li>a fixed pipeline of one source, up to eight transforms, and up to eight sinks;</li>
+<li>file, pipe, socket, or compression streams built on the same byte-buffer model.</li>
+</ul>
+<p>It is not a general container for arbitrary objects, a pull-based <code>read()</code> interface, or an unbounded buffering layer. There is currently no object mode, and consumers receive pushed data events rather than a Node.js-style readable event.</p>
+<h1><a class="anchor" id="autotoc_md132"></a>
+Mental Model</h1>
+<p>An Async Streams graph has four layers:</p>
+<ol type="1">
+<li><code>AsyncBuffersPool</code> names and tracks caller-provided <code>AsyncBufferView</code> objects.</li>
+<li><code>AsyncReadableStream</code> produces buffer IDs; <code>AsyncWritableStream</code> consumes them.</li>
+<li><code>AsyncDuplexStream</code> combines both directions, while <code>AsyncTransformStream</code> consumes input and produces transformed output.</li>
+<li><code>AsyncPipeline</code> connects one source through an optional transform chain to one or more sinks.</li>
+</ol>
+<p>Streams exchange buffer IDs instead of owning byte allocations. The pool resolves an ID to its readable or writable span and reference-counts that view while it is in flight. A reusable view returns to the pool when its references reach zero. Child views can expose a slice without copying while retaining the parent buffer.</p>
+<p>Read and write request queues are also supplied by the caller. The internal circular queues reserve one slot to distinguish full from empty, so an array of <code>N + 1</code> requests provides <code>N</code> usable queued requests.</p>
+<h1><a class="anchor" id="autotoc_md133"></a>
+Supplying A Bounded Buffer Pool</h1>
+<p>This compiled test divides one caller-owned byte allocation into two reusable views. Real applications choose both the number and size of buffers from their expected concurrency and chunk size.</p>
+<pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    constexpr</span><span style="color:#D73A49;--shiki-dark:#CBA6F7"> size_t</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> numberOfBuffers </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 2</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    constexpr</span><span style="color:#D73A49;--shiki-dark:#CBA6F7"> size_t</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> bufferBytesSize </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 16</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    AsyncBufferView  buffers</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#24292E;--shiki-dark:#CDD6F4">numberOfBuffers</span><span style="color:#24292E;--shiki-dark:#9399B2">];</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    Buffer           buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">resizeWithoutInitializing</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">bufferBytesSize </span><span style="color:#D73A49;--shiki-dark:#94E2D5">*</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> numberOfBuffers</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    for</span><span style="color:#24292E;--shiki-dark:#9399B2"> (</span><span style="color:#D73A49;--shiki-dark:#CBA6F7">size_t</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> idx </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 0</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> idx </span><span style="color:#D73A49;--shiki-dark:#94E2D5">&#x3C;</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> numberOfBuffers</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ++</span><span style="color:#24292E;--shiki-dark:#CDD6F4">idx</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">    {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">        Span</span><span style="color:#D73A49;--shiki-dark:#94E2D5">&#x3C;</span><span style="color:#D73A49;--shiki-dark:#CBA6F7">char</span><span style="color:#D73A49;--shiki-dark:#94E2D5">></span><span style="color:#24292E;--shiki-dark:#CDD6F4"> writableData</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">        SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">toSpan</span><span style="color:#24292E;--shiki-dark:#9399B2">().</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">sliceStartLength</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">idx </span><span style="color:#D73A49;--shiki-dark:#94E2D5">*</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> bufferBytesSize</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> bufferBytesSize</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> writableData</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">        buffers</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#24292E;--shiki-dark:#CDD6F4">idx</span><span style="color:#24292E;--shiki-dark:#9399B2">]</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> =</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> writableData</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">        buffers</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#24292E;--shiki-dark:#CDD6F4">idx</span><span style="color:#24292E;--shiki-dark:#9399B2">].</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">setReusable</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#005CC5;--shiki-dark:#FAB387">true</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    AsyncBuffersPool pool</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    pool</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">setBuffers</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">buffers</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre><p>The pool never grows. When a readable cannot obtain a sufficiently large free buffer, <code>getBufferOrPause()</code> pauses it. When downstream processing releases a buffer, the pipeline can resume the source. This makes memory exhaustion part of the flow-control model instead of an implicit allocation.</p>
+<h1><a class="anchor" id="autotoc_md134"></a>
+A File-To-File Pipeline</h1>
+<p>The ready-made request streams adapt file and socket descriptors to the core stream model. After constructing the caller-owned queues and associating descriptors with an event loop, a basic file copy is a source connected directly to a sink:</p>
+<pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    readable</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">setReadQueue</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">readableRequests</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    writable</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">setWriteQueue</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">writableRequests</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">readable</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">init</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">pool</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> eventLoop</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> readDescriptor</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">writable</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">init</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">pool</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> eventLoop</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> writeDescriptor</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
+<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">    // Create Pipeline</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    AsyncPipeline pipeline </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#D73A49;--shiki-dark:#94E2D5">&#x26;</span><span style="color:#24292E;--shiki-dark:#CDD6F4">readable</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#9399B2"> {},</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#D73A49;--shiki-dark:#94E2D5">&#x26;</span><span style="color:#24292E;--shiki-dark:#CDD6F4">writable</span><span style="color:#24292E;--shiki-dark:#9399B2">}};</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">pipeline</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">pipe</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">pipeline</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">start</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span></code></pre><p>The source, every transform, and every sink in one pipeline must use the same <code>AsyncBuffersPool</code>. <code>pipe()</code> validates the layout and registers event listeners; <code>start()</code> begins source production. Completion remains asynchronous: the event loop must continue running until the streams finish or are destroyed.</p>
+<p><code>AsyncReadableFileStream</code> and <code>AsyncWritableFileStream</code> accept <code>FileDescriptor</code> and <code>PipeDescriptor</code>, so anonymous and named pipes from <a class="el" href="/SaneCppLibraries/libraries/file/">File</a> compose without manually extracting their read or write endpoint.</p>
+<h1><a class="anchor" id="autotoc_md135"></a>
+Backpressure And Buffer Lifetime</h1>
+<p>Backpressure can come from either side of the graph:</p>
+<ul>
+<li>a readable pauses when its read queue is full or no reusable buffer is available;</li>
+<li>a writable rejects a new write with an invalid <code>Result</code> when its bounded write queue is full;</li>
+<li>a transform may retain input while waiting for output space or asynchronous work;</li>
+<li>a pipeline records bounded pending writes and resumes the relevant readable as writes complete.</li>
+</ul>
+<p>Readable implementations acquire a buffer, fill it, call <code>push(bufferID, size)</code>, and release their own reference. The stream retains the buffer for queued delivery. Writable implementations finish each accepted operation through <code>finishedWriting()</code>, which advances the queue and releases the stream's reference. Custom streams must respect this protocol; releasing a view too early invalidates downstream data, while failing to finish an operation prevents drain and end propagation.</p>
+<p><code>eventData</code> listeners should treat the buffer as borrowed for the callback unless they explicitly add a reference. Buffers can be read by multiple sinks because the pool tracks references, but writable access is only meaningful where the underlying view permits it.</p>
+<h1><a class="anchor" id="autotoc_md136"></a>
+Transforms And Fan-Out</h1>
+<p>An <code>AsyncTransformStream</code> is a duplex stream: it consumes buffers through its writable side and emits new buffers from its readable side. <code>SyncZLibTransformStream</code> runs compression work synchronously; <code>AsyncZLibTransformStreamT</code> schedules the same work through a compatible event loop and can be directed to a caller-selected thread pool.</p>
+<p>A pipeline has a fixed layout rather than a dynamically growing graph. It supports at most eight transforms and eight sinks. Every sink receives the source data, with buffer references held until each write completes. This is useful for bounded fan-out, but the slowest sink applies backpressure to the shared source. If consumers need independent pacing or unbounded history, that storage and policy belongs outside this library.</p>
+<h1><a class="anchor" id="autotoc_md137"></a>
+Errors, Ending, And Destruction</h1>
+<p>Stream errors are delivered through <code>eventError</code>, and <code>AsyncPipeline::eventError</code> forwards failures from connected sources, transforms, and sinks. <code>pushEnd()</code> ends a readable after queued data is delivered; <code>end()</code> lets a writable finish queued and in-flight writes before emitting its finish event.</p>
+<p><code>destroy()</code> is the forceful, idempotent path for stopping a stream and its pending asynchronous work. Custom implementations that override asynchronous destruction must eventually call the corresponding <code>finishedDestroyingReadable()</code> or <code>finishedDestroyingWritable()</code> hook. Request-stream adapters do not close their file or socket descriptor by default; call <code>setAutoCloseDescriptor(true)</code> only when the stream owns that descriptor. Streams auto-destroy after normal completion by default, and this can be disabled when the surrounding owner needs a different lifetime policy.</p>
+<h1><a class="anchor" id="autotoc_md138"></a>
+Allocation Model</h1>
+<p>Async Streams performs no hidden dynamic allocation. The caller supplies:</p>
+<ul>
+<li>the byte memory and <code>AsyncBufferView</code> slots in each <code>AsyncBuffersPool</code>;</li>
+<li>readable and writable request-queue arrays;</li>
+<li>stream, transform, pipeline, and event-loop objects;</li>
+<li>any storage or thread pools required by the underlying asynchronous operations.</li>
+</ul>
+<p>Some examples use <code>Buffer</code>, <code>String</code>, or <code>Vector</code> to conveniently own test memory. Those allocations belong to the caller and are not required by the stream machinery; fixed spans can be used instead. Capacity failures are observable as pauses or invalid <code>Result</code> values and must be handled as normal control flow.</p>
+<h1><a class="anchor" id="autotoc_md139"></a>
+Choosing The Neighboring Abstraction</h1>
+<ul>
+<li>Use <a class="el" href="/SaneCppLibraries/libraries/async/">Async</a> directly for individual file, socket, process, timer, or event-loop operations where a stream graph adds no value.</li>
+<li>Use Async Streams when the unit of work is a sequence of byte chunks and backpressure must connect producer speed to consumer capacity.</li>
+<li>Use <a class="el" href="/SaneCppLibraries/libraries/http-client/">HttpClient</a> for HTTP requests. Its optional async adapter exposes body streams using this model without making the poll-driven core depend on Async Streams.</li>
+<li>Use <a class="el" href="/SaneCppLibraries/libraries/http/">Http</a> for the higher-level asynchronous HTTP server and WebSocket compositions already built on these streams.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md140"></a>
 Details</h1>
-<p>Read, writes and transforms happen in parallel if sources and destinations are asynchronous. This library does not allocate any memory, all buffers are supplied by the caller.</p>
-<p>Async Streams are largely inspired by <a href="https://nodejs.org/api/stream.html">node.js Streams</a>, a very powerful tool to process large amounts of data concurrently.</p>
-<p>The basic idea about an async stream is to create a Source / Sink abstraction (also called Readable and Writable) and process small buffers of data at time.</p>
-<p>The state machine that coordinates this interaction handles data buffering and more importantly handles also back-pressure, that means:</p>
-<ul>
-<li><b>Pausing</b> the readable stream when a connected writable stream cannot process data fast enough</li>
-<li><b>Resuming</b> the readable stream when a connected writable stream is finally able to receive more data</li>
-</ul>
-<p>By implementing streams on top of async operations it's possible to run many of them concurrently very efficiently. When properly implemented for example an async pipeline can concurrently read from disk, write to a socket while compressing data.</p>
-<p>Most notable differences with node.js streams are for now:</p>
-<ul>
-<li>No allocation (designed to work inside user-provided list of buffers)</li>
-<li>No object mode</li>
-<li>Fixed Layout to create data pipelines (AsyncPipeline)</li>
-<li>onData support only (no readable event)   </li>
-</ul>
-<h1><a class="anchor" id="autotoc_md151"></a>
+<p>For the complete API reference, see <a class="el" href="/SaneCppLibraries/reference/doxygen/group__group__async__streams.html">Async Streams</a>. The tests under <code>Tests/Libraries/AsyncStreams</code> contain working file, pipe, socket, fan-out, backpressure, child-view, and synchronous/asynchronous zlib compositions.</p>
+<h1><a class="anchor" id="autotoc_md141"></a>
 Status</h1>
-<p>🟨 MVP <br  />
-</p>
-<p>A basic set of stream to pipe Sockets and Files (Pipes included) has been implemented. <br  />
- Also basic transform streams (ZLib based) have been implemented. <br  />
- It's possible that its API will evolve a little bit to be less verbose and there is also lack of nice examples, aside from the tests.</p>
-<h1><a class="anchor" id="autotoc_md152"></a>
-Implementation</h1>
-<p>Async Streams support reading from an async source and placing such reads in a bounded request queue that will pause the stream when it becomes full or when there are no available buffers. Data is pushed downstream to listeners of data events, that are either transform streams or writers streams. Writers will eventually emit a <code>drain</code> event to signal that they can write more data. Such event can be used to resume the readable streams that may have been paused. AsyncPipeline doesn't use the <code>drain</code> event but it just resumes readable streams after every successful write. This works because the Readable will pause when running out of buffers, allowing them to resume when a new one is made available.</p>
-<p>ReadableFileStream and WritableFileStream now also support initialization directly from <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1PipeDescriptor.html" title="Read / Write pipe (Process stdin/stdout and IPC communication)">SC::PipeDescriptor</a> (in addition to <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1FileDescriptor.html" title="[UniqueHandleDeclaration2Snippet]">SC::FileDescriptor</a>). This makes named pipes (see <a class="el" href="/SaneCppLibraries/libraries/file/">File</a>) compose directly with Async Streams without manual extraction of <code>readPipe</code> / <code>writePipe</code>.</p>
-<h2><a class="anchor" id="autotoc_md153"></a>
-Memory allocation</h2>
-<p>Async streams do not allocate any memory, but use caller provided buffers for handling data and request queues.</p>
-<h1><a class="anchor" id="autotoc_md154"></a>
+<p>🟨 MVP</p>
+<p>The core file, pipe, socket, pipeline, and zlib transform paths are implemented and exercised by tests. The pipeline automatically pauses and resumes streams as part of backpressure handling, but it does not yet expose explicit pipeline-level pause, resume, or cancellation controls. The API remains an MVP: some setup is verbose, and examples outside the test suite are limited.</p>
+<h1><a class="anchor" id="autotoc_md142"></a>
 Videos</h1>
 <p>This is the list of videos that have been recorded showing some of the internal thoughts that have been going into this library:</p>
 <ul>
@@ -222,7 +280,7 @@ Videos</h1>
 <li><a href="https://www.youtube.com/watch?v=KKwohFmAUCk">Ep.33 - C++ Async Transform Streams - Part 2</a></li>
 <li><a href="https://www.youtube.com/watch?v=vCh6vEfiISI">Ep.34 - C++ Async Transform Streams - Part 3</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md155"></a>
+<h1><a class="anchor" id="autotoc_md143"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
@@ -235,7 +293,7 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2026-01-31-SaneCppLibrariesUpdate.html">January 2026 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md156"></a>
+<h1><a class="anchor" id="autotoc_md144"></a>
 Roadmap</h1>
 <p>🟩 Usable features:</p><ul>
 <li>Pipeline pause</li>
@@ -248,7 +306,7 @@ Roadmap</h1>
 <li>Object Mode</li>
 <li>readable + read mode</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md157"></a>
+<h1><a class="anchor" id="autotoc_md145"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/AsyncStreams</code>. Single File counts <code>SaneCppAsyncStreams.h</code>. Standalone counts <code>SaneCppAsyncStreamsStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">
@@ -263,36 +321,52 @@ Statistics</h1>
 </table></article> <section class="panel related-posts" aria-labelledby="related-posts-heading" data-astro-cid-7c432cc5> <h2 id="related-posts-heading" data-astro-cid-7c432cc5>Related blog posts</h2> <div class="related-links" data-astro-cid-7c432cc5> <a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☔️ Sane C++ March 26</a><a href="https://pagghiu.github.io/site/blog/2026-01-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>❄️ Sane C++ January 26</a><a href="https://pagghiu.github.io/site/blog/2025-12-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌫️ Sane C++ December 25</a><a href="https://pagghiu.github.io/site/blog/2025-11-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌫️ Sane C++ November 25</a><a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌊 Sane C++ August 25</a><a href="https://pagghiu.github.io/site/blog/2025-01-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>❄️ Sane C++ January 25</a><a href="https://pagghiu.github.io/site/blog/2024-12-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☃️ Sane C++ December 24</a><a href="https://pagghiu.github.io/site/blog/2024-11-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌫️ Sane C++ November 24</a> </div> </section> </div> <aside class="context-rail" aria-label="Page context" data-astro-cid-7c432cc5> <div class="card context-panel" data-astro-cid-7c432cc5> <div class="generated-toc" aria-label="Page sections" data-astro-cid-7c432cc5><div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md148">Dependencies</a>
+    <a href="#autotoc_md130">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md149">Features</a>
+    <a href="#autotoc_md131">What Async Streams Is For</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md150">Details</a>
+    <a href="#autotoc_md132">Mental Model</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md151">Status</a>
+    <a href="#autotoc_md133">Supplying A Bounded Buffer Pool</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md152">Implementation</a>
-    <ul>
-      <li class="level2">
-        <a href="#autotoc_md153">Memory allocation</a>
-      </li>
-    </ul>
+    <a href="#autotoc_md134">A File-To-File Pipeline</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md154">Videos</a>
+    <a href="#autotoc_md135">Backpressure And Buffer Lifetime</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md155">Blog</a>
+    <a href="#autotoc_md136">Transforms And Fan-Out</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md156">Roadmap</a>
+    <a href="#autotoc_md137">Errors, Ending, And Destruction</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md157">Statistics</a>
+    <a href="#autotoc_md138">Allocation Model</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md139">Choosing The Neighboring Abstraction</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md140">Details</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md141">Status</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md142">Videos</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md143">Blog</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md144">Roadmap</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md145">Statistics</a>
   </li>
 </ul>
 </div></div> </div> </aside> </section>  </div> </div> </main> <footer class="site-footer" data-astro-cid-37fxchfa> <div class="shell footer-grid" data-astro-cid-37fxchfa> <div data-astro-cid-37fxchfa> <div class="eyebrow" data-astro-cid-37fxchfa>Platform Abstraction C++ Libraries</div> <h2 data-astro-cid-37fxchfa>Sane C++ Libraries</h2> <p class="copy-muted" data-astro-cid-37fxchfa>

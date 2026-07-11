@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Strings | Sane C++ Libraries</title><meta name="description" content="UTF String formatting / conversion / manipulation"><meta property="og:title" content="Strings | Sane C++ Libraries"><meta property="og:description" content="UTF String formatting / conversion / manipulation"><meta property="og:type" content="website"><meta property="og:url" content="https://pagghiu.github.io/SaneCppLibraries/libraries/strings/"><link rel="canonical" href="https://pagghiu.github.io/SaneCppLibraries/libraries/strings/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=JetBrains+Mono:wght@500;700&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"><script>
+<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Strings | Sane C++ Libraries</title><meta name="description" content="Non-owning encoded text, formatting, conversion, parsing, and path manipulation"><meta property="og:title" content="Strings | Sane C++ Libraries"><meta property="og:description" content="Non-owning encoded text, formatting, conversion, parsing, and path manipulation"><meta property="og:type" content="website"><meta property="og:url" content="https://pagghiu.github.io/SaneCppLibraries/libraries/strings/"><link rel="canonical" href="https://pagghiu.github.io/SaneCppLibraries/libraries/strings/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=JetBrains+Mono:wght@500;700&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"><script>
       (() => {
         const savedTheme = localStorage.getItem("sc-theme");
         const theme = savedTheme === "light" || savedTheme === "dark"
@@ -112,436 +112,91 @@
 </script>  <a class="button primary" href="https://github.com/Pagghiu/SaneCppLibraries" data-astro-cid-37fxchfa>View GitHub</a> </div> </div> <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="Open navigation" data-astro-cid-37fxchfa> <span class="material-symbols-outlined" aria-hidden="true" data-astro-cid-37fxchfa>menu</span> </button> </div> </header> <main class="site-main" data-astro-cid-37fxchfa> <div class="site-main-shell" data-astro-cid-37fxchfa> <aside class="docs-sidebar" aria-label="Sane C++ documentation" data-astro-cid-qrwn6rcr> <details open data-default-open="true" data-astro-cid-qrwn6rcr> <summary data-astro-cid-qrwn6rcr> <span data-astro-cid-qrwn6rcr>Libraries</span> <span class="count" data-astro-cid-qrwn6rcr>27</span> </summary> <nav aria-label="Libraries" data-astro-cid-qrwn6rcr> <a href="/SaneCppLibraries/libraries/" data-astro-cid-qrwn6rcr>Library index</a> <a href="/SaneCppLibraries/libraries/async/" data-astro-cid-qrwn6rcr> Async </a><a href="/SaneCppLibraries/libraries/async-streams/" data-astro-cid-qrwn6rcr> Async Streams </a><a href="/SaneCppLibraries/libraries/await/" data-astro-cid-qrwn6rcr> Await </a><a href="/SaneCppLibraries/libraries/containers/" data-astro-cid-qrwn6rcr> Containers </a><a href="/SaneCppLibraries/libraries/containers-reflection/" data-astro-cid-qrwn6rcr> Containers Reflection </a><a href="/SaneCppLibraries/libraries/fibers/" data-astro-cid-qrwn6rcr> Fibers </a><a href="/SaneCppLibraries/libraries/fibers-async/" data-astro-cid-qrwn6rcr> FibersAsync </a><a href="/SaneCppLibraries/libraries/file/" data-astro-cid-qrwn6rcr> File </a><a href="/SaneCppLibraries/libraries/file-system/" data-astro-cid-qrwn6rcr> File System </a><a href="/SaneCppLibraries/libraries/file-system-iterator/" data-astro-cid-qrwn6rcr> File System Iterator </a><a href="/SaneCppLibraries/libraries/file-system-watcher/" data-astro-cid-qrwn6rcr> File System Watcher </a><a href="/SaneCppLibraries/libraries/foundation/" data-astro-cid-qrwn6rcr> Foundation </a><a href="/SaneCppLibraries/libraries/hashing/" data-astro-cid-qrwn6rcr> Hashing </a><a href="/SaneCppLibraries/libraries/http/" data-astro-cid-qrwn6rcr> Http </a><a href="/SaneCppLibraries/libraries/http-client/" data-astro-cid-qrwn6rcr> Http Client </a><a href="/SaneCppLibraries/libraries/memory/" data-astro-cid-qrwn6rcr> Memory </a><a href="/SaneCppLibraries/libraries/plugin/" data-astro-cid-qrwn6rcr> Plugin </a><a href="/SaneCppLibraries/libraries/process/" data-astro-cid-qrwn6rcr> Process </a><a href="/SaneCppLibraries/libraries/reflection/" data-astro-cid-qrwn6rcr> Reflection </a><a href="/SaneCppLibraries/libraries/serialization-binary/" data-astro-cid-qrwn6rcr> Serialization Binary </a><a href="/SaneCppLibraries/libraries/serialization-text/" data-astro-cid-qrwn6rcr> Serialization Text </a><a href="/SaneCppLibraries/libraries/serial-port/" data-astro-cid-qrwn6rcr> SerialPort </a><a href="/SaneCppLibraries/libraries/socket/" data-astro-cid-qrwn6rcr> Socket </a><a class="active" href="/SaneCppLibraries/libraries/strings/" aria-current="page" data-astro-cid-qrwn6rcr> Strings </a><a href="/SaneCppLibraries/libraries/testing/" data-astro-cid-qrwn6rcr> Testing </a><a href="/SaneCppLibraries/libraries/threading/" data-astro-cid-qrwn6rcr> Threading </a><a href="/SaneCppLibraries/libraries/time/" data-astro-cid-qrwn6rcr> Time </a> </nav> </details> <details data-default-open="false" data-astro-cid-qrwn6rcr> <summary data-astro-cid-qrwn6rcr> <span data-astro-cid-qrwn6rcr>Guides</span> <span class="count" data-astro-cid-qrwn6rcr>13</span> </summary> <nav aria-label="Guides" data-astro-cid-qrwn6rcr> <a href="/SaneCppLibraries/guides/" data-astro-cid-qrwn6rcr>Guide index</a> <a href="/SaneCppLibraries/guides/build/" data-astro-cid-qrwn6rcr> SC::Build </a><a href="/SaneCppLibraries/guides/build-external/" data-astro-cid-qrwn6rcr> External SC::Build Bootstrap </a><a href="/SaneCppLibraries/guides/building-contributor/" data-astro-cid-qrwn6rcr> Building (Contributor) </a><a href="/SaneCppLibraries/guides/building-user/" data-astro-cid-qrwn6rcr> Building (User) </a><a href="/SaneCppLibraries/guides/coding-style/" data-astro-cid-qrwn6rcr> Coding Style </a><a href="/SaneCppLibraries/guides/examples/" data-astro-cid-qrwn6rcr> Examples </a><a href="/SaneCppLibraries/guides/faq/" data-astro-cid-qrwn6rcr> FAQ </a><a href="/SaneCppLibraries/guides/libraries/" data-astro-cid-qrwn6rcr> Libraries </a><a href="/SaneCppLibraries/guides/platforms/" data-astro-cid-qrwn6rcr> Platforms </a><a href="/SaneCppLibraries/guides/principles/" data-astro-cid-qrwn6rcr> Principles </a><a href="/SaneCppLibraries/guides/single-file-libs/" data-astro-cid-qrwn6rcr> Single File Amalgamation </a><a href="/SaneCppLibraries/guides/tests/" data-astro-cid-qrwn6rcr> Tests </a><a href="/SaneCppLibraries/guides/tools/" data-astro-cid-qrwn6rcr> Tools </a> </nav> </details> </aside> <script type="module">const t=window.matchMedia("(max-width: 1100px)"),s=document.querySelectorAll(".docs-sidebar details"),a=()=>{s.forEach(e=>{e.open=t.matches?!1:e.dataset.defaultOpen==="true"})};a();t.addEventListener("change",a);</script>  <div class="site-content" data-astro-cid-37fxchfa>  <section class="docs-layout" data-astro-cid-7c432cc5> <details class="mobile-context-nav" data-astro-cid-7c432cc5> <summary data-astro-cid-7c432cc5>On this page</summary> <div class="generated-toc" aria-label="Page sections" data-astro-cid-7c432cc5><div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md448">Dependencies</a>
+    <a href="#autotoc_md374">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md449">Features</a>
+    <a href="#autotoc_md375">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md450">Status</a>
+    <a href="#autotoc_md376">Start With The Text Model</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md451">Blog</a>
+    <a href="#autotoc_md377">Views Are Cheap, But Their Contracts Matter</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md452">Definition</a>
-    <ul>
-      <li class="level2">
-        <a href="#autotoc_md453">StringBuilder</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md454">StringView</a>
-        <ul>
-          <li class="level3">
-            <a href="#autotoc_md455">StringView::containsString</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md456">StringView::fullyOverlaps</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md457">StringView::startsWithAnyOf</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md458">StringView::endsWithAnyOf</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md459">StringView::startsWith</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md460">StringView::endsWith</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md461">StringView::containsString</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md462">StringView::containsCodePoint</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md463">StringView::sliceStartEnd</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md464">StringView::sliceStartLength</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md465">StringView::sliceStart</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md466">StringView::sliceEnd</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md467">StringView::trimEndAnyOf</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md468">StringView::trimStartAnyOf</a>
-          </li>
-        </ul>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md469">StringViewTokenizer</a>
-        <ul>
-          <li class="level3">
-            <a href="#autotoc_md470">StringViewTokenizer::tokenizeNext</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md471">StringViewTokenizer::countTokens</a>
-          </li>
-        </ul>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md472">StringIterator</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md473">StringFormat</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md474">StringConverter</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md475">StringAlgorithms</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md476">Console</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md477">Path</a>
-        <ul>
-          <li class="level3">
-            <a href="#autotoc_md478">Path::isAbsolute</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md479">Path::dirname</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md480">Path::basename</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md481">Path::parseNameExtension</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md482">Path::normalize</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md483">Path::relativeFromTo</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <a href="#autotoc_md378">Build Into Storage Chosen By The Caller</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md484">Implementation</a>
+    <a href="#autotoc_md379">Convert Only At Encoding Boundaries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md485">Roadmap</a>
+    <a href="#autotoc_md380">Paths Are Lexical Strings, Not Filesystem Operations</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md486">Statistics</a>
+    <a href="#autotoc_md381">Command Lines And Console Output</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md382">Allocation, Lifetime, And Failure</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md383">Boundaries With Neighboring Libraries</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md384">What Is Deliberately Missing</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md385">Blog</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md386">Roadmap</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md387">Statistics</a>
   </li>
 </ul>
-</div></div> </details> <div class="library-main" data-astro-cid-7c432cc5> <section class="page-hero library-hero" data-astro-cid-7c432cc5> <div class="library-heading" data-astro-cid-7c432cc5> <div class="eyebrow" data-astro-cid-7c432cc5>Library</div> <h1 data-astro-cid-7c432cc5>Strings</h1> <p data-astro-cid-7c432cc5>UTF String formatting / conversion / manipulation</p> <span class="maturity-badge usable strong" data-astro-cid-blexnnyn> <span class="dot" data-astro-cid-blexnnyn></span> <span data-astro-cid-blexnnyn>Usable</span> </span>  </div> </section> <section class="meta-grid" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependencies</strong> <p data-astro-cid-7c432cc5>No library-level dependencies</p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Single file</strong> <p data-astro-cid-7c432cc5><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppStrings.h" data-astro-cid-7c432cc5>Download release header</a></p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Reference</strong> <p data-astro-cid-7c432cc5><a href="/SaneCppLibraries/reference/doxygen/library_strings.html" data-astro-cid-7c432cc5>Open generated API/docs</a></p> </div> </section> <article class="panel prose article doxygen-content" data-astro-cid-7c432cc5><div class="textblock"><p>🟩 UTF String formatting / conversion / manipulation</p>
-<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppStrings.h">SaneCppStrings.h</a> library allow read-only and write string operations and UTF Conversions. Path is able to parse and manipulate windows and posix paths.</p>
-<dl class="section note"><dt>Note</dt><dd><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a> and <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1SmallString.html" title="String with compile time configurable inline storage (small string optimization)">SC::SmallString</a>, the "classic C++ style" string containers are defined in <a class="el" href="/SaneCppLibraries/libraries/memory/">Memory</a> because they are based on <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1Buffer.html" title="An heap allocated byte buffer that can optionally use an inline buffer.">SC::Buffer</a> and they use dynamic memory allocation provided by the Memory library.</dd></dl>
-<h1><a class="anchor" id="autotoc_md448"></a>
+</div></div> </details> <div class="library-main" data-astro-cid-7c432cc5> <section class="page-hero library-hero" data-astro-cid-7c432cc5> <div class="library-heading" data-astro-cid-7c432cc5> <div class="eyebrow" data-astro-cid-7c432cc5>Library</div> <h1 data-astro-cid-7c432cc5>Strings</h1> <p data-astro-cid-7c432cc5>Non-owning encoded text, formatting, conversion, parsing, and path manipulation</p> <span class="maturity-badge usable strong" data-astro-cid-blexnnyn> <span class="dot" data-astro-cid-blexnnyn></span> <span data-astro-cid-blexnnyn>Usable</span> </span>  </div> </section> <section class="meta-grid" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependencies</strong> <p data-astro-cid-7c432cc5>No library-level dependencies</p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Single file</strong> <p data-astro-cid-7c432cc5><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppStrings.h" data-astro-cid-7c432cc5>Download release header</a></p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Reference</strong> <p data-astro-cid-7c432cc5><a href="/SaneCppLibraries/reference/doxygen/library_strings.html" data-astro-cid-7c432cc5>Open generated API/docs</a></p> </div> </section> <article class="panel prose article doxygen-content" data-astro-cid-7c432cc5><div class="textblock"><p>🟩 Non-owning encoded text, formatting, conversion, parsing, and path manipulation</p>
+<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppStrings.h">SaneCppStrings.h</a> is the text-processing layer used across Sane C++ Libraries. It keeps encoding and null-termination information alongside a byte range, then provides comparison, slicing, tokenization, formatting, conversion, command-line parsing, console output, and platform-aware path operations without imposing an owning string type.</p>
+<h1><a class="anchor" id="autotoc_md374"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="/SaneCppLibraries/reference/doxygen/Strings.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md449"></a>
-Features</h1>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadLeft">Class   </th><th class="markdownTableHeadLeft">Description    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringBuilder.html" title="Builds String out of a sequence of StringView or formatting through StringFormat.">SC::StringBuilder</a>   </td><td class="markdownTableBodyLeft">Builds String out of a sequence of StringView or formatting through StringFormat.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringConverter.html" title="Converts String to a different encoding (UTF8, UTF16).">SC::StringConverter</a>   </td><td class="markdownTableBodyLeft">Converts String to a different encoding (UTF8, UTF16).       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringIterator.html" title="A position inside a fixed range [start, end) of UTF code points.">SC::StringIterator</a>   </td><td class="markdownTableBodyLeft">A position inside a fixed range <code>[start, end)</code> of UTF code points.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringIteratorASCII.html" title="A string iterator for ASCII strings.">SC::StringIteratorASCII</a>   </td><td class="markdownTableBodyLeft">A string iterator for ASCII strings.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringIteratorUTF8.html" title="A string iterator for UTF8 strings.">SC::StringIteratorUTF8</a>   </td><td class="markdownTableBodyLeft">A string iterator for UTF8 strings.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringIteratorUTF16.html" title="A string iterator for UTF16 strings.">SC::StringIteratorUTF16</a>   </td><td class="markdownTableBodyLeft">A string iterator for UTF16 strings.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringView.html" title="Non-owning view over a range of characters with UTF Encoding.">SC::StringView</a>   </td><td class="markdownTableBodyLeft">Non-owning view over a range of characters with UTF Encoding.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringAlgorithms.html" title="Algorithms operating on strings (glob / wildcard).">SC::StringAlgorithms</a>   </td><td class="markdownTableBodyLeft">Algorithms operating on strings (glob / wildcard).       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringViewTokenizer.html" title="Splits a StringView in tokens according to separators.">SC::StringViewTokenizer</a>   </td><td class="markdownTableBodyLeft">Splits a StringView in tokens according to separators.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringFormat.html" title="Formats String with a simple DSL embedded in the format string.">SC::StringFormat</a>   </td><td class="markdownTableBodyLeft">Formats String with a simple DSL embedded in the format string.       </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1Path.html" title="Parse and compose filesystem paths for windows and posix.">SC::Path</a>   </td><td class="markdownTableBodyLeft">Parse and compose filesystem paths for windows and posix.       </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1Console.html" title="Writes to console using SC::StringFormat.">SC::Console</a>   </td><td class="markdownTableBodyLeft">Writes to console using <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringFormat.html" title="Formats String with a simple DSL embedded in the format string.">SC::StringFormat</a>.      </td></tr>
-</table>
-<h1><a class="anchor" id="autotoc_md450"></a>
+<h1><a class="anchor" id="autotoc_md375"></a>
 Status</h1>
 <p>🟩 Usable <br  />
- Library is usable and can be successfully used to mix operations with strings made in different encodings.</p>
-<h1><a class="anchor" id="autotoc_md451"></a>
-Blog</h1>
-<p>Some relevant blog posts are:</p>
+ The core ASCII, UTF-8, and UTF-16 operations are in regular use across the project. Unicode support is intentionally limited to code-point operations and encoding conversion; it is not a full Unicode text-processing stack.</p>
+<h1><a class="anchor" id="autotoc_md376"></a>
+Start With The Text Model</h1>
+<p>The central type is <code>StringView</code>: a read-only range of bytes plus three pieces of information needed to interpret it: its byte length, its <code>StringEncoding</code>, and whether a terminator immediately follows the range. A view does not own or copy the text. Slices and tokens are more views into the same storage, so they remain valid only while that storage is alive and unmoved.</p>
+<p><code>StringEncoding</code> distinguishes ASCII, UTF-8, and little-endian UTF-16. <code>StringEncoding::Native</code> is UTF-16 on Windows and UTF-8 elsewhere, matching the encodings used at the operating-system boundaries in the rest of SC. The size reported by a view is in bytes, not characters. Use <code>StringIteratorASCII</code>, <code>StringIteratorUTF8</code>, or <code>StringIteratorUTF16</code> when an operation must advance by Unicode code point.</p>
+<p>This model is a good fit for systems code that already knows where text lives and needs explicit platform conversion. It is a poor fit for code that expects string values to own themselves, silently grow, or provide locale-aware natural language operations.</p>
+<h1><a class="anchor" id="autotoc_md377"></a>
+Views Are Cheap, But Their Contracts Matter</h1>
+<p><code>StringView</code> compares different supported encodings by decoded code point and provides searches, prefix and suffix checks, trimming, splitting, numeric parsing, and tokenization. <code>StringViewTokenizer</code> advances through the input and exposes the current component as another view; it does not create a collection of copied tokens.</p>
+<p>There are two practical cautions:</p>
 <ul>
-<li><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html">July 2025 Update</a></li>
-<li><a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html">August 2025 Update</a></li>
-<li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
+<li>null termination is tracked separately from the viewed byte range; a slice may not be suitable for a C API even when the original string was terminated;</li>
+<li>code-point equality is not Unicode normalization. Canonically equivalent spellings can compare unequal, and case-insensitive helpers are explicitly ASCII-only.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md452"></a>
-Definition</h1>
-<h2><a class="anchor" id="autotoc_md453"></a>
-StringBuilder</h2>
-<p>Builds String out of a sequence of StringView or formatting through StringFormat.   </p>
-<p>The output can be a <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1Buffer.html" title="An heap allocated byte buffer that can optionally use an inline buffer.">SC::Buffer</a> or a <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1SmallBuffer.html" title="A SC::Buffer with a dedicated custom inline buffer to avoid heap allocation.">SC::SmallBuffer</a> (see <a class="el" href="/SaneCppLibraries/libraries/foundation/">Foundation</a>) One can do a:</p><ul>
-<li>One-shot StringBuilder::format</li>
-<li>Multiple appends using StringBuilder::create or StringBuilder::createForAppendingTo followed by StringBuilder::finalize</li>
-</ul>
-<p>StringBuilder::format example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">    String</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF">StringEncoding</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">Ascii</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic"> // or SmallString&#x3C;N> / Buffer</span></span>
+<p><code>StringSpan</code>, defined in the common foundation used by SC libraries, carries the same basic range, encoding, and termination metadata with a deliberately smaller operation set. APIs use it when they only need to transport text. <code>StringView</code> derives from it and adds the richer Strings algorithms. This keeps lower-level libraries from depending on Strings merely to pass a path or message.</p>
+<h1><a class="anchor" id="autotoc_md378"></a>
+Build Into Storage Chosen By The Caller</h1>
+<p>Text is never mutated through a view. <code>StringBuilder</code> instead writes a new sequence into an object supported by <code>GrowableBuffer</code>: an owning <code>String</code>, an inline <code>SmallString&lt;N&gt;</code>, a byte <code>Buffer</code>, or compatible caller-provided storage. The destination determines whether growth allocates, uses inline capacity, or fails at a hard limit.</p>
+<p>For a one-shot result, format directly into the destination:</p>
+<pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">    String</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF">StringEncoding</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">Ascii</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic"> // or SmallString&#x3C;N> / Buffer</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">StringBuilder</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">format</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "[{1}-{0}]"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "Storia"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "Bella"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">view</span><span style="color:#24292E;--shiki-dark:#9399B2">()</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "[Bella-Storia]"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre><p>StringBuilder::create example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">    String</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF">StringEncoding</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">Ascii</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">           // or SmallString&#x3C;N> / Buffer</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">view</span><span style="color:#24292E;--shiki-dark:#9399B2">()</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "[Bella-Storia]"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre><p>For incremental output, create a builder, check every <code>append</code>, and call <code>finalize</code> before using its resulting view. The typed builder also finalizes in its destructor, but explicit finalization makes the failure boundary and resulting lifetime easier to see.</p>
+<pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">    String</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF">StringEncoding</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">Ascii</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">           // or SmallString&#x3C;N> / Buffer</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    auto</span><span style="color:#24292E;--shiki-dark:#CDD6F4">   builder </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> StringBuilder</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">create</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic"> // or StringBuilder::createAppend(buffer)</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">builder</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">append</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"Salve"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">builder</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">append</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">" {1} {0}!!!"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "tutti"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "a"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_ASSERT_RELEASE</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">builder</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">finalize</span><span style="color:#24292E;--shiki-dark:#9399B2">()</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "Salve a tutti!!!"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre>  <h2><a class="anchor" id="autotoc_md454"></a>
-StringView</h2>
-<p>Non-owning view over a range of characters with UTF Encoding.   </p>
-<p>It additional also holds the SC::StringEncoding information (<code>ASCII</code>, <code>UTF8</code> or <code>UTF16</code>). During construction the encoding information and the null-termination state must be specified. All methods are const because it's not possible to modify a string with it. <br  />
-Example (Construct) </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">StringView</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> s</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"asd"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_STRINGS_ASSERT_RELEASE</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">s</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">sizeInBytes</span><span style="color:#24292E;--shiki-dark:#9399B2">()</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 3</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_STRINGS_ASSERT_RELEASE</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">s</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">isNullTerminated</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span></code></pre><p> Example (Construct from null terminated string) </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">const</span><span style="color:#D73A49;--shiki-dark:#CBA6F7"> char</span><span style="color:#D73A49;--shiki-dark:#94E2D5">*</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> someString </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "asdf"</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">// construct only "asd", not null terminated (as there is 'f' after 'd')</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">StringView</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> s</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">{</span><span style="color:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#EBA0AC;--shiki-dark-font-style:italic">someString</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> strlen</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">asd</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> -</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 1</span><span style="color:#24292E;--shiki-dark:#CDD6F4">}</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic"> false</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> StringEncoding</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">Ascii</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_STRINGS_ASSERT_RELEASE</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">s</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">sizeInBytes</span><span style="color:#24292E;--shiki-dark:#9399B2">()</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 3</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_STRINGS_ASSERT_RELEASE</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#D73A49;--shiki-dark:#94E2D5">not</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> s</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">isNullTerminated</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span>
-<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//</span></span>
-<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">// ... or</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">StringView s2 </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> StringView</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">fromNullTerminated</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">s</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> StringEncoding</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">Ascii</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic"> // s2 == "asdf"</span></span></code></pre>   <h3><a class="anchor" id="autotoc_md455"></a>
-StringView::containsString</h3>
-<p>Check if StringView contains another StringView.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>The other StringView to check with current </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns <code>true</code> if this StringView contains str</dd></dl>
-<p>Example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">StringView asd </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "123 456"</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">asd</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">containsString</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"123"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">asd</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">containsString</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"456"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#D73A49;--shiki-dark:#94E2D5">not</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> asd</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">containsString</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"124"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#D73A49;--shiki-dark:#94E2D5">not</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> asd</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">containsString</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"4567"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span></code></pre>   <h3><a class="anchor" id="autotoc_md456"></a>
-StringView::fullyOverlaps</h3>
-<p>Check if this StringView is equal to other StringView (operates on code points, not on utf graphemes).   </p>
-<p>Returns the number of code points that are the same in both StringView-s. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>The StringView to be compared to </td></tr>
-    <tr><td class="paramname">commonOverlappingPoints</td><td>number of equal code points in both StringView </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the two StringViews are equal</dd></dl>
-<p>Example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">StringView asd </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "123 456"</span><span style="color:#D73A49;--shiki-dark:#CBA6F7">_a8</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">size_t</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> overlapPoints </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 0</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#D73A49;--shiki-dark:#94E2D5">not</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> asd</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">fullyOverlaps</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"123___"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> overlapPoints</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> and</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> overlapPoints </span><span style="color:#D73A49;--shiki-dark:#94E2D5">==</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 3</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre>   <h3><a class="anchor" id="autotoc_md457"></a>
-StringView::startsWithAnyOf</h3>
-<p>Check if StringView starts with any utf code point in the given span.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">codePoints</td><td>The utf code points to check against </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns <code>true</code> if this StringView starts with any code point inside codePoints</dd></dl>
-<p>Example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"123 456"</span><span style="color:#24292E;--shiki-dark:#CDD6F4">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">startsWithAnyOf</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">{</span><span style="color:#032F62;--shiki-dark:#A6E3A1">'1'</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> '8'</span><span style="color:#24292E;--shiki-dark:#CDD6F4">}</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic"> // '1' will match</span></span></code></pre>   <h3><a class="anchor" id="autotoc_md458"></a>
-StringView::endsWithAnyOf</h3>
-<p>Check if StringView ends with any utf code point in the given span.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">codePoints</td><td>The utf code points to check against </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns <code>true</code> if this StringView ends with any code point inside codePoints</dd></dl>
-<p>Example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"123 456"</span><span style="color:#24292E;--shiki-dark:#CDD6F4">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">endsWithAnyOf</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">{</span><span style="color:#032F62;--shiki-dark:#A6E3A1">'a'</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> '6'</span><span style="color:#24292E;--shiki-dark:#CDD6F4">}</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic"> // '6' will match</span></span></code></pre>   <h3><a class="anchor" id="autotoc_md459"></a>
-StringView::startsWith</h3>
-<p>Check if StringView starts with another StringView.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>The other StringView to check with current </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns <code>true</code> if this StringView starts with str</dd></dl>
-<p>Example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"123 456"</span><span style="color:#24292E;--shiki-dark:#CDD6F4">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">startsWith</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"123"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span></code></pre>   <h3><a class="anchor" id="autotoc_md460"></a>
-StringView::endsWith</h3>
-<p>Check if StringView ends with another StringView.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>The other StringView to check with current </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns <code>true</code> if this StringView ends with str</dd></dl>
-<p>Example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"123 456"</span><span style="color:#24292E;--shiki-dark:#CDD6F4">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">endsWith</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"456"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span></code></pre>   <h3><a class="anchor" id="autotoc_md461"></a>
-StringView::containsString</h3>
-<p>Check if StringView contains another StringView.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>The other StringView to check with current </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns <code>true</code> if this StringView contains str</dd></dl>
-<p>Example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">StringView asd </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "123 456"</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">asd</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">containsString</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"123"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">asd</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">containsString</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"456"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#D73A49;--shiki-dark:#94E2D5">not</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> asd</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">containsString</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"124"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#D73A49;--shiki-dark:#94E2D5">not</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> asd</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">containsString</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"4567"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span></code></pre>   <h3><a class="anchor" id="autotoc_md462"></a>
-StringView::containsCodePoint</h3>
-<p>Check if StringView contains given utf code point.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">c</td><td>The utf code point to check against </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns <code>true</code> if this StringView contains code point c   </dd></dl>
-<h3><a class="anchor" id="autotoc_md463"></a>
-StringView::sliceStartEnd</h3>
-<p>Get slice <code>[start, end)</code> starting at offset <code>start</code> and ending at <code>end</code> (measured in utf code points)   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">start</td><td>The initial code point where the slice starts </td></tr>
-    <tr><td class="paramname">end</td><td>One after the final code point where the slice ends </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The <code>[start, end)</code> StringView slice</dd></dl>
-<p>Example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">StringView str </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "123_567"</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">str</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">sliceStartEnd</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#005CC5;--shiki-dark:#FAB387">0</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 3</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "123"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">str</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">sliceStartEnd</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#005CC5;--shiki-dark:#FAB387">4</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 7</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "567"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre>   <h3><a class="anchor" id="autotoc_md464"></a>
-StringView::sliceStartLength</h3>
-<p>Get slice <code>[start, start+length]</code> starting at offset <code>start</code> and of <code>length</code> code points.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">start</td><td>The initial code point where the slice starts </td></tr>
-    <tr><td class="paramname">length</td><td>One after the final code point where the slice ends </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The <code>[start, start+length]</code> StringView slice</dd></dl>
-<p>Example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">StringView str </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "123_567"</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">str</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">sliceStartLength</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#005CC5;--shiki-dark:#FAB387">7</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 0</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> ""</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">str</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">sliceStartLength</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#005CC5;--shiki-dark:#FAB387">0</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 3</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "123"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre>   <h3><a class="anchor" id="autotoc_md465"></a>
-StringView::sliceStart</h3>
-<p>Get slice <code>[offset, end]</code> measured in utf code points.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">offset</td><td>The initial code point where the slice starts </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The sliced StringView <code>[offset, end]</code></dd></dl>
-<p>Example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">StringView str </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "123_567"</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">str</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">sliceStart</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#005CC5;--shiki-dark:#FAB387">4</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "567"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre>   <h3><a class="anchor" id="autotoc_md466"></a>
-StringView::sliceEnd</h3>
-<p>Get slice <code>[end-offset, end]</code> measured in utf code points.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">offset</td><td>The initial code point where the slice starts </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The sliced StringView <code>[end-offset, end]</code></dd></dl>
-<p>Example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">StringView str </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "123_567"</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">str</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">sliceEnd</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#005CC5;--shiki-dark:#FAB387">4</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "123"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre>   <h3><a class="anchor" id="autotoc_md467"></a>
-StringView::trimEndAnyOf</h3>
-<p>Returns a shortened StringView removing ending utf code points matching the <code>codePoints</code> span.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">codePoints</td><td>The span of utf code points to look for </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The trimmed StringView</dd></dl>
-<p>Example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"myTest_</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\n</span><span style="color:#032F62;--shiki-dark:#A6E3A1">__"</span><span style="color:#D73A49;--shiki-dark:#CBA6F7">_a8</span><span style="color:#24292E;--shiki-dark:#CDD6F4">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">trimEndAnyOf</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">{</span><span style="color:#032F62;--shiki-dark:#A6E3A1">'_'</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> '</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\n</span><span style="color:#032F62;--shiki-dark:#A6E3A1">'</span><span style="color:#24292E;--shiki-dark:#CDD6F4">}</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "myTest"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"myTest"</span><span style="color:#D73A49;--shiki-dark:#CBA6F7">_a8</span><span style="color:#24292E;--shiki-dark:#CDD6F4">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">trimEndAnyOf</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">{</span><span style="color:#032F62;--shiki-dark:#A6E3A1">'_'</span><span style="color:#24292E;--shiki-dark:#CDD6F4">}</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "myTest"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre>   <h3><a class="anchor" id="autotoc_md468"></a>
-StringView::trimStartAnyOf</h3>
-<p>Returns a shortened StringView removing starting utf code points matching the <code>codePoints</code> span.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">codePoints</td><td>The span of utf code points to look for </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The trimmed StringView</dd></dl>
-<p>Example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"__</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\n</span><span style="color:#032F62;--shiki-dark:#A6E3A1">_myTest"</span><span style="color:#D73A49;--shiki-dark:#CBA6F7">_a8</span><span style="color:#24292E;--shiki-dark:#CDD6F4">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">trimStartAnyOf</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">{</span><span style="color:#032F62;--shiki-dark:#A6E3A1">'_'</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> '</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\n</span><span style="color:#032F62;--shiki-dark:#A6E3A1">'</span><span style="color:#24292E;--shiki-dark:#CDD6F4">}</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "myTest"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"_myTest"</span><span style="color:#D73A49;--shiki-dark:#CBA6F7">_a8</span><span style="color:#24292E;--shiki-dark:#CDD6F4">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">trimStartAnyOf</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">{</span><span style="color:#032F62;--shiki-dark:#A6E3A1">'_'</span><span style="color:#24292E;--shiki-dark:#CDD6F4">}</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "myTest"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre>   <h2><a class="anchor" id="autotoc_md469"></a>
-StringViewTokenizer</h2>
-<p>Splits a StringView in tokens according to separators.   </p>
-<h3><a class="anchor" id="autotoc_md470"></a>
-StringViewTokenizer::tokenizeNext</h3>
-<p>Splits the string along a list of separators.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">separators</td><td>List of separators </td></tr>
-    <tr><td class="paramname">options</td><td>If to skip empty tokens or not </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if there are additional tokens to parse <br  />
-Example: <pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">StringViewTokenizer</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> tokenizer</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"bring,me,the,horizon"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">while</span><span style="color:#24292E;--shiki-dark:#9399B2"> (</span><span style="color:#24292E;--shiki-dark:#CDD6F4">tokenizer</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">tokenizeNext</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">','</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> StringViewTokenizer</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">SkipEmpty</span><span style="color:#24292E;--shiki-dark:#9399B2">))</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">{</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    console</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">printLine</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">tokenizer</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">component</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">}</span></span></code></pre>   </dd></dl>
-<h3><a class="anchor" id="autotoc_md471"></a>
-StringViewTokenizer::countTokens</h3>
-<p>Count the number of tokens that exist in the string view passed in constructor, when splitted along the given separators.   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">separators</td><td>Separators to split the original string with </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Current StringViewTokenizer to inspect <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringViewTokenizer.html#a789036967257ceda469ceea7422a0c44" title="How many non-empty splits have occurred in current tokenization.">SC::StringViewTokenizer::numSplitsNonEmpty</a> or <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringViewTokenizer.html#a98b76543516fd814ce363627996a1e4f" title="How many total splits have occurred in current tokenization.">SC::StringViewTokenizer::numSplitsTotal</a>. <br  />
-Example: <pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">StringViewTokenizer</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"___"</span><span style="color:#24292E;--shiki-dark:#9399B2">).</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">countTokens</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">'_'</span><span style="color:#24292E;--shiki-dark:#9399B2">).</span><span style="color:#24292E;--shiki-dark:#CDD6F4">numSplitsNonEmpty </span><span style="color:#D73A49;--shiki-dark:#94E2D5">==</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 0</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">StringViewTokenizer</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"___"</span><span style="color:#24292E;--shiki-dark:#9399B2">).</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">countTokens</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">'_'</span><span style="color:#24292E;--shiki-dark:#9399B2">).</span><span style="color:#24292E;--shiki-dark:#CDD6F4">numSplitsTotal </span><span style="color:#D73A49;--shiki-dark:#94E2D5">==</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 3</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre>   </dd></dl>
-<h2><a class="anchor" id="autotoc_md472"></a>
-StringIterator</h2>
-<p>A position inside a fixed range <code>[start, end)</code> of UTF code points.   </p>
-<p>It's a range of bytes (start and end pointers) with a <em>current</em> pointer pointing at a specific code point of the range. There are three classes derived from it (<a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringIteratorASCII.html" title="A string iterator for ASCII strings.">SC::StringIteratorASCII</a>, <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringIteratorUTF8.html" title="A string iterator for UTF8 strings.">SC::StringIteratorUTF8</a> and <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringIteratorUTF16.html" title="A string iterator for UTF16 strings.">SC::StringIteratorUTF16</a>) and they allow doing operations along the string view in UTF code points. </p><dl class="section note"><dt>Note</dt><dd>Code points are not the same as perceived characters (that would be grapheme clusters). Invariants: start &lt;= end and it &gt;= start and it &lt;= end. </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">CharIterator</td><td>StringIteratorASCII, StringIteratorUTF8 or StringIteratorUTF16   </td></tr>
-  </table>
-  </dd>
-</dl>
-<h2><a class="anchor" id="autotoc_md473"></a>
-StringFormat</h2>
-<p>Formats String with a simple DSL embedded in the format string.   </p>
-<p>This is a small implementation to format using a minimal string based DSL, but good enough for simple usages. It uses the same <code>{}</code> syntax and supports positional arguments. <br  />
-<code>StringFormat::format(output, "{1} {0}", "World", "Hello")</code> is formatted as <code>"Hello World"</code>. <br  />
- Inside the <code>{}</code> after a colon (<code>:</code>) a specification string can be used to indicate how to format the given value. As the backend for actual number to string formatting is <code>snprintf</code>, such specification strings are the same as what would be given to snprintf. For example passing <code>"{:02}"</code> is transformed to <code>"%.02f"</code> when passed to snprintf. <br  />
-<code>{</code> is escaped if found near to another <code>{</code>. In other words <code>format("{{")</code> will print a single <code>{</code>.</p>
-<p>Example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">String</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF">StringEncoding</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">Ascii</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">StringBuilder</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">format</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "{1}_{0}_{1}"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 1</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 0</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">buffer </span><span style="color:#D73A49;--shiki-dark:#94E2D5">==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "0_1_0"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">StringBuilder</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">format</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "{0:.2}_{1}_{0:.4}"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 1.2222</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "salve"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">buffer </span><span style="color:#D73A49;--shiki-dark:#94E2D5">==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "1.22_salve_1.2222"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre> <dl class="section note"><dt>Note</dt><dd>It's not convenient to use <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringFormat.html" title="Formats String with a simple DSL embedded in the format string.">SC::StringFormat</a> directly, as you should probably use <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringBuilder.html" title="Builds String out of a sequence of StringView or formatting through StringFormat.">SC::StringBuilder</a> </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">RangeIterator</td><td>Type of the specific StringIterator used   </td></tr>
-  </table>
-  </dd>
-</dl>
-<h2><a class="anchor" id="autotoc_md474"></a>
-StringConverter</h2>
-<p>Converts String to a different encoding (UTF8, UTF16).   </p>
-<p><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringConverter.html" title="Converts String to a different encoding (UTF8, UTF16).">SC::StringConverter</a> converts strings between different UTF encodings and can add null-terminator if requested. When the SC::StringSpan is already null-terminated, the class just forwards the original SC::StringSpan.</p>
-<p>Example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">    // Setup: Construct some simple test StringViews</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_ASSERT_RELEASE</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">builder</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">finalize</span><span style="color:#24292E;--shiki-dark:#9399B2">()</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "Salve a tutti!!!"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre><p>Formatting uses indexed <code>{}</code> placeholders and supports the built-in scalar, pointer, and string types declared by <code>StringFormat</code>. It is intentionally not <code>std::format</code>: unsupported types need an SC formatter specialization, and a format or write error is reported as <code>false</code>. Ignoring that result can turn insufficient destination capacity into truncated or missing output.</p>
+<h1><a class="anchor" id="autotoc_md379"></a>
+Convert Only At Encoding Boundaries</h1>
+<p><code>StringConverter::appendEncodingTo</code> decodes the source and appends ASCII, UTF-8, or UTF-16 output to caller-selected storage. It can also append the destination encoding's null terminator for an operating-system or C API. If no conversion or terminator is needed, higher-level platform code can often pass the original <code>StringSpan</code> through instead of allocating a temporary.</p>
+<pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">    // Setup: Construct some simple test StringViews</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    const</span><span style="color:#D73A49;--shiki-dark:#CBA6F7"> char</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> utf8String1[]  </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\xE6\x97\xA5\xE6\x9C\xAC\xE8\xAA\x9E</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic"> // "日本語" in UTF-8</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    const</span><span style="color:#D73A49;--shiki-dark:#CBA6F7"> char</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> utf16String1[] </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\xE5\x65\x2C\x67\x9E\x8a</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">             // "日本語" in UTF-16LE</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
@@ -563,164 +218,55 @@ StringConverter</h2>
 <span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    Span</span><span style="color:#D73A49;--shiki-dark:#94E2D5">&#x3C;</span><span style="color:#D73A49;--shiki-dark:#CBA6F7">const</span><span style="color:#D73A49;--shiki-dark:#CBA6F7"> char</span><span style="color:#D73A49;--shiki-dark:#94E2D5">></span><span style="color:#24292E;--shiki-dark:#CDD6F4"> span</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">toSpanConst</span><span style="color:#24292E;--shiki-dark:#9399B2">().</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">sliceStartLength</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#005CC5;--shiki-dark:#FAB387">0</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">size</span><span style="color:#24292E;--shiki-dark:#9399B2">()</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> -</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> StringEncodingGetSize</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">encoding</span><span style="color:#24292E;--shiki-dark:#9399B2">),</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> span</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    StringView output </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#24292E;--shiki-dark:#CDD6F4">span</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> true</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> encoding</span><span style="color:#24292E;--shiki-dark:#9399B2">};</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic"> // true == StringView is null terminated (after span)</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">output </span><span style="color:#D73A49;--shiki-dark:#94E2D5">==</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> u16view</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre>  <h2><a class="anchor" id="autotoc_md475"></a>
-StringAlgorithms</h2>
-<p>Algorithms operating on strings (glob / wildcard).   </p>
-<p><br  />
-Example </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_ASSERT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">StringAlgorithms</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">matchWildcard</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">""</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> ""</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_ASSERT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">StringAlgorithms</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">matchWildcard</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"1?3"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "123"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_ASSERT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">StringAlgorithms</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">matchWildcard</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"1*3"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "12223"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_ASSERT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">StringAlgorithms</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">matchWildcard</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"*2"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "12"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_ASSERT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#D73A49;--shiki-dark:#94E2D5">not</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> StringAlgorithms</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">matchWildcard</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"*1"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "12"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_ASSERT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#D73A49;--shiki-dark:#94E2D5">not</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> StringAlgorithms</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">matchWildcard</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"*1"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "112"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_ASSERT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#D73A49;--shiki-dark:#94E2D5">not</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> StringAlgorithms</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">matchWildcard</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"**1"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "112"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_ASSERT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#D73A49;--shiki-dark:#94E2D5">not</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> StringAlgorithms</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">matchWildcard</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"*?1"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "112"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_ASSERT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">StringAlgorithms</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">matchWildcard</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"1*"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "12123"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_ASSERT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">StringAlgorithms</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">matchWildcard</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"*/myString"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "myString/myString/myString"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_ASSERT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">StringAlgorithms</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">matchWildcard</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"**/myString"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "myString/myString/myString"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_ASSERT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#D73A49;--shiki-dark:#94E2D5">not</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> StringAlgorithms</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">matchWildcard</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"*/String"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "myString/myString/myString"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_ASSERT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">StringAlgorithms</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">matchWildcard</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"*/Directory/File.cpp"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "/Root/Directory/File.cpp"</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span></code></pre>   <h2><a class="anchor" id="autotoc_md476"></a>
-Console</h2>
-<p>Writes to console using <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringFormat.html" title="Formats String with a simple DSL embedded in the format string.">SC::StringFormat</a>.   </p>
-<p>Example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">// Use a custom buffer UTF conversions on windows (optional)</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">char</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> optionalConversionBuffer</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#005CC5;--shiki-dark:#FAB387">512</span><span style="color:#24292E;--shiki-dark:#9399B2">];</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">Console</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> console</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">optionalConversionBuffer</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">String str </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> StringView</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"Test Test</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\n</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">// Have fun printing</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">console</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">print</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">str</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">view</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span></code></pre>   <h2><a class="anchor" id="autotoc_md477"></a>
-Path</h2>
-<p>Parse and compose filesystem paths for windows and posix.   </p>
-<h3><a class="anchor" id="autotoc_md478"></a>
-Path::isAbsolute</h3>
-<p>Checks if a path is absolute.   </p>
-<p>For example:</p>
-<pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">isAbsolute</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"/dirname/basename"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsPosix</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#005CC5;--shiki-dark:#FAB387"> true</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">        // Posix Absolute</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">isAbsolute</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"./dirname/basename"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsPosix</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#005CC5;--shiki-dark:#FAB387"> false</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">      // Posix Relative</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">isAbsolute</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"C:</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\\</span><span style="color:#032F62;--shiki-dark:#A6E3A1">dirname</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\\</span><span style="color:#032F62;--shiki-dark:#A6E3A1">basename"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsWindows</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#005CC5;--shiki-dark:#FAB387"> true</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">  // Windows with Drive</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">isAbsolute</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\\\\</span><span style="color:#032F62;--shiki-dark:#A6E3A1">server</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\\</span><span style="color:#032F62;--shiki-dark:#A6E3A1">dir"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsWindows</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#005CC5;--shiki-dark:#FAB387"> true</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">        // Windows with Network</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">isAbsolute</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\\\\</span><span style="color:#032F62;--shiki-dark:#A6E3A1">?</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\\</span><span style="color:#032F62;--shiki-dark:#A6E3A1">C:</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\\</span><span style="color:#032F62;--shiki-dark:#A6E3A1">server</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\\</span><span style="color:#032F62;--shiki-dark:#A6E3A1">dir"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsWindows</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#005CC5;--shiki-dark:#FAB387"> true</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic"> // Windows with Long</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">isAbsolute</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"..</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\\</span><span style="color:#032F62;--shiki-dark:#A6E3A1">dirname</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\\</span><span style="color:#032F62;--shiki-dark:#A6E3A1">basename"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsWindows</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#005CC5;--shiki-dark:#FAB387"> false</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic"> // Windows relative</span></span></code></pre> <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">input</td><td>The StringView with path to be parsed. Trailing separators are ignored. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>Specify to parse as Windows or Posix path </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>input</code> is absolute   </dd></dl>
-<h3><a class="anchor" id="autotoc_md479"></a>
-Path::dirname</h3>
-<p>Returns the directory name of a path.   </p>
-<p>Trailing separators are ignored.</p>
-<p>For example:</p>
-<pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">dirname</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"/dirname/basename"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsPosix</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "/dirname"</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">dirname</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"/dirname/basename//"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsPosix</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "/dirname"</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">dirname</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"C:</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\\</span><span style="color:#032F62;--shiki-dark:#A6E3A1">dirname</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\\</span><span style="color:#032F62;--shiki-dark:#A6E3A1">basename"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsWindows</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "C:</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\\</span><span style="color:#032F62;--shiki-dark:#A6E3A1">dirname"</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">dirname</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\\</span><span style="color:#032F62;--shiki-dark:#A6E3A1">dirname</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\\</span><span style="color:#032F62;--shiki-dark:#A6E3A1">basename</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\\\\</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsWindows</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "</span><span style="color:#005CC5;--shiki-dark:#F5C2E7">\\</span><span style="color:#032F62;--shiki-dark:#A6E3A1">dirname"</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span></code></pre> <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">input</td><td>The StringView with path to be parsed. Trailing separators are ignored. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>Specify to parse as Windows or Posix path </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">repeat</td><td>how many directory levels should be removed <code>dirname("/1/2/3/4", Path::AsPosix, 1) == "/1/2"</code> </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Substring of <code>input</code> holding the directory name   </dd></dl>
-<h3><a class="anchor" id="autotoc_md480"></a>
-Path::basename</h3>
-<p>Returns the base name of a path.   </p>
-<p>Trailing separators are ignored.</p>
-<p>For example:</p>
-<pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">basename</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"/a/basename"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsPosix</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "basename"</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">basename</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"/a/basename//"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsPosix</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> ==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "basename"</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span></code></pre> <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">input</td><td>The StringView with path to be parsed. Trailing separators are ignored. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>Specify to parse as Windows or Posix path </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Substring of <code>input</code> holding the base name   </dd></dl>
-<h3><a class="anchor" id="autotoc_md481"></a>
-Path::parseNameExtension</h3>
-<p>Splits a StringView of type "name.ext" into "name" and "ext".   </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">input</td><td>An input filename (ex. "name.ext") </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">name</td><td>Output string holding name ("name" in "name.ext") </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">extension</td><td>Output string holding extension ("ext" in "name.ext") </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>false</code> if both name and extension will be empty after trying to parse them</dd></dl>
-<p>Example: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">parseNameExtension</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"name.ext"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> name</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> ext</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">name </span><span style="color:#D73A49;--shiki-dark:#94E2D5">==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "name"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">ext </span><span style="color:#D73A49;--shiki-dark:#94E2D5">==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "ext"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#D73A49;--shiki-dark:#94E2D5">!</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">parseNameExtension</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">""</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> name</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> ext</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">name</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">isEmpty</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">ext</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">isEmpty</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#D73A49;--shiki-dark:#94E2D5">!</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">parseNameExtension</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"."</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> name</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> ext</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">name</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">isEmpty</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">ext</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">isEmpty</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">parseNameExtension</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">".ext"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> name</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> ext</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">name</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">isEmpty</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">ext </span><span style="color:#D73A49;--shiki-dark:#94E2D5">==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "ext"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">parseNameExtension</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"name."</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> name</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> ext</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">name </span><span style="color:#D73A49;--shiki-dark:#94E2D5">==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "name"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">ext</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">isEmpty</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">parseNameExtension</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"name.name.ext"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> name</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> ext</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">name </span><span style="color:#D73A49;--shiki-dark:#94E2D5">==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "name.name"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">ext </span><span style="color:#D73A49;--shiki-dark:#94E2D5">==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "ext"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">parseNameExtension</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"name.."</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> name</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> ext</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">name </span><span style="color:#D73A49;--shiki-dark:#94E2D5">==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "name."</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">ext</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">isEmpty</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span></code></pre>  <h3><a class="anchor" id="autotoc_md482"></a>
-Path::normalize</h3>
-<p>Resolves all <code>..</code> to output a normalized path String.   </p>
-<p>For example:</p>
-<pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">normalize</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">path</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "/Users/SC/../Documents/"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsPosix</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_RELEASE_ASSERT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">path </span><span style="color:#D73A49;--shiki-dark:#94E2D5">==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "/Users/Documents"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre> <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">output</td><td>Reference to String that will receive the normalized Path </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">view</td><td>The path to be normalized (but it should not be a view() of the output String) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>Specify to parse as Windows or Posix path </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the Path was successfully parsed and normalized   </dd></dl>
-<h3><a class="anchor" id="autotoc_md483"></a>
-Path::relativeFromTo</h3>
-<p>Get relative path that appended to <code>source</code> resolves to <code>destination</code>.   </p>
-<p>For example:</p>
-<pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#CDD6F4">Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">relativeFromTo</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">path</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "/a/b/1/2/3"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "/a/b/d/e"</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsPosix</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> Path</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsPosix</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TEST_ASSERT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">path </span><span style="color:#D73A49;--shiki-dark:#94E2D5">==</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "../../../d/e"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre> <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">output</td><td>The output relative path computed that transforms source into destination </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">source</td><td>The source Path </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">destination</td><td>The destination Path </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>Specify to parse as Windows or Posix path </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">outputType</td><td>Specify if the output relative path should be formatted as a Posix or Windows path </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if source and destination paths can be properly parsed as absolute paths   </dd></dl>
-<h1><a class="anchor" id="autotoc_md484"></a>
-Implementation</h1>
-<p>A design choice of the library is that strings cannot be modified. Strings are either read-only (<a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringView.html" title="Non-owning view over a range of characters with UTF Encoding.">SC::StringView</a>) or they need to be built from scratch with <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1StringBuilder.html" title="Builds String out of a sequence of StringView or formatting through StringFormat.">SC::StringBuilder</a>. Another design choice is to support different encodings (<code>ASCII</code>, <code>UTF8</code> or <code>UTF16</code>). The reason is that <code>ASCII</code> is efficient when it's known that the strings manipulated have Code Points made of a single byte. UTF8 is useful on Posix platforms and UTF16 is needed because that's the default encoding used by Win32 API. All functions interacting with filesystem, for example the ones in <a class="el" href="/SaneCppLibraries/libraries/file-system/">FileSystem</a> or <a class="el" href="/SaneCppLibraries/libraries/file-system-iterator/">FileSystemIterator</a>, return strings in the operating system native encoding. This means that on windows they will be UTF16 strings and on Apple Devices (or Linux) they are UTF8.</p>
-<h1><a class="anchor" id="autotoc_md485"></a>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">output </span><span style="color:#D73A49;--shiki-dark:#94E2D5">==</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> u16view</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre><p>The destination's declared encoding is not changed by conversion. In particular, constructing an owning <code>String</code> with the intended encoding is part of the call-site contract. Plain byte buffers carry no encoding metadata at all, so the caller must use the same encoding when constructing a view over their contents and must exclude any terminator from the viewed byte count.</p>
+<h1><a class="anchor" id="autotoc_md380"></a>
+Paths Are Lexical Strings, Not Filesystem Operations</h1>
+<p><code>Path</code> parses and composes both POSIX and Windows syntax regardless of the host platform. It can split a path into views, select <code>dirname</code> or <code>basename</code>, test whether a path is absolute, join components, normalize <code>.</code> and <code>..</code>, and compute a relative path. Operations taking <code>Path::AsNative</code> select Windows syntax on Windows and POSIX syntax elsewhere.</p>
+<p>Parsing methods return views into the original path. Joining and normalization write to caller-provided storage and can fail. Normalization is lexical: it does not access the filesystem, resolve symbolic links, verify case, or prove that the resulting path exists. Its template workspace has a default limit of 64 components; choose a larger explicit bound when valid inputs can exceed that.</p>
+<p>Use <a class="el" href="/SaneCppLibraries/libraries/file-system/">FileSystem</a> when the job is to query or change actual files. FileSystem APIs exchange native-encoded spans with <code>Path</code>, but Strings itself performs no I/O.</p>
+<h1><a class="anchor" id="autotoc_md381"></a>
+Command Lines And Console Output</h1>
+<p><code>CommandLineSpec</code> describes options and positional values using caller-owned spans. Parsing writes directly into the provided variables, reports structured help/error/success status, and never builds a hidden argument collection. Repeated positional values therefore require the caller to provide <code>Span&lt;StringSpan&gt;</code> storage. <code>CommandLineArguments</code> adapts <code>main</code>/<code>wmain</code> arguments without changing the production API's view-based model.</p>
+<p><code>Console</code> is a thin formatted stdout/stderr writer. Its format string must be ASCII or UTF-8. On Windows, an optional caller-provided conversion buffer is used at the native console boundary; callers that need predictable behavior for long converted messages should size that workspace deliberately.</p>
+<h1><a class="anchor" id="autotoc_md382"></a>
+Allocation, Lifetime, And Failure</h1>
+<p>Strings has no direct dependency and does not choose an allocator. That does not mean every use is allocation-free: passing <code>String</code> or a heap-backed <code>Buffer</code> to a builder, converter, or path operation lets that destination grow through the <a class="el" href="/SaneCppLibraries/libraries/memory/">Memory</a> library. Passing fixed-capacity storage keeps the operation bounded but makes capacity failure part of normal control flow.</p>
+<p>The rules that matter at call sites are:</p>
+<ul>
+<li>keep the bytes behind every <code>StringSpan</code>, <code>StringView</code>, token, and parsed path component alive and stationary;</li>
+<li>do not retain views into a growable destination across an operation that may reallocate it;</li>
+<li>keep source and destination separate for path normalization and other rebuilding operations unless the API explicitly documents overlap;</li>
+<li>treat <code>false</code> from builders, converters, formatters, and path composition as a real failure;</li>
+<li>add a terminator only when the receiving API requires one, and do not include it in the logical view length.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md383"></a>
+Boundaries With Neighboring Libraries</h1>
+<p><a class="el" href="/SaneCppLibraries/libraries/memory/">Memory</a> owns <code>String</code>, <code>SmallString&lt;N&gt;</code>, and <code>Buffer</code>, because ownership and allocation are memory policies rather than text algorithms. Strings can write into those types through the growable-buffer interface without depending on Memory. This separation is also why including Strings alone does not provide a classic owning string.</p>
+<p><a class="el" href="/SaneCppLibraries/libraries/containers/">Containers</a> is appropriate when parsed tokens or views must be collected, but remember that a container of views still does not own the referenced characters. Copy the text into owning storage when it must outlive the input.</p>
+<p><a class="el" href="/SaneCppLibraries/libraries/file-system/">FileSystem</a> and <a class="el" href="/SaneCppLibraries/libraries/file-system-iterator/">FileSystem Iterator</a> perform filesystem I/O and return native-encoded text. <code>Path</code> provides their lexical path manipulation. <code>Console</code> provides basic process output; asynchronous byte transport and buffering belong to <a class="el" href="/SaneCppLibraries/libraries/async-streams/">Async Streams</a>.</p>
+<h1><a class="anchor" id="autotoc_md384"></a>
+What Is Deliberately Missing</h1>
+<p>Strings currently works at bytes, code units, and Unicode code points. It does not implement grapheme-cluster iteration, locale-aware collation, word breaking, Unicode normalization, or general Unicode case conversion. A visible "character" can contain multiple code points, so code-point iteration is not sufficient for cursor movement or other human-text UI behavior. Applications needing those semantics should use a dedicated Unicode library at that boundary.</p>
+<h1><a class="anchor" id="autotoc_md385"></a>
+Blog</h1>
+<p>Relevant design and implementation updates:</p>
+<ul>
+<li><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html">July 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html">August 2025 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md386"></a>
 Roadmap</h1>
-<p>We need to understand if we want to allow iterating <em>grapheme clusters</em> (perceived end-user 'characters') or advanced capabilities like normalization and uppercase / lowercase conversions. As doing these operations from scratch is non trivial we will investigate if there OS functions allowing to achieve that functionality</p>
+<p>Potential additions remain deliberately uncommitted because correct Unicode behavior is substantially broader than encoding conversion:</p>
 <p>🟦 Complete Features:</p><ul>
-<li>UTF Normalization</li>
-<li>UTF Case Conversion</li>
+<li>UTF normalization</li>
+<li>UTF case conversion</li>
 </ul>
 <p>💡 Unplanned Features:</p><ul>
 <li>UTF word breaking</li>
-<li>Grapheme Cluster iteration</li>
+<li>Grapheme-cluster iteration</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md486"></a>
+<h1><a class="anchor" id="autotoc_md387"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Strings</code>. Single File counts <code>SaneCppStrings.h</code>. Standalone counts <code>SaneCppStringsStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">
@@ -735,129 +281,46 @@ Statistics</h1>
 </table></article> <section class="panel related-posts" aria-labelledby="related-posts-heading" data-astro-cid-7c432cc5> <h2 id="related-posts-heading" data-astro-cid-7c432cc5>Related blog posts</h2> <div class="related-links" data-astro-cid-7c432cc5> <a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☔️ Sane C++ March 26</a><a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌊 Sane C++ August 25</a><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🏖️ Sane C++ July 25</a> </div> </section> </div> <aside class="context-rail" aria-label="Page context" data-astro-cid-7c432cc5> <div class="card context-panel" data-astro-cid-7c432cc5> <div class="generated-toc" aria-label="Page sections" data-astro-cid-7c432cc5><div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md448">Dependencies</a>
+    <a href="#autotoc_md374">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md449">Features</a>
+    <a href="#autotoc_md375">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md450">Status</a>
+    <a href="#autotoc_md376">Start With The Text Model</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md451">Blog</a>
+    <a href="#autotoc_md377">Views Are Cheap, But Their Contracts Matter</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md452">Definition</a>
-    <ul>
-      <li class="level2">
-        <a href="#autotoc_md453">StringBuilder</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md454">StringView</a>
-        <ul>
-          <li class="level3">
-            <a href="#autotoc_md455">StringView::containsString</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md456">StringView::fullyOverlaps</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md457">StringView::startsWithAnyOf</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md458">StringView::endsWithAnyOf</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md459">StringView::startsWith</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md460">StringView::endsWith</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md461">StringView::containsString</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md462">StringView::containsCodePoint</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md463">StringView::sliceStartEnd</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md464">StringView::sliceStartLength</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md465">StringView::sliceStart</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md466">StringView::sliceEnd</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md467">StringView::trimEndAnyOf</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md468">StringView::trimStartAnyOf</a>
-          </li>
-        </ul>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md469">StringViewTokenizer</a>
-        <ul>
-          <li class="level3">
-            <a href="#autotoc_md470">StringViewTokenizer::tokenizeNext</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md471">StringViewTokenizer::countTokens</a>
-          </li>
-        </ul>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md472">StringIterator</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md473">StringFormat</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md474">StringConverter</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md475">StringAlgorithms</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md476">Console</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md477">Path</a>
-        <ul>
-          <li class="level3">
-            <a href="#autotoc_md478">Path::isAbsolute</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md479">Path::dirname</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md480">Path::basename</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md481">Path::parseNameExtension</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md482">Path::normalize</a>
-          </li>
-          <li class="level3">
-            <a href="#autotoc_md483">Path::relativeFromTo</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <a href="#autotoc_md378">Build Into Storage Chosen By The Caller</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md484">Implementation</a>
+    <a href="#autotoc_md379">Convert Only At Encoding Boundaries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md485">Roadmap</a>
+    <a href="#autotoc_md380">Paths Are Lexical Strings, Not Filesystem Operations</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md486">Statistics</a>
+    <a href="#autotoc_md381">Command Lines And Console Output</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md382">Allocation, Lifetime, And Failure</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md383">Boundaries With Neighboring Libraries</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md384">What Is Deliberately Missing</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md385">Blog</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md386">Roadmap</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md387">Statistics</a>
   </li>
 </ul>
 </div></div> </div> </aside> </section>  </div> </div> </main> <footer class="site-footer" data-astro-cid-37fxchfa> <div class="shell footer-grid" data-astro-cid-37fxchfa> <div data-astro-cid-37fxchfa> <div class="eyebrow" data-astro-cid-37fxchfa>Platform Abstraction C++ Libraries</div> <h2 data-astro-cid-37fxchfa>Sane C++ Libraries</h2> <p class="copy-muted" data-astro-cid-37fxchfa>

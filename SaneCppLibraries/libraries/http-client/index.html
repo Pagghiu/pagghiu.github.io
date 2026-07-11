@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Http Client | Sane C++ Libraries</title><meta name="description" content="Streaming-first HTTP client with native OS backends"><meta property="og:title" content="Http Client | Sane C++ Libraries"><meta property="og:description" content="Streaming-first HTTP client with native OS backends"><meta property="og:type" content="website"><meta property="og:url" content="https://pagghiu.github.io/SaneCppLibraries/libraries/http-client/"><link rel="canonical" href="https://pagghiu.github.io/SaneCppLibraries/libraries/http-client/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=JetBrains+Mono:wght@500;700&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"><script>
+<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Http Client | Sane C++ Libraries</title><meta name="description" content="Allocation-free HTTP client over the operating system's native transport"><meta property="og:title" content="Http Client | Sane C++ Libraries"><meta property="og:description" content="Allocation-free HTTP client over the operating system's native transport"><meta property="og:type" content="website"><meta property="og:url" content="https://pagghiu.github.io/SaneCppLibraries/libraries/http-client/"><link rel="canonical" href="https://pagghiu.github.io/SaneCppLibraries/libraries/http-client/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=JetBrains+Mono:wght@500;700&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"><script>
       (() => {
         const savedTheme = localStorage.getItem("sc-theme");
         const theme = savedTheme === "light" || savedTheme === "dark"
@@ -112,291 +112,165 @@
 </script>  <a class="button primary" href="https://github.com/Pagghiu/SaneCppLibraries" data-astro-cid-37fxchfa>View GitHub</a> </div> </div> <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="Open navigation" data-astro-cid-37fxchfa> <span class="material-symbols-outlined" aria-hidden="true" data-astro-cid-37fxchfa>menu</span> </button> </div> </header> <main class="site-main" data-astro-cid-37fxchfa> <div class="site-main-shell" data-astro-cid-37fxchfa> <aside class="docs-sidebar" aria-label="Sane C++ documentation" data-astro-cid-qrwn6rcr> <details open data-default-open="true" data-astro-cid-qrwn6rcr> <summary data-astro-cid-qrwn6rcr> <span data-astro-cid-qrwn6rcr>Libraries</span> <span class="count" data-astro-cid-qrwn6rcr>27</span> </summary> <nav aria-label="Libraries" data-astro-cid-qrwn6rcr> <a href="/SaneCppLibraries/libraries/" data-astro-cid-qrwn6rcr>Library index</a> <a href="/SaneCppLibraries/libraries/async/" data-astro-cid-qrwn6rcr> Async </a><a href="/SaneCppLibraries/libraries/async-streams/" data-astro-cid-qrwn6rcr> Async Streams </a><a href="/SaneCppLibraries/libraries/await/" data-astro-cid-qrwn6rcr> Await </a><a href="/SaneCppLibraries/libraries/containers/" data-astro-cid-qrwn6rcr> Containers </a><a href="/SaneCppLibraries/libraries/containers-reflection/" data-astro-cid-qrwn6rcr> Containers Reflection </a><a href="/SaneCppLibraries/libraries/fibers/" data-astro-cid-qrwn6rcr> Fibers </a><a href="/SaneCppLibraries/libraries/fibers-async/" data-astro-cid-qrwn6rcr> FibersAsync </a><a href="/SaneCppLibraries/libraries/file/" data-astro-cid-qrwn6rcr> File </a><a href="/SaneCppLibraries/libraries/file-system/" data-astro-cid-qrwn6rcr> File System </a><a href="/SaneCppLibraries/libraries/file-system-iterator/" data-astro-cid-qrwn6rcr> File System Iterator </a><a href="/SaneCppLibraries/libraries/file-system-watcher/" data-astro-cid-qrwn6rcr> File System Watcher </a><a href="/SaneCppLibraries/libraries/foundation/" data-astro-cid-qrwn6rcr> Foundation </a><a href="/SaneCppLibraries/libraries/hashing/" data-astro-cid-qrwn6rcr> Hashing </a><a href="/SaneCppLibraries/libraries/http/" data-astro-cid-qrwn6rcr> Http </a><a class="active" href="/SaneCppLibraries/libraries/http-client/" aria-current="page" data-astro-cid-qrwn6rcr> Http Client </a><a href="/SaneCppLibraries/libraries/memory/" data-astro-cid-qrwn6rcr> Memory </a><a href="/SaneCppLibraries/libraries/plugin/" data-astro-cid-qrwn6rcr> Plugin </a><a href="/SaneCppLibraries/libraries/process/" data-astro-cid-qrwn6rcr> Process </a><a href="/SaneCppLibraries/libraries/reflection/" data-astro-cid-qrwn6rcr> Reflection </a><a href="/SaneCppLibraries/libraries/serialization-binary/" data-astro-cid-qrwn6rcr> Serialization Binary </a><a href="/SaneCppLibraries/libraries/serialization-text/" data-astro-cid-qrwn6rcr> Serialization Text </a><a href="/SaneCppLibraries/libraries/serial-port/" data-astro-cid-qrwn6rcr> SerialPort </a><a href="/SaneCppLibraries/libraries/socket/" data-astro-cid-qrwn6rcr> Socket </a><a href="/SaneCppLibraries/libraries/strings/" data-astro-cid-qrwn6rcr> Strings </a><a href="/SaneCppLibraries/libraries/testing/" data-astro-cid-qrwn6rcr> Testing </a><a href="/SaneCppLibraries/libraries/threading/" data-astro-cid-qrwn6rcr> Threading </a><a href="/SaneCppLibraries/libraries/time/" data-astro-cid-qrwn6rcr> Time </a> </nav> </details> <details data-default-open="false" data-astro-cid-qrwn6rcr> <summary data-astro-cid-qrwn6rcr> <span data-astro-cid-qrwn6rcr>Guides</span> <span class="count" data-astro-cid-qrwn6rcr>13</span> </summary> <nav aria-label="Guides" data-astro-cid-qrwn6rcr> <a href="/SaneCppLibraries/guides/" data-astro-cid-qrwn6rcr>Guide index</a> <a href="/SaneCppLibraries/guides/build/" data-astro-cid-qrwn6rcr> SC::Build </a><a href="/SaneCppLibraries/guides/build-external/" data-astro-cid-qrwn6rcr> External SC::Build Bootstrap </a><a href="/SaneCppLibraries/guides/building-contributor/" data-astro-cid-qrwn6rcr> Building (Contributor) </a><a href="/SaneCppLibraries/guides/building-user/" data-astro-cid-qrwn6rcr> Building (User) </a><a href="/SaneCppLibraries/guides/coding-style/" data-astro-cid-qrwn6rcr> Coding Style </a><a href="/SaneCppLibraries/guides/examples/" data-astro-cid-qrwn6rcr> Examples </a><a href="/SaneCppLibraries/guides/faq/" data-astro-cid-qrwn6rcr> FAQ </a><a href="/SaneCppLibraries/guides/libraries/" data-astro-cid-qrwn6rcr> Libraries </a><a href="/SaneCppLibraries/guides/platforms/" data-astro-cid-qrwn6rcr> Platforms </a><a href="/SaneCppLibraries/guides/principles/" data-astro-cid-qrwn6rcr> Principles </a><a href="/SaneCppLibraries/guides/single-file-libs/" data-astro-cid-qrwn6rcr> Single File Amalgamation </a><a href="/SaneCppLibraries/guides/tests/" data-astro-cid-qrwn6rcr> Tests </a><a href="/SaneCppLibraries/guides/tools/" data-astro-cid-qrwn6rcr> Tools </a> </nav> </details> </aside> <script type="module">const t=window.matchMedia("(max-width: 1100px)"),s=document.querySelectorAll(".docs-sidebar details"),a=()=>{s.forEach(e=>{e.open=t.matches?!1:e.dataset.defaultOpen==="true"})};a();t.addEventListener("change",a);</script>  <div class="site-content" data-astro-cid-37fxchfa>  <section class="docs-layout" data-astro-cid-7c432cc5> <details class="mobile-context-nav" data-astro-cid-7c432cc5> <summary data-astro-cid-7c432cc5>On this page</summary> <div class="generated-toc" aria-label="Page sections" data-astro-cid-7c432cc5><div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md327">Dependencies</a>
+    <a href="#autotoc_md282">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md328">Features</a>
+    <a href="#autotoc_md283">Is HttpClient the right layer?</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md329">Status</a>
+    <a href="#autotoc_md284">The request is a description; the operation owns the conversation</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md330">Description</a>
+    <a href="#autotoc_md285">Request bodies and response metadata</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md331">Recommended Patterns</a>
+    <a href="#autotoc_md286">Optional state and event-loop layers</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md332">Allocation-Free Audit</a>
+    <a href="#autotoc_md287">Backend policy and current limits</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md333">Details</a>
-    <ul>
-      <li class="level2">
-        <a href="#autotoc_md334">HttpClient</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md335">HttpClientRequest</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md336">HttpClientResponse</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md337">HttpClientRequestBodyProvider</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md338">HttpClientOperationListener</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md339">HttpClientOperationNotifier</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md340">HttpClientResponseBuffer</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md341">HttpClientOperationEvent</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md342">HttpClientOperationMemory</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md343">HttpClientOperation</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md344">Async Adapter</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md345">Session Layer</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md346">Operation Scheduler</a>
-      </li>
-    </ul>
+    <a href="#autotoc_md288">Where to look next</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md347">Blog</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md348">Examples</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md349">Roadmap</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md350">Statistics</a>
+    <a href="#autotoc_md289">Statistics</a>
   </li>
 </ul>
-</div></div> </details> <div class="library-main" data-astro-cid-7c432cc5> <section class="page-hero library-hero" data-astro-cid-7c432cc5> <div class="library-heading" data-astro-cid-7c432cc5> <div class="eyebrow" data-astro-cid-7c432cc5>Library</div> <h1 data-astro-cid-7c432cc5>Http Client</h1> <p data-astro-cid-7c432cc5>Streaming-first HTTP client with native OS backends</p> <span class="maturity-badge draft strong" data-astro-cid-blexnnyn> <span class="dot" data-astro-cid-blexnnyn></span> <span data-astro-cid-blexnnyn>Draft</span> </span>  </div> </section> <section class="meta-grid" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependencies</strong> <p data-astro-cid-7c432cc5>No library-level dependencies</p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Single file</strong> <p data-astro-cid-7c432cc5><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppHttpClient.h" data-astro-cid-7c432cc5>Download release header</a></p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Reference</strong> <p data-astro-cid-7c432cc5><a href="/SaneCppLibraries/reference/doxygen/library_http_client.html" data-astro-cid-7c432cc5>Open generated API/docs</a></p> </div> </section> <article class="panel prose article doxygen-content" data-astro-cid-7c432cc5><div class="textblock"><p>🟥 Streaming-first HTTP client with native OS backends</p>
-<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppHttpClient.h">SaneCppHttpClient.h</a> is a streaming-first HTTP client built on native OS backends.</p>
-<h1><a class="anchor" id="autotoc_md327"></a>
+</div></div> </details> <div class="library-main" data-astro-cid-7c432cc5> <section class="page-hero library-hero" data-astro-cid-7c432cc5> <div class="library-heading" data-astro-cid-7c432cc5> <div class="eyebrow" data-astro-cid-7c432cc5>Library</div> <h1 data-astro-cid-7c432cc5>Http Client</h1> <p data-astro-cid-7c432cc5>Allocation-free HTTP client over the operating system&#39;s native transport</p> <span class="maturity-badge unknown strong" data-astro-cid-blexnnyn> <span class="dot" data-astro-cid-blexnnyn></span> <span data-astro-cid-blexnnyn>Unknown</span> </span>  </div> </section> <section class="meta-grid" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependencies</strong> <p data-astro-cid-7c432cc5>No library-level dependencies</p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Single file</strong> <p data-astro-cid-7c432cc5><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppHttpClient.h" data-astro-cid-7c432cc5>Download release header</a></p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Reference</strong> <p data-astro-cid-7c432cc5><a href="/SaneCppLibraries/reference/doxygen/library_http_client.html" data-astro-cid-7c432cc5>Open generated API/docs</a></p> </div> </section> <article class="panel prose article doxygen-content" data-astro-cid-7c432cc5><div class="textblock"><p>🟥 Allocation-free HTTP client over the operating system's native transport</p>
+<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppHttpClient.h">SaneCppHttpClient.h</a> provides HTTP requests without making an HTTP stack another dependency of the application. It wraps <code>NSURLSession</code> on Apple platforms, WinHTTP on Windows, and libcurl on Linux behind one request and streaming-response model.</p>
+<h1><a class="anchor" id="autotoc_md282"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="/SaneCppLibraries/reference/doxygen/HttpClient.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md328"></a>
-Features</h1>
-<ul>
-<li>Native OS backends (NSURLSession on Apple, WinHTTP on Windows, libcurl on Linux)</li>
-<li>Poll-driven core API with an optional <code>HttpClientAsyncT</code> adapter for <code>AsyncStreams</code></li>
-<li>Inline, sized-stream, or chunked-stream request bodies</li>
-<li>Optional caller-owned session helpers for cookies, auth cache entries, and retry bookkeeping</li>
-<li>Optional caller-owned operation scheduler for many poll-driven operations</li>
-<li>Async streaming integration available through <code><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1HttpClientAsyncT.html">SC::HttpClientAsyncT</a></code></li>
-<li>Blocking helper for simple synchronous workflows</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md329"></a>
-Status</h1>
-<p>🟥 Draft <br  />
- The API is stabilizing and the streaming core is in place, but consider everything HIGHLY experimental.</p>
-<h1><a class="anchor" id="autotoc_md330"></a>
-Description</h1>
-<p>HttpClient is designed to stay allocation-free by relying on caller-provided buffers and queues. The core library is poll-driven and independent from <code>Async</code>, <code>AsyncStreams</code>, <code>Threading</code>, and <code>Time</code>. Response headers and transport metadata are written into user-provided buffers, while response body chunks are delivered during <code>poll()</code> through a small listener interface.</p>
-<p><code>HttpClientRequest</code> groups caller-owned headers, body, and transport options into one request object. Request bodies are explicitly framed as fixed-size inline bytes, a fixed-size stream, or a chunked stream by setting <code>HttpClientRequestBody::framing</code>. Redirect, timeout, TLS, and protocol concerns are grouped under <code>HttpClientRequestOptions</code>. Request URL, method, redirect mode, header names, and header values are validated before any backend-specific request setup starts. URLs must use the <code><a href="http://">http://</a></code> or <code><a href="https://">https://</a></code> scheme, include a non-empty host, and avoid whitespace or control bytes. Header names must be HTTP token names, and header values reject CR, LF, and NUL bytes. Request methods, body framing modes, redirect modes, protocol preferences, and proxy modes expose static name helpers for allocation-free diagnostics. <code>HttpClientRequest::validate()</code> exposes the same request-shape checks used by <code>HttpClientOperation::start()</code>. The request object is copied by value when an operation starts, but URL, headers, body bytes, streamed-body providers, and option string views remain caller-owned and must outlive the operation.</p>
-<p>For stream-first integration there is a separate <code><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1HttpClientAsyncT.html">SC::HttpClientAsyncT</a>&lt;T_AsyncEventLoop, T_AsyncStreams&gt;</code> adapter that translates the same core operation into <code>AsyncReadableStream</code> and <code>AsyncWritableStream</code>.</p>
-<p>For stateful workflows there is a separate <code><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1HttpClientSession.html" title="Optional caller-owned state layer above the stateless HttpClient core.">SC::HttpClientSession</a></code> helper declared in <code><a class="el" href="/SaneCppLibraries/reference/doxygen/HttpClientSession_8h_source.html">Libraries/HttpClient/HttpClientSession.h</a></code>. It remains layered above the transport core: cookies, authorization cache entries, prepared request headers, retry state, and all durable strings live in caller-provided spans and scratch buffers. <code>prepareRequest()</code> produces a derived request that must be started before reusing the same session header scratch for another prepared request.</p>
-<p>For high-concurrency poll loops there is a separate <code><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1HttpClientOperationScheduler.html" title="Optional coordinator for polling many HttpClientOperation instances.">SC::HttpClientOperationScheduler</a></code> helper declared in <code><a class="el" href="/SaneCppLibraries/reference/doxygen/HttpClientScheduler_8h_source.html">Libraries/HttpClient/HttpClientScheduler.h</a></code>. It owns no operations and starts no requests; it only installs itself as the operation notifier and tracks ready operations in caller-provided bytes so callers can poll signaled operations instead of scanning blindly.</p>
-<p>Current limitations:</p><ul>
-<li>One in-flight request per <code><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1HttpClientOperation.html" title="One in-flight HTTP request/response operation.">SC::HttpClientOperation</a></code></li>
-<li>Multiple <code>HttpClientOperation</code> instances can share one <code><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1HttpClient.html" title="Reusable HTTP backend/session owner.">SC::HttpClient</a></code></li>
-<li><code>Transfer-Encoding</code> is controlled by <code>HttpClientRequestBody::framing</code>; callers must not provide it manually</li>
-<li>Chunked request trailers are not exposed</li>
-<li>Apple treats <code>Default</code> and <code>Http2Preferred</code> as <code>NSURLSession</code> default policy, but fails fast for forced <code>Http11Only</code> or <code>Http2Required</code></li>
-<li><code>Http2Required</code> must negotiate HTTP/2; supported backends fail the request instead of silently downgrading</li>
-<li>Some TLS customizations fail fast on backends that do not support them yet</li>
-</ul>
-<p>Protocol policy:</p><ul>
-<li><code>Default</code> lets the backend choose</li>
-<li><code>Http11Only</code> forces HTTP/1.1 where the backend exposes that control</li>
-<li><code>Http2Preferred</code> enables HTTP/2 where available while allowing HTTP/1.1 fallback</li>
-<li><code>Http2Required</code> rejects unsupported backends and rejects negotiated HTTP/1.1 responses</li>
-</ul>
-<p>TLS policy:</p><ul>
-<li><code>verifyPeer</code> defaults to enabled; disabling it fails fast on backends that do not expose that policy</li>
-<li><code>caCertificatesPath</code> is caller-owned and must not contain NUL or other control bytes</li>
-<li>Unsupported custom CA paths fail in preflight instead of falling back to backend defaults</li>
-</ul>
-<p>Proxy policy:</p><ul>
-<li><code>Default</code> keeps the backend/system proxy behavior</li>
-<li><code>NoProxy</code> bypasses proxies where the backend exposes per-request control</li>
-<li><code>Http</code> uses a caller-owned host-only <code><a href="http://">http://</a></code> proxy URL with no path, query, fragment, whitespace, or control bytes</li>
-<li><code>authorization</code> is an optional exact <code>Proxy-Authorization</code> value for explicit HTTP proxies</li>
-<li><code>bypassList</code> is an optional comma-separated host list for explicit HTTP proxies</li>
-<li>Apple currently fails fast for non-default proxy policy because <code>NSURLSession</code> proxy dictionaries would need a separate supported API shape</li>
-</ul>
-<p>Response headers:</p><ul>
-<li><code>HttpClientResponse::headers</code> remains the raw caller-owned header buffer view and source of truth</li>
-<li><code>getProtocolName()</code> returns static names for negotiated protocol metadata</li>
-<li><code>isInformationalStatus()</code>, <code>isSuccessfulStatus()</code>, <code>isRedirectStatus()</code>, and error helpers classify status codes</li>
-<li><code>getNextHeader()</code> walks parsed header name/value views with a caller-owned iterator</li>
-<li><code>findNextHeader()</code> supports repeated headers without building a map</li>
-<li><code>hasHeader()</code> checks for a header name without exposing a value view</li>
-<li>common helpers such as <code>getContentLength()</code>, <code>getContentType()</code>, <code>getContentEncoding()</code>, <code>getTransferEncoding()</code>, <code>getLocation()</code>, <code>getWwwAuthenticate()</code>, and <code>getProxyAuthenticate()</code> stay layered over the raw buffer</li>
-<li><code>getNextTransferCoding()</code> iterates comma-separated <code>Transfer-Encoding</code> tokens and classifies common codings without allocation</li>
-<li><code>hasContentCoding()</code> and <code>hasTransferCoding()</code> scan classified coding tokens without caching parsed state</li>
-</ul>
-<p>Capability reporting:</p><ul>
-<li><code>HttpClient::getCapabilities()</code> returns the compiled backend and supported policy groups</li>
-<li><code>HttpClientCapabilities::supports(feature)</code> exposes the same fields through a stable feature enum for future transport expansion</li>
-<li><code>HttpClientCapabilities::supportsAll()</code> / <code>requireFeatures()</code> let callers fail fast when they need a backend feature set</li>
-<li><code>HttpClientCapabilities::supportsRequestOptions()</code> / <code>requireRequestOptions()</code> preflight request policy without starting an operation</li>
-<li><code>HttpClientCapabilities::hasBackend()</code> / <code>requireBackend()</code> let callers fail fast when they intentionally target one compiled backend</li>
-<li><code>HttpClient::init(requiredBackend/features)</code> overloads apply the same checks before backend initialization</li>
-<li><code>HttpClientOperation::start()</code> preflights protocol, TLS, and proxy policy against those capabilities before backend request setup</li>
-<li><code>HttpClientCapabilities::getBackendName()</code> returns a static backend name for logs, diagnostics, and tests</li>
-<li><code>HttpClientCapabilities::getFeatureName()</code> returns static feature names for capability diagnostics</li>
-<li>capability fields describe explicit API support, not whether a remote server will negotiate a feature</li>
-<li><code>contentCodingPolicy</code> is currently false because decompression belongs in a future caller-owned streaming layer</li>
-</ul>
-<p>Content-coding policy:</p><ul>
-<li>The core client does not request or decode compressed content on behalf of the caller</li>
-<li>Callers can still send <code>Accept-Encoding</code> explicitly as a normal request header</li>
-<li><code>Content-Encoding</code> is exposed as response metadata through <code>getContentEncoding()</code></li>
-<li><code>getNextContentCoding()</code> iterates comma-separated <code>Content-Encoding</code> tokens and classifies common codings without allocation</li>
-<li><code>hasContentCoding()</code> checks for a classified <code>Content-Encoding</code> token without building a token list</li>
-<li><code>HttpClientContentCoding::writeAcceptEncoding()</code> builds <code>Accept-Encoding</code> values into caller-owned buffers</li>
-<li>Decompression should be built as a caller-owned streaming transform above the raw response body, not as hidden state inside <code>HttpClientOperation</code></li>
-<li><code>AsyncStreams</code> already provides zlib/gzip/deflate transform primitives that callers can compose explicitly when they opt into that dependency</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md331"></a>
-Recommended Patterns</h1>
-<p>Blocking: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#F9E2AF">SC</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">HttpClientRequest request</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">request</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">url </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#032F62;--shiki-dark:#A6E3A1"> "https://example.com"</span><span style="color:#D73A49;--shiki-dark:#CBA6F7">_a8</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<h1><a class="anchor" id="autotoc_md283"></a>
+Is HttpClient the right layer?</h1>
+<p>Choose HttpClient when an application needs outbound HTTP or HTTPS on the three supported desktop platforms, wants native transport integration, and can budget memory before starting a request. The library is particularly suited to tools, agents, and embedded-style applications where an implicit heap-owned response, cookie jar, or worker object would be undesirable.</p>
+<p>It is not a byte-for-byte portable HTTP implementation. The operating system still owns DNS, TLS, connection pooling, and protocol negotiation, so observable transport behavior can differ between Apple, Windows, and Linux. <code>HttpClient::getCapabilities()</code> makes policy differences queryable, and request startup fails when a requested protocol, TLS, or proxy policy is unsupported; it does not quietly weaken an explicit requirement.</p>
+<p>The API is 🟥 <b>Draft</b> and still highly experimental. In particular, applications should expect API changes while backend behavior and the streaming adapters converge.</p>
+<p>The neighboring <a class="el" href="/SaneCppLibraries/libraries/http/">Http</a> library solves a different problem: it implements HTTP/1.1 parsing, servers, WebSockets, and an <code>AsyncStreams</code> client over caller-selected socket transports. Use that client when control over the HTTP/1.1 connection and stream pipeline matters. Use HttpClient when native HTTPS, native proxy behavior, and HTTP/2 negotiation matter more than identical transport internals. HttpClient itself has no SC library dependency; its optional Async adapter composes with <a class="el" href="/SaneCppLibraries/libraries/async/">Async</a> and <a class="el" href="/SaneCppLibraries/libraries/async-streams/">AsyncStreams</a> in application code.</p>
+<h1><a class="anchor" id="autotoc_md284"></a>
+The request is a description; the operation owns the conversation</h1>
+<p>The core has three distinct lifetimes:</p>
+<ol type="1">
+<li><code>HttpClient</code> initializes the platform backend and may be shared by multiple operations.</li>
+<li><code>HttpClientRequest</code> describes one request using non-owning views. Starting an operation copies the description, not the URL, headers, inline body, option strings, or body provider behind those views.</li>
+<li><code>HttpClientOperation</code> carries one in-flight request and delivers response events from <code>poll()</code>. Its queues, response chunks, raw headers, metadata, and backend scratch all come from <code>HttpClientOperationMemory</code> supplied by the caller.</li>
+</ol>
+<p>One operation carries at most one request at a time. Concurrency means creating multiple operations against the same client, each with separate memory. <code>poll()</code> invokes a listener with a response head, zero or more body spans, and completion or error. A body span is borrowed only for that callback; copy it or consume it before returning. By contrast, response header and effective-URL views point into operation memory and remain tied to that storage's lifetime.</p>
+<p>This excerpt is compiled as part of <code>HttpClientPollSession</code>. It shows the real amount of storage and coordination needed for a single poll-driven request; the fixed sizes are application policy, not library constants.</p>
+<pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    HttpClient client</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">client</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">init</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#F9E2AF">SC</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">HttpClientResponse response</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">char</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> body</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#005CC5;--shiki-dark:#FAB387">4096</span><span style="color:#24292E;--shiki-dark:#9399B2">];</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">size_t</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> bodyLength </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 0</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">SC</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">HttpClient</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">executeBlocking</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">request</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> response</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> {body</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> sizeof</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">body</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#24292E;--shiki-dark:#CDD6F4">}</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> bodyLength</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> memory</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span></code></pre><p><code>executeBlocking()</code> treats <code>body</code> as a hard caller-owned capacity. If the response body does not fit, the helper returns an error instead of silently truncating; <code>bodyLength</code> still reports the bytes copied before the overflow was detected.</p>
-<p>Poll-driven: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#F9E2AF">SC</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">HttpClient client</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">client</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">init</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    HttpClientResponseBuffer responseBuffers</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#005CC5;--shiki-dark:#FAB387">8</span><span style="color:#24292E;--shiki-dark:#9399B2">];</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    HttpClientOperationEvent eventQueue</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#005CC5;--shiki-dark:#FAB387">16</span><span style="color:#24292E;--shiki-dark:#9399B2">];</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    char</span><span style="color:#24292E;--shiki-dark:#CDD6F4">                     responseMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#005CC5;--shiki-dark:#FAB387">64</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> *</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 1024</span><span style="color:#24292E;--shiki-dark:#9399B2">];</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    char</span><span style="color:#24292E;--shiki-dark:#CDD6F4">                     responseHeaders</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#005CC5;--shiki-dark:#FAB387">8</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> *</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 1024</span><span style="color:#24292E;--shiki-dark:#9399B2">];</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    char</span><span style="color:#24292E;--shiki-dark:#CDD6F4">                     responseMetadata</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#005CC5;--shiki-dark:#FAB387">4</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> *</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 1024</span><span style="color:#24292E;--shiki-dark:#9399B2">];</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    char</span><span style="color:#24292E;--shiki-dark:#CDD6F4">                     backendScratch</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#005CC5;--shiki-dark:#FAB387">16</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> *</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 1024</span><span style="color:#24292E;--shiki-dark:#9399B2">];</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#F9E2AF">SC</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">HttpClientOperation operation</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">operation</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">init</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">client</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> memory</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">operation</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">start</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">request</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> response</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> &#x26;</span><span style="color:#24292E;--shiki-dark:#CDD6F4">listener</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">while</span><span style="color:#24292E;--shiki-dark:#9399B2"> (</span><span style="color:#24292E;--shiki-dark:#CDD6F4">operation</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">isRequestInFlight</span><span style="color:#24292E;--shiki-dark:#9399B2">())</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">{</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">operation</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">poll</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#005CC5;--shiki-dark:#FAB387">16</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">}</span></span></code></pre><p>Async stream adapter: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#F9E2AF">SC</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsyncEventLoop loop</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">loop</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">create</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    HttpClientOperationMemory operationMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    operationMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">responseBuffers      </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#24292E;--shiki-dark:#CDD6F4">responseBuffers</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 8</span><span style="color:#24292E;--shiki-dark:#9399B2">};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    operationMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">responseBufferMemory </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#24292E;--shiki-dark:#CDD6F4">responseMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> sizeof</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">responseMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">)};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    operationMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">eventQueue           </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#24292E;--shiki-dark:#CDD6F4">eventQueue</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 16</span><span style="color:#24292E;--shiki-dark:#9399B2">};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    operationMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">responseHeaders      </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#24292E;--shiki-dark:#CDD6F4">responseHeaders</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> sizeof</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">responseHeaders</span><span style="color:#24292E;--shiki-dark:#9399B2">)};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    operationMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">responseMetadata     </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#24292E;--shiki-dark:#CDD6F4">responseMetadata</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> sizeof</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">responseMetadata</span><span style="color:#24292E;--shiki-dark:#9399B2">)};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    operationMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">backendScratch       </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#24292E;--shiki-dark:#CDD6F4">backendScratch</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> sizeof</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">backendScratch</span><span style="color:#24292E;--shiki-dark:#9399B2">)};</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#F9E2AF">SC</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">HttpClientAsyncT</span><span style="color:#D73A49;--shiki-dark:#94E2D5">&#x3C;</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF">SC</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsyncEventLoop</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> SC</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AsyncStreams</span><span style="color:#D73A49;--shiki-dark:#94E2D5">></span><span style="color:#24292E;--shiki-dark:#CDD6F4"> operation</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">operation</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">init</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">client</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> loop</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> operationMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> asyncMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">operation</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">start</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">request</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> response</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">while</span><span style="color:#24292E;--shiki-dark:#9399B2"> (</span><span style="color:#24292E;--shiki-dark:#CDD6F4">operation</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">isRequestInFlight</span><span style="color:#24292E;--shiki-dark:#9399B2">())</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">{</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">loop</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">runOnce</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">}</span></span></code></pre><p>Session layer: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#F9E2AF">SC</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">HttpClientSession session</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">session</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">init</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">sessionMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">session</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">prepareRequest</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">sourceRequest</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> preparedRequest</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">operation</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">start</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">preparedRequest</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> response</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span></code></pre><p>Scheduler: </p><pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#F9E2AF">SC</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">HttpClientOperationScheduler scheduler</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">scheduler</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">init</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">schedulerMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">while</span><span style="color:#24292E;--shiki-dark:#9399B2"> (</span><span style="color:#24292E;--shiki-dark:#CDD6F4">scheduler</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">hasRequestsInFlight</span><span style="color:#24292E;--shiki-dark:#9399B2">())</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">{</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    size_t</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> numPolled </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 0</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">scheduler</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">pollReady</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">numPolled</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 16</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">}</span></span></code></pre><h1><a class="anchor" id="autotoc_md332"></a>
-Allocation-Free Audit</h1>
-<p>The stabilization audit treats <code>Libraries/HttpClient</code> as a caller-owned layer. The core operation, session helper, and scheduler do not allocate durable state: request/response views point into caller-owned storage, session cookies/auth entries copy into caller-provided scratch, and scheduler readiness uses caller-provided bytes. Native backend APIs may allocate internally, but the library does not introduce heap containers, owned strings, hidden cookie/auth stores, or decompression state. Operation-memory validation rejects missing event queues, response buffers, response-header storage, response-metadata storage, empty per-buffer response storage, and undersized sliced response memory.</p>
-<h1><a class="anchor" id="autotoc_md333"></a>
-Details</h1>
-<h2><a class="anchor" id="autotoc_md334"></a>
-HttpClient</h2>
-<p>Reusable HTTP backend/session owner.   </p>
-<h2><a class="anchor" id="autotoc_md335"></a>
-HttpClientRequest</h2>
-<p>Configuration for an outgoing HTTP request.   </p>
-<p>All views must remain valid until the operation completes or is cancelled. The request object is copied by value, but referenced header/body/provider storage remains caller-owned.   </p>
-<h2><a class="anchor" id="autotoc_md336"></a>
-HttpClientResponse</h2>
-<p>Parsed response metadata filled when headers arrive.   </p>
-<p><code>headers</code> and <code>effectiveUrl</code> are views into caller-owned <code>HttpClientOperationMemory</code> buffers.   </p>
-<h2><a class="anchor" id="autotoc_md337"></a>
-HttpClientRequestBodyProvider</h2>
-<p>Pull-based provider for streamed request bodies.   </p>
-<h2><a class="anchor" id="autotoc_md338"></a>
-HttpClientOperationListener</h2>
-<p>Listener receiving response notifications during HttpClientOperation::poll.   </p>
-<h2><a class="anchor" id="autotoc_md339"></a>
-HttpClientOperationNotifier</h2>
-<p>Optional notifier used by external adapters to wake up their own event loop.   </p>
-<h2><a class="anchor" id="autotoc_md340"></a>
-HttpClientResponseBuffer</h2>
-<p>Caller-owned response buffer descriptor for one HttpClientOperation.   </p>
-<h2><a class="anchor" id="autotoc_md341"></a>
-HttpClientOperationEvent</h2>
-<p>Event slot storage used by HttpClientOperation to hand off backend notifications.   </p>
-<h2><a class="anchor" id="autotoc_md342"></a>
-HttpClientOperationMemory</h2>
-<p>Caller-owned memory for one HttpClientOperation.   </p>
-<p><code>responseBuffers</code> and <code>eventQueue</code> are required. Either provide non-empty <code>data</code> for each response buffer, or provide <code>responseBufferMemory</code> to be split equally across them during <code>HttpClientOperation::init()</code>. <code>responseHeaders</code> stores raw response headers, <code>responseMetadata</code> stores transport metadata such as the effective URL, and <code>backendScratch</code> is temporary backend-specific conversion/header workspace.   </p>
-<h2><a class="anchor" id="autotoc_md343"></a>
-HttpClientOperation</h2>
-<p>One in-flight HTTP request/response operation.   </p>
-<h2><a class="anchor" id="autotoc_md344"></a>
-Async Adapter</h2>
-<p><code><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1HttpClientAsyncT.html">SC::HttpClientAsyncT</a></code> and <code><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1HttpClientAsyncOperationMemoryT.html" title="Caller-owned memory for one HttpClientAsyncT operation.">SC::HttpClientAsyncOperationMemoryT</a></code> are declared in <code><a class="el" href="/SaneCppLibraries/reference/doxygen/HttpClientAsync_8h_source.html">Libraries/HttpClient/HttpClientAsync.h</a></code>.</p>
-<p>They provide the optional <code>Async</code> / <code>AsyncStreams</code> integration layer on top of the poll-driven <code>HttpClientOperation</code> core, reusing the same request, response, and caller-owned operation memory model.</p>
-<p>With the standard Async Streams library, instantiate the adapter as <code><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1HttpClientAsyncT.html">SC::HttpClientAsyncT</a>&lt;<a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">SC::AsyncEventLoop</a>, <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncStreams.html" title="Traits exposing AsyncStreams public types through a single template parameter.">SC::AsyncStreams</a>&gt;</code> and the adapter memory as <code><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1HttpClientAsyncOperationMemoryT.html" title="Caller-owned memory for one HttpClientAsyncT operation.">SC::HttpClientAsyncOperationMemoryT</a>&lt;<a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncStreams.html" title="Traits exposing AsyncStreams public types through a single template parameter.">SC::AsyncStreams</a>&gt;</code>.</p>
-<h2><a class="anchor" id="autotoc_md345"></a>
-Session Layer</h2>
-<p><code><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1HttpClientSession.html" title="Optional caller-owned state layer above the stateless HttpClient core.">SC::HttpClientSession</a></code> is optional and does not own allocations. It can capture <code>Set-Cookie</code> headers into caller-provided cookie slots, add cached <code>Authorization</code> values by exact origin, and track retry attempts for one logical request. It also provides <code>makeBasicAuthorization()</code> to build <code>Authorization</code> or <code>Proxy-Authorization</code> values into caller-owned buffers. Basic authentication challenge helpers can inspect <code>WWW-Authenticate</code> and <code>Proxy-Authenticate</code> response headers and prepare a retry header without storing credentials. Auth challenge target and scheme names are available as static strings for diagnostics. The caller still drives <code>HttpClientOperation</code> directly; the session layer only prepares request metadata and records response metadata. Cookie capture rejects unrelated <code>Domain</code> attributes, ignores URL ports when matching hosts, derives the default cookie path from the response request URL, and matches paths at segment boundaries. It is a deliberately small transport helper rather than a complete browser cookie store. Cached authorization origins must be exact <code><a href="http://">http://</a></code> or <code><a href="https://">https://</a></code> origins with no path, query, or fragment. Cached authorization values are copied into caller-provided session scratch and reject CR, LF, and NUL bytes before they can become prepared request headers. Use <code>findCookie()</code>, <code>hasCookie()</code>, <code>findAuthorization()</code>, <code>hasAuthorization()</code>, <code>getNumCookies()</code>, and <code>getNumAuthorizations()</code> to inspect caller-owned session state without allocating. <code>clearCookies()</code> and <code>clearAuthorizations()</code> clear their slots independently; use <code>clear()</code> when you also want to reclaim session scratch space. Retry helpers expose idempotent-method checks, retryable-status checks, and remaining-attempt state without hiding the transport <code>Result</code> that caused the retry decision.</p>
-<h2><a class="anchor" id="autotoc_md346"></a>
-Operation Scheduler</h2>
-<p><code><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1HttpClientOperationScheduler.html" title="Optional coordinator for polling many HttpClientOperation instances.">SC::HttpClientOperationScheduler</a></code> is optional and caller-owned. Register initialized <code>HttpClientOperation</code> pointers plus one ready byte per operation, start requests normally, then call <code>pollReady()</code> from the application loop. The scheduler uses the existing notifier hook and never changes the single-operation request/response contract. Use <code>getNumOperations()</code>, <code>isOperationRegistered()</code>, and <code>getNumRequestsInFlight()</code> for allocation-free orchestration diagnostics.</p>
-<h1><a class="anchor" id="autotoc_md347"></a>
-Blog</h1>
-<p>Some relevant blog posts are:</p>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    HttpClientOperation operation</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">operation</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">init</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">client</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> operationMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    HttpClientOperation</span><span style="color:#D73A49;--shiki-dark:#94E2D5">*</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> schedulerOperations[] </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#D73A49;--shiki-dark:#94E2D5">&#x26;</span><span style="color:#24292E;--shiki-dark:#CDD6F4">operation</span><span style="color:#24292E;--shiki-dark:#9399B2">};</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    uint8_t</span><span style="color:#24292E;--shiki-dark:#CDD6F4">              readyOperations</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#005CC5;--shiki-dark:#FAB387">1</span><span style="color:#24292E;--shiki-dark:#9399B2">]</span><span style="color:#D73A49;--shiki-dark:#94E2D5">    =</span><span style="color:#24292E;--shiki-dark:#9399B2"> {};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    HttpClientOperationSchedulerMemory schedulerMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    schedulerMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">operations      </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#24292E;--shiki-dark:#CDD6F4">schedulerOperations</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 1</span><span style="color:#24292E;--shiki-dark:#9399B2">};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    schedulerMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">readyOperations </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#24292E;--shiki-dark:#CDD6F4">readyOperations</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 1</span><span style="color:#24292E;--shiki-dark:#9399B2">};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    HttpClientOperationScheduler scheduler</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">scheduler</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">init</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">schedulerMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    HttpClientSessionCookie         cookies</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#005CC5;--shiki-dark:#FAB387">4</span><span style="color:#24292E;--shiki-dark:#9399B2">];</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    HttpClientSessionAuthCacheEntry authEntries</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#005CC5;--shiki-dark:#FAB387">2</span><span style="color:#24292E;--shiki-dark:#9399B2">];</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    HttpClientHeader                sessionHeaders</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#005CC5;--shiki-dark:#FAB387">4</span><span style="color:#24292E;--shiki-dark:#9399B2">];</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    char</span><span style="color:#24292E;--shiki-dark:#CDD6F4">                            sessionHeaderScratch</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#005CC5;--shiki-dark:#FAB387">256</span><span style="color:#24292E;--shiki-dark:#9399B2">];</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    char</span><span style="color:#24292E;--shiki-dark:#CDD6F4">                            sessionStateScratch</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#005CC5;--shiki-dark:#FAB387">512</span><span style="color:#24292E;--shiki-dark:#9399B2">];</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    HttpClientSessionMemory sessionMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    sessionMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">cookies        </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#24292E;--shiki-dark:#CDD6F4">cookies</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 4</span><span style="color:#24292E;--shiki-dark:#9399B2">};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    sessionMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">authEntries    </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#24292E;--shiki-dark:#CDD6F4">authEntries</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 2</span><span style="color:#24292E;--shiki-dark:#9399B2">};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    sessionMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">requestHeaders </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#24292E;--shiki-dark:#CDD6F4">sessionHeaders</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 4</span><span style="color:#24292E;--shiki-dark:#9399B2">};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    sessionMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">headerScratch  </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#24292E;--shiki-dark:#CDD6F4">sessionHeaderScratch</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> sizeof</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">sessionHeaderScratch</span><span style="color:#24292E;--shiki-dark:#9399B2">)};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    sessionMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">stateScratch   </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#24292E;--shiki-dark:#CDD6F4">sessionStateScratch</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> sizeof</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">sessionStateScratch</span><span style="color:#24292E;--shiki-dark:#9399B2">)};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    HttpClientSession session</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">session</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">init</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">sessionMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    HttpClientHeader  requestHeaders[] </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {{</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">StringSpan</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"User-Agent"</span><span style="color:#24292E;--shiki-dark:#9399B2">),</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> StringSpan</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"SaneCpp-HttpClientPollSession"</span><span style="color:#24292E;--shiki-dark:#9399B2">)}};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    HttpClientRequest request</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    request</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">url                               </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> args</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#005CC5;--shiki-dark:#FAB387">0</span><span style="color:#24292E;--shiki-dark:#9399B2">];</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    request</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">headers                           </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#24292E;--shiki-dark:#CDD6F4">requestHeaders</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 1</span><span style="color:#24292E;--shiki-dark:#9399B2">};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    request</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">options</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">timeouts</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">requestTimeoutMs </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 30000</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    HttpClientRequest preparedRequest</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">session</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">prepareRequest</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">request</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> preparedRequest</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    HttpClientResponse response</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    char</span><span style="color:#24292E;--shiki-dark:#CDD6F4">               body</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#005CC5;--shiki-dark:#FAB387">256</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> *</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 1024</span><span style="color:#24292E;--shiki-dark:#9399B2">];</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    ResponseCollector  collector</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    collector</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">body </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#24292E;--shiki-dark:#CDD6F4">body</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> sizeof</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">body</span><span style="color:#24292E;--shiki-dark:#9399B2">)};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">operation</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">start</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">preparedRequest</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> response</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> &#x26;</span><span style="color:#24292E;--shiki-dark:#CDD6F4">collector</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    while</span><span style="color:#24292E;--shiki-dark:#9399B2"> (</span><span style="color:#24292E;--shiki-dark:#CDD6F4">scheduler</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">hasRequestsInFlight</span><span style="color:#24292E;--shiki-dark:#9399B2">())</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">    {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">        size_t</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> numPolled </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 0</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">        SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">scheduler</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">pollReady</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">numPolled</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#005CC5;--shiki-dark:#FAB387"> 100</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">    }</span></span></code></pre><p>The listener in that example copies body chunks into another fixed buffer. An application can instead parse, hash, decompress, or write each chunk as it arrives. If the chosen event queue, header buffer, metadata buffer, or response buffers are exhausted, the operation reports an error rather than allocating or truncating silently.</p>
+<h1><a class="anchor" id="autotoc_md285"></a>
+Request bodies and response metadata</h1>
+<p>An outgoing body has explicit framing:</p>
 <ul>
-<li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
-<li><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026 Update</a></li>
-<li><a href="https://pagghiu.github.io/site/blog/2026-06-30-SaneCppLibrariesUpdate.html">June 2026 Update</a></li>
+<li><code>FixedSize</code> borrows an inline byte span.</li>
+<li><code>SizedStream</code> repeatedly calls a <code>HttpClientRequestBodyProvider</code> and requires the declared byte count to match what the provider produces.</li>
+<li><code>ChunkedStream</code> pulls from the provider without a declared length.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md348"></a>
-Examples</h1>
+<p>The provider and everything referenced by the request must outlive completion or cancellation. <code>Transfer-Encoding</code> belongs to the framing policy and must not also be supplied as a raw request header. Request validation rejects malformed HTTP(S) URLs, invalid method/header data, CR/LF/NUL in header values, and inconsistent body descriptions before backend setup.</p>
+<p><code>HttpClientResponse::headers</code> is the raw, caller-owned source of truth. Iterators and convenience functions inspect repeated headers, content length/type/encoding, transfer codings, redirects, and authentication challenges without building a map. The client does not add <code>Accept-Encoding</code> or decompress a response. This is deliberate: compressed bytes can be fed into a caller-owned transform, including an <code>AsyncStreams</code> gzip/deflate pipeline when that dependency is acceptable.</p>
+<p>For a small synchronous request, <code>HttpClient::executeBlocking()</code> drives the same operation model and copies into a caller-provided body span. The span is a hard limit: overflow is an error, and <code>bodyLength</code> reports how many bytes were copied before it was detected. The helper still needs an <code>HttpClientOperationMemory</code>; it is convenience for control flow, not hidden storage.</p>
+<h1><a class="anchor" id="autotoc_md286"></a>
+Optional state and event-loop layers</h1>
+<p>The transport core deliberately does not own durable policy. Three optional helpers cover common application shapes while preserving caller ownership:</p>
 <ul>
-<li><code>Examples/SaneHttpGet</code> shows the blocking helper with caller-owned buffers</li>
-<li><code>Examples/HttpClientAsyncGet</code> shows the optional async-stream adapter with caller-owned queues</li>
-<li><code>Examples/HttpClientPollSession</code> shows poll-driven operation memory, the optional session layer, and the operation scheduler</li>
-<li>Unit tests in <code>Tests/Libraries/HttpClient</code> show blocking, poll-driven, session, scheduler, and upload usage patterns</li>
-<li>AsyncStreams examples show how to integrate streaming pipelines with <code>AsyncReadableStream</code></li>
+<li><code>HttpClientSession</code> prepares cookie and exact-origin <code>Authorization</code> headers, captures response cookies, and tracks retry attempts in caller-provided slots and scratch spans. It is a small transport helper, not a browser cookie store: cookie matching is intentionally limited and only Basic authentication challenge helpers are provided. A prepared request borrows the session's header workspace, so start it before preparing another request with the same workspace.</li>
+<li><code>HttpClientOperationScheduler</code> installs the operation notifier and records readiness in one caller-provided byte per registered operation. It avoids scanning every operation, but owns no operation, starts no request, and does not change the one-request-per-operation rule.</li>
+<li><code>HttpClientAsyncT&lt;AsyncEventLoop, AsyncStreams&gt;</code> translates response callbacks into an <code>AsyncReadableStream</code> and streamed uploads into an <code>AsyncWritableStream</code>. Its stream buffers and queues are additional caller-owned memory. It is an adapter over <code>HttpClientOperation</code>, not a second transport implementation.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md349"></a>
-Roadmap</h1>
-<p>🟨 MVP</p><ul>
-<li>No remaining MVP item in the allocation-free core; non-Basic authentication schemes remain application- or backend-specific policy.</li>
+<p>Retries remain an application decision. Before retrying, consider the method, whether the body provider can replay its data, the transport result, and any response status. The session helper can bookkeep that policy but never hides the original <code>Result</code> or restarts an operation by itself.</p>
+<h1><a class="anchor" id="autotoc_md287"></a>
+Backend policy and current limits</h1>
+<p>Defaults let the native backend choose where possible. Stronger policies should be checked through <code>HttpClientCapabilities::supportsRequestOptions()</code> or allowed to fail during <code>start()</code>:</p>
+<ul>
+<li><code>Http2Required</code> rejects a backend that cannot enforce HTTP/2 and rejects an HTTP/1.1 negotiation; <code>Http2Preferred</code> permits fallback. Apple currently cannot force HTTP/1.1 or require HTTP/2 through this API shape.</li>
+<li>Peer verification is enabled by default. A custom CA path or disabling verification fails on a backend that cannot honor it.</li>
+<li>The default proxy mode preserves system behavior. Explicit no-proxy and HTTP-proxy policies are backend capabilities; Apple currently rejects non-default proxy policy.</li>
+<li>Redirects are off by default. Following redirects is constrained by method policy and a caller-set maximum.</li>
+<li>Native backend APIs may allocate internally. The allocation-free guarantee is that HttpClient does not add heap containers, owned strings, cookie/auth stores, or decompression state around them.</li>
+<li>Chunked request trailers, non-Basic authentication policy, HTTP/3, pluggable backend selection, and uniform advanced TLS customization are not provided.</li>
 </ul>
-<p>🟩 Usable Features:</p><ul>
-<li>Higher-level content-coding transform composition helpers</li>
-<li>Broader TLS customization parity</li>
+<p>Capability fields describe what this build can request from its backend, not what a remote server will negotiate. Applications with a hard deployment requirement can pass required backend/features to <code>HttpClient::init()</code> and fail before accepting work.</p>
+<h1><a class="anchor" id="autotoc_md288"></a>
+Where to look next</h1>
+<ul>
+<li><code>Examples/HttpClientPollSession</code> is the complete poll-driven example used above, including the session and scheduler layers.</li>
+<li><code>Examples/HttpClientAsyncGet</code> shows the <code>AsyncStreams</code> adapter and its extra queues and buffers.</li>
+<li><code>Tests/Libraries/HttpClient/HttpClientTest.cpp</code> exercises blocking, poll-driven, concurrent, scheduled, streamed-upload, Async, validation, and policy-failure paths against a local server.</li>
+<li>The <a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026</a>, <a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026</a>, and <a href="https://pagghiu.github.io/site/blog/2026-06-30-SaneCppLibrariesUpdate.html">June 2026</a> updates record the design's recent evolution.</li>
 </ul>
-<p>🟦 Complete Features:</p><ul>
-<li>Pluggable backend selection</li>
-</ul>
-<p>💡 Unplanned Features:</p><ul>
-<li>HTTP/3</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md350"></a>
+<p>For API signatures and per-member contracts, see <a class="el" href="/SaneCppLibraries/reference/doxygen/group__group__http__client.html">Group_http_client</a>. The public headers separate the layers explicitly: <code><a class="el" href="/SaneCppLibraries/reference/doxygen/HttpClient_8h_source.html">HttpClient.h</a></code> for the core, <code><a class="el" href="/SaneCppLibraries/reference/doxygen/HttpClientSession_8h_source.html">HttpClientSession.h</a></code> for state, <code><a class="el" href="/SaneCppLibraries/reference/doxygen/HttpClientScheduler_8h_source.html">HttpClientScheduler.h</a></code> for readiness coordination, and <code><a class="el" href="/SaneCppLibraries/reference/doxygen/HttpClientAsync_8h_source.html">HttpClientAsync.h</a></code> for stream integration.</p>
+<h1><a class="anchor" id="autotoc_md289"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/HttpClient</code>. Single File counts <code>SaneCppHttpClient.h</code>. Standalone counts <code>SaneCppHttpClientStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">
@@ -411,78 +285,28 @@ Statistics</h1>
 </table></article> <section class="panel related-posts" aria-labelledby="related-posts-heading" data-astro-cid-7c432cc5> <h2 id="related-posts-heading" data-astro-cid-7c432cc5>Related blog posts</h2> <div class="related-links" data-astro-cid-7c432cc5> <a href="https://pagghiu.github.io/site/blog/2026-06-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☀️ Sane C++ June 26</a><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌸 Sane C++ May 26</a><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☔️ Sane C++ March 26</a> </div> </section> </div> <aside class="context-rail" aria-label="Page context" data-astro-cid-7c432cc5> <div class="card context-panel" data-astro-cid-7c432cc5> <div class="generated-toc" aria-label="Page sections" data-astro-cid-7c432cc5><div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md327">Dependencies</a>
+    <a href="#autotoc_md282">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md328">Features</a>
+    <a href="#autotoc_md283">Is HttpClient the right layer?</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md329">Status</a>
+    <a href="#autotoc_md284">The request is a description; the operation owns the conversation</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md330">Description</a>
+    <a href="#autotoc_md285">Request bodies and response metadata</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md331">Recommended Patterns</a>
+    <a href="#autotoc_md286">Optional state and event-loop layers</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md332">Allocation-Free Audit</a>
+    <a href="#autotoc_md287">Backend policy and current limits</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md333">Details</a>
-    <ul>
-      <li class="level2">
-        <a href="#autotoc_md334">HttpClient</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md335">HttpClientRequest</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md336">HttpClientResponse</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md337">HttpClientRequestBodyProvider</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md338">HttpClientOperationListener</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md339">HttpClientOperationNotifier</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md340">HttpClientResponseBuffer</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md341">HttpClientOperationEvent</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md342">HttpClientOperationMemory</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md343">HttpClientOperation</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md344">Async Adapter</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md345">Session Layer</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md346">Operation Scheduler</a>
-      </li>
-    </ul>
+    <a href="#autotoc_md288">Where to look next</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md347">Blog</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md348">Examples</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md349">Roadmap</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md350">Statistics</a>
+    <a href="#autotoc_md289">Statistics</a>
   </li>
 </ul>
 </div></div> </div> </aside> </section>  </div> </div> </main> <footer class="site-footer" data-astro-cid-37fxchfa> <div class="shell footer-grid" data-astro-cid-37fxchfa> <div data-astro-cid-37fxchfa> <div class="eyebrow" data-astro-cid-37fxchfa>Platform Abstraction C++ Libraries</div> <h2 data-astro-cid-37fxchfa>Sane C++ Libraries</h2> <p class="copy-muted" data-astro-cid-37fxchfa>

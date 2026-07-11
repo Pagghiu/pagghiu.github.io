@@ -129,281 +129,213 @@ $(function(){initNavTree('library_fibers_async.html',''); initResizable(true); }
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md220">Dependencies</a>
+    <a href="#autotoc_md200">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md221">What FibersAsync Is For</a>
+    <a href="#autotoc_md201">The bridge, not another runtime</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md222">Design Intent</a>
+    <a href="#autotoc_md202">A complete wait</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md223">A Sleep Example</a>
+    <a href="#autotoc_md203">What the I/O calls return</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md224">Socket Echo Shape</a>
+    <a href="#autotoc_md204">Memory and lifetime are part of the API</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md225">File I/O Shape</a>
+    <a href="#autotoc_md205">Worker threads and the event-loop owner</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md226">Worker-Pool I/O</a>
+    <a href="#autotoc_md206">Cancellation and shutdown</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md227">Cancellation</a>
+    <a href="#autotoc_md207">Choosing between the neighboring libraries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md228">Lifetime Rules</a>
+    <a href="#autotoc_md208">Status and practical limits</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md229">Allocation Model</a>
+    <a href="#autotoc_md209">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md230">Relationship To Await</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md231">Features</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md232">Complete Examples</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md233">Status</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md234">Roadmap</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md235">Details</a>
+    <a href="#autotoc_md210">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟥 Stackful fiber I/O bridge over Async</p>
-<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppFibersAsync.h">SaneCppFibersAsync.h</a> is a bridge between <a class="el" href="library_fibers.html">Fibers</a> and <a class="el" href="library_async.html">Async</a>. It lets fiber tasks call async I/O helpers in synchronous-looking code while preserving the caller-owned request, buffer, and event-loop model from <code>Async</code>.</p>
-<h1><a class="anchor" id="autotoc_md220"></a>
+<p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppFibersAsync.h">SaneCppFibersAsync.h</a> lets a <a class="el" href="library_fibers.html">Fibers</a> task wait for <a class="el" href="library_async.html">Async</a> I/O using ordinary function calls. It is for code that benefits from blocking-shaped control flow but must not block the event-loop thread.</p>
+<h1><a class="anchor" id="autotoc_md200"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <a class="el" href="library_async.html">Async</a>, <a class="el" href="library_fibers.html">Fibers</a></li>
 <li>All dependencies: <a class="el" href="library_async.html">Async</a>, <a class="el" href="library_fibers.html">Fibers</a>, <a class="el" href="library_file.html">File</a>, <a class="el" href="library_file_system.html">FileSystem</a>, <a class="el" href="library_socket.html">Socket</a>, <a class="el" href="library_threading.html">Threading</a></li>
 </ul>
 <p><img src="FibersAsync.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md221"></a>
-What FibersAsync Is For</h1>
-<p><code>FibersAsync</code> is the I/O bridge for stackful fibers. It does not replace <code>AsyncEventLoop</code> and it does not replace <code>FiberScheduler</code>. Instead, <code>FiberAsyncIO</code> wraps both:</p>
-<div class="fragment"><div class="line">AsyncEventLoop eventLoop;</div>
-<div class="line">SC_TRY(eventLoop.create());</div>
-<div class="line"> </div>
-<div class="line">FiberScheduler    scheduler;</div>
-<div class="line">FiberAsyncCommand commands[8];</div>
-<div class="line">FiberAsyncIO      io(scheduler, eventLoop, commands);</div>
-</div><!-- fragment --><p>Fiber tasks can then wait for timers, sockets, files, processes, or signals by calling <code>io.sleep()</code>, <code>io.receive()</code>, <code>io.fileRead()</code>, and similar methods. Internally, the lower-level <code>AsyncRequest</code> starts on the wrapped event loop, and the current fiber suspends until the async completion wakes it.</p>
-<h1><a class="anchor" id="autotoc_md222"></a>
-Design Intent</h1>
-<p>The library keeps the spirit of <code>Async</code>:</p>
-<ul>
-<li><code>FiberAsyncIO</code> uses an externally owned <code>AsyncEventLoop&amp;</code>;</li>
-<li><code>FiberAsyncIO</code> uses an externally owned <code>FiberScheduler&amp;</code>;</li>
-<li>methods return plain <code>Result</code>;</li>
-<li>extra operation outputs are explicit caller-provided result objects;</li>
-<li>buffers, sockets, files, tasks, stacks, and output objects must remain valid while the operation is active;</li>
-<li>callback-style <code>Async</code> code and fiber-style <code>FibersAsync</code> code can share the same event loop;</li>
-<li>cross-thread event-loop access goes through bounded caller-provided <code>FiberAsyncCommand</code> storage.</li>
-</ul>
-<p><code>FibersAsync</code> is deliberately concrete for now. A more abstract <code>FiberIO</code> facade should wait until there is a second real backend worth sharing behind one API.</p>
-<h1><a class="anchor" id="autotoc_md223"></a>
-A Sleep Example</h1>
-<p>The simplest example is a fiber that waits without blocking the OS thread:</p>
-<div class="fragment"><div class="line"><span class="keyword">struct </span>State</div>
-<div class="line">{</div>
-<div class="line">    FiberAsyncIO* io        = <span class="keyword">nullptr</span>;</div>
-<div class="line">    <span class="keywordtype">int</span>           completed = 0;</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line">AsyncEventLoop eventLoop;</div>
-<div class="line">SC_TRY(eventLoop.create());</div>
-<div class="line"> </div>
-<div class="line">FiberScheduler scheduler;</div>
-<div class="line">FiberAsyncIO   io(scheduler, eventLoop);</div>
-<div class="line">FiberTask      task;</div>
-<div class="line"><span class="keywordtype">char</span>           stackMemory[64 * 1024] = {};</div>
-<div class="line">FiberStack     stack({stackMemory, <span class="keyword">sizeof</span>(stackMemory)});</div>
-<div class="line">State          state;</div>
-<div class="line">state.io = &amp;io;</div>
-<div class="line"> </div>
-<div class="line">SC_TRY(scheduler.spawn(task, stack,</div>
-<div class="line">                       FiberTask::Procedure(</div>
-<div class="line">                           [&amp;state](FiberScheduler&amp;)</div>
-<div class="line">                           {</div>
-<div class="line">                               SC_TRY(state.io-&gt;sleep(TimeMs{1}));</div>
-<div class="line">                               state.completed++;</div>
-<div class="line">                               <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
-<div class="line">                           })));</div>
-<div class="line"> </div>
-<div class="line">SC_TRY(io.runUntilComplete());</div>
-<div class="line">SC_TRY(task.result());</div>
-<div class="line">SC_TRY(eventLoop.close());</div>
-</div><!-- fragment --><p><code>io.runUntilComplete()</code> drives both sides: ready fibers through <code>FiberScheduler</code>, and async completions through <code>AsyncEventLoop</code>.</p>
-<h1><a class="anchor" id="autotoc_md224"></a>
-Socket Echo Shape</h1>
-<p>Socket helpers follow the same Sane C++ result-object pattern as <code>Async</code>: operation status is returned as <code>Result</code>, and data about the operation is written into explicit output objects.</p>
-<div class="fragment"><div class="line">Result echoOnce(FiberAsyncIO&amp; io, <span class="keyword">const</span> SocketDescriptor&amp; socket)</div>
-<div class="line">{</div>
-<div class="line">    <span class="keywordtype">char</span> receiveBuffer[1024] = {};</div>
-<div class="line"> </div>
-<div class="line">    FiberAsyncSocketReceiveResult received;</div>
-<div class="line">    SC_TRY(io.receive(socket, {receiveBuffer, sizeof(receiveBuffer)}, received));</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (received.disconnected)</div>
+<h1><a class="anchor" id="autotoc_md201"></a>
+The bridge, not another runtime</h1>
+<p><code>FibersAsync</code> does not own an I/O runtime or a scheduler. Its central object, <a class="el" href="structSC_1_1FiberAsyncIO.html" title="Synchronous-looking fiber I/O wrapper around an externally owned AsyncEventLoop.">SC::FiberAsyncIO</a>, joins a caller-owned <a class="el" href="structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">SC::AsyncEventLoop</a> to a caller-owned <a class="el" href="structSC_1_1FiberScheduler.html" title="Cooperative fiber scheduler with explicit workers and caller-owned storage.">SC::FiberScheduler</a>. A fiber calls <code>sleep</code>, <code>receive</code>, <code>fileRead</code>, or another helper; the bridge starts the corresponding <code>AsyncRequest</code>, suspends that fiber, and makes it ready again when the request completes. Other fibers and callbacks can continue on the same loop in the meantime.</p>
+<p>This is the useful mental model:</p>
+<ol type="1">
+<li>operation state and the underlying async request live on the current fiber's stable stack;</li>
+<li>the fiber waits on a <code>FiberCounter</code>, yielding its OS thread;</li>
+<li>the async callback records a plain SC::Result and wakes the fiber;</li>
+<li>the original call resumes and returns that result.</li>
+</ol>
+<p>There is no coroutine transformation and no second hidden event loop. The price is that every call must run inside a scheduled fiber, and the application must explicitly drive both the scheduler and the event loop.</p>
+<h1><a class="anchor" id="autotoc_md202"></a>
+A complete wait</h1>
+<p>The demo's sleep example is compiled as part of the <code>FibersDemo</code> executable:</p>
+<div class="fragment"><div class="line">    <span class="keyword">struct </span>State</div>
 <div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
+<div class="line">        FiberAsyncIO* io        = <span class="keyword">nullptr</span>;</div>
+<div class="line">        <span class="keywordtype">int</span>           completed = 0;</div>
+<div class="line">    };</div>
+<div class="line"> </div>
+<div class="line">    AsyncEventLoop eventLoop;</div>
+<div class="line">    SC_TRY(eventLoop.create());</div>
+<div class="line"> </div>
+<div class="line">    FiberScheduler      scheduler;</div>
+<div class="line">    FiberAsyncCommand   commands[8];</div>
+<div class="line">    FiberAsyncIO        io(scheduler, eventLoop, commands);</div>
+<div class="line">    FiberTask           tasks[2];</div>
+<div class="line">    <span class="keywordtype">char</span>                stackMemory[2 * 64 * 1024] = {};</div>
+<div class="line">    FiberTaskPool       pool({tasks, 2}, {stackMemory, <span class="keyword">sizeof</span>(stackMemory)}, 64 * 1024);</div>
+<div class="line">    FiberTaskGroup      group(scheduler);</div>
+<div class="line">    FiberTaskGroupError errors[2];</div>
+<div class="line">    State               state;</div>
+<div class="line">    state.io = &amp;io;</div>
+<div class="line"> </div>
+<div class="line">    SC_TRY(group.spawn(pool, FiberTask::Procedure(</div>
+<div class="line">                                 [&amp;state](FiberScheduler&amp;)</div>
+<div class="line">                                 {</div>
+<div class="line">                                     SC_TRY(state.io-&gt;sleep(TimeMs{1}));</div>
+<div class="line">                                     state.completed++;</div>
+<div class="line">                                     <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
+<div class="line">                                 })));</div>
+<div class="line">    SC_TRY(group.spawn(pool, FiberTask::Procedure(</div>
+<div class="line">                                 [&amp;state](FiberScheduler&amp;)</div>
+<div class="line">                                 {</div>
+<div class="line">                                     SC_TRY(state.io-&gt;sleep(TimeMs{1}));</div>
+<div class="line">                                     state.completed++;</div>
+<div class="line">                                     <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
+<div class="line">                                 })));</div>
+<div class="line"> </div>
+<div class="line">    SC_TRY(io.runUntilComplete());</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">size_t</span> numErrors = 0;</div>
+<div class="line">    SC_TRY(group.collectErrors(errors, numErrors));</div>
+<div class="line">    <span class="keywordflow">if</span> (numErrors != 0)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> errors[0].result;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    FiberAsyncSocketSendResult sent;</div>
-<div class="line">    SC_TRY(io.sendAll(socket, received.data, &amp;sent));</div>
+<div class="line">    console.print(<span class="stringliteral">&quot;FibersAsync sleeps completed: {}\n&quot;</span>, state.completed);</div>
+<div class="line">    SC_TRY(eventLoop.close());</div>
 <div class="line">    <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
-<div class="line">}</div>
-</div><!-- fragment --><p><code>receive()</code> writes the actual received byte range into <code>received.data</code>, which points into the caller-provided buffer. <code>sendAll()</code> repeats lower-level send operations until the whole span is sent or an error/cancellation occurs.</p>
-<h1><a class="anchor" id="autotoc_md225"></a>
-File I/O Shape</h1>
-<p>File helpers also use caller-provided buffers and optional result objects:</p>
-<div class="fragment"><div class="line">Result copyChunk(FiberAsyncIO&amp; io, <span class="keyword">const</span> FileDescriptor&amp; input, <span class="keyword">const</span> FileDescriptor&amp; output)</div>
-<div class="line">{</div>
-<div class="line">    <span class="keywordtype">char</span> readBuffer[4096] = {};</div>
+</div><!-- fragment --><p>SC::FiberAsyncIO::runUntilComplete drives ready fibers and async completions until neither remains. The shorter <code>runOnce</code>, <code>runNoWait</code>, and <code>runUntilIdle</code> variants exist for embedding the bridge in a larger application loop. A successful wait does not mean that an OS thread slept: only the calling fiber was suspended.</p>
+<p>The example also exposes the storage model. The caller supplies the event loop, scheduler, command slots, tasks, stacks, task group, and error collection. <code>FiberAsyncIO</code> itself borrows the event loop, scheduler, and command span; the scheduler and task group use the remaining storage.</p>
+<h1><a class="anchor" id="autotoc_md203"></a>
+What the I/O calls return</h1>
+<p>Operations return SC::Result for success, cancellation, or an OS/backend error. Values produced by an operation use small explicit output records:</p>
+<ul>
+<li>socket sends report a byte count; receives report a span into the supplied buffer and whether the peer disconnected;</li>
+<li>file reads report a span into the supplied buffer and EOF; writes report the byte count;</li>
+<li>file-to-socket transfer reports bytes transferred and whether the backend used zero-copy;</li>
+<li>process and signal waits report exit or delivery information.</li>
+</ul>
+<p>One-shot calls such as <code>send</code> and <code>fileWrite</code> may complete only part of the input. Use <code>sendAll</code> or <code>fileWriteAll</code> when the whole span is required. Likewise, <code>fileReadExact</code> repeats reads until the buffer is full or EOF is reached. Offset variants keep the position explicit rather than advancing the descriptor's shared position.</p>
+<p>The bridge currently covers timers, TCP and datagram sockets, files and readiness, file-to-socket transfer, process exit, and one-shot signal waits. It is not a stream protocol, buffered reader, DNS resolver, or general blocking-call adapter; framing, buffering, retries, and higher-level protocols remain application or neighboring-library policy.</p>
+<h1><a class="anchor" id="autotoc_md204"></a>
+Memory and lifetime are part of the API</h1>
+<p>Normal operation does not allocate a coroutine frame or heap-backed request. That predictability requires several hard lifetime rules:</p>
+<ul>
+<li><a class="el" href="structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">SC::AsyncEventLoop</a> and <a class="el" href="structSC_1_1FiberScheduler.html" title="Cooperative fiber scheduler with explicit workers and caller-owned storage.">SC::FiberScheduler</a> must outlive <a class="el" href="structSC_1_1FiberAsyncIO.html" title="Synchronous-looking fiber I/O wrapper around an externally owned AsyncEventLoop.">SC::FiberAsyncIO</a>;</li>
+<li>each <a class="el" href="structSC_1_1FiberTask.html" title="Caller-owned task object scheduled by FiberScheduler.">SC::FiberTask</a> and its <a class="el" href="structSC_1_1FiberStack.html" title="Caller-owned stack storage used by fiber contexts.">SC::FiberStack</a> must remain alive and memory-stable until the task completes;</li>
+<li>descriptors, input spans, receive buffers, and output records must remain valid until their call resumes;</li>
+<li>cross-thread <a class="el" href="structSC_1_1FiberAsyncCommand.html">SC::FiberAsyncCommand</a> storage must outlive the bridge and any operation using it.</li>
+</ul>
+<p>The request and callback state are stack-local, which is safe specifically because a suspended fiber retains its stack. Destroying or moving any referenced storage early is a correctness bug, not an operation the bridge copies around.</p>
+<p>Capacity is similarly explicit. The application chooses the number and size of fiber stacks and, for worker-pool I/O, the number of command slots. This makes peak memory visible, but it also means exhaustion is possible and must be designed for.</p>
+<h1><a class="anchor" id="autotoc_md205"></a>
+Worker threads and the event-loop owner</h1>
+<p><a class="el" href="structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">SC::AsyncEventLoop</a> remains owner-thread-affine. A fiber may nevertheless resume on a worker thread. In that case the bridge queues the request's start or stop procedure in caller-provided <a class="el" href="structSC_1_1FiberAsyncCommand.html">SC::FiberAsyncCommand</a> storage, wakes the owner, and waits for the owner to execute it.</p>
+<p>The source-backed worker-pool example shows the division of responsibilities:</p>
+<div class="fragment"><div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> NumWorkers = 2;</div>
 <div class="line"> </div>
-<div class="line">    FiberAsyncFileReadResult readResult;</div>
-<div class="line">    SC_TRY(io.fileRead(input, {readBuffer, sizeof(readBuffer)}, readResult));</div>
-<div class="line">    <span class="keywordflow">if</span> (readResult.endOfFile or readResult.data.sizeInBytes() == 0)</div>
+<div class="line">    <span class="keyword">struct </span>State</div>
 <div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
-<div class="line">    }</div>
+<div class="line">        FiberAsyncIO* io        = <span class="keyword">nullptr</span>;</div>
+<div class="line">        <span class="keywordtype">int</span>           completed = 0;</div>
+<div class="line">    };</div>
 <div class="line"> </div>
-<div class="line">    FiberAsyncFileWriteResult writeResult;</div>
-<div class="line">    SC_TRY(io.fileWriteAll(output, readResult.data, &amp;writeResult));</div>
+<div class="line">    AsyncEventLoop eventLoop;</div>
+<div class="line">    SC_TRY(eventLoop.create());</div>
+<div class="line"> </div>
+<div class="line">    FiberScheduler    scheduler;</div>
+<div class="line">    FiberAsyncCommand commands[8];</div>
+<div class="line">    FiberAsyncIO      io(scheduler, eventLoop, commands);</div>
+<div class="line">    FiberTask         task;</div>
+<div class="line">    <span class="keywordtype">char</span>              stackMemory[64 * 1024] = {};</div>
+<div class="line">    FiberStack        stack({stackMemory, <span class="keyword">sizeof</span>(stackMemory)});</div>
+<div class="line">    FiberWorker       workers[NumWorkers];</div>
+<div class="line">    FiberWorkerThread threads[NumWorkers];</div>
+<div class="line">    FiberWorkerPool   workerPool;</div>
+<div class="line">    State             state;</div>
+<div class="line">    state.io = &amp;io;</div>
+<div class="line"> </div>
+<div class="line">    SC_TRY(scheduler.spawn(task, stack,</div>
+<div class="line">                           FiberTask::Procedure(</div>
+<div class="line">                               [&amp;state](FiberScheduler&amp;)</div>
+<div class="line">                               {</div>
+<div class="line">                                   SC_TRY(state.io-&gt;sleep(TimeMs{1}));</div>
+<div class="line">                                   state.completed++;</div>
+<div class="line">                                   <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
+<div class="line">                               })));</div>
+<div class="line"> </div>
+<div class="line">    SC_TRY(workerPool.start(scheduler, {workers, NumWorkers}, {threads, NumWorkers}));</div>
+<div class="line">    SC_TRY(io.runOwnerUntilComplete());</div>
+<div class="line">    SC_TRY(workerPool.join());</div>
+<div class="line">    SC_TRY(task.result());</div>
+<div class="line"> </div>
+<div class="line">    console.print(<span class="stringliteral">&quot;Worker-pool FibersAsync sleeps completed: {}\n&quot;</span>, state.completed);</div>
+<div class="line">    SC_TRY(eventLoop.close());</div>
 <div class="line">    <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
-<div class="line">}</div>
-</div><!-- fragment --><p>Offsets are explicit through <code>fileReadAt()</code>, <code>fileReadExactAt()</code>, <code>fileWriteAt()</code>, and <code>fileWriteAllAt()</code>. File readiness is available through <code>filePoll()</code> for the currently supported platform/backend cases.</p>
-<h1><a class="anchor" id="autotoc_md226"></a>
-Worker-Pool I/O</h1>
-<p><code>AsyncEventLoop</code> remains owner-thread-affine. If a fiber running on a worker thread starts I/O, <code>FiberAsyncIO</code> posts the start/stop command back to the owner thread through bounded <code>FiberAsyncCommand</code> storage.</p>
-<div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> NumWorkers = 2;</div>
-<div class="line"> </div>
-<div class="line">AsyncEventLoop eventLoop;</div>
-<div class="line">SC_TRY(eventLoop.create());</div>
-<div class="line"> </div>
-<div class="line">FiberScheduler    scheduler;</div>
-<div class="line">FiberAsyncCommand commands[8];</div>
-<div class="line">FiberAsyncIO      io(scheduler, eventLoop, commands);</div>
-<div class="line"> </div>
-<div class="line">FiberWorker       workers[NumWorkers];</div>
-<div class="line">FiberWorkerThread threads[NumWorkers];</div>
-<div class="line">FiberWorkerPool   workerPool;</div>
-<div class="line"> </div>
-<div class="line">SC_TRY(workerPool.start(scheduler, {workers, NumWorkers}, {threads, NumWorkers}));</div>
-<div class="line">SC_TRY(io.runOwnerUntilComplete());</div>
-<div class="line">SC_TRY(workerPool.join());</div>
-<div class="line">SC_TRY(eventLoop.close());</div>
-</div><!-- fragment --><p>The command storage size is a real capacity limit. If cross-thread producers can submit more simultaneous starts/stops than the storage can hold, provide more <code>FiberAsyncCommand</code> slots or design the producer to apply backpressure.</p>
-<h1><a class="anchor" id="autotoc_md227"></a>
-Cancellation</h1>
-<p>Cancellation is cooperative and result-based. A task suspended in a <code>FiberAsyncIO</code> operation can be canceled through the fiber scheduler; <code>FiberAsyncIO</code> stops the underlying async request when needed and wakes the fiber with an error <code>Result</code>.</p>
-<div class="fragment"><div class="line">SC_TRY(scheduler.requestCancel(task));</div>
-<div class="line">SC_TRY(io.runUntilComplete());</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordflow">if</span> (not task.result())</div>
-<div class="line">{</div>
-<div class="line">    <span class="comment">// The task observed cancellation or another operation error.</span></div>
-<div class="line">}</div>
-</div><!-- fragment --><p><code>FiberAsyncIO::cancelAll()</code> is also available as an I/O bridge helper for canceling pending async operations associated with the bridge.</p>
-<h1><a class="anchor" id="autotoc_md228"></a>
-Lifetime Rules</h1>
-<p>The lifetime rules are intentionally close to <code>Async</code> and <code>Fibers</code>:</p>
-<ul>
-<li><code>AsyncEventLoop</code> must outlive <code>FiberAsyncIO</code>;</li>
-<li><code>FiberScheduler</code> must outlive <code>FiberAsyncIO</code>;</li>
-<li><code>FiberAsyncCommand</code> storage must outlive cross-thread operations using it;</li>
-<li><code>FiberTask</code> and <code>FiberStack</code> storage must outlive the spawned task;</li>
-<li>sockets, files, buffers, and output result objects must outlive the operation using them;</li>
-<li>request objects used internally are stack-local to the suspended fiber and remain valid because the fiber stack is stable while suspended.</li>
-</ul>
-<p>This is the key difference from a heap-backed async framework: the caller chooses the maximum number of simultaneous tasks, stacks, command posts, and buffers.</p>
-<h1><a class="anchor" id="autotoc_md229"></a>
-Allocation Model</h1>
-<p><code>FibersAsync</code> does not allocate coroutine frames and does not need C++20 coroutines. It relies on the active fiber stack to hold the operation state while the fiber is suspended. Cross-thread command posting uses caller-provided <code>Span&lt;FiberAsyncCommand&gt;</code> storage, and normal same-thread usage can omit command storage.</p>
-<p>The lower-level <code>Async</code> and <code>Fibers</code> rules still apply: request objects and fiber objects must be memory-stable, and any capacity that can grow must be supplied explicitly by the caller.</p>
-<h1><a class="anchor" id="autotoc_md230"></a>
-Relationship To Await</h1>
-<p><a class="el" href="library_await.html">Await</a> and <code>FibersAsync</code> both make <code>Async</code> code easier to read, but they make different tradeoffs.</p>
-<p><code>Await</code> uses C++20 coroutines and explicit <code>AwaitAllocator</code> coroutine-frame allocation. It is a good fit when you want <code>co_await</code> syntax and compiler-generated coroutine state machines.</p>
-<p><code>FibersAsync</code> uses stackful fibers. It is a good fit when you want ordinary synchronous-looking function calls, the ability to suspend through existing nested call stacks, and explicit stack storage instead of coroutine frames.</p>
-<p>Both libraries keep callback-style <code>Async</code> integration possible because both wrap an existing <code>AsyncEventLoop&amp;</code> instead of owning a separate I/O runtime.</p>
-<h1><a class="anchor" id="autotoc_md231"></a>
-Features</h1>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadLeft">FibersAsync API   </th><th class="markdownTableHeadLeft">Description    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FiberAsyncIO.html">FiberAsyncIO</a>   </td><td class="markdownTableBodyLeft">Synchronous-looking fiber I/O wrapper around an externally owned <code>AsyncEventLoop</code>.    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FiberAsyncCommand.html">FiberAsyncCommand</a>   </td><td class="markdownTableBodyLeft">Bounded command slot for owner-thread I/O posting.    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FiberAsyncSocketSendResult.html">FiberAsyncSocketSendResult</a>   </td><td class="markdownTableBodyLeft">Result object populated by <code>send</code>, <code>sendTo</code>, and <code>sendAll</code>.    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FiberAsyncSocketReceiveResult.html">FiberAsyncSocketReceiveResult</a>   </td><td class="markdownTableBodyLeft">Result object populated by <code>receive</code>.    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FiberAsyncSocketReceiveFromResult.html">FiberAsyncSocketReceiveFromResult</a>   </td><td class="markdownTableBodyLeft">Result object populated by <code>receiveFrom</code>.    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FiberAsyncFileWriteResult.html">FiberAsyncFileWriteResult</a>   </td><td class="markdownTableBodyLeft">Result object populated by file write helpers.    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FiberAsyncFileReadResult.html">FiberAsyncFileReadResult</a>   </td><td class="markdownTableBodyLeft">Result object populated by file read helpers.    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FiberAsyncFileSendOptions.html">FiberAsyncFileSendOptions</a>   </td><td class="markdownTableBodyLeft">Options for <code>fileSend</code>.    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FiberAsyncFileSendResult.html">FiberAsyncFileSendResult</a>   </td><td class="markdownTableBodyLeft">Result object populated by <code>fileSend</code>.    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FiberAsyncProcessExitResult.html">FiberAsyncProcessExitResult</a>   </td><td class="markdownTableBodyLeft">Result object populated by <code>processExit</code>.    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="structSC_1_1FiberAsyncSignalResult.html">FiberAsyncSignalResult</a>   </td><td class="markdownTableBodyLeft">Result object populated by <code>signal</code>.   </td></tr>
-</table>
-<h1><a class="anchor" id="autotoc_md232"></a>
-Complete Examples</h1>
-<ul>
-<li><code>Examples/FibersDemo</code> shows two sleeping fiber tasks driven by one <code>FiberAsyncIO</code>, then the same bridge used with a worker pool.</li>
-<li><code>Tests/Libraries/FibersAsync/FibersAsyncTest.cpp</code> contains focused examples for sleeps, sockets, UDP, files, <code>fileSend</code>, process exit, signals, cancellation, command queue overflow, and worker-pool cross-thread operation posting.</li>
-<li><code>Examples/FibersBenchmark</code> focuses on CPU scheduling rather than I/O, but it is useful context for how the same scheduler scales task execution.</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md233"></a>
-Status</h1>
+</div><!-- fragment --><p>Only the owner thread calls <code>runOwnerUntilComplete</code>; worker threads execute fibers. Command storage is a bounded queue, not scratch space sized only for one call. If simultaneous cross-thread starts and cancellation stops can fill it, the operation fails rather than allocating. Size it from the intended concurrency or impose producer backpressure. For a single-threaded scheduler, command storage can be omitted.</p>
+<h1><a class="anchor" id="autotoc_md206"></a>
+Cancellation and shutdown</h1>
+<p>Cancellation is cooperative. SC::FiberScheduler::requestCancel wakes an interruptible fiber wait; the bridge stops the underlying request when necessary and resumes the call with an error <code>Result</code>. SC::FiberAsyncIO::cancelAll asks the scheduler to cancel all active fibers. Their pending bridge operations are then stopped through the same cooperative path; callback-style requests sharing the event loop are not selected by this call.</p>
+<p>Cancellation does not relax lifetime rules. The owner loop still has to process the stop/completion path, the fiber must resume, and its task, stack, buffers, and request dependencies must remain alive until that happens. Treat <code>runUntilComplete</code>/<code>runOwnerUntilComplete</code>, task result collection, and <code>AsyncEventLoop::close</code> as an ordered shutdown sequence.</p>
+<h1><a class="anchor" id="autotoc_md207"></a>
+Choosing between the neighboring libraries</h1>
+<p>Use <a class="el" href="library_async.html">Async</a> directly when callbacks fit the state machine, minimizing per-operation stack memory and making every suspension point explicit. Add <code>FibersAsync</code> when a workflow is easier to express as nested ordinary calls or must suspend through existing call layers. Each concurrent fiber then needs its own explicitly sized stack.</p>
+<p><a class="el" href="library_await.html">Await</a> offers another sequential syntax over the same <code>AsyncEventLoop</code>. It uses C++20 <code>co_await</code> and allocator-backed coroutine frames; <code>FibersAsync</code> uses stackful switching and caller-provided stacks. Await generally fits code designed around coroutines. FibersAsync fits code that needs to suspend through ordinary non-coroutine helper functions, at the cost of coarser stack reservations and a draft runtime surface.</p>
+<p><a class="el" href="library_fibers.html">Fibers</a> remains the scheduling and synchronization layer. It is useful without I/O, while <code>FibersAsync</code> is specifically the adapter from its tasks to <code>Async</code>. Neither library turns arbitrary blocking system calls into cooperative waits.</p>
+<h1><a class="anchor" id="autotoc_md208"></a>
+Status and practical limits</h1>
 <p>🟥 Draft</p>
-<p>Current support includes:</p>
-<ul>
-<li><code>sleep()</code>;</li>
-<li>socket <code>accept()</code> and <code>connect()</code>;</li>
-<li>socket <code>receive()</code>;</li>
-<li>one-shot socket <code>send()</code>;</li>
-<li>socket <code>sendAll()</code>;</li>
-<li>datagram socket <code>sendTo()</code> and <code>receiveFrom()</code>;</li>
-<li>file <code>fileRead()</code>, <code>fileReadAt()</code>, <code>fileReadExact()</code>, <code>fileReadExactAt()</code>;</li>
-<li>file <code>fileWrite()</code>, <code>fileWriteAt()</code>, <code>fileWriteAll()</code>, and <code>fileWriteAllAt()</code>;</li>
-<li>file readiness through <code>filePoll()</code> where supported by the underlying <code>Async</code> backend;</li>
-<li>file-to-socket transfer through <code>fileSend()</code>;</li>
-<li>process exit waiting through <code>processExit()</code>;</li>
-<li>one-shot signal waiting through <code>signal()</code>;</li>
-<li>owner-thread diagnostics through release assertions and <code>isOwnerThread()</code>;</li>
-<li>bounded cross-thread command posting from worker fibers to the event-loop owner thread;</li>
-<li>cooperative cancellation of pending operations through <code>FiberScheduler::requestCancel*</code> and <code>FiberAsyncIO::cancelAll()</code>;</li>
-<li>focused macOS, Linux, and Windows test coverage in <code>FibersAsyncTest</code>.</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md234"></a>
+<p>The implementation has focused tests for same-thread and worker-pool waits, sockets, datagrams, files, <code>fileSend</code>, process exit, signals, cancellation races, and command-queue overflow on macOS, Linux, and Windows. The API is still draft: DNS and stream conveniences are absent, backend coverage follows what <code>Async</code> supports on each platform, and the run-loop/cancellation surface may evolve as larger applications exercise it.</p>
+<p>For the exact operation list and result fields, see <a class="el" href="structSC_1_1FiberAsyncIO.html">SC::FiberAsyncIO</a> and the <a class="el" href="group__group__fibers__async.html">FibersAsync module</a>. <code>Examples/FibersDemo</code> is the smallest end-to-end example; <code>Tests/Libraries/FibersAsync/FibersAsyncTest.cpp</code> contains the edge cases.</p>
+<h1><a class="anchor" id="autotoc_md209"></a>
 Roadmap</h1>
 <ul>
-<li>Add DNS and stream helpers when real examples justify the API.</li>
-<li>Explore blocking/threaded backends only after the concrete <code>FiberAsyncIO</code> bridge remains stable.</li>
-<li>Keep expanding cancellation and shutdown stress tests around stop/complete races.</li>
-<li>Revisit integration adapters between <code>AwaitTask</code> and fiber tasks after both libraries stabilize.</li>
-<li>Consider a runtime-selectable <code>FiberIO</code> facade only after at least two real backends exist.</li>
+<li>Add DNS or stream helpers only when concrete consumers establish the right ownership and buffering model.</li>
+<li>Continue stress-testing cancellation, shutdown, and command-capacity races.</li>
+<li>Consider a backend-neutral fiber I/O facade only after a second real backend exists.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md235"></a>
-Details</h1>
+<h1><a class="anchor" id="autotoc_md210"></a>
+Statistics</h1>
+<p>LOC counts exclude comments. Library counts files physically under <code>Libraries/FibersAsync</code>. Single File counts <code>SaneCppFibersAsync.h</code>. Standalone counts <code>SaneCppFibersAsyncStandalone.h</code> and intentionally includes dependency payloads.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Metric   </th><th class="markdownTableHeadNone">Header   </th><th class="markdownTableHeadNone">Source   </th><th class="markdownTableHeadNone">Sum    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Library   </td><td class="markdownTableBodyNone">147   </td><td class="markdownTableBodyNone">910   </td><td class="markdownTableBodyNone">1057    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Single File   </td><td class="markdownTableBodyNone">510   </td><td class="markdownTableBodyNone">1063   </td><td class="markdownTableBodyNone">1573    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Standalone   </td><td class="markdownTableBodyNone">8416   </td><td class="markdownTableBodyNone">19290   </td><td class="markdownTableBodyNone">27706   </td></tr>
+</table>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
