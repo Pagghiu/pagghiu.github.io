@@ -161,15 +161,15 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
 <tr class="memitem:a817c12b89a8a6c33274d80f7805d41b5" id="r_a817c12b89a8a6c33274d80f7805d41b5"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a817c12b89a8a6c33274d80f7805d41b5">getMaxHeaderSize</a> () const</td></tr>
 <tr class="memdesc:a817c12b89a8a6c33274d80f7805d41b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the maximum accepted request-header size in bytes.  <br /></td></tr>
 <tr class="separator:a817c12b89a8a6c33274d80f7805d41b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16432394e03599e05e6a3c2718173655" id="r_a16432394e03599e05e6a3c2718173655"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16432394e03599e05e6a3c2718173655">setTlsOptions</a> (const <a class="el" href="structSC_1_1HttpAsyncServerTlsOptions.html">HttpAsyncServerTlsOptions</a> &amp;options)</td></tr>
-<tr class="memdesc:a16432394e03599e05e6a3c2718173655"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets TLS options used by future HTTPS listener integration.  <br /></td></tr>
-<tr class="separator:a16432394e03599e05e6a3c2718173655"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ffe2ae8b43794e6e9a0e0592e396cfa" id="r_a3ffe2ae8b43794e6e9a0e0592e396cfa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ffe2ae8b43794e6e9a0e0592e396cfa">clearTlsOptions</a> ()</td></tr>
-<tr class="memdesc:a3ffe2ae8b43794e6e9a0e0592e396cfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores default plain HTTP listener options.  <br /></td></tr>
-<tr class="separator:a3ffe2ae8b43794e6e9a0e0592e396cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a012d84b814a503117a9a4c91365d463a" id="r_a012d84b814a503117a9a4c91365d463a"><td class="memItemLeft" align="right" valign="top"><a id="a012d84b814a503117a9a4c91365d463a" name="a012d84b814a503117a9a4c91365d463a"></a>
-const <a class="el" href="structSC_1_1HttpAsyncServerTlsOptions.html">HttpAsyncServerTlsOptions</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTlsOptions</b> () const</td></tr>
-<tr class="separator:a012d84b814a503117a9a4c91365d463a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a054cde027b8af5126eef158a6fefe4ac" id="r_a054cde027b8af5126eef158a6fefe4ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a054cde027b8af5126eef158a6fefe4ac">setTransportSetup</a> (Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncServerTransportSetup.html">HttpAsyncServerTransportSetup</a> &amp;)&gt; &amp;&amp;setup)</td></tr>
+<tr class="memdesc:a054cde027b8af5126eef158a6fefe4ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport setup hook invoked after accepting TCP and before HTTP reads request bytes.  <br /></td></tr>
+<tr class="separator:a054cde027b8af5126eef158a6fefe4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa92f6ef801b9d9147dd58b3c321b62c1" id="r_aa92f6ef801b9d9147dd58b3c321b62c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa92f6ef801b9d9147dd58b3c321b62c1">setTransportClose</a> (Function&lt; void(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;)&gt; &amp;&amp;<a class="el" href="#aff4ed39c8e2965711cd96dd7c60b5f0f">close</a>)</td></tr>
+<tr class="memdesc:aa92f6ef801b9d9147dd58b3c321b62c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport teardown hook invoked before HTTP destroys an accepted socket's streams.  <br /></td></tr>
+<tr class="separator:aa92f6ef801b9d9147dd58b3c321b62c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a964bbc409d735920c86f9ed66d464a0d" id="r_a964bbc409d735920c86f9ed66d464a0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a964bbc409d735920c86f9ed66d464a0d">clearTransportSetup</a> ()</td></tr>
+<tr class="memdesc:a964bbc409d735920c86f9ed66d464a0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears optional transport setup and teardown hooks.  <br /></td></tr>
+<tr class="separator:a964bbc409d735920c86f9ed66d464a0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78fc7c746bb235fa859bb026154918f4" id="r_a78fc7c746bb235fa859bb026154918f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78fc7c746bb235fa859bb026154918f4">isStarted</a> () const</td></tr>
 <tr class="memdesc:a78fc7c746bb235fa859bb026154918f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the server has been started.  <br /></td></tr>
 <tr class="separator:a78fc7c746bb235fa859bb026154918f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -283,8 +283,8 @@ Public Attributes</h2></td></tr>
 <div class="line">    };</div>
 <div class="line"> </div>
 </div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3ffe2ae8b43794e6e9a0e0592e396cfa" name="a3ffe2ae8b43794e6e9a0e0592e396cfa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ffe2ae8b43794e6e9a0e0592e396cfa">&#9670;&#160;</a></span>clearTlsOptions()</h2>
+<a id="a964bbc409d735920c86f9ed66d464a0d" name="a964bbc409d735920c86f9ed66d464a0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a964bbc409d735920c86f9ed66d464a0d">&#9670;&#160;</a></span>clearTransportSetup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -293,7 +293,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SC::HttpAsyncServer::clearTlsOptions </td>
+          <td class="memname">void SC::HttpAsyncServer::clearTransportSetup </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -306,7 +306,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Restores default plain HTTP listener options. </p>
+<p>Clears optional transport setup and teardown hooks. </p>
 
 </div>
 </div>
@@ -562,8 +562,8 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
 
 </div>
 </div>
-<a id="a16432394e03599e05e6a3c2718173655" name="a16432394e03599e05e6a3c2718173655"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16432394e03599e05e6a3c2718173655">&#9670;&#160;</a></span>setTlsOptions()</h2>
+<a id="aa92f6ef801b9d9147dd58b3c321b62c1" name="aa92f6ef801b9d9147dd58b3c321b62c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa92f6ef801b9d9147dd58b3c321b62c1">&#9670;&#160;</a></span>setTransportClose()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -572,9 +572,9 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SC::HttpAsyncServer::setTlsOptions </td>
+          <td class="memname">void SC::HttpAsyncServer::setTransportClose </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structSC_1_1HttpAsyncServerTlsOptions.html">HttpAsyncServerTlsOptions</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>options</em></span></td><td>)</td>
+          <td class="paramtype">Function&lt; void(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>close</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -585,7 +585,34 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
 </table>
 </div><div class="memdoc">
 
-<p>Sets TLS options used by future HTTPS listener integration. </p>
+<p>Sets an optional transport teardown hook invoked before HTTP destroys an accepted socket's streams. </p>
+
+</div>
+</div>
+<a id="a054cde027b8af5126eef158a6fefe4ac" name="a054cde027b8af5126eef158a6fefe4ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a054cde027b8af5126eef158a6fefe4ac">&#9670;&#160;</a></span>setTransportSetup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SC::HttpAsyncServer::setTransportSetup </td>
+          <td>(</td>
+          <td class="paramtype">Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncServerTransportSetup.html">HttpAsyncServerTransportSetup</a> &amp;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>setup</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets an optional transport setup hook invoked after accepting TCP and before HTTP reads request bytes. </p>
 
 </div>
 </div>

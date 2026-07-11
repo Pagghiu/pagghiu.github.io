@@ -146,13 +146,16 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a82668056e3291a47809566fd4b7e9c51" id="r_a82668056e3291a47809566fd4b7e9c51"><td class="memItemLeft" align="right" valign="top"><a id="a82668056e3291a47809566fd4b7e9c51" name="a82668056e3291a47809566fd4b7e9c51"></a>
 const <a class="el" href="structSC_1_1HttpURLParser.html">HttpURLParser</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>url</b> = nullptr</td></tr>
 <tr class="separator:a82668056e3291a47809566fd4b7e9c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad75f242d448176b5d85369301dbcb1a2" id="r_ad75f242d448176b5d85369301dbcb1a2"><td class="memItemLeft" align="right" valign="top"><a id="ad75f242d448176b5d85369301dbcb1a2" name="ad75f242d448176b5d85369301dbcb1a2"></a>
+SocketDescriptor::Handle&#160;</td><td class="memItemRight" valign="bottom"><b>nativeSocket</b> = SocketDescriptor::Invalid</td></tr>
+<tr class="separator:ad75f242d448176b5d85369301dbcb1a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9d094c829dcf21b1ad3e5dcb81d58ff" id="r_ab9d094c829dcf21b1ad3e5dcb81d58ff"><td class="memItemLeft" align="right" valign="top"><a id="ab9d094c829dcf21b1ad3e5dcb81d58ff" name="ab9d094c829dcf21b1ad3e5dcb81d58ff"></a>
 Function&lt; void(Result)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>complete</b></td></tr>
 <tr class="separator:ab9d094c829dcf21b1ad3e5dcb81d58ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Mutable transport setup view used by <code><a class="el" href="structSC_1_1HttpAsyncClient.html" title="Asynchronous HTTP/1.1 client using caller-provided fixed storage.">HttpAsyncClient</a></code> after the TCP socket connects. </p>
-<p>The default setup keeps <code>connection</code> using its socket streams. A custom setup can install alternate active streams with <code>HttpConnectionBase::setTransportStreams()</code> and must call <code>complete</code> when the transport is ready for HTTP. </p>
+<p>The default setup keeps <code>connection</code> using its socket streams. A custom setup can install alternate active streams with <code>HttpConnectionBase::setTransportStreams()</code> and must call <code>complete</code> when the transport is ready for HTTP. The setup also exposes the connected socket handle for transport adapters. </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="HttpAsyncClient_8h_source.html">HttpAsyncClient.h</a></li>
 </ul>

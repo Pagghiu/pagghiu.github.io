@@ -204,7 +204,7 @@ Status</h1>
 <h1><a class="anchor" id="autotoc_md314"></a>
 Description</h1>
 <p>The HTTP parser is an incremental parser, that will emit events as soon as a valid element has been successfully parsed. This allows handling incomplete responses without needing holding it entirely in memory.</p>
-<p>The HTTP server is for now just a basic implementations and it's missing many important features. It's however capable of serving files through http while staying inside a few user provided fixed buffers, without allocating any kind of dynamic memory.</p>
+<p>The HTTP server is for now just a basic implementations and it's missing many important features. It's however capable of serving files through http while staying inside a few user provided fixed buffers, without allocating any kind of dynamic memory. <code>HttpAsyncServer</code> accepts plain TCP connections and can be composed with an alternate transport through its transport setup hooks. TLS-backed HTTPS composition lives in the separate <code>Https</code> library.</p>
 <p>The HTTP client follows the same fixed-memory approach used by the server side:</p><ul>
 <li>caller-provided connection storage through <code><a class="el" href="structSC_1_1HttpAsyncClientConnection.html">SC::HttpAsyncClientConnection</a></code></li>
 <li>request headers built inside fixed header memory</li>
@@ -212,6 +212,7 @@ Description</h1>
 <li>incremental response-header parsing into fixed buffers</li>
 <li>streamed response bodies exposed through <code><a class="el" href="structSC_1_1AsyncReadableStream.html" title="Async source abstraction emitting data events in caller provided byte buffers.">SC::AsyncReadableStream</a></code></li>
 <li>optional sequential keep-alive reuse for requests targeting the same origin</li>
+<li>transport-neutral post-connect setup and teardown hooks that can replace the active streams, inspect the URL, and use the connected native socket handle when a transport adapter needs it</li>
 </ul>
 <p>The expected client lifecycle is stream-first:</p><ol type="1">
 <li>Create <code><a class="el" href="structSC_1_1HttpAsyncClientConnection.html">SC::HttpAsyncClientConnection</a>&lt;...&gt;</code> storage and initialize <code><a class="el" href="structSC_1_1HttpAsyncClient.html" title="Asynchronous HTTP/1.1 client using caller-provided fixed storage.">SC::HttpAsyncClient</a></code></li>
@@ -221,7 +222,8 @@ Description</h1>
 <li>Consume the response body incrementally and use the response readable stream <code>eventEnd</code> as the completion signal</li>
 </ol>
 <p>Current client limitations:</p><ul>
-<li><code>http</code> only, no <code>https</code></li>
+<li><code>http</code> is active by default</li>
+<li><code>https</code> URLs require an installed transport adapter; <code>HttpsClientTransport</code> provides the TLS implementation</li>
 <li>one in-flight request at a time</li>
 <li>no HTTP pipelining</li>
 <li>no redirect policy helper</li>
@@ -231,7 +233,7 @@ Error Categories</h1>
 <p>HTTP APIs report failures through <code>SC::Result</code> and keep the error text stable enough to diagnose the failing layer. The library does not use exceptions or a large error hierarchy; instead, messages are grouped by prefix and by the operation that produced them.</p>
 <p>Typical categories:</p><ul>
 <li>Protocol errors: malformed HTTP syntax, invalid URL/request-target data, bad WebSocket frames, invalid masking, invalid chunk framing, unsupported transfer encodings, or unexpected response bodies.</li>
-<li>Unsupported feature errors: explicit limits such as unsupported content encodings, WebSocket extensions, pipelined body data, non-empty chunk trailers, or TLS when using this library.</li>
+<li>Unsupported feature errors: explicit limits such as unsupported content encodings, WebSocket extensions, pipelined body data, non-empty chunk trailers, or an <code>https</code> URL without a configured transport adapter.</li>
 <li>Storage errors: fixed header memory, caller-provided output buffers, stream queues, or <code>AsyncBuffersPool</code> capacity are too small for the requested operation.</li>
 <li>Stream/transport errors: socket disconnects, readable/writable stream failures, file stream failures, or backpressure that could not be queued.</li>
 <li>Lifecycle errors: calling request/response methods in the wrong order, starting a second client request while one is active, using an uninitialized server/client, or writing after a stream has ended.</li>

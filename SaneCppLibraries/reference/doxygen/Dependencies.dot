@@ -1,6 +1,8 @@
 digraph LibraryDependencies {
-  node [shape=box];
-  splines=line;
+  graph [bgcolor="transparent", pad="0.3", nodesep="0.45", ranksep="0.7"];
+  node [shape=box, style="rounded,filled", color="#7895D5", fillcolor="#E9F1FF", fontcolor="#17233D", fontname="Helvetica Neue", fontsize=13, penwidth=1.4, margin="0.16,0.1"];
+  edge [color="#6B8FC9", penwidth=1.5, arrowsize=0.75];
+  splines=polyline;
 
   Async;
   AsyncStreams;

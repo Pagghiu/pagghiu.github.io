@@ -220,7 +220,7 @@ var NAVTREEINDEX =
 "structSC_1_1AsyncRequest.html#a8536e53b63755127477b5b740140eacb",
 "structSC_1_1AwaitEventLoop.html",
 "structSC_1_1FileDescriptor.html#a53f91df5591abbb1fa9952167f62fe05",
-"structSC_1_1HttpAsyncFileServerOptions.html#ae6cc6433c322eb14cf1990bd9dab1ffc",
+"structSC_1_1HttpAsyncFileServerOptions.html#aff3ce203e3bc3f7191781eabde0386b9",
 "structSC_1_1HttpRequestTargetView.html#a9a944f5643cc1b8d942841520b539116",
 "structSC_1_1Segment.html#a76024c42224e46786d93503a1cdd5ba7",
 "structSC_1_1TestReport.html#ab67b5e9e23e936c5fa56ed476c5ee25a"

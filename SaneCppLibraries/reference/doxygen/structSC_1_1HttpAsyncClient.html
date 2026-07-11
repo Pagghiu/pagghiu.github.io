@@ -158,18 +158,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a21073d14e75d7deb780fad0ed3e6a548" id="r_a21073d14e75d7deb780fad0ed3e6a548"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21073d14e75d7deb780fad0ed3e6a548">clearResponseDecompression</a> ()</td></tr>
 <tr class="memdesc:a21073d14e75d7deb780fad0ed3e6a548"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables response decompression for future requests.  <br /></td></tr>
 <tr class="separator:a21073d14e75d7deb780fad0ed3e6a548"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5d4abe053f1db28d1bbcd6bc112e87a" id="r_ad5d4abe053f1db28d1bbcd6bc112e87a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5d4abe053f1db28d1bbcd6bc112e87a">setTlsOptions</a> (const <a class="el" href="structSC_1_1HttpAsyncClientTlsOptions.html">HttpAsyncClientTlsOptions</a> &amp;<a class="el" href="#a0a7fb31cc887d9ff1131e0ff1fe56d6e">options</a>)</td></tr>
-<tr class="memdesc:ad5d4abe053f1db28d1bbcd6bc112e87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets TLS verification options used by future HTTPS transport integration.  <br /></td></tr>
-<tr class="separator:ad5d4abe053f1db28d1bbcd6bc112e87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4050241ea9eaae4d8607548556435d7" id="r_ad4050241ea9eaae4d8607548556435d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4050241ea9eaae4d8607548556435d7">clearTlsOptions</a> ()</td></tr>
-<tr class="memdesc:ad4050241ea9eaae4d8607548556435d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores default TLS verification options.  <br /></td></tr>
-<tr class="separator:ad4050241ea9eaae4d8607548556435d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e4bbe1cee66929ebc1b1b5b2967bffe" id="r_a1e4bbe1cee66929ebc1b1b5b2967bffe"><td class="memItemLeft" align="right" valign="top"><a id="a1e4bbe1cee66929ebc1b1b5b2967bffe" name="a1e4bbe1cee66929ebc1b1b5b2967bffe"></a>
-const <a class="el" href="structSC_1_1HttpAsyncClientTlsOptions.html">HttpAsyncClientTlsOptions</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTlsOptions</b> () const</td></tr>
-<tr class="separator:a1e4bbe1cee66929ebc1b1b5b2967bffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cae1c0a66995771b81950e1da5d7e38" id="r_a7cae1c0a66995771b81950e1da5d7e38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cae1c0a66995771b81950e1da5d7e38">setTransportSetup</a> (Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncClientTransportSetup.html">HttpAsyncClientTransportSetup</a> &amp;)&gt; &amp;&amp;setup)</td></tr>
 <tr class="memdesc:a7cae1c0a66995771b81950e1da5d7e38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport setup hook invoked after TCP connect and before HTTP request bytes are sent.  <br /></td></tr>
 <tr class="separator:a7cae1c0a66995771b81950e1da5d7e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9ea44f3cd2a0c3a02d5599f99a179bb" id="r_ad9ea44f3cd2a0c3a02d5599f99a179bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9ea44f3cd2a0c3a02d5599f99a179bb">setTransportClose</a> (Function&lt; void()&gt; &amp;&amp;<a class="el" href="#a6c1c1c2cf1453f8d7f62b29015eb80f8">close</a>)</td></tr>
+<tr class="memdesc:ad9ea44f3cd2a0c3a02d5599f99a179bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport teardown hook invoked before HTTP destroys the connected socket streams.  <br /></td></tr>
+<tr class="separator:ad9ea44f3cd2a0c3a02d5599f99a179bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6db4595e70bcc4e094704972edba5aec" id="r_a6db4595e70bcc4e094704972edba5aec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6db4595e70bcc4e094704972edba5aec">clearTransportSetup</a> ()</td></tr>
 <tr class="memdesc:a6db4595e70bcc4e094704972edba5aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the optional transport setup hook and restores default socket transport setup.  <br /></td></tr>
 <tr class="separator:a6db4595e70bcc4e094704972edba5aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -301,33 +295,6 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Disables response decompression for future requests. </p>
-
-</div>
-</div>
-<a id="ad4050241ea9eaae4d8607548556435d7" name="ad4050241ea9eaae4d8607548556435d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4050241ea9eaae4d8607548556435d7">&#9670;&#160;</a></span>clearTlsOptions()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SC::HttpAsyncClient::clearTlsOptions </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Restores default TLS verification options. </p>
 
 </div>
 </div>
@@ -711,8 +678,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ad5d4abe053f1db28d1bbcd6bc112e87a" name="ad5d4abe053f1db28d1bbcd6bc112e87a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5d4abe053f1db28d1bbcd6bc112e87a">&#9670;&#160;</a></span>setTlsOptions()</h2>
+<a id="ad9ea44f3cd2a0c3a02d5599f99a179bb" name="ad9ea44f3cd2a0c3a02d5599f99a179bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9ea44f3cd2a0c3a02d5599f99a179bb">&#9670;&#160;</a></span>setTransportClose()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -721,9 +688,9 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SC::HttpAsyncClient::setTlsOptions </td>
+          <td class="memname">void SC::HttpAsyncClient::setTransportClose </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structSC_1_1HttpAsyncClientTlsOptions.html">HttpAsyncClientTlsOptions</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>options</em></span></td><td>)</td>
+          <td class="paramtype">Function&lt; void()&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>close</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -734,7 +701,8 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets TLS verification options used by future HTTPS transport integration. </p>
+<p>Sets an optional transport teardown hook invoked before HTTP destroys the connected socket streams. </p>
+<p>An adapter that installs alternate transport streams must release its listeners and state from this hook. </p>
 
 </div>
 </div>

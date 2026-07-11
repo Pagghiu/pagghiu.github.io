@@ -2,12 +2,10 @@ var group__group__http =
 [
     [ "SC::HttpAsyncClientTransportSetup", "structSC_1_1HttpAsyncClientTransportSetup.html", null ],
     [ "SC::HttpAsyncClientConnection< ReadQueue, WriteQueue, HeaderBytes, StreamBytes >", "structSC_1_1HttpAsyncClientConnection.html", null ],
-    [ "SC::HttpAsyncClientTlsOptions", "structSC_1_1HttpAsyncClientTlsOptions.html", null ],
     [ "SC::HttpAsyncClient", "structSC_1_1HttpAsyncClient.html", [
       [ "Header", "structSC_1_1HttpAsyncClient_1_1Header.html", null ],
       [ "RequestOptions", "structSC_1_1HttpAsyncClient_1_1RequestOptions.html", null ],
       [ "clearResponseDecompression", "structSC_1_1HttpAsyncClient.html#a21073d14e75d7deb780fad0ed3e6a548", null ],
-      [ "clearTlsOptions", "structSC_1_1HttpAsyncClient.html#ad4050241ea9eaae4d8607548556435d7", null ],
       [ "clearTransportSetup", "structSC_1_1HttpAsyncClient.html#a6db4595e70bcc4e094704972edba5aec", null ],
       [ "close", "structSC_1_1HttpAsyncClient.html#a6c1c1c2cf1453f8d7f62b29015eb80f8", null ],
       [ "deleteRequest", "structSC_1_1HttpAsyncClient.html#a0013252f5c3b564868d29d801b153642", null ],
@@ -22,7 +20,7 @@ var group__group__http =
       [ "put", "structSC_1_1HttpAsyncClient.html#ad4b1608c4094f7bfc63d0de77bcb837a", null ],
       [ "sendRequest", "structSC_1_1HttpAsyncClient.html#a72a608b853d725512a3915b386de3dcd", null ],
       [ "setResponseDecompression", "structSC_1_1HttpAsyncClient.html#a998f70246175eb767239741331dc2352", null ],
-      [ "setTlsOptions", "structSC_1_1HttpAsyncClient.html#ad5d4abe053f1db28d1bbcd6bc112e87a", null ],
+      [ "setTransportClose", "structSC_1_1HttpAsyncClient.html#ad9ea44f3cd2a0c3a02d5599f99a179bb", null ],
       [ "setTransportSetup", "structSC_1_1HttpAsyncClient.html#a7cae1c0a66995771b81950e1da5d7e38", null ],
       [ "start", "structSC_1_1HttpAsyncClient.html#a540d32d866646058bd70645423af0c12", null ],
       [ "onError", "structSC_1_1HttpAsyncClient.html#a5816c14a19e7aa64fb2decea5dd3bd55", null ],
