@@ -155,18 +155,8 @@ $(function(){initNavTree('page_build.html',''); initResizable(true); });
 <h1><a class="anchor" id="autotoc_md3"></a>
 The build model</h1>
 <p>An <code>SC-build.cpp</code> file is an executable build description. The repository launcher compiles it when needed, asks it to create a graph of workspaces, projects, configurations, and files, then hands that graph to a backend.</p>
-<div class="fragment"><div class="line">SC.sh / SC.bat</div>
-<div class="line">      |</div>
-<div class="line">      v</div>
-<div class="line">compile SC-build.cpp when it changed</div>
-<div class="line">      |</div>
-<div class="line">      v</div>
-<div class="line">create the project graph</div>
-<div class="line">      |</div>
-<div class="line">      +----&gt; Native backend ----&gt; compile and link now</div>
-<div class="line">      |</div>
-<div class="line">      +----&gt; Generated backend -&gt; Xcode, Visual Studio, or Make projects</div>
-</div><!-- fragment --><p>This is why changing build logic does not require a separate scripting language or installed package manager. The build description uses the same compiler, result handling, strings, paths, and process APIs as the rest of Sane C++.</p>
+<p>The pipeline has three stages: the launcher compiles a stale <code>SC-build.cpp</code>, the definition creates the project graph, and the selected backend consumes that graph. The native backend compiles and links immediately; generated backends write Xcode, Visual Studio, or Make projects for another tool to build.</p>
+<p>This is why changing build logic does not require a separate scripting language or installed package manager. The build description uses the same compiler, result handling, strings, paths, and process APIs as the rest of Sane C++.</p>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Build and run a target</h1>
 <p>From the SaneCppLibraries repository root, compile a target first and then run the produced executable:</p>

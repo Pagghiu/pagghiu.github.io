@@ -235,10 +235,7 @@ Think in recipes, receipts, and exports</h2>
 <li>A receipt records what was installed and which recipe version produced it.</li>
 <li>Exports name the tools, sysroots, runners, include directories, or libraries that another tool may consume.</li>
 </ol>
-<div class="fragment"><div class="line">package recipe -&gt; install or import -&gt; validate -&gt; receipt -&gt; named exports</div>
-<div class="line">                                                        |</div>
-<div class="line">                                                        +--&gt; SC::Build</div>
-</div><!-- fragment --><p>This allows <code>SC::Build</code> to ask for a capability such as an LLVM compiler or QEMU runner without reconstructing an installation path from directory naming conventions.</p>
+<p>After installation or import, validation produces a receipt and a set of named exports. This allows <code>SC::Build</code> to ask for a capability such as an LLVM compiler or QEMU runner without reconstructing an installation path from directory naming conventions.</p>
 <h2><a class="anchor" id="autotoc_md75"></a>
 Inspect before changing package state</h2>
 <p>Start with read-only actions:</p>
@@ -277,14 +274,8 @@ Check without modifying files</h2>
 </div><!-- fragment --><p><code>check</code> exits with an error when formatting would change a file, which makes it suitable for CI and pre-commit validation. Both actions use the package-managed formatter version expected by the repository.</p>
 <h1><a class="anchor" id="autotoc_md81"></a>
 How does it work</h1>
-<p>The bootstrap keeps startup work incremental:</p>
-<div class="fragment"><div class="line">SC.sh / SC.bat</div>
-<div class="line">  -&gt; build ToolsBootstrap when stale</div>
-<div class="line">  -&gt; locate the selected tool source</div>
-<div class="line">  -&gt; build shared Tools.cpp support when stale</div>
-<div class="line">  -&gt; build the selected tool when stale</div>
-<div class="line">  -&gt; run it with the original action and arguments</div>
-</div><!-- fragment --><p><code>ToolsBootstrap</code> is deliberately small. The selected tool is linked with the Sane C++ unity build, so custom tools can use the libraries without maintaining another project definition. Build products remain below <code>_Build/_Tools</code>.</p>
+<p>The bootstrap keeps startup work incremental. It rebuilds <code>ToolsBootstrap</code> only when stale, locates the selected tool source, reuses unchanged <code>Tools.cpp</code> support objects, compiles the tool when needed, and then runs it with the original action and arguments.</p>
+<p><code>ToolsBootstrap</code> is deliberately small. The selected tool is linked with the Sane C++ unity build, so custom tools can use the libraries without maintaining another project definition. Build products remain below <code>_Build/_Tools</code>.</p>
 <h1><a class="anchor" id="autotoc_md82"></a>
 Know the boundary</h1>
 <p>Use a tool for a bounded development operation with a command-line lifecycle. Use SC::Build for a graph of application targets. Use a library when behavior belongs in reusable program code. Keeping those roles separate prevents the bootstrap from becoming an application framework. </p>
