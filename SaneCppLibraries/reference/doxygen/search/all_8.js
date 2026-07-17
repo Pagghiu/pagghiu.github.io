@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['i_20o_0',['I O',['../page_examples.html#autotoc_md47',1,'File I/O'],['../library_async.html#autotoc_md88',1,'Socket I/O']]],
+  ['i_20o_0',['I O',['../page_examples.html#autotoc_md50',1,'File I/O'],['../library_async.html#autotoc_md88',1,'Socket I/O']]],
   ['i_20o_20and_20blocking_20backends_1',['File I/O And Blocking Backends',['../library_async.html#autotoc_md89',1,'']]],
   ['i_20o_20calls_20return_2',['What the I/O calls return',['../library_fibers_async.html#autotoc_md171',1,'']]],
   ['i_20o_20shape_3',['I/O Shape',['../library_await.html#autotoc_md119',1,'']]],
@@ -37,8 +37,8 @@ var searchData=
   ['inspect_20the_20change_34',['Format and inspect the change',['../page_building_contributor.html#autotoc_md22',1,'']]],
   ['install_20import_20or_20repair_35',['Install, import, or repair',['../page_tools.html#autotoc_md76',1,'']]],
   ['instance_36',['The model: source tree to live instance',['../library_plugin.html#autotoc_md271',1,'']]],
-  ['integration_37',['System integration',['../page_examples.html#autotoc_md48',1,'']]],
-  ['integration_20and_20hot_20reload_38',['Native integration and hot reload',['../page_examples.html#autotoc_md51',1,'']]],
+  ['integration_37',['System integration',['../page_examples.html#autotoc_md51',1,'']]],
+  ['integration_20and_20hot_20reload_38',['Native integration and hot reload',['../page_examples.html#autotoc_md54',1,'']]],
   ['integration_20boundaries_39',['Platform and integration boundaries',['../library_hashing.html#autotoc_md233',1,'']]],
   ['integration_20form_40',['Choose an integration form',['../page_building_user.html#autotoc_md26',1,'']]],
   ['integration_20size_41',['Choose the integration size',['../page_build.html#autotoc_md7',1,'']]],

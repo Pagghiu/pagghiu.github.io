@@ -55,7 +55,7 @@ var searchData=
   ['live_20until_20completion_52',['Mental Model: Requests Live Until Completion',['../library_async.html#autotoc_md85',1,'']]],
   ['lived_20operations_53',['Sequencing And Long-Lived Operations',['../library_async.html#autotoc_md90',1,'']]],
   ['loadexact_54',['loadExact',['../structSC_1_1SerializationBinary.html#a29017d4a69ab6b8adf042ff44d75ead7',1,'SC::SerializationBinary::loadExact()'],['../structSC_1_1SerializationJson.html#a9174c6e44957563bd00c50148a360b8c',1,'SC::SerializationJson::loadExact()']]],
-  ['loading_20and_20hot_20reload_55',['Plugin loading and hot reload',['../page_examples.html#autotoc_md54',1,'']]],
+  ['loading_20and_20hot_20reload_55',['Plugin loading and hot reload',['../page_examples.html#autotoc_md44',1,'']]],
   ['loading_20can_20and_20cannot_20absorb_56',['What versioned loading can and cannot absorb',['../library_serialization_binary.html#autotoc_md305',1,'']]],
   ['loadmode_57',['LoadMode',['../structSC_1_1PluginRegistry.html#a0ab8576eabd1ec66c5093af93f7d0513',1,'SC::PluginRegistry']]],
   ['loadplugin_58',['loadPlugin',['../structSC_1_1PluginRegistry.html#a9422c35d5ed7f8a34aad38cad0c2b572',1,'SC::PluginRegistry']]],

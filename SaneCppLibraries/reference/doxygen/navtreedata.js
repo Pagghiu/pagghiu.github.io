@@ -83,21 +83,21 @@ var NAVTREE =
     ] ],
     [ "Examples", "page_examples.html", [
       [ "Examples", "page_examples.html#autotoc_md41", [
-        [ "Quick start", "page_examples.html#autotoc_md42", null ],
-        [ "HTTP and networking", "page_examples.html#autotoc_md43", null ],
-        [ "Await cookbook", "page_examples.html#autotoc_md44", [
-          [ "Task ownership and coordination", "page_examples.html#autotoc_md45", null ],
-          [ "Networking", "page_examples.html#autotoc_md46", null ],
-          [ "File I/O", "page_examples.html#autotoc_md47", null ],
-          [ "System integration", "page_examples.html#autotoc_md48", null ],
-          [ "Composed workflow", "page_examples.html#autotoc_md49", null ]
+        [ "Videos", "page_examples.html#autotoc_md42", [
+          [ "Serialization and state", "page_examples.html#autotoc_md43", null ],
+          [ "Plugin loading and hot reload", "page_examples.html#autotoc_md44", null ]
         ] ],
-        [ "Fibers", "page_examples.html#autotoc_md50", null ],
-        [ "Native integration and hot reload", "page_examples.html#autotoc_md51", null ],
-        [ "Videos", "page_examples.html#autotoc_md52", [
-          [ "Serialization and state", "page_examples.html#autotoc_md53", null ],
-          [ "Plugin loading and hot reload", "page_examples.html#autotoc_md54", null ]
+        [ "Quick start", "page_examples.html#autotoc_md45", null ],
+        [ "HTTP and networking", "page_examples.html#autotoc_md46", null ],
+        [ "Await cookbook", "page_examples.html#autotoc_md47", [
+          [ "Task ownership and coordination", "page_examples.html#autotoc_md48", null ],
+          [ "Networking", "page_examples.html#autotoc_md49", null ],
+          [ "File I/O", "page_examples.html#autotoc_md50", null ],
+          [ "System integration", "page_examples.html#autotoc_md51", null ],
+          [ "Composed workflow", "page_examples.html#autotoc_md52", null ]
         ] ],
+        [ "Fibers", "page_examples.html#autotoc_md53", null ],
+        [ "Native integration and hot reload", "page_examples.html#autotoc_md54", null ],
         [ "More source-backed examples", "page_examples.html#autotoc_md55", null ]
       ] ]
     ] ],

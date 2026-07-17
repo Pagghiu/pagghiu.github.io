@@ -2,7 +2,7 @@ var searchData=
 [
   ['target_0',['Build and run a target',['../page_build.html#autotoc_md4',1,'']]],
   ['task_20and_20stack_20storage_1',['Choosing Task and Stack Storage',['../library_fibers.html#autotoc_md158',1,'']]],
-  ['task_20ownership_20and_20coordination_2',['Task ownership and coordination',['../page_examples.html#autotoc_md45',1,'']]],
+  ['task_20ownership_20and_20coordination_2',['Task ownership and coordination',['../page_examples.html#autotoc_md48',1,'']]],
   ['tasks_3',['Structured and Background Tasks',['../library_await.html#autotoc_md117',1,'']]],
   ['terminal_20ownership_4',['Threads Have Explicit Terminal Ownership',['../library_threading.html#autotoc_md366',1,'']]],
   ['test_5',['Debug a failing test',['../page_building_contributor.html#autotoc_md24',1,'']]],

@@ -13,7 +13,7 @@ var searchData=
   ['version_10',['Version',['../structSC_1_1HttpParser.html#a2e7a31ffb1e096e00f8aa82a87745e33a34b6cd75171affba6957e308dcbd92be',1,'SC::HttpParser']]],
   ['version_11',['version',['../structSC_1_1PluginIdentity.html#ae9012ed8869c8427c1bacee0a8da0ee2',1,'SC::PluginIdentity']]],
   ['versioned_20loading_20can_20and_20cannot_20absorb_12',['What versioned loading can and cannot absorb',['../library_serialization_binary.html#autotoc_md305',1,'']]],
-  ['videos_13',['Videos',['../page_examples.html#autotoc_md52',1,'Videos'],['../library_async.html#autotoc_md93',1,'Videos'],['../library_async_streams.html#autotoc_md109',1,'Videos'],['../library_process.html#autotoc_md289',1,'Videos']]],
+  ['videos_13',['Videos',['../page_examples.html#autotoc_md42',1,'Videos'],['../library_async.html#autotoc_md93',1,'Videos'],['../library_async_streams.html#autotoc_md109',1,'Videos'],['../library_process.html#autotoc_md289',1,'Videos']]],
   ['view_14',['view',['../structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4',1,'SC::String::view()'],['../structSC_1_1StringBuilderFor.html#a646e3ab46b390dc9e63572b06f1e870c',1,'SC::StringBuilderFor::view()']]],
   ['views_15',['The handle is the socket; client and server are views',['../library_socket.html#autotoc_md333',1,'']]],
   ['views_20are_20cheap_20but_20their_20contracts_20matter_16',['Views Are Cheap, But Their Contracts Matter',['../library_strings.html#autotoc_md345',1,'']]],

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['o_0',['O',['../page_examples.html#autotoc_md47',1,'File I/O'],['../library_async.html#autotoc_md88',1,'Socket I/O']]],
+  ['o_0',['O',['../page_examples.html#autotoc_md50',1,'File I/O'],['../library_async.html#autotoc_md88',1,'Socket I/O']]],
   ['o_20and_20blocking_20backends_1',['File I/O And Blocking Backends',['../library_async.html#autotoc_md89',1,'']]],
   ['o_20calls_20return_2',['What the I/O calls return',['../library_fibers_async.html#autotoc_md171',1,'']]],
   ['o_20shape_3',['I/O Shape',['../library_await.html#autotoc_md119',1,'']]],
@@ -60,7 +60,7 @@ var searchData=
   ['owned_20byte_20stream_57',['A descriptor is an owned byte stream',['../library_file.html#autotoc_md181',1,'']]],
   ['owner_58',['Worker threads and the event-loop owner',['../library_fibers_async.html#autotoc_md173',1,'']]],
   ['ownership_59',['Threads Have Explicit Terminal Ownership',['../library_threading.html#autotoc_md366',1,'']]],
-  ['ownership_20and_20coordination_60',['Task ownership and coordination',['../page_examples.html#autotoc_md45',1,'']]],
+  ['ownership_20and_20coordination_60',['Task ownership and coordination',['../page_examples.html#autotoc_md48',1,'']]],
   ['ownership_20and_20lifetime_61',['Allocation, Ownership, and Lifetime',['../library_reflection.html#autotoc_md298',1,'']]],
   ['ownership_20boundaries_62',['Blocking, Async, and ownership boundaries',['../library_serial_port.html#autotoc_md324',1,'']]],
   ['ownership_20explicit_63',['Keep outputs and ownership explicit',['../page_coding_style.html#autotoc_md36',1,'']]],

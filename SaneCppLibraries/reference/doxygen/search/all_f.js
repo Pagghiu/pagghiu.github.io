@@ -56,7 +56,7 @@ var searchData=
   ['platform_20status_20and_20practical_20limits_53',['Platform status and practical limits',['../library_plugin.html#autotoc_md277',1,'']]],
   ['platforms_54',['Platforms',['../page_platforms.html',1,'']]],
   ['plugin_55',['Plugin',['../group__group__plugin.html',1,'Plugin'],['../library_plugin.html',1,'Plugin']]],
-  ['plugin_20loading_20and_20hot_20reload_56',['Plugin loading and hot reload',['../page_examples.html#autotoc_md54',1,'']]],
+  ['plugin_20loading_20and_20hot_20reload_56',['Plugin loading and hot reload',['../page_examples.html#autotoc_md44',1,'']]],
   ['plugin_20side_20contract_57',['The plugin-side contract',['../library_plugin.html#autotoc_md273',1,'']]],
   ['plugincompiler_58',['PluginCompiler',['../structSC_1_1PluginCompiler.html',1,'SC']]],
   ['plugincompilerenvironment_59',['PluginCompilerEnvironment',['../structSC_1_1PluginCompilerEnvironment.html',1,'SC']]],
