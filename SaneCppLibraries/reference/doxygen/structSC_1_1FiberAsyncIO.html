@@ -140,6 +140,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a22a3ee25caa92ce88607c245c857892f" id="r_a22a3ee25caa92ce88607c245c857892f"><td class="memItemLeft" align="right" valign="top"><a id="a22a3ee25caa92ce88607c245c857892f" name="a22a3ee25caa92ce88607c245c857892f"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>FiberAsyncIO</b> (<a class="el" href="structSC_1_1FiberScheduler.html">FiberScheduler</a> &amp;fiberScheduler, <a class="el" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a> &amp;asyncEventLoop, Span&lt; <a class="el" href="structSC_1_1FiberAsyncCommand.html">FiberAsyncCommand</a> &gt; commandStorage={})</td></tr>
 <tr class="separator:a22a3ee25caa92ce88607c245c857892f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63d5a47d65162c3ac350ff15c888b908" id="r_a63d5a47d65162c3ac350ff15c888b908"><td class="memItemLeft" align="right" valign="top"><a id="a63d5a47d65162c3ac350ff15c888b908" name="a63d5a47d65162c3ac350ff15c888b908"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>FiberAsyncIO</b> (const <a class="el" href="structSC_1_1FiberAsyncIO.html">FiberAsyncIO</a> &amp;)=delete</td></tr>
+<tr class="separator:a63d5a47d65162c3ac350ff15c888b908"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab71ccd2dabe2a1ff09c7511257ac7e29" id="r_ab71ccd2dabe2a1ff09c7511257ac7e29"><td class="memItemLeft" align="right" valign="top"><a id="ab71ccd2dabe2a1ff09c7511257ac7e29" name="ab71ccd2dabe2a1ff09c7511257ac7e29"></a>
+<a class="el" href="structSC_1_1FiberAsyncIO.html">FiberAsyncIO</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="structSC_1_1FiberAsyncIO.html">FiberAsyncIO</a> &amp;)=delete</td></tr>
+<tr class="separator:ab71ccd2dabe2a1ff09c7511257ac7e29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf587f7ccf607c75ad4cde29dff5888d" id="r_adf587f7ccf607c75ad4cde29dff5888d"><td class="memItemLeft" align="right" valign="top"><a id="adf587f7ccf607c75ad4cde29dff5888d" name="adf587f7ccf607c75ad4cde29dff5888d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>FiberAsyncIO</b> (<a class="el" href="structSC_1_1FiberAsyncIO.html">FiberAsyncIO</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:adf587f7ccf607c75ad4cde29dff5888d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf3edd457006f349a93c7d1615750149" id="r_adf3edd457006f349a93c7d1615750149"><td class="memItemLeft" align="right" valign="top"><a id="adf3edd457006f349a93c7d1615750149" name="adf3edd457006f349a93c7d1615750149"></a>
+<a class="el" href="structSC_1_1FiberAsyncIO.html">FiberAsyncIO</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="structSC_1_1FiberAsyncIO.html">FiberAsyncIO</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:adf3edd457006f349a93c7d1615750149"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38c41b3cbcc2c2ad9ec7f64a2ea09e42" id="r_a38c41b3cbcc2c2ad9ec7f64a2ea09e42"><td class="memItemLeft" align="right" valign="top"><a id="a38c41b3cbcc2c2ad9ec7f64a2ea09e42" name="a38c41b3cbcc2c2ad9ec7f64a2ea09e42"></a>
 <a class="el" href="structSC_1_1FiberScheduler.html">FiberScheduler</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>fiberScheduler</b> ()</td></tr>
 <tr class="separator:a38c41b3cbcc2c2ad9ec7f64a2ea09e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -251,6 +263,7 @@ Result&#160;</td><td class="memItemRight" valign="bottom"><b>signal</b> (int sig
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Synchronous-looking fiber I/O wrapper around an externally owned <a class="el" href="structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">AsyncEventLoop</a>. </p>
+<p>Operation methods require a currently running fiber of the supplied <a class="el" href="structSC_1_1FiberScheduler.html" title="Cooperative fiber scheduler with explicit workers and caller-owned storage.">FiberScheduler</a>. </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="FibersAsync_8h_source.html">FibersAsync.h</a></li>
 </ul>

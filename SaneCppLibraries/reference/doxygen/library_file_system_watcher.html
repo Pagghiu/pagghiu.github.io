@@ -129,44 +129,44 @@ $(function(){initNavTree('library_file_system_watcher.html',''); initResizable(t
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md242">Dependencies</a>
+    <a href="#autotoc_md250">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md243">When it is a good fit</a>
+    <a href="#autotoc_md251">When it is a good fit</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md244">Mental model</a>
+    <a href="#autotoc_md252">Mental model</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md245">A representative threaded watch</a>
+    <a href="#autotoc_md253">A representative threaded watch</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md246">Storage, limits, and lifetime</a>
+    <a href="#autotoc_md254">Storage, limits, and lifetime</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md247">Platform behavior worth designing for</a>
+    <a href="#autotoc_md255">Platform behavior worth designing for</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md248">How it fits with neighboring libraries</a>
+    <a href="#autotoc_md256">How it fits with neighboring libraries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md249">Status and further material</a>
+    <a href="#autotoc_md257">Status and further material</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md250">Statistics</a>
+    <a href="#autotoc_md258">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟩 Portable, recursive directory-change notifications for files and directories</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppFileSystemWatcher.h">SaneCppFileSystemWatcher.h</a> wraps the native directory-watching facilities on Windows, macOS, and Linux. It is aimed at systems such as hot reloaders, asset pipelines, and development tools that need to know <em>that a watched tree changed</em> and then decide what work to redo.</p>
-<h1><a class="anchor" id="autotoc_md242"></a>
+<h1><a class="anchor" id="autotoc_md250"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="FileSystemWatcher.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md243"></a>
+<h1><a class="anchor" id="autotoc_md251"></a>
 When it is a good fit</h1>
 <p>Use <code>FileSystemWatcher</code> when a portable change signal is more valuable than a lossless audit trail. A watcher reports the watched base path, the affected relative path when the operating system provides one, and one of two deliberately broad operations:</p>
 <ul>
@@ -175,7 +175,7 @@ When it is a good fit</h1>
 </ul>
 <p>This coarse model is intentional. Native backends coalesce, duplicate, reorder, or occasionally drop events, and their behavior can also vary with the filesystem. Treat a notification as a reason to inspect or rebuild current state, not as a transaction log. The SCExample hot-reload system follows that rule: it remembers a changed path when possible, but falls back to a full rescan for structural, ambiguous, or multiple changes.</p>
 <p>The library watches directory trees recursively, subject to the Linux caveat below. It is less suitable when every write must be observed, when old and new rename names must be paired, or when application correctness depends on replaying an exact sequence of changes. A polling and snapshot/diff design is a better fallback for those requirements.</p>
-<h1><a class="anchor" id="autotoc_md244"></a>
+<h1><a class="anchor" id="autotoc_md252"></a>
 Mental model</h1>
 <p>A <code>FileSystemWatcher</code> owns the native monitoring machinery. Each stable-address <code>FolderWatcher</code> represents one watched tree and owns its callback and a copy of the watched path. Initialization selects where callbacks run:</p>
 <table class="markdownTable">
@@ -188,7 +188,7 @@ Mental model</h1>
 </table>
 <p>The async adapter is a template so this standalone library does not acquire a dependency on <code>Async</code>. Instantiate it with an event-loop type that supplies the expected wake-up, readiness, and external-completion interfaces.</p>
 <p>The normal lifecycle is <code>init</code>, one or more <code>watch</code> calls, optional <code>stopWatching</code> calls, then <code>close</code>. A <code>FolderWatcher</code> may be reused after it is stopped. Calling <code>close</code> stops all remaining watchers, so explicit per-folder shutdown is not required when the entire owner is being torn down.</p>
-<h1><a class="anchor" id="autotoc_md245"></a>
+<h1><a class="anchor" id="autotoc_md253"></a>
 A representative threaded watch</h1>
 <p>This source-backed snippet is compiled with <code>FileSystemWatcherTest</code>. Notice that the callback does little work and that all objects involved outlive the active watch.</p>
 <div class="fragment"><div class="line">    <span class="comment">// Initialize the FileSystemWatcher</span></div>
@@ -269,7 +269,7 @@ A representative threaded watch</h1>
 <div class="line">    <span class="comment">// When all watchers have been unwatched and to dispose all system resources</span></div>
 <div class="line">    SC_TRY(fileSystemWatcher.<a class="code hl_function" href="structSC_1_1FileSystemWatcher.html#a4d59b6afcd7686a3800b3f913271813e">close</a>());</div>
 </div><!-- fragment --><p>In either model, <code>Notification::basePath</code> and <code>relativePath</code> are borrowed views valid for the callback. Copy anything that must survive the callback. <code>getFullPath</code> joins them into a caller-owned <code>StringPath</code> and can fail if that destination cannot hold the result.</p>
-<h1><a class="anchor" id="autotoc_md246"></a>
+<h1><a class="anchor" id="autotoc_md254"></a>
 Storage, limits, and lifetime</h1>
 <p>The API does not allocate watcher objects for the caller. <code>FileSystemWatcher</code>, its runner, and every <code>FolderWatcher</code> contain their platform storage inline. Their addresses and lifetimes are part of the contract:</p>
 <ul>
@@ -280,7 +280,7 @@ Storage, limits, and lifetime</h1>
 </ul>
 <p>There are fixed implementation limits rather than unbounded library-side growth. The Windows and Apple runners support at most 1024 watched paths. On Windows each folder has a 16 KiB native change buffer; overflow is reported conservatively as a root-level <code>AddRemoveRename</code> notification with an empty relative path. On Linux recursive watching installs an <code>inotify</code> watch per directory found during <code>watch</code>, tracks at most 128 directories per <code>FolderWatcher</code>, and stores their relative paths in caller-provided memory. The default Linux path store is 4 KiB; pass a larger <code>Span&lt;char&gt;</code> to the <code>FolderWatcher</code> constructor for broader or deeper trees. That buffer is ignored on Windows and Apple platforms.</p>
 <p>The underlying operating-system services may allocate their own resources. In particular, the Apple backend uses CoreServices objects while rebuilding its FSEvents stream. The allocation-free API shape therefore means caller-owned, bounded SC object storage; it is not a promise that native watcher setup performs no system allocation.</p>
-<h1><a class="anchor" id="autotoc_md247"></a>
+<h1><a class="anchor" id="autotoc_md255"></a>
 Platform behavior worth designing for</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -294,11 +294,11 @@ Platform behavior worth designing for</h1>
 </table>
 <p>Changes that bypass the watched directory entry may not produce a notification. Examples include modifying a file through a symbolic or hard link outside the watched tree, and some memory-mapped writes. On Linux, subdirectories created after <code>watch</code> produce a structural notification but are not themselves registered recursively; stop and restart the watcher or rescan through another mechanism if their descendants must be observed. On every platform, callers should tolerate a coarse rescan signal and races between notification and inspection: by the time a callback runs, the named path may already have changed again or disappeared.</p>
 <dl class="section warning"><dt>Warning</dt><dd>On iOS, FSEvents is a private API. Shipping an app that uses this library is therefore likely to be rejected by the App Store.</dd></dl>
-<h1><a class="anchor" id="autotoc_md248"></a>
+<h1><a class="anchor" id="autotoc_md256"></a>
 How it fits with neighboring libraries</h1>
 <p><code>FileSystemWatcher</code> only reports change hints. Use <a class="el" href="library_file_system.html">FileSystem</a> to query, create, remove, or rename paths after a notification, and <a class="el" href="library_file_system_iterator.html">FileSystemIterator</a> to rescan a tree when an event is ambiguous or names were lost. Use <a class="el" href="library_strings.html">Strings</a> <code>Path</code> operations to inspect or compose paths; <code>Notification::getFullPath</code> is the convenient join when a <code>StringPath</code> is already appropriate.</p>
 <p>The <a class="el" href="library_plugin.html">Plugin</a> library is a common consumer rather than a dependency. SCExample combines Plugin, FileSystemWatcher, and Async into a hot-reload loop: watcher events mark work as pending, a later phase rescans or rebuilds, and plugin replacement happens outside the notification callback. That separation is useful beyond plugins because it keeps backend callbacks short and absorbs duplicate bursts.</p>
-<h1><a class="anchor" id="autotoc_md249"></a>
+<h1><a class="anchor" id="autotoc_md257"></a>
 Status and further material</h1>
 <p>🟩 <b>Usable.</b> The core threaded and event-loop paths are exercised on the supported desktop platforms. The main limitations are the intentionally coarse event vocabulary, bounded recursive bookkeeping, and the absence of a portable polling fallback.</p>
 <ul>
@@ -307,7 +307,7 @@ Status and further material</h1>
 <li>Development updates: <a href="https://pagghiu.github.io/site/blog/2024-06-30-SaneCppLibrariesUpdate.html">June 2024</a>, <a href="https://pagghiu.github.io/site/blog/2025-06-30-SaneCppLibrariesUpdate.html">June 2025</a>, <a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html">July 2025</a>, and <a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026</a>.</li>
 </ul>
 <p>Possible future work includes a polling/stat backend for filesystems without usable native notifications and a mode where the caller supplies the watcher thread. Neither is currently planned as part of the public API.</p>
-<h1><a class="anchor" id="autotoc_md250"></a>
+<h1><a class="anchor" id="autotoc_md258"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/FileSystemWatcher</code>. Single File counts <code>SaneCppFileSystemWatcher.h</code>. Standalone counts <code>SaneCppFileSystemWatcherStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

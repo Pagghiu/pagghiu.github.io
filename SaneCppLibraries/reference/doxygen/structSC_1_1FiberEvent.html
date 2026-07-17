@@ -146,8 +146,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89bb37c462f34ee08d07b8dbce060b71" id="r_a89bb37c462f34ee08d07b8dbce060b71"><td class="memItemLeft" align="right" valign="top"><a id="a89bb37c462f34ee08d07b8dbce060b71" name="a89bb37c462f34ee08d07b8dbce060b71"></a>
 <a class="el" href="structSC_1_1FiberEvent.html">FiberEvent</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="structSC_1_1FiberEvent.html">FiberEvent</a> &amp;)=delete</td></tr>
 <tr class="separator:a89bb37c462f34ee08d07b8dbce060b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe4c728a050c0bdfad3892d4ad810348" id="r_abe4c728a050c0bdfad3892d4ad810348"><td class="memItemLeft" align="right" valign="top"><a id="abe4c728a050c0bdfad3892d4ad810348" name="abe4c728a050c0bdfad3892d4ad810348"></a>
-Result&#160;</td><td class="memItemRight" valign="bottom"><b>wait</b> (<a class="el" href="structSC_1_1FiberScheduler.html">FiberScheduler</a> &amp;scheduler)</td></tr>
+<tr class="memitem:abe4c728a050c0bdfad3892d4ad810348" id="r_abe4c728a050c0bdfad3892d4ad810348"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe4c728a050c0bdfad3892d4ad810348">wait</a> (<a class="el" href="structSC_1_1FiberScheduler.html">FiberScheduler</a> &amp;scheduler)</td></tr>
+<tr class="memdesc:abe4c728a050c0bdfad3892d4ad810348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Must be called from a fiber owned by scheduler.  <br /></td></tr>
 <tr class="separator:abe4c728a050c0bdfad3892d4ad810348"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40b5abd2a1ad36654203d6173b3f4c52" id="r_a40b5abd2a1ad36654203d6173b3f4c52"><td class="memItemLeft" align="right" valign="top"><a id="a40b5abd2a1ad36654203d6173b3f4c52" name="a40b5abd2a1ad36654203d6173b3f4c52"></a>
 Result&#160;</td><td class="memItemRight" valign="bottom"><b>signal</b> (<a class="el" href="structSC_1_1FiberScheduler.html">FiberScheduler</a> &amp;scheduler)</td></tr>
@@ -161,7 +161,27 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isSignaled</b> () con
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Manual-reset event that wakes waiting fibers when signaled. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="abe4c728a050c0bdfad3892d4ad810348" name="abe4c728a050c0bdfad3892d4ad810348"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe4c728a050c0bdfad3892d4ad810348">&#9670;&#160;</a></span>wait()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::FiberEvent::wait </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSC_1_1FiberScheduler.html">FiberScheduler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>scheduler</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Must be called from a fiber owned by scheduler. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="Fibers_8h_source.html">Fibers.h</a></li>
 </ul>
 </div><!-- contents -->

@@ -129,36 +129,36 @@ $(function(){initNavTree('page_faq.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md84">What is the default Standard C++ Library mode?</a>
+    <a href="#autotoc_md91">What is the default Standard C++ Library mode?</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md85">Can I disable Standard C++ Library headers?</a>
+    <a href="#autotoc_md92">Can I disable Standard C++ Library headers?</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md86">Can standard C++ headers be used without linking the C++ runtime?</a>
+    <a href="#autotoc_md93">Can standard C++ headers be used without linking the C++ runtime?</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md87">Can I benchmark normal mode versus strict mode?</a>
+    <a href="#autotoc_md94">Can I benchmark normal mode versus strict mode?</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md88">Can I disable Exceptions and RTTI?</a>
+    <a href="#autotoc_md95">Can I disable Exceptions and RTTI?</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md89">Can I use STL types like std::string or std::vector or my own containers?</a>
+    <a href="#autotoc_md96">Can I use STL types like std::string or std::vector or my own containers?</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md90">Does the library have debug visualizers?</a>
+    <a href="#autotoc_md97">Does the library have debug visualizers?</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md91">What plans for ABI / API stability?</a>
+    <a href="#autotoc_md98">What plans for ABI / API stability?</a>
   </li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md84"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md91"></a>
 What is the default Standard C++ Library mode?</h1>
 <p>By default SC allows C and C++ standard headers, so normal C++ projects can include the libraries without an SC-specific stdlib opt-in macro. SC library code still avoids STL containers, exceptions, RTTI, hidden allocations, and C++ standard library features that force the C++ runtime when practical. SC-build defaults to the normal C++ integration model: standard headers are available and the C++ standard-library runtime may be linked.</p>
 <p>The old <code>SC_COMPILER_ENABLE_STD_CPP</code> macro has been removed. Defining it now stops compilation with a migration error.</p>
-<h1><a class="anchor" id="autotoc_md85"></a>
+<h1><a class="anchor" id="autotoc_md92"></a>
 Can I disable Standard C++ Library headers?</h1>
 <p>Yes. Define <code>SC_INCLUDE_STD_CPP=0</code> and, if you are not using SC-build, add the matching compiler flags for your toolchain:</p><ul>
 <li><em>XCode / Clang / GCC 13+</em>:<ul>
@@ -168,7 +168,7 @@ Can I disable Standard C++ Library headers?</h1>
 </ul>
 <p>With SC-build, set <code>project.files.compile.includeStdCpp = false</code> on the target or <code>configuration.compile.includeStdCpp = false</code> on a specific configuration. For Sane C++ targets this also emits <code>SC_INCLUDE_STD_CPP=0</code>.</p>
 <p>To avoid C++ runtime linkage without disabling headers, set <code>project.link.linkStdCpp = false</code>; Sane C++ targets should also set <code>project.saneCpp.provideCppRuntimeShims = true</code> unless those runtime ABI symbols are provided elsewhere. If you are not using SC-build, define <code>SC_PROVIDE_CPP_RUNTIME_SHIMS=1</code> and pass <b>&ndash;nostdlib++</b> manually on Clang / GCC 13+.</p>
-<h1><a class="anchor" id="autotoc_md86"></a>
+<h1><a class="anchor" id="autotoc_md93"></a>
 Can standard C++ headers be used without linking the C++ runtime?</h1>
 <p>For constrained SC-style code, yes on the toolchains currently measured by <code>Support/Scripts/CheckStdCppHeaderNoLink.*</code>. This is a toolchain-tested compatibility claim, not a blanket C++ language guarantee.</p>
 <table class="markdownTable">
@@ -186,10 +186,10 @@ Can standard C++ headers be used without linking the C++ runtime?</h1>
 <td class="markdownTableBodyLeft">Windows clang-cl   </td><td class="markdownTableBodyLeft"><code>&lt;coroutine&gt;</code>   </td><td class="markdownTableBodyLeft">Not linked in the constrained probe   </td></tr>
 </table>
 <p>Run <code>Support/Scripts/CheckStdCppHeaderNoLink.sh</code> on macOS/Linux or <code>Support\Scripts\CheckStdCppHeaderNoLink.bat</code> from a Visual Studio developer prompt on Windows to refresh the local evidence.</p>
-<h1><a class="anchor" id="autotoc_md87"></a>
+<h1><a class="anchor" id="autotoc_md94"></a>
 Can I benchmark normal mode versus strict mode?</h1>
 <p>Yes. <code>Support/Scripts/BenchmarkStdCppMode.sh</code> builds configurable normal and strict targets for multiple iterations and reports build timing, executable size, section sizes, and linked runtime dependencies. The benchmark is informational and is intentionally not a CI threshold.</p>
-<h1><a class="anchor" id="autotoc_md88"></a>
+<h1><a class="anchor" id="autotoc_md95"></a>
 Can I disable Exceptions and RTTI?</h1>
 <p>Yes, if you disable the Standard C++ Library, you can also disable Exceptions and RTTI</p><ul>
 <li><em>XCode / Clang / GCC</em>:<ul>
@@ -203,13 +203,13 @@ Can I disable Exceptions and RTTI?</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md89"></a>
+<h1><a class="anchor" id="autotoc_md96"></a>
 Can I use STL types like std::string or std::vector or my own containers?</h1>
 <p>Yes you can, see the example at <code>Tests/InteropSTL</code>. <br  />
  You don't have to use the STL then, just any container library that you happen to like. <br  />
  The integration is efficient in the sense that for example String format or File Read will write data directly to the memory provided by your supplied string and/or container. <br  />
  The abstraction tries to be efficient issuing an indirect function pointer call only if an actual allocation is needed (after entirely using the provided initial capacity).</p>
-<h1><a class="anchor" id="autotoc_md90"></a>
+<h1><a class="anchor" id="autotoc_md97"></a>
 Does the library have debug visualizers?</h1>
 <p>Yes, this library contains debug visualizers for:</p><ul>
 <li><a class="el" href="structSC_1_1Array.html" title="A contiguous sequence of elements kept inside its inline storage.">SC::Array</a></li>
@@ -234,7 +234,7 @@ Does the library have debug visualizers?</h1>
 <li>Starting the VSCode <code>launch.json</code> configurations for lldb and gdb should will load them in your debugger session.</li>
 <li>You can manually <code>source</code> or add them to your project or build system</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md91"></a>
+<h1><a class="anchor" id="autotoc_md98"></a>
 What plans for ABI / API stability?</h1>
 <p>There are no plans to provide ABI stability.</p>
 <p>Each library declares its own API stability, but as the project is very young, expect breaking changes for now. <br  />

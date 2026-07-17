@@ -129,68 +129,68 @@ $(function(){initNavTree('library_strings.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md374">Dependencies</a>
+    <a href="#autotoc_md382">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md375">Status</a>
+    <a href="#autotoc_md383">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md376">Start With The Text Model</a>
+    <a href="#autotoc_md384">Start With The Text Model</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md377">Views Are Cheap, But Their Contracts Matter</a>
+    <a href="#autotoc_md385">Views Are Cheap, But Their Contracts Matter</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md378">Build Into Storage Chosen By The Caller</a>
+    <a href="#autotoc_md386">Build Into Storage Chosen By The Caller</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md379">Convert Only At Encoding Boundaries</a>
+    <a href="#autotoc_md387">Convert Only At Encoding Boundaries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md380">Paths Are Lexical Strings, Not Filesystem Operations</a>
+    <a href="#autotoc_md388">Paths Are Lexical Strings, Not Filesystem Operations</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md381">Command Lines And Console Output</a>
+    <a href="#autotoc_md389">Command Lines And Console Output</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md382">Allocation, Lifetime, And Failure</a>
+    <a href="#autotoc_md390">Allocation, Lifetime, And Failure</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md383">Boundaries With Neighboring Libraries</a>
+    <a href="#autotoc_md391">Boundaries With Neighboring Libraries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md384">What Is Deliberately Missing</a>
+    <a href="#autotoc_md392">What Is Deliberately Missing</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md385">Blog</a>
+    <a href="#autotoc_md393">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md386">Roadmap</a>
+    <a href="#autotoc_md394">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md387">Statistics</a>
+    <a href="#autotoc_md395">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟩 Non-owning encoded text, formatting, conversion, parsing, and path manipulation</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppStrings.h">SaneCppStrings.h</a> is the text-processing layer used across Sane C++ Libraries. It keeps encoding and null-termination information alongside a byte range, then provides comparison, slicing, tokenization, formatting, conversion, command-line parsing, console output, and platform-aware path operations without imposing an owning string type.</p>
-<h1><a class="anchor" id="autotoc_md374"></a>
+<h1><a class="anchor" id="autotoc_md382"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Strings.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md375"></a>
+<h1><a class="anchor" id="autotoc_md383"></a>
 Status</h1>
 <p>🟩 Usable <br  />
  The core ASCII, UTF-8, and UTF-16 operations are in regular use across the project. Unicode support is intentionally limited to code-point operations and encoding conversion; it is not a full Unicode text-processing stack.</p>
-<h1><a class="anchor" id="autotoc_md376"></a>
+<h1><a class="anchor" id="autotoc_md384"></a>
 Start With The Text Model</h1>
 <p>The central type is <code>StringView</code>: a read-only range of bytes plus three pieces of information needed to interpret it: its byte length, its <code>StringEncoding</code>, and whether a terminator immediately follows the range. A view does not own or copy the text. Slices and tokens are more views into the same storage, so they remain valid only while that storage is alive and unmoved.</p>
 <p><code>StringEncoding</code> distinguishes ASCII, UTF-8, and little-endian UTF-16. <code>StringEncoding::Native</code> is UTF-16 on Windows and UTF-8 elsewhere, matching the encodings used at the operating-system boundaries in the rest of SC. The size reported by a view is in bytes, not characters. Use <code>StringIteratorASCII</code>, <code>StringIteratorUTF8</code>, or <code>StringIteratorUTF16</code> when an operation must advance by Unicode code point.</p>
 <p>This model is a good fit for systems code that already knows where text lives and needs explicit platform conversion. It is a poor fit for code that expects string values to own themselves, silently grow, or provide locale-aware natural language operations.</p>
-<h1><a class="anchor" id="autotoc_md377"></a>
+<h1><a class="anchor" id="autotoc_md385"></a>
 Views Are Cheap, But Their Contracts Matter</h1>
 <p><code>StringView</code> compares different supported encodings by decoded code point and provides searches, prefix and suffix checks, trimming, splitting, numeric parsing, and tokenization. <code>StringViewTokenizer</code> advances through the input and exposes the current component as another view; it does not create a collection of copied tokens.</p>
 <p>There are two practical cautions:</p>
@@ -199,7 +199,7 @@ Views Are Cheap, But Their Contracts Matter</h1>
 <li>code-point equality is not Unicode normalization. Canonically equivalent spellings can compare unequal, and case-insensitive helpers are explicitly ASCII-only.</li>
 </ul>
 <p><code>StringSpan</code>, defined in the common foundation used by SC libraries, carries the same basic range, encoding, and termination metadata with a deliberately smaller operation set. APIs use it when they only need to transport text. <code>StringView</code> derives from it and adds the richer Strings algorithms. This keeps lower-level libraries from depending on Strings merely to pass a path or message.</p>
-<h1><a class="anchor" id="autotoc_md378"></a>
+<h1><a class="anchor" id="autotoc_md386"></a>
 Build Into Storage Chosen By The Caller</h1>
 <p>Text is never mutated through a view. <code>StringBuilder</code> instead writes a new sequence into an object supported by <code>GrowableBuffer</code>: an owning <code>String</code>, an inline <code>SmallString&lt;N&gt;</code>, a byte <code>Buffer</code>, or compatible caller-provided storage. The destination determines whether growth allocates, uses inline capacity, or fails at a hard limit.</p>
 <p>For a one-shot result, format directly into the destination:</p>
@@ -213,7 +213,7 @@ Build Into Storage Chosen By The Caller</h1>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(builder.append(<span class="stringliteral">&quot; {1} {0}!!!&quot;</span>, <span class="stringliteral">&quot;tutti&quot;</span>, <span class="stringliteral">&quot;a&quot;</span>));</div>
 <div class="line">    SC_ASSERT_RELEASE(builder.finalize() == <span class="stringliteral">&quot;Salve a tutti!!!&quot;</span>);</div>
 </div><!-- fragment --><p>Formatting uses indexed <code>{}</code> placeholders and supports the built-in scalar, pointer, and string types declared by <code>StringFormat</code>. It is intentionally not <code>std::format</code>: unsupported types need an SC formatter specialization, and a format or write error is reported as <code>false</code>. Ignoring that result can turn insufficient destination capacity into truncated or missing output.</p>
-<h1><a class="anchor" id="autotoc_md379"></a>
+<h1><a class="anchor" id="autotoc_md387"></a>
 Convert Only At Encoding Boundaries</h1>
 <p><code>StringConverter::appendEncodingTo</code> decodes the source and appends ASCII, UTF-8, or UTF-16 output to caller-selected storage. It can also append the destination encoding's null terminator for an operating-system or C API. If no conversion or terminator is needed, higher-level platform code can often pass the original <code>StringSpan</code> through instead of allocating a temporary.</p>
 <div class="fragment"><div class="line">    <span class="comment">// Setup: Construct some simple test StringViews</span></div>
@@ -240,16 +240,16 @@ Convert Only At Encoding Boundaries</h1>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1StringView.html">StringView</a> output = {span, <span class="keyword">true</span>, encoding}; <span class="comment">// true == StringView is null terminated (after span)</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(output == u16view);</div>
 </div><!-- fragment --><p>The destination's declared encoding is not changed by conversion. In particular, constructing an owning <code>String</code> with the intended encoding is part of the call-site contract. Plain byte buffers carry no encoding metadata at all, so the caller must use the same encoding when constructing a view over their contents and must exclude any terminator from the viewed byte count.</p>
-<h1><a class="anchor" id="autotoc_md380"></a>
+<h1><a class="anchor" id="autotoc_md388"></a>
 Paths Are Lexical Strings, Not Filesystem Operations</h1>
 <p><code>Path</code> parses and composes both POSIX and Windows syntax regardless of the host platform. It can split a path into views, select <code>dirname</code> or <code>basename</code>, test whether a path is absolute, join components, normalize <code>.</code> and <code>..</code>, and compute a relative path. Operations taking <code>Path::AsNative</code> select Windows syntax on Windows and POSIX syntax elsewhere.</p>
 <p>Parsing methods return views into the original path. Joining and normalization write to caller-provided storage and can fail. Normalization is lexical: it does not access the filesystem, resolve symbolic links, verify case, or prove that the resulting path exists. Its template workspace has a default limit of 64 components; choose a larger explicit bound when valid inputs can exceed that.</p>
 <p>Use <a class="el" href="library_file_system.html">FileSystem</a> when the job is to query or change actual files. FileSystem APIs exchange native-encoded spans with <code>Path</code>, but Strings itself performs no I/O.</p>
-<h1><a class="anchor" id="autotoc_md381"></a>
+<h1><a class="anchor" id="autotoc_md389"></a>
 Command Lines And Console Output</h1>
 <p><code>CommandLineSpec</code> describes options and positional values using caller-owned spans. Parsing writes directly into the provided variables, reports structured help/error/success status, and never builds a hidden argument collection. Repeated positional values therefore require the caller to provide <code>Span&lt;StringSpan&gt;</code> storage. <code>CommandLineArguments</code> adapts <code>main</code>/<code>wmain</code> arguments without changing the production API's view-based model.</p>
 <p><code>Console</code> is a thin formatted stdout/stderr writer. Its format string must be ASCII or UTF-8. On Windows, an optional caller-provided conversion buffer is used at the native console boundary; callers that need predictable behavior for long converted messages should size that workspace deliberately.</p>
-<h1><a class="anchor" id="autotoc_md382"></a>
+<h1><a class="anchor" id="autotoc_md390"></a>
 Allocation, Lifetime, And Failure</h1>
 <p>Strings has no direct dependency and does not choose an allocator. That does not mean every use is allocation-free: passing <code>String</code> or a heap-backed <code>Buffer</code> to a builder, converter, or path operation lets that destination grow through the <a class="el" href="library_memory.html">Memory</a> library. Passing fixed-capacity storage keeps the operation bounded but makes capacity failure part of normal control flow.</p>
 <p>The rules that matter at call sites are:</p>
@@ -260,15 +260,15 @@ Allocation, Lifetime, And Failure</h1>
 <li>treat <code>false</code> from builders, converters, formatters, and path composition as a real failure;</li>
 <li>add a terminator only when the receiving API requires one, and do not include it in the logical view length.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md383"></a>
+<h1><a class="anchor" id="autotoc_md391"></a>
 Boundaries With Neighboring Libraries</h1>
 <p><a class="el" href="library_memory.html">Memory</a> owns <code>String</code>, <code>SmallString&lt;N&gt;</code>, and <code>Buffer</code>, because ownership and allocation are memory policies rather than text algorithms. Strings can write into those types through the growable-buffer interface without depending on Memory. This separation is also why including Strings alone does not provide a classic owning string.</p>
 <p><a class="el" href="library_containers.html">Containers</a> is appropriate when parsed tokens or views must be collected, but remember that a container of views still does not own the referenced characters. Copy the text into owning storage when it must outlive the input.</p>
 <p><a class="el" href="library_file_system.html">FileSystem</a> and <a class="el" href="library_file_system_iterator.html">FileSystem Iterator</a> perform filesystem I/O and return native-encoded text. <code>Path</code> provides their lexical path manipulation. <code>Console</code> provides basic process output; asynchronous byte transport and buffering belong to <a class="el" href="library_async_streams.html">Async Streams</a>.</p>
-<h1><a class="anchor" id="autotoc_md384"></a>
+<h1><a class="anchor" id="autotoc_md392"></a>
 What Is Deliberately Missing</h1>
 <p>Strings currently works at bytes, code units, and Unicode code points. It does not implement grapheme-cluster iteration, locale-aware collation, word breaking, Unicode normalization, or general Unicode case conversion. A visible "character" can contain multiple code points, so code-point iteration is not sufficient for cursor movement or other human-text UI behavior. Applications needing those semantics should use a dedicated Unicode library at that boundary.</p>
-<h1><a class="anchor" id="autotoc_md385"></a>
+<h1><a class="anchor" id="autotoc_md393"></a>
 Blog</h1>
 <p>Relevant design and implementation updates:</p>
 <ul>
@@ -276,7 +276,7 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html">August 2025 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md386"></a>
+<h1><a class="anchor" id="autotoc_md394"></a>
 Roadmap</h1>
 <p>Potential additions remain deliberately uncommitted because correct Unicode behavior is substantially broader than encoding conversion:</p>
 <p>🟦 Complete Features:</p><ul>
@@ -287,7 +287,7 @@ Roadmap</h1>
 <li>UTF word breaking</li>
 <li>Grapheme-cluster iteration</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md387"></a>
+<h1><a class="anchor" id="autotoc_md395"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Strings</code>. Single File counts <code>SaneCppStrings.h</code>. Standalone counts <code>SaneCppStringsStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

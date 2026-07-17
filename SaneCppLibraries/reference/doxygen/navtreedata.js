@@ -25,8 +25,8 @@
 var NAVTREE =
 [
   [ "Sane C++ Libraries", "index.html", [
-    [ "Motivation", "index.html#autotoc_md93", null ],
-    [ "Status", "index.html#autotoc_md94", null ],
+    [ "Motivation", "index.html#autotoc_md100", null ],
+    [ "Status", "index.html#autotoc_md101", null ],
     [ "Dependencies", "page_dependencies.html", [
       [ "Dependencies", "page_dependencies.html#autotoc_md0", null ],
       [ "Dependencies (automatically generated)", "page_dependencies.html#autotoc_md1", null ],
@@ -123,63 +123,73 @@ var NAVTREE =
     ] ],
     [ "Examples", "page_examples.html", [
       [ "Examples", "page_examples.html#autotoc_md76", [
-        [ "Building", "page_examples.html#autotoc_md77", null ],
-        [ "SCExample", "page_examples.html#autotoc_md78", null ],
-        [ "AsyncWebServerExample", "page_examples.html#autotoc_md79", null ]
-      ] ],
-      [ "Blog", "page_examples.html#autotoc_md80", null ],
-      [ "Where can I find more examples?", "page_examples.html#autotoc_md82", null ],
-      [ "Where can I learn more?", "page_examples.html#autotoc_md83", null ]
+        [ "Quick start", "page_examples.html#autotoc_md77", null ],
+        [ "HTTP and networking", "page_examples.html#autotoc_md78", null ],
+        [ "Await cookbook", "page_examples.html#autotoc_md79", [
+          [ "Task ownership and coordination", "page_examples.html#autotoc_md80", null ],
+          [ "Networking", "page_examples.html#autotoc_md81", null ],
+          [ "File I/O", "page_examples.html#autotoc_md82", null ],
+          [ "System integration", "page_examples.html#autotoc_md83", null ],
+          [ "Composed workflow", "page_examples.html#autotoc_md84", null ]
+        ] ],
+        [ "Fibers", "page_examples.html#autotoc_md85", null ],
+        [ "Native integration and hot reload", "page_examples.html#autotoc_md86", null ],
+        [ "Videos", "page_examples.html#autotoc_md87", [
+          [ "Serialization and state", "page_examples.html#autotoc_md88", null ],
+          [ "Plugin loading and hot reload", "page_examples.html#autotoc_md89", null ]
+        ] ],
+        [ "More source-backed examples", "page_examples.html#autotoc_md90", null ]
+      ] ]
     ] ],
     [ "FAQ", "page_faq.html", [
-      [ "What is the default Standard C++ Library mode?", "page_faq.html#autotoc_md84", null ],
-      [ "Can I disable Standard C++ Library headers?", "page_faq.html#autotoc_md85", null ],
-      [ "Can standard C++ headers be used without linking the C++ runtime?", "page_faq.html#autotoc_md86", null ],
-      [ "Can I benchmark normal mode versus strict mode?", "page_faq.html#autotoc_md87", null ],
-      [ "Can I disable Exceptions and RTTI?", "page_faq.html#autotoc_md88", null ],
-      [ "Can I use STL types like std::string or std::vector or my own containers?", "page_faq.html#autotoc_md89", null ],
-      [ "Does the library have debug visualizers?", "page_faq.html#autotoc_md90", null ],
-      [ "What plans for ABI / API stability?", "page_faq.html#autotoc_md91", null ]
+      [ "What is the default Standard C++ Library mode?", "page_faq.html#autotoc_md91", null ],
+      [ "Can I disable Standard C++ Library headers?", "page_faq.html#autotoc_md92", null ],
+      [ "Can standard C++ headers be used without linking the C++ runtime?", "page_faq.html#autotoc_md93", null ],
+      [ "Can I benchmark normal mode versus strict mode?", "page_faq.html#autotoc_md94", null ],
+      [ "Can I disable Exceptions and RTTI?", "page_faq.html#autotoc_md95", null ],
+      [ "Can I use STL types like std::string or std::vector or my own containers?", "page_faq.html#autotoc_md96", null ],
+      [ "Does the library have debug visualizers?", "page_faq.html#autotoc_md97", null ],
+      [ "What plans for ABI / API stability?", "page_faq.html#autotoc_md98", null ]
     ] ],
     [ "Libraries", "libraries.html", "libraries" ],
     [ "Platforms", "page_platforms.html", null ],
     [ "Principles", "page_principles.html", [
-      [ "📖 Readability", "page_principles.html#autotoc_md95", null ],
-      [ "✅ Correctness", "page_principles.html#autotoc_md96", null ],
-      [ "🚀 Speed", "page_principles.html#autotoc_md97", null ]
+      [ "📖 Readability", "page_principles.html#autotoc_md102", null ],
+      [ "✅ Correctness", "page_principles.html#autotoc_md103", null ],
+      [ "🚀 Speed", "page_principles.html#autotoc_md104", null ]
     ] ],
     [ "Single File Amalgamation", "page_single_file_libs.html", null ],
     [ "Tests", "page_tests.html", null ],
     [ "Tools", "page_tools.html", [
-      [ "Blog", "page_tools.html#autotoc_md98", null ],
-      [ "Reasons", "page_tools.html#autotoc_md99", null ],
-      [ "Invoking built-in Tools", "page_tools.html#autotoc_md100", null ],
-      [ "External SC::Build launcher", "page_tools.html#autotoc_md101", null ],
-      [ "Invoking custom tools", "page_tools.html#autotoc_md102", null ],
-      [ "SC-build.cpp", "page_tools.html#autotoc_md103", [
-        [ "Actions", "page_tools.html#autotoc_md104", null ],
-        [ "Examples", "page_tools.html#autotoc_md105", null ]
-      ] ],
-      [ "SC-package.cpp", "page_tools.html#autotoc_md106", [
-        [ "Actions", "page_tools.html#autotoc_md107", null ],
-        [ "Examples", "page_tools.html#autotoc_md108", null ],
-        [ "Packages", "page_tools.html#autotoc_md109", null ]
-      ] ],
-      [ "SC-format.cpp", "page_tools.html#autotoc_md110", [
+      [ "Blog", "page_tools.html#autotoc_md105", null ],
+      [ "Reasons", "page_tools.html#autotoc_md106", null ],
+      [ "Invoking built-in Tools", "page_tools.html#autotoc_md107", null ],
+      [ "External SC::Build launcher", "page_tools.html#autotoc_md108", null ],
+      [ "Invoking custom tools", "page_tools.html#autotoc_md109", null ],
+      [ "SC-build.cpp", "page_tools.html#autotoc_md110", [
         [ "Actions", "page_tools.html#autotoc_md111", null ],
         [ "Examples", "page_tools.html#autotoc_md112", null ]
       ] ],
-      [ "How does it work", "page_tools.html#autotoc_md113", null ],
-      [ "Bootstrap Sequence", "page_tools.html#autotoc_md114", null ],
-      [ "Roadmap", "page_tools.html#autotoc_md115", null ]
+      [ "SC-package.cpp", "page_tools.html#autotoc_md113", [
+        [ "Actions", "page_tools.html#autotoc_md114", null ],
+        [ "Examples", "page_tools.html#autotoc_md115", null ],
+        [ "Packages", "page_tools.html#autotoc_md116", null ]
+      ] ],
+      [ "SC-format.cpp", "page_tools.html#autotoc_md117", [
+        [ "Actions", "page_tools.html#autotoc_md118", null ],
+        [ "Examples", "page_tools.html#autotoc_md119", null ]
+      ] ],
+      [ "How does it work", "page_tools.html#autotoc_md120", null ],
+      [ "Bootstrap Sequence", "page_tools.html#autotoc_md121", null ],
+      [ "Roadmap", "page_tools.html#autotoc_md122", null ]
     ] ],
     [ "HTTP Library Notes", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html", [
-      [ "Architecture Overview", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md417", null ],
-      [ "Core constraints", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md418", null ],
-      [ "Hot paths", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md419", null ],
-      [ "Benchmark workflow", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md420", null ],
-      [ "Client-specific notes", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md421", null ],
-      [ "Validation", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md422", null ]
+      [ "Architecture Overview", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md425", null ],
+      [ "Core constraints", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md426", null ],
+      [ "Hot paths", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md427", null ],
+      [ "Benchmark workflow", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md428", null ],
+      [ "Client-specific notes", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md429", null ],
+      [ "Validation", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md430", null ]
     ] ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
@@ -214,15 +224,16 @@ var NAVTREEINDEX =
 [
 "ArenaMapKey_8h_source.html",
 "group__group__strings.html#ga4b7aa03fde5e693b29c03a9991208574",
-"library_serial_port.html#autotoc_md353",
-"structSC_1_1AsyncBuffersPool.html#a0b89fd54f77a8f6530f7ba80af6f3604",
-"structSC_1_1AsyncLoopTimeout.html#a71c9ab224e7491e0ca068ce9a294a530",
-"structSC_1_1AsyncSignal_1_1Result.html",
-"structSC_1_1CommandLinePositional.html",
-"structSC_1_1FileSystemIterator_1_1Entry.html#af5b915b6c652e3ea86c83e4b7e1caac0",
-"structSC_1_1HttpClientSessionRetryPolicy.html",
-"structSC_1_1PluginCompiler.html#acb6e80ac884acb67ec167d350f77db68",
-"structSC_1_1StringBuilder.html"
+"library_serial_port.html#autotoc_md360",
+"structSC_1_1AsyncBufferView.html#a5f1160cbb8e31ab2f28803c5bd9ce83a",
+"structSC_1_1AsyncLoopTimeout.html#a21b0ff8328f3f5f78d6bd563a023a731",
+"structSC_1_1AsyncSignalOptions.html#ae4f59b29a2decebe0c7b29b88d256e2e",
+"structSC_1_1Barrier.html#a2f425c3e4b3d0783a18d21afc986eec5",
+"structSC_1_1FileSystem.html#afe1fb31f6a2e6ecfc31133b17fa69eda",
+"structSC_1_1HttpClientRequestProxyOptions.html#a8e86ed47b9efcf99e20f5faee91cb522",
+"structSC_1_1Path_1_1ParsedView.html#ac9ae77efd78f782005e0a8fc0411ad67",
+"structSC_1_1String.html#a049af3857ed4eb1378b821aa7923fd37",
+"structSC_1_1VirtualArray.html#ae3bf5e713ae5fc32a63231e306c8629b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -129,47 +129,22 @@ $(function(){initNavTree('page_tools.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md98">Blog</a>
+    <a href="#autotoc_md105">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md99">Reasons</a>
+    <a href="#autotoc_md106">Reasons</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md100">Invoking built-in Tools</a>
+    <a href="#autotoc_md107">Invoking built-in Tools</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md101">External SC::Build launcher</a>
+    <a href="#autotoc_md108">External SC::Build launcher</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md102">Invoking custom tools</a>
+    <a href="#autotoc_md109">Invoking custom tools</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md103">SC-build.cpp</a>
-    <ul>
-      <li class="level2">
-        <a href="#autotoc_md104">Actions</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md105">Examples</a>
-      </li>
-    </ul>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md106">SC-package.cpp</a>
-    <ul>
-      <li class="level2">
-        <a href="#autotoc_md107">Actions</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md108">Examples</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md109">Packages</a>
-      </li>
-    </ul>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md110">SC-format.cpp</a>
+    <a href="#autotoc_md110">SC-build.cpp</a>
     <ul>
       <li class="level2">
         <a href="#autotoc_md111">Actions</a>
@@ -180,13 +155,38 @@ $(function(){initNavTree('page_tools.html',''); initResizable(true); });
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md113">How does it work</a>
+    <a href="#autotoc_md113">SC-package.cpp</a>
+    <ul>
+      <li class="level2">
+        <a href="#autotoc_md114">Actions</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md115">Examples</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md116">Packages</a>
+      </li>
+    </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md114">Bootstrap Sequence</a>
+    <a href="#autotoc_md117">SC-format.cpp</a>
+    <ul>
+      <li class="level2">
+        <a href="#autotoc_md118">Actions</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md119">Examples</a>
+      </li>
+    </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md115">Roadmap</a>
+    <a href="#autotoc_md120">How does it work</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md121">Bootstrap Sequence</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md122">Roadmap</a>
   </li>
 </ul>
 </div>
@@ -197,7 +197,7 @@ $(function(){initNavTree('page_tools.html',''); initResizable(true); });
 <p>Another way to look at them is just as small <em>C++ scripts</em> for which you don't need to setup or maintain a build system, as long as you only use Sane C++ Libraries.</p>
 <dl class="section note"><dt>Note</dt><dd>Name is <code>SC::Tools</code> and not <code>SC::Scripts</code> because they're still just small programs. <br  />
  If the system will be generalized even more, maybe acquiring more advanced capabilities from <a class="el" href="library_plugin.html">SC::Plugin</a> and <a class="el" href="page_build.html">SC::Build</a> or sandboxing capabilities, this naming will be re-evaluated and/or changed.</dd></dl>
-<h1><a class="anchor" id="autotoc_md98"></a>
+<h1><a class="anchor" id="autotoc_md105"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
@@ -206,7 +206,7 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2025-10-31-SaneCppLibrariesUpdate.html">October 2025 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md99"></a>
+<h1><a class="anchor" id="autotoc_md106"></a>
 Reasons</h1>
 <p><code>SC::Tools</code> has been created for the following reasons: <br  />
 </p>
@@ -224,7 +224,7 @@ Reasons</h1>
 <li>Avoid introducing additional dependencies</li>
 <li>Keep the percentage of C++ code in the repo as high as possible (as a consequence of the above)</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md100"></a>
+<h1><a class="anchor" id="autotoc_md107"></a>
 Invoking built-in Tools</h1>
 <p>All built-in tools are invoked with the <code>SC.sh</code> or <code>SC.bat</code> bootstrap script that is located in the root of the repo.</p>
 <p>Such script must be called with the name of the tool and some parameters. <br  />
@@ -235,7 +235,7 @@ Invoking built-in Tools</h1>
 <div class="fragment"><div class="line">SC.bat build compile SCTest</div>
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd><code>SC::Tools</code> are just regular programs being compiled on the fly when needed, so they require a working host compiler to be available in system path. This limitation could be removed if needed, as described in the Roadmap section. <br  />
 </dd></dl>
-<h1><a class="anchor" id="autotoc_md101"></a>
+<h1><a class="anchor" id="autotoc_md108"></a>
 External SC::Build launcher</h1>
 <p>External projects should use <code>SC-build.sh</code>, <code>SC-build.bat</code>, or <code>SC-build.ps1</code> instead of the repository-only <code>SC.sh build ...</code> entrypoint.</p>
 <p>Those launchers:</p>
@@ -245,7 +245,7 @@ External SC::Build launcher</h1>
 <li>Can use a vendored checkout, an explicit shared checkout, or a shared cached clone plus versioned worktrees</li>
 </ul>
 <p>See <a class="el" href="page_build_external.html">External SC::Build Bootstrap</a> for the full workflow and examples.</p>
-<h1><a class="anchor" id="autotoc_md102"></a>
+<h1><a class="anchor" id="autotoc_md109"></a>
 Invoking custom tools</h1>
 <p>Tools can be automatically compiled and run by just passing its full path to the <code>SC</code> bootstrap.</p>
 <p>Given the following custom tool at <code>myToolDirectory/TestScript.cpp</code></p>
@@ -282,10 +282,10 @@ Invoking custom tools</h1>
 <div class="line">param2</div>
 <div class="line">Test &quot;myAction&quot; finished (took 1 ms)</div>
 </div><!-- fragment --><p>This is the list of tools that currently exist in the Sane C++ repository.</p>
-<h1><a class="anchor" id="autotoc_md103"></a>
+<h1><a class="anchor" id="autotoc_md110"></a>
 SC-build.cpp</h1>
 <p><code>SC-build</code> builds Sane C++ repository targets directly through the standalone native backend by default, and can also configure generated projects through <a class="el" href="page_build.html">SC::Build</a>.</p>
-<h2><a class="anchor" id="autotoc_md104"></a>
+<h2><a class="anchor" id="autotoc_md111"></a>
 Actions</h2>
 <ul>
 <li><code>configure</code>: Generates repository projects into <code>_Build/_Projects/&lt;Generator&gt;/&lt;Workspace&gt;</code></li>
@@ -350,7 +350,7 @@ Actions</h2>
 <li><code>windows-gnu-arm64</code> and <code>windows-msvc-arm64</code> are no longer rejected by a hardcoded CLI rule; Linux arm64 now has a real ARM64-capable Wine runtime for targeted smokes, while the packaged macOS Wine runner still lacks an ARM64 Windows loader</li>
 <li>Legacy positional compatibility is still accepted after <code>target</code> as <code>[config] [generator] [arch] [output]</code></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md105"></a>
+<h2><a class="anchor" id="autotoc_md112"></a>
 Examples</h2>
 <p>Generate explicit project files: </p><div class="fragment"><div class="line">./SC.sh build configure</div>
 </div><!-- fragment --><p> Possible Output:</p>
@@ -422,7 +422,7 @@ Examples</h2>
 <div class="line">Generate compile_commands.json</div>
 <div class="line">Linking SCTest</div>
 <div class="line">SC-build &quot;compile&quot; finished (took 3071 ms)</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md106"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md113"></a>
 SC-package.cpp</h1>
 <p><code>SC-package</code> downloads third party tools needed for Sane C++ development (example: <code>clang-format</code>). <br  />
  Proper OS / Architecture combination is selected (Windows/Linux/Mac and Intel/ARM) and all downloaded files (<em>packages</em>) are hash checked for correctness. <br  />
@@ -430,7 +430,7 @@ SC-package.cpp</h1>
 </p>
 <dl class="section note"><dt>Note</dt><dd>Directory naming has been chosen to avoid clashes when mounting the same working copy folder in multiple concurrent virtual machines with different Operating Systems / architectures. <br  />
  This happens during regular development, where new code is frequently tested in parallel on macOS, Windows and Linux before even committing it and pushing it to the CI system.</dd></dl>
-<h2><a class="anchor" id="autotoc_md107"></a>
+<h2><a class="anchor" id="autotoc_md114"></a>
 Actions</h2>
 <ul>
 <li><code>install</code>: Downloads required tools (LLVM archives / documentation tools)</li>
@@ -445,7 +445,7 @@ Actions</h2>
 <li><code>exports &lt;package&gt;</code>: Prints the exports recorded by the installed receipt with resolved paths</li>
 <li><code>lock</code>: Writes a local <code>_Build/SC-package.lock</code> summary of installed package receipts and lock metadata</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md108"></a>
+<h2><a class="anchor" id="autotoc_md115"></a>
 Examples</h2>
 <div class="fragment"><div class="line">./SC.sh package install</div>
 <div class="line">./SC.sh package help</div>
@@ -491,7 +491,7 @@ Examples</h2>
 <div class="line">};</div>
 </div><!-- fragment --><p>Recipe phases are resolved through a <code>PackagePhaseRegistry</code>. The built-in phase registry currently provides <code>copyDirectory</code> and <code>writeReceipt</code>; external code can provide its own phase table for package-specific behavior. Unknown phases fail explicitly during install.</p>
 <p><code>status</code> reports receipt validity without failing the command, while <code>verify</code> fails on invalid receipts after checking receipt shape, source-hash syntax, exported paths and the registry export contract. <code>doctor</code> prints the same health information with suggested actions for humans. <code>lock</code> writes <code>_Build/SC-package.lock</code> with generator metadata, host platform, generation timestamp, package count and the resolved package name, version, recipe version, host platform, variant, source, hash, install root, receipt path and exports for each installed receipt, making package state auditable without making imported packages look content-addressed.</p>
-<h2><a class="anchor" id="autotoc_md109"></a>
+<h2><a class="anchor" id="autotoc_md116"></a>
 Packages</h2>
 <p>These are the packages that are currently downloaded and extracted / symlinked by <code>SC-package.cpp</code>:</p>
 <ul>
@@ -510,20 +510,20 @@ Packages</h2>
 </ul>
 <dl class="section note"><dt>Note</dt><dd>Automatic <code>clang-format</code> install is available on macOS ARM64, Linux ARM64/x64 and Windows ARM64/x64. <br  />
  Intel macOS users should install <code>llvm@20</code> manually (for example through Homebrew) because recent official LLVM releases no longer provide Intel macOS archives.</dd></dl>
-<h1><a class="anchor" id="autotoc_md110"></a>
+<h1><a class="anchor" id="autotoc_md117"></a>
 SC-format.cpp</h1>
 <p><code>SC-format</code> tool formats or checks formatting for all files in Sane C++ repository</p>
-<h2><a class="anchor" id="autotoc_md111"></a>
+<h2><a class="anchor" id="autotoc_md118"></a>
 Actions</h2>
 <ul>
 <li><code>execute</code>: Formats all source files in the repository in-place</li>
 <li><code>check</code>: Does a dry-run format of all source files. Returns error on unformatted files (used by the CI)</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md112"></a>
+<h2><a class="anchor" id="autotoc_md119"></a>
 Examples</h2>
 <p>Format all source files in the repository </p><div class="fragment"><div class="line">./SC.sh format execute</div>
 </div><!-- fragment --><p>Check if all source files in the repository are properly formatted </p><div class="fragment"><div class="line">SC.bat format check</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md113"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md120"></a>
 How does it work</h1>
 <p>The bootstrap batch (<code>SC.bat</code>) / bash (<code>SC.sh</code>) shell scripts are doing the following: <br  />
 </p><ul>
@@ -547,7 +547,7 @@ How does it work</h1>
 <dl class="section note"><dt>Note</dt><dd><code>Tools.cpp</code> is shared between all compiled tools by the <code>Makefile</code> inside the <code>_Build/_Tools/_Intermediates</code> directory. <br  />
  This allows modifying and recompiling a script, or compiling different scripts spending negligible (often sub-second) time, to just compile/link script logic. <br  />
  This is because all Sane C++ Libraries are compiled just once (the first time, in no more than a couple of seconds) inside <code>Tools.cpp</code>.</dd></dl>
-<h1><a class="anchor" id="autotoc_md114"></a>
+<h1><a class="anchor" id="autotoc_md121"></a>
 Bootstrap Sequence</h1>
 <p>SC::Tools define an handy way of invoking an on the fly compiled program that has Sane C++ Libraries. The bootstrap process bringing from the command line to final execution is the following:</p>
 <ol type="1">
@@ -564,7 +564,7 @@ Bootstrap Sequence</h1>
 <li><code>ToolsBootstrap</code> invokes the compiled tool with the original action and parameters</li>
 <li>The <code>SC-build</code> tool then configures projects, compiles, runs, or performs the selected action</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md115"></a>
+<h1><a class="anchor" id="autotoc_md122"></a>
 Roadmap</h1>
 <ul>
 <li>Generate ready made .vscode configurations to debug the programs easily</li>

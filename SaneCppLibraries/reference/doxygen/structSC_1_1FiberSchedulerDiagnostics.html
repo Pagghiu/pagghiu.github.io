@@ -135,9 +135,24 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a16ddaf2babb2dbea4d25934d0a4b5cc7" id="r_a16ddaf2babb2dbea4d25934d0a4b5cc7"><td class="memItemLeft" align="right" valign="top"><a id="a16ddaf2babb2dbea4d25934d0a4b5cc7" name="a16ddaf2babb2dbea4d25934d0a4b5cc7"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>readyFibers</b> = 0</td></tr>
 <tr class="separator:a16ddaf2babb2dbea4d25934d0a4b5cc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2359855a77ceda0b14d67da6805b38cb" id="r_a2359855a77ceda0b14d67da6805b38cb"><td class="memItemLeft" align="right" valign="top"><a id="a2359855a77ceda0b14d67da6805b38cb" name="a2359855a77ceda0b14d67da6805b38cb"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>globalReadyFibers</b> = 0</td></tr>
+<tr class="separator:a2359855a77ceda0b14d67da6805b38cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abade9fe50f861a26552932f689d5a680" id="r_abade9fe50f861a26552932f689d5a680"><td class="memItemLeft" align="right" valign="top"><a id="abade9fe50f861a26552932f689d5a680" name="abade9fe50f861a26552932f689d5a680"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>activeFibers</b> = 0</td></tr>
 <tr class="separator:abade9fe50f861a26552932f689d5a680"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79050147649609875b1c19680af67cde" id="r_a79050147649609875b1c19680af67cde"><td class="memItemLeft" align="right" valign="top"><a id="a79050147649609875b1c19680af67cde" name="a79050147649609875b1c19680af67cde"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>injectionCapacity</b> = 0</td></tr>
+<tr class="separator:a79050147649609875b1c19680af67cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38f0f6a0ffa19e9af2a90e39d28d926a" id="r_a38f0f6a0ffa19e9af2a90e39d28d926a"><td class="memItemLeft" align="right" valign="top"><a id="a38f0f6a0ffa19e9af2a90e39d28d926a" name="a38f0f6a0ffa19e9af2a90e39d28d926a"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>injectionReady</b> = 0</td></tr>
+<tr class="separator:a38f0f6a0ffa19e9af2a90e39d28d926a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4be8e3430a21d6f9f67494ae3028a7f5" id="r_a4be8e3430a21d6f9f67494ae3028a7f5"><td class="memItemLeft" align="right" valign="top"><a id="a4be8e3430a21d6f9f67494ae3028a7f5" name="a4be8e3430a21d6f9f67494ae3028a7f5"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>injectionPeak</b> = 0</td></tr>
+<tr class="separator:a4be8e3430a21d6f9f67494ae3028a7f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8edcd1036a21f12b3742373377dd225c" id="r_a8edcd1036a21f12b3742373377dd225c"><td class="memItemLeft" align="right" valign="top"><a id="a8edcd1036a21f12b3742373377dd225c" name="a8edcd1036a21f12b3742373377dd225c"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>injectionSpills</b> = 0</td></tr>
+<tr class="separator:a8edcd1036a21f12b3742373377dd225c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d9ffd5eeff86785ed144ee5581db043" id="r_a9d9ffd5eeff86785ed144ee5581db043"><td class="memItemLeft" align="right" valign="top"><a id="a9d9ffd5eeff86785ed144ee5581db043" name="a9d9ffd5eeff86785ed144ee5581db043"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>lockAcquisitions</b> = 0</td></tr>
 <tr class="separator:a9d9ffd5eeff86785ed144ee5581db043"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,6 +165,21 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>lockSpinRetries</b>
 <tr class="memitem:abdaf58187920288f018595426b835f64" id="r_abdaf58187920288f018595426b835f64"><td class="memItemLeft" align="right" valign="top"><a id="abdaf58187920288f018595426b835f64" name="abdaf58187920288f018595426b835f64"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>lockPeakSpinRetries</b> = 0</td></tr>
 <tr class="separator:abdaf58187920288f018595426b835f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdd6b75e98b571fd8bf8bf8b22cf4192" id="r_afdd6b75e98b571fd8bf8bf8b22cf4192"><td class="memItemLeft" align="right" valign="top"><a id="afdd6b75e98b571fd8bf8bf8b22cf4192" name="afdd6b75e98b571fd8bf8bf8b22cf4192"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>lockSpawn</b> = 0</td></tr>
+<tr class="separator:afdd6b75e98b571fd8bf8bf8b22cf4192"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0100aa273749b08ca71df4d9110af20" id="r_af0100aa273749b08ca71df4d9110af20"><td class="memItemLeft" align="right" valign="top"><a id="af0100aa273749b08ca71df4d9110af20" name="af0100aa273749b08ca71df4d9110af20"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>lockReady</b> = 0</td></tr>
+<tr class="separator:af0100aa273749b08ca71df4d9110af20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f0fb238f2c5a7f6352b1b8f045630a0" id="r_a4f0fb238f2c5a7f6352b1b8f045630a0"><td class="memItemLeft" align="right" valign="top"><a id="a4f0fb238f2c5a7f6352b1b8f045630a0" name="a4f0fb238f2c5a7f6352b1b8f045630a0"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>lockSynchronization</b> = 0</td></tr>
+<tr class="separator:a4f0fb238f2c5a7f6352b1b8f045630a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1fc12ff4882170d05055c6c0b0c5ff7" id="r_af1fc12ff4882170d05055c6c0b0c5ff7"><td class="memItemLeft" align="right" valign="top"><a id="af1fc12ff4882170d05055c6c0b0c5ff7" name="af1fc12ff4882170d05055c6c0b0c5ff7"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>lockCompletion</b> = 0</td></tr>
+<tr class="separator:af1fc12ff4882170d05055c6c0b0c5ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6851b7e7cb0351b727c97382f209763c" id="r_a6851b7e7cb0351b727c97382f209763c"><td class="memItemLeft" align="right" valign="top"><a id="a6851b7e7cb0351b727c97382f209763c" name="a6851b7e7cb0351b727c97382f209763c"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>lockControl</b> = 0</td></tr>
+<tr class="separator:a6851b7e7cb0351b727c97382f209763c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="Fibers_8h_source.html">Fibers.h</a></li>

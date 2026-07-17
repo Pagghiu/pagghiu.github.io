@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['wait_0',['wait',['../structSC_1_1Barrier.html#a2f425c3e4b3d0783a18d21afc986eec5',1,'SC::Barrier::wait()'],['../structSC_1_1EventObject.html#abc0c56fcc752cb67a3f194e1cfa588e5',1,'SC::EventObject::wait()']]],
+  ['wait_0',['wait',['../structSC_1_1FiberEvent.html#abe4c728a050c0bdfad3892d4ad810348',1,'SC::FiberEvent::wait()'],['../structSC_1_1FiberAutoResetEvent.html#a5c9a3f0c65485b33f75f291bd336d224',1,'SC::FiberAutoResetEvent::wait()'],['../structSC_1_1FiberSemaphore.html#a8e0e54c82e6cffa2c9fc75f10929ccb1',1,'SC::FiberSemaphore::wait()'],['../structSC_1_1Barrier.html#a2f425c3e4b3d0783a18d21afc986eec5',1,'SC::Barrier::wait()'],['../structSC_1_1EventObject.html#abc0c56fcc752cb67a3f194e1cfa588e5',1,'SC::EventObject::wait()']]],
   ['waitforalltasks_1',['waitForAllTasks',['../structSC_1_1ThreadPool.html#af47fc96560293a054580e8290f08e410',1,'SC::ThreadPool']]],
   ['waitforchild_2',['waitForChild',['../structSC_1_1ProcessFork.html#a28f1eefd2b5e636a51cdaf68ec4b78be',1,'SC::ProcessFork']]],
   ['waitforexitsync_3',['waitForExitSync',['../structSC_1_1Process.html#ae6ab8a41869685536723d932356c6f9b',1,'SC::Process::waitForExitSync()'],['../structSC_1_1ProcessChain.html#ab69c77b201014118fc5dab505dc1cd04',1,'SC::ProcessChain::waitForExitSync()']]],

@@ -128,154 +128,105 @@ $(function(){initNavTree('page_examples.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="autotoc_md76"></a>
 Examples</h1>
+<p>The examples are complete programs built from the same library sources as the test suite. Use them to see how the libraries fit together, then follow the links to the source when you need the implementation details.</p>
 <h2><a class="anchor" id="autotoc_md77"></a>
-Building</h2>
-<dl class="section note"><dt>Note</dt><dd>Examples now build directly through native <code>build compile</code> / <code>build run</code> without a prior <code>configure</code>. Use <code>build configure</code> only when you explicitly want generated Visual Studio, XCode, or Make projects.</dd>
-<dd>
-Projects will be generated in <code>_Build/_Projects</code>. <br  />
- After compiling (<code>SC build compile</code>) executables will be at <code>_Build/_Outputs/${platform}-${arch}-${build}-${compiler}-${config}/${EXAMPLE_NAME}</code>.</dd></dl>
+Quick start</h2>
+<p>Build and run an example from the repository root:</p>
+<div class="fragment"><div class="line">./SC.sh build compile AwaitEcho Debug</div>
+<div class="line">./SC.sh build run AwaitEcho Debug</div>
+</div><!-- fragment --><p>Use <code>SC.bat</code> instead of <code>./SC.sh</code> on Windows. Project generation, IDE setup, and platform prerequisites are covered in <a class="el" href="page_building_contributor.html">Building (Contributor)</a>.</p>
 <h2><a class="anchor" id="autotoc_md78"></a>
-SCExample</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadLeft">Property   </th><th class="markdownTableHeadLeft">Value    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Location   </td><td class="markdownTableBodyLeft"><code>Examples/SCExample</code>    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Description   </td><td class="markdownTableBodyLeft">Simple immediate mode gui application using sokol and dear imgui libraries pausing in absence of inputs and I/O to save CPU time    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Purposes   </td><td class="markdownTableBodyLeft">Use <a class="el" href="page_build.html">SC::Build</a> to build on macOS, windows and linux and <a class="el" href="library_async.html">SC::Async</a> as I/O event Loop    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"></td><td class="markdownTableBodyLeft">Use <a class="el" href="library_plugin.html">Plugin</a> and <a class="el" href="library_file_system_watcher.html">FileSystemWatcher</a> libraries implementing hot-reload    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Prerequisites   </td><td class="markdownTableBodyLeft">Linux - Fedora: <code>sudo dnf install mesa-libGL-devel mesa-libEGL-devel libX11-devel libXi-devel libXcursor-devel</code>    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"></td><td class="markdownTableBodyLeft">Linux - Ubuntu: <code>sudo apt-get install libgles2-mesa-dev libx11-dev libxi-dev libxcursor-dev</code>    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"></td><td class="markdownTableBodyLeft">Windows: None    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"></td><td class="markdownTableBodyLeft">macOS: None    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Dependencies   </td><td class="markdownTableBodyLeft"><code>sokol</code> and <code>dear-imgui</code> are automatically downloaded during the first <code>build compile</code> / <code>build run</code>, or during <code>build configure</code> if you are generating projects explicitly    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Run (Posix)   </td><td class="markdownTableBodyLeft"><code>./SC.sh build run SCExample</code> (will also compile before running)    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Run (Windows)   </td><td class="markdownTableBodyLeft"><code>SC.bat build run SCExample</code> (will also compile before running)    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Run (Native)   </td><td class="markdownTableBodyLeft"><code>./SC.sh build run SCExample --config Debug</code> or <code>SC.bat build run SCExample --config Debug</code>    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Debug (VSCode)   </td><td class="markdownTableBodyLeft">Select correct <code>SCExample $ARCH ($PLATFORM)</code> for your system and press <code>Start Debugging</code> (F5)    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Debug (XCode)   </td><td class="markdownTableBodyLeft">Run <code>./SC.sh build configure</code>, then open <code>_Build/_Projects/XCode/SCWorkspace/SCWorkspace.xcworkspace</code> and choose the <code>SCExample</code> scheme    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Debug (VS2022)   </td><td class="markdownTableBodyLeft">Run <code>SC.bat build configure</code>, then open <code>_Build/_Projects/VisualStudio2022/SCWorkspace/SCWorkspace.sln</code> and start Debugging (F5)   </td></tr>
-</table>
-<h2><a class="anchor" id="autotoc_md79"></a>
-AsyncWebServerExample</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadLeft">Property   </th><th class="markdownTableHeadLeft">Value    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Location   </td><td class="markdownTableBodyLeft"><code>Examples/AsyncWebServer</code>    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Description   </td><td class="markdownTableBodyLeft">Simple Http server listening on port 8090 by default, serving a folder for a static website.    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Purposes   </td><td class="markdownTableBodyLeft">Show how to create an http server with a runtime configurable set of buffers    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Prerequisites   </td><td class="markdownTableBodyLeft">Linux: None    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"></td><td class="markdownTableBodyLeft">Windows: None    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"></td><td class="markdownTableBodyLeft">macOS: None    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Dependencies   </td><td class="markdownTableBodyLeft">None    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Run (Posix)   </td><td class="markdownTableBodyLeft"><code>Examples/AsyncWebServer/BuildAndRun.sh</code> (will also compile before running)    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Run (Windows)   </td><td class="markdownTableBodyLeft"><code>Examples/AsyncWebServer/BuildAndRun.bat</code> (will also compile before running)    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Parameters   </td><td class="markdownTableBodyLeft">All parameters can be added after <code>BuildAndRun</code> for example <code>BuildAndRun.sh --directory /somedir</code>:    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"></td><td class="markdownTableBodyLeft"><code>--directory /path/to/dir</code>: Serves the given folder    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Debug (XCode)   </td><td class="markdownTableBodyLeft">Run <code>./SC.sh build configure</code>, then open <code>_Build/_Projects/XCode/SCWorkspace/SCWorkspace.xcworkspace</code> and choose the <code>AsyncWebServer</code> scheme    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Debug (VS2022)   </td><td class="markdownTableBodyLeft">Run <code>SC.bat build configure</code>, then open <code>_Build/_Projects/VisualStudio2022/SCWorkspace/SCWorkspace.sln</code> and start Debugging (F5)   </td></tr>
-</table>
-<h1><a class="anchor" id="autotoc_md80"></a>
-Blog</h1>
-<p>Some relevant blog posts are:</p>
+HTTP and networking</h2>
 <ul>
-<li><a href="https://pagghiu.github.io/site/blog/2024-06-30-SaneCppLibrariesUpdate.html">June 2024 Update</a></li>
-<li><a href="https://pagghiu.github.io/site/blog/2024-07-31-SaneCppLibrariesUpdate.html">July 2024 Update</a></li>
-<li><a href="https://pagghiu.github.io/site/blog/2024-08-30-SaneCppLibrariesUpdate.html">August 2024 Update</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/tree/main/Examples/ApiServer">ApiServer</a> is a small routed HTTP API with health, query, and streaming echo endpoints.</li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/tree/main/Examples/SaneHttpGet">SaneHttpGet</a> is the shortest blocking <code>HttpClient</code> example.</li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/tree/main/Examples/HttpClientPollSession">HttpClientPollSession</a> shows a poll-driven client session with caller-owned storage.</li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/tree/main/Examples/HttpClientAsyncGet">HttpClientAsyncGet</a> connects <code>HttpClient</code> to <code>AsyncStreams</code> and an <code>AsyncEventLoop</code>.</li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/tree/main/Examples/AsyncWebServer">AsyncWebServer</a> is the advanced HTTP laboratory for static files, uploads, WebSockets, configurable connection storage, and Linux backend selection.</li>
+</ul>
+<p>To serve a directory with <code>AsyncWebServer</code>, pass an absolute path after <code>--</code>:</p>
+<div class="fragment"><div class="line">./SC.sh build compile AsyncWebServer Debug</div>
+<div class="line">./SC.sh build run AsyncWebServer Debug -- --directory /absolute/path/to/site</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md79"></a>
+Await cookbook</h2>
+<blockquote class="doxtable">
+<p>&zwj;<b>Warning:</b> <code>Await</code> is currently experimental. These examples are complete programs for exploring the coroutine API, not a stable compatibility promise. </p>
+</blockquote>
+<h3><a class="anchor" id="autotoc_md80"></a>
+Task ownership and coordination</h3>
+<ul>
+<li><code>AwaitBackgroundJobs</code> manages detached work in fixed caller-owned registry slots.</li>
+<li><code>AwaitDeadline</code> applies a deadline and cooperative cancellation to a child task.</li>
+<li><code>AwaitFirstResponse</code> races two jobs and cancels the slower one.</li>
 </ul>
 <h3><a class="anchor" id="autotoc_md81"></a>
-Examples</h3>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadLeft">Example   </th><th class="markdownTableHeadLeft">Description    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">AwaitBackgroundDigest   </td><td class="markdownTableBodyLeft">Shows ThreadPool-backed CPU work with <code>AwaitEventLoop::loopWork()</code> and caller-owned result jobs    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">AwaitBackgroundJobs   </td><td class="markdownTableBodyLeft">Shows detached background coroutines through fixed caller-owned <code>AwaitTaskRegistry</code> slots    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">AwaitCallbackBridge   </td><td class="markdownTableBodyLeft">Shows callback-style <code>Async</code> and coroutine-style <code>Await</code> sharing one caller-owned event loop    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">AwaitConfigReload   </td><td class="markdownTableBodyLeft">Shows <code>spawnAndWait()</code> for a single child coroutine that loads a config file    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">AwaitDatagramPing   </td><td class="markdownTableBodyLeft">Shows UDP request/reply with <code>AwaitEventLoop::sendTo()</code> and <code>receiveFrom()</code>    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">AwaitDeadline   </td><td class="markdownTableBodyLeft">Shows a child coroutine deadline with <code>waitFor()</code> and cooperative cancellation    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">AwaitEcho   </td><td class="markdownTableBodyLeft">Shows a tiny TCP echo conversation with <code>AwaitTaskGroup</code> and caller-owned allocator storage    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">AwaitFileCourier   </td><td class="markdownTableBodyLeft">Shows file copy followed by <code>AwaitEventLoop::fileSend()</code> over a socket    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">AwaitFilePatch   </td><td class="markdownTableBodyLeft">Shows offset <code>fileWrite()</code> followed by <code>fileRead()</code> using caller-owned buffers    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">AwaitFirstResponse   </td><td class="markdownTableBodyLeft">Races two caller-owned registry jobs with <code>waitAny()</code> and cancels the slower response    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">AwaitLineProtocol   </td><td class="markdownTableBodyLeft">Shows a tiny CRLF text protocol with <code>receiveLine()</code>, <code>sendAll()</code>, and caller-owned allocator storage    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">AwaitManifestPreview   </td><td class="markdownTableBodyLeft">Shows bounded <code>fileReadUntilFullOrEOF()</code> into caller-owned preview storage    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">AwaitProcessExitCodes   </td><td class="markdownTableBodyLeft">Shows concurrent child-process exit waits with <code>processExit()</code> and fixed job storage    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">AwaitServiceProbe   </td><td class="markdownTableBodyLeft">Shows a TCP service probe with task groups, timeout cancellation, and fixed allocator diagnostics    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">AwaitTaskGroupFiles   </td><td class="markdownTableBodyLeft">Shows <code>AwaitTaskGroup</code> fan-out over two file reads with caller-owned task storage    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">AwaitThreadWakeUp   </td><td class="markdownTableBodyLeft">Shows another thread waking an Await coroutine through <code>AwaitLoopWakeUp</code>    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Serialization   </td><td class="markdownTableBodyLeft">Use <a class="el" href="library_reflection.html">Reflection</a> and <a class="el" href="library_serialization_binary.html">Serialization</a> to persist application state    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">WebServer   </td><td class="markdownTableBodyLeft">Use <a class="el" href="library_http.html">Http</a> to statically host a website from a specified directory   </td></tr>
-</table>
-<h1><a class="anchor" id="autotoc_md82"></a>
-Where can I find more examples?</h1>
+Networking</h3>
 <ul>
-<li>The test suite is the closest thing to additional examples you can find in this project.</li>
-<li>The second best thing to do is looking at <a class="el" href="page_tools.html">SC::Tools</a> implementation.</li>
-<li>Documentation for each library has some examples and / or code snippets that you can look at.</li>
+<li><code>AwaitEcho</code> is the baseline TCP client/server conversation.</li>
+<li><code>AwaitDatagramPing</code> demonstrates a bounded UDP request and reply.</li>
+<li><code>AwaitLineProtocol</code> builds a small CRLF-framed protocol.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md83"></a>
-Where can I learn more?</h1>
-<p>There are many way to learn about the library:</p><ul>
-<li>Read the <a href="https://pagghiu.github.io/site/blog/2023-12-23-SaneCppLibrariesRelease.html">introductory blog post</a></li>
-<li>Take a look at videos from <a href="https://www.youtube.com/@Pagghiu">Youtube Channel</a></li>
-<li>Read and / or step through the extensive set of unit tests (current test code coverage is &gt; 90%).</li>
-<li>Ask in the <a href="https://discord.gg/tyBfFp33Z6">Discord</a></li>
+<h3><a class="anchor" id="autotoc_md82"></a>
+File I/O</h3>
+<ul>
+<li><code>AwaitConfigReload</code> composes a child task that reads a configuration file.</li>
+<li><code>AwaitFilePatch</code> performs explicit offset writes and reads.</li>
+<li><code>AwaitManifestPreview</code> reads into a bounded preview buffer until full or EOF.</li>
+<li><code>AwaitTaskGroupFiles</code> reads multiple files with a task group.</li>
+<li><code>AwaitFileCourier</code> combines file operations with file-to-socket transfer.</li>
 </ul>
-<p><a href="https://github.com/user-attachments/assets/2a38310c-6a28-4f86-a0f3-665dc15b126d">https://github.com/user-attachments/assets/2a38310c-6a28-4f86-a0f3-665dc15b126d</a> <a href="https://github.com/Pagghiu/SaneCppLibraries/assets/5406873/5c7d4036-6e0c-4262-ad57-9ef84c214717">https://github.com/Pagghiu/SaneCppLibraries/assets/5406873/5c7d4036-6e0c-4262-ad57-9ef84c214717</a></p>
+<h3><a class="anchor" id="autotoc_md83"></a>
+System integration</h3>
+<ul>
+<li><code>AwaitBackgroundDigest</code> moves bounded CPU work to a thread pool.</li>
+<li><code>AwaitCallbackBridge</code> runs callback-style <code>Async</code> and coroutine-style <code>Await</code> on the same event loop.</li>
+<li><code>AwaitProcessExitCodes</code> waits for multiple child processes.</li>
+<li><code>AwaitThreadWakeUp</code> delivers another thread's signal to an Await coroutine.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md84"></a>
+Composed workflow</h3>
+<ul>
+<li><code>AwaitServiceProbe</code> combines networking, task groups, background work, timeouts, and explicit shutdown.</li>
+</ul>
+<p>All Await sources are under the <a href="https://github.com/Pagghiu/SaneCppLibraries/tree/main/Examples">Examples directory</a> and use their directory name as the build target.</p>
+<h2><a class="anchor" id="autotoc_md85"></a>
+Fibers</h2>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/tree/main/Examples/FibersDemo">FibersDemo</a> demonstrates CPU fibers, <code>FibersAsync</code> sleeps, and worker-pool work in three focused sections.</li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/tree/main/Examples/FibersBenchmark">FibersBenchmark</a> is a maintainer benchmark for scheduler, contention, and sustained micro-task workloads.</li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/tree/main/Examples/FibersStackGrowthPrototype">FibersStackGrowthPrototype</a> is a maintainer prototype for stack-growth behavior.</li>
+</ul>
+<p>Benchmark results depend on the machine and build configuration; they are development measurements rather than portable performance claims.</p>
+<h2><a class="anchor" id="autotoc_md86"></a>
+Native integration and hot reload</h2>
+<p><a href="https://github.com/Pagghiu/SaneCppLibraries/tree/main/Examples/SCExample">SCExample</a> is the native Sokol and Dear ImGui host used to exercise <code>Async</code>, plugins, file watching, state handoff, and hot reload. Its plugins are:</p>
+<ul>
+<li><code>CollaborativeCanvasExample</code>, which hosts a browser canvas through HTTP and WebSockets;</li>
+<li><code>SerializationExample</code>, which demonstrates reflected state and binary/JSON serialization;</li>
+<li><code>WebServerExample</code>, which configures a static file server from the native UI.</li>
+</ul>
+<p>SCExample is an integration testbed rather than the shortest introduction to any individual library. Start with a focused console example when learning one API.</p>
+<h2><a class="anchor" id="autotoc_md87"></a>
+Videos</h2>
+<h3><a class="anchor" id="autotoc_md88"></a>
+Serialization and state</h3>
 <p> 
-<iframe width="700" height="400" src="https://github.com/user-attachments/assets/2a38310c-6a28-4f86-a0f3-665dc15b126d" frameborder="0" allowfullscreen>
-</iframe>
+<video controls playsinline preload="metadata" style="display:block; width:100%; max-width:960px; height:auto;">
+  <source src="https://github.com/user-attachments/assets/2a38310c-6a28-4f86-a0f3-665dc15b126d" type="video/mp4">
+  Your browser cannot play this video. <a href="https://github.com/user-attachments/assets/2a38310c-6a28-4f86-a0f3-665dc15b126d">Open the serialization example video</a>.
+</video>
 </p>
+<h3><a class="anchor" id="autotoc_md89"></a>
+Plugin loading and hot reload</h3>
 <p> 
-<iframe width="700" height="400" src="https://github.com/Pagghiu/SaneCppLibraries/assets/5406873/5c7d4036-6e0c-4262-ad57-9ef84c214717" frameborder="0" allowfullscreen>
-</iframe>
- </p>
+<video controls playsinline preload="metadata" style="display:block; width:100%; max-width:960px; height:auto;">
+  <source src="https://github.com/Pagghiu/SaneCppLibraries/assets/5406873/5c7d4036-6e0c-4262-ad57-9ef84c214717" type="video/mp4">
+  Your browser cannot play this video. <a href="https://github.com/Pagghiu/SaneCppLibraries/assets/5406873/5c7d4036-6e0c-4262-ad57-9ef84c214717">Open the plugin hot-reload video</a>.
+</video>
+</p>
+<h2><a class="anchor" id="autotoc_md90"></a>
+More source-backed examples</h2>
+<p>The library pages contain compiled snippets for individual APIs. The tests provide broader executable reference code, including error paths and platform-specific behavior. See <a class="el" href="page_tests.html">Tests</a> and the <a class="el" href="libraries.html">library catalog</a> when an example above is broader than the question you are trying to answer. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

@@ -217,6 +217,7 @@ var hierarchy =
     [ "SC::FiberStackClassDefinition", "structSC_1_1FiberStackClassDefinition.html", null ],
     [ "SC::FiberStackClassDiagnostics", "structSC_1_1FiberStackClassDiagnostics.html", null ],
     [ "SC::FiberStackClassOptions", "structSC_1_1FiberStackClassOptions.html", null ],
+    [ "SC::FiberStackSize", "structSC_1_1FiberStackSize.html", null ],
     [ "SC::FiberTask", "structSC_1_1FiberTask.html", null ],
     [ "SC::FiberTaskClass", "structSC_1_1FiberTaskClass.html", null ],
     [ "SC::FiberTaskClassDefinition", "structSC_1_1FiberTaskClassDefinition.html", null ],

@@ -1,5 +1,14 @@
 var NAVTREEINDEX5 =
 {
+"structSC_1_1AsyncSignalOptions.html#ae4f59b29a2decebe0c7b29b88d256e2e":[18,0,0,36,1],
+"structSC_1_1AsyncSignalOptions.html#ae4f59b29a2decebe0c7b29b88d256e2e":[19,0,0,36,1],
+"structSC_1_1AsyncSignal_1_1CompletionData.html":[18,0,0,35,0],
+"structSC_1_1AsyncSignal_1_1CompletionData.html":[19,0,0,35,0],
+"structSC_1_1AsyncSignal_1_1CompletionData.html#adc2a7f169da8db7de7e3c144bf29bb69":[18,0,0,35,0,0],
+"structSC_1_1AsyncSignal_1_1CompletionData.html#adc2a7f169da8db7de7e3c144bf29bb69":[19,0,0,35,0,0],
+"structSC_1_1AsyncSignal_1_1CompletionData.html#af025f88e6f5e4a0c80f54099bb03459e":[18,0,0,35,0,1],
+"structSC_1_1AsyncSignal_1_1CompletionData.html#af025f88e6f5e4a0c80f54099bb03459e":[19,0,0,35,0,1],
+"structSC_1_1AsyncSignal_1_1Result.html":[18,0,0,35,1],
 "structSC_1_1AsyncSignal_1_1Result.html":[19,0,0,35,1],
 "structSC_1_1AsyncSocketAccept.html":[18,0,0,37],
 "structSC_1_1AsyncSocketAccept.html":[19,0,0,37],
@@ -240,14 +249,5 @@ var NAVTREEINDEX5 =
 "structSC_1_1AwaitTimeoutResult.html":[18,0,0,105],
 "structSC_1_1AwaitTimeoutResult.html":[19,0,0,105],
 "structSC_1_1Barrier.html":[17,26,4],
-"structSC_1_1Barrier.html#a20b08924327189ab69cacd00ba3bccb9":[17,26,4,0],
-"structSC_1_1Barrier.html#a2f425c3e4b3d0783a18d21afc986eec5":[17,26,4,1],
-"structSC_1_1Buffer.html":[17,15,0],
-"structSC_1_1CommandLineArguments.html":[18,0,0,108],
-"structSC_1_1CommandLineArguments.html":[19,0,0,108],
-"structSC_1_1CommandLineOption.html":[18,0,0,109],
-"structSC_1_1CommandLineOption.html":[19,0,0,109],
-"structSC_1_1CommandLineParseResult.html":[18,0,0,110],
-"structSC_1_1CommandLineParseResult.html":[19,0,0,110],
-"structSC_1_1CommandLinePositional.html":[18,0,0,111]
+"structSC_1_1Barrier.html#a20b08924327189ab69cacd00ba3bccb9":[17,26,4,0]
 };

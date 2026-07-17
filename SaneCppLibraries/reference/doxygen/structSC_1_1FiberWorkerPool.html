@@ -178,6 +178,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRunning</b> () cons
 <tr class="memitem:aaf4b7a5b46ececbb239595d929ed45d4" id="r_aaf4b7a5b46ececbb239595d929ed45d4"><td class="memItemLeft" align="right" valign="top"><a id="aaf4b7a5b46ececbb239595d929ed45d4" name="aaf4b7a5b46ececbb239595d929ed45d4"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>workerCount</b> () const</td></tr>
 <tr class="separator:aaf4b7a5b46ececbb239595d929ed45d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb7d17bbb53fce298d5143c6a0889169" id="r_abb7d17bbb53fce298d5143c6a0889169"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb7d17bbb53fce298d5143c6a0889169">parkedWorkerCount</a> () const</td></tr>
+<tr class="memdesc:abb7d17bbb53fce298d5143c6a0889169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Workers currently blocked in the pool wake wait.  <br /></td></tr>
+<tr class="separator:abb7d17bbb53fce298d5143c6a0889169"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -190,7 +193,35 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>FiberWorkerThread</
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>No-allocation OS-thread-owning worker pool using caller-provided worker and thread storage. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="abb7d17bbb53fce298d5143c6a0889169" name="abb7d17bbb53fce298d5143c6a0889169"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb7d17bbb53fce298d5143c6a0889169">&#9670;&#160;</a></span>parkedWorkerCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t SC::FiberWorkerPool::parkedWorkerCount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Workers currently blocked in the pool wake wait. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="Fibers_8h_source.html">Fibers.h</a></li>
 </ul>
 </div><!-- contents -->

@@ -129,48 +129,48 @@ $(function(){initNavTree('library_foundation.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md251">Dependencies</a>
+    <a href="#autotoc_md259">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md252">The mental model</a>
+    <a href="#autotoc_md260">The mental model</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md253">Representative use</a>
+    <a href="#autotoc_md261">Representative use</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md254">Allocation, errors, and lifetime</a>
+    <a href="#autotoc_md262">Allocation, errors, and lifetime</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md255">Where Foundation stops</a>
+    <a href="#autotoc_md263">Where Foundation stops</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md256">Portability layer</a>
+    <a href="#autotoc_md264">Portability layer</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md257">Maturity</a>
+    <a href="#autotoc_md265">Maturity</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md258">Blog</a>
+    <a href="#autotoc_md266">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md259">Roadmap</a>
+    <a href="#autotoc_md267">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md260">Statistics</a>
+    <a href="#autotoc_md268">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟩 Primitive types, asserts, compiler macros, Function, Span, Result</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppFoundation.h">SaneCppFoundation.h</a> is the small, allocation-free vocabulary shared by the other Sane C++ Libraries. It provides primitive and platform types, non-owning views, explicit error propagation, fixed-storage callbacks, assertions, compiler portability macros, and a few ownership tools for native resources.</p>
 <p>Foundation is useful on its own when those constraints are desirable, but it is primarily the seam that lets the rest of SC expose public C++ APIs without the STL, exceptions, RTTI, system headers, or hidden heap allocation. Detailed API reference remains available in the <a class="el" href="group__group__foundation.html">Foundation</a> topic; this page explains the choices a caller needs to make.</p>
-<h1><a class="anchor" id="autotoc_md251"></a>
+<h1><a class="anchor" id="autotoc_md259"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Foundation.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md252"></a>
+<h1><a class="anchor" id="autotoc_md260"></a>
 The mental model</h1>
 <p>Foundation separates <em>access</em> from <em>ownership</em>.</p>
 <ul>
@@ -180,7 +180,7 @@ The mental model</h1>
 <li><code>UniqueHandle</code> owns one native-style handle and releases it deterministically. <code>Deferred</code> runs local cleanup at scope exit. <code>OpaqueObject</code> reserves platform-sized inline storage so a public header can hide an implementation defined in a <code>.cpp</code> file without allocating a PIMPL.</li>
 </ul>
 <p>The common thread is fixed, visible cost. A caller supplies the memory behind a view, chooses the lifetime of a callback capture, and sees failure in the return type. Foundation does not turn borrowed data into owned data behind the API.</p>
-<h1><a class="anchor" id="autotoc_md253"></a>
+<h1><a class="anchor" id="autotoc_md261"></a>
 Representative use</h1>
 <p><code>Function</code> is representative of the library's approach: several callable forms share one value type, but the storage budget stays part of the type and is checked at compile time.</p>
 <div class="fragment"><div class="line"><span class="comment">// A regular class with a member function</span></div>
@@ -226,7 +226,7 @@ Representative use</h1>
 <div class="line">}</div>
 </div><!-- fragment --><p>For buffer-oriented APIs, pass an array or <code>(pointer, count)</code> as a <code>Span&lt;T&gt;</code>. Slicing reports invalid ranges instead of creating an unchecked view. A mutable span permits mutation of the referenced objects; a <code>Span&lt;const T&gt;</code> does not. In both cases, the backing array must outlive every use of the span.</p>
 <p><code>StringSpan</code> is intentionally narrower than a general string library. It is suitable for passing encoded text and native paths through low-level APIs, and can compare ASCII, UTF-8, and UTF-16 code points. It does not own, normalize, format, or tokenize the text. Its conversion support is limited to writing native-encoded, null-terminated text into caller-provided storage; it is not a general-purpose Unicode conversion API.</p>
-<h1><a class="anchor" id="autotoc_md254"></a>
+<h1><a class="anchor" id="autotoc_md262"></a>
 Allocation, errors, and lifetime</h1>
 <p>Foundation itself performs no dynamic allocation. That promise has practical consequences:</p>
 <ul>
@@ -237,7 +237,7 @@ Allocation, errors, and lifetime</h1>
 <li><code>OpaqueObject</code> trades heap-free encapsulation for a fixed ABI budget. Each platform size and alignment must cover the private object; growing that private object beyond the declared budget requires changing the public definition.</li>
 </ul>
 <p>These are low-level tools, not runtime safety mechanisms: bounds are carried by <code>Span</code>, but <code>operator[]</code> is not a checked accessor, and borrowed lifetime remains a design obligation.</p>
-<h1><a class="anchor" id="autotoc_md255"></a>
+<h1><a class="anchor" id="autotoc_md263"></a>
 Where Foundation stops</h1>
 <p>Foundation has no library dependencies and is intentionally smaller than its neighboring SC libraries:</p>
 <ul>
@@ -247,13 +247,13 @@ Where Foundation stops</h1>
 <li>Platform libraries build their public interfaces from <code>Result</code>, <code>Span</code>, <code>Function</code>, <code>UniqueHandle</code>, and <code>OpaqueObject</code>, keeping operating-system types and headers in implementation files.</li>
 </ul>
 <p>Foundation is therefore a good fit for small, portable API boundaries with caller-controlled storage. It is not a replacement for owning containers, rich diagnostics, general Unicode processing, or dynamically sized type erasure.</p>
-<h1><a class="anchor" id="autotoc_md256"></a>
+<h1><a class="anchor" id="autotoc_md264"></a>
 Portability layer</h1>
 <p>Foundation also supplies SC primitive aliases, compiler/feature detection, export and warning macros, assertions, placement construction, type traits, and small move/forward utilities. These are mostly infrastructure for SC headers, not an attempt to reproduce the full standard library. See <a class="el" href="group__group__foundation__compiler__macros.html">Compiler Macros</a> and the <a class="el" href="group__group__foundation.html">Foundation</a> reference when integrating at that level.</p>
-<h1><a class="anchor" id="autotoc_md257"></a>
+<h1><a class="anchor" id="autotoc_md265"></a>
 Maturity</h1>
 <p>🟩 Usable. Foundation is exercised across the supported compilers and platforms because almost every SC library builds on it. Its surface grows when another library needs a dependency-free primitive; it is not intended to accumulate convenience APIs speculatively.</p>
-<h1><a class="anchor" id="autotoc_md258"></a>
+<h1><a class="anchor" id="autotoc_md266"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
@@ -263,12 +263,12 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-06-30-SaneCppLibrariesUpdate.html">June 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md259"></a>
+<h1><a class="anchor" id="autotoc_md267"></a>
 Roadmap</h1>
 <p>🟦 Complete Features:</p><ul>
 <li>Things will be added as needed</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md260"></a>
+<h1><a class="anchor" id="autotoc_md268"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Foundation</code>. Single File counts <code>SaneCppFoundation.h</code>. Standalone counts <code>SaneCppFoundationStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

@@ -125,6 +125,7 @@ $(function(){initNavTree('structSC_1_1FiberTaskGroup.html',''); initResizable(tr
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="structSC_1_1FiberTaskGroup-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">SC::FiberTaskGroup Struct Reference</div></div>
 </div><!--header-->
@@ -179,6 +180,9 @@ Result&#160;</td><td class="memItemRight" valign="bottom"><b>waitCancelOnError</
 <tr class="memitem:ae90637a8803effd7adf9939acd5a1523" id="r_ae90637a8803effd7adf9939acd5a1523"><td class="memItemLeft" align="right" valign="top"><a id="ae90637a8803effd7adf9939acd5a1523" name="ae90637a8803effd7adf9939acd5a1523"></a>
 Result&#160;</td><td class="memItemRight" valign="bottom"><b>cancelAll</b> ()</td></tr>
 <tr class="separator:ae90637a8803effd7adf9939acd5a1523"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afefb3466dc8676b17842d23927930fb8" id="r_afefb3466dc8676b17842d23927930fb8"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afefb3466dc8676b17842d23927930fb8">reset</a> ()</td></tr>
+<tr class="memdesc:afefb3466dc8676b17842d23927930fb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases completed task records after result/error inspection. Fails while tasks are pending.  <br /></td></tr>
+<tr class="separator:afefb3466dc8676b17842d23927930fb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa99919d5ad1006567c77385367be3644" id="r_aa99919d5ad1006567c77385367be3644"><td class="memItemLeft" align="right" valign="top"><a id="aa99919d5ad1006567c77385367be3644" name="aa99919d5ad1006567c77385367be3644"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>pending</b> () const</td></tr>
 <tr class="separator:aa99919d5ad1006567c77385367be3644"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,10 +192,36 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>countErrors</b> () 
 <tr class="memitem:a716dc8816e2b29e985fb140e357054c5" id="r_a716dc8816e2b29e985fb140e357054c5"><td class="memItemLeft" align="right" valign="top"><a id="a716dc8816e2b29e985fb140e357054c5" name="a716dc8816e2b29e985fb140e357054c5"></a>
 Result&#160;</td><td class="memItemRight" valign="bottom"><b>collectErrors</b> (Span&lt; <a class="el" href="structSC_1_1FiberTaskGroupError.html">FiberTaskGroupError</a> &gt; errors, size_t &amp;outErrors) const</td></tr>
 <tr class="separator:a716dc8816e2b29e985fb140e357054c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:aa22d76ee6ecc09e3492e1577ade858d5" id="r_aa22d76ee6ecc09e3492e1577ade858d5"><td class="memItemLeft" align="right" valign="top"><a id="aa22d76ee6ecc09e3492e1577ade858d5" name="aa22d76ee6ecc09e3492e1577ade858d5"></a>
+struct&#160;</td><td class="memItemRight" valign="bottom"><b>FiberScheduler</b></td></tr>
+<tr class="separator:aa22d76ee6ecc09e3492e1577ade858d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Convenience helper for spawning a group of child tasks and waiting on their completion. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="afefb3466dc8676b17842d23927930fb8" name="afefb3466dc8676b17842d23927930fb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afefb3466dc8676b17842d23927930fb8">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::FiberTaskGroup::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Releases completed task records after result/error inspection. Fails while tasks are pending. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="Fibers_8h_source.html">Fibers.h</a></li>
 </ul>
 </div><!-- contents -->

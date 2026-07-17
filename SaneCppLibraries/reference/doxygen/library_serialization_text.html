@@ -129,46 +129,46 @@ $(function(){initNavTree('library_serialization_text.html',''); initResizable(tr
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md344">Dependencies</a>
+    <a href="#autotoc_md352">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md345">When It Fits</a>
+    <a href="#autotoc_md353">When It Fits</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md346">The Model: Reflection Drives The Walk</a>
+    <a href="#autotoc_md354">The Model: Reflection Drives The Walk</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md347">Choose The Read Contract Deliberately</a>
+    <a href="#autotoc_md355">Choose The Read Contract Deliberately</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md348">Storage, Allocation, And Lifetime</a>
+    <a href="#autotoc_md356">Storage, Allocation, And Lifetime</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md349">Boundaries And Neighboring Libraries</a>
+    <a href="#autotoc_md357">Boundaries And Neighboring Libraries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md350">API Reference</a>
+    <a href="#autotoc_md358">API Reference</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md351">Statistics</a>
+    <a href="#autotoc_md359">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟨 Map reflected C++ data to and from JSON in caller-controlled storage</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppSerializationText.h">SaneCppSerializationText.h</a> is the single-file distribution. Serialization Text currently means one concrete format: <code><a class="el" href="structSC_1_1SerializationJson.html" title="SC::SerializationJson reads or writes C++ structures to / from json using Reflection information.">SC::SerializationJson</a></code>, built on compile-time <a class="el" href="library_reflection.html">Reflection</a>.</p>
-<h1><a class="anchor" id="autotoc_md344"></a>
+<h1><a class="anchor" id="autotoc_md352"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <a class="el" href="library_reflection.html">Reflection</a></li>
 <li>All dependencies: <a class="el" href="library_reflection.html">Reflection</a></li>
 </ul>
 <p><img src="SerializationText.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md345"></a>
+<h1><a class="anchor" id="autotoc_md353"></a>
 When It Fits</h1>
 <p>Use Serialization Text when an application already has reflected, value-like C++ structures and needs compact JSON without introducing a DOM, exceptions, or a mandatory allocator. It walks the object graph directly: reflected field names become JSON object keys, fixed and vector-like containers become arrays, and supported scalar and string values become JSON values.</p>
 <p>This is a small mapper rather than a general JSON toolkit. It is a good fit for application state, configuration, and interchange data whose schema is controlled by the program. It is currently a weaker fit when you need arbitrary JSON trees, preservation of unknown fields, incremental I/O, rich format controls, or a mature compatibility layer.</p>
 <p>The library is marked MVP. JSON is the only implemented format, the public operation reports only <code>bool</code>, and the supported type and conversion surface is intentionally narrower than a full JSON implementation.</p>
-<h1><a class="anchor" id="autotoc_md346"></a>
+<h1><a class="anchor" id="autotoc_md354"></a>
 The Model: Reflection Drives The Walk</h1>
 <p>Serialization Text does not inspect C++ declarations by itself. A type opts in through [Reflection](<a class="el" href="library_reflection.html">Reflection</a>), including a stable text name for every field. This compiled test model mixes primitive values, a fixed C array, an owning string, and a vector of strings:</p>
 <div class="fragment"><div class="line"><span class="keyword">struct </span>SC::Test</div>
@@ -208,7 +208,7 @@ The Model: Reflection Drives The Walk</h1>
 <div class="line">    <span class="keyword">const</span> StringView serializedJSON({buffer.data(), buffer.size()}, <span class="keyword">false</span>, StringEncoding::Ascii);</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(serializedJSON == testJSON);</div>
 </div><!-- fragment --><p>The output is not null terminated. Use the buffer's actual size when constructing a view or writing it to a file. <code>Options::floatDigits</code> controls the number of digits printed for floating-point values; pretty printing and other JSON style controls are not currently exposed.</p>
-<h1><a class="anchor" id="autotoc_md347"></a>
+<h1><a class="anchor" id="autotoc_md355"></a>
 Choose The Read Contract Deliberately</h1>
 <p>Both readers parse from an in-memory <code>StringSpan</code> and mutate an existing object. They are not streaming readers, and they do not verify that no trailing input remains after the reflected value. They differ in how object fields are located:</p>
 <table class="markdownTable">
@@ -231,7 +231,7 @@ Choose The Read Contract Deliberately</h1>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(SerializationJson::loadVersioned(test, scrambledJson));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(test == Test());</div>
 </div><!-- fragment --><p><code>loadExact</code> has a simpler walk, but no measured performance claim is made for it. Select it for its stricter data contract, then benchmark if speed matters.</p>
-<h1><a class="anchor" id="autotoc_md348"></a>
+<h1><a class="anchor" id="autotoc_md356"></a>
 Storage, Allocation, And Lifetime</h1>
 <p>The serializer itself does not own a JSON document or build a tree. The important storage behavior belongs to the objects supplied by the caller:</p>
 <ul>
@@ -242,7 +242,7 @@ Storage, Allocation, And Lifetime</h1>
 <li>The reader is whole-buffer rather than streaming. The input must remain available for the duration of parsing, and longer when the result contains borrowed string views.</li>
 </ul>
 <p>These distinctions are how the library preserves caller control: "no mandatory allocation" does not mean that a chosen owning output buffer or destination container can never allocate.</p>
-<h1><a class="anchor" id="autotoc_md349"></a>
+<h1><a class="anchor" id="autotoc_md357"></a>
 Boundaries And Neighboring Libraries</h1>
 <p><a class="el" href="library_reflection.html">Reflection</a> supplies field names and traversal metadata; Serialization Text supplies the JSON reader and writer. <a class="el" href="library_containers_reflection.html">Containers Reflection</a> opts SC containers and owning memory types into that traversal. <a class="el" href="library_serialization_binary.html">Serialization Binary</a> serves a different tradeoff: use it when compact machine-oriented storage and its binary schema/versioning model matter more than readable JSON.</p>
 <p>Internally, a stateful tokenizer returns slices into the source instead of constructing a DOM. It recognizes JSON structure and token boundaries; type-specific readers then attempt the conversions they support. This keeps parsing storage small, but <code>SC::JsonTokenizer</code> is an implementation-oriented surface, not a replacement for a validating JSON document API.</p>
@@ -255,7 +255,7 @@ Boundaries And Neighboring Libraries</h1>
 <li>no JSON DOM and no preservation of formatting or key order from input;</li>
 <li>support for additional SC container families remains incomplete.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md350"></a>
+<h1><a class="anchor" id="autotoc_md358"></a>
 API Reference</h1>
 <p><a class="el" href="structSC_1_1SerializationJson.html" title="SC::SerializationJson reads or writes C++ structures to / from json using Reflection information.">SC::SerializationJson</a> reads or writes C++ structures to / from json using <a class="el" href="library_reflection.html">Reflection</a> information.   </p>
 <p><br  />
@@ -404,7 +404,7 @@ Let's consider the following structure described by <a class="el" href="library_
 <div class="line">    <span class="keyword">constexpr</span> StringView escapedBorrowedJSON = R<span class="stringliteral">&quot;({&quot;spanValue&quot;:&quot;line\n&quot;,&quot;viewValue&quot;:&quot;view&quot;})&quot;_a8;</span></div>
 <div class="line"><span class="stringliteral">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not SerializationJson::loadExact(borrowed, escapedBorrowedJSON));</span></div>
 </div><!-- fragment --> <dl class="section note"><dt>Note</dt><dd>(*) simpler code probably means faster code, even if it has not been properly benchmarked yet so the hypothetical performance gain is yet to be defined.   </dd></dl>
-<h1><a class="anchor" id="autotoc_md351"></a>
+<h1><a class="anchor" id="autotoc_md359"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/SerializationText</code>. Single File counts <code>SaneCppSerializationText.h</code>. Standalone counts <code>SaneCppSerializationTextStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

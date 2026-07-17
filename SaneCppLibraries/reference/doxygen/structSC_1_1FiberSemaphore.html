@@ -146,8 +146,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8e49db5a095f090ce43c85c77d5529b2" id="r_a8e49db5a095f090ce43c85c77d5529b2"><td class="memItemLeft" align="right" valign="top"><a id="a8e49db5a095f090ce43c85c77d5529b2" name="a8e49db5a095f090ce43c85c77d5529b2"></a>
 <a class="el" href="structSC_1_1FiberSemaphore.html">FiberSemaphore</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="structSC_1_1FiberSemaphore.html">FiberSemaphore</a> &amp;)=delete</td></tr>
 <tr class="separator:a8e49db5a095f090ce43c85c77d5529b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e0e54c82e6cffa2c9fc75f10929ccb1" id="r_a8e0e54c82e6cffa2c9fc75f10929ccb1"><td class="memItemLeft" align="right" valign="top"><a id="a8e0e54c82e6cffa2c9fc75f10929ccb1" name="a8e0e54c82e6cffa2c9fc75f10929ccb1"></a>
-Result&#160;</td><td class="memItemRight" valign="bottom"><b>wait</b> (<a class="el" href="structSC_1_1FiberScheduler.html">FiberScheduler</a> &amp;scheduler)</td></tr>
+<tr class="memitem:a8e0e54c82e6cffa2c9fc75f10929ccb1" id="r_a8e0e54c82e6cffa2c9fc75f10929ccb1"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e0e54c82e6cffa2c9fc75f10929ccb1">wait</a> (<a class="el" href="structSC_1_1FiberScheduler.html">FiberScheduler</a> &amp;scheduler)</td></tr>
+<tr class="memdesc:a8e0e54c82e6cffa2c9fc75f10929ccb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Must be called from a fiber owned by scheduler.  <br /></td></tr>
 <tr class="separator:a8e0e54c82e6cffa2c9fc75f10929ccb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9fe17eac0be5aea3dfdac3ba6d022e4" id="r_ab9fe17eac0be5aea3dfdac3ba6d022e4"><td class="memItemLeft" align="right" valign="top"><a id="ab9fe17eac0be5aea3dfdac3ba6d022e4" name="ab9fe17eac0be5aea3dfdac3ba6d022e4"></a>
 Result&#160;</td><td class="memItemRight" valign="bottom"><b>signal</b> (<a class="el" href="structSC_1_1FiberScheduler.html">FiberScheduler</a> &amp;scheduler, size_t count=1)</td></tr>
@@ -158,7 +158,27 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>available</b> () co
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Counting semaphore for cooperative fibers. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8e0e54c82e6cffa2c9fc75f10929ccb1" name="a8e0e54c82e6cffa2c9fc75f10929ccb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e0e54c82e6cffa2c9fc75f10929ccb1">&#9670;&#160;</a></span>wait()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::FiberSemaphore::wait </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSC_1_1FiberScheduler.html">FiberScheduler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>scheduler</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Must be called from a fiber owned by scheduler. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="Fibers_8h_source.html">Fibers.h</a></li>
 </ul>
 </div><!-- contents -->

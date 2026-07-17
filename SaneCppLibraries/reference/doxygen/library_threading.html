@@ -129,47 +129,47 @@ $(function(){initNavTree('library_threading.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md396">Dependencies</a>
+    <a href="#autotoc_md404">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md397">When Threading Fits</a>
+    <a href="#autotoc_md405">When Threading Fits</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md398">Threads Have Explicit Terminal Ownership</a>
+    <a href="#autotoc_md406">Threads Have Explicit Terminal Ownership</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md399">Choosing A Synchronization Primitive</a>
+    <a href="#autotoc_md407">Choosing A Synchronization Primitive</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md400">A Bounded-By-Ownership Thread Pool</a>
+    <a href="#autotoc_md408">A Bounded-By-Ownership Thread Pool</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md401">Atomics Are Intentionally Narrow</a>
+    <a href="#autotoc_md409">Atomics Are Intentionally Narrow</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md402">Relationship To Neighboring Libraries</a>
+    <a href="#autotoc_md410">Relationship To Neighboring Libraries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md403">Status And Further Material</a>
+    <a href="#autotoc_md411">Status And Further Material</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md404">Roadmap</a>
+    <a href="#autotoc_md412">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md405">Statistics</a>
+    <a href="#autotoc_md413">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟩 Native threads, synchronization primitives, and a caller-owned task pool</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppThreading.h">SaneCppThreading.h</a> provides small cross-platform wrappers around native threads and synchronization primitives, plus a fixed-worker thread pool. It is intended for code that wants explicit lifetime and storage control without the STL, exceptions, RTTI, or a general-purpose job runtime.</p>
-<h1><a class="anchor" id="autotoc_md396"></a>
+<h1><a class="anchor" id="autotoc_md404"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Threading.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md397"></a>
+<h1><a class="anchor" id="autotoc_md405"></a>
 When Threading Fits</h1>
 <p>Use <code>Threading</code> when an application needs a few long-lived native threads, direct mutex/condition-variable style synchronization, or a simple pool for blocking work. The library exposes familiar low-level pieces without introducing an allocator or a scheduler policy of its own.</p>
 <p>It is deliberately not a replacement for the C++ standard concurrency library. There are no RAII lock guards, futures, timed waits, cancellation tokens, work stealing, or dynamically growing task queues. Those omissions keep the surface small and ownership visible, but application code must build any higher-level policy it needs.</p>
@@ -181,13 +181,13 @@ When Threading Fits</h1>
 <li><code>Atomic&lt;int32_t&gt;</code> and <code>Atomic&lt;bool&gt;</code>, with explicit memory-order operations;</li>
 <li><code>ThreadPool</code>, a fixed set of native workers consuming caller-owned tasks from an intrusive FIFO.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md398"></a>
+<h1><a class="anchor" id="autotoc_md406"></a>
 Threads Have Explicit Terminal Ownership</h1>
 <p>A <code>Thread</code> stores its callable inside the thread object and creates one native operating-system thread. The object is not copyable or movable, so its address and callable storage remain stable while the thread runs. After a successful <code>start()</code>, the owner must call either <code>join()</code> or <code>detach()</code> before destroying the <code>Thread</code>; the destructor asserts in debug builds when that obligation is missed.</p>
 <p>The callable uses <code>SC::Function</code>, whose capture storage has a fixed inline capacity. An oversized capturing lambda is rejected rather than heap-allocated; capture a pointer to caller-owned context when the state does not fit, and keep that context alive for the whole execution.</p>
 <p><code>join()</code> waits for completion and releases the native thread handle. <code>detach()</code> releases ownership of that handle but does not wait for the callable to finish. The running entry point still refers to the <code>Thread</code> object and its stored callable, so the object and everything referenced by its captures must outlive the actual detached execution. Reusing or destroying that storage merely because <code>detach()</code> returned is unsafe; detached completion needs an external protocol if the owner must know when reclamation is safe.</p>
 <p>Thread creation can fail and returns <code>Result</code>. Although the library performs no heap allocation itself, creating a native thread allocates operating-system resources and a platform stack. <code>Thread::Sleep()</code> and thread naming are thin platform operations; <code>setThreadName()</code> must be called by the thread being named.</p>
-<h1><a class="anchor" id="autotoc_md399"></a>
+<h1><a class="anchor" id="autotoc_md407"></a>
 Choosing A Synchronization Primitive</h1>
 <p><code>Mutex</code> is the basic exclusive lock. <code>ConditionVariable::wait()</code> expects an already locked <code>Mutex</code>, releases it while waiting, and returns with it locked again. Waiting code must check its predicate in a loop. The API intentionally does not provide a lock guard, so every control path is responsible for unlocking.</p>
 <p>This compiled test shows the complete mutex shape:</p>
@@ -223,7 +223,7 @@ Choosing A Synchronization Primitive</h1>
 <li><code>EventObject</code> retains a signal and, by default, automatically consumes it in one waiter. Setting its public <code>autoReset</code> field to <code>false</code> retains the signaled state, but <code>signal()</code> still wakes only one existing waiter rather than broadcasting. It is therefore not a complete manual-reset event, and the type has no separate reset operation.</li>
 </ul>
 <p>None of these operations accept cancellation or timeouts. If shutdown must interrupt a blocked thread, that protocol has to be represented in shared state and signaled explicitly by the application.</p>
-<h1><a class="anchor" id="autotoc_md400"></a>
+<h1><a class="anchor" id="autotoc_md408"></a>
 A Bounded-By-Ownership Thread Pool</h1>
 <p><code>ThreadPool</code> creates a fixed number of detached native workers. It does not allocate task nodes: each <code>ThreadPool::Task</code> supplied by the caller contains its callable and the intrusive links used by the FIFO. This makes queueing allocation-free inside the library and naturally prevents the same task object from being queued twice or used by two pools at once. Task callables have the same fixed <code>SC::Function</code> capture capacity as thread callables.</p>
 <p>The following SCTest example is compiled on every supported test build:</p>
@@ -280,11 +280,11 @@ A Bounded-By-Ownership Thread Pool</h1>
 <p><code>waitForTask()</code> waits for one task and <code>waitForAllTasks()</code> drains all queued and running work. <code>destroy()</code> has different semantics: it removes tasks that have not started, asks workers to stop, and waits only for work already running. Call <code>waitForAllTasks()</code> before <code>destroy()</code> when every accepted task must execute.</p>
 <p>Declaration order matters for stack-owned pools and tasks. Because local objects are destroyed in reverse order, declare task storage before the pool, or explicitly drain and destroy the pool before task storage leaves scope. The pool destructor calls <code>destroy()</code>, but it cannot make already-invalid task addresses safe.</p>
 <p>This pool is a good fit for coarse blocking jobs and for libraries such as <a class="el" href="library_async.html">Async</a> that need a caller-supplied blocking backend. It is less suitable for very small jobs, dependency graphs, priorities, recursive parallelism, or workloads that need work stealing.</p>
-<h1><a class="anchor" id="autotoc_md401"></a>
+<h1><a class="anchor" id="autotoc_md409"></a>
 Atomics Are Intentionally Narrow</h1>
 <p><code>Atomic</code> currently has specializations only for <code>int32_t</code> and <code>bool</code>. The integer specialization provides load/store, exchange, fetch-add/subtract, compare-exchange, and increment/decrement; the Boolean specialization omits arithmetic. Both accept the library's <code>memory_order</code> values and default to sequential consistency.</p>
 <p>This is enough for counters, flags, and small coordination protocols, but it is not a general <code>std::atomic&lt;T&gt;</code> substitute: there are no pointer, 64-bit, user-defined, wait/notify, or atomic-flag specializations. Prefer the default ordering unless a protocol has been designed and tested with weaker ordering.</p>
-<h1><a class="anchor" id="autotoc_md402"></a>
+<h1><a class="anchor" id="autotoc_md410"></a>
 Relationship To Neighboring Libraries</h1>
 <p><code>Threading</code> sits below several higher-level SC libraries but depends on none of them:</p>
 <ul>
@@ -294,7 +294,7 @@ Relationship To Neighboring Libraries</h1>
 <li><a class="el" href="library_fibers_async.html">FibersAsync</a> connects fiber suspension to the asynchronous I/O loop.</li>
 </ul>
 <p>Direct <code>Threading</code> primitives remain appropriate at application boundaries, for coarse background ownership, and when building a deliberately small synchronization protocol. Moving to a neighboring library trades that directness for a richer execution model.</p>
-<h1><a class="anchor" id="autotoc_md403"></a>
+<h1><a class="anchor" id="autotoc_md411"></a>
 Status And Further Material</h1>
 <p>🟩 Usable. The main native threading and synchronization primitives are implemented. The clearest current limitation is the deliberately small set of <code>Atomic&lt;T&gt;</code> specializations; the pool also remains intentionally simple rather than aiming to be a full job system.</p>
 <p>Development background:</p>
@@ -302,12 +302,12 @@ Status And Further Material</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html">August 2025 Update</a></li>
 <li><a href="https://www.youtube.com/watch?v=e48ruImESxI">Ep.13 - Simple ThreadPool</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md404"></a>
+<h1><a class="anchor" id="autotoc_md412"></a>
 Roadmap</h1>
 <p>🟦 Complete Features:</p><ul>
 <li>Support more types in <code>Atomic&lt;T&gt;</code>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md405"></a>
+<h1><a class="anchor" id="autotoc_md413"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Threading</code>. Single File counts <code>SaneCppThreading.h</code>. Standalone counts <code>SaneCppThreadingStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

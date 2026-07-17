@@ -1,5 +1,14 @@
 var NAVTREEINDEX4 =
 {
+"structSC_1_1AsyncLoopTimeout.html#a21b0ff8328f3f5f78d6bd563a023a731":[18,0,0,20,0],
+"structSC_1_1AsyncLoopTimeout.html#a21b0ff8328f3f5f78d6bd563a023a731":[19,0,0,20,0],
+"structSC_1_1AsyncLoopTimeout.html#a2a2f3965778f36a50e04f4cbd807f8de":[18,0,0,20,2],
+"structSC_1_1AsyncLoopTimeout.html#a2a2f3965778f36a50e04f4cbd807f8de":[19,0,0,20,2],
+"structSC_1_1AsyncLoopTimeout.html#a2d427d0658bdfe2739cff3abff6c457e":[18,0,0,20,1],
+"structSC_1_1AsyncLoopTimeout.html#a2d427d0658bdfe2739cff3abff6c457e":[19,0,0,20,1],
+"structSC_1_1AsyncLoopTimeout.html#a698314d3c9deee784fbc86f82cd80e07":[18,0,0,20,4],
+"structSC_1_1AsyncLoopTimeout.html#a698314d3c9deee784fbc86f82cd80e07":[19,0,0,20,4],
+"structSC_1_1AsyncLoopTimeout.html#a71c9ab224e7491e0ca068ce9a294a530":[18,0,0,20,3],
 "structSC_1_1AsyncLoopTimeout.html#a71c9ab224e7491e0ca068ce9a294a530":[19,0,0,20,3],
 "structSC_1_1AsyncLoopWakeUp.html":[18,0,0,21],
 "structSC_1_1AsyncLoopWakeUp.html":[19,0,0,21],
@@ -240,14 +249,5 @@ var NAVTREEINDEX4 =
 "structSC_1_1AsyncSignalOptions.html#a407f916d2f68d9b84ac7dc201291dfa3ac7fc2ee61fad0e2bba6754efdee31481":[18,0,0,36,0,1],
 "structSC_1_1AsyncSignalOptions.html#a407f916d2f68d9b84ac7dc201291dfa3ac7fc2ee61fad0e2bba6754efdee31481":[19,0,0,36,0,1],
 "structSC_1_1AsyncSignalOptions.html#a52584377e6c98801c9388beb6c825227":[18,0,0,36,2],
-"structSC_1_1AsyncSignalOptions.html#a52584377e6c98801c9388beb6c825227":[19,0,0,36,2],
-"structSC_1_1AsyncSignalOptions.html#ae4f59b29a2decebe0c7b29b88d256e2e":[18,0,0,36,1],
-"structSC_1_1AsyncSignalOptions.html#ae4f59b29a2decebe0c7b29b88d256e2e":[19,0,0,36,1],
-"structSC_1_1AsyncSignal_1_1CompletionData.html":[18,0,0,35,0],
-"structSC_1_1AsyncSignal_1_1CompletionData.html":[19,0,0,35,0],
-"structSC_1_1AsyncSignal_1_1CompletionData.html#adc2a7f169da8db7de7e3c144bf29bb69":[18,0,0,35,0,0],
-"structSC_1_1AsyncSignal_1_1CompletionData.html#adc2a7f169da8db7de7e3c144bf29bb69":[19,0,0,35,0,0],
-"structSC_1_1AsyncSignal_1_1CompletionData.html#af025f88e6f5e4a0c80f54099bb03459e":[18,0,0,35,0,1],
-"structSC_1_1AsyncSignal_1_1CompletionData.html#af025f88e6f5e4a0c80f54099bb03459e":[19,0,0,35,0,1],
-"structSC_1_1AsyncSignal_1_1Result.html":[18,0,0,35,1]
+"structSC_1_1AsyncSignalOptions.html#a52584377e6c98801c9388beb6c825227":[19,0,0,36,2]
 };
