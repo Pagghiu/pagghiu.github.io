@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['join_0',['join',['../structSC_1_1Path.html#a264cf5dba5b095ad3acd776193b2d8bc',1,'SC::Path::join()'],['../structSC_1_1Thread.html#aad66dfb65ebdca81f0dea267e7a35c08',1,'SC::Thread::join()']]],
-  ['joinmulticastgroup_1',['joinMulticastGroup',['../structSC_1_1SocketDescriptor.html#aaf5078977aa13668193247867b58d357',1,'SC::SocketDescriptor']]]
+  ['keep_20outputs_20and_20ownership_20explicit_0',['Keep outputs and ownership explicit',['../page_coding_style.html#autotoc_md36',1,'']]],
+  ['keep_20paths_20project_20relative_1',['Keep paths project-relative',['../page_build_external.html#autotoc_md17',1,'']]],
+  ['keepalive_2',['keepAlive',['../structSC_1_1HttpOutgoingMessage.html#a47768cf384f39f3b8b42afe843576dbb',1,'SC::HttpOutgoingMessage']]],
+  ['key_3',['key',['../structSC_1_1VectorMapItem.html#a533aefb6782d5bfc51d0d60f15f46005',1,'SC::VectorMapItem']]],
+  ['know_20the_20boundary_4',['Know the boundary',['../page_tools.html#autotoc_md82',1,'']]]
 ];

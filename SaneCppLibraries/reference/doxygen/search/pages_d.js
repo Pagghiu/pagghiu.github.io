@@ -2,7 +2,7 @@ var searchData=
 [
   ['sane_20c_20libraries_0',['Sane C++ Libraries',['../index.html',1,'']]],
   ['sc_3a_3abuild_1',['SC::Build',['../page_build.html',1,'']]],
-  ['sc_3a_3abuild_20bootstrap_2',['External SC::Build Bootstrap',['../page_build_external.html',1,'']]],
+  ['sc_3a_3abuild_20external_20use_2',['SC::Build (External use)',['../page_build_external.html',1,'']]],
   ['serialization_20binary_3',['Serialization Binary',['../library_serialization_binary.html',1,'libraries']]],
   ['serialization_20text_4',['Serialization Text',['../library_serialization_text.html',1,'libraries']]],
   ['serialport_5',['SerialPort',['../library_serial_port.html',1,'libraries']]],

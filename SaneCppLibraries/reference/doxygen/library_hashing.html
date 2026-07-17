@@ -129,45 +129,45 @@ $(function(){initNavTree('library_hashing.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md269">Dependencies</a>
+    <a href="#autotoc_md229">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md270">When Hashing fits</a>
+    <a href="#autotoc_md230">When Hashing fits</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md271">A hash is one incremental session</a>
+    <a href="#autotoc_md231">A hash is one incremental session</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md272">Storage, allocation and lifetime</a>
+    <a href="#autotoc_md232">Storage, allocation and lifetime</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md273">Platform and integration boundaries</a>
+    <a href="#autotoc_md233">Platform and integration boundaries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md274">Status</a>
+    <a href="#autotoc_md234">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md275">Roadmap</a>
+    <a href="#autotoc_md235">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md276">Statistics</a>
+    <a href="#autotoc_md236">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟩 Incremental MD5, SHA-1 and SHA-256 hashing over byte spans</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppHashing.h">SaneCppHashing.h</a> is a small, allocation-free adapter over the host operating system's hashing facilities. It is intended for code that receives a byte stream in pieces—such as a file read through a fixed buffer—and needs one MD5, SHA-1 or SHA-256 digest without collecting the complete input in memory.</p>
-<h1><a class="anchor" id="autotoc_md269"></a>
+<h1><a class="anchor" id="autotoc_md229"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Hashing.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md270"></a>
+<h1><a class="anchor" id="autotoc_md230"></a>
 When Hashing fits</h1>
 <p>Use <code>Hashing</code> for compatibility checksums, content identity and integrity checks where one of its three fixed algorithms is the required wire or file format. The package tool is a representative use: it reads a download in 4 KiB chunks, feeds each chunk to <code>Hashing</code>, converts the final digest to hexadecimal with <a class="el" href="library_strings.html">Strings</a>, and compares it with the expected value.</p>
 <p>The algorithm choice is deliberately narrow. MD5 and SHA-1 remain useful when interoperating with existing formats, but they are collision-broken and should not be selected for new security-sensitive designs. SHA-256 is the strongest option provided here, but a plain digest does not authenticate who produced the data. This library does not provide HMAC, password hashing, key derivation, signatures, encryption, a pluggable algorithm interface, or constant-time digest comparison. Use a dedicated cryptographic library when any of those properties are part of the requirement.</p>
-<h1><a class="anchor" id="autotoc_md271"></a>
+<h1><a class="anchor" id="autotoc_md231"></a>
 A hash is one incremental session</h1>
 <p>The mental model is a small state machine:</p>
 <ol type="1">
@@ -190,12 +190,12 @@ A hash is one incremental session</h1>
 <div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(test == <span class="stringliteral">&quot;098F6BCD4621D373CADE4E832627B4F6&quot;</span>_a8);</div>
 <div class="line">            report.console.printLine(test.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>());</div>
 </div><!-- fragment --><p>Every operation that can touch the native backend returns <code>bool</code>. Check <code>setType()</code>, every <code>add()</code>, and <code>getHash()</code>; a failure means the requested operation was not completed. Calling <code>add()</code> or <code>getHash()</code> before a successful <code>setType()</code> also fails. The API reports success or failure only—it does not expose an OS error code or diagnostic string.</p>
-<h1><a class="anchor" id="autotoc_md272"></a>
+<h1><a class="anchor" id="autotoc_md232"></a>
 Storage, allocation and lifetime</h1>
 <p><code>add()</code> borrows an <code>SC::Span&lt;const uint8_t&gt;</code> only for the duration of the call. The input buffer can therefore be reused for the next file, socket or parser chunk as soon as <code>add()</code> returns. The library does not retain input bytes and does not allocate a buffer proportional to the stream, so the total input size is not limited by the hashing object.</p>
 <p><code><a class="el" href="structSC_1_1Hashing_1_1Result.html">SC::Hashing::Result</a></code> contains an inline 32-byte array plus the actual digest length: 16 bytes for MD5, 20 for SHA-1 and 32 for SHA-256. <code>Result::toBytesSpan()</code> is a view into that array, not an owning copy. The result object must outlive the span, and hexadecimal or Base64 text requires a separate encoding step and caller-chosen storage. [Strings](<a class="el" href="library_strings.html">Strings</a>) provides <code>StringBuilder::appendHex</code>; Hashing intentionally does not depend on it.</p>
 <p>There is no dynamic allocation in the Hashing library itself. On Apple platforms the algorithm context lives inline in the object. Windows and Linux implementations acquire native cryptographic handles or sockets, so construction and <code>setType()</code> can still consume fallible OS resources; destruction releases them. A <code>Hashing</code> instance and its active session should stay on one thread unless the caller supplies its own synchronization.</p>
-<h1><a class="anchor" id="autotoc_md273"></a>
+<h1><a class="anchor" id="autotoc_md233"></a>
 Platform and integration boundaries</h1>
 <p>The same public workflow maps to CommonCrypto on Apple platforms, CryptoAPI on Windows, and the kernel <code>AF_ALG</code> hashing interface on Linux. Other targets currently compile a stub whose operations return <code>false</code>; support should therefore be verified for the deployment target rather than inferred from the header being available. Backend selection is an implementation detail, but it explains why the API is fallible even though the object and digest storage are fixed-size.</p>
 <p>Hashing sits below the libraries that own I/O and presentation policy:</p>
@@ -206,17 +206,17 @@ Platform and integration boundaries</h1>
 </ul>
 <p>The separate <a class="el" href="group__group__sc__hashing.html">C bindings</a> expose the same initialize/add/finalize lifecycle with caller-owned opaque storage. C callers must pair <code><a class="el" href="group__group__sc__hashing.html#gac5021c67b99d876ce061479d77326d22" title="Initializes OS objects to compute hash (call sc_hashing_close when done).">sc_hashing_init()</a></code> with <code><a class="el" href="group__group__sc__hashing.html#gaa27ea9872382fa6c864a0b25602cc258" title="Releases os resources allocated by sc_hashing_init.">sc_hashing_close()</a></code> so native resources are released.</p>
 <p>For exact types and signatures, see the <a class="el" href="group__group__hashing.html">Hashing API group</a>.</p>
-<h1><a class="anchor" id="autotoc_md274"></a>
+<h1><a class="anchor" id="autotoc_md234"></a>
 Status</h1>
 <p>🟩 Usable</p>
 <p>The library is intentionally small and is used by the package tooling. Its main limitations are the fixed legacy-oriented algorithm set, boolean-only error reporting, and lack of a supported backend outside Apple, Windows and Linux.</p>
-<h1><a class="anchor" id="autotoc_md275"></a>
+<h1><a class="anchor" id="autotoc_md235"></a>
 Roadmap</h1>
 <p>💡 Unplanned Features:</p>
 <ul>
 <li>No additions are currently planned. New cryptographic primitives should be driven by a concrete security model rather than added as algorithm names alone.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md276"></a>
+<h1><a class="anchor" id="autotoc_md236"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Hashing</code>. Single File counts <code>SaneCppHashing.h</code>. Standalone counts <code>SaneCppHashingStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

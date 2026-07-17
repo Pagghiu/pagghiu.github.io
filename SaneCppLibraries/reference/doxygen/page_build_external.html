@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Sane C++ Libraries: External SC::Build Bootstrap</title>
+<title>Sane C++ Libraries: SC::Build (External use)</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -123,175 +123,122 @@ $(function(){initNavTree('page_build_external.html',''); initResizable(true); })
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">External SC::Build Bootstrap</div></div>
+  <div class="headertitle"><div class="title">SC::Build (External use)</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md20">Overview</a>
+    <a href="#autotoc_md10">What the external launcher does</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md21">Project Layout</a>
+    <a href="#autotoc_md11">Create the smallest project</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md22">Using Sane C++ Libraries</a>
+    <a href="#autotoc_md12">Choose where the libraries live</a>
+    <ul>
+      <li class="level2">
+        <a href="#autotoc_md13">Vendored checkout</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md14">Shared checkout</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md15">Standalone launcher and cache</a>
+      </li>
+    </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md23">&lt;tt&gt;SC_BUILD&lt;/tt&gt; Define</a>
+    <a href="#autotoc_md16">Pin the revision</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md24">Launchers</a>
+    <a href="#autotoc_md17">Keep paths project-relative</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md25">Version Pinning</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md26">Shared Cache</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md27">Troubleshooting</a>
+    <a href="#autotoc_md18">Troubleshooting by layer</a>
   </li>
 </ul>
 </div>
-<div class="textblock"><p><code>SC::Build</code> can be used outside of the Sane C++ repository through the <code>SC-build.sh</code>, <code>SC-build.bat</code>, and <code>SC-build.ps1</code> launchers.</p>
-<h1><a class="anchor" id="autotoc_md20"></a>
-Overview</h1>
-<p>External projects provide a regular <code>SC-build.cpp</code> build-definition file and let the launcher resolve a SaneCppLibraries checkout to compile and run it.</p>
-<p>The launcher supports three layouts:</p>
-<ul>
-<li>Vendored checkout inside the project, for example <code>ThirdParty/SaneCppLibraries</code></li>
-<li>Shared checkout outside the project, selected explicitly with <code>--libraries-root &lt;path&gt;</code></li>
-<li>Standalone launcher script using a shared cache clone plus versioned worktrees</li>
-</ul>
-<p>The project entry file is always named <code>SC-build.cpp</code>.</p>
-<h1><a class="anchor" id="autotoc_md21"></a>
-Project Layout</h1>
-<p>Minimal external project:</p>
+<div class="textblock"><p>Use <code>SC::Build</code> in another repository when you want a small C++ build description, direct native builds, and optional access to the Sane C++ libraries without copying this repository's project structure.</p>
+<h1><a class="anchor" id="autotoc_md10"></a>
+What the external launcher does</h1>
+<p>An external project owns its <code>SC-build.cpp</code>. The launcher finds a compatible SaneCppLibraries checkout, compiles the build description, and executes the requested action from the external project directory.</p>
+<div class="fragment"><div class="line">MyProject/SC-build.cpp</div>
+<div class="line">        |</div>
+<div class="line">        v</div>
+<div class="line">SC-build launcher ----&gt; resolve a SaneCppLibraries revision</div>
+<div class="line">        |</div>
+<div class="line">        v</div>
+<div class="line">compile the definition ----&gt; build MyProject</div>
+</div><!-- fragment --><p>The external project remains in control of its sources and revision pin. SaneCppLibraries supplies the build API, bootstrap, and any libraries selected by the definition.</p>
+<h1><a class="anchor" id="autotoc_md11"></a>
+Create the smallest project</h1>
+<p>Start with this layout:</p>
 <div class="fragment"><div class="line">MyProject/</div>
 <div class="line">  SC-build.cpp</div>
 <div class="line">  Source/</div>
 <div class="line">    main.cpp</div>
-</div><!-- fragment --><p>Example <code>SC-build.cpp</code>:</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;SaneCppBuild.h&quot;</span></div>
+</div><!-- fragment --><p><code>SC-build.cpp</code>:</p>
+<div class="fragment"><div class="line"><span class="comment">// sc-build-version: main</span></div>
+<div class="line"><span class="preprocessor">#include &quot;SaneCppBuild.h&quot;</span></div>
 <div class="line"> </div>
-<div class="line">SC::Result SC::Build::configure(Definition &amp;definition, <span class="keyword">const</span> Parameters &amp;parameters)</div>
+<div class="line">SC::Result SC::Build::configure(Definition&amp; definition, <span class="keyword">const</span> Parameters&amp; parameters)</div>
 <div class="line">{</div>
 <div class="line">    Project project = {<span class="stringliteral">&quot;MyProject&quot;</span>};</div>
-<div class="line">    SC_TRY(Build::addSaneCppLibraries(project, parameters)); <span class="comment">// Link Sane C++ libraries single file</span></div>
-<div class="line">    SC_TRY(project.addFiles(<span class="stringliteral">&quot;Source&quot;</span>, <span class="stringliteral">&quot;*.cpp&quot;</span>));             <span class="comment">// Add all cpp files from Source folder</span></div>
-<div class="line">    <span class="keywordflow">return</span> definition.addProject(move(project));             <span class="comment">// Added to implicitly created workspace</span></div>
+<div class="line">    project.setRootDirectory(parameters.directories.projectDirectory.view());</div>
+<div class="line">    SC_TRY(project.addFiles(<span class="stringliteral">&quot;Source&quot;</span>, <span class="stringliteral">&quot;*.cpp&quot;</span>));</div>
+<div class="line">    SC_TRY(addSaneCppLibraries(project, parameters));</div>
+<div class="line">    <span class="keywordflow">return</span> definition.addProject(move(project));</div>
 <div class="line">}</div>
-</div><!-- fragment --><p>Example <code>Source/main.cpp</code> using Sane C++ Libraries:</p>
+</div><!-- fragment --><p><code>Source/main.cpp</code>:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;SaneCppStrings.h&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
-<div class="line">    <span class="keyword">using namespace </span>SC;</div>
-<div class="line">    <a class="code hl_struct" href="structSC_1_1Console.html">Console</a> console;</div>
-<div class="line">    console.<a class="code hl_function" href="structSC_1_1Console.html#a90ab19d2e3479df328c87dc8c51f3c4a">print</a>(<span class="stringliteral">&quot;{1} {0}!\n&quot;</span>, <span class="stringliteral">&quot;world&quot;</span>, <span class="stringliteral">&quot;Hello&quot;</span>);</div>
+<div class="line">    <a class="code hl_struct" href="structSC_1_1Console.html">SC::Console</a> console;</div>
+<div class="line">    console.<a class="code hl_function" href="structSC_1_1Console.html#a90ab19d2e3479df328c87dc8c51f3c4a">print</a>(<span class="stringliteral">&quot;Hello from {0}!\n&quot;</span>, <span class="stringliteral">&quot;Sane C++&quot;</span>);</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="astructSC_1_1Console_html"><div class="ttname"><a href="structSC_1_1Console.html">SC::Console</a></div><div class="ttdoc">Writes to console using SC::StringFormat.</div><div class="ttdef"><b>Definition</b> Console.h:26</div></div>
 <div class="ttc" id="astructSC_1_1Console_html_a90ab19d2e3479df328c87dc8c51f3c4a"><div class="ttname"><a href="structSC_1_1Console.html#a90ab19d2e3479df328c87dc8c51f3c4a">SC::Console::print</a></div><div class="ttdeci">bool print(StringSpan fmt, Types &amp;&amp;... args)</div><div class="ttdoc">Prints a formatted string using SC::StringFormat to stdout.</div><div class="ttdef"><b>Definition</b> Console.h:34</div></div>
-</div><!-- fragment --><p><b>Note</b>: the public <code>Includes</code> folder is added by <code>Build::addSaneCppLibraries</code> so that <code>main.cpp</code> can <code>#include "SaneCppStrings.h"</code>.</p>
-<h1><a class="anchor" id="autotoc_md22"></a>
-Using Sane C++ Libraries</h1>
-<p>For casual external projects, <code>SC::Build</code> can wire Sane C++ Libraries into a target with one line:</p>
-<div class="fragment"><div class="line">SC_TRY(addSaneCppLibraries(project, parameters));</div>
-</div><!-- fragment --><p>This default uses <code>SC.cpp</code>.</p>
-<p>If you prefer non-unity compilation under <code>SC::Build</code>, use:</p>
-<div class="fragment"><div class="line">SC_TRY(addSaneCppLibraries(project, parameters, Libraries::Multiple));</div>
-</div><!-- fragment --><p><code>Libraries::SingleFile</code> is the default and is recommended for the simplest onboarding. <br  />
- <code>Libraries::Multiple</code> adds the individual files under <code>Libraries/</code>.</p>
-<p>This function adds the public <code>Includes</code> folder to include paths, to allow <code>#include "SaneCpp$LIBRARY$.h"</code>.</p>
-<h1><a class="anchor" id="autotoc_md23"></a>
-<code>SC_BUILD</code> Define</h1>
-<p>When <code>SC-build.cpp</code> itself is compiled as the build-definition tool, <code>SC::Build</code> defines <code>SC_BUILD=1</code>.</p>
-<p>This lets one file act as both the build definition and the target source:</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#if defined(SC_BUILD)</span></div>
-<div class="line"><span class="preprocessor">#include &quot;SaneCppBuild.h&quot;</span></div>
-<div class="line"> </div>
-<div class="line">SC::Result SC::Build::configure(Definition &amp;definition, <span class="keyword">const</span> Parameters &amp;parameters)</div>
-<div class="line">{</div>
-<div class="line">    Project project = {<span class="stringliteral">&quot;MyProject&quot;</span>};</div>
-<div class="line">    SC_TRY(Build::addSaneCppLibraries(project, parameters)); <span class="comment">// Link Sane C++ libraries</span></div>
-<div class="line">    SC_TRY(project.addFile(<span class="stringliteral">&quot;SC-build.cpp&quot;</span>));                 <span class="comment">// Flag this file to build</span></div>
-<div class="line">    <span class="keywordflow">return</span> definition.addProject(move(project));             <span class="comment">// Add to default workspace</span></div>
-<div class="line">}</div>
-<div class="line"><span class="preprocessor">#else</span></div>
-<div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main()</div>
-<div class="line">{</div>
-<div class="line">    puts(<span class="stringliteral">&quot;hello from the built program&quot;</span>);</div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
-<div class="line">}</div>
-<div class="line"><span class="preprocessor">#endif</span></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md24"></a>
-Launchers</h1>
-<p>Vendored checkout:</p>
-<div class="fragment"><div class="line">MyProject/</div>
-<div class="line">  SC-build.cpp</div>
-<div class="line">  ThirdParty/</div>
-<div class="line">    SaneCppLibraries/</div>
-<div class="line">      SC-build.sh</div>
-</div><!-- fragment --><p>Invoke from the project root or any nested subdirectory:</p>
-<div class="fragment"><div class="line">ThirdParty/SaneCppLibraries/SC-build.sh</div>
-<div class="line">ThirdParty/SaneCppLibraries/SC-build.sh compile MyProject --config Release</div>
-</div><!-- fragment --><p>With no action, the launcher defaults to <code>compile</code> and uses the native generator.</p>
-<p>Explicit shared checkout:</p>
-<div class="fragment"><div class="line">/path/to/SaneCppLibraries/SC-build.sh --libraries-root /path/to/SaneCppLibraries</div>
-<div class="line">/path/to/SaneCppLibraries/SC-build.sh --libraries-root /path/to/SaneCppLibraries compile MyProject --config Release</div>
-</div><!-- fragment --><p>Standalone downloaded launcher:</p>
-<div class="fragment"><div class="line">curl -L -o SC-build.sh https://raw.githubusercontent.com/Pagghiu/SaneCppLibraries/&lt;branch-or-tag&gt;/SC-build.sh</div>
+</div><!-- fragment --><p><code>addSaneCppLibraries</code> adds the public include directory and the unity-build library source. Pass <code>Libraries::Multiple</code> as its third argument only when you specifically want separate library compilation.</p>
+<h1><a class="anchor" id="autotoc_md12"></a>
+Choose where the libraries live</h1>
+<p>There are three useful layouts. Choose one deliberately rather than letting local machine state decide.</p>
+<h2><a class="anchor" id="autotoc_md13"></a>
+Vendored checkout</h2>
+<p>Keep SaneCppLibraries below the project, for example <code>ThirdParty/SaneCppLibraries</code>. This is easy to inspect and works without network access after checkout, but updating the dependency changes the project tree.</p>
+<div class="fragment"><div class="line">ThirdParty/SaneCppLibraries/SC-build.sh compile MyProject Debug</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md14"></a>
+Shared checkout</h2>
+<p>Point the launcher at an existing checkout while developing both projects together:</p>
+<div class="fragment"><div class="line">/path/to/SaneCppLibraries/SC-build.sh --libraries-root /path/to/SaneCppLibraries compile MyProject Debug</div>
+</div><!-- fragment --><p>This is convenient for local development. It is not a reproducible dependency declaration by itself.</p>
+<h2><a class="anchor" id="autotoc_md15"></a>
+Standalone launcher and cache</h2>
+<p>Download the small launcher into the project and let it maintain one shared clone plus versioned worktrees in the user cache. This keeps the dependency outside the project while allowing the revision pragma to select an exact checkout.</p>
+<div class="fragment"><div class="line">curl -L -o SC-build.sh https://raw.githubusercontent.com/Pagghiu/SaneCppLibraries/main/SC-build.sh</div>
 <div class="line">chmod +x SC-build.sh</div>
-<div class="line">./SC-build.sh</div>
-<div class="line">./SC-build.sh compile MyProject --config Release</div>
-</div><!-- fragment --><p>Windows:</p>
-<div class="fragment"><div class="line">Invoke-WebRequest https://raw.githubusercontent.com/Pagghiu/SaneCppLibraries/&lt;branch-or-tag&gt;/SC-build.ps1 -OutFile SC-build.ps1</div>
-<div class="line">./SC-build.ps1</div>
-<div class="line">./SC-build.ps1 compile MyProject --config Release</div>
-</div><!-- fragment --><p>The <code>SC-build.bat</code> wrapper forwards to <code>SC-build.ps1</code>, so either launcher can be used from <code>cmd.exe</code> or PowerShell.</p>
-<p>When testing a non-<code>main</code> branch, download the launcher from that branch and pin the same branch in <code>SC-build.cpp</code>:</p>
-<div class="fragment"><div class="line"><span class="comment">// sc-build-version: build</span></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md25"></a>
-Version Pinning</h1>
-<p>When the launcher uses the shared cache flow, it reads the requested SaneCppLibraries revision from a comment pragma in <code>SC-build.cpp</code>:</p>
-<div class="fragment"><div class="line"><span class="comment">// sc-build-version: v0.1.0</span></div>
-</div><!-- fragment --><p>The value can be a tag, branch, or commit SHA.</p>
-<p>If the pragma is missing, the launcher resolves the latest default-branch revision and prints a warning because that mode is less reproducible. Add the pragma near the top of <code>SC-build.cpp</code> once you know which SaneCppLibraries revision the external project should follow:</p>
+<div class="line">./SC-build.sh compile MyProject Debug</div>
+</div><!-- fragment --><p>On Windows, download <code>SC-build.ps1</code>; <code>SC-build.bat</code> is a wrapper for command-prompt use.</p>
+<h1><a class="anchor" id="autotoc_md16"></a>
+Pin the revision</h1>
+<p>The cache flow reads a pragma near the top of <code>SC-build.cpp</code>:</p>
 <div class="fragment"><div class="line"><span class="comment">// sc-build-version: 5ab42c5abfea35e9c148e18ff244563b593979a2</span></div>
-<div class="line"><span class="preprocessor">#include &quot;SaneCppBuild.h&quot;</span></div>
-</div><!-- fragment --><p>Branch pins are convenient while developing against an active branch. Tags or commit SHAs are better for projects that need repeatable builds.</p>
-<h1><a class="anchor" id="autotoc_md26"></a>
-Shared Cache</h1>
-<p>If <code>--libraries-root</code> and <code>SC_BUILD_LIBRARIES_ROOT</code> are both absent, the standalone launcher uses a shared cache:</p>
+</div><!-- fragment --><p>A branch is useful while collaborating on active development. A tag or commit SHA is a better choice when another person or CI must reproduce the same build. Without the pragma, the launcher follows the current default branch and warns that the result is not pinned.</p>
+<h1><a class="anchor" id="autotoc_md17"></a>
+Keep paths project-relative</h1>
+<p>External definitions may be launched from nested directories and may use a cached library checkout. Resolve project files from <code>parameters.directories.projectDirectory</code>; do not derive them from the location of SaneCppLibraries.</p>
+<h1><a class="anchor" id="autotoc_md18"></a>
+Troubleshooting by layer</h1>
 <ul>
-<li>POSIX: <code>$XDG_CACHE_HOME/sc-build</code> or <code>~/.cache/sc-build</code></li>
-<li>Windows: <code>LOCALAPPDATA%\SC-build</code></li>
+<li><code>Cannot find SC-build.cpp</code>: run inside the project tree or pass <code>--project-dir</code>.</li>
+<li>Revision resolution failure: check <code>sc-build-version</code>, network access, or use <code>--libraries-root</code> with a known checkout.</li>
+<li>Bootstrap compiler failure: verify that a working host C++ compiler is available.</li>
+<li>Source files not found: set the project root and keep source patterns relative to it.</li>
+<li>Wrong library revision: remove an accidental shared-checkout override and inspect the revision printed by the launcher.</li>
 </ul>
-<p>The cache stores:</p>
-<ul>
-<li>One source clone of <code>SaneCppLibraries</code></li>
-<li>One detached worktree per resolved commit SHA</li>
-</ul>
-<p>Overrides:</p>
-<ul>
-<li><code>--libraries-root &lt;path&gt;</code>: use an explicit checkout and disable cache resolution</li>
-<li><code>--project-dir &lt;path&gt;</code>: choose the project root explicitly instead of searching upward from the current directory</li>
-<li><code>SC_BUILD_LIBRARIES_ROOT</code>: environment variable equivalent of <code>--libraries-root</code></li>
-<li><code>SC_BUILD_CACHE_DIR</code>: override the shared cache base directory</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md27"></a>
-Troubleshooting</h1>
-<ul>
-<li><code>Cannot find SC-build.cpp</code>: run the launcher from inside the project tree or pass <code>--project-dir &lt;path&gt;</code></li>
-<li><code>Cannot resolve SaneCppLibraries revision</code>: fix the <code>// sc-build-version: ...</code> pragma or use <code>--libraries-root</code></li>
-<li><code>git is required</code>: install <code>git</code> or use <code>--libraries-root</code> pointing at an existing checkout</li>
-<li><code>ToolsBootstrap</code> build failures: make sure a working host compiler is installed and available</li>
-<li>Wrong relative paths inside the build definition: use <code>parameters.directories.projectDirectory</code> as the project root </li>
-</ul>
+<p>Once the first target builds, continue with the <a class="el" href="page_build.html">SC::Build guide</a> to add configurations, generated projects, or cross targets. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

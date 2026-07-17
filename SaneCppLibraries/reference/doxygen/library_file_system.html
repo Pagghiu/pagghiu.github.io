@@ -129,50 +129,50 @@ $(function(){initNavTree('library_file_system.html',''); initResizable(true); })
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md231">Dependencies</a>
+    <a href="#autotoc_md191">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md232">When to use File System</a>
+    <a href="#autotoc_md192">When to use File System</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md233">The mental model: a private path base</a>
+    <a href="#autotoc_md193">The mental model: a private path base</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md234">Storage, lifetime and failure behavior</a>
+    <a href="#autotoc_md194">Storage, lifetime and failure behavior</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md235">Paths, encodings and the low-level escape hatch</a>
+    <a href="#autotoc_md195">Paths, encodings and the low-level escape hatch</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md236">Metadata and links require deliberate semantics</a>
+    <a href="#autotoc_md196">Metadata and links require deliberate semantics</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md237">Boundaries and tradeoffs</a>
+    <a href="#autotoc_md197">Boundaries and tradeoffs</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md238">Status</a>
+    <a href="#autotoc_md198">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md239">Blog</a>
+    <a href="#autotoc_md199">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md240">Roadmap</a>
+    <a href="#autotoc_md200">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md241">Statistics</a>
+    <a href="#autotoc_md201">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟩 Synchronous, path-based file and directory operations</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppFileSystem.h">SaneCppFileSystem.h</a> provides portable operations on filesystem paths: create, copy, rename and remove entries; read or replace complete files; inspect metadata; and work with links and permissions.</p>
-<h1><a class="anchor" id="autotoc_md231"></a>
+<h1><a class="anchor" id="autotoc_md191"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="FileSystem.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md232"></a>
+<h1><a class="anchor" id="autotoc_md192"></a>
 When to use File System</h1>
 <p>Use File System when the unit of work is a <b>path or directory tree</b>, rather than an already-open byte stream. It fits setup and cleanup code, installers, build tools, caches, configuration loading and other synchronous workflows that need the same behavior on Windows, macOS and Linux.</p>
 <p>The library covers the common path-level operations:</p>
@@ -185,7 +185,7 @@ When to use File System</h1>
 <li>querying executable, application-root and process working-directory paths.</li>
 </ul>
 <p>It is not a directory enumerator, an open-file abstraction or an asynchronous filesystem. Use <a class="el" href="library_file_system_iterator.html">File System Iterator</a> to discover directory contents, <a class="el" href="library_file.html">File</a> for incremental reads, writes, seeking, durability and descriptor ownership, and <a class="el" href="library_async.html">Async</a> when blocking the calling thread is unacceptable.</p>
-<h1><a class="anchor" id="autotoc_md233"></a>
+<h1><a class="anchor" id="autotoc_md193"></a>
 The mental model: a private path base</h1>
 <p>An <a class="el" href="structSC_1_1FileSystem.html" title="Execute fs operations { exists, copy, delete } for { files and directories }.">SC::FileSystem</a> object holds a base directory. Call <a class="el" href="structSC_1_1FileSystem.html#a1fd637d740d1784669730c832631baaf" title="Call init function when instantiating the class to set directory for all operations using relative pa...">SC::FileSystem::init</a> with an absolute directory, then every relative path passed to that object is resolved against this base. Absolute paths remain absolute. Importantly, relative operations do <b>not</b> depend on the process-wide current working directory, so a library or another thread changing that global state does not silently redirect them. <a class="el" href="structSC_1_1FileSystem.html#a314148c633cf60a45a5700af7e524607" title="Changes current directory.">SC::FileSystem::changeDirectory</a> changes only this object's base.</p>
 <p>This source-backed example is compiled and run as part of <code>FileSystemTest</code>:</p>
@@ -232,22 +232,22 @@ The mental model: a private path base</h1>
 <div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="structSC_1_1FileSystem.html#a83c97e78517a179fe4c7458a5b912863">removeDirectoryRecursive</a>(<span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
 </div><!-- fragment --><p>The example also shows the deliberately conservative copy default: an existing destination is an error. Set <a class="el" href="structSC_1_1FileSystemCopyFlags.html#ab9bc31581c16b39d10baec04db8314b4" title="If true copy will overwrite existing files in the destination.">SC::FileSystemCopyFlags::overwrite</a> explicitly when replacement is intended. Filesystem cloning is requested by default where the platform supports it; disabling that optimization asks for a regular copy without changing the result's logical contents.</p>
 <p>Several plural operations accept caller-provided spans, such as <a class="el" href="structSC_1_1FileSystem.html#a496fdbb8cbf227307c754dc6f97b7646" title="Copies many files.">SC::FileSystem::copyFiles</a> and <a class="el" href="structSC_1_1FileSystem.html#a09129409620b045d6551e46ef02cb680" title="Remove multiple files.">SC::FileSystem::removeFiles</a>. They are convenience batches, not transactions: processing stops at the first failure and earlier successful operations are not rolled back.</p>
-<h1><a class="anchor" id="autotoc_md234"></a>
+<h1><a class="anchor" id="autotoc_md194"></a>
 Storage, lifetime and failure behavior</h1>
 <p><a class="el" href="structSC_1_1FileSystem.html" title="Execute fs operations { exists, copy, delete } for { files and directories }.">SC::FileSystem</a> owns fixed-capacity path-conversion and error buffers. Ordinary path operations do not allocate internally, and SC::StringSpan inputs are borrowed only for the duration of the call. The practical consequence is that paths must fit SC::StringPath capacity; overlong or unrepresentable paths fail through SC::Result rather than growing hidden storage.</p>
 <p>Whole-file writes borrow the supplied SC::Span or SC::StringSpan. Whole-file reads are different: the caller supplies a <code>String</code>, <code>Buffer</code>, <code>SmallString</code> or another growable-buffer-compatible destination, and that destination decides whether growth allocates or fails at fixed capacity. For large files, bounded memory, seeking or partial I/O, use <a class="el" href="library_file.html">File</a> instead.</p>
 <p>Mutating and metadata operations return SC::Result and can fail for normal filesystem reasons: missing parents, access rules, occupied destinations, unsupported operations or I/O errors. Boolean queries such as <a class="el" href="structSC_1_1FileSystem.html#a4275a8dc6156e7c752724bcbce071a73" title="Check if a file or directory exists at a given path.">SC::FileSystem::exists</a> and <a class="el" href="structSC_1_1FileSystem.html#ab0998b050e3530b43d053ac82b279094" title="Check whether the current process can access a path with the requested mode.">SC::FileSystem::canAccess</a> intentionally collapse "no" and lookup failure into <code>false</code>; use a Result-returning operation when the distinction matters. Setting <a class="el" href="structSC_1_1FileSystem.html#ab4f4015b0c578f09469206286efbfb9c" title="Formats errors in an internal buffer when returning failed Result.">SC::FileSystem::preciseErrorMessages</a> asks the object to format platform error detail into its internal fixed buffer; it does not change success semantics.</p>
 <p>The API is synchronous. A recursive copy or removal may take an unbounded amount of wall-clock time even though its memory use is controlled, so it should not run on a latency-sensitive event-loop thread.</p>
-<h1><a class="anchor" id="autotoc_md235"></a>
+<h1><a class="anchor" id="autotoc_md195"></a>
 Paths, encodings and the low-level escape hatch</h1>
 <p>The object API performs path normalization and encoding conversion. On Windows it accepts UTF-8 or UTF-16 string spans and uses UTF-16 for native calls; on POSIX paths are UTF-8/native byte strings. Returned filesystem paths use the operating system's native encoding. <a class="el" href="library_strings.html">Strings</a>, especially <a class="el" href="structSC_1_1Path.html" title="Parse and compose filesystem paths for windows and posix.">SC::Path</a>, is the companion library for parsing and composing paths before passing them here.</p>
 <p><a class="el" href="structSC_1_1FileSystem_1_1Operations.html" title="Low level filesystem API, requiring paths in native encoding (UTF-16 on Windows, UTF-8 elsewhere)">SC::FileSystem::Operations</a> exposes the underlying stateless operations when paths are already in native encoding: UTF-16 on Windows and UTF-8 on POSIX. It also provides SC::FileSystem::Operations::getExecutablePath, SC::FileSystem::Operations::getApplicationRootDirectory and SC::FileSystem::Operations::getCurrentWorkingDirectory, all writing into a caller-owned SC::StringPath. Prefer the object API for application paths; <code>Operations</code> deliberately gives up the object's stable base and conversion layer.</p>
-<h1><a class="anchor" id="autotoc_md236"></a>
+<h1><a class="anchor" id="autotoc_md196"></a>
 Metadata and links require deliberate semantics</h1>
 <p><a class="el" href="structSC_1_1FileSystem.html#a60a20f1d08b8643bbd746281d2de0f6d" title="Obtains richer metadata about a path, following symbolic links.">SC::FileSystem::stat</a> follows a symbolic link, while <a class="el" href="structSC_1_1FileSystem.html#a1c71293fc6fbab346710532dbfd95e18" title="Obtains richer metadata about a path without following symbolic links.">SC::FileSystem::lstat</a> describes the link itself. Both fill <a class="el" href="structSC_1_1FileSystemStat.html" title="A structure to describe file stats.">SC::FileSystemStat</a> with portable entry type, size, link count and timestamps, plus platform-specific POSIX identity/mode fields or Windows attributes and file identity. <a class="el" href="structSC_1_1FileSystem.html#a5bc7e8751c69ce9af3c82f911e898b3a" title="Legacy convenience alias for stat(StringSpan, FileStat&amp;)">SC::FileSystem::getFileStat</a> is retained as a legacy alias for <code>stat</code>.</p>
 <p><a class="el" href="structSC_1_1FileSystem.html#af83b9e24cd82181539e17e24c1b0bfec" title="Check if a link exists at given path.">SC::FileSystem::existsAndIsLink</a> and <a class="el" href="structSC_1_1FileSystem.html#a1d22f2cbbd7dd503256be7715ca1d26a" title="Reads the target path stored by a symbolic link.">SC::FileSystem::readSymbolicLink</a> operate on the link rather than its target. <a class="el" href="structSC_1_1FileSystem.html#a3c6b47d0b18c00dc7aa0a07d1652cbb9" title="Remove a single link, giving no error if it doesn&#39;t exist.">SC::FileSystem::removeLinkIfExists</a> is the corresponding explicit cleanup operation. Ownership and permission calls expose native numeric concepts: <code>chmod</code> and <code>chown</code> follow links, while <code>lchmod</code> and <code>lchown</code> target the link where the operating system supports that distinction. These APIs are portable entry points, not a promise that Windows and POSIX permission models are equivalent.</p>
 <p>Recursive directory operations deserve the same caution. <a class="el" href="structSC_1_1FileSystem.html#a83c97e78517a179fe4c7458a5b912863" title="Remove single directory with its entire content (like posix rm -rf)">SC::FileSystem::removeDirectoryRecursive</a> is the equivalent of an <code>rm -rf</code>-style destructive operation, and <a class="el" href="structSC_1_1FileSystem.html#aa2c49712608e73c143022d2a7d61ebfc" title="Copy a single directory.">SC::FileSystem::copyDirectory</a> recursively materializes a tree. Neither is an atomic snapshot or recovery mechanism. Applications that replace durable state should build their own staging, sync and rename protocol using File and File System primitives.</p>
-<h1><a class="anchor" id="autotoc_md237"></a>
+<h1><a class="anchor" id="autotoc_md197"></a>
 Boundaries and tradeoffs</h1>
 <p>File System favors explicit buffers, synchronous results and a small portable surface over a <code>std::filesystem</code>-like object graph. It does not allocate path objects for every entry, throw exceptions, preserve a process-global working-directory assumption, traverse directories, watch for changes or provide filesystem transactions.</p>
 <p>That makes it a good fit for controlled system operations where the caller owns memory and error policy. It is a poor fit for streaming multi-gigabyte files, interactive event loops, directory search or change notification. The neighboring libraries divide those responsibilities cleanly:</p>
@@ -258,22 +258,22 @@ Boundaries and tradeoffs</h1>
 <li><a class="el" href="library_async.html">Async</a> integrates supported I/O with an event loop.</li>
 </ul>
 <p>For the complete API surface and option fields, see the <a class="el" href="group__group__file__system.html">FileSystem module</a>.</p>
-<h1><a class="anchor" id="autotoc_md238"></a>
+<h1><a class="anchor" id="autotoc_md198"></a>
 Status</h1>
 <p>🟩 Usable The library covers common path operations, links, access checks and rich path metadata. Filesystem-level queries such as <code>statfs</code> are not yet implemented. Permission, ownership, link and clone behavior necessarily retains platform-specific limits, and callers should handle an unsupported or access-denied Result.</p>
-<h1><a class="anchor" id="autotoc_md239"></a>
+<h1><a class="anchor" id="autotoc_md199"></a>
 Blog</h1>
 <p>Relevant development updates:</p>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html">July 2025 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md240"></a>
+<h1><a class="anchor" id="autotoc_md200"></a>
 Roadmap</h1>
 <p>🟦 Complete Features:</p><ul>
 <li><code>statfs</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md241"></a>
+<h1><a class="anchor" id="autotoc_md201"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/FileSystem</code>. Single File counts <code>SaneCppFileSystem.h</code>. Standalone counts <code>SaneCppFileSystemStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

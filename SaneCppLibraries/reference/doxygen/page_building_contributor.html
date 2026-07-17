@@ -129,221 +129,84 @@ $(function(){initNavTree('page_building_contributor.html',''); initResizable(tru
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md28">Build and run directly</a>
-    <ul>
-      <li class="level2">
-        <a href="#autotoc_md29">Command-line</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md30">VSCode / IDE project generation</a>
-      </li>
-    </ul>
+    <a href="#autotoc_md19">Prepare the checkout</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md31">Build the test suite</a>
-    <ul>
-      <li class="level2">
-        <a href="#autotoc_md32">Command-line</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md33">Command-line Native Backend</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md34">Visual Studio 2022</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md35">XCode</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md36">Makefile</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md37">VScode on macOS</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md38">VSCode on Linux</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md39">VSCode on Windows</a>
-      </li>
-    </ul>
+    <a href="#autotoc_md20">Use the focused feedback loop</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md40">Run the tests</a>
+    <a href="#autotoc_md21">Expand validation deliberately</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md41">Debug the tests</a>
-    <ul>
-      <li class="level2">
-        <a href="#autotoc_md42">Visual Studio or XCode</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md43">VSCode on macOS or Linux</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md44">VSCode on Windows</a>
-      </li>
-    </ul>
+    <a href="#autotoc_md22">Format and inspect the change</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md45">Build the documentation</a>
-    <ul>
-      <li class="level2">
-        <a href="#autotoc_md46">Command-line</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md47">VSCode</a>
-      </li>
-    </ul>
+    <a href="#autotoc_md23">Generate IDE projects only when useful</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md24">Debug a failing test</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md25">Build documentation</a>
   </li>
 </ul>
 </div>
-<div class="textblock"><p>Follow this guide if you need to build the library locally, validate a code pull request, reproduce an issue, or run the test suite. Check <a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> for the current contribution workflow and <a class="el" href="page_coding_style.html">Coding Style</a> for formatting and code rules.</p>
-<h1><a class="anchor" id="autotoc_md28"></a>
-Build and run directly</h1>
-<p>The test suite and example projects use the handmade / self-hosted <a class="el" href="page_build.html">SC::Build</a> system, and the default workflow now builds them directly through the native backend.</p>
-<h2><a class="anchor" id="autotoc_md29"></a>
-Command-line</h2>
-<ul>
-<li>Build the test suite<ul>
-<li><b>Windows</b>: <code>SC.bat build compile SCTest --config Debug</code></li>
-<li><b>Posix</b>: <code>SC.sh build compile SCTest --config Debug</code></li>
-</ul>
-</li>
-<li>Run focused build-system coverage<ul>
-<li><b>Windows</b>: <code>SC.bat build run SCBuildTest --config Debug</code></li>
-<li><b>Posix</b>: <code>SC.sh build run SCBuildTest --config Debug</code></li>
-</ul>
-</li>
-</ul>
-<dl class="section note"><dt>Note</dt><dd>Check the <a class="el" href="page_tools.html">Tools</a> page for more details on invoking <code>SC.sh build</code>.</dd></dl>
-<h2><a class="anchor" id="autotoc_md30"></a>
-VSCode / IDE project generation</h2>
-<p>Under VSCode select <code>Tasks: Run Task</code> and choose:</p><ul>
-<li><code>Generate Projects</code></li>
-</ul>
-<p>Generated projects are still useful for Visual Studio, XCode, and Make workflows, but they are no longer required before normal <code>build compile</code> / <code>build run</code> usage.</p>
-<h1><a class="anchor" id="autotoc_md31"></a>
-Build the test suite</h1>
-<h2><a class="anchor" id="autotoc_md32"></a>
-Command-line</h2>
-<p>Intel Machines</p><ul>
-<li><b>Windows</b>: <code>SC.bat build compile SCTest --config Debug --arch intel64</code></li>
-<li><b>Posix</b>: <code>SC.sh build compile SCTest --config Debug --arch intel64</code></li>
-</ul>
-<p>Arm Machines</p><ul>
-<li><b>Windows</b>: <code>SC.bat build compile SCTest --config Debug --arch arm64</code></li>
-<li><b>Posix</b>: <code>SC.sh build compile SCTest --config Debug --arch arm64</code></li>
-</ul>
-<h2><a class="anchor" id="autotoc_md33"></a>
-Command-line Native Backend</h2>
-<ul>
-<li><b>macOS / Linux</b>: <code>./SC.sh build compile SCTest --config Debug</code></li>
-<li><b>macOS / Linux</b>: <code>./SC.sh build compile SCTest --config Debug --arch arm64 --verbose</code></li>
-<li><b>macOS / Linux</b>: <code>./SC.sh build run SCBuildTest --config Debug</code></li>
-<li><b>Windows</b>: <code>SC.bat build compile SCTest --config Debug</code></li>
-<li><b>Windows</b>: <code>SC.bat build run SCBuildTest --config Debug</code></li>
-</ul>
-<dl class="section note"><dt>Note</dt><dd>The native backend currently supports direct host builds on macOS, Linux, and Windows. Windows sysroot selection is not implemented yet, and the exact toolchain combinations available still depend on the installed host tools. </dd>
-<dd>
-Native <code>compile</code> and <code>run</code> commands also accept <code>--output quiet|normal|verbose</code>, or the <code>--quiet</code>, <code>--normal</code>, and <code>--verbose</code> shortcuts. Legacy positional syntax is still accepted for compatibility.</dd></dl>
-<h2><a class="anchor" id="autotoc_md34"></a>
-Visual Studio 2022</h2>
-<ul>
-<li>Generate projects first: <code>SC.bat build configure</code></li>
-<li>Open <code>_Build/_Projects/VisualStudio2022/SCWorkspace/SCWorkspace.sln</code></li>
-<li>Build the default configuration target (or another one you prefer)</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md35"></a>
-XCode</h2>
-<ul>
-<li>Generate projects first: <code>./SC.sh build configure</code></li>
-<li>Open <code>_Build/_Projects/XCode/SCWorkspace/SCWorkspace.xcworkspace</code></li>
-<li>Build the default configuration target (or another one you prefer)</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md36"></a>
-Makefile</h2>
-<ul>
-<li>Generate projects first: <code>./SC.sh build configure</code></li>
-<li>Linux: <code>cd _Build/_Projects/Make/SCWorkspace/linux</code></li>
-<li>macOS: <code>cd _Build/_Projects/Make/SCWorkspace/apple</code></li>
-<li>Build Debug: <code>make -j SCTest</code></li>
-<li>Build Release: <code>make -j SCTest CONFIG=Release</code></li>
-</ul>
-<h2><a class="anchor" id="autotoc_md37"></a>
-VScode on macOS</h2>
-<p>Under VSCode select <code>Tasks: Run Task</code> and choose an appropriate targets like:</p><ul>
-<li><code>Build SCTest Debug intel64</code> [1]</li>
-<li><code>Build SCTest Debug arm64</code> [1]</li>
-<li><code>Build SCTest Release intel64</code> [1]</li>
-<li><code>Build SCTest Release arm64</code> [1]</li>
-</ul>
-<dl class="section note"><dt>Note</dt><dd>[1] Uses <code>make</code> and <code>c++</code> command (can be switched to be <code>clang</code> or <code>gcc</code>). Builds only current host architecture (<code>arm64</code> or <code>x86_64</code>). Still needs XCode installed for the sysroot. <br  />
-</dd></dl>
-<h2><a class="anchor" id="autotoc_md38"></a>
-VSCode on Linux</h2>
-<p>Under VSCode select <code>Tasks: Run Task</code> and choose an appropriate targets like:</p><ul>
-<li><code>Build SCTest Debug intel64</code> [1]</li>
-<li><code>Build SCTest Debug arm64</code> [1]</li>
-<li><code>Build SCTest Release intel64</code> [1]</li>
-<li><code>Build SCTest Release arm64</code> [1]</li>
-</ul>
-<dl class="section note"><dt>Note</dt><dd>[1] Uses <code>make</code> and <code>c++</code> commands. Builds only current host architecture (<code>arm64</code> or <code>x86_64</code>).</dd></dl>
-<h2><a class="anchor" id="autotoc_md39"></a>
-VSCode on Windows</h2>
-<p>Under VSCode select <code>Tasks: Run Task</code> and choose an appropriate targets like:</p><ul>
-<li><code>Build SCTest Debug intel64</code> [1]</li>
-<li><code>Build SCTest Debug arm64</code> [1]</li>
-<li><code>Build SCTest Release intel64</code> [1]</li>
-<li><code>Build SCTest Release arm64</code> [1]</li>
-</ul>
-<dl class="section note"><dt>Note</dt><dd>[1] Needs <code>Visual Studio 2022</code> installed</dd></dl>
-<h1><a class="anchor" id="autotoc_md40"></a>
-Run the tests</h1>
-<p>Executables will be at <code>_Build/_Outputs/${platform}-${arch}-${build}-${compiler}-${config}/${EXAMPLE_NAME}</code>. <br  />
- For example assuming host to be ARM64 Linux, compiling with the native backend through Clang in Debug will cause the folder to be <code>_Build/_Outputs/linux-arm64-Native-clang-Debug/SCTest</code>.</p>
-<h1><a class="anchor" id="autotoc_md41"></a>
-Debug the tests</h1>
-<h2><a class="anchor" id="autotoc_md42"></a>
-Visual Studio or XCode</h2>
-<p>Running the default target should work out of the box, as paths are already generated accordingly.</p>
-<h2><a class="anchor" id="autotoc_md43"></a>
-VSCode on macOS or Linux</h2>
-<p>Select one of the appropriate <code>Run and Debug</code> configuration like:</p>
-<ul>
-<li><code>SCTest intel64 [apple] (gdb)</code> [1]</li>
-<li><code>SCTest intel64 [apple] (lldb)</code> [2]</li>
-<li><code>SCTest arm64 [apple] (gdb)</code> [1]</li>
-<li><code>SCTest arm64 [apple] (lldb)</code> [2]</li>
-<li><code>SCTest intel64 [linux] (gdb)</code> [1]</li>
-<li><code>SCTest intel64 [linux] (lldb)</code> [2]</li>
-<li><code>SCTest arm64 [linux] (gdb)</code> [1]</li>
-<li><code>SCTest arm64 [linux] (lldb)</code> [2]</li>
-</ul>
-<dl class="section note"><dt>Note</dt><dd>[1] Uses <code>gdb</code> debugger. Implicitly invokes <code>Build SCTest Debug</code> to build the executable. <br  />
- [2] Uses <code>lldb</code> debugger. Implicitly invokes <code>Build SCTest Debug</code> to build the executable. You need <code>CodeLLDB</code> or similar extension installed in VSCode.</dd></dl>
-<h2><a class="anchor" id="autotoc_md44"></a>
-VSCode on Windows</h2>
-<p>Select one of the appropriate <code>Run and Debug</code> configuration like:</p>
-<ul>
-<li><code>SCTest intel64 [windows]</code> [1]</li>
-<li><code>SCTest arm64 [windows]</code> [1]</li>
-</ul>
-<dl class="section note"><dt>Note</dt><dd>[1] Needs <code>Visual Studio 2022</code> installed</dd></dl>
-<h1><a class="anchor" id="autotoc_md45"></a>
-Build the documentation</h1>
-<p>The <code>SC-build.cpp</code> from <a class="el" href="page_tools.html">SC::Tool</a> downloads Doxygen and some customization themes and then builds the documentation in <code>_Build/_Documentation</code>.</p>
-<h2><a class="anchor" id="autotoc_md46"></a>
-Command-line</h2>
-<ul>
-<li><b>Windows</b>: <code>SC.bat build documentation</code></li>
-<li><b>Posix</b>: <code>SC.sh build documentation</code></li>
-</ul>
-<h2><a class="anchor" id="autotoc_md47"></a>
-VSCode</h2>
-<p>Under VSCode select <code>Tasks: Run Task</code> and choose:</p><ul>
-<li><code>Build Documentation</code> </li>
-</ul>
+<div class="textblock"><p>Contributor builds are organized around a short feedback loop: compile the affected target, run the narrowest relevant test, then expand validation before committing. Project generation is optional.</p>
+<h1><a class="anchor" id="autotoc_md19"></a>
+Prepare the checkout</h1>
+<p>Use a recent C++ compiler supported by the host platform and make sure Git subcommands and the repository bootstrap can run. The first tool invocation compiles the small bootstrap and may download pinned development tools into <code>_Build</code>.</p>
+<p>Read <a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> before changing code. It defines the issue-first workflow, commit format, and agent guidance. Read <a class="el" href="page_coding_style.html">Coding Style</a> before writing a new API.</p>
+<h1><a class="anchor" id="autotoc_md20"></a>
+Use the focused feedback loop</h1>
+<p>Compile the test executable before running it:</p>
+<div class="fragment"><div class="line">./SC.sh build compile SCTest Debug</div>
+<div class="line">./SC.sh build run SCTest Debug -- --test &quot;StringsTest&quot;</div>
+</div><!-- fragment --><p>Replace <code>StringsTest</code> with the test relevant to the change. To isolate one named section:</p>
+<div class="fragment"><div class="line">./SC.sh build run SCTest Debug -- --test &quot;HttpClientTest&quot; --test-section &quot;basic GET&quot;</div>
+</div><!-- fragment --><p>Arguments after <code>--</code> belong to the test executable. Arguments before it belong to <code>SC::Build</code>.</p>
+<p>Network tests can run alongside other worktrees by adding a unique <code>--port-offset</code>. A hang usually means an async handle, task, or reference count was not closed; reduce the run to one section before adding temporary tracing.</p>
+<h1><a class="anchor" id="autotoc_md21"></a>
+Expand validation deliberately</h1>
+<p>After focused tests pass:</p>
+<ol type="1">
+<li>Compile and run <code>SCTest</code> in Debug.</li>
+<li>Repeat in Release when the change affects library behavior, templates, assertions, or optimization-sensitive code.</li>
+<li>Compile the relevant examples or tools.</li>
+<li>Compile <code>SCSingleFileLibs:</code> when library dependencies or public headers changed.</li>
+<li>Test the other supported operating systems when the implementation or build logic is platform-specific.</li>
+</ol>
+<p>Representative commands:</p>
+<div class="fragment"><div class="line">./SC.sh build compile SCTest Release</div>
+<div class="line">./SC.sh build run SCTest Release</div>
+<div class="line">./SC.sh build compile &quot;SCSingleFileLibs:&quot; Release</div>
+</div><!-- fragment --><p><code>BuildTest</code> is omitted from ordinary local <code>SCTest</code> runs because it exercises broader toolchain flows. Use <code>--all-tests</code> when the change touches SC::Build, package resolution, bootstrap behavior, or CI-equivalent validation:</p>
+<div class="fragment"><div class="line">./SC.sh build run SCTest Debug -- --all-tests</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md22"></a>
+Format and inspect the change</h1>
+<p>Format supported source files with the pinned formatter:</p>
+<div class="fragment"><div class="line">./SC.sh format execute</div>
+</div><!-- fragment --><p>Then inspect the diff. Formatting is necessary but does not catch accidental generated files, over-wide declaration alignment, stale comments, or unrelated edits.</p>
+<h1><a class="anchor" id="autotoc_md23"></a>
+Generate IDE projects only when useful</h1>
+<p>The native backend is the default command-line workflow. Generate projects when you want an IDE's project model or a generated Make flow:</p>
+<div class="fragment"><div class="line">./SC.sh build configure SCTest</div>
+</div><!-- fragment --><p>Generated projects are placed below <code>_Build/_Projects</code>. They are disposable and should not become the source of truth for target definitions; edit <code>Tools/SC-build.cpp</code> instead.</p>
+<h1><a class="anchor" id="autotoc_md24"></a>
+Debug a failing test</h1>
+<p>Build Debug, reduce the test selection, and launch the produced executable through LLDB, GDB, Visual Studio, or the repository's VS Code configuration. The output directory printed by SC::Build identifies the exact executable for the selected platform, architecture, toolchain, and configuration.</p>
+<p>When debugging async code, reconstruct ownership and completion in order:</p>
+<ol type="1">
+<li>Which operation acquired a reference or task slot?</li>
+<li>Which callback or coroutine releases it?</li>
+<li>Which close operation allows the event loop to finish?</li>
+<li>Does every error path perform the same cleanup?</li>
+</ol>
+<p>Remove temporary logging after the behavior is understood.</p>
+<h1><a class="anchor" id="autotoc_md25"></a>
+Build documentation</h1>
+<p>Documentation is part of validation when changing public headers or Markdown pages:</p>
+<div class="fragment"><div class="line">./SC.sh build documentation</div>
+</div><!-- fragment --><p>Doxygen warnings fail the build. Check the generated page as well as the source because snippets, links, tables, and embedded HTML are transformed during generation. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
