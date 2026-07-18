@@ -1,5 +1,8 @@
 var NAVTREEINDEX8 =
 {
+"structSC_1_1HttpConnectionsPool.html#a1b9c66b7f3c9f53ba91bd1c1ceadf20f":[17,13,13,8],
+"structSC_1_1HttpConnectionsPool.html#a49c15a54a11f5ce88b519b6ac12cec91":[17,13,13,7],
+"structSC_1_1HttpConnectionsPool.html#a63cc036d96933d4631ff985b1604bf9f":[17,13,13,6],
 "structSC_1_1HttpConnectionsPool.html#ab56d14aa10eed5cfe6cbd4f85146bace":[17,13,13,10],
 "structSC_1_1HttpConnectionsPool.html#ac537afc1b5510d85d77b592ae7f4453a":[17,13,13,2],
 "structSC_1_1HttpConnectionsPool.html#acd617f37c610b096e77e7f522b2f6aa4":[17,13,13,5],
@@ -246,8 +249,5 @@ var NAVTREEINDEX8 =
 "structSC_1_1PluginDefinition.html#a461801baacf7ba7683771f90f98c2346":[17,18,2,7],
 "structSC_1_1PluginDefinition.html#a6e6559a3690b3a9378e58b6b1132eab3":[17,18,2,3],
 "structSC_1_1PluginDefinition.html#a7c8154e1186e6b49f8c6d573de6b825b":[17,18,2,6],
-"structSC_1_1PluginDefinition.html#aa2fdd841eea42740fa3b8a677e720340":[17,18,2,0],
-"structSC_1_1PluginDefinition.html#abe93d715ea50e732a78fad3b63997b6a":[17,18,2,5],
-"structSC_1_1PluginDefinition.html#ad6b69adf04509a831773ee7bb982caf2":[17,18,2,1],
-"structSC_1_1PluginDefinition.html#ae56a9bb1859e765c94f50b2b83a500eb":[17,18,2,2]
+"structSC_1_1PluginDefinition.html#aa2fdd841eea42740fa3b8a677e720340":[17,18,2,0]
 };

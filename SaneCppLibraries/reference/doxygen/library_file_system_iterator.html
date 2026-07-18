@@ -129,42 +129,42 @@ $(function(){initNavTree('library_file_system_iterator.html',''); initResizable(
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md202">Dependencies</a>
+    <a href="#autotoc_md205">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md203">The traversal model</a>
+    <a href="#autotoc_md206">The traversal model</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md204">Choosing recursion explicitly</a>
+    <a href="#autotoc_md207">Choosing recursion explicitly</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md205">Memory, paths, and lifetime</a>
+    <a href="#autotoc_md208">Memory, paths, and lifetime</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md206">Where it fits</a>
+    <a href="#autotoc_md209">Where it fits</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md207">Status and examples</a>
+    <a href="#autotoc_md210">Status and examples</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md208">API reference</a>
+    <a href="#autotoc_md211">API reference</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md209">Statistics</a>
+    <a href="#autotoc_md212">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟩 Allocation-free, pull-based directory traversal</p>
 <p><code><a class="el" href="structSC_1_1FileSystemIterator.html" title="Iterates files and directories inside a given path without allocating any memory.">SC::FileSystemIterator</a></code> enumerates the immediate contents of a directory or walks a directory tree. It is a good fit when code should process entries as they arrive, keep memory use bounded, and avoid both STL iterators and a callback-driven API. It deliberately does not build a list of names, sort results, or return rich file metadata.</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppFileSystemIterator.h">SaneCppFileSystemIterator.h</a> is the amalgamated single-header distribution.</p>
-<h1><a class="anchor" id="autotoc_md202"></a>
+<h1><a class="anchor" id="autotoc_md205"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="FileSystemIterator.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md203"></a>
+<h1><a class="anchor" id="autotoc_md206"></a>
 The traversal model</h1>
 <p>The iterator owns the current path and the operating-system enumeration handles, while the caller supplies a span of <a class="el" href="structSC_1_1FileSystemIterator_1_1FolderState.html" title="Holds state of a folder when recursing into it to list its files.">SC::FileSystemIterator::FolderState</a> objects for the traversal stack. After <a class="el" href="structSC_1_1FileSystemIterator.html#a5b05563dd42178bc0562455206e6da02" title="Initializes the iterator on a given directory.">SC::FileSystemIterator::init</a>, each successful <a class="el" href="structSC_1_1FileSystemIterator.html#ad0c01b172558e37e949045f0520a55b6" title="Returned string is only valid until next enumerateNext call and/or another init call.">SC::FileSystemIterator::enumerateNext</a> call exposes one <a class="el" href="structSC_1_1FileSystemIterator_1_1Entry.html" title="Contains information on a file or directory.">SC::FileSystemIterator::Entry</a> through <a class="el" href="structSC_1_1FileSystemIterator.html#a3095bc292f512c4c8e4c022172d413dc" title="Get current Entry being iterated.">SC::FileSystemIterator::get</a>. Traversal is depth-first when recursion is enabled.</p>
 <p>An entry contains only what is needed for traversal:</p>
@@ -187,7 +187,7 @@ The traversal model</h1>
 <div class="line">    }</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fsIterator.<a class="code hl_function" href="structSC_1_1FileSystemIterator.html#a6a766755dbf3cc07e95c0ec36590b5d8">checkErrors</a>());</div>
 </div><!-- fragment --><p><code>enumerateNext()</code> returns an invalid SC::Result both when iteration is finished and when traversal fails. The loop must therefore be followed by <code>checkErrors()</code> as above. Omitting that final check can mistake an inaccessible directory, an overlong path, or exhausted recursion storage for successful completion.</p>
-<h1><a class="anchor" id="autotoc_md204"></a>
+<h1><a class="anchor" id="autotoc_md207"></a>
 Choosing recursion explicitly</h1>
 <p>Set <code>options.recursive</code> before iteration for automatic depth-first traversal. For pruning, leave it <code>false</code> and call <a class="el" href="structSC_1_1FileSystemIterator.html#aa8cf8da817e4783df2f2b1892b31d50d" title="Recurse into current item (assuming Entry::isDirectory == true)">SC::FileSystemIterator::recurseSubdirectory</a> only when the current entry is a directory worth entering:</p>
 <div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystemIterator_1_1FolderState.html">FileSystemIterator::FolderState</a> entries[16];</div>
@@ -207,7 +207,7 @@ Choosing recursion explicitly</h1>
 <div class="line">    }</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fsIterator.<a class="code hl_function" href="structSC_1_1FileSystemIterator.html#a6a766755dbf3cc07e95c0ec36590b5d8">checkErrors</a>());</div>
 </div><!-- fragment --><p>Manual recursion is immediate: after <code>recurseSubdirectory()</code> succeeds, the next enumeration step starts inside that directory. It avoids visiting excluded subtrees and can be substantially cheaper than filtering entries after a complete recursive walk. Calling <code>recurseSubdirectory()</code> while automatic recursion is enabled is an error.</p>
-<h1><a class="anchor" id="autotoc_md205"></a>
+<h1><a class="anchor" id="autotoc_md208"></a>
 Memory, paths, and lifetime</h1>
 <p>The library performs no dynamic allocation. That choice makes its resource limits visible to the caller:</p>
 <ul>
@@ -217,7 +217,7 @@ Memory, paths, and lifetime</h1>
 <li>Destroying or reinitializing the iterator closes any directory handles still held by an unfinished walk.</li>
 </ul>
 <p>On POSIX systems, input and output paths use UTF-8; UTF-16 input is rejected. On Windows, input may be UTF-8 or UTF-16, and returned entry strings use the native UTF-16 encoding. Windows paths use backslashes by default; set <code>options.forwardSlashes</code> to request forward slashes in returned <code>Entry::path</code> values. The iterator handles Windows long path transport internally, but exposes logical paths without the <code>\\?\</code> transport prefix.</p>
-<h1><a class="anchor" id="autotoc_md206"></a>
+<h1><a class="anchor" id="autotoc_md209"></a>
 Where it fits</h1>
 <p>Choose File System Iterator when the job is to stream names from a directory tree with predictable storage and decide what to do with each entry. Neighboring libraries cover different jobs:</p>
 <ul>
@@ -227,7 +227,7 @@ Where it fits</h1>
 <li><a class="el" href="library_strings.html">Strings</a> provides <a class="el" href="structSC_1_1Path.html" title="Parse and compose filesystem paths for windows and posix.">SC::Path</a> and string operations for parsing, composing, filtering, or converting the returned native-encoding paths.</li>
 </ul>
 <p>The implementation intentionally exposes a small synchronous pull interface. It does not provide asynchronous enumeration, parallel traversal, cycle detection, sorting, globbing, or a persistent collection. Filesystem contents can also change during a walk, so consumers that require an atomic snapshot need stronger guarantees than this API offers.</p>
-<h1><a class="anchor" id="autotoc_md207"></a>
+<h1><a class="anchor" id="autotoc_md210"></a>
 Status and examples</h1>
 <p>🟩 <b>Usable.</b> The core immediate, automatic-recursive, and manually pruned traversal paths are covered by <code>FileSystemIteratorTest</code>. The library is also used by <code>SC-format</code> to discover source files in the repository.</p>
 <p>Relevant development notes:</p>
@@ -235,7 +235,7 @@ Status and examples</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2025-06-30-SaneCppLibrariesUpdate.html">June 2025 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html">July 2025 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md208"></a>
+<h1><a class="anchor" id="autotoc_md211"></a>
 API reference</h1>
 <p>Iterates files and directories inside a given path without allocating any memory.   </p>
 <p>FileSystemIterator uses an iterator pattern to enumerate files instead of a callback. This allows avoiding blocking on enumeration of very large directories and also the allocation of a huge number of strings to hold all filenames. When configuring an iteration, the caller can ask for a fully recursive enumeration or manually call <a class="el" href="structSC_1_1FileSystemIterator.html#aa8cf8da817e4783df2f2b1892b31d50d" title="Recurse into current item (assuming Entry::isDirectory == true)">SC::FileSystemIterator::recurseSubdirectory</a> when the current <a class="el" href="structSC_1_1FileSystemIterator_1_1Entry.html" title="Contains information on a file or directory.">SC::FileSystemIterator::Entry</a> item (obtained with <a class="el" href="structSC_1_1FileSystemIterator.html#a3095bc292f512c4c8e4c022172d413dc" title="Get current Entry being iterated.">SC::FileSystemIterator::get</a>) matches a directory of interest. The maximum number of nested recursion levels that will be allowed depends on the size of the FileSystemIterator::FolderState span (can be a static array) passed in during init by the caller.</p>
@@ -266,7 +266,7 @@ API reference</h1>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fsIterator.<a class="code hl_function" href="structSC_1_1FileSystemIterator.html#a6a766755dbf3cc07e95c0ec36590b5d8">checkErrors</a>());</div>
-</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md209"></a>
+</div><!-- fragment -->  <h1><a class="anchor" id="autotoc_md212"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/FileSystemIterator</code>. Single File counts <code>SaneCppFileSystemIterator.h</code>. Standalone counts <code>SaneCppFileSystemIteratorStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

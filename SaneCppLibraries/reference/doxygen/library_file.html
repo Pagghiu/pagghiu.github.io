@@ -129,56 +129,56 @@ $(function(){initNavTree('library_file.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md179">Dependencies</a>
+    <a href="#autotoc_md182">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md180">When to use File</a>
+    <a href="#autotoc_md183">When to use File</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md181">A descriptor is an owned byte stream</a>
+    <a href="#autotoc_md184">A descriptor is an owned byte stream</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md182">Reads, EOF and positions</a>
+        <a href="#autotoc_md185">Reads, EOF and positions</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md183">Metadata, durability and resizing</a>
+        <a href="#autotoc_md186">Metadata, durability and resizing</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md184">Pipes: descriptors for process communication</a>
+    <a href="#autotoc_md187">Pipes: descriptors for process communication</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md185">Named pipes: discoverable local endpoints</a>
+    <a href="#autotoc_md188">Named pipes: discoverable local endpoints</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md186">Boundaries and tradeoffs</a>
+    <a href="#autotoc_md189">Boundaries and tradeoffs</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md187">Status</a>
+    <a href="#autotoc_md190">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md188">Blog</a>
+    <a href="#autotoc_md191">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md189">Roadmap</a>
+    <a href="#autotoc_md192">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md190">Statistics</a>
+    <a href="#autotoc_md193">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟩 Synchronous Disk File I/O</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppFile.h">SaneCppFile.h</a> is a library implementing synchronous I/O operations on files and pipes. <br  />
 </p>
-<h1><a class="anchor" id="autotoc_md179"></a>
+<h1><a class="anchor" id="autotoc_md182"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="File.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md180"></a>
+<h1><a class="anchor" id="autotoc_md183"></a>
 When to use File</h1>
 <p>Use File when the program already knows <b>which byte stream</b> it wants to work with and needs portable, synchronous descriptor operations:</p>
 <ul>
@@ -189,7 +189,7 @@ When to use File</h1>
 <li>duplicating standard input, output or error without taking ownership of the process-wide handle.</li>
 </ul>
 <p>File deliberately stops at the descriptor boundary. Use <a class="el" href="library_file_system.html">File System</a> to create directories, copy or rename paths, traverse directory contents, or ask questions about a path that has not been opened. Use <a class="el" href="library_async.html">Async</a> when I/O must be driven by an event loop instead of blocking the calling thread; it accepts the same <a class="el" href="structSC_1_1FileDescriptor.html" title="[UniqueHandleDeclaration2Snippet]">SC::FileDescriptor</a> handles, including the read and write endpoints inside <a class="el" href="structSC_1_1PipeDescriptor.html" title="Read / Write pipe (Process stdin/stdout and IPC communication)">SC::PipeDescriptor</a>.</p>
-<h1><a class="anchor" id="autotoc_md181"></a>
+<h1><a class="anchor" id="autotoc_md184"></a>
 A descriptor is an owned byte stream</h1>
 <p><a class="el" href="structSC_1_1FileDescriptor.html" title="[UniqueHandleDeclaration2Snippet]">SC::FileDescriptor</a> is the central abstraction. It owns one native file handle on Windows or file descriptor on POSIX, but presents one API for regular files, pipe endpoints and duplicated standard streams. It is move-only: destruction or SC::FileDescriptor::close releases the native handle, while moving transfers that responsibility. This makes descriptor ownership explicit and prevents two objects from accidentally closing the same handle.</p>
 <p>File itself does not allocate. Reads write into a caller-provided SC::Span and report the portion actually filled; writes consume a caller-provided span (or SC::StringSpan through <code>writeString</code>). The <code>readUntilEOF</code> convenience delegates any growth and allocation to its caller-provided buffer. Errors are returned as SC::Result.</p>
@@ -208,7 +208,7 @@ A descriptor is an owned byte stream</h1>
 <div class="line">    Span&lt;char&gt; spanOut;</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.<a class="code hl_function" href="structSC_1_1FileDescriptor.html#a7872531dfb1a1f7eddeb1591452f684c">read</a>({buffer, sizeof(buffer)}, spanOut));</div>
 </div><!-- fragment --><p>The open mode describes both access and creation behavior. <a class="el" href="structSC_1_1FileOpen.html#a11ba9a64dc70f5f26b77b842f53a4f31a4fc0523df2172fe72ff492a60d28106e" title="r Open for reading. An error occurs if the file does not exist.">SC::FileOpen::Read</a> and <a class="el" href="structSC_1_1FileOpen.html#a11ba9a64dc70f5f26b77b842f53a4f31a7c77626e0d7456dd2d8b3b566838de5f" title="r+ Open for reading and writing. An error occurs if the file does not exist.">SC::FileOpen::ReadWrite</a> require an existing file; append modes create when needed and preserve existing contents; write modes create or truncate. Additional options control exclusivity, inheritance by child processes, blocking behavior and cache-bypassing synchronous opens.</p>
-<h2><a class="anchor" id="autotoc_md182"></a>
+<h2><a class="anchor" id="autotoc_md185"></a>
 Reads, EOF and positions</h2>
 <p>A successful <a class="el" href="structSC_1_1FileDescriptor.html#a7872531dfb1a1f7eddeb1591452f684c" title="Reads bytes at offset into user supplied span.">SC::FileDescriptor::read</a> can return fewer bytes than requested. Its output span identifies the bytes that were actually read, and an empty output span signals EOF. Choose the operation according to the framing you already know:</p>
 <ul>
@@ -218,17 +218,17 @@ Reads, EOF and positions</h2>
 </ul>
 <p>The last form also works for non-seekable streams such as pipes and duplicated standard handles. It resets and resizes the supplied growable buffer as data arrives, so allocation behavior comes from that buffer type: inline capacity can avoid an allocation for small inputs, while growth beyond available capacity may allocate or fail according to the type's policy.</p>
 <p>Regular files additionally support seeking relative to the start, end or current position. On POSIX, offset-based reads and writes use positional I/O and preserve the descriptor position; on Windows, they seek and then perform ordinary I/O. Portable code must therefore not assume that these overloads preserve position or provide independent concurrent access.</p>
-<h2><a class="anchor" id="autotoc_md183"></a>
+<h2><a class="anchor" id="autotoc_md186"></a>
 Metadata, durability and resizing</h2>
 <p><a class="el" href="structSC_1_1FileDescriptor.html#a3f1e7141b4136bc2437faf59d499e63a" title="Obtains richer metadata associated with the currently open descriptor.">SC::FileDescriptor::stat</a> queries the entry behind the open handle, avoiding a second path lookup. The portable portion of <a class="el" href="structSC_1_1FileDescriptorStat.html" title="A structure to describe file stats queried through a file descriptor.">SC::FileDescriptorStat</a> describes entry type, size, link count and timestamps; platform-specific substructures retain the native POSIX identity/mode fields or Windows attributes and file identity.</p>
 <p>Descriptor-bound <a class="el" href="structSC_1_1FileDescriptor.html#a39e8350ce80e2a8f0bfd2c32d5cea71d" title="Change file permission bits for the currently open descriptor.">SC::FileDescriptor::chmod</a> and <a class="el" href="structSC_1_1FileDescriptor.html#aa96e58f23693d38fc5c77161315452a4" title="Change owner and group for the currently open descriptor.">SC::FileDescriptor::chown</a> target that same open entry on POSIX. On Windows, <code>chmod</code> maps only the owner-write bit to the read-only attribute, and <code>chown</code> currently validates the descriptor but does not change ownership. <a class="el" href="structSC_1_1FileDescriptor.html#a6d3a86aa7a7c066fafe23663e7ff64ac" title="Resize the underlying file to the specified size in bytes.">SC::FileDescriptor::truncate</a> shrinks or expands regular files; expansion and physical allocation retain the underlying platform and filesystem semantics.</p>
 <p><a class="el" href="structSC_1_1FileDescriptor.html#aaaa79b890312086a34c4d3983ebbf93c" title="Flush file data and metadata to stable storage.">SC::FileDescriptor::sync</a> requests that file data and metadata reach stable storage, while <a class="el" href="structSC_1_1FileDescriptor.html#a0131bf2a7d6f8d4f26dd698c09b4386e" title="Flush file data to stable storage.">SC::FileDescriptor::syncData</a> focuses on file data where the platform distinguishes the two. These calls provide the OS durability primitive, not a transaction: applications still need their own ordering and recovery protocol when replacing structured state safely.</p>
-<h1><a class="anchor" id="autotoc_md184"></a>
+<h1><a class="anchor" id="autotoc_md187"></a>
 Pipes: descriptors for process communication</h1>
 <p><a class="el" href="structSC_1_1PipeDescriptor.html" title="Read / Write pipe (Process stdin/stdout and IPC communication)">SC::PipeDescriptor</a> groups a read endpoint and a write endpoint. <a class="el" href="structSC_1_1PipeDescriptor.html#a36f3d1f293d648d682df0136953ea996" title="Creates a Pipe.">SC::PipeDescriptor::createPipe</a> creates an anonymous pipe, blocking and non-inheritable by default. Per-end inheritance options are intended for child-process redirection; keeping unneeded pipe ends inheritable can prevent readers from ever observing EOF. The <a class="el" href="library_process.html">Process</a> library uses these descriptors to connect standard input, output and error across processes.</p>
 <p>Set <a class="el" href="structSC_1_1PipeOptions.html#a8df09a9fcc11eb36f7d2ffc1504e7994" title="Set to false if pipe will be used for Async I/O (see Async)">SC::PipeOptions::blocking</a> to <code>false</code> when the endpoints will be registered with <a class="el" href="library_async.html">Async</a>. This flag changes native descriptor behavior; it does not make the synchronous File calls asynchronous. A synchronous read on a blocking pipe still waits for data or EOF.</p>
 <p><a class="el" href="structSC_1_1FileDescriptor.html#ab8021688fbad7924cf830f3d809c79d1" title="Opens a duplicated file descriptor handle for reading from stdin.">SC::FileDescriptor::openStdInDuplicate</a>, <a class="el" href="structSC_1_1FileDescriptor.html#a7699e9f075698a6f428a4fa19aeffd7b" title="Opens a duplicated file descriptor handle for reading from stdout.">SC::FileDescriptor::openStdOutDuplicate</a> and <a class="el" href="structSC_1_1FileDescriptor.html#a335b123251f5c164b9eb607685611cf9" title="Opens a duplicated file descriptor handle for reading from stderr.">SC::FileDescriptor::openStdErrDuplicate</a> return independently owned duplicates. Closing them is safe because the original process-wide standard handle remains open.</p>
-<h1><a class="anchor" id="autotoc_md185"></a>
+<h1><a class="anchor" id="autotoc_md188"></a>
 Named pipes: discoverable local endpoints</h1>
 <p>Anonymous pipes are exchanged during process creation. Named pipes instead let independently started local processes find one another through a name. <a class="el" href="structSC_1_1NamedPipeName.html#a65b74f2d5ee5c0e266094d956d8c4da1" title="Builds a platform-native named pipe endpoint path.">SC::NamedPipeName::build</a> turns a logical token into the native convention: a filesystem path under <code>/tmp</code> (or another absolute directory) on POSIX, and a <code>\\.\pipe\...</code> name on Windows. Logical names cannot be empty or contain path separators.</p>
 <p>The server owns the listening endpoint. Each <a class="el" href="structSC_1_1NamedPipeServer.html#add437fd7721c4868a714963e3dfaedce" title="Accept one client connection and return it as a connected PipeDescriptor.">SC::NamedPipeServer::accept</a> and <a class="el" href="structSC_1_1NamedPipeClient.html#a51834918f98c2748b0fc9dd5cdb0535d" title="Connects to an existing named pipe server endpoint.">SC::NamedPipeClient::connect</a> produces a connected <a class="el" href="structSC_1_1PipeDescriptor.html" title="Read / Write pipe (Process stdin/stdout and IPC communication)">SC::PipeDescriptor</a>, so established connections use the same read, write, lifetime and Async integration rules as other pipes. The server can continue accepting later connections until closed.</p>
@@ -265,16 +265,16 @@ Named pipes: discoverable local endpoints</h1>
 <div class="line">    <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>On POSIX, a named endpoint occupies a filesystem path. Server options control whether a stale endpoint is removed before creation and whether the endpoint is removed when the server closes. On Windows, clients may also configure a connection timeout. These are real platform differences exposed as targeted options rather than hidden behind surprising defaults.</p>
-<h1><a class="anchor" id="autotoc_md186"></a>
+<h1><a class="anchor" id="autotoc_md189"></a>
 Boundaries and tradeoffs</h1>
 <p>File is a low-level portability layer, not a buffered stream framework or serializer. It does not maintain an application buffer, decode text, frame messages, retry a partial application protocol, or make several operations atomic. A write is one native write operation: a short write returns failure without exposing the partial byte count, so callers that need non-blocking retry accounting must use the Async APIs or another suitable layer. This keeps ownership and allocation under the caller's control, but leaves higher-level policy to the layer that understands the data.</p>
 <p>The synchronous API is appropriate for startup work, command-line tools, worker threads and bounded local operations. It is a poor fit for latency-sensitive event-loop threads when storage or pipe peers can stall. For those cases, open or create descriptors with non-blocking/Async-compatible options and compose them through <a class="el" href="library_async.html">Async</a> or <a class="el" href="library_async_streams.html">Async Streams</a>.</p>
 <p>For the complete API surface and option fields, see the <a class="el" href="group__group__file.html">File module</a>.</p>
-<h1><a class="anchor" id="autotoc_md187"></a>
+<h1><a class="anchor" id="autotoc_md190"></a>
 Status</h1>
 <p>🟩 Usable <br  />
  This library now covers synchronous descriptor I/O together with descriptor metadata, synchronization and descriptor-bound permission/ownership updates.</p>
-<h1><a class="anchor" id="autotoc_md188"></a>
+<h1><a class="anchor" id="autotoc_md191"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
@@ -283,7 +283,7 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2026-02-28-SaneCppLibrariesUpdate.html">February 2026 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md189"></a>
+<h1><a class="anchor" id="autotoc_md192"></a>
 Roadmap</h1>
 <p>🟦 Complete Features:</p><ul>
 <li>Synchronous files, anonymous pipes and named pipes</li>
@@ -291,7 +291,7 @@ Roadmap</h1>
 <p>💡 Unplanned Features:</p><ul>
 <li><code>sendfile</code>, deferred until a dependency-safe cross-library API is defined</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md190"></a>
+<h1><a class="anchor" id="autotoc_md193"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/File</code>. Single File counts <code>SaneCppFile.h</code>. Standalone counts <code>SaneCppFileStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

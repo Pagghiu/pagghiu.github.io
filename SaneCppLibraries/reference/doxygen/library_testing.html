@@ -129,42 +129,42 @@ $(function(){initNavTree('library_testing.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md356">Dependencies</a>
+    <a href="#autotoc_md359">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md357">The execution model</a>
+    <a href="#autotoc_md360">The execution model</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md358">Building a runner</a>
+    <a href="#autotoc_md361">Building a runner</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md359">Selecting work from the command line</a>
+    <a href="#autotoc_md362">Selecting work from the command line</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md360">Failure and lifetime behavior</a>
+    <a href="#autotoc_md363">Failure and lifetime behavior</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md361">Fit and neighboring libraries</a>
+    <a href="#autotoc_md364">Fit and neighboring libraries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md362">Status and direction</a>
+    <a href="#autotoc_md365">Status and direction</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md363">Statistics</a>
+    <a href="#autotoc_md366">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>A small, explicit test runner for SC-style result checking and sectioned tests.</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppTesting.h">SaneCppTesting.h</a> is the framework used by the repository's <code>SCTest</code> executable. It is a fit when a project wants a test harness with the same constraints and vocabulary as the rest of Sane C++ Libraries: no STL, no exceptions, a caller-selected output sink, and direct handling of <code>SC::Result</code>.</p>
 <p>It is intentionally not a general-purpose replacement for Catch2, GoogleTest, or doctest. There is no test discovery, fixture registry, parameterized-test machinery, matcher library, or IDE protocol. A test is ordinary C++ code, invoked explicitly from the program's <code>main</code>, and grouped with <code>if (test_section(...))</code> branches. That makes control flow easy to follow and keeps the framework small, at the cost of more manual wiring and fewer diagnostics.</p>
-<h1><a class="anchor" id="autotoc_md356"></a>
+<h1><a class="anchor" id="autotoc_md359"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Testing.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md357"></a>
+<h1><a class="anchor" id="autotoc_md360"></a>
 The execution model</h1>
 <p><code>TestReport</code> owns the run-level state: the output interface, command-line selection, resolved executable/source paths, aggregate counts, optional-test mode, and network port offset. <code>TestCase</code> owns the counts for one named test. Its constructor starts reporting and its destructor folds the result into the report, so a test object must remain alive until all of its sections have run.</p>
 <p>Derived test cases normally execute their checks directly in their constructor. <code>test_section()</code> is not a nested test object: it decides whether the following ordinary C++ block should execute and labels its expectations. <code>SC_TEST_EXPECT</code> accepts either a Boolean expression or an <code>SC::Result</code>; for a failed <code>Result</code>, the result message becomes the detailed error. Successful expectations are counted but only section summaries and failures are printed.</p>
@@ -209,11 +209,11 @@ The execution model</h1>
 <div class="line"><span class="keywordtype">void</span> runConsoleTest(<a class="code hl_struct" href="structSC_1_1TestReport.html">SC::TestReport</a>&amp; report) { ConsoleTest test(report); }</div>
 <div class="line">} <span class="comment">// namespace SC</span></div>
 </div><!-- fragment --><p>The final <code>runConsoleTest()</code> function is significant. <code>SCTest.cpp</code> declares and calls functions like this explicitly; adding a test source file alone does not make it run. This is useful in freestanding or unusual build environments where static registration is undesirable, but forgetting either the declaration or call silently leaves a test out.</p>
-<h1><a class="anchor" id="autotoc_md358"></a>
+<h1><a class="anchor" id="autotoc_md361"></a>
 Building a runner</h1>
 <p>A runner supplies an implementation of <code>TestReport::IOutput</code>. <code>TestReport::Output&lt;ConsoleType&gt;</code> adapts an existing console-like object without taking ownership of it. The adapter and console must therefore outlive the report. The report parses the test arguments during construction, resolves useful paths, and emits its final summary during destruction; return <code>getTestReturnCode()</code> only after all test cases have been destroyed.</p>
 <p>The repository runner in <code>Tests/SCTest/SCTest.cpp</code> constructs a <code>Console</code>, wraps it in <code>TestReport::Output&lt;Console&gt;</code>, constructs the report from <code>argc</code> and <code>argv</code>, checks <code>hasStartupFailure()</code>, calls every registered <code>run...Test(report)</code> function, and finally returns <code>getTestReturnCode()</code>. Platform services used by the tests—such as the global allocator or socket networking—are initialized by that application. Testing does not initialize neighboring libraries on their behalf.</p>
-<h1><a class="anchor" id="autotoc_md359"></a>
+<h1><a class="anchor" id="autotoc_md362"></a>
 Selecting work from the command line</h1>
 <p>Arguments after the build tool's <code>--</code> separator belong to the test executable:</p>
 <div class="fragment"><div class="line">./SC.sh build run SCTest Debug -- --test &quot;ConsoleTest&quot; --test-section &quot;print&quot;</div>
@@ -228,12 +228,12 @@ Selecting work from the command line</h1>
 </ul>
 <p>Sections declared with <code>Execute::OnlyExplicit</code> run only when their exact name is selected with <code>--test-section</code>. This is the mechanism used for disruptive, environment-sensitive, or especially slow checks that should not join the normal suite merely because <code>--all-tests</code> was supplied.</p>
 <p><code>mapPort(basePort)</code> applies the configured offset and is the expected bridge between Testing and Socket/Http tests. Each test still chooses its base ports and owns its network lifetime; Testing only provides deterministic remapping.</p>
-<h1><a class="anchor" id="autotoc_md360"></a>
+<h1><a class="anchor" id="autotoc_md363"></a>
 Failure and lifetime behavior</h1>
 <p>By default <code>debugBreakOnFailedTest</code> is enabled, so <code>SC_TEST_EXPECT</code> can stop in an attached debugger. The runner may disable it for unattended execution. <code>abortOnFirstFailedTest</code> defaults to true, but the current implementation exits early only in Release builds after a failed test case finishes; Debug retains debugger-oriented behavior. Both settings are public run policy, not per-expectation annotations.</p>
 <p>Testing does not allocate merely to register cases, sections, or expectations. Names and expressions are borrowed <code>StringSpan</code> values and must remain valid while they are reported; expectation expressions and section names are also required to be null-terminated. The report stores resolved paths in bounded <code>StringPath</code> buffers rather than growing heap strings. The supplied output adapter also borrows its console. Allocation performed by the code under test is separate, and <code>runGlobalMemoryReport()</code> can compare allocator counters when the host exposes compatible statistics; it is a counter check, not leak tracing or allocation interception.</p>
 <p>Because reporting is tied to destructors, avoid terminating the process from inside a test if the summary matters. Likewise, asynchronous tests must drive their work to completion and close resources before the test object is destroyed; the framework itself is synchronous and does not provide an event loop, timeout scheduler, or async fixture lifecycle.</p>
-<h1><a class="anchor" id="autotoc_md361"></a>
+<h1><a class="anchor" id="autotoc_md364"></a>
 Fit and neighboring libraries</h1>
 <p>Testing is strongest as an in-repository harness for SC libraries and small projects that value transparent control flow, portable builds, and <code>Result</code>-aware checks more than rich test-framework features. The single-header download is useful where bringing in a conventional C++ test dependency is not acceptable.</p>
 <p>Its boundaries are deliberate:</p>
@@ -245,10 +245,10 @@ Fit and neighboring libraries</h1>
 <li><b>Build</b> compiles and launches <code>SCTest</code> and forwards arguments, but test selection itself belongs to Testing.</li>
 </ul>
 <p>Choose a larger framework if automatic discovery, data-driven cases, expressive value printers, death tests, mocking, machine-readable reports, or first-class IDE integration are requirements. Testing's minimalism is an operational constraint, not a claim that those facilities are unnecessary.</p>
-<h1><a class="anchor" id="autotoc_md362"></a>
+<h1><a class="anchor" id="autotoc_md365"></a>
 Status and direction</h1>
 <p>🟨 <b>MVP.</b> The framework is actively useful across the SC suite, including focused sections, an optional-work policy flag consumed by tests, parallel port mapping, startup path reporting, and aggregate memory counters. Its main usability limitation remains explicit registration. Test discovery and IDE integration are plausible future work; template/parameterized tests are currently unplanned rather than partially supported.</p>
-<h1><a class="anchor" id="autotoc_md363"></a>
+<h1><a class="anchor" id="autotoc_md366"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Testing</code>. Single File counts <code>SaneCppTesting.h</code>. Standalone counts <code>SaneCppTestingStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

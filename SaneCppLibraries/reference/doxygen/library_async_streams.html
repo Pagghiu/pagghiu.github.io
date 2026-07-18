@@ -129,65 +129,65 @@ $(function(){initNavTree('library_async_streams.html',''); initResizable(true); 
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md97">Dependencies</a>
+    <a href="#autotoc_md100">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md98">What Async Streams Is For</a>
+    <a href="#autotoc_md101">What Async Streams Is For</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md99">Mental Model</a>
+    <a href="#autotoc_md102">Mental Model</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md100">Supplying A Bounded Buffer Pool</a>
+    <a href="#autotoc_md103">Supplying A Bounded Buffer Pool</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md101">A File-To-File Pipeline</a>
+    <a href="#autotoc_md104">A File-To-File Pipeline</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md102">Backpressure And Buffer Lifetime</a>
+    <a href="#autotoc_md105">Backpressure And Buffer Lifetime</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md103">Transforms And Fan-Out</a>
+    <a href="#autotoc_md106">Transforms And Fan-Out</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md104">Errors, Ending, And Destruction</a>
+    <a href="#autotoc_md107">Errors, Ending, And Destruction</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md105">Allocation Model</a>
+    <a href="#autotoc_md108">Allocation Model</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md106">Choosing The Neighboring Abstraction</a>
+    <a href="#autotoc_md109">Choosing The Neighboring Abstraction</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md107">Details</a>
+    <a href="#autotoc_md110">Details</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md108">Status</a>
+    <a href="#autotoc_md111">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md109">Videos</a>
+    <a href="#autotoc_md112">Videos</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md110">Blog</a>
+    <a href="#autotoc_md113">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md111">Roadmap</a>
+    <a href="#autotoc_md114">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md112">Statistics</a>
+    <a href="#autotoc_md115">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟨 Bounded byte-stream pipelines with explicit backpressure</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppAsyncStreams.h">SaneCppAsyncStreams.h</a> provides allocation-free readable, writable, transform, and pipeline state machines for moving bytes between asynchronous producers and consumers.</p>
-<h1><a class="anchor" id="autotoc_md97"></a>
+<h1><a class="anchor" id="autotoc_md100"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="AsyncStreams.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md98"></a>
+<h1><a class="anchor" id="autotoc_md101"></a>
 What Async Streams Is For</h1>
 <p>Async Streams is for workloads where data arrives or leaves over time and should be processed without first collecting the entire payload in memory. A source can read a file or socket into a bounded pool of buffers, transforms can process those buffers incrementally, and one or more sinks can consume them concurrently.</p>
 <p>The core library defines the stream and pipeline state machines without depending on <a class="el" href="library_async.html">Async</a>, File, or Socket. <code><a class="el" href="AsyncRequestStreams_8h_source.html">AsyncRequestStreams.h</a></code> supplies templates that adapt compatible asynchronous request and event-loop types; the file and socket compositions in this repository instantiate them with <a class="el" href="library_async.html">Async</a>.</p>
@@ -200,7 +200,7 @@ What Async Streams Is For</h1>
 <li>file, pipe, socket, or compression streams built on the same byte-buffer model.</li>
 </ul>
 <p>It is not a general container for arbitrary objects, a pull-based <code>read()</code> interface, or an unbounded buffering layer. There is currently no object mode, and consumers receive pushed data events rather than a Node.js-style readable event.</p>
-<h1><a class="anchor" id="autotoc_md99"></a>
+<h1><a class="anchor" id="autotoc_md102"></a>
 Mental Model</h1>
 <p>An Async Streams graph has four layers:</p>
 <ol type="1">
@@ -211,7 +211,7 @@ Mental Model</h1>
 </ol>
 <p>Streams exchange buffer IDs instead of owning byte allocations. The pool resolves an ID to its readable or writable span and reference-counts that view while it is in flight. A reusable view returns to the pool when its references reach zero. Child views can expose a slice without copying while retaining the parent buffer.</p>
 <p>Read and write request queues are also supplied by the caller. The internal circular queues reserve one slot to distinguish full from empty, so an array of <code>N + 1</code> requests provides <code>N</code> usable queued requests.</p>
-<h1><a class="anchor" id="autotoc_md100"></a>
+<h1><a class="anchor" id="autotoc_md103"></a>
 Supplying A Bounded Buffer Pool</h1>
 <p>This compiled test divides one caller-owned byte allocation into two reusable views. Real applications choose both the number and size of buffers from their expected concurrency and chunk size.</p>
 <div class="fragment"><div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> numberOfBuffers = 2;</div>
@@ -229,7 +229,7 @@ Supplying A Bounded Buffer Pool</h1>
 <div class="line">    AsyncBuffersPool pool;</div>
 <div class="line">    pool.setBuffers(buffers);</div>
 </div><!-- fragment --><p>The pool never grows. When a readable cannot obtain a sufficiently large free buffer, <code>getBufferOrPause()</code> pauses it. When downstream processing releases a buffer, the pipeline can resume the source. This makes memory exhaustion part of the flow-control model instead of an implicit allocation.</p>
-<h1><a class="anchor" id="autotoc_md101"></a>
+<h1><a class="anchor" id="autotoc_md104"></a>
 A File-To-File Pipeline</h1>
 <p>The ready-made request streams adapt file and socket descriptors to the core stream model. After constructing the caller-owned queues and associating descriptors with an event loop, a basic file copy is a source connected directly to a sink:</p>
 <div class="fragment"><div class="line">    readable.setReadQueue(readableRequests);</div>
@@ -244,7 +244,7 @@ A File-To-File Pipeline</h1>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(pipeline.start());</div>
 </div><!-- fragment --><p>The source, every transform, and every sink in one pipeline must use the same <code>AsyncBuffersPool</code>. <code>pipe()</code> validates the layout and registers event listeners; <code>start()</code> begins source production. Completion remains asynchronous: the event loop must continue running until the streams finish or are destroyed.</p>
 <p><code>AsyncReadableFileStream</code> and <code>AsyncWritableFileStream</code> accept <code>FileDescriptor</code> and <code>PipeDescriptor</code>, so anonymous and named pipes from <a class="el" href="library_file.html">File</a> compose without manually extracting their read or write endpoint.</p>
-<h1><a class="anchor" id="autotoc_md102"></a>
+<h1><a class="anchor" id="autotoc_md105"></a>
 Backpressure And Buffer Lifetime</h1>
 <p>Backpressure can come from either side of the graph:</p>
 <ul>
@@ -255,15 +255,15 @@ Backpressure And Buffer Lifetime</h1>
 </ul>
 <p>Readable implementations acquire a buffer, fill it, call <code>push(bufferID, size)</code>, and release their own reference. The stream retains the buffer for queued delivery. Writable implementations finish each accepted operation through <code>finishedWriting()</code>, which advances the queue and releases the stream's reference. Custom streams must respect this protocol; releasing a view too early invalidates downstream data, while failing to finish an operation prevents drain and end propagation.</p>
 <p><code>eventData</code> listeners should treat the buffer as borrowed for the callback unless they explicitly add a reference. Buffers can be read by multiple sinks because the pool tracks references, but writable access is only meaningful where the underlying view permits it.</p>
-<h1><a class="anchor" id="autotoc_md103"></a>
+<h1><a class="anchor" id="autotoc_md106"></a>
 Transforms And Fan-Out</h1>
 <p>An <code>AsyncTransformStream</code> is a duplex stream: it consumes buffers through its writable side and emits new buffers from its readable side. <code>SyncZLibTransformStream</code> runs compression work synchronously; <code>AsyncZLibTransformStreamT</code> schedules the same work through a compatible event loop and can be directed to a caller-selected thread pool.</p>
 <p>A pipeline has a fixed layout rather than a dynamically growing graph. It supports at most eight transforms and eight sinks. Every sink receives the source data, with buffer references held until each write completes. This is useful for bounded fan-out, but the slowest sink applies backpressure to the shared source. If consumers need independent pacing or unbounded history, that storage and policy belongs outside this library.</p>
-<h1><a class="anchor" id="autotoc_md104"></a>
+<h1><a class="anchor" id="autotoc_md107"></a>
 Errors, Ending, And Destruction</h1>
 <p>Stream errors are delivered through <code>eventError</code>, and <code>AsyncPipeline::eventError</code> forwards failures from connected sources, transforms, and sinks. <code>pushEnd()</code> ends a readable after queued data is delivered; <code>end()</code> lets a writable finish queued and in-flight writes before emitting its finish event.</p>
 <p><code>destroy()</code> is the forceful, idempotent path for stopping a stream and its pending asynchronous work. Custom implementations that override asynchronous destruction must eventually call the corresponding <code>finishedDestroyingReadable()</code> or <code>finishedDestroyingWritable()</code> hook. Request-stream adapters do not close their file or socket descriptor by default; call <code>setAutoCloseDescriptor(true)</code> only when the stream owns that descriptor. Streams auto-destroy after normal completion by default, and this can be disabled when the surrounding owner needs a different lifetime policy.</p>
-<h1><a class="anchor" id="autotoc_md105"></a>
+<h1><a class="anchor" id="autotoc_md108"></a>
 Allocation Model</h1>
 <p>Async Streams performs no hidden dynamic allocation. The caller supplies:</p>
 <ul>
@@ -273,7 +273,7 @@ Allocation Model</h1>
 <li>any storage or thread pools required by the underlying asynchronous operations.</li>
 </ul>
 <p>Some examples use <code>Buffer</code>, <code>String</code>, or <code>Vector</code> to conveniently own test memory. Those allocations belong to the caller and are not required by the stream machinery; fixed spans can be used instead. Capacity failures are observable as pauses or invalid <code>Result</code> values and must be handled as normal control flow.</p>
-<h1><a class="anchor" id="autotoc_md106"></a>
+<h1><a class="anchor" id="autotoc_md109"></a>
 Choosing The Neighboring Abstraction</h1>
 <ul>
 <li>Use <a class="el" href="library_async.html">Async</a> directly for individual file, socket, process, timer, or event-loop operations where a stream graph adds no value.</li>
@@ -281,14 +281,14 @@ Choosing The Neighboring Abstraction</h1>
 <li>Use <a class="el" href="library_http_client.html">HttpClient</a> for HTTP requests. Its optional async adapter exposes body streams using this model without making the poll-driven core depend on Async Streams.</li>
 <li>Use <a class="el" href="library_http.html">Http</a> for the higher-level asynchronous HTTP server and WebSocket compositions already built on these streams.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md107"></a>
+<h1><a class="anchor" id="autotoc_md110"></a>
 Details</h1>
 <p>For the complete API reference, see <a class="el" href="group__group__async__streams.html">Async Streams</a>. The tests under <code>Tests/Libraries/AsyncStreams</code> contain working file, pipe, socket, fan-out, backpressure, child-view, and synchronous/asynchronous zlib compositions.</p>
-<h1><a class="anchor" id="autotoc_md108"></a>
+<h1><a class="anchor" id="autotoc_md111"></a>
 Status</h1>
 <p>🟨 MVP</p>
 <p>The core file, pipe, socket, pipeline, and zlib transform paths are implemented and exercised by tests. The pipeline automatically pauses and resumes streams as part of backpressure handling, but it does not yet expose explicit pipeline-level pause, resume, or cancellation controls. The API remains an MVP: some setup is verbose, and examples outside the test suite are limited.</p>
-<h1><a class="anchor" id="autotoc_md109"></a>
+<h1><a class="anchor" id="autotoc_md112"></a>
 Videos</h1>
 <p>This is the list of videos that have been recorded showing some of the internal thoughts that have been going into this library:</p>
 <ul>
@@ -300,7 +300,7 @@ Videos</h1>
 <li><a href="https://www.youtube.com/watch?v=KKwohFmAUCk">Ep.33 - C++ Async Transform Streams - Part 2</a></li>
 <li><a href="https://www.youtube.com/watch?v=vCh6vEfiISI">Ep.34 - C++ Async Transform Streams - Part 3</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md110"></a>
+<h1><a class="anchor" id="autotoc_md113"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
@@ -313,7 +313,7 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2026-01-31-SaneCppLibrariesUpdate.html">January 2026 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md111"></a>
+<h1><a class="anchor" id="autotoc_md114"></a>
 Roadmap</h1>
 <p>🟩 Usable features:</p><ul>
 <li>Pipeline pause</li>
@@ -326,7 +326,7 @@ Roadmap</h1>
 <li>Object Mode</li>
 <li>readable + read mode</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md112"></a>
+<h1><a class="anchor" id="autotoc_md115"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/AsyncStreams</code>. Single File counts <code>SaneCppAsyncStreams.h</code>. Standalone counts <code>SaneCppAsyncStreamsStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">
