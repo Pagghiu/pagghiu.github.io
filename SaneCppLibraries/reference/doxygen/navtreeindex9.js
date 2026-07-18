@@ -1,8 +1,5 @@
 var NAVTREEINDEX9 =
 {
-"structSC_1_1PluginDefinition.html#abe93d715ea50e732a78fad3b63997b6a":[17,18,2,5],
-"structSC_1_1PluginDefinition.html#ad6b69adf04509a831773ee7bb982caf2":[17,18,2,1],
-"structSC_1_1PluginDefinition.html#ae56a9bb1859e765c94f50b2b83a500eb":[17,18,2,2],
 "structSC_1_1PluginDefinition.html#aeb4c3a5a534463353ecd144f928bdb50":[17,18,2,4],
 "structSC_1_1PluginDynamicLibrary.html":[17,18,7],
 "structSC_1_1PluginDynamicLibrary.html#a1d14d7bf25b60e25883407829f667426":[17,18,7,2],
@@ -249,5 +246,8 @@ var NAVTREEINDEX9 =
 "structSC_1_1StringBuilderFor.html#a646e3ab46b390dc9e63572b06f1e870c":[17,24,2,1],
 "structSC_1_1StringBuilderFor.html#ac86a6b734f2ef8394cb517d5c324f6b5":[17,24,2,0],
 "structSC_1_1StringConverter.html":[17,24,3],
-"structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372":[17,24,3,0]
+"structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372":[17,24,3,0],
+"structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372a595ca5020910b720cd0914ea3eff62be":[17,24,3,0,0],
+"structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372aef08bf05bcca3cbc3c862f2bb2173603":[17,24,3,0,1],
+"structSC_1_1StringFormat.html":[17,24,5]
 };

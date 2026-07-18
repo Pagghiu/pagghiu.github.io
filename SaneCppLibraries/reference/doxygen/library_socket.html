@@ -129,50 +129,50 @@ $(function(){initNavTree('library_socket.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md334">Dependencies</a>
+    <a href="#autotoc_md331">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md335">When to use Socket</a>
+    <a href="#autotoc_md332">When to use Socket</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md336">The handle is the socket; client and server are views</a>
+    <a href="#autotoc_md333">The handle is the socket; client and server are views</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md337">Addresses, DNS and process initialization</a>
+    <a href="#autotoc_md334">Addresses, DNS and process initialization</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md338">Reading and writing are single synchronous operations</a>
+    <a href="#autotoc_md335">Reading and writing are single synchronous operations</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md339">UDP, broadcast and multicast</a>
+    <a href="#autotoc_md336">UDP, broadcast and multicast</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md340">Boundaries and tradeoffs</a>
+    <a href="#autotoc_md337">Boundaries and tradeoffs</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md341">Status</a>
+    <a href="#autotoc_md338">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md342">Blog</a>
+    <a href="#autotoc_md339">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md343">Roadmap</a>
+    <a href="#autotoc_md340">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md344">Statistics</a>
+    <a href="#autotoc_md341">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟨 Synchronous TCP, connected UDP, multicast configuration and DNS lookup</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppSocket.h">SaneCppSocket.h</a> provides a small, synchronous portability layer over native sockets on Windows, macOS and Linux.</p>
-<h1><a class="anchor" id="autotoc_md334"></a>
+<h1><a class="anchor" id="autotoc_md331"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Socket.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md335"></a>
+<h1><a class="anchor" id="autotoc_md332"></a>
 When to use Socket</h1>
 <p>Use Socket when an application wants direct control of a native network handle and blocking operations are acceptable:</p>
 <ul>
@@ -182,7 +182,7 @@ When to use Socket</h1>
 <li>resolving a host name synchronously into an IPv4 or IPv6 text address.</li>
 </ul>
 <p>Socket is intentionally below a protocol or stream framework. It does not provide TLS, HTTP, buffering, message framing, automatic reconnects, readiness polling or an event loop. It also does not expose unconnected <code>sendto</code> / <code>recvfrom</code> operations. Use <a class="el" href="library_async.html">Async</a> when sockets must share an event loop, <a class="el" href="library_await.html">Await</a> for coroutine composition, <a class="el" href="library_async_streams.html">Async Streams</a> for queued and framed byte streams, and <a class="el" href="library_http.html">HTTP</a> when the protocol is HTTP.</p>
-<h1><a class="anchor" id="autotoc_md336"></a>
+<h1><a class="anchor" id="autotoc_md333"></a>
 The handle is the socket; client and server are views</h1>
 <p><a class="el" href="structSC_1_1SocketDescriptor.html" title="Low-level OS socket handle.">SC::SocketDescriptor</a> is the central abstraction. It exclusively owns one native <code>SOCKET</code> on Windows or file descriptor on POSIX. It is move-only through SC::UniqueHandle: destruction or SC::SocketDescriptor::close releases the handle, and a move transfers that responsibility. Creation chooses IPv4 or IPv6, stream or datagram, TCP or UDP, blocking mode and child-process inheritance. The defaults are a blocking, non-inheritable TCP stream socket.</p>
 <p><a class="el" href="structSC_1_1SocketServer.html" title="Use a SocketDescriptor as a Server (example TCP or UDP Socket Server).">SC::SocketServer</a> and <a class="el" href="structSC_1_1SocketClient.html" title="Use a SocketDescriptor as a client (example a TCP or UDP socket client).">SC::SocketClient</a> do not own another resource. They are short-lived views over a descriptor: <a class="el" href="structSC_1_1SocketServer.html" title="Use a SocketDescriptor as a Server (example TCP or UDP Socket Server).">SC::SocketServer</a> adds bind, listen and accept operations, while <a class="el" href="structSC_1_1SocketClient.html" title="Use a SocketDescriptor as a client (example a TCP or UDP socket client).">SC::SocketClient</a> adds connect, send and receive operations. The descriptor must therefore outlive either view. An accepted TCP connection is returned as a new owning <a class="el" href="structSC_1_1SocketDescriptor.html" title="Low-level OS socket handle.">SC::SocketDescriptor</a>; the listening descriptor remains independently owned by the server.</p>
@@ -213,7 +213,7 @@ The handle is the socket; client and server are views</h1>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// ... Do something with acceptedClientSocket</span></div>
 </div><!-- fragment --><p><a class="el" href="structSC_1_1SocketServer.html#a7ec321dcf34ef6b8fc82669f6955e520" title="Binds this socket to a given address / port combination.">SC::SocketServer::bind</a> enables address reuse by default. This is convenient for restarting a server, but callers can disable it or inspect SC::SocketServer::BindStatus when they need to distinguish an address already in use. <code>listen</code> and <code>accept</code> are TCP operations. For UDP, bind the datagram descriptor and use a <a class="el" href="structSC_1_1SocketClient.html" title="Use a SocketDescriptor as a client (example a TCP or UDP socket client).">SC::SocketClient</a> view to read from it; the current synchronous UDP API models a connected peer rather than arbitrary per-datagram source addresses.</p>
-<h1><a class="anchor" id="autotoc_md337"></a>
+<h1><a class="anchor" id="autotoc_md334"></a>
 Addresses, DNS and process initialization</h1>
 <p><a class="el" href="structSC_1_1SocketIPAddress.html" title="Native representation of an IP Address.">SC::SocketIPAddress</a> stores the native IPv4 or IPv6 address and port inline in fixed-size aligned storage. Parsing accepts numeric ASCII addresses only; it does not resolve a host name. Converting back to text writes into a caller-provided buffer of at least <a class="el" href="structSC_1_1SocketIPAddress.html#a4e93f4b035d90ac451b43939e4b747ac" title="Maximum length of the ASCII representation of an IP Address.">SC::SocketIPAddress::MAX_ASCII_STRING_LENGTH</a> bytes and returns a view into that buffer.</p>
 <p>Use <a class="el" href="structSC_1_1SocketDNS.html" title="Synchronous DNS Resolution.">SC::SocketDNS</a> separately when a name must be resolved:</p>
@@ -224,7 +224,7 @@ Addresses, DNS and process initialization</h1>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(ipString == <span class="stringliteral">&quot;127.0.0.1&quot;</span> or ipString == <span class="stringliteral">&quot;::1&quot;</span>);</div>
 </div><!-- fragment --><p>Resolution blocks the calling thread, accepts ASCII host names, and returns one textual address selected from the native resolver results. The caller supplies the result buffer; host names longer than the implementation's 255-byte temporary buffer fail. This API does not expose the full resolver list, canonical names, service lookup or asynchronous cancellation.</p>
 <p>Call <a class="el" href="structSC_1_1SocketNetworking.html#a1525b334d0bd7ebfee1626f0c251fc0e" title="Initializes Winsock2 on Windows (WSAStartup)">SC::SocketNetworking::initNetworking</a> once before socket work and <a class="el" href="structSC_1_1SocketNetworking.html#a30584dd797ca597a0755b4ac210c2803" title="Shutdowns Winsock2 on Windows (WSAStartup)">SC::SocketNetworking::shutdownNetworking</a> during orderly process shutdown. These calls manage Winsock on Windows and are no-ops on POSIX. They are explicit because the library does not hide process-wide initialization in a descriptor constructor.</p>
-<h1><a class="anchor" id="autotoc_md338"></a>
+<h1><a class="anchor" id="autotoc_md335"></a>
 Reading and writing are single synchronous operations</h1>
 <p><a class="el" href="structSC_1_1SocketClient.html#a0824c36280ebdab4befcde0db8ed41b8" title="Read bytes from this socket blocking until they&#39;re actually received.">SC::SocketClient::read</a> performs one blocking native receive into an SC::Span supplied by the caller. Its output span is a view of the bytes actually received: it may be shorter than the input buffer, and an empty span is the peer's orderly TCP shutdown. <code>readWithTimeout</code> first waits for readability and returns an unsuccessful SC::Result when the timeout expires; it does not allocate, cancel another operation or distinguish timeout with a dedicated status type.</p>
 <p><a class="el" href="structSC_1_1SocketClient.html#a9b691ac6107db42668c3b0d60723aa41" title="Writes bytes to this socket.">SC::SocketClient::write</a> likewise performs one native send. It succeeds only if the entire input span is sent; a partial native send is reported as an error instead of being retried. Applications that require <code>writeAll</code>, protocol framing, backpressure or queued buffers must implement that policy or use <a class="el" href="library_async_streams.html">Async Streams</a>.</p>
@@ -249,20 +249,20 @@ Reading and writing are single synchronous operations</h1>
 <div class="line">    <span class="comment">// Close the client</span></div>
 <div class="line">    SC_TRY(acceptedClientSocket.close());</div>
 </div><!-- fragment --><p>All operations report failures through SC::Result. The layer deliberately keeps native socket semantics visible: a blocking connect, accept, read, DNS lookup or full kernel send buffer can stall its thread. Changing a descriptor to non-blocking mode does not turn these synchronous wrappers into an event-driven API; associate such a descriptor with <a class="el" href="library_async.html">Async</a> instead.</p>
-<h1><a class="anchor" id="autotoc_md339"></a>
+<h1><a class="anchor" id="autotoc_md336"></a>
 UDP, broadcast and multicast</h1>
 <p>Datagram descriptors use the same ownership model. The synchronous client/server facade supports UDP after connecting a sender to one peer and binding a receiver. <a class="el" href="structSC_1_1SocketDescriptor.html" title="Low-level OS socket handle.">SC::SocketDescriptor</a> additionally exposes broadcast enablement and multicast group membership, loopback, hop-limit and outbound-interface controls for IPv4 and IPv6.</p>
 <p>These are socket options, not a multicast protocol layer. The caller must provide family-compatible group and interface addresses, choose ports, define packet boundaries at the application level and decide how loss, duplication and ordering are handled. There is no source-address result on receive, and a datagram still has to fit the caller's buffer.</p>
-<h1><a class="anchor" id="autotoc_md340"></a>
+<h1><a class="anchor" id="autotoc_md337"></a>
 Boundaries and tradeoffs</h1>
 <p>Socket keeps allocation and ownership predictable: addresses are inline values, descriptors own native handles, and I/O uses caller-provided spans. Library operations do not allocate application buffers. Native resolver functions used by <a class="el" href="structSC_1_1SocketDNS.html" title="Synchronous DNS Resolution.">SC::SocketDNS</a> may allocate internally, so DNS lookup should not be treated as an allocation-free OS operation.</p>
 <p>That small surface is a good fit for bounded synchronous networking and for creating handles that higher-level SC libraries will drive. It is a poor fit when the application needs many concurrent connections, cancellation, portable readiness notification, scatter/gather I/O, arbitrary UDP peers, TLS, or protocol-aware buffering. Those omissions are part of the current interface, not policies silently supplied by the library.</p>
 <p>For the complete option and method reference, see the <a class="el" href="group__group__socket.html">Socket module</a>.</p>
-<h1><a class="anchor" id="autotoc_md341"></a>
+<h1><a class="anchor" id="autotoc_md338"></a>
 Status</h1>
 <p>🟨 MVP</p>
 <p>The tested surface covers synchronous IPv4/IPv6 TCP, connected UDP, read timeouts, DNS, broadcast and multicast options. The API remains deliberately narrow and does not yet cover several facilities expected from a general-purpose socket library, especially unconnected datagrams and richer I/O/status reporting.</p>
-<h1><a class="anchor" id="autotoc_md342"></a>
+<h1><a class="anchor" id="autotoc_md339"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
@@ -270,7 +270,7 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html">July 2025 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md343"></a>
+<h1><a class="anchor" id="autotoc_md340"></a>
 Roadmap</h1>
 <p>🟩 Usable:</p><ul>
 <li>Add unconnected UDP send/receive operations with peer-address reporting</li>
@@ -281,7 +281,7 @@ Roadmap</h1>
 <p>💡 Unplanned Features:</p><ul>
 <li>TLS and application protocols belong in higher-level libraries</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md344"></a>
+<h1><a class="anchor" id="autotoc_md341"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Socket</code>. Single File counts <code>SaneCppSocket.h</code>. Standalone counts <code>SaneCppSocketStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

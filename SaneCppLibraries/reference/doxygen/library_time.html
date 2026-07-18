@@ -129,44 +129,44 @@ $(function(){initNavTree('library_time.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md377">Dependencies</a>
+    <a href="#autotoc_md374">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md378">Choosing The Right Clock</a>
+    <a href="#autotoc_md375">Choosing The Right Clock</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md379">Measuring And Comparing Time</a>
+    <a href="#autotoc_md376">Measuring And Comparing Time</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md380">Wall-Clock Timestamps And Calendar Fields</a>
+    <a href="#autotoc_md377">Wall-Clock Timestamps And Calendar Fields</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md381">Allocation, Lifetime, And Portability</a>
+    <a href="#autotoc_md378">Allocation, Lifetime, And Portability</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md382">Fit And Current Limits</a>
+    <a href="#autotoc_md379">Fit And Current Limits</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md383">API Reference</a>
+    <a href="#autotoc_md380">API Reference</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md384">Further Reading</a>
+    <a href="#autotoc_md381">Further Reading</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md385">Statistics</a>
+    <a href="#autotoc_md382">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟨 Wall-clock timestamps, monotonic time, durations, and high-resolution measurement</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppTime.h">SaneCppTime.h</a> is a small, allocation-free layer over the platform clocks. It provides enough vocabulary to timestamp an event, measure elapsed time, express a duration without passing a bare integer, and break an epoch timestamp into local or UTC calendar fields. It is not a calendar, timezone, formatting, or timer-scheduling library.</p>
-<h1><a class="anchor" id="autotoc_md377"></a>
+<h1><a class="anchor" id="autotoc_md374"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Time.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md378"></a>
+<h1><a class="anchor" id="autotoc_md375"></a>
 Choosing The Right Clock</h1>
 <p>The important choice is not resolution but meaning:</p>
 <table class="markdownTable">
@@ -182,7 +182,7 @@ Choosing The Right Clock</h1>
 <td class="markdownTableBodyLeft">A duration   </td><td class="markdownTableBodyLeft"><code>Time::Nanoseconds</code>, <code>Time::Milliseconds</code>, <code>Time::Seconds</code>, or <code>Time::Relative</code>   </td><td class="markdownTableBodyLeft">Integer unit wrappers are exact in their unit. <code>Relative</code> stores fractional seconds as a <code>double</code>, which is convenient for conversion but is not an exact duration representation.   </td></tr>
 </table>
 <p>Do not compare or subtract <code>Realtime</code> and <code>Monotonic</code> values merely because both derive from <code>Time::Absolute</code>: their epochs and clock behavior differ. Similarly, a <code>HighResolutionCounter</code> is for measurements inside the current process, not a serializable timestamp.</p>
-<h1><a class="anchor" id="autotoc_md379"></a>
+<h1><a class="anchor" id="autotoc_md376"></a>
 Measuring And Comparing Time</h1>
 <p>For ordinary timeout bookkeeping, take two <code>Time::Monotonic::now()</code> readings and use <code>subtractExact()</code> to obtain integer milliseconds. Use <code>HighResolutionCounter</code> when retaining the platform counter's finer resolution matters. A counter is default-constructed as a zero/reference value; call <code>snap()</code> before treating it as the current instant.</p>
 <p>This compiled test demonstrates the comparison and offset model without waiting on the wall clock:</p>
@@ -193,7 +193,7 @@ Measuring And Comparing Time</h1>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not start.isLaterThanOrEqualTo(end));</div>
 </div><!-- fragment --><p><code>subtractExact()</code> on high-resolution counters returns another counter containing the precise native difference. Convert that difference with <code>toNanoseconds()</code>, <code>toMilliseconds()</code>, or <code>toSeconds()</code>. <code>subtractApproximate()</code> instead returns <code>Time::Relative</code>, converting the difference to floating-point seconds. Integer conversions discard sub-unit precision, except <code>Relative</code> conversions, which round by adding half a unit before truncation.</p>
 <p>The <code>_ns</code>, <code>_ms</code>, and <code>_sec</code> literals make the unit visible at call sites, as the preceding test's <code>123_ms</code> does. They construct SC duration wrappers and do not sleep or schedule anything. <code>offsetBy()</code> is useful for constructing a comparison point, but it does not arrange a wake-up. Use <a class="el" href="library_async.html">Async</a> for event-loop timers, <a class="el" href="library_await.html">Await</a> for coroutine sleeps and deadlines, or the relevant blocking primitive when a thread should actually sleep.</p>
-<h1><a class="anchor" id="autotoc_md380"></a>
+<h1><a class="anchor" id="autotoc_md377"></a>
 Wall-Clock Timestamps And Calendar Fields</h1>
 <p><code>Time::Realtime::now()</code> returns the platform's current wall-clock time in milliseconds since the Unix epoch. An existing epoch value can also be wrapped directly in <code>Realtime</code> or <code>Absolute</code>. <code>parseUTC()</code> and <code>parseLocal()</code> write calendar fields into a caller-provided <code>Time::Absolute::ParseResult</code>; <code>parseLocal()</code> uses the process environment's local timezone and daylight-saving rules.</p>
 <p>This test parses and formats a current local timestamp:</p>
@@ -208,24 +208,24 @@ Wall-Clock Timestamps And Calendar Fields</h1>
 <div class="line">    report.console.printLine(result.view());</div>
 </div><!-- fragment --><p>Parsing itself allocates no memory. <code>ParseResult</code> owns fixed-size buffers for the localized month and weekday names, and <code>getMonth()</code> and <code>getDay()</code> return pointers into those buffers. The result must therefore outlive those pointers. The numeric fields follow the platform <code>tm</code> conventions: <code>month</code> is zero-based, <code>dayOfWeek</code> uses Sunday as zero, and <code>dayOfYear</code> is zero-based. The displayed names come from the active C locale. Both parse functions return <code>false</code> if the platform conversion or name generation fails.</p>
 <p>Formatting is intentionally outside this library. The example uses <a class="el" href="library_strings.html">Strings</a> to build text; applications can instead keep the numeric fields, use a caller-provided string buffer, or hand them to another formatting layer.</p>
-<h1><a class="anchor" id="autotoc_md381"></a>
+<h1><a class="anchor" id="autotoc_md378"></a>
 Allocation, Lifetime, And Portability</h1>
 <p>All Time values are small value types. The library performs no dynamic allocation and retains no caller memory. There are no handles to close and no clock object whose lifetime must be managed. The only output object is the caller-provided <code>ParseResult</code>.</p>
 <p>The API deliberately exposes the common denominator of Windows, macOS, and Linux clocks. Consequently it does not promise a particular hardware resolution, monotonic-clock epoch, or timezone database. <code>Realtime</code> is millisecond precision; <code>Monotonic</code> also returns milliseconds even when the underlying clock is finer. High-resolution conversion is subject to integer range and truncation, and readings from different machines or processes should not be treated as sharing an origin.</p>
 <p><code>Time::Absolute::offsetBy()</code> saturates positive overflow at <code>INT64_MAX</code>, but the duration and subtraction APIs are not general checked-arithmetic facilities. Code accepting untrusted or extreme durations should validate them before performing arithmetic.</p>
-<h1><a class="anchor" id="autotoc_md382"></a>
+<h1><a class="anchor" id="autotoc_md379"></a>
 Fit And Current Limits</h1>
 <p>Time fits code that wants a dependency-free, allocation-free clock abstraction and explicit duration units while staying close to operating-system semantics. It is also the time vocabulary used by neighboring SC libraries for timeouts and timestamps: <a class="el" href="library_async.html">Async</a> schedules timers, <a class="el" href="library_file_system.html">FileSystem</a> reads and writes file timestamps, and <a class="el" href="library_threading.html">Threading</a> provides blocking sleeps and synchronization.</p>
 <p>Choose a fuller date/time library if the application needs timezone identifiers and transitions, parsing formatted input, calendar arithmetic, ISO-8601 serialization, leap-second policy, or locale-controlled formatting. Those features are intentionally absent today. The current 🟨 MVP status reflects this narrow surface and the lack of a committed roadmap, not an allocation or dependency requirement left to the caller.</p>
-<h1><a class="anchor" id="autotoc_md383"></a>
+<h1><a class="anchor" id="autotoc_md380"></a>
 API Reference</h1>
 <p>The principal types are <code>Time::Realtime</code>, <code>Time::Monotonic</code>, <code>Time::HighResolutionCounter</code>, <code>Time::Relative</code>, and the three integer duration wrappers. See the <a class="el" href="group__group__time.html">Time API group</a> for their complete member reference after choosing the clock model above.</p>
-<h1><a class="anchor" id="autotoc_md384"></a>
+<h1><a class="anchor" id="autotoc_md381"></a>
 Further Reading</h1>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2025-01-31-SaneCppLibrariesUpdate.html">January 2025 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md385"></a>
+<h1><a class="anchor" id="autotoc_md382"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Time</code>. Single File counts <code>SaneCppTime.h</code>. Standalone counts <code>SaneCppTimeStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

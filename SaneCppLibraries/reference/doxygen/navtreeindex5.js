@@ -1,8 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"structSC_1_1AsyncSocketReceiveFrom.html#a2d427d0658bdfe2739cff3abff6c457e":[19,0,0,40,0],
-"structSC_1_1AsyncSocketReceiveFrom.html#a428a0fa7b59089392a9e146751ac94b5":[18,0,0,40,1],
-"structSC_1_1AsyncSocketReceiveFrom.html#a428a0fa7b59089392a9e146751ac94b5":[19,0,0,40,1],
 "structSC_1_1AsyncSocketReceive_1_1CompletionData.html":[18,0,0,39,0],
 "structSC_1_1AsyncSocketReceive_1_1CompletionData.html":[19,0,0,39,0],
 "structSC_1_1AsyncSocketReceive_1_1Result.html":[18,0,0,39,1],
@@ -249,5 +246,8 @@ var NAVTREEINDEX5 =
 "structSC_1_1FiberAllocatorStatistics.html":[19,0,0,119],
 "structSC_1_1FiberAllocatorVirtualOptions.html":[18,0,0,120],
 "structSC_1_1FiberAllocatorVirtualOptions.html":[19,0,0,120],
-"structSC_1_1FiberAsyncCommand.html":[18,0,0,121]
+"structSC_1_1FiberAsyncCommand.html":[18,0,0,121],
+"structSC_1_1FiberAsyncCommand.html":[19,0,0,121],
+"structSC_1_1FiberAsyncFileReadResult.html":[18,0,0,122],
+"structSC_1_1FiberAsyncFileReadResult.html":[19,0,0,122]
 };

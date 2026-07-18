@@ -1,8 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"structSC_1_1AsyncLoopWork.html#a91cd2f163203b43e3cf64041cce71ff4":[19,0,0,23,0],
-"structSC_1_1AsyncPipeline.html":[18,0,0,24],
-"structSC_1_1AsyncPipeline.html":[19,0,0,24],
 "structSC_1_1AsyncPipeline.html#a0ae8314ea088465274c880bb816f8667":[18,0,0,24,1],
 "structSC_1_1AsyncPipeline.html#a0ae8314ea088465274c880bb816f8667":[19,0,0,24,1],
 "structSC_1_1AsyncPipeline.html#a1ac20d8702b483f87083b3932ba94291":[18,0,0,24,3],
@@ -249,5 +246,8 @@ var NAVTREEINDEX4 =
 "structSC_1_1AsyncSocketReceive.html#ad05f2e7bad560ecfcb96753eedaf4d8c":[19,0,0,39,6],
 "structSC_1_1AsyncSocketReceiveFrom.html":[18,0,0,40],
 "structSC_1_1AsyncSocketReceiveFrom.html":[19,0,0,40],
-"structSC_1_1AsyncSocketReceiveFrom.html#a2d427d0658bdfe2739cff3abff6c457e":[18,0,0,40,0]
+"structSC_1_1AsyncSocketReceiveFrom.html#a2d427d0658bdfe2739cff3abff6c457e":[18,0,0,40,0],
+"structSC_1_1AsyncSocketReceiveFrom.html#a2d427d0658bdfe2739cff3abff6c457e":[19,0,0,40,0],
+"structSC_1_1AsyncSocketReceiveFrom.html#a428a0fa7b59089392a9e146751ac94b5":[18,0,0,40,1],
+"structSC_1_1AsyncSocketReceiveFrom.html#a428a0fa7b59089392a9e146751ac94b5":[19,0,0,40,1]
 };

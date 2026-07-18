@@ -129,67 +129,67 @@ $(function(){initNavTree('library_containers.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md130">Dependencies</a>
+    <a href="#autotoc_md127">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md131">Status</a>
+    <a href="#autotoc_md128">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md132">What Containers Is For</a>
+    <a href="#autotoc_md129">What Containers Is For</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md133">Choose The Storage Policy First</a>
+    <a href="#autotoc_md130">Choose The Storage Policy First</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md134">A Growable Contiguous Sequence</a>
+    <a href="#autotoc_md131">A Growable Contiguous Sequence</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md135">Put A Hard Bound In The Type</a>
+    <a href="#autotoc_md132">Put A Hard Bound In The Type</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md136">Optimize The Common Case Inline</a>
+    <a href="#autotoc_md133">Optimize The Common Case Inline</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md137">Small Maps And Sets Stay Linear</a>
+    <a href="#autotoc_md134">Small Maps And Sets Stay Linear</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md138">Stable Addresses With Generation-Checked Handles</a>
+    <a href="#autotoc_md135">Stable Addresses With Generation-Checked Handles</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md139">Other Building Blocks</a>
+    <a href="#autotoc_md136">Other Building Blocks</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md140">Boundaries With Neighboring Libraries</a>
+    <a href="#autotoc_md137">Boundaries With Neighboring Libraries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md141">Allocation, Lifetime, And Failure</a>
+    <a href="#autotoc_md138">Allocation, Lifetime, And Failure</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md142">Blog</a>
+    <a href="#autotoc_md139">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md143">Roadmap</a>
+    <a href="#autotoc_md140">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md144">Statistics</a>
+    <a href="#autotoc_md141">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟨 Generic containers (<a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a>, <a class="el" href="structSC_1_1SmallVector.html" title="A Vector that can hold up to N elements inline and &gt; N on heap.">SC::SmallVector</a>, <a class="el" href="structSC_1_1Array.html" title="A contiguous sequence of elements kept inside its inline storage.">SC::Array</a> etc.)</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppContainers.h">SaneCppContainers.h</a> provides the small set of generic containers used by Sane C++ Libraries: contiguous sequences with selectable storage, simple vector-backed maps and sets, and a stable-address arena.</p>
-<h1><a class="anchor" id="autotoc_md130"></a>
+<h1><a class="anchor" id="autotoc_md127"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <a class="el" href="library_memory.html">Memory</a></li>
 <li>All dependencies: <a class="el" href="library_memory.html">Memory</a></li>
 </ul>
 <p><img src="Containers.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md131"></a>
+<h1><a class="anchor" id="autotoc_md128"></a>
 Status</h1>
 <p>🟨 MVP <br  />
  All classes defined in the library should be reasonably stable and safe to use. <br  />
 </p>
-<h1><a class="anchor" id="autotoc_md132"></a>
+<h1><a class="anchor" id="autotoc_md129"></a>
 What Containers Is For</h1>
 <p>Most Sane C++ libraries accept views or generic interfaces and do not require applications to adopt a particular container family. <code>Containers</code> is the built-in option for code that needs owning collections without introducing the STL. It is deliberately small rather than a replacement for every standard container.</p>
 <p>Use it when you need:</p>
@@ -201,7 +201,7 @@ What Containers Is For</h1>
 <li>stable object addresses and generation-checked handles inside a fixed-capacity arena.</li>
 </ul>
 <p>You can still use externally provided string and vector classes at application boundaries. See <code>Tests/InteropSTL/*.cpp</code> for examples of interoperability with STL containers.</p>
-<h1><a class="anchor" id="autotoc_md133"></a>
+<h1><a class="anchor" id="autotoc_md130"></a>
 Choose The Storage Policy First</h1>
 <p><code>Vector&lt;T&gt;</code>, <code>Array&lt;T, N&gt;</code>, and <code>SmallVector&lt;T, N&gt;</code> present the same contiguous sequence model. The important choice is where capacity comes from and what happens when it is exhausted.</p>
 <table class="markdownTable">
@@ -215,7 +215,7 @@ Choose The Storage Policy First</h1>
 <td class="markdownTableBodyLeft"><code>SmallVector&lt;T, N&gt;</code>   </td><td class="markdownTableBodyLeft"><code>N</code> elements inline, then heap   </td><td class="markdownTableBodyLeft">Moves to heap storage and reports allocation failure   </td><td class="markdownTableBodyLeft">Small collections are common but not guaranteed   </td></tr>
 </table>
 <p>The three types are not merely similar conveniences. <code>SmallVector&lt;T, N&gt;</code> derives from <code>Vector&lt;T&gt;</code>, so code can accept a <code>Vector&lt;T&gt;&amp;</code> while callers decide whether to provide inline capacity. When a small vector shrinks back within <code>N</code>, its elements move back to inline storage. This saves many short-lived allocations, but means element addresses are not stable across growth or shrinking.</p>
-<h1><a class="anchor" id="autotoc_md134"></a>
+<h1><a class="anchor" id="autotoc_md131"></a>
 A Growable Contiguous Sequence</h1>
 <p><code>Vector&lt;T&gt;</code> is the basic owning sequence and the storage used by several other containers. Operations that can grow or otherwise fail return a <code>[[nodiscard]] bool</code>; propagate that result instead of assuming allocation succeeded.</p>
 <div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1Vector.html">Vector&lt;int&gt;</a> myVector;</div>
@@ -227,7 +227,7 @@ A Growable Contiguous Sequence</h1>
 <div class="line">    SC_TRY(myVector.pop_front());</div>
 <div class="line">    console.<a class="code hl_function" href="structSC_1_1Console.html#a90ab19d2e3479df328c87dc8c51f3c4a">print</a>(<span class="stringliteral">&quot;Vector&lt;int&gt; is {}&quot;</span>, myVector.isEmpty() ? <span class="stringliteral">&quot;empty&quot;</span> : <span class="stringliteral">&quot;not empty&quot;</span>);</div>
 </div><!-- fragment --><p>Copy construction and assignment cannot return an error and therefore assert if their required allocation fails. For fallible paths, prefer operations such as <code>assign</code>, <code>append</code>, <code>reserve</code>, and <code>push_back</code>, whose result can be handled. The allocator can be selected explicitly, including thread-local allocation through the <code>VectorTL</code> and <code>SmallVectorTL</code> aliases declared by Containers.</p>
-<h1><a class="anchor" id="autotoc_md135"></a>
+<h1><a class="anchor" id="autotoc_md132"></a>
 Put A Hard Bound In The Type</h1>
 <p><code>Array&lt;T, N&gt;</code> keeps all storage in the object. Only <code>size()</code> elements are alive; unused capacity is not a collection of default-constructed <code>T</code> objects. Its vector-like mutating operations return <code>false</code> when they would cross the bound.</p>
 <div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1Array.html">Array&lt;int, 3&gt;</a> myVector;</div>
@@ -241,7 +241,7 @@ Put A Hard Bound In The Type</h1>
 <div class="line">    (void)myVector.pop_front(); <span class="comment">// &lt;-- This will fail</span></div>
 <div class="line">    console.<a class="code hl_function" href="structSC_1_1Console.html#a90ab19d2e3479df328c87dc8c51f3c4a">print</a>(<span class="stringliteral">&quot;Array&lt;int, 3&gt; is {}&quot;</span>, myVector.isEmpty() ? <span class="stringliteral">&quot;empty&quot;</span> : <span class="stringliteral">&quot;not empty&quot;</span>);</div>
 </div><!-- fragment --><p>This is the clearest choice for protocols, queues, or temporary workspaces whose maximum size is known and where an unexpected heap fallback would hide a design error.</p>
-<h1><a class="anchor" id="autotoc_md136"></a>
+<h1><a class="anchor" id="autotoc_md133"></a>
 Optimize The Common Case Inline</h1>
 <p><code>SmallVector&lt;T, N&gt;</code> keeps up to <code>N</code> elements inline while remaining usable through <code>Vector&lt;T&gt;&amp;</code>. Crossing the inline capacity is allowed, so this is an allocation optimization rather than an allocation guarantee.</p>
 <div class="fragment"><div class="line">    <span class="keyword">auto</span> pushThreeIntegers = [](<a class="code hl_struct" href="structSC_1_1Vector.html">Vector&lt;int&gt;</a>&amp; myVector) -&gt; <span class="keywordtype">bool</span></div>
@@ -264,7 +264,7 @@ Optimize The Common Case Inline</h1>
 <div class="line"> </div>
 <div class="line">    SC_TRY(mySmallVector.pop_back()); <span class="comment">// &lt;-- Vector is moved back to SmallVector inline storage</span></div>
 </div><!-- fragment --><p>Choose <code>N</code> from a meaningful workload bound, not merely to make the type appear allocation-free. A wrong estimate is safe, but it changes allocation behavior and can invalidate pointers when storage moves.</p>
-<h1><a class="anchor" id="autotoc_md137"></a>
+<h1><a class="anchor" id="autotoc_md134"></a>
 Small Maps And Sets Stay Linear</h1>
 <p><code>VectorMap</code> stores unsorted key-value pairs contiguously and finds keys with a linear scan. <code>VectorSet</code> uses the same idea for unique values. They work well for small collections, iteration-heavy workloads, and cases where avoiding the overhead and additional implementation surface of a hash or tree structure matters. They are a poor fit for large, lookup-heavy collections.</p>
 <p>Both adapters accept a custom backing container. The default is <code>Vector</code>, while an <code>Array</code> or <code>SmallVector</code> can impose a hard bound or inline common-case storage. Comparisons are templated, allowing a stored owning key to be queried with a non-owning view when the types support comparison.</p>
@@ -293,7 +293,7 @@ Small Maps And Sets Stay Linear</h1>
 <div class="line">    {</div>
 <div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(item == <span class="stringliteral">&quot;456&quot;</span>);</div>
 <div class="line">    }</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md138"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md135"></a>
 Stable Addresses With Generation-Checked Handles</h1>
 <p><code>ArenaMap&lt;T&gt;</code> solves a different problem from <code>Vector&lt;T&gt;</code>: inserted objects stay at a stable address and are recovered in constant time through <code>ArenaMapKey&lt;T&gt;</code>. A key carries an index and a generation, so removing an object invalidates old handles even when that slot is later reused.</p>
 <p>The tradeoff is explicit capacity. The arena must be resized while empty, insertion fails when all slots are occupied, and its sparse storage reserves room for the chosen maximum. This makes it suitable for registries and object graphs whose references must survive insertion and removal, not as a general-purpose dynamically growing map.</p>
@@ -312,17 +312,17 @@ Stable Addresses With Generation-Checked Handles</h1>
 <div class="line">    SC_TRY(map.get(keys[0])-&gt;view() == <span class="stringliteral">&quot;ASD&quot;</span>); <span class="comment">// Get first element</span></div>
 <div class="line">    SC_TRY(map.get(keys[1])-&gt;view() == <span class="stringliteral">&quot;DSA&quot;</span>); <span class="comment">// Get second element</span></div>
 <div class="line">    SC_TRY(map.get(keys[2])-&gt;view() == <span class="stringliteral">&quot;BDA&quot;</span>); <span class="comment">// Get third element</span></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md139"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md136"></a>
 Other Building Blocks</h1>
 <p><code>VirtualArray&lt;T&gt;</code> reserves a maximum virtual address range and commits pages as the logical size grows. This keeps the base address stable without committing the full capacity up front, but it consumes virtual address space, depends on platform virtual-memory facilities, and cannot grow beyond the reservation. Use it when pointer stability and a known maximum dominate the portability and reservation costs. The Async Web Server example uses virtual arrays to reserve bounded storage for connections, stream queues, headers, and request buffers without letting later growth move them.</p>
 <p><code>StrongID&lt;Tag, Integer, InvalidValue&gt;</code> makes identifiers from different domains distinct C++ types while retaining a compact integer representation. The tag is intentionally empty; it prevents accidentally passing, for example, an object identifier where a connection identifier is required.</p>
 <p>The library also contains small generic algorithms used by these containers. They operate on iterator or span-like ranges and remain separate from the choice of owning storage.</p>
-<h1><a class="anchor" id="autotoc_md140"></a>
+<h1><a class="anchor" id="autotoc_md137"></a>
 Boundaries With Neighboring Libraries</h1>
 <p><a class="el" href="library_memory.html">Memory</a> provides the segment allocation machinery, global and thread-local allocators, and virtual-memory reservation used here. Containers adds typed element lifetime and collection semantics on top. Choosing <code>Vector</code> therefore opts into allocation through Memory; choosing <code>Array</code> does not.</p>
 <p>The non-owning <code>Span&lt;T&gt;</code> and <code>StringView</code> types used across SC APIs are views, not Containers. Prefer those at API boundaries when the callee does not need ownership; this lets callers keep data in SC containers, STL containers, or other storage. Owning <code>String</code> and byte-oriented <code>Buffer</code> follow related storage ideas but belong to Memory; the Strings library builds text processing and formatting on top of those foundations.</p>
 <p><a class="el" href="library_containers_reflection.html">Containers Reflection</a> is a separate adapter library. Add it only when these containers must participate in <a class="el" href="library_reflection.html">Reflection</a> or SC serialization; Containers itself does not depend on that machinery.</p>
-<h1><a class="anchor" id="autotoc_md141"></a>
+<h1><a class="anchor" id="autotoc_md138"></a>
 Allocation, Lifetime, And Failure</h1>
 <p>The contiguous containers share the Memory library's segment machinery: size and capacity metadata are stored with a contiguous element region, and element construction, movement, and destruction follow the selected storage policy. That common implementation is why <code>Vector</code>, <code>Array</code>, and <code>SmallVector</code> can offer closely matching operations.</p>
 <p>The practical rules are:</p>
@@ -333,13 +333,13 @@ Allocation, Lifetime, And Failure</h1>
 <li>do not retain pointers into a vector-backed container across operations that can change capacity;</li>
 <li>choose <code>ArenaMap</code> or a suitably reserved <code>VirtualArray</code> when stable addresses are the actual requirement.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md142"></a>
+<h1><a class="anchor" id="autotoc_md139"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2025-02-28-SaneCppLibrariesUpdate.html">February 2025 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md143"></a>
+<h1><a class="anchor" id="autotoc_md140"></a>
 Roadmap</h1>
 <p>🟩 Usable Features:</p><ul>
 <li>Add option to let user disable heap allocations in <a class="el" href="structSC_1_1SmallVector.html" title="A Vector that can hold up to N elements inline and &gt; N on heap.">SC::SmallVector</a></li>
@@ -353,7 +353,7 @@ Roadmap</h1>
 <p>💡 Unplanned Features:</p><ul>
 <li>None</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md144"></a>
+<h1><a class="anchor" id="autotoc_md141"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Containers</code>. Single File counts <code>SaneCppContainers.h</code>. Standalone counts <code>SaneCppContainersStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

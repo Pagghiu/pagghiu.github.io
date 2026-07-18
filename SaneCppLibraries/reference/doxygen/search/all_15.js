@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['validation_0',['Validation',['../md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md393',1,'']]],
+  ['validation_0',['Validation',['../md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md390',1,'']]],
   ['validation_20deliberately_1',['Expand validation deliberately',['../page_building_contributor.html#autotoc_md21',1,'']]],
   ['value_2',['value',['../structSC_1_1VectorMapItem.html#a901ac38f0f4321168ffb31a1cf089db5',1,'SC::VectorMapItem']]],
   ['vector_3',['Vector',['../structSC_1_1Vector.html',1,'SC']]],
@@ -12,16 +12,16 @@ var searchData=
   ['vendored_20checkout_9',['Vendored checkout',['../page_build_external.html#autotoc_md13',1,'']]],
   ['version_10',['Version',['../structSC_1_1HttpParser.html#a2e7a31ffb1e096e00f8aa82a87745e33a34b6cd75171affba6957e308dcbd92be',1,'SC::HttpParser']]],
   ['version_11',['version',['../structSC_1_1PluginIdentity.html#ae9012ed8869c8427c1bacee0a8da0ee2',1,'SC::PluginIdentity']]],
-  ['versioned_20loading_20can_20and_20cannot_20absorb_12',['What versioned loading can and cannot absorb',['../library_serialization_binary.html#autotoc_md308',1,'']]],
-  ['videos_13',['Videos',['../page_examples.html#autotoc_md42',1,'Videos'],['../library_async.html#autotoc_md96',1,'Videos'],['../library_async_streams.html#autotoc_md112',1,'Videos'],['../library_process.html#autotoc_md292',1,'Videos']]],
+  ['versioned_20loading_20can_20and_20cannot_20absorb_12',['What versioned loading can and cannot absorb',['../library_serialization_binary.html#autotoc_md305',1,'']]],
+  ['videos_13',['Videos',['../library_async.html#autotoc_md93',1,'Videos'],['../library_async_streams.html#autotoc_md109',1,'Videos'],['../library_process.html#autotoc_md289',1,'Videos']]],
   ['view_14',['view',['../structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4',1,'SC::String::view()'],['../structSC_1_1StringBuilderFor.html#a646e3ab46b390dc9e63572b06f1e870c',1,'SC::StringBuilderFor::view()']]],
-  ['views_15',['The handle is the socket; client and server are views',['../library_socket.html#autotoc_md336',1,'']]],
-  ['views_20are_20cheap_20but_20their_20contracts_20matter_16',['Views Are Cheap, But Their Contracts Matter',['../library_strings.html#autotoc_md348',1,'']]],
+  ['views_15',['The handle is the socket; client and server are views',['../library_socket.html#autotoc_md333',1,'']]],
+  ['views_20are_20cheap_20but_20their_20contracts_20matter_16',['Views Are Cheap, But Their Contracts Matter',['../library_strings.html#autotoc_md345',1,'']]],
   ['virtualallocator_17',['VirtualAllocator',['../structSC_1_1VirtualAllocator.html',1,'SC']]],
   ['virtualarray_18',['VirtualArray',['../structSC_1_1VirtualArray.html',1,'SC']]],
   ['virtualmemory_19',['VirtualMemory',['../structSC_1_1VirtualMemory.html',1,'SC']]],
-  ['visible_20',['The Mental Model: Storage Policy Is Visible',['../library_memory.html#autotoc_md263',1,'']]],
+  ['visible_20',['The Mental Model: Storage Policy Is Visible',['../library_memory.html#autotoc_md260',1,'']]],
   ['visualization_21',['Dependencies (interactive visualization)',['../page_dependencies.html#autotoc_md2',1,'']]],
-  ['visualizers_20are_20available_22',['Which debugger visualizers are available?',['../page_faq.html#autotoc_md64',1,'']]],
+  ['visualizers_20are_20available_22',['Which debugger visualizers are available?',['../page_faq.html#autotoc_md61',1,'']]],
   ['volumeserialnumber_23',['volumeSerialNumber',['../structSC_1_1FileDescriptorStat.html#ad17f04920853170200402d6a2b653a82',1,'SC::FileDescriptorStat::volumeSerialNumber'],['../structSC_1_1FileSystemStat.html#aaf5a675d37f10b03bd4beb933be171f4',1,'SC::FileSystemStat::volumeSerialNumber']]]
 ];

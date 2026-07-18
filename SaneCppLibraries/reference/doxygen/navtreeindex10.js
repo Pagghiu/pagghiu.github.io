@@ -1,8 +1,5 @@
 var NAVTREEINDEX10 =
 {
-"structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372a595ca5020910b720cd0914ea3eff62be":[17,24,3,0,0],
-"structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372aef08bf05bcca3cbc3c862f2bb2173603":[17,24,3,0,1],
-"structSC_1_1StringFormat.html":[17,24,5],
 "structSC_1_1StringFormatOutput.html":[17,24,4],
 "structSC_1_1StringFormatOutput.html#a3dc5dcefa59d7c1910c73ad5533c740d":[17,24,4,2],
 "structSC_1_1StringFormatOutput.html#a9192f876b96e5e39932dac7ed97b1be7":[17,24,4,3],

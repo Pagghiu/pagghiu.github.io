@@ -130,57 +130,67 @@ $(function(){initNavTree('page_examples.html',''); initResizable(true); });
 Examples</h1>
 <p>The examples are complete programs built from the same library sources as the test suite. Use them to see how the libraries fit together, then follow the links to the source when you need the implementation details.</p>
 <h2><a class="anchor" id="autotoc_md42"></a>
-Videos</h2>
-<p>These two recordings show SCExample exercising several libraries together. They are useful for seeing the finished integration before exploring the smaller examples below.</p>
+See the examples in action</h2>
+<p>These recordings show the larger examples running before you explore their source or the focused command-line programs below.</p>
 <h3><a class="anchor" id="autotoc_md43"></a>
-Serialization and state</h3>
+Applications and runtime behavior</h3>
 <p> 
-<video controls playsinline preload="metadata" poster="/SaneCppLibraries/images/examples/serialization-and-state.jpg" style="display:block; width:100%; max-width:960px; height:auto;">
-  <source src="https://github.com/user-attachments/assets/2a38310c-6a28-4f86-a0f3-665dc15b126d" type="video/mp4">
-  Your browser cannot play this video. <a href="https://github.com/user-attachments/assets/2a38310c-6a28-4f86-a0f3-665dc15b126d">Open the serialization example video</a>.
-</video>
+<div class="example-video-grid">
+  <article class="example-video-card example-video-featured">
+    <h3>AsyncWebServer</h3>
+    <p>Static files, streamed uploads, and a shared WebSocket canvas running in two browser windows.</p>
+    <video controls playsinline preload="none" poster="/images/examples/async-web-server.jpg" style="display:block; width:100%; max-width:960px; height:auto;">
+      <source src="https://github.com/user-attachments/assets/d6ad7ecf-8c98-430d-84e0-93ebbfb05dc1" type="video/mp4">
+      Your browser cannot play this video. <a href="https://github.com/user-attachments/assets/d6ad7ecf-8c98-430d-84e0-93ebbfb05dc1">Open the AsyncWebServer video</a>.
+    </video>
+  </article>
+  <article class="example-video-card">
+    <h3>Serialization and state</h3>
+    <p>Reflected application state moving between binary and JSON representations.</p>
+    <video controls playsinline preload="none" poster="/images/examples/serialization-and-state.jpg" style="display:block; width:100%; max-width:960px; height:auto;">
+      <source src="https://github.com/user-attachments/assets/2a38310c-6a28-4f86-a0f3-665dc15b126d" type="video/mp4">
+      Your browser cannot play this video. <a href="https://github.com/user-attachments/assets/2a38310c-6a28-4f86-a0f3-665dc15b126d">Open the serialization example video</a>.
+    </video>
+  </article>
+  <article class="example-video-card">
+    <h3>Plugin loading and hot reload</h3>
+    <p>SCExample loading native plugins and replacing them while the host keeps running.</p>
+    <video controls playsinline preload="none" poster="/images/examples/plugin-hot-reload.jpg" style="display:block; width:100%; max-width:960px; height:auto;">
+      <source src="https://github.com/Pagghiu/SaneCppLibraries/assets/5406873/5c7d4036-6e0c-4262-ad57-9ef84c214717" type="video/mp4">
+      Your browser cannot play this video. <a href="https://github.com/Pagghiu/SaneCppLibraries/assets/5406873/5c7d4036-6e0c-4262-ad57-9ef84c214717">Open the plugin hot-reload video</a>.
+    </video>
+  </article>
+</div>
 </p>
 <h3><a class="anchor" id="autotoc_md44"></a>
-Plugin loading and hot reload</h3>
+SC::Build workflows</h3>
 <p> 
-<video controls playsinline preload="metadata" poster="/SaneCppLibraries/images/examples/plugin-hot-reload.jpg" style="display:block; width:100%; max-width:960px; height:auto;">
-  <source src="https://github.com/Pagghiu/SaneCppLibraries/assets/5406873/5c7d4036-6e0c-4262-ad57-9ef84c214717" type="video/mp4">
-  Your browser cannot play this video. <a href="https://github.com/Pagghiu/SaneCppLibraries/assets/5406873/5c7d4036-6e0c-4262-ad57-9ef84c214717">Open the plugin hot-reload video</a>.
-</video>
+<div class="example-video-grid">
+  <article class="example-video-card">
+    <h3>Native standalone build</h3>
+    <p>The native backend compiling and linking the repository directly, without generating an IDE project first.</p>
+    <video controls playsinline preload="none" poster="/images/examples/build-standalone.jpg" style="display:block; width:100%; max-width:960px; height:auto;">
+      <source src="https://github.com/user-attachments/assets/8b0cf915-6a26-4e17-b774-7b2f44dc1d5c" type="video/mp4">
+      Your browser cannot play this video. <a href="https://github.com/user-attachments/assets/8b0cf915-6a26-4e17-b774-7b2f44dc1d5c">Open the native SC::Build video</a>.
+    </video>
+  </article>
+  <article class="example-video-card">
+    <h3>External project bootstrap</h3>
+    <p>A small external project fetching the launcher with curl and building from its own <code>SC-build.cpp</code>.</p>
+    <video controls playsinline preload="none" poster="/images/examples/build-external.jpg" style="display:block; width:100%; max-width:960px; height:auto;">
+      <source src="https://github.com/user-attachments/assets/0b3ca57f-6c48-4931-bdef-c1e97201c970" type="video/mp4">
+      Your browser cannot play this video. <a href="https://github.com/user-attachments/assets/0b3ca57f-6c48-4931-bdef-c1e97201c970">Open the external SC::Build video</a>.
+    </video>
+  </article>
+</div>
 </p>
-<h3><a class="anchor" id="autotoc_md45"></a>
-AsyncWebServer</h3>
-<p> 
-<video controls playsinline preload="metadata" poster="/SaneCppLibraries/images/examples/plugin-hot-reload.jpg" style="display:block; width:100%; max-width:960px; height:auto;">
-  <source src="https://github.com/user-attachments/assets/d6ad7ecf-8c98-430d-84e0-93ebbfb05dc1" type="video/mp4">
-  Your browser cannot play this video. <a href="https://github.com/user-attachments/assets/d6ad7ecf-8c98-430d-84e0-93ebbfb05dc1">Open the plugin hot-reload video</a>.
-</video>
-</p>
-<h3><a class="anchor" id="autotoc_md46"></a>
-SC::Build Standalone backend</h3>
-<p>SC::Build Standalone</p>
-<p> 
-<video controls playsinline preload="metadata" poster="/SaneCppLibraries/images/examples/plugin-hot-reload.jpg" style="display:block; width:100%; max-width:960px; height:auto;">
-  <source src="https://github.com/user-attachments/assets/8b0cf915-6a26-4e17-b774-7b2f44dc1d5c" type="video/mp4">
-  Your browser cannot play this video. <a href="https://github.com/user-attachments/assets/8b0cf915-6a26-4e17-b774-7b2f44dc1d5c">Open the plugin hot-reload video</a>.
-</video>
-</p>
-<h3><a class="anchor" id="autotoc_md47"></a>
-SC::Build for external use (CURL bootstrap)</h3>
-<p>SC::Build Standalone</p>
-<p> 
-<video controls playsinline preload="metadata" poster="/SaneCppLibraries/images/examples/plugin-hot-reload.jpg" style="display:block; width:100%; max-width:960px; height:auto;">
-  <source src="https://github.com/user-attachments/assets/0b3ca57f-6c48-4931-bdef-c1e97201c970" type="video/mp4">
-  Your browser cannot play this video. <a href="https://github.com/user-attachments/assets/0b3ca57f-6c48-4931-bdef-c1e97201c970">Open the plugin hot-reload video</a>.
-</video>
-</p>
-<h2><a class="anchor" id="autotoc_md48"></a>
+<h2><a class="anchor" id="autotoc_md45"></a>
 Quick start</h2>
 <p>Build and run an example from the repository root:</p>
 <div class="fragment"><div class="line">./SC.sh build compile AwaitEcho Debug</div>
 <div class="line">./SC.sh build run AwaitEcho Debug</div>
 </div><!-- fragment --><p>Use <code>SC.bat</code> instead of <code>./SC.sh</code> on Windows. Project generation, IDE setup, and platform prerequisites are covered in <a class="el" href="page_building_contributor.html">Building (Contributor)</a>.</p>
-<h2><a class="anchor" id="autotoc_md49"></a>
+<h2><a class="anchor" id="autotoc_md46"></a>
 HTTP and networking</h2>
 <ul>
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/tree/main/Examples/ApiServer">ApiServer</a> is a small routed HTTP API with health, query, and streaming echo endpoints.</li>
@@ -192,26 +202,26 @@ HTTP and networking</h2>
 <p>To serve a directory with <code>AsyncWebServer</code>, pass an absolute path after <code>--</code>:</p>
 <div class="fragment"><div class="line">./SC.sh build compile AsyncWebServer Debug</div>
 <div class="line">./SC.sh build run AsyncWebServer Debug -- --directory /absolute/path/to/site</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md50"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md47"></a>
 Await cookbook</h2>
 <blockquote class="doxtable">
 <p>&zwj;<b>Warning:</b> <code>Await</code> is currently experimental. These examples are complete programs for exploring the coroutine API, not a stable compatibility promise. </p>
 </blockquote>
-<h3><a class="anchor" id="autotoc_md51"></a>
+<h3><a class="anchor" id="autotoc_md48"></a>
 Task ownership and coordination</h3>
 <ul>
 <li><code>AwaitBackgroundJobs</code> manages detached work in fixed caller-owned registry slots.</li>
 <li><code>AwaitDeadline</code> applies a deadline and cooperative cancellation to a child task.</li>
 <li><code>AwaitFirstResponse</code> races two jobs and cancels the slower one.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md52"></a>
+<h3><a class="anchor" id="autotoc_md49"></a>
 Networking</h3>
 <ul>
 <li><code>AwaitEcho</code> is the baseline TCP client/server conversation.</li>
 <li><code>AwaitDatagramPing</code> demonstrates a bounded UDP request and reply.</li>
 <li><code>AwaitLineProtocol</code> builds a small CRLF-framed protocol.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md53"></a>
+<h3><a class="anchor" id="autotoc_md50"></a>
 File I/O</h3>
 <ul>
 <li><code>AwaitConfigReload</code> composes a child task that reads a configuration file.</li>
@@ -220,7 +230,7 @@ File I/O</h3>
 <li><code>AwaitTaskGroupFiles</code> reads multiple files with a task group.</li>
 <li><code>AwaitFileCourier</code> combines file operations with file-to-socket transfer.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md54"></a>
+<h3><a class="anchor" id="autotoc_md51"></a>
 System integration</h3>
 <ul>
 <li><code>AwaitBackgroundDigest</code> moves bounded CPU work to a thread pool.</li>
@@ -228,13 +238,13 @@ System integration</h3>
 <li><code>AwaitProcessExitCodes</code> waits for multiple child processes.</li>
 <li><code>AwaitThreadWakeUp</code> delivers another thread's signal to an Await coroutine.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md55"></a>
+<h3><a class="anchor" id="autotoc_md52"></a>
 Composed workflow</h3>
 <ul>
 <li><code>AwaitServiceProbe</code> combines networking, task groups, background work, timeouts, and explicit shutdown.</li>
 </ul>
 <p>All Await sources are under the <a href="https://github.com/Pagghiu/SaneCppLibraries/tree/main/Examples">Examples directory</a> and use their directory name as the build target.</p>
-<h2><a class="anchor" id="autotoc_md56"></a>
+<h2><a class="anchor" id="autotoc_md53"></a>
 Fibers</h2>
 <ul>
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/tree/main/Examples/FibersDemo">FibersDemo</a> demonstrates CPU fibers, <code>FibersAsync</code> sleeps, and worker-pool work in three focused sections.</li>
@@ -242,7 +252,7 @@ Fibers</h2>
 <li><a href="https://github.com/Pagghiu/SaneCppLibraries/tree/main/Examples/FibersStackGrowthPrototype">FibersStackGrowthPrototype</a> is a maintainer prototype for stack-growth behavior.</li>
 </ul>
 <p>Benchmark results depend on the machine and build configuration; they are development measurements rather than portable performance claims.</p>
-<h2><a class="anchor" id="autotoc_md57"></a>
+<h2><a class="anchor" id="autotoc_md54"></a>
 Native integration and hot reload</h2>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/tree/main/Examples/SCExample">SCExample</a> is the native Sokol and Dear ImGui host used to exercise <code>Async</code>, plugins, file watching, state handoff, and hot reload. Its plugins are:</p>
 <ul>
@@ -251,7 +261,7 @@ Native integration and hot reload</h2>
 <li><code>WebServerExample</code>, which configures a static file server from the native UI.</li>
 </ul>
 <p>SCExample is an integration testbed rather than the shortest introduction to any individual library. Start with a focused console example when learning one API.</p>
-<h2><a class="anchor" id="autotoc_md58"></a>
+<h2><a class="anchor" id="autotoc_md55"></a>
 More source-backed examples</h2>
 <p>The library pages contain compiled snippets for individual APIs. The tests provide broader executable reference code, including error paths and platform-specific behavior. See <a class="el" href="page_tests.html">Tests</a> and the <a class="el" href="libraries.html">library catalog</a> when an example above is broader than the question you are trying to answer. </p>
 </div></div><!-- contents -->

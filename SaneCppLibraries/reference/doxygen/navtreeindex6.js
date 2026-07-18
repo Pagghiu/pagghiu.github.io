@@ -1,8 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"structSC_1_1FiberAsyncCommand.html":[19,0,0,121],
-"structSC_1_1FiberAsyncFileReadResult.html":[18,0,0,122],
-"structSC_1_1FiberAsyncFileReadResult.html":[19,0,0,122],
 "structSC_1_1FiberAsyncFileSendOptions.html":[18,0,0,123],
 "structSC_1_1FiberAsyncFileSendOptions.html":[19,0,0,123],
 "structSC_1_1FiberAsyncFileSendResult.html":[18,0,0,124],
@@ -249,5 +246,8 @@ var NAVTREEINDEX6 =
 "structSC_1_1FileSystemStat.html#a4524cb28ae57fd787f7f10f14d89effd":[17,8,0,3],
 "structSC_1_1FileSystemStat.html#a5a6b9502ed6a43d76760c7c142c9ffbb":[17,8,0,6],
 "structSC_1_1FileSystemStat.html#a5c08a0f55b9a680ead1ccba789cb3696":[17,8,0,8],
-"structSC_1_1FileSystemStat.html#a70fa49b1cf33589fbb5ff40b88a164fa":[17,8,0,2]
+"structSC_1_1FileSystemStat.html#a70fa49b1cf33589fbb5ff40b88a164fa":[17,8,0,2],
+"structSC_1_1FileSystemStat.html#a79607eee61d62818f28a84cf34ddae68":[17,8,0,9],
+"structSC_1_1FileSystemStat.html#a8a70059a66c4b7f6786c0b41e5329809":[17,8,0,11],
+"structSC_1_1FileSystemStat.html#a9d0038b304d7c25b85264acb14df9491":[17,8,0,7]
 };
