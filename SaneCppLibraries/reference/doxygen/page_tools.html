@@ -129,59 +129,59 @@ $(function(){initNavTree('page_tools.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md69">Why tools are C++ programs</a>
+    <a href="#autotoc_md72">Why tools are C++ programs</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md70">Invoke a built-in tool</a>
+    <a href="#autotoc_md73">Invoke a built-in tool</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md71">Write a small custom tool</a>
+    <a href="#autotoc_md74">Write a small custom tool</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md72">SC-build.cpp</a>
+    <a href="#autotoc_md75">SC-build.cpp</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md73">SC-package.cpp</a>
+    <a href="#autotoc_md76">SC-package.cpp</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md74">Think in recipes, receipts, and exports</a>
+        <a href="#autotoc_md77">Think in recipes, receipts, and exports</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md75">Inspect before changing package state</a>
+        <a href="#autotoc_md78">Inspect before changing package state</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md76">Install, import, or repair</a>
+        <a href="#autotoc_md79">Install, import, or repair</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md77">Record the resolved environment</a>
+        <a href="#autotoc_md80">Record the resolved environment</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md78">SC-format.cpp</a>
+    <a href="#autotoc_md81">SC-format.cpp</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md79">Format a working tree</a>
+        <a href="#autotoc_md82">Format a working tree</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md80">Check without modifying files</a>
+        <a href="#autotoc_md83">Check without modifying files</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md81">How does it work</a>
+    <a href="#autotoc_md84">How does it work</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md82">Know the boundary</a>
+    <a href="#autotoc_md85">Know the boundary</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>Sane C++ tools are small C++ programs compiled on demand by the repository bootstrap. They automate repository work without introducing another scripting runtime, and they exercise the same libraries that application code uses.</p>
-<h1><a class="anchor" id="autotoc_md69"></a>
+<h1><a class="anchor" id="autotoc_md72"></a>
 Why tools are C++ programs</h1>
 <p>A tool can use <code>Process</code>, <code>FileSystem</code>, <code>Hashing</code>, <code>Http</code>, and the other libraries directly. It can be debugged with a normal C++ debugger, share result-handling conventions with the repository, and run on macOS, Linux, and Windows.</p>
 <p>The tradeoff is explicit: a working host C++ compiler is required to bootstrap the first tool. After that, unchanged tool support code is reused from <code>_Build</code>, so ordinary invocations only rebuild what changed.</p>
-<h1><a class="anchor" id="autotoc_md70"></a>
+<h1><a class="anchor" id="autotoc_md73"></a>
 Invoke a built-in tool</h1>
 <p>The first argument to <code>SC.sh</code> or <code>SC.bat</code> selects a tool. The next argument selects an action owned by that tool:</p>
 <div class="fragment"><div class="line">./SC.sh &lt;tool&gt; &lt;action&gt; [tool arguments...]</div>
@@ -191,7 +191,7 @@ Invoke a built-in tool</h1>
 <div class="line">./SC.sh format check</div>
 </div><!-- fragment --><p>The words after the tool name matter. <code>build compile</code> stops after producing the target; <code>build run</code> brings the target up to date and then launches it. Arguments after <code>--</code> are forwarded to the launched program.</p>
 <p>External projects use the dedicated <code>SC-build.sh</code>, <code>SC-build.ps1</code>, or <code>SC-build.bat</code> launchers described in <a class="el" href="page_build_external.html">SC::Build (External use)</a>.</p>
-<h1><a class="anchor" id="autotoc_md71"></a>
+<h1><a class="anchor" id="autotoc_md74"></a>
 Write a small custom tool</h1>
 <p>Pass the path of a tool source file instead of a built-in name:</p>
 <div class="fragment"><div class="line">./SC.sh MyTools/InspectFiles.cpp inspect Source</div>
@@ -216,7 +216,7 @@ Write a small custom tool</h1>
 <div class="line">} <span class="comment">// namespace Tools</span></div>
 <div class="line">} <span class="comment">// namespace SC</span></div>
 </div><!-- fragment --><p>Use this form for repository-local automation that benefits from Sane C++ APIs. A standalone application with its own targets belongs in <a class="el" href="page_build.html">SC::Build</a> instead.</p>
-<h1><a class="anchor" id="autotoc_md72"></a>
+<h1><a class="anchor" id="autotoc_md75"></a>
 SC-build.cpp</h1>
 <p><code>SC-build</code> reads the repository's C++ build definition and performs <code>compile</code>, <code>run</code>, <code>coverage</code>, <code>documentation</code>, or generated-project <code>configure</code> actions. Learn its model and first workflow in <a class="el" href="page_build.html">SC::Build</a>.</p>
 <p>Keep two rules in mind:</p>
@@ -224,10 +224,10 @@ SC-build.cpp</h1>
 <li>compile explicitly before test runs when you want build and test failures reported as separate steps;</li>
 <li>put executable arguments after <code>--</code>, so they are not parsed as build options.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md73"></a>
+<h1><a class="anchor" id="autotoc_md76"></a>
 SC-package.cpp</h1>
 <p><code>SC::Package</code> acquires development tools, compilers, sysroots, and runners used by repository workflows. It is not an application dependency manager: packages live under <code>_Build</code> and support building, formatting, documentation, and cross-target validation.</p>
-<h2><a class="anchor" id="autotoc_md74"></a>
+<h2><a class="anchor" id="autotoc_md77"></a>
 Think in recipes, receipts, and exports</h2>
 <p>Every package has three useful layers:</p>
 <ol type="1">
@@ -236,7 +236,7 @@ Think in recipes, receipts, and exports</h2>
 <li>Exports name the tools, sysroots, runners, include directories, or libraries that another tool may consume.</li>
 </ol>
 <p>After installation or import, validation produces a receipt and a set of named exports. This allows <code>SC::Build</code> to ask for a capability such as an LLVM compiler or QEMU runner without reconstructing an installation path from directory naming conventions.</p>
-<h2><a class="anchor" id="autotoc_md75"></a>
+<h2><a class="anchor" id="autotoc_md78"></a>
 Inspect before changing package state</h2>
 <p>Start with read-only actions:</p>
 <div class="fragment"><div class="line">./SC.sh package list</div>
@@ -247,7 +247,7 @@ Inspect before changing package state</h2>
 <div class="fragment"><div class="line">./SC.sh package verify llvm</div>
 </div><!-- fragment --><p>When validation fails, <code>doctor</code> explains the observed state and suggests a next action:</p>
 <div class="fragment"><div class="line">./SC.sh package doctor llvm</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md76"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md79"></a>
 Install, import, or repair</h2>
 <p>Install a package managed by the built-in catalog:</p>
 <div class="fragment"><div class="line">./SC.sh package install llvm</div>
@@ -255,28 +255,28 @@ Install, import, or repair</h2>
 <div class="fragment"><div class="line">./SC.sh package install qemu --import-directory /opt/qemu-user</div>
 </div><!-- fragment --><p><code>repair</code> is for a recognized existing layout whose current receipt or launcher metadata can be reconstructed. It is not a generic substitute for a failed install:</p>
 <div class="fragment"><div class="line">./SC.sh package repair llvm-mingw</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md77"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md80"></a>
 Record the resolved environment</h2>
 <p><code>lock</code> writes <code>_Build/SC-package.lock</code>, a local summary of installed receipts and exports:</p>
 <div class="fragment"><div class="line">./SC.sh package lock</div>
 </div><!-- fragment --><p>The lock file makes a development environment auditable. It does not turn imported packages into content-addressed artifacts and should not be mistaken for an application dependency lock.</p>
 <p>Use <code>./SC.sh package help</code> for the current package catalog and action syntax. The registry and recipe API live in <code>Tools/SC-package</code> when an external tool needs to compose its own package entries.</p>
-<h1><a class="anchor" id="autotoc_md78"></a>
+<h1><a class="anchor" id="autotoc_md81"></a>
 SC-format.cpp</h1>
 <p><code>SC::Format</code> applies the repository's pinned clang-format configuration to supported source files.</p>
-<h2><a class="anchor" id="autotoc_md79"></a>
+<h2><a class="anchor" id="autotoc_md82"></a>
 Format a working tree</h2>
 <div class="fragment"><div class="line">./SC.sh format execute</div>
 </div><!-- fragment --><p>Run this after editing C or C++ sources, then inspect the diff. Formatting does not decide whether generated files, comments, or declaration grouping are sensible.</p>
-<h2><a class="anchor" id="autotoc_md80"></a>
+<h2><a class="anchor" id="autotoc_md83"></a>
 Check without modifying files</h2>
 <div class="fragment"><div class="line">./SC.sh format check</div>
 </div><!-- fragment --><p><code>check</code> exits with an error when formatting would change a file, which makes it suitable for CI and pre-commit validation. Both actions use the package-managed formatter version expected by the repository.</p>
-<h1><a class="anchor" id="autotoc_md81"></a>
+<h1><a class="anchor" id="autotoc_md84"></a>
 How does it work</h1>
 <p>The bootstrap keeps startup work incremental. It rebuilds <code>ToolsBootstrap</code> only when stale, locates the selected tool source, reuses unchanged <code>Tools.cpp</code> support objects, compiles the tool when needed, and then runs it with the original action and arguments.</p>
 <p><code>ToolsBootstrap</code> is deliberately small. The selected tool is linked with the Sane C++ unity build, so custom tools can use the libraries without maintaining another project definition. Build products remain below <code>_Build/_Tools</code>.</p>
-<h1><a class="anchor" id="autotoc_md82"></a>
+<h1><a class="anchor" id="autotoc_md85"></a>
 Know the boundary</h1>
 <p>Use a tool for a bounded development operation with a command-line lifecycle. Use SC::Build for a graph of application targets. Use a library when behavior belongs in reusable program code. Keeping those roles separate prevents the bootstrap from becoming an application framework. </p>
 </div></div><!-- contents -->

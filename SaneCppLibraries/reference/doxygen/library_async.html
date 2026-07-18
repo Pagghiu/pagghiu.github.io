@@ -129,59 +129,59 @@ $(function(){initNavTree('library_async.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md83">Dependencies</a>
+    <a href="#autotoc_md86">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md84">What Async Is For</a>
+    <a href="#autotoc_md87">What Async Is For</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md85">Mental Model: Requests Live Until Completion</a>
+    <a href="#autotoc_md88">Mental Model: Requests Live Until Completion</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md86">Driving The Event Loop</a>
+    <a href="#autotoc_md89">Driving The Event Loop</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md87">Timers And Cross-Thread Wake-Ups</a>
+    <a href="#autotoc_md90">Timers And Cross-Thread Wake-Ups</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md88">Socket I/O</a>
+    <a href="#autotoc_md91">Socket I/O</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md89">File I/O And Blocking Backends</a>
+    <a href="#autotoc_md92">File I/O And Blocking Backends</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md90">Sequencing And Long-Lived Operations</a>
+    <a href="#autotoc_md93">Sequencing And Long-Lived Operations</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md91">Platform Backends And Tradeoffs</a>
+    <a href="#autotoc_md94">Platform Backends And Tradeoffs</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md92">Status</a>
+    <a href="#autotoc_md95">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md93">Videos</a>
+    <a href="#autotoc_md96">Videos</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md94">Blog</a>
+    <a href="#autotoc_md97">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md95">Roadmap</a>
+    <a href="#autotoc_md98">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md96">Statistics</a>
+    <a href="#autotoc_md99">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟨 Cross-platform completion-based asynchronous I/O</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppAsync.h">SaneCppAsync.h</a> is a completion-based event loop for files, sockets, timers, processes, filesystem operations, background work, and signals. Its request bookkeeping and payload storage are caller-owned; creating the loop and starting operations can still create operating-system resources such as queues, descriptors, and threads.</p>
-<h1><a class="anchor" id="autotoc_md83"></a>
+<h1><a class="anchor" id="autotoc_md86"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <a class="el" href="library_file.html">File</a>, <a class="el" href="library_file_system.html">FileSystem</a>, <a class="el" href="library_socket.html">Socket</a>, <a class="el" href="library_threading.html">Threading</a></li>
 <li>All dependencies: <a class="el" href="library_file.html">File</a>, <a class="el" href="library_file_system.html">FileSystem</a>, <a class="el" href="library_socket.html">Socket</a>, <a class="el" href="library_threading.html">Threading</a></li>
 </ul>
 <p><img src="Async.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md84"></a>
+<h1><a class="anchor" id="autotoc_md87"></a>
 What Async Is For</h1>
 <p>Synchronous I/O can leave a thread waiting for a file, socket, timer, or child process. <code>Async</code> lets one thread submit many such operations and dispatch their completions from a single <code>AsyncEventLoop</code>. It presents the same completion-based model over IOCP on Windows, kqueue on macOS, and io_uring or epoll on Linux.</p>
 <p>Use <code>Async</code> when you need:</p>
@@ -193,13 +193,13 @@ What Async Is For</h1>
 <li>callbacks rather than a coroutine or fiber runtime.</li>
 </ul>
 <p>For sequential stream processing, see <a class="el" href="library_async_streams.html">AsyncStreams</a>. For C++20 <code>co_await</code> syntax over a subset of these operations, see <a class="el" href="library_await.html">Await</a>. For stackful tasks that suspend on this event loop, see <a class="el" href="library_fibers_async.html">FibersAsync</a>.</p>
-<h1><a class="anchor" id="autotoc_md85"></a>
+<h1><a class="anchor" id="autotoc_md88"></a>
 Mental Model: Requests Live Until Completion</h1>
 <p>Every operation is an object derived from <code>AsyncRequest</code>: for example <code>AsyncSocketReceive</code>, <code>AsyncFileRead</code>, or <code>AsyncLoopTimeout</code>. The caller fills the request, installs its callback, and starts it on an <code>AsyncEventLoop</code>. The loop submits it to the platform backend and later invokes the callback while dispatching completions.</p>
 <p>The request object and all memory referenced by it must stay at stable addresses until its callback runs. The event loop links requests through intrusive fields in <code>AsyncRequest</code>; it does not copy them or allocate replacement state. Buffers must remain valid for the same period.</p>
 <p>Once <code>start()</code> succeeds, completion—including an operating-system error—is reported through the callback. A request whose start fails was not accepted. Explicitly stopping a request suppresses its normal callback. Until the optional stop callback runs, the request is still owned by the loop and its storage cannot be reused; without that callback, the caller must otherwise drive teardown to completion before destroying it.</p>
 <p>A completion callback may call <code>result.reactivateRequest(true)</code> to submit the same request again. This is useful for a repeating timer, a receive loop, or another long-lived operation, but it also extends the request and buffer lifetime to the next completion.</p>
-<h1><a class="anchor" id="autotoc_md86"></a>
+<h1><a class="anchor" id="autotoc_md89"></a>
 Driving The Event Loop</h1>
 <p>The smallest complete shape is: create a loop, create caller-owned requests, start them, and run until no work remains. This example is compiled as part of <code>AsyncTest</code>:</p>
 <div class="fragment"><div class="line">AsyncEventLoop eventLoop;</div>
@@ -220,7 +220,7 @@ Driving The Event Loop</h1>
 </ul>
 <p>Applications that already own their main loop can separate the three phases with <code>submitRequests()</code>, <code>blockingPoll()</code>, and <code>dispatchCompletions()</code>. <code>AsyncEventLoopMonitor</code> goes further: one thread can monitor the OS backend while another thread stops monitoring and dispatches completions. This separation is the important integration seam—callbacks still run on the thread that dispatches them, not on an arbitrary kernel thread.</p>
 <p><code>run()</code> normally returns after counted work drains, but <code>interrupt()</code> can make it return early and <code>excludeFromActiveCount()</code> can keep a long-lived request from holding it open. Neither facility releases an active request: it must still complete, be stopped, or be released when the loop closes.</p>
-<h1><a class="anchor" id="autotoc_md87"></a>
+<h1><a class="anchor" id="autotoc_md90"></a>
 Timers And Cross-Thread Wake-Ups</h1>
 <p><code>AsyncLoopTimeout</code> schedules an absolute or relative timeout. Its callback can alter the request and reactivate it, turning the same stable object into a repeating timer:</p>
 <div class="fragment"><div class="line"><span class="comment">// Create a timeout that will be called after 200 milliseconds</span></div>
@@ -251,7 +251,7 @@ Timers And Cross-Thread Wake-Ups</h1>
 <div class="line">};</div>
 <div class="line">SC_TRY(wakeUp.start(eventLoop));</div>
 </div><!-- fragment --><p>Use <code>AsyncLoopWork</code> for work submitted to a caller-provided <code>ThreadPool</code>, and <code>AsyncExternalCompletion</code> when an external API already has its own asynchronous completion mechanism that needs to re-enter the loop.</p>
-<h1><a class="anchor" id="autotoc_md88"></a>
+<h1><a class="anchor" id="autotoc_md91"></a>
 Socket I/O</h1>
 <p>The loop can create asynchronous TCP and UDP sockets and operate on <code>SocketDescriptor</code> values from the <a class="el" href="library_socket.html">Socket</a> library. TCP accept/connect and stream send/receive are separate request types; UDP uses send-to/receive-from requests that carry an address.</p>
 <p>A receive request owns no payload memory: the destination buffer in this compiled example remains in scope until the callback finishes. The callback may reactivate the request after consuming data to continue the receive loop.</p>
@@ -289,7 +289,7 @@ Socket I/O</h1>
 <div class="line">};</div>
 <div class="line">SC_TRY(receiveAsync.start(eventLoop, client, {receivedData, sizeof(receivedData)}));</div>
 </div><!-- fragment --><p>Send and receive operations may complete with fewer bytes than requested. Applications must advance through their data or use <a class="el" href="library_async_streams.html">AsyncStreams</a> when they want higher-level streaming and buffering behavior.</p>
-<h1><a class="anchor" id="autotoc_md89"></a>
+<h1><a class="anchor" id="autotoc_md92"></a>
 File I/O And Blocking Backends</h1>
 <p>Files expose a portability distinction that the API keeps visible. Some backends can perform a file operation natively; others require blocking work. For operations that may block, the caller supplies a <code>ThreadPool</code> and associates the request with an <code>AsyncTaskSequence</code> through <code>executeOn()</code>.</p>
 <p><code>AsyncThreadPoolMode::NativePreferred</code> uses native support when available and the supplied pool where necessary. <code>AsyncThreadPoolMode::ForceThreadPool</code> forces the pool even on a native-capable backend. The pool, its storage, the file descriptor, request object, and buffers all remain caller-owned.</p>
@@ -355,12 +355,12 @@ File I/O And Blocking Backends</h1>
 </div><!-- fragment --><p>When using explicit file offsets, prefer one contiguous buffer for portable code. Scatter/gather writes combined with an offset need backend-specific validation before being treated as a portable idiom.</p>
 <p><code>AsyncFileReadiness</code> is different from file read/write: it waits for readiness on descriptors where the operating system provides that concept. POSIX file readiness is exposed directly. Windows does not provide a portable equivalent for ordinary file or pipe handles, and higher layers should not pretend otherwise.</p>
 <p>The file request types also operate on compatible descriptor handles from neighboring libraries. That includes serial ports from <a class="el" href="library_serial_port.html">SerialPort</a> and <code>PipeDescriptor</code> endpoints accepted or connected through <code>NamedPipeServer</code> and <code>NamedPipeClient</code>; their framing, connection, and platform rules still come from those APIs rather than from <code>Async</code>.</p>
-<h1><a class="anchor" id="autotoc_md90"></a>
+<h1><a class="anchor" id="autotoc_md93"></a>
 Sequencing And Long-Lived Operations</h1>
 <p><code>AsyncSequence</code> serializes requests by submitting the next request after the current one completes. It is useful when operations share a descriptor or must preserve ordering. <code>AsyncTaskSequence</code> combines that ordering with a supplied thread pool for potentially blocking work.</p>
 <p>Long-lived sources such as <code>FileSystemWatcher</code> naturally remain callback streams. Their request and any bounded event storage must remain owned by the application until the watcher is stopped. This is also why <a class="el" href="library_await.html">Await</a> does not expose a watcher as a single awaitable operation.</p>
 <p>The library also provides requests for child-process exit, signals, filesystem operations, and external completions. See the <a class="el" href="group__group__async.html">Async API group</a> for the complete reference after choosing the relevant operation family.</p>
-<h1><a class="anchor" id="autotoc_md91"></a>
+<h1><a class="anchor" id="autotoc_md94"></a>
 Platform Backends And Tradeoffs</h1>
 <p>The common request model maps to different operating-system facilities:</p>
 <table class="markdownTable">
@@ -375,10 +375,10 @@ Platform Backends And Tradeoffs</h1>
 </table>
 <p>The Linux backend first attempts direct io_uring setup and falls back to epoll when the kernel or runtime policy does not permit it. Applications should depend on the <code>Async</code> semantics rather than assuming which backend was selected.</p>
 <p>Caller-owned request and payload storage gives predictable ownership and makes bounded pools possible, but it is not automatic lifetime management. A request accidentally moved, destroyed, or paired with a temporary buffer while active is a programming error. <code>ArenaMap</code> from <a class="el" href="library_containers.html">Containers</a> can provide a preallocated bounded pool of stable request objects when an application needs many operations.</p>
-<h1><a class="anchor" id="autotoc_md92"></a>
+<h1><a class="anchor" id="autotoc_md95"></a>
 Status</h1>
 <p>🟨 MVP This is usable but needs some more testing and a few more features.</p>
-<h1><a class="anchor" id="autotoc_md93"></a>
+<h1><a class="anchor" id="autotoc_md96"></a>
 Videos</h1>
 <p>These videos record the implementation and integration work behind the library:</p>
 <ul>
@@ -393,7 +393,7 @@ Videos</h1>
 <li><a href="https://www.youtube.com/watch?v=4acqdGcUQnE">Ep.20 - Pause Immediate Mode UI - Save CPU Time</a></li>
 <li><a href="https://www.youtube.com/watch?v=z7QaTa7drFo">Ep.21 - Add Async IO to Immediate Mode GUI</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md94"></a>
+<h1><a class="anchor" id="autotoc_md97"></a>
 Blog</h1>
 <p>Development notes and design changes are recorded in the project updates:</p>
 <ul>
@@ -417,7 +417,7 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-06-30-SaneCppLibrariesUpdate.html">June 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md95"></a>
+<h1><a class="anchor" id="autotoc_md98"></a>
 Roadmap</h1>
 <p>🟩 Usable Features:</p><ul>
 <li>More AsyncFileSystemOperations</li>
@@ -427,7 +427,7 @@ Roadmap</h1>
 <li>TTY with ANSI Escape Codes</li>
 <li>Signal handling (multi-watcher, cross-platform)</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md96"></a>
+<h1><a class="anchor" id="autotoc_md99"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Async</code>. Single File counts <code>SaneCppAsync.h</code>. Standalone counts <code>SaneCppAsyncStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

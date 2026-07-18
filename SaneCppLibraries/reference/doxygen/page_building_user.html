@@ -129,41 +129,51 @@ $(function(){initNavTree('page_building_user.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md26">Choose an integration form</a>
+    <a href="#autotoc_md26">Small, medium, or big?</a>
+    <ul>
+      <li class="level2">
+        <a href="#autotoc_md27">Small: one standalone library</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md28">Medium: the unity build</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md29">Big: separate compilation</a>
+      </li>
+    </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md27">Add one library to an existing program</a>
+    <a href="#autotoc_md30">Add one library to an existing program</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md28">Use normal C++ around Sane C++</a>
+    <a href="#autotoc_md31">Use normal C++ around Sane C++</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md29">Account for platform libraries</a>
+    <a href="#autotoc_md32">Account for platform libraries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md30">Plugins need exported library symbols</a>
+    <a href="#autotoc_md33">Plugins need exported library symbols</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md31">When to use SC::Build</a>
+    <a href="#autotoc_md34">When to use SC::Build</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>Sane C++ libraries are source libraries: add the code you need to your program and compile it with the rest of your sources. You do not install a prebuilt runtime or adopt a mandatory build system.</p>
 <h1><a class="anchor" id="autotoc_md26"></a>
-Choose an integration form</h1>
-<p>The repository offers three forms of the same code. Pick the one that matches how much control your project needs.</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadLeft">Form   </th><th class="markdownTableHeadLeft">Use it when   </th><th class="markdownTableHeadLeft">What you add    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Unity build   </td><td class="markdownTableBodyLeft">You want the simplest complete integration   </td><td class="markdownTableBodyLeft"><code>SC.cpp</code> plus public headers from <code>Includes/</code>    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Separate sources   </td><td class="markdownTableBodyLeft">Your build needs per-library or per-file compilation   </td><td class="markdownTableBodyLeft">Selected files under <code>Libraries/</code> plus public headers    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Amalgamated library   </td><td class="markdownTableBodyLeft">You want one standalone library header/source pair   </td><td class="markdownTableBodyLeft">A generated file from the amalgamation tool   </td></tr>
-</table>
-<p>Start with <code>SC.cpp</code> unless you already know why separate compilation is useful. The public library entry points are headers such as <code>SaneCppStrings.h</code> and <code>SaneCppFile.h</code>. Files below <code>Internal</code> and <code>Tests</code> are not public API.</p>
-<h1><a class="anchor" id="autotoc_md27"></a>
+Small, medium, or big?</h1>
+<p>There is no mandatory package manager or project layout. Choose an integration size that matches the amount of Sane C++ your program uses, and change it later if the program grows.</p>
+<h2><a class="anchor" id="autotoc_md27"></a>
+Small: one standalone library</h2>
+<p>Download the released <code>SaneCpp&lt;Library&gt;.h</code> file when you need one self-contained library and do not want a repository checkout. The download link on each library page is the shortest route from an existing program to a Sane C++ API.</p>
+<h2><a class="anchor" id="autotoc_md28"></a>
+Medium: the unity build</h2>
+<p>Add <code>SC.cpp</code> to your target and add <code>Includes/</code> to its header search paths. <code>SC.cpp</code> selects the platform implementation and compiles the repository libraries as one translation unit. This is the simplest complete integration and the best default when several libraries work together.</p>
+<h2><a class="anchor" id="autotoc_md29"></a>
+Big: separate compilation</h2>
+<p>Compile selected files under <code>Libraries/</code> separately when your build needs per-library targets, incremental compilation, or precise ownership of source groups. Keep using the public headers from <code>Includes/</code>; files under <code>Internal/</code> and <code>Tests/</code> are implementation details rather than public API.</p>
+<p>These forms contain the same library code. They change how the code enters your build, not the APIs your application uses.</p>
+<h1><a class="anchor" id="autotoc_md30"></a>
 Add one library to an existing program</h1>
 <ol type="1">
 <li>Add <code>SC.cpp</code> to the target's source files.</li>
@@ -183,12 +193,12 @@ Add one library to an existing program</h1>
 <div class="ttc" id="astructSC_1_1Console_html"><div class="ttname"><a href="structSC_1_1Console.html">SC::Console</a></div><div class="ttdoc">Writes to console using SC::StringFormat.</div><div class="ttdef"><b>Definition</b> Console.h:26</div></div>
 <div class="ttc" id="astructSC_1_1Console_html_a90ab19d2e3479df328c87dc8c51f3c4a"><div class="ttname"><a href="structSC_1_1Console.html#a90ab19d2e3479df328c87dc8c51f3c4a">SC::Console::print</a></div><div class="ttdeci">bool print(StringSpan fmt, Types &amp;&amp;... args)</div><div class="ttdoc">Prints a formatted string using SC::StringFormat to stdout.</div><div class="ttdef"><b>Definition</b> Console.h:34</div></div>
 </div><!-- fragment --><p>The <a class="el" href="libraries.html">library catalog</a> identifies each library's dependencies and standalone download. The <a class="el" href="page_platforms.html">Platforms</a> guide describes supported operating systems.</p>
-<h1><a class="anchor" id="autotoc_md28"></a>
+<h1><a class="anchor" id="autotoc_md31"></a>
 Use normal C++ around Sane C++</h1>
 <p>Normal projects may include C and C++ standard headers. Sane C++ library code still avoids STL containers, exceptions, RTTI, and hidden allocation, but your application is free to use them.</p>
 <p>The APIs are designed to accept views and caller-provided storage, so application containers can interoperate without becoming library dependencies. For example, an application can expose writable storage from its own string type to a file read or formatter.</p>
 <p>Strict no-standard-library compilation is an optional pressure mode, not the default integration path. The [FAQ](<a class="el" href="page_faq.html">FAQ</a>) explains the compile and link settings when you intentionally need it.</p>
-<h1><a class="anchor" id="autotoc_md29"></a>
+<h1><a class="anchor" id="autotoc_md32"></a>
 Account for platform libraries</h1>
 <p>The unity build selects platform implementations at compile time. Depending on the libraries used, a target may need:</p>
 <ul>
@@ -197,10 +207,10 @@ Account for platform libraries</h1>
 <li>Windows system libraries, many of which are selected by the headers with <code>#pragma comment(lib, ...)</code>.</li>
 </ul>
 <p>Start from the link settings used by the corresponding repository example or test rather than adding every possible system library. This keeps a small consumer target honest about what it actually uses.</p>
-<h1><a class="anchor" id="autotoc_md30"></a>
+<h1><a class="anchor" id="autotoc_md33"></a>
 Plugins need exported library symbols</h1>
 <p>When using <a class="el" href="library_plugin.html">Plugin</a> without <code>SC::Build</code>, define <code>SC_EXPORT_LIBRARY_&lt;LIBRARY&gt;=1</code> in the host for each Sane C++ library that a plugin must resolve. Linux hosts also need exported executable symbols, normally through <code>-rdynamic</code>.</p>
-<h1><a class="anchor" id="autotoc_md31"></a>
+<h1><a class="anchor" id="autotoc_md34"></a>
 When to use SC::Build</h1>
 <p>Your existing build system remains a valid choice. Use <a class="el" href="page_build.html">SC::Build</a> when its C++ build descriptions, native backend, cross-target profiles, or package-managed toolchains remove work from your project. The external-use guide shows a minimal adoption that does not copy the Sane C++ repository layout.</p>
 <p>For a single self-contained library, download the released header from the relevant library page. </p>

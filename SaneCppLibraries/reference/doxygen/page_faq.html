@@ -129,38 +129,38 @@ $(function(){initNavTree('page_faq.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md56">Can my application use the C++ standard library?</a>
+    <a href="#autotoc_md59">Can my application use the C++ standard library?</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md57">How do application containers interoperate?</a>
+    <a href="#autotoc_md60">How do application containers interoperate?</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md58">What is strict no-standard-library mode?</a>
+    <a href="#autotoc_md61">What is strict no-standard-library mode?</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md59">Can standard headers be used without linking the C++ runtime?</a>
+    <a href="#autotoc_md62">Can standard headers be used without linking the C++ runtime?</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md60">Can exceptions and RTTI be disabled?</a>
+    <a href="#autotoc_md63">Can exceptions and RTTI be disabled?</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md61">Which debugger visualizers are available?</a>
+    <a href="#autotoc_md64">Which debugger visualizers are available?</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md62">Are API and ABI stable?</a>
+    <a href="#autotoc_md65">Are API and ABI stable?</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>These answers clarify integration choices that are easy to confuse with the constraints followed by Sane C++ library code itself.</p>
-<h1><a class="anchor" id="autotoc_md56"></a>
+<h1><a class="anchor" id="autotoc_md59"></a>
 Can my application use the C++ standard library?</h1>
 <p>Yes. Normal integration allows C and C++ standard headers, and the application may use STL containers, exceptions, or RTTI. The Sane C++ libraries avoid those facilities internally so their own ownership, failure, allocation, and runtime costs stay explicit.</p>
 <p>The old <code>SC_COMPILER_ENABLE_STD_CPP</code> opt-in macro no longer exists. Remove it rather than replacing it.</p>
-<h1><a class="anchor" id="autotoc_md57"></a>
+<h1><a class="anchor" id="autotoc_md60"></a>
 How do application containers interoperate?</h1>
 <p>Many APIs accept views, spans, or growable-buffer interfaces instead of a concrete owning container. An application can therefore expose storage from <code>std::string</code>, <code>std::vector</code>, or another container without making that type part of the library API.</p>
 <p>The useful boundary is storage and lifetime: the application owns the container; the library reads or writes the view provided for the duration documented by the operation.</p>
-<h1><a class="anchor" id="autotoc_md58"></a>
+<h1><a class="anchor" id="autotoc_md61"></a>
 What is strict no-standard-library mode?</h1>
 <p>Strict mode is an optional build-pressure configuration used to prove that a target does not depend on standard C++ headers or runtime support.</p>
 <p>With SC::Build, disable standard C++ headers and runtime linkage on the project or a configuration:</p>
@@ -169,14 +169,14 @@ What is strict no-standard-library mode?</h1>
 <div class="line">project.saneCpp.provideCppRuntimeShims = <span class="keyword">true</span>;</div>
 </div><!-- fragment --><p>Without SC::Build, define <code>SC_INCLUDE_STD_CPP=0</code> and <code>SC_PROVIDE_CPP_RUNTIME_SHIMS=1</code>, then pass the equivalent compiler and linker flags. On Clang and recent GCC these are commonly <code>-nostdinc++</code> and <code>-nostdlib++</code>.</p>
 <p>Do not enable runtime shims while also linking the C++ runtime; both would provide the same ABI symbols.</p>
-<h1><a class="anchor" id="autotoc_md59"></a>
+<h1><a class="anchor" id="autotoc_md62"></a>
 Can standard headers be used without linking the C++ runtime?</h1>
 <p>Sometimes. The repository probes a constrained <code>&lt;coroutine&gt;</code> use on its supported toolchains with <code>Support/Scripts/CheckStdCppHeaderNoLink.sh</code> and the Windows <code>.bat</code> equivalent. That evidence applies to the tested code shape and toolchain, not to arbitrary standard-library features.</p>
 <p>Use <code>Support/Scripts/BenchmarkStdCppMode.sh</code> to compare normal and strict builds locally. It reports timing, executable size, sections, and linked runtime dependencies; it is diagnostic evidence, not a CI performance threshold.</p>
-<h1><a class="anchor" id="autotoc_md60"></a>
+<h1><a class="anchor" id="autotoc_md63"></a>
 Can exceptions and RTTI be disabled?</h1>
 <p>Yes. Sane C++ code does not require them. Use <code>-fno-exceptions -fno-rtti</code> with Clang or GCC, or disable the corresponding MSVC project options. Your application and every linked dependency must follow compatible assumptions.</p>
-<h1><a class="anchor" id="autotoc_md61"></a>
+<h1><a class="anchor" id="autotoc_md64"></a>
 Which debugger visualizers are available?</h1>
 <p>The repository includes visualizers for common arrays, buffers, strings, views, and vectors:</p>
 <ul>
@@ -185,7 +185,7 @@ Which debugger visualizers are available?</h1>
 <li>Visual Studio: <code>Support/DebugVisualizers/MSVC/SCMSVC.natvis</code></li>
 </ul>
 <p>Generated Xcode and Visual Studio projects configure the relevant support where possible. Other debugger setups can load the file manually. If a visualizer stops matching a type layout, treat the C++ type as authoritative and update the visualizer alongside it.</p>
-<h1><a class="anchor" id="autotoc_md62"></a>
+<h1><a class="anchor" id="autotoc_md65"></a>
 Are API and ABI stable?</h1>
 <p>There is no project-wide ABI-stability promise. Each library records its maturity and may evolve independently. Public API stability should be inferred from that library's documentation and release history, not from the age of the repository as a whole.</p>
 <p>Prefer source integration or a pinned revision when repeatability matters. A source-level pin makes API changes visible at compile time and avoids assuming binary compatibility that the project does not claim. </p>

@@ -129,48 +129,48 @@ $(function(){initNavTree('library_serialization_binary.html',''); initResizable(
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md302">Dependencies</a>
+    <a href="#autotoc_md305">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md303">The decision this library makes</a>
+    <a href="#autotoc_md306">The decision this library makes</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md304">A representative reflected model</a>
+    <a href="#autotoc_md307">A representative reflected model</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md305">What versioned loading can and cannot absorb</a>
+    <a href="#autotoc_md308">What versioned loading can and cannot absorb</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md306">Storage, allocation, and lifetime</a>
+    <a href="#autotoc_md309">Storage, allocation, and lifetime</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md307">Binary layout and the packed fast path</a>
+    <a href="#autotoc_md310">Binary layout and the packed fast path</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md308">Fit with neighboring libraries</a>
+    <a href="#autotoc_md311">Fit with neighboring libraries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md309">Current limits</a>
+    <a href="#autotoc_md312">Current limits</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md310">API reference</a>
+    <a href="#autotoc_md313">API reference</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md311">Statistics</a>
+    <a href="#autotoc_md314">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟨 Reflection-driven binary persistence with exact and schema-aware reads</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppSerializationBinary.h">SaneCppSerializationBinary.h</a> turns a reflected C++ object graph into a compact sequence of bytes and reconstructs it later. It is aimed at local state, caches, and other controlled persistence where the producer and consumer share the same basic C++ data model.</p>
 <p>This is deliberately not a general-purpose wire format. Primitive values and packed objects are copied in their native representation, and an embedded schema is itself a binary array of Reflection metadata. Endianness, primitive sizes, compiler ABI, and schema representation therefore matter. Choose a format with an explicit portable encoding when data must cross unrelated architectures, toolchains, or languages.</p>
-<h1><a class="anchor" id="autotoc_md302"></a>
+<h1><a class="anchor" id="autotoc_md305"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <a class="el" href="library_reflection.html">Reflection</a></li>
 <li>All dependencies: <a class="el" href="library_reflection.html">Reflection</a></li>
 </ul>
 <p><img src="SerializationBinary.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md303"></a>
+<h1><a class="anchor" id="autotoc_md306"></a>
 The decision this library makes</h1>
 <p>Serialization Binary separates two concerns that are often conflated:</p>
 <ul>
@@ -179,7 +179,7 @@ The decision this library makes</h1>
 <li><code>writeWithSchema</code> prepends that schema, while <code>loadVersionedWithSchema</code> selects <code>loadExact</code> when the embedded schema equals the current schema and otherwise falls back to the versioned reader.</li>
 </ul>
 <p>The useful mental model is therefore <b>bytes plus a schema identity</b>, not a self-describing archive in the usual sense. If the schema identity is already stored in a file header, database record, or protocol envelope, the separate <code>write</code>/<code>loadExact</code>/<code>loadVersioned</code> APIs avoid repeating it. For a small, self-contained local state file, <code>writeWithSchema</code> and <code>loadVersionedWithSchema</code> are the more convenient pair.</p>
-<h1><a class="anchor" id="autotoc_md304"></a>
+<h1><a class="anchor" id="autotoc_md307"></a>
 A representative reflected model</h1>
 <p>Types are described with Reflection and can be nested from primitives, fixed arrays, reflected structs, and supported container adapters. This definition is compiled as part of <code>SerializationBinaryTest</code>:</p>
 <div class="fragment"><div class="line"> </div>
@@ -248,7 +248,7 @@ A representative reflected model</h1>
 <div class="line">SC_REFLECT_STRUCT_LEAVE()</div>
 </div><!-- fragment --><p>For an unchanged <code>TopLevelStruct</code>, pass a caller-owned appendable buffer to <code><a class="el" href="structSC_1_1SerializationBinary.html#aa7e2093475d04f0ede8390edf4a3da09" title="Writes object T to a binary buffer.">SC::SerializationBinary::write</a></code>, then pass its <code>Span&lt;const char&gt;</code> to <code><a class="el" href="structSC_1_1SerializationBinary.html#a29017d4a69ab6b8adf042ff44d75ead7" title="Loads object T from binary buffer as written by SerializationBinary::write.">SC::SerializationBinary::loadExact</a></code>. Both calls return <code>bool</code>; a failed append, a short input, an unsupported resize, or trailing bytes makes the operation fail.</p>
 <p>For durable local state, the repository's Serialization example uses <code>writeWithSchema</code> to fill an <code><a class="el" href="structSC_1_1Buffer.html" title="An heap allocated byte buffer that can optionally use an inline buffer.">SC::Buffer</a></code>, writes that buffer with <a class="el" href="library_file.html">File</a>, reads the file back into another buffer, and calls <code>loadVersionedWithSchema</code>. This keeps file I/O out of the serializer and makes buffer ownership explicit.</p>
-<h1><a class="anchor" id="autotoc_md305"></a>
+<h1><a class="anchor" id="autotoc_md308"></a>
 What versioned loading can and cannot absorb</h1>
 <p>The versioned reader uses member tags rather than member declaration order. With stable, unique tags it can match moved fields, ignore source fields absent from the destination, leave newly added destination fields at their existing values, shorten arrays, and perform supported primitive conversions. The test suite exercises a source and destination whose fields are reordered and removed:</p>
 <div class="fragment"><div class="line">struct SC::SerializationSuiteTest::VersionedStruct1</div>
@@ -288,7 +288,7 @@ What versioned loading can and cannot absorb</h1>
 <div class="line"> </div>
 </div><!-- fragment --><p><code>SerializationBinaryOptions</code> controls the intentionally lossy cases. Its defaults currently allow float-to-integer truncation, dropping excess array items, dropping unmatched struct members, and conversions between <code>bool</code> and other primitive types. Tighten those flags when silent loss would be worse than rejecting old data.</p>
 <p>Versioned loading is best-effort migration, not arbitrary data evolution. Changing the meaning of a tag, reusing a retired tag, or changing to an unsupported shape still needs an application-level migration. It is also the caller's job to retain or embed the exact source schema; compiling only today's schema cannot describe yesterday's byte stream.</p>
-<h1><a class="anchor" id="autotoc_md306"></a>
+<h1><a class="anchor" id="autotoc_md309"></a>
 Storage, allocation, and lifetime</h1>
 <p>The serializer itself does not own an archive and does not allocate hidden working storage:</p>
 <ul>
@@ -298,7 +298,7 @@ Storage, allocation, and lifetime</h1>
 <li>The entire encoded value must currently be present in memory. There is no incremental reader or writer, so file I/O commonly requires both the serialized buffer and destination object to coexist.</li>
 </ul>
 <p>To serialize <code><a class="el" href="structSC_1_1Vector.html" title="A contiguous sequence of heap allocated elements.">SC::Vector</a></code>, <code><a class="el" href="structSC_1_1Array.html" title="A contiguous sequence of elements kept inside its inline storage.">SC::Array</a></code>, <code><a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">SC::String</a></code>, or <code><a class="el" href="structSC_1_1Buffer.html" title="An heap allocated byte buffer that can optionally use an inline buffer.">SC::Buffer</a></code>, also include the appropriate headers from <a class="el" href="library_containers_reflection.html">Serialization Adapters</a>. Those adapters live outside this library so Serialization Binary depends only on Reflection; support for a container is not implied merely because it is an SC type.</p>
-<h1><a class="anchor" id="autotoc_md307"></a>
+<h1><a class="anchor" id="autotoc_md310"></a>
 Binary layout and the packed fast path</h1>
 <p>The format is intentionally close to memory:</p>
 <ul>
@@ -310,20 +310,20 @@ Binary layout and the packed fast path</h1>
 </ul>
 <p>Here <code>Packed</code> is Reflection's stronger property: the complete value can be copied without padding or omitted state. It is not the same as applying a compiler packing pragma. A <code>static_assert</code> on Reflection's packed trait can protect code that relies on the one-operation path, but changing packing or native representation still changes the stored bytes.</p>
 <p><code>numberOfWrites</code> and <code>numberOfReads</code> expose the number of byte-transfer operations and are useful for checking this optimization in tests. They are not a stable part of the file format and should not be used as a compatibility marker.</p>
-<h1><a class="anchor" id="autotoc_md308"></a>
+<h1><a class="anchor" id="autotoc_md311"></a>
 Fit with neighboring libraries</h1>
 <p><a class="el" href="library_reflection.html">Reflection</a> supplies the type graph, field tags, packed analysis, and flat schemas; this library supplies the binary traversal and compatibility logic. [Serialization Adapters](<a class="el" href="library_containers_reflection.html">Containers Reflection</a>) connects container and memory types without introducing library-to-library dependencies.</p>
 <p><a class="el" href="library_serialization_text.html">Serialization Text</a> is the neighboring choice when inspectability and a conventional text representation matter more than compact native bytes. Binary serialization avoids tokenization and can collapse packed data into large copies, while text is easier to inspect, edit, diff, and exchange. Neither choice removes the need for deliberate field tags and migration policy.</p>
-<h1><a class="anchor" id="autotoc_md309"></a>
+<h1><a class="anchor" id="autotoc_md312"></a>
 Current limits</h1>
 <p>The library is marked MVP: the exact and versioned paths are exercised for primitives, nested structs, arrays, vectors, strings, conversions, dropped data, and packed structs, but container coverage and compatibility testing are not yet complete. There is no streaming mode, integrity check, authentication, compression, object identity, pointer graph, or endianness normalization. Treat input as trusted unless the surrounding application validates its size and provenance; lengths in untrusted archives can drive destination-container growth.</p>
 <p>The <a href="https://github.com/Pagghiu/SaneCppLibraries/tree/master/Examples/SCExample/Examples/SerializationExample">Serialization example</a> shows binary and JSON persistence side by side. The <a href="https://pagghiu.github.io/site/blog/2024-07-31-SaneCppLibrariesUpdate.html">July 2024 update</a> also discusses the serializer's development.</p>
-<h1><a class="anchor" id="autotoc_md310"></a>
+<h1><a class="anchor" id="autotoc_md313"></a>
 API reference</h1>
 <p>This is a versioned binary serializer / deserializer built on top of <a class="el" href="library_reflection.html">Reflection</a>. <br  />
 It uses struct member iterators on Reflection schema serialize all members and the recursively <code>Packed</code> property for optimizations, reducing the number of read / writes (or <code>memcpy</code>) needed.   </p>
 <p>Conversion options for the binary versioned deserializer.   </p>
-<h1><a class="anchor" id="autotoc_md311"></a>
+<h1><a class="anchor" id="autotoc_md314"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/SerializationBinary</code>. Single File counts <code>SaneCppSerializationBinary.h</code>. Standalone counts <code>SaneCppSerializationBinaryStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

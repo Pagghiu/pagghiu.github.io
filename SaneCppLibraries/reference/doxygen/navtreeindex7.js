@@ -1,5 +1,8 @@
 var NAVTREEINDEX7 =
 {
+"structSC_1_1FileSystemStat.html#a79607eee61d62818f28a84cf34ddae68":[17,8,0,9],
+"structSC_1_1FileSystemStat.html#a8a70059a66c4b7f6786c0b41e5329809":[17,8,0,11],
+"structSC_1_1FileSystemStat.html#a9d0038b304d7c25b85264acb14df9491":[17,8,0,7],
 "structSC_1_1FileSystemStat.html#a9d9073ef12d8d3a33c85eaf52a888b73":[17,8,0,15],
 "structSC_1_1FileSystemStat.html#a9ec8a16ded1e342e585192109604d788":[17,8,0,16],
 "structSC_1_1FileSystemStat.html#aae86dd8d879b8b1a98980c4f35f12e44":[17,8,0,13],
@@ -246,8 +249,5 @@ var NAVTREEINDEX7 =
 "structSC_1_1HttpConnection.html#ae33f2fb36b61482f9b76e2c2e7017692":[17,13,11,6],
 "structSC_1_1HttpConnectionBase.html":[17,13,4],
 "structSC_1_1HttpConnection_1_1ID.html":[17,13,11,0],
-"structSC_1_1HttpConnectionsPool.html":[17,13,13],
-"structSC_1_1HttpConnectionsPool.html#a1b9c66b7f3c9f53ba91bd1c1ceadf20f":[17,13,13,8],
-"structSC_1_1HttpConnectionsPool.html#a49c15a54a11f5ce88b519b6ac12cec91":[17,13,13,7],
-"structSC_1_1HttpConnectionsPool.html#a63cc036d96933d4631ff985b1604bf9f":[17,13,13,6]
+"structSC_1_1HttpConnectionsPool.html":[17,13,13]
 };

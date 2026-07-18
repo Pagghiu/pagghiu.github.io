@@ -129,34 +129,34 @@ $(function(){initNavTree('library_plugin.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md270">Dependencies</a>
+    <a href="#autotoc_md273">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md271">The model: source tree to live instance</a>
+    <a href="#autotoc_md274">The model: source tree to live instance</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md272">A representative host loop</a>
+    <a href="#autotoc_md275">A representative host loop</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md273">The plugin-side contract</a>
+    <a href="#autotoc_md276">The plugin-side contract</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md274">Allocation and lifetime boundaries</a>
+    <a href="#autotoc_md277">Allocation and lifetime boundaries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md275">Linking against the host</a>
+    <a href="#autotoc_md278">Linking against the host</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md276">Relationships and tradeoffs</a>
+    <a href="#autotoc_md279">Relationships and tradeoffs</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md277">Platform status and practical limits</a>
+    <a href="#autotoc_md280">Platform status and practical limits</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md278">Further reading</a>
+    <a href="#autotoc_md281">Further reading</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md279">Statistics</a>
+    <a href="#autotoc_md282">Statistics</a>
   </li>
 </ul>
 </div>
@@ -164,14 +164,14 @@ $(function(){initNavTree('library_plugin.html',''); initResizable(true); });
 <p><code>Plugin</code> is for applications that want a short edit–compile–reload loop without introducing a separate build-system invocation for every extension. It discovers C++ source plugins, invokes an installed compiler and linker, loads the resulting dynamic library into the host process, and coordinates reloads across declared plugin dependencies.</p>
 <p>That makes it a plausible fit for developer-facing desktop tools, live UI iteration, and applications whose extensions can deliberately share the host's C++ ABI. It is not a general-purpose package format or a security boundary. Plugins run native code in the host process, and a bad pointer, an ABI mismatch, or incomplete shutdown can crash the application.</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppPlugin.h">SaneCppPlugin.h</a> is the amalgamated distribution.</p>
-<h1><a class="anchor" id="autotoc_md270"></a>
+<h1><a class="anchor" id="autotoc_md273"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <a class="el" href="library_process.html">Process</a></li>
 <li>All dependencies: <a class="el" href="library_file.html">File</a>, <a class="el" href="library_process.html">Process</a></li>
 </ul>
 <p><img src="Plugin.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md271"></a>
+<h1><a class="anchor" id="autotoc_md274"></a>
 The model: source tree to live instance</h1>
 <p>A plugin is a directory containing one or more <code>.cpp</code> files. One file carries a comment block between <code>SC_BEGIN_PLUGIN</code> and <code>SC_END_PLUGIN</code>; the scanner derives the plugin identifier from the directory name and parses human-readable metadata, build options, and other plugin identifiers it depends on.</p>
 <p>The host then drives four distinct stages:</p>
@@ -182,7 +182,7 @@ The model: source tree to live instance</h1>
 <li><code>PluginDynamicLibrary</code> holds the native library handle, plugin instance, reload count, and last compiler/linker error. Optional typed contracts are obtained with <code>queryInterface</code>.</li>
 </ol>
 <p>Loading a plugin recursively loads its declared dependencies. Unloading does the reverse: the registry first unloads plugins that depend on the requested one. This ordering is necessary because all instances and interfaces are ordinary in-process C++ objects, not isolated handles.</p>
-<h1><a class="anchor" id="autotoc_md272"></a>
+<h1><a class="anchor" id="autotoc_md275"></a>
 A representative host loop</h1>
 <p>The following SCTest-backed example shows the complete shape: discover definitions, configure the toolchain, provide bounded registry storage, watch the source directory, and reload affected plugins. The production <a class="el" href="page_examples.html">SCExample</a> expands the same idea with error display and state serialization across reloads.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;Libraries/Async/Async.h&quot;</span></div>
@@ -348,12 +348,12 @@ A representative host loop</h1>
 <div class="ttc" id="astructSC_1_1TestReport_html_aa5cc75aa7564ffc8da3da6f31c68d130"><div class="ttname"><a href="structSC_1_1TestReport.html#aa5cc75aa7564ffc8da3da6f31c68d130">SC::TestReport::libraryRootDirectory</a></div><div class="ttdeci">StringPath libraryRootDirectory</div><div class="ttdoc">Path to sources directory for library.</div><div class="ttdef"><b>Definition</b> Testing.h:65</div></div>
 <div class="ttc" id="astructSC_1_1Time_1_1Milliseconds_html"><div class="ttname"><a href="structSC_1_1Time_1_1Milliseconds.html">SC::Time::Milliseconds</a></div><div class="ttdoc">Type-safe wrapper of uint64 used to represent milliseconds.</div><div class="ttdef"><b>Definition</b> Time.h:50</div></div>
 </div><!-- fragment --><p>The example is intentionally explicit about policy. <code>Plugin</code> does not create a watcher, debounce file events, preserve application state, or decide what to do with a compiler error. <a class="el" href="library_file_system_watcher.html">FileSystemWatcher</a> can report changes, while the host remains responsible for scheduling reloads and presenting <code>PluginDynamicLibrary::lastErrorLog</code>.</p>
-<h1><a class="anchor" id="autotoc_md273"></a>
+<h1><a class="anchor" id="autotoc_md276"></a>
 The plugin-side contract</h1>
 <p><code>SC_PLUGIN_DEFINE(MyPlugin)</code> exports the conventional <code>MyPluginInit</code> and <code>MyPluginClose</code> entry points. Initialization allocates one plugin instance and calls its <code>init()</code> method; shutdown calls <code>close()</code> and deletes it. <code>SC_PLUGIN_EXPORT_INTERFACES</code> optionally exports a query function that maps compile-time <code>PluginHash</code> values to base-class interfaces.</p>
 <p>The interface is a C++ ABI contract despite the C entry points used to find it. Host and plugin must agree on compiler ABI, data layout, compile definitions, and the exact interface header. <code>queryInterface</code> returns a pointer into the plugin instance; it becomes invalid before or during unload. Do not cache that pointer across a reload.</p>
 <p>The test plugins under <code>Tests/Libraries/Plugin/PluginTestDirectory</code> are the smallest concrete examples: the child declares a dependency on the parent, implements two interface bases, and exports them with <code>SC_PLUGIN_EXPORT_INTERFACES</code>. The host test verifies that reloading replaces executable behavior and that unloading the parent also unloads the dependent child.</p>
-<h1><a class="anchor" id="autotoc_md274"></a>
+<h1><a class="anchor" id="autotoc_md277"></a>
 Allocation and lifetime boundaries</h1>
 <p>The library follows SC's caller-storage model for discovery and registration:</p>
 <ul>
@@ -364,13 +364,13 @@ Allocation and lifetime boundaries</h1>
 </ul>
 <p>Plugin instances are the important exception to the library-wide no-allocation expectation: <code>SC_PLUGIN_DEFINE</code> constructs the plugin with <code>new</code> and destroys it with <code>delete</code>. In the default runtime-free build, those operators are supplied by the macro and route to <code><a class="el" href="structSC_1_1Memory.html" title="Centralized functions to allocate, reallocate and deallocate memory.">SC::Memory</a></code>. Any state owned by the plugin must be released by <code>close()</code> or its destructor before the library is unloaded. The registry must itself be closed while the host services used by plugin shutdown are still alive.</p>
 <p>Interfaces and objects must not straddle the unload boundary. A robust reload sequence stops asynchronous work, releases callbacks and interface pointers, optionally serializes host-owned state, reloads, queries fresh interfaces, and then restores state. The SCExample <code>HotReloadSystem</code> demonstrates that orchestration; the Plugin library does not attempt to make arbitrary live C++ state reload-safe.</p>
-<h1><a class="anchor" id="autotoc_md275"></a>
+<h1><a class="anchor" id="autotoc_md278"></a>
 Linking against the host</h1>
 <p>By default, plugins are compiled without the C or C++ runtime and resolve functionality from the loading executable or from dependency plugins. This keeps the extension surface centered on SC libraries, but it means the host must export every SC library used by plugin code.</p>
 <p>With <code>SC::Build</code>, opt in with <code>SC::Build::Project::addExportLibraries</code> or <code>addExportAllLibraries</code>. Regular executables do not export SC symbols automatically. For example, a host that exposes only Foundation, Memory, and Strings passes those three library names to <code>addExportLibraries</code>.</p>
 <p>Without <code>SC::Build</code>, define the corresponding switches consistently for the host target, for example <code>SC_EXPORT_LIBRARY_FOUNDATION=1</code>, <code>SC_EXPORT_LIBRARY_MEMORY=1</code>, and <code>SC_EXPORT_LIBRARY_STRINGS=1</code>. On Linux the executable must additionally expose its symbols to the dynamic loader, normally with <code>-rdynamic</code>. The <a class="el" href="page_build.html">Build documentation</a> covers the equivalent project configuration.</p>
 <p>A plugin metadata block can request <code>libc</code> and <code>libc++</code> through its <code>Build</code> field. <code>PluginSysroot</code> then supplies the system include and library paths. That is useful when an extension genuinely needs the standard runtime, but it increases the ABI surface and does not make mismatched host/plugin toolchains safe. <code>findBestCompiler</code> and <code>findBestSysroot</code> are conveniences for local developer machines, not deployment guarantees; production tooling should be prepared to configure paths explicitly and report discovery failures.</p>
-<h1><a class="anchor" id="autotoc_md276"></a>
+<h1><a class="anchor" id="autotoc_md279"></a>
 Relationships and tradeoffs</h1>
 <p><code>Plugin</code> deliberately delegates adjacent concerns:</p>
 <ul>
@@ -380,11 +380,11 @@ Relationships and tradeoffs</h1>
 <li><code>SystemDynamicLibrary</code> is the low-level loading mechanism. Plugin adds source discovery, compilation, lifecycle entry points, dependency ordering, and interface lookup.</li>
 </ul>
 <p>Compared with a conventional binary plugin SDK, source delivery gives the host control over compilation and makes hot reload straightforward, but requires a compatible toolchain on the machine and exposes plugin source. Compared with an out-of-process or WASM extension, native in-process plugins have cheap direct calls and can reuse host types, but provide no fault containment, stable wire protocol, or sandbox.</p>
-<h1><a class="anchor" id="autotoc_md277"></a>
+<h1><a class="anchor" id="autotoc_md280"></a>
 Platform status and practical limits</h1>
 <p>🟨 <b>MVP.</b> The implementation targets macOS, Windows, and Linux with Clang, GCC, and MSVC-style toolchains. It includes platform-specific host linking and Windows handling for debugger-held DLL/PDB files. The repository exercises real compile, link, interface-query, reload, dependency-unload, and runtime-free standard-header cases.</p>
 <p>The current design is most credible as a development-time hot-reload facility under control of the application team. Shipping it as an end-user extension system requires additional decisions around compiler distribution, source trust, ABI compatibility, diagnostics, versioning, and recovery from plugin faults. Precompiled closed-source plugins, cross-compiler ABI support, sandboxing, RPC isolation, and WASM hosting are not implemented features.</p>
-<h1><a class="anchor" id="autotoc_md278"></a>
+<h1><a class="anchor" id="autotoc_md281"></a>
 Further reading</h1>
 <ul>
 <li><a class="el" href="page_examples.html">SCExample</a> contains the fuller <code>HotReloadSystem</code> built from <code>Plugin</code> and <code>FileSystemWatcher</code>.</li>
@@ -394,7 +394,7 @@ Further reading</h1>
 <li><a href="https://www.youtube.com/watch?v=d7DXxC6xG_A">Ep.25 – C++ Serialization and Reflection (with Hot-Reload)</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2024-06-30-SaneCppLibrariesUpdate.html">June 2024 update</a> and <a href="https://pagghiu.github.io/site/blog/2024-07-31-SaneCppLibrariesUpdate.html">July 2024 update</a> provide historical context.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md279"></a>
+<h1><a class="anchor" id="autotoc_md282"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Plugin</code>. Single File counts <code>SaneCppPlugin.h</code>. Standalone counts <code>SaneCppPluginStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

@@ -129,46 +129,46 @@ $(function(){initNavTree('page_coding_style.html',''); initResizable(true); });
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md32">Start from the repository constraints</a>
+    <a href="#autotoc_md35">Start from the repository constraints</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md33">Let the formatter establish the baseline</a>
+    <a href="#autotoc_md36">Let the formatter establish the baseline</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md34">Name by role</a>
+    <a href="#autotoc_md37">Name by role</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md35">Make failure part of the type</a>
+    <a href="#autotoc_md38">Make failure part of the type</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md36">Keep outputs and ownership explicit</a>
+    <a href="#autotoc_md39">Keep outputs and ownership explicit</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md37">Design public headers as boundaries</a>
+    <a href="#autotoc_md40">Design public headers as boundaries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md38">Prefer small, testable operations</a>
+    <a href="#autotoc_md41">Prefer small, testable operations</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md39">Write tests as contract examples</a>
+    <a href="#autotoc_md42">Write tests as contract examples</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md40">Review checklist</a>
+    <a href="#autotoc_md43">Review checklist</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>The style rules make ownership, failure, and platform behavior visible in ordinary C++ code. Consistency matters, but the deeper goal is code that a reviewer or coding agent can change without guessing at hidden contracts.</p>
-<h1><a class="anchor" id="autotoc_md32"></a>
+<h1><a class="anchor" id="autotoc_md35"></a>
 Start from the repository constraints</h1>
 <p>Library code does not use STL containers, exceptions, RTTI, or hidden allocation. Public headers do not include system headers. APIs return errors and accept caller-owned storage. These constraints are architectural; formatting should make them easier to see rather than disguise them.</p>
 <p>Before editing a subsystem, read its neighboring headers, tests, and any local <code>AGENTS.md</code>. Prefer an existing type or pattern over introducing a second vocabulary for the same operation.</p>
-<h1><a class="anchor" id="autotoc_md33"></a>
+<h1><a class="anchor" id="autotoc_md36"></a>
 Let the formatter establish the baseline</h1>
 <p>The repository uses the pinned clang-format version installed by SC::Package:</p>
 <div class="fragment"><div class="line">./SC.sh format execute</div>
 </div><!-- fragment --><p>CI checks the same format. Use <code>// clang-format off</code> only around a small structure whose manual alignment communicates a real pattern, such as a dense reflection table. Turn formatting back on immediately afterward.</p>
 <p>Formatting can create excessive horizontal padding when unrelated declarations are aligned together. Split fields or methods into short semantic groups before formatting rather than accepting a wide block of whitespace.</p>
-<h1><a class="anchor" id="autotoc_md34"></a>
+<h1><a class="anchor" id="autotoc_md37"></a>
 Name by role</h1>
 <ul>
 <li>Use <code>CamelCase</code> for structs, namespaces, template parameters, and source file names.</li>
@@ -178,7 +178,7 @@ Name by role</h1>
 <li>Keep <code>using namespace</code> inside function scope.</li>
 </ul>
 <p>The <code>SC</code> namespace is intentionally flat in many libraries. Search before adding a public name so two independent libraries do not collide when amalgamated into one translation unit.</p>
-<h1><a class="anchor" id="autotoc_md35"></a>
+<h1><a class="anchor" id="autotoc_md38"></a>
 Make failure part of the type</h1>
 <p>Operations that can fail return <code>Result</code> or another checked value. Propagate failures with the <code>SC_TRY</code> family rather than ignoring them:</p>
 <div class="fragment"><div class="line">Result loadConfiguration(StringView path, String&amp; output)</div>
@@ -189,7 +189,7 @@ Make failure part of the type</h1>
 <div class="line">}</div>
 </div><!-- fragment --><p>Value-returning functions should normally be <code>[[nodiscard]]</code>. If a deliberately best-effort operation must ignore a result, keep the warning suppression narrow and explain why the result cannot affect correctness.</p>
 <p>Do not use exceptions for control flow. A cleanup path must be visible on every return path, usually through <code>MakeDeferred</code> or an explicit close operation.</p>
-<h1><a class="anchor" id="autotoc_md36"></a>
+<h1><a class="anchor" id="autotoc_md39"></a>
 Keep outputs and ownership explicit</h1>
 <p>When a function already needs to return status, write its value through an output parameter:</p>
 <ul>
@@ -199,7 +199,7 @@ Keep outputs and ownership explicit</h1>
 </ul>
 <p>Views such as <code>StringView</code> and <code>Span</code> borrow memory. Owning containers and storage objects must outlive every borrowed view. APIs that may grow should accept an <code>IGrowableBuffer</code> or another explicit storage interface instead of allocating internally.</p>
 <p>Pointers mean “optional” unless a more specific contract says otherwise. References mean “required”. Avoid raw owning pointers.</p>
-<h1><a class="anchor" id="autotoc_md37"></a>
+<h1><a class="anchor" id="autotoc_md40"></a>
 Design public headers as boundaries</h1>
 <p>Public headers:</p>
 <ul>
@@ -211,15 +211,15 @@ Design public headers as boundaries</h1>
 </ul>
 <p>Put operating-system includes and implementation details in <code>.cpp</code>, <code>.inl</code>, or <code>Internal</code> files. Isolate platform branches in focused functions rather than scattering <code>#if</code> blocks through an algorithm.</p>
 <p>Use <code>struct</code> for consistency with the existing codebase. Order a struct so a reader sees its public contract before implementation details: types and constants, lifecycle, operations, then storage.</p>
-<h1><a class="anchor" id="autotoc_md38"></a>
+<h1><a class="anchor" id="autotoc_md41"></a>
 Prefer small, testable operations</h1>
 <p>Functions should do one coherent job and return enough information for the caller to decide what happens next. Avoid boolean parameters that silently switch between unrelated modes; use an options struct or distinct operation when the behavior deserves a name.</p>
 <p>Comments should explain a constraint, invariant, or non-obvious platform choice. Do not narrate syntax. Public API documentation should state ownership, failure behavior, and important lifetime rules.</p>
-<h1><a class="anchor" id="autotoc_md39"></a>
+<h1><a class="anchor" id="autotoc_md42"></a>
 Write tests as contract examples</h1>
 <p>Add or update the test in <code>Tests/Libraries/&lt;Library&gt;</code>. Name sections after behavior rather than implementation steps. Cover the successful path, caller-storage exhaustion, invalid input, and relevant platform differences.</p>
 <p>Tests often become the most precise usage examples in the repository. Keep setup explicit enough that a reader can see which object owns each buffer, task, handle, and callback.</p>
-<h1><a class="anchor" id="autotoc_md40"></a>
+<h1><a class="anchor" id="autotoc_md43"></a>
 Review checklist</h1>
 <p>Before committing, ask:</p>
 <ul>
