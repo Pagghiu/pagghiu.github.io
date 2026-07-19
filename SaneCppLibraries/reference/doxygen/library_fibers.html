@@ -217,27 +217,28 @@ A Representative CPU Workload</h1>
 <div class="fragment"><div class="line">    <span class="keyword">struct </span>State</div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordtype">int</span> partials[3] = {};</div>
-<div class="line">    };</div>
+<div class="line">    } state;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> NumTasks = 3;</div>
 <div class="line"> </div>
 <div class="line">    FiberScheduler scheduler;</div>
-<div class="line">    FiberTask      tasks[3];</div>
-<div class="line">    <span class="keywordtype">char</span>           stackMemory[3 * 64 * 1024] = {};</div>
-<div class="line">    FiberTaskPool  pool({tasks, 3}, {stackMemory, <span class="keyword">sizeof</span>(stackMemory)}, 64 * 1024);</div>
+<div class="line">    FiberTask      tasks[NumTasks];</div>
+<div class="line">    <span class="keywordtype">char</span>           stackMemory[NumTasks * 64 * 1024] = {};</div>
+<div class="line">    FiberTaskPool  pool(tasks, stackMemory, <span class="keyword">sizeof</span>(stackMemory) / NumTasks);</div>
 <div class="line">    FiberTaskGroup group(scheduler);</div>
-<div class="line">    State          state;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> taskIndex = 0; taskIndex &lt; 3; ++taskIndex)</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> taskIndex = 0; taskIndex &lt; NumTasks; ++taskIndex)</div>
 <div class="line">    {</div>
-<div class="line">        SC_TRY(group.spawn(pool, FiberTask::Procedure(</div>
-<div class="line">                                     [&amp;state, taskIndex](FiberScheduler&amp; scheduler)</div>
-<div class="line">                                     {</div>
-<div class="line">                                         for (int value = 0; value &lt; 5; ++value)</div>
-<div class="line">                                         {</div>
-<div class="line">                                             state.partials[taskIndex] += static_cast&lt;int&gt;(taskIndex + 1) * value;</div>
-<div class="line">                                             SC_TRY(scheduler.yield());</div>
-<div class="line">                                         }</div>
-<div class="line">                                         <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
-<div class="line">                                     })));</div>
+<div class="line">        <span class="keyword">auto</span> task = [&amp;state, taskIndex](FiberScheduler&amp; scheduler)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> value = 0; value &lt; 5; ++value)</div>
+<div class="line">            {</div>
+<div class="line">                state.partials[taskIndex] += <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(taskIndex + 1) * value;</div>
+<div class="line">                SC_TRY(scheduler.yield());</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
+<div class="line">        };</div>
+<div class="line">        SC_TRY(group.spawn(pool, move(task)));</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    SC_TRY(group.waitAll());</div>
@@ -266,12 +267,12 @@ Adding Worker Threads</h1>
 <div class="line">FiberWorkerThread threads[NumWorkers];</div>
 <div class="line">FiberWorkerPool workerPool;</div>
 <div class="line"> </div>
-<div class="line">SC_TRY(workerPool.start(scheduler, {workers, NumWorkers}, {threads, NumWorkers}));</div>
+<div class="line">SC_TRY(workerPool.start(scheduler, workers, threads));</div>
 <div class="line">SC_TRY(workerPool.join());</div>
 </div><!-- fragment --><p>For higher-throughput scheduling, explicit deque storage can be provided through <code>FiberAllocator</code>. The fixed allocator uses a caller buffer; the virtual allocator reserves a caller-selected address-space budget and commits pages on demand.</p>
 <div class="fragment"><div class="line"><span class="keywordtype">char</span>           allocatorStorage[64 * 1024] = {};</div>
 <div class="line">FiberAllocator allocator;</div>
-<div class="line">SC_TRY(allocator.createFixed({allocatorStorage, sizeof(allocatorStorage)}));</div>
+<div class="line">SC_TRY(allocator.createFixed(allocatorStorage));</div>
 <div class="line"> </div>
 <div class="line">FiberWorkerPoolOptions options;</div>
 <div class="line">options.dequeAllocator         = &amp;allocator;</div>
@@ -279,7 +280,7 @@ Adding Worker Threads</h1>
 <div class="line">options.injectionAllocator     = &amp;allocator;</div>
 <div class="line">options.injectionCapacity      = 256;</div>
 <div class="line"> </div>
-<div class="line">SC_TRY(workerPool.start(scheduler, {workers, NumWorkers}, {threads, NumWorkers}, options));</div>
+<div class="line">SC_TRY(workerPool.start(scheduler, workers, threads, options));</div>
 <div class="line">SC_TRY(workerPool.join());</div>
 <div class="line">SC_TRY(allocator.close());</div>
 </div><!-- fragment --><p>The worker pool owns OS threads while running, but the memory for workers, thread handles, deques, tasks, and stacks is still selected by the caller. <code>join()</code> waits for scheduled work and worker shutdown; lifecycle ordering is therefore part of application shutdown rather than destructor magic. If <code>start()</code> fails after creating allocator-backed queues, it releases every partial queue allocation and leaves the pool, scheduler, worker/thread storage, and allocator reusable.</p>

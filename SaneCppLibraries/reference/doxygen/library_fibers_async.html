@@ -190,40 +190,35 @@ A complete wait</h1>
 <div class="line">    {</div>
 <div class="line">        FiberAsyncIO* io        = <span class="keyword">nullptr</span>;</div>
 <div class="line">        <span class="keywordtype">int</span>           completed = 0;</div>
-<div class="line">    };</div>
+<div class="line">    } state;</div>
 <div class="line"> </div>
 <div class="line">    AsyncEventLoop eventLoop;</div>
 <div class="line">    SC_TRY(eventLoop.create());</div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> NumTasks = 2;</div>
 <div class="line"> </div>
-<div class="line">    FiberScheduler      scheduler;</div>
-<div class="line">    FiberAsyncCommand   commands[8];</div>
-<div class="line">    FiberAsyncIO        io(scheduler, eventLoop, commands);</div>
-<div class="line">    FiberTask           tasks[2];</div>
-<div class="line">    <span class="keywordtype">char</span>                stackMemory[2 * 64 * 1024] = {};</div>
-<div class="line">    FiberTaskPool       pool({tasks, 2}, {stackMemory, <span class="keyword">sizeof</span>(stackMemory)}, 64 * 1024);</div>
-<div class="line">    FiberTaskGroup      group(scheduler);</div>
-<div class="line">    FiberTaskGroupError errors[2];</div>
-<div class="line">    State               state;</div>
-<div class="line">    state.io = &amp;io;</div>
+<div class="line">    FiberScheduler scheduler;</div>
+<div class="line">    FiberTask      tasks[NumTasks];</div>
+<div class="line">    <span class="keywordtype">char</span>           stackMemory[NumTasks * 64 * 1024] = {};</div>
+<div class="line">    FiberTaskPool  pool(tasks, stackMemory, 64 * 1024);</div>
+<div class="line">    FiberTaskGroup group(scheduler);</div>
 <div class="line"> </div>
-<div class="line">    SC_TRY(group.spawn(pool, FiberTask::Procedure(</div>
-<div class="line">                                 [&amp;state](FiberScheduler&amp;)</div>
-<div class="line">                                 {</div>
-<div class="line">                                     SC_TRY(state.io-&gt;sleep(TimeMs{1}));</div>
-<div class="line">                                     state.completed++;</div>
-<div class="line">                                     <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
-<div class="line">                                 })));</div>
-<div class="line">    SC_TRY(group.spawn(pool, FiberTask::Procedure(</div>
-<div class="line">                                 [&amp;state](FiberScheduler&amp;)</div>
-<div class="line">                                 {</div>
-<div class="line">                                     SC_TRY(state.io-&gt;sleep(TimeMs{1}));</div>
-<div class="line">                                     state.completed++;</div>
-<div class="line">                                     <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
-<div class="line">                                 })));</div>
+<div class="line">    FiberAsyncCommand commands[8];</div>
+<div class="line">    FiberAsyncIO      io(scheduler, eventLoop, commands);</div>
+<div class="line"> </div>
+<div class="line">    state.io  = &amp;io;</div>
+<div class="line">    <span class="keyword">auto</span> proc = [&amp;state](FiberScheduler&amp;)</div>
+<div class="line">    {</div>
+<div class="line">        SC_TRY(state.io-&gt;sleep(TimeMs{1}));</div>
+<div class="line">        state.completed++;</div>
+<div class="line">        <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
+<div class="line">    };</div>
+<div class="line">    SC_TRY(group.spawn(pool, proc));</div>
+<div class="line">    SC_TRY(group.spawn(pool, proc));</div>
 <div class="line"> </div>
 <div class="line">    SC_TRY(io.runUntilComplete());</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">size_t</span> numErrors = 0;</div>
+<div class="line">    <span class="keywordtype">size_t</span>              numErrors = 0;</div>
+<div class="line">    FiberTaskGroupError errors[NumTasks];</div>
 <div class="line">    SC_TRY(group.collectErrors(errors, numErrors));</div>
 <div class="line">    <span class="keywordflow">if</span> (numErrors != 0)</div>
 <div class="line">    {</div>
@@ -267,33 +262,33 @@ Worker threads and the event-loop owner</h1>
 <div class="line">    {</div>
 <div class="line">        FiberAsyncIO* io        = <span class="keyword">nullptr</span>;</div>
 <div class="line">        <span class="keywordtype">int</span>           completed = 0;</div>
-<div class="line">    };</div>
+<div class="line">    } state;</div>
 <div class="line"> </div>
 <div class="line">    AsyncEventLoop eventLoop;</div>
 <div class="line">    SC_TRY(eventLoop.create());</div>
 <div class="line"> </div>
 <div class="line">    FiberScheduler    scheduler;</div>
-<div class="line">    FiberAsyncCommand commands[8];</div>
-<div class="line">    FiberAsyncIO      io(scheduler, eventLoop, commands);</div>
 <div class="line">    FiberTask         task;</div>
 <div class="line">    <span class="keywordtype">char</span>              stackMemory[64 * 1024] = {};</div>
-<div class="line">    FiberStack        stack({stackMemory, <span class="keyword">sizeof</span>(stackMemory)});</div>
+<div class="line">    FiberStack        stack(stackMemory);</div>
 <div class="line">    FiberWorker       workers[NumWorkers];</div>
 <div class="line">    FiberWorkerThread threads[NumWorkers];</div>
 <div class="line">    FiberWorkerPool   workerPool;</div>
-<div class="line">    State             state;</div>
-<div class="line">    state.io = &amp;io;</div>
 <div class="line"> </div>
-<div class="line">    SC_TRY(scheduler.spawn(task, stack,</div>
-<div class="line">                           FiberTask::Procedure(</div>
-<div class="line">                               [&amp;state](FiberScheduler&amp;)</div>
-<div class="line">                               {</div>
-<div class="line">                                   SC_TRY(state.io-&gt;sleep(TimeMs{1}));</div>
-<div class="line">                                   state.completed++;</div>
-<div class="line">                                   <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
-<div class="line">                               })));</div>
+<div class="line">    FiberAsyncCommand commands[8];</div>
+<div class="line">    FiberAsyncIO      io(scheduler, eventLoop, commands);</div>
 <div class="line"> </div>
-<div class="line">    SC_TRY(workerPool.start(scheduler, {workers, NumWorkers}, {threads, NumWorkers}));</div>
+<div class="line">    state.io  = &amp;io;</div>
+<div class="line">    <span class="keyword">auto</span> proc = [&amp;state](FiberScheduler&amp;)</div>
+<div class="line">    {</div>
+<div class="line">        SC_TRY(state.io-&gt;sleep(TimeMs{1}));</div>
+<div class="line">        state.completed++;</div>
+<div class="line">        <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
+<div class="line">    };</div>
+<div class="line"> </div>
+<div class="line">    SC_TRY(scheduler.spawn(task, stack, proc));</div>
+<div class="line"> </div>
+<div class="line">    SC_TRY(workerPool.start(scheduler, workers, threads));</div>
 <div class="line">    SC_TRY(io.runOwnerUntilComplete());</div>
 <div class="line">    SC_TRY(workerPool.join());</div>
 <div class="line">    SC_TRY(task.result());</div>
