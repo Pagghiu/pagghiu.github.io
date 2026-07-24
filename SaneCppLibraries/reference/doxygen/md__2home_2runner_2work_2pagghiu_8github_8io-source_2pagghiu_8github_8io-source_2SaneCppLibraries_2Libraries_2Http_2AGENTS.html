@@ -126,9 +126,9 @@ $(function(){initNavTree('md__2home_2runner_2work_2pagghiu_8github_8io-source_2p
   <div class="headertitle"><div class="title">HTTP Library Notes</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md387"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md388"></a></p>
 <p>This directory is performance-sensitive and allocation-free.</p>
-<h1><a class="anchor" id="autotoc_md388"></a>
+<h1><a class="anchor" id="autotoc_md389"></a>
 Architecture Overview</h1>
 <ul>
 <li><b><code>HttpConnectionBase</code></b>: The foundational struct holding async readable/writable socket streams, buffer pool pointers, pipeline, and socket descriptor. Shared by both client and server endpoints.</li>
@@ -144,7 +144,7 @@ Architecture Overview</h1>
 <li><b><code>HttpAsyncClient</code></b>: A zero-allocation async HTTP client. It is initialized with a reference to an <code>HttpConnectionBase</code>, owns the active <code>HttpAsyncClientRequest</code> / <code>HttpAsyncClientResponse</code> pair, and exposes <code>onRequest(HttpAsyncClientRequest&amp;)</code> for streamed or manual request bodies.</li>
 <li><b><code>HttpAsyncFileServer</code></b>: A utility layered on top of <code>HttpAsyncServer</code> that handles streaming files to connected clients via <code>AsyncFileSend</code> (or pipelined streams) using <code>HttpAsyncFileServer::Stream</code>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md389"></a>
+<h1><a class="anchor" id="autotoc_md390"></a>
 Core constraints</h1>
 <ul>
 <li>Keep library code allocation-free. <code><a class="el" href="structSC_1_1HttpAsyncClient.html" title="Asynchronous HTTP/1.1 client using caller-provided fixed storage.">SC::HttpAsyncClient</a></code>, <code><a class="el" href="structSC_1_1HttpAsyncServer.html" title="Async Http Server.">SC::HttpAsyncServer</a></code>, <code><a class="el" href="structSC_1_1HttpAsyncFileServer.html" title="Http file server statically serves files from a directory.">SC::HttpAsyncFileServer</a></code>, <code><a class="el" href="structSC_1_1HttpParser.html" title="Incremental HTTP request or response parser.">SC::HttpParser</a></code>, and <code><a class="el" href="structSC_1_1HttpConnection.html" title="Http connection abstraction holding both the incoming and outgoing messages in an HTTP transaction.">SC::HttpConnection</a></code> must keep using caller-provided memory.</li>
@@ -152,7 +152,7 @@ Core constraints</h1>
 <li>Do not put system headers in public headers.</li>
 <li>Prefer the same fixed-buffer patterns already used by the server-side HTTP classes over <code>IGrowableBuffer</code>-style helpers.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md390"></a>
+<h1><a class="anchor" id="autotoc_md391"></a>
 Hot paths</h1>
 <p>The following files are benchmark-sensitive:</p>
 <ul>
@@ -162,14 +162,14 @@ Hot paths</h1>
 <li><code>HttpParser.cpp</code></li>
 </ul>
 <p>Avoid changing them unless the change is required for correctness or the user explicitly asks for the tradeoff.</p>
-<h1><a class="anchor" id="autotoc_md391"></a>
+<h1><a class="anchor" id="autotoc_md392"></a>
 Benchmark workflow</h1>
 <p>If you touch the parser, async server, file server, response emission, or request parsing hot path, validate with the local benchmark:</p>
 <div class="fragment"><div class="line">./SC.sh build compile AsyncWebServer Release</div>
 <div class="line">./SC.sh build run AsyncWebServer Release -- --directory /Users/stefano/Developer/Projects/SC/_Build/_Documentation/docs</div>
 <div class="line">Support/Benchmarks/Http/.venv/bin/python Support/Benchmarks/Http/http_benchmark.py --directory &quot;/Users/stefano/Developer/Projects/SC/_Build/_Documentation/docs&quot; --port 8090 --concurrent 10 --mode directory</div>
 </div><!-- fragment --><p>Run the benchmark from a second terminal while the server is running.</p>
-<h1><a class="anchor" id="autotoc_md392"></a>
+<h1><a class="anchor" id="autotoc_md393"></a>
 Client-specific notes</h1>
 <ul>
 <li><code><a class="el" href="structSC_1_1HttpAsyncClient.html" title="Asynchronous HTTP/1.1 client using caller-provided fixed storage.">SC::HttpAsyncClient</a></code> is public library code. Keep it independent from test-only helpers.</li>
@@ -179,7 +179,7 @@ Client-specific notes</h1>
 <li><code>HttpTestClient</code> under <code>Tests/Libraries/Http</code> is the old allocating helper kept only for tests.</li>
 <li>Unsupported features should be rejected explicitly rather than partially supported.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md393"></a>
+<h1><a class="anchor" id="autotoc_md394"></a>
 Validation</h1>
 <p>For HTTP library changes, at minimum:</p>
 <div class="fragment"><div class="line">./SC.sh build compile SCTest Debug</div>

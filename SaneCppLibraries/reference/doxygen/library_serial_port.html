@@ -129,56 +129,56 @@ $(function(){initNavTree('library_serial_port.html',''); initResizable(true); })
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md323">Dependencies</a>
+    <a href="#autotoc_md324">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md324">When SerialPort fits</a>
+    <a href="#autotoc_md325">When SerialPort fits</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md325">A serial port is a configured file descriptor</a>
+    <a href="#autotoc_md326">A serial port is a configured file descriptor</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md326">Settings describe intent, drivers decide what is possible</a>
+        <a href="#autotoc_md327">Settings describe intent, drivers decide what is possible</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md327">Blocking, Async, and ownership boundaries</a>
+    <a href="#autotoc_md328">Blocking, Async, and ownership boundaries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md328">Boundaries and tradeoffs</a>
+    <a href="#autotoc_md329">Boundaries and tradeoffs</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md329">Status</a>
+    <a href="#autotoc_md330">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md330">Testing a real Windows COM pair</a>
+    <a href="#autotoc_md331">Testing a real Windows COM pair</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md331">Blog</a>
+    <a href="#autotoc_md332">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md332">Roadmap</a>
+    <a href="#autotoc_md333">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md333">Statistics</a>
+    <a href="#autotoc_md334">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟨 Synchronous serial-port configuration and byte I/O</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppSerialPort.h">SaneCppSerialPort.h</a> opens and configures native serial devices behind the same owned descriptor abstraction used by the File library.</p>
-<h1><a class="anchor" id="autotoc_md323"></a>
+<h1><a class="anchor" id="autotoc_md324"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <a class="el" href="library_file.html">File</a></li>
 <li>All dependencies: <a class="el" href="library_file.html">File</a></li>
 </ul>
 <p><img src="SerialPort.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md324"></a>
+<h1><a class="anchor" id="autotoc_md325"></a>
 When SerialPort fits</h1>
 <p>Use SerialPort when an application already knows the device path and needs a small, portable layer for opening a serial connection, applying the usual line settings, and exchanging bytes. The library covers baud rate, data bits, parity, stop bits, software or hardware flow control, blocking mode, handle inheritance, and exclusive opening.</p>
 <p>It deliberately does not discover ports, monitor USB hotplug events, frame messages, buffer a protocol, or interpret the bytes. Those policies are device- and application-specific. Code that needs a list of friendly device names, automatic reconnection, modem-control lines, break signalling, or a protocol such as Modbus needs another layer around this one.</p>
-<h1><a class="anchor" id="autotoc_md325"></a>
+<h1><a class="anchor" id="autotoc_md326"></a>
 A serial port is a configured file descriptor</h1>
 <p><a class="el" href="structSC_1_1SerialDescriptor.html" title="Native serial port descriptor with configuration support.">SC::SerialDescriptor</a> derives from <a class="el" href="structSC_1_1FileDescriptor.html" title="[UniqueHandleDeclaration2Snippet]">SC::FileDescriptor</a>. Opening it first opens the native device for reading and writing, then applies SC::SerialOpenOptions::settings. If applying those line settings fails, the newly opened descriptor is closed rather than returned in a partly configured state.</p>
 <p>The descriptor owns the native handle and is move-only through the File library's handle abstraction. Destruction or SC::FileDescriptor::close releases it; moving transfers that responsibility. The path and settings passed to <a class="el" href="structSC_1_1SerialDescriptor.html#a1c381c7077766780e66954364c7227f9" title="Opens a serial port and applies the requested settings.">SC::SerialDescriptor::open</a> are consumed during the call and are not retained. SerialPort does not allocate an I/O buffer: reads fill caller-provided spans, writes borrow caller-provided bytes for the duration of the call, and failures are reported as SC::Result.</p>
@@ -210,37 +210,37 @@ A serial port is a configured file descriptor</h1>
 <div class="line">    SC_TRY(serial.read({rxBuffer, sizeof(rxBuffer)}, rxData));</div>
 <div class="line">    <span class="comment">// rxData is a slice of rxBuffer with the actual received bytes</span></div>
 </div><!-- fragment --><p>The resulting stream has no message boundaries. A successful read reports the slice actually filled and may produce fewer bytes than requested; the caller must accumulate bytes according to its own framing rules. Likewise, a higher-level protocol must decide how to handle partial messages, timeouts, checksums, retries, and reconnects.</p>
-<h2><a class="anchor" id="autotoc_md326"></a>
+<h2><a class="anchor" id="autotoc_md327"></a>
 Settings describe intent, drivers decide what is possible</h2>
 <p><a class="el" href="structSC_1_1SerialSettings.html" title="Serial port settings.">SC::SerialSettings</a> defaults to 9600 baud, 8 data bits, no parity, one stop bit, and no flow control. <code>open</code> applies those defaults unless the caller supplies different options. <a class="el" href="structSC_1_1SerialDescriptor.html#aa2c7c645b72963c19762734a6e45f5c0" title="Reads current settings from an opened serial descriptor.">SC::SerialDescriptor::getSettings</a> reads back the settings the driver exposes, while <a class="el" href="structSC_1_1SerialDescriptor.html#a97637bcc3759773ec894ffd7acde368d" title="Applies settings to an already opened serial descriptor.">SC::SerialDescriptor::setSettings</a> changes an open port without reopening it.</p>
 <p>The portable shape of the settings does not guarantee that every combination works on every adapter or operating system. POSIX builds accept only baud constants available on the target platform, and hardware flow control requires native <code>CRTSCTS</code> support. Windows passes the requested positive baud rate to the communications driver. Drivers can still reject unsupported data-bit, parity, stop-bit, or flow-control combinations. Treat a successful <code>Result</code>—and, when it matters, <code>getSettings</code> readback—as the capability check for the attached device.</p>
 <p>POSIX paths must be absolute native/UTF-8 or ASCII device paths such as <code>/dev/ttyUSB0</code> or <code>/dev/tty.usbserial-*</code>. Windows accepts <code>COMx</code> names and transparently retries them with the <code>\\.\</code> prefix, which also allows higher-numbered COM ports. SerialPort does not choose between similarly named devices or provide stable hardware identity.</p>
-<h1><a class="anchor" id="autotoc_md327"></a>
+<h1><a class="anchor" id="autotoc_md328"></a>
 Blocking, Async, and ownership boundaries</h1>
 <p>SC::SerialOpenOptions::blocking selects the native mode used when the handle is opened. A blocking descriptor is suitable for straightforward synchronous code or a worker thread, but device and driver behavior still controls when reads return. Setting <code>blocking</code> to <code>false</code> prepares the native descriptor for asynchronous use; it does not turn <a class="el" href="structSC_1_1FileDescriptor.html#a7872531dfb1a1f7eddeb1591452f684c" title="Reads bytes at offset into user supplied span.">SC::FileDescriptor::read</a> or <code>write</code> into an event-driven API by itself.</p>
 <p>On Windows, SerialPort installs fixed <code>COMMTIMEOUTS</code>: blocking reads use a 50 ms interval timeout plus a size-dependent total timeout, while non-blocking opens use the native immediate-return pattern. These values are not caller-configurable. On POSIX, raw-mode <code>VMIN</code> and <code>VTIME</code> are both zero, so framing and wait policy still belong above this layer.</p>
 <p>For event-loop integration, open the serial descriptor as non-blocking and pass it to <a class="el" href="structSC_1_1AsyncEventLoop.html#a10f7a7f846c5879a2ad6c66e77e1d56a" title="Associates a previously created File Descriptor with the eventLoop.">SC::AsyncEventLoop::associateExternallyCreatedFileDescriptor</a> from the <a class="el" href="library_async.html">Async</a> library. The descriptor continues to own the handle, so it must remain alive while requests or event-loop registrations can refer to it. SerialPort does not depend on Async; applications that only need synchronous access pay for no event-loop layer.</p>
 <p>The <code>inheritable</code> option controls whether child processes may inherit the native handle. It defaults to false, which is the safer ownership boundary for most applications. On Windows, <code>exclusive</code> disables handle sharing. POSIX currently passes <code>O_EXCL</code> to the device open, which may not enforce serial-port exclusivity on the target OS or driver. Do not treat the option as a portable cross-process locking protocol.</p>
-<h1><a class="anchor" id="autotoc_md328"></a>
+<h1><a class="anchor" id="autotoc_md329"></a>
 Boundaries and tradeoffs</h1>
 <p>SerialPort is intentionally a thin specialization of <a class="el" href="library_file.html">File</a>: configuration lives here, while byte reads, writes, closing, native-handle ownership, and span-based memory behavior come from <a class="el" href="structSC_1_1FileDescriptor.html" title="[UniqueHandleDeclaration2Snippet]">SC::FileDescriptor</a>. This keeps the library small and lets the same descriptor participate in Async, but it also means there is no serial-specific read queue, caller-configurable timeout policy, drain/flush operation, or packet API.</p>
 <p>That boundary is a good fit when the application already has a device protocol and wants direct control over storage and lifetime. It is a poor fit when the desired abstraction is “find this USB product and maintain a reliable framed session”; enumeration, identity, reconnection, buffering, and protocol state must currently be built above the library.</p>
 <p>For the complete API surface and option fields, see the <a class="el" href="group__group__serial__port.html">SerialPort module</a>.</p>
-<h1><a class="anchor" id="autotoc_md329"></a>
+<h1><a class="anchor" id="autotoc_md330"></a>
 Status</h1>
 <p>🟨 MVP The current scope is usable for byte-stream descriptors and core serial settings, with automated pseudo-terminal coverage on POSIX and an optional real <code>com0com</code> loopback test on Windows. Broader adapter and edge-case driver coverage is still needed.</p>
-<h1><a class="anchor" id="autotoc_md330"></a>
+<h1><a class="anchor" id="autotoc_md331"></a>
 Testing a real Windows COM pair</h1>
 <p>The <code>windows com0com open/config/readback</code> section of <code>SerialPortTest</code> can exercise a configured virtual COM pair. Set both <code>SC_TEST_COM0COM_PORT_A</code> and <code>SC_TEST_COM0COM_PORT_B</code> to <code>COMx</code> or <code>\\.\COMx</code> values. With neither variable set, the test reports a skip; a missing partner or malformed value is a configuration failure.</p>
 <p>For example:</p>
 <p><code>SC.bat build run SCTest Debug vs2022 -- --test "SerialPortTest" --test-section "windows com0com open/config/readback"</code></p>
-<h1><a class="anchor" id="autotoc_md331"></a>
+<h1><a class="anchor" id="autotoc_md332"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2026-02-28-SaneCppLibrariesUpdate.html">February 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md332"></a>
+<h1><a class="anchor" id="autotoc_md333"></a>
 Roadmap</h1>
 <p>🟩 Usable</p><ul>
 <li>Validate against more USB-to-serial adapters and edge-case drivers.</li>
@@ -251,7 +251,7 @@ Roadmap</h1>
 <p>💡 Unplanned Features:</p><ul>
 <li>Port enumeration and hotplug monitoring</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md333"></a>
+<h1><a class="anchor" id="autotoc_md334"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/SerialPort</code>. Single File counts <code>SaneCppSerialPort.h</code>. Standalone counts <code>SaneCppSerialPortStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

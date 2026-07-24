@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"structSC_1_1AsyncEventLoop.html":[18,0,0,9],
 "structSC_1_1AsyncEventLoop.html":[19,0,0,9],
 "structSC_1_1AsyncEventLoop.html#a0b0992bb7989e26939649b23bcfaa897":[18,0,0,9,22],
 "structSC_1_1AsyncEventLoop.html#a0b0992bb7989e26939649b23bcfaa897":[19,0,0,9,22],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "structSC_1_1AsyncLoopWork.html#a468008cb47fddadaf6d19d2803333a70":[18,0,0,23,1],
 "structSC_1_1AsyncLoopWork.html#a468008cb47fddadaf6d19d2803333a70":[19,0,0,23,1],
 "structSC_1_1AsyncLoopWork.html#a62d401bd198c68164a5b97ed57b0d1cd":[18,0,0,23,2],
-"structSC_1_1AsyncLoopWork.html#a62d401bd198c68164a5b97ed57b0d1cd":[19,0,0,23,2],
-"structSC_1_1AsyncLoopWork.html#a91cd2f163203b43e3cf64041cce71ff4":[18,0,0,23,0]
+"structSC_1_1AsyncLoopWork.html#a62d401bd198c68164a5b97ed57b0d1cd":[19,0,0,23,2]
 };

@@ -1,5 +1,6 @@
 var structSC_1_1FiberWorkerPool =
 [
     [ "WakeEventDefinition", "structSC_1_1FiberWorkerPool_1_1WakeEventDefinition.html", null ],
-    [ "parkedWorkerCount", "structSC_1_1FiberWorkerPool.html#abb7d17bbb53fce298d5143c6a0889169", null ]
+    [ "parkedWorkerCount", "structSC_1_1FiberWorkerPool.html#abb7d17bbb53fce298d5143c6a0889169", null ],
+    [ "wakeDiagnostics", "structSC_1_1FiberWorkerPool.html#a8837302a6a18cfce72741534f53b5cdc", null ]
 ];

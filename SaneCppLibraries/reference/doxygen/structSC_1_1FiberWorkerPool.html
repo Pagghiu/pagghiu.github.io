@@ -181,6 +181,9 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>workerCount</b> () 
 <tr class="memitem:abb7d17bbb53fce298d5143c6a0889169" id="r_abb7d17bbb53fce298d5143c6a0889169"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb7d17bbb53fce298d5143c6a0889169">parkedWorkerCount</a> () const</td></tr>
 <tr class="memdesc:abb7d17bbb53fce298d5143c6a0889169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Workers currently blocked in the pool wake wait.  <br /></td></tr>
 <tr class="separator:abb7d17bbb53fce298d5143c6a0889169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8837302a6a18cfce72741534f53b5cdc" id="r_a8837302a6a18cfce72741534f53b5cdc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8837302a6a18cfce72741534f53b5cdc">wakeDiagnostics</a> (<a class="el" href="structSC_1_1FiberWorkerPoolWakeDiagnostics.html">FiberWorkerPoolWakeDiagnostics</a> &amp;outDiagnostics) const</td></tr>
+<tr class="memdesc:a8837302a6a18cfce72741534f53b5cdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns wake diagnostics for the current or most recently joined run.  <br /></td></tr>
+<tr class="separator:a8837302a6a18cfce72741534f53b5cdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -218,6 +221,25 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>FiberWorkerThread</
 </div><div class="memdoc">
 
 <p>Workers currently blocked in the pool wake wait. </p>
+
+</div>
+</div>
+<a id="a8837302a6a18cfce72741534f53b5cdc" name="a8837302a6a18cfce72741534f53b5cdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8837302a6a18cfce72741534f53b5cdc">&#9670;&#160;</a></span>wakeDiagnostics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SC::FiberWorkerPool::wakeDiagnostics </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSC_1_1FiberWorkerPoolWakeDiagnostics.html">FiberWorkerPoolWakeDiagnostics</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>outDiagnostics</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns wake diagnostics for the current or most recently joined run. </p>
 
 </div>
 </div>

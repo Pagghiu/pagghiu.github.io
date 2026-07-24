@@ -142,12 +142,12 @@ var NAVTREE =
       [ "Know the boundary", "page_tools.html#autotoc_md85", null ]
     ] ],
     [ "HTTP Library Notes", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html", [
-      [ "Architecture Overview", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md388", null ],
-      [ "Core constraints", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md389", null ],
-      [ "Hot paths", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md390", null ],
-      [ "Benchmark workflow", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md391", null ],
-      [ "Client-specific notes", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md392", null ],
-      [ "Validation", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md393", null ]
+      [ "Architecture Overview", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md389", null ],
+      [ "Core constraints", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md390", null ],
+      [ "Hot paths", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md391", null ],
+      [ "Benchmark workflow", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md392", null ],
+      [ "Client-specific notes", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md393", null ],
+      [ "Validation", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md394", null ]
     ] ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
@@ -182,15 +182,16 @@ var NAVTREEINDEX =
 [
 "ArenaMapKey_8h_source.html",
 "group__group__strings.html#ga4b7aa03fde5e693b29c03a9991208574",
-"library_serial_port.html#autotoc_md323",
+"library_serial_port.html",
 "structSC_1_1AsyncEventLoop.html",
 "structSC_1_1AsyncLoopWork.html#a91cd2f163203b43e3cf64041cce71ff4",
 "structSC_1_1AsyncSocketReceiveFrom.html#a2d427d0658bdfe2739cff3abff6c457e",
 "structSC_1_1FiberAsyncCommand.html",
-"structSC_1_1FileSystemStat.html#a79607eee61d62818f28a84cf34ddae68",
-"structSC_1_1HttpConnectionsPool.html#a1b9c66b7f3c9f53ba91bd1c1ceadf20f",
-"structSC_1_1PluginDefinition.html#abe93d715ea50e732a78fad3b63997b6a",
-"structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372a595ca5020910b720cd0914ea3eff62be"
+"structSC_1_1FileSystemCopyFlags.html#a05995644e6811c1569619244c9f37557",
+"structSC_1_1HttpClientRequestTimeoutOptions.html",
+"structSC_1_1Path_1_1ParsedView.html#ae3e55f6ab4e5013a3b13cca1428084f0",
+"structSC_1_1String.html#a3cc851224b4fe91531fd4a550d59318c",
+"structSC_1_1VirtualMemory.html#a5c16ede5a54006df73d517d024e1a21d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

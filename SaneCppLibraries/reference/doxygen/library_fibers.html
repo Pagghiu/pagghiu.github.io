@@ -141,45 +141,49 @@ $(function(){initNavTree('library_fibers.html',''); initResizable(true); });
     <a href="#autotoc_md158">A Representative CPU Workload</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md159">Capacity Is Part of Control Flow</a>
+    <a href="#autotoc_md159">Stackless Jobs</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md160">Adding Worker Threads</a>
+    <a href="#autotoc_md160">Capacity Is Part of Control Flow</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md161">Choosing Task and Stack Storage</a>
+    <a href="#autotoc_md161">Adding Worker Threads</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md162">Stack Class Sizing</a>
+    <a href="#autotoc_md162">Choosing Task and Stack Storage</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md163">Waiting, Coordination, and Cancellation</a>
+    <a href="#autotoc_md163">Stack Class Sizing</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md164">Lifetime and Thread-Local State</a>
+    <a href="#autotoc_md164">Waiting, Coordination, and Cancellation</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md165">Allocation Policy</a>
+    <a href="#autotoc_md165">Lifetime and Thread-Local State</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md166">Relationship to Neighboring Libraries</a>
+    <a href="#autotoc_md166">Allocation Policy</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md167">API Reference</a>
+    <a href="#autotoc_md167">Relationship to Neighboring Libraries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md168">Further Examples</a>
+    <a href="#autotoc_md168">API Reference</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md169">Status</a>
+    <a href="#autotoc_md169">Further Examples</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md170">Statistics</a>
+    <a href="#autotoc_md170">Status</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md171">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟥 Stackful cooperative task runtime</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppFibers.h">SaneCppFibers.h</a> is an experimental stackful task runtime: code can suspend from an ordinary nested call stack without blocking the OS thread that runs it. Tasks, stacks, workers, and bounded queues remain explicit program-owned resources.</p>
+<p>For CPU work that never suspends, the library also includes an early <code>FiberJob</code> prototype. Jobs are stackless, run-to-completion records with a separately bounded scheduler, so they do not pay for fiber stacks or weaken the stackful scheduling contract.</p>
 <dl class="section warning"><dt>Warning</dt><dd>The library is a draft. The implementation has broad test coverage, including multi-worker execution, but its API and operational experience are not yet mature enough to treat it as a stable general-purpose job system.</dd></dl>
 <h1><a class="anchor" id="autotoc_md155"></a>
 Dependencies</h1>
@@ -254,10 +258,32 @@ A Representative CPU Workload</h1>
 <div class="line">    <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
 </div><!-- fragment --><p>This is still ordinary C++ control flow. The call to <code>yield()</code> cooperatively gives another ready fiber a chance to run, but no OS thread is blocked waiting for preemption.</p>
 <h1><a class="anchor" id="autotoc_md159"></a>
+Stackless Jobs</h1>
+<p><code>FiberJob</code> is for small CPU callbacks that never yield or wait. The first Draft scheduler is intentionally single-thread-driven: the caller supplies fixed ready-queue storage and explicitly runs it. Job failures remain on the completed job, while <code>run()</code> reports scheduler failures.</p>
+<div class="fragment"><div class="line">FiberJobScheduler jobScheduler;</div>
+<div class="line">FiberJob*         readyStorage[32] = {};</div>
+<div class="line">FiberJob          jobs[32];</div>
+<div class="line"> </div>
+<div class="line">SC_TRY(jobScheduler.create(readyStorage));</div>
+<div class="line"><span class="keywordflow">for</span> (FiberJob&amp; job : jobs)</div>
+<div class="line">{</div>
+<div class="line">    SC_TRY(jobScheduler.spawn(</div>
+<div class="line">        job, FiberJob::Procedure([](FiberJobContext&amp; context)</div>
+<div class="line">                                 {</div>
+<div class="line">                                     SC_TRY(context.checkCancellation());</div>
+<div class="line">                                     return Result(true);</div>
+<div class="line">                                 })));</div>
+<div class="line">}</div>
+<div class="line">SC_TRY(jobScheduler.run());</div>
+<div class="line">SC_TRY(jobScheduler.close());</div>
+</div><!-- fragment --><p>The queue never allocates or grows. <code>spawn()</code> reports capacity exhaustion, and a running job may submit children only while a slot is available. <code>FiberJobContext</code> intentionally has no <code>yield()</code> or fiber synchronization API. Parallel job workers, groups, allocator-backed classes, and help-while-full fan-out remain future Draft work; use <code>FiberTask</code> whenever the callback must suspend or call <code>FibersAsync</code>.</p>
+<p><code>FiberJobPool</code> provides O(1) acquisition from a fixed <code>Span&lt;FiberJob&gt;</code>. A completed job remains retained until the caller has inspected <code>result()</code> and calls <code>release()</code>. This makes result lifetime and backpressure explicit: failed scheduler publication immediately returns the attempted record, while unreleased completed records continue to count against pool capacity. For allocator-backed storage, create a <code>FiberJobClass</code> with an explicit <code>FiberAllocator</code> and bind the pool with <code>pool.create(jobClass)</code>. The class owns only stable record storage; the pool contract stays the same.</p>
+<p><code>FiberJobGroup</code> submits one bounded wave through a pool, drives its scheduler with <code>run()</code>, and retains every job result for <code>countErrors()</code> or caller-provided <code>collectErrors()</code> storage. Call <code>reset()</code> after inspection to return all records to their originating pools. A group never allocates and cannot start another completed wave before reset.</p>
+<h1><a class="anchor" id="autotoc_md160"></a>
 Capacity Is Part of Control Flow</h1>
 <p>When producing more work than the pool can hold at once, capacity pressure is explicit. From inside a fiber, <code>waitForSpawnCapacity()</code> suspends cooperatively until at least one pool slot is available.</p>
 <p>Capacity is observable through <code>hasAvailableTask()</code> and <code>availableCount()</code>. <code>waitForSpawnCapacity()</code> cooperatively suspends a producing fiber until a slot becomes available; an external producer must instead drive or coordinate with the scheduler. There is no unbounded overflow queue hidden behind <code>spawn()</code>.</p>
-<h1><a class="anchor" id="autotoc_md160"></a>
+<h1><a class="anchor" id="autotoc_md161"></a>
 Adding Worker Threads</h1>
 <p><code>FiberWorkerPool</code> runs one <code>FiberScheduler</code> on caller-provided OS thread storage. Workers can steal ready fibers from each other, and optional allocator-backed worker deques avoid placing worker queue storage on the heap.</p>
 <div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> NumWorkers = 4;</div>
@@ -284,8 +310,10 @@ Adding Worker Threads</h1>
 <div class="line">SC_TRY(workerPool.join());</div>
 <div class="line">SC_TRY(allocator.close());</div>
 </div><!-- fragment --><p>The worker pool owns OS threads while running, but the memory for workers, thread handles, deques, tasks, and stacks is still selected by the caller. <code>join()</code> waits for scheduled work and worker shutdown; lifecycle ordering is therefore part of application shutdown rather than destructor magic. If <code>start()</code> fails after creating allocator-backed queues, it releases every partial queue allocation and leaves the pool, scheduler, worker/thread storage, and allocator reusable.</p>
-<p>The optional injection queue is the bounded entry point for tasks submitted from external threads and for cross-worker wakeups. A new <code>spawn()</code> reports an error if that queue is full. A fiber that is already active never fails merely because the queue is full: its wakeup uses the scheduler's intrusive spill path, and workers prioritize that spill so existing work continues to make progress. <code>FiberSchedulerDiagnostics</code> exposes the configured capacity, current and peak occupancy, in-progress publications, spill count, and injection-control contention separately from scheduler coordination; peak and spill values remain available after <code>join()</code>. Ordinary counter-free external spawns publish through a slot-sequenced bounded queue, so producers and workers do not serialize on queue indices. Injection control remains only around the pre-claim cancellation registry. Fixed allocator budgets should include <code>injectionCapacity * FiberInjectionSlotStorageSize</code> bytes in addition to worker deque storage and allocator alignment. Configured pools with peer workers transfer a bounded injection backlog into local stealable deques in larger batches than the latency-sensitive spill path. Workers claim these slot-sequenced batches without taking the scheduler-global ready lock; per-task injection control still transfers cancellation-registry ownership safely. The intrusive spill path retains scheduler coordination. <code>injectionClaimBatchPeak</code> exposes the observed transfer size for tuning and regression analysis.</p>
-<h1><a class="anchor" id="autotoc_md161"></a>
+<p>The optional injection queue is the bounded entry point for tasks submitted from external threads and for cross-worker wakeups. A new <code>spawn()</code> reports an error if that queue is full. A fiber that is already active never fails merely because the queue is full: its wakeup uses the scheduler's intrusive spill path, and workers prioritize that spill so existing work continues to make progress. <code>FiberSchedulerDiagnostics</code> exposes the configured capacity, current and peak occupancy, in-progress publications, spill count, and injection-control contention separately from scheduler coordination; peak and spill values remain available after <code>join()</code>. Ordinary counter-free external spawns publish through a slot-sequenced bounded queue, so producers and workers do not serialize on queue indices. Injection control remains only around the pre-claim cancellation registry. Fixed allocator budgets should include <code>injectionCapacity * FiberInjectionSlotStorageSize</code> bytes in addition to worker deque storage and allocator alignment.</p>
+<p><code>FiberTaskPool::waitForAvailableTask()</code> provides one-slot backpressure. Producers that refill in batches can instead call <code>waitForAvailableTasks(scheduler, minimumAvailable)</code> to suspend until that many task/stack pairs are reusable, reducing wake/resuspend churn without allocating. The minimum must be between one and the pool capacity. Multiple waiters remain FIFO, so a larger threshold at the head preserves arrival order rather than allowing a later smaller request to bypass it. Cancellation removes a waiting fiber through the same cooperative waiter path.</p>
+<p>Configured pools with peer workers transfer a bounded injection backlog into local stealable deques in larger batches than the latency-sensitive spill path. Workers claim these slot-sequenced batches without taking the scheduler-global ready lock; per-task injection control still transfers cancellation-registry ownership safely. The intrusive spill path retains scheduler coordination. <code>injectionClaimBatchPeak</code> exposes the observed transfer size for tuning and regression analysis.</p>
+<h1><a class="anchor" id="autotoc_md162"></a>
 Choosing Task and Stack Storage</h1>
 <p>For small fixed workloads, <code>FiberTaskPool(Span&lt;FiberTask&gt;, Span&lt;char&gt;, stackSize)</code> partitions one buffer into stack slots. Every slot reserves its entire stack in physical memory, which is simple but can become expensive at high capacities. Stack size is a hard correctness limit, not just a performance knob; overflowing it is not recoverable.</p>
 <p>For larger systems, the draft API also has reusable allocator-backed task records and virtual-memory-backed stack slots:</p>
@@ -310,11 +338,11 @@ Choosing Task and Stack Storage</h1>
 <div class="line">FiberTaskPool pool;</div>
 <div class="line">SC_TRY(pool.create(taskClass, stackClass));</div>
 </div><!-- fragment --><p><code>FiberStackClass</code> reserves fixed-size virtual slots, optionally with guard pages, and reports committed and high-water usage. <code>FiberTaskClass</code> bounds reusable task records. Both must outlive every slot acquired from them, and close-time validation rejects live allocations or task/stack slots. A class-backed <code>FiberTaskPool::spawn()</code> owns both a task and a stack or neither: failed stack acquisition or scheduler publication returns every acquired slot, clears a provided <code>outTask</code>, and leaves the pool reusable.</p>
-<h1><a class="anchor" id="autotoc_md162"></a>
+<h1><a class="anchor" id="autotoc_md163"></a>
 Stack Class Sizing</h1>
 <p><code>FiberStackSize</code> names common requested sizes for virtual stacks: <code>FourKiB</code>, <code>EightKiB</code>, <code>ThirtyTwoKiB</code>, and <code>SixtyFourKiB</code>. These are inputs to <code>FiberVirtualStackOptions</code> and <code>FiberStackClassOptions</code>, not runtime-selected profiles. The OS rounds requested stack and guard sizes to its page size, so <code>FiberStackClassDiagnostics</code> is the source of truth for actual reservation and committed bytes.</p>
 <p>Use 4 KiB or 8 KiB only for shallow, measured procedures. 32 KiB is a reasonable starting point for dense cooperative workloads, while 64 KiB remains the conservative default. Stack requirements include ordinary nested calls, C++ temporaries, and any library work below a suspension point. Measure high-water use with <code>fillHighWaterMarks()</code> before reducing a production stack class, and retain enough margin for platform and build-mode variation.</p>
-<h1><a class="anchor" id="autotoc_md163"></a>
+<h1><a class="anchor" id="autotoc_md164"></a>
 Waiting, Coordination, and Cancellation</h1>
 <p>Fiber primitives suspend the current fiber instead of blocking the OS thread:</p>
 <ul>
@@ -346,7 +374,7 @@ Waiting, Coordination, and Cancellation</h1>
 <div class="line">SC_TRY(pool.spawn(scheduler, makeCancellableJob(), options));</div>
 <div class="line">SC_TRY(scheduler.requestCancel(cancelSource));</div>
 </div><!-- fragment --><p>Tasks should still return plain <code>Result</code>; there is no exception dependency and no hidden cancellation object allocation. Cancellation cannot interrupt arbitrary computation: task code must reach a cancellation-aware wait or explicitly check its token.</p>
-<h1><a class="anchor" id="autotoc_md164"></a>
+<h1><a class="anchor" id="autotoc_md165"></a>
 Lifetime and Thread-Local State</h1>
 <p><code>FiberTask</code> execution is not pinned to the OS thread that first started the task. A task may yield, become ready again, and later resume on a different worker thread, for example after work stealing or when another thread drives the same <code>FiberScheduler</code>.</p>
 <p>Do not use C++ <code>thread_local</code> variables or platform TLS to store logical fiber task state. Those values belong to the current OS thread, not to the fiber, so a resumed task may observe a different value than it wrote before suspension. Use explicit task state instead, such as captured state in the task procedure, caller-owned objects, or <code>FiberTask::userData()</code>.</p>
@@ -354,7 +382,8 @@ Lifetime and Thread-Local State</h1>
 <p>Cancellation tokens borrow their <code>FiberCancellationTokenSource</code>; the source must outlive every token and every task spawned with one. Treat <code>FiberCancellationTokenSource::reset()</code> as a between-wave lifecycle operation after all prior token users have completed, not as a way to revoke cancellation from active work.</p>
 <p><code>FiberScheduler</code> serializes task publication, cancellation, and wake operations used by external producers. A fixed span-backed <code>FiberTaskPool</code> does not serialize its slot scan or <code>nextTask</code> cursor, so calls that acquire/spawn pool slots must come from one producer or be externally serialized; task execution and completion may still happen on many workers. Class acquire/release operations have their own internal serialization. Reserve/create/close/release and worker-pool start/join are quiescent lifecycle operations; <code>FiberWorkerPool::requestStop()</code> is the cross-thread stop signal.</p>
 <p><code>FiberScheduler::shutdown()</code> is a reusable cancellation drain, not a permanent close. It requests cancellation for the currently active tasks and drives them back to completion. Calling it again with no active work succeeds, and new tasks may be spawned afterward. A worker pool has a separate lifecycle: <code>requestStop()</code> wakes its workers and <code>join()</code> must finish before worker, thread, deque, or injection storage is reused or destroyed.</p>
-<h1><a class="anchor" id="autotoc_md165"></a>
+<p>Normal ready publication logically requests one worker wake. The pool coalesces redundant operating-system signals while an earlier signal is still pending, and skips the condition-variable mutex entirely when no worker has published park intent. Every publication still atomically advances the wake generation so publication racing with parking cannot be lost. Shutdown and the transition to no active fibers remain wake-all operations. Use <code>FiberWorkerPool::wakeDiagnostics()</code> to compare logical <code>wakeNotifications</code> with the individual <code>wakeSignals</code> that remain after coalescing; broadcasts are included only in <code>wakeNotifications</code>.</p>
+<h1><a class="anchor" id="autotoc_md166"></a>
 Allocation Policy</h1>
 <p><code>Fibers</code> follows the Sane C++ allocation rules:</p>
 <ul>
@@ -366,15 +395,15 @@ Allocation Policy</h1>
 <li>close-time validation catches live allocations or live task/stack slots.</li>
 </ul>
 <p>This means the runtime applies backpressure instead of silently growing. Producers provide enough capacity, wait for capacity, or handle setup/allocation failure. <code>FiberAllocator::createMalloc()</code> is an explicit interoperability escape hatch; choosing it gives up the fixed-memory property even though allocation remains visible in configuration and statistics.</p>
-<h1><a class="anchor" id="autotoc_md166"></a>
+<h1><a class="anchor" id="autotoc_md167"></a>
 Relationship to Neighboring Libraries</h1>
 <p><a class="el" href="library_async.html">Async</a> is the low-level callback I/O library. <a class="el" href="library_await.html">Await</a> is a C++20 coroutine wrapper over <code>Async</code>. <code>Fibers</code> is different: it is stackful, does not require C++20 coroutines, and can suspend through ordinary nested function calls because each fiber has an explicit stack.</p>
 <p>I/O integration is intentionally not part of <code>Fibers</code>; it lives in <a class="el" href="library_fibers_async.html">FibersAsync</a>, which depends on both <code>Fibers</code> and <code>Async</code>.</p>
 <p><a class="el" href="library_threading.html">Threading</a> is the lower-level choice when work naturally maps to OS threads or must block in foreign code. Fibers trade a per-task stack and cooperative scheduling discipline for the ability to suspend through ordinary nested functions. Await trades that stack for compiler-generated coroutine frames and requires C++20.</p>
-<h1><a class="anchor" id="autotoc_md167"></a>
-API Reference</h1>
-<p>The complete class and method reference is in <a class="el" href="group__group__fibers.html">the Fibers API group</a>. Start with <a class="el" href="structSC_1_1FiberScheduler.html">FiberScheduler</a>, <a class="el" href="structSC_1_1FiberTaskPool.html">FiberTaskPool</a>, <a class="el" href="structSC_1_1FiberTaskGroup.html">FiberTaskGroup</a>, and <a class="el" href="structSC_1_1FiberWorkerPool.html">FiberWorkerPool</a>. Storage-heavy deployments should also read <a class="el" href="structSC_1_1FiberTaskClass.html">FiberTaskClass</a>, <a class="el" href="structSC_1_1FiberStackClass.html">FiberStackClass</a>, and their diagnostics types.</p>
 <h1><a class="anchor" id="autotoc_md168"></a>
+API Reference</h1>
+<p>The complete class and method reference is in <a class="el" href="group__group__fibers.html">the Fibers API group</a>. Start with <a class="el" href="structSC_1_1FiberScheduler.html">FiberScheduler</a>, <a class="el" href="structSC_1_1FiberTaskPool.html">FiberTaskPool</a>, <a class="el" href="structSC_1_1FiberTaskGroup.html">FiberTaskGroup</a>, <a class="el" href="structSC_1_1FiberWorkerPool.html">FiberWorkerPool</a>, and the stackless <a class="el" href="structSC_1_1FiberJobScheduler.html">FiberJobScheduler</a>. Storage-heavy deployments should also read <a class="el" href="structSC_1_1FiberTaskClass.html">FiberTaskClass</a>, <a class="el" href="structSC_1_1FiberStackClass.html">FiberStackClass</a>, and their diagnostics types.</p>
+<h1><a class="anchor" id="autotoc_md169"></a>
 Further Examples</h1>
 <ul>
 <li><code>Examples/FibersDemo</code> shows a tiny CPU fiber workload, <code>FibersAsync</code> sleeps, and worker-pool I/O.</li>
@@ -382,7 +411,7 @@ Further Examples</h1>
 <li><code>Examples/FibersSkynetBenchmark</code> is enabled after <code>./SC.sh package install taskflow-benchmarks</code> and compares the stackful scheduler with Taskflow's pinned upstream Skynet backend. Its current depth limit is explicit because each live <code>FiberTask</code> owns a fixed stack; the future stackless <code>FiberJob</code> backend is the intended million-leaf comparison.</li>
 <li><code>Tests/Libraries/Fibers/FibersTest.cpp</code> is the best source of focused examples for cancellation, primitives, task pools, worker pools, work stealing, diagnostics, virtual stacks, and allocator-backed storage.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md169"></a>
+<h1><a class="anchor" id="autotoc_md170"></a>
 Status</h1>
 <p>🟥 Draft</p>
 <p>This Draft does not promise binary compatibility. The stabilization candidate changes public caller-sized layouts, including task and spawn metadata, so binary consumers must recompile against the matching headers. No compatibility shim is provided or required while the library remains Draft.</p>
@@ -392,6 +421,9 @@ Status</h1>
 <li>virtual stack reservation and fixed-size <code>FiberStackClass</code> pools;</li>
 <li>internal context creation and switching on macOS, Linux, and Windows for supported 64-bit architectures;</li>
 <li>caller-owned <code>FiberTask</code> objects and allocator-backed <code>FiberTaskClass</code> storage;</li>
+<li>caller-owned stackless <code>FiberJob</code> records with a fixed-capacity, single-thread-driven scheduler prototype;</li>
+<li>fixed-storage or allocator-backed <code>FiberJobPool</code> reuse with explicit completed-result retention and release;</li>
+<li>bounded <code>FiberJobGroup</code> waves with cancellation, aggregate errors, and explicit pooled-record reset;</li>
 <li>fixed-storage and class-backed <code>FiberTaskPool</code>;</li>
 <li>single-threaded <code>FiberScheduler</code> spawn, run, yield, and no-progress detection;</li>
 <li>worker-pool execution with work stealing and optional allocator-backed worker deques;</li>
@@ -403,7 +435,7 @@ Status</h1>
 <li>cooperative task cancellation, including waking tasks suspended on counters and primitives;</li>
 <li>focused <code>SCTest</code> coverage for the raw context switch layer, scheduler primitives, worker pools, and storage classes.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md170"></a>
+<h1><a class="anchor" id="autotoc_md171"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Fibers</code>. Single File and Standalone counts are regenerated with the amalgamated library outputs. </p>
 </div></div><!-- contents -->

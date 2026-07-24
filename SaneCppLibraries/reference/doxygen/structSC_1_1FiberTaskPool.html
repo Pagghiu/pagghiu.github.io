@@ -178,6 +178,9 @@ Result&#160;</td><td class="memItemRight" valign="bottom"><b>waitForSpawnCapacit
 <tr class="memitem:a6052e8b50edd788ca37ad24c1c5b8b00" id="r_a6052e8b50edd788ca37ad24c1c5b8b00"><td class="memItemLeft" align="right" valign="top"><a id="a6052e8b50edd788ca37ad24c1c5b8b00" name="a6052e8b50edd788ca37ad24c1c5b8b00"></a>
 Result&#160;</td><td class="memItemRight" valign="bottom"><b>waitForAvailableTask</b> (<a class="el" href="structSC_1_1FiberScheduler.html">FiberScheduler</a> &amp;scheduler)</td></tr>
 <tr class="separator:a6052e8b50edd788ca37ad24c1c5b8b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a750950e103e88e0b16d1e95ab333f791" id="r_a750950e103e88e0b16d1e95ab333f791"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a750950e103e88e0b16d1e95ab333f791">waitForAvailableTasks</a> (<a class="el" href="structSC_1_1FiberScheduler.html">FiberScheduler</a> &amp;scheduler, size_t minimumAvailable)</td></tr>
+<tr class="memdesc:a750950e103e88e0b16d1e95ab333f791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suspends until at least minimumAvailable task/stack pairs can be acquired.  <br /></td></tr>
+<tr class="separator:a750950e103e88e0b16d1e95ab333f791"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2293973506aa494e8cab140ef031d217" id="r_a2293973506aa494e8cab140ef031d217"><td class="memItemLeft" align="right" valign="top"><a id="a2293973506aa494e8cab140ef031d217" name="a2293973506aa494e8cab140ef031d217"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>stackSizeInBytes</b> () const</td></tr>
 <tr class="separator:a2293973506aa494e8cab140ef031d217"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,6 +203,30 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>FiberTaskGroup</b><
 struct&#160;</td><td class="memItemRight" valign="bottom"><b>FiberScheduler</b></td></tr>
 <tr class="separator:aa22d76ee6ecc09e3492e1577ade858d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a750950e103e88e0b16d1e95ab333f791" name="a750950e103e88e0b16d1e95ab333f791"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a750950e103e88e0b16d1e95ab333f791">&#9670;&#160;</a></span>waitForAvailableTasks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::FiberTaskPool::waitForAvailableTasks </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSC_1_1FiberScheduler.html">FiberScheduler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>scheduler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>minimumAvailable</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Suspends until at least minimumAvailable task/stack pairs can be acquired. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="Fibers_8h_source.html">Fibers.h</a></li>
 </ul>
