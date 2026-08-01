@@ -4,7 +4,14 @@
   <link href="https://pagghiu.github.io/feeds/all.atom.xml" rel="self"/>
   <link href="https://pagghiu.github.io/"/>
   <id>https://pagghiu.github.io/</id>
-  <updated>2026-06-30T00:00:00Z</updated>
+  <updated>2026-07-31T00:00:00Z</updated>
+<entry>
+  <title>☀️ Sane C++ July 26</title>
+  <link href="https://pagghiu.github.io/site/blog/2026-07-31-SaneCppLibrariesUpdate.html"/>
+  <id>https://pagghiu.github.io/site/blog/2026-07-31-SaneCppLibrariesUpdate.html</id>
+  <updated>2026-07-31T00:00:00Z</updated>
+  <summary>Welcome to the July 2026 update! This month introduces Fibers and AsyncFibers, and starts a careful benchmark evaluation of cooperative scheduling, worker pools, and stackless jobs.</summary>
+</entry>
 <entry>
   <title>☀️ Sane C++ June 26</title>
   <link href="https://pagghiu.github.io/site/blog/2026-06-30-SaneCppLibrariesUpdate.html"/>

@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-4dqtj3le> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>☀️ Sane C++ July 26</title><meta name="description" content="Welcome to the July 2026 update! This month introduces Fibers and AsyncFibers, and starts a careful benchmark evaluation of cooperative scheduling, worker pools, and stackless jobs."><meta property="og:title" content="☀️ Sane C++ July 26"><meta property="og:description" content="Welcome to the July 2026 update! This month introduces Fibers and AsyncFibers, and starts a careful benchmark evaluation of cooperative scheduling, worker pools, and stackless jobs."><meta property="og:type" content="website"><meta property="og:url" content="https://pagghiu.github.io/site/blog/2026-07-31-SaneCppLibrariesUpdate.html/"><link rel="canonical" href="https://pagghiu.github.io/site/blog/2026-07-31-SaneCppLibrariesUpdate.html/"><link rel="alternate" type="application/atom+xml" title="Sane Coding Blog" href="/feeds/all.atom.xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"><script type="module">(()=>{const e=localStorage.getItem("sc-theme"),t=e==="light"||e==="dark"?e:"dark";document.documentElement.dataset.theme=t})();</script><link rel="stylesheet" href="/_astro/index.CIXfjxd1.css">
+<style>.blog-post[data-astro-cid-r6jj2a6h]{min-width:0}.blog-post[data-astro-cid-r6jj2a6h] header[data-astro-cid-r6jj2a6h]{margin-bottom:2rem}time[data-astro-cid-r6jj2a6h]{display:block;margin-bottom:.65rem;color:color-mix(in srgb,var(--accent-cool) 70%,var(--muted));font-size:.82rem;font-weight:850;text-transform:uppercase}h1[data-astro-cid-r6jj2a6h]{margin:0 0 1.2rem;color:var(--text);font-size:clamp(2.7rem,7vw,4.6rem);line-height:1}header[data-astro-cid-r6jj2a6h] p[data-astro-cid-r6jj2a6h]{margin:1.4rem 0 0;color:var(--muted-strong);font-size:1.16rem;line-height:1.75}.post-hero-image[data-astro-cid-r6jj2a6h]{display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:2.45 / 1;margin:0;overflow:hidden;border-radius:8px;border:1px solid var(--border-strong);background:var(--surface-strong)}.post-hero-image[data-astro-cid-r6jj2a6h] img[data-astro-cid-r6jj2a6h]{width:100%;height:100%;object-fit:contain}.blog-prose[data-astro-cid-r6jj2a6h]{color:var(--muted-strong)}.blog-prose[data-astro-cid-r6jj2a6h] img{max-height:72vh;object-fit:contain;border-radius:8px;margin:1.5rem auto}.blog-prose[data-astro-cid-r6jj2a6h] a{color:var(--link)}.blog-prose[data-astro-cid-r6jj2a6h] h1[id],.blog-prose[data-astro-cid-r6jj2a6h] h2[id],.blog-prose[data-astro-cid-r6jj2a6h] h3[id]{scroll-margin-top:6rem}@media(max-width:720px){h1[data-astro-cid-r6jj2a6h]{font-size:clamp(2.2rem,12vw,3.1rem)}.post-hero-image[data-astro-cid-r6jj2a6h]{aspect-ratio:2.45 / 1}}
+.blog-body{color:var(--text);background:var(--bg);overflow-x:hidden}.blog-body:before{display:none}.blog-header[data-astro-cid-4dqtj3le]{border-bottom:1px solid var(--header-border);background:var(--header-bg);backdrop-filter:blur(18px);position:sticky;top:0;z-index:10}.blog-nav[data-astro-cid-4dqtj3le]{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:1.4rem}.blog-brand[data-astro-cid-4dqtj3le]{display:grid;grid-template-columns:46px minmax(0,1fr);align-items:center;column-gap:.9rem}.blog-brand[data-astro-cid-4dqtj3le] img[data-astro-cid-4dqtj3le]{grid-row:1 / span 2;border-radius:0}.blog-brand[data-astro-cid-4dqtj3le] strong[data-astro-cid-4dqtj3le],.blog-brand[data-astro-cid-4dqtj3le] span[data-astro-cid-4dqtj3le]{display:block}.blog-brand[data-astro-cid-4dqtj3le] strong[data-astro-cid-4dqtj3le]{font-size:1.05rem}.blog-brand[data-astro-cid-4dqtj3le] span[data-astro-cid-4dqtj3le]{color:var(--muted);font-size:.9rem;margin-top:.12rem}.blog-main[data-astro-cid-4dqtj3le]{padding-top:2rem}.blog-frame[data-astro-cid-4dqtj3le]{width:min(calc(100% - 2rem),1440px);margin:0 auto;display:grid;grid-template-columns:minmax(13rem,16rem) minmax(0,820px);justify-content:center;gap:2.2rem;min-width:0;max-width:100%}.blog-main[data-astro-cid-4dqtj3le].has-toc .blog-frame[data-astro-cid-4dqtj3le]{grid-template-columns:minmax(13rem,16rem) minmax(0,820px) minmax(12rem,15rem)}.blog-main[data-astro-cid-4dqtj3le]:not(.has-blog-sidebar) .blog-frame[data-astro-cid-4dqtj3le]{grid-template-columns:minmax(0,900px)}.blog-content[data-astro-cid-4dqtj3le]{min-width:0;max-width:100%}.blog-sidebar[data-astro-cid-4dqtj3le],.blog-toc[data-astro-cid-4dqtj3le]{position:sticky;top:calc(64px + 2rem);align-self:start;max-height:calc(100vh - 6rem);overflow:auto;color:var(--muted)}.blog-sidebar[data-astro-cid-4dqtj3le] nav[data-astro-cid-4dqtj3le],.blog-toc[data-astro-cid-4dqtj3le] nav[data-astro-cid-4dqtj3le]{display:grid;gap:.25rem}.blog-sidebar[data-astro-cid-4dqtj3le] strong[data-astro-cid-4dqtj3le],.blog-toc[data-astro-cid-4dqtj3le] strong[data-astro-cid-4dqtj3le]{display:block;margin:0 0 .65rem;color:var(--muted-strong);font-size:.9rem}.blog-sidebar[data-astro-cid-4dqtj3le] strong[data-astro-cid-4dqtj3le]:not(:first-child){margin-top:1.6rem}.sidebar-link[data-astro-cid-4dqtj3le],.blog-toc[data-astro-cid-4dqtj3le] a[data-astro-cid-4dqtj3le]{border-left:2px solid transparent;padding:.36rem 0 .36rem .9rem;color:var(--muted);line-height:1.35;font-weight:650}.sidebar-link[data-astro-cid-4dqtj3le]:hover,.sidebar-link[data-astro-cid-4dqtj3le].active,.blog-toc[data-astro-cid-4dqtj3le] a[data-astro-cid-4dqtj3le]:hover{border-left-color:var(--link);color:var(--link)}.project-link[data-astro-cid-4dqtj3le]{margin-bottom:.35rem}.blog-actions[data-astro-cid-4dqtj3le],.blog-nav[data-astro-cid-4dqtj3le] nav[data-astro-cid-4dqtj3le]{display:flex;align-items:center}.blog-actions[data-astro-cid-4dqtj3le]{gap:.75rem}.blog-nav[data-astro-cid-4dqtj3le] nav[data-astro-cid-4dqtj3le]{gap:1rem;font-weight:750;color:var(--muted-strong)}.blog-footer[data-astro-cid-4dqtj3le]{margin-top:4rem;border-top:1px solid var(--border);padding:2rem 0;color:var(--muted)}.blog-footer[data-astro-cid-4dqtj3le] .shell[data-astro-cid-4dqtj3le]{display:flex;justify-content:space-between;gap:1rem}@media(max-width:720px){.blog-main[data-astro-cid-4dqtj3le]{padding-top:1.4rem}.blog-frame[data-astro-cid-4dqtj3le],.blog-main[data-astro-cid-4dqtj3le].has-toc .blog-frame[data-astro-cid-4dqtj3le]{grid-template-columns:1fr}.blog-sidebar[data-astro-cid-4dqtj3le],.blog-toc[data-astro-cid-4dqtj3le]{display:none}.blog-nav[data-astro-cid-4dqtj3le],.blog-actions[data-astro-cid-4dqtj3le],.blog-footer[data-astro-cid-4dqtj3le] .shell[data-astro-cid-4dqtj3le]{align-items:flex-start;flex-direction:column}.blog-nav[data-astro-cid-4dqtj3le] nav[data-astro-cid-4dqtj3le]{flex-wrap:wrap}.blog-brand[data-astro-cid-4dqtj3le]{grid-template-columns:minmax(0,1fr)}.blog-brand[data-astro-cid-4dqtj3le] img[data-astro-cid-4dqtj3le]{display:none}}
+</style></head> <body class="blog-body" data-astro-cid-4dqtj3le> <header class="blog-header" data-astro-cid-4dqtj3le> <div class="shell blog-nav" data-astro-cid-4dqtj3le> <a class="blog-brand" href="/" data-astro-cid-4dqtj3le> <img src="/images/favicon.png" alt="" width="46" height="46" data-astro-cid-4dqtj3le> <strong data-astro-cid-4dqtj3le>Sane Coding Blog</strong> <span data-astro-cid-4dqtj3le>Notes on Sane C++ Libraries and practical systems work.</span> </a> <div class="blog-actions" data-astro-cid-4dqtj3le> <nav aria-label="Primary" data-astro-cid-4dqtj3le> <a href="/" data-astro-cid-4dqtj3le>Blog</a> <a href="/SaneCppLibraries/" data-astro-cid-4dqtj3le>Sane C++ Libraries</a> <a href="https://github.com/Pagghiu" data-astro-cid-4dqtj3le>GitHub</a> </nav> <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme" data-astro-cid-x3pjskd3> <span class="theme-icon" aria-hidden="true" data-astro-cid-x3pjskd3>◐</span> <span class="theme-label" data-astro-cid-x3pjskd3>Theme</span> </button> <script>
+  const themeStorageKey = "sc-theme";
+
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    const button = document.querySelector("[data-theme-toggle]");
+    const label = button?.querySelector(".theme-label");
+    const icon = button?.querySelector(".theme-icon");
+    if (label) {
+      label.textContent = theme === "light" ? "Light" : "Dark";
+    }
+    if (icon) {
+      icon.textContent = theme === "light" ? "☀" : "☾";
+    }
+  }
+
+  function getInitialTheme() {
+    const saved = localStorage.getItem(themeStorageKey);
+    if (saved === "light" || saved === "dark") return saved;
+    return "dark";
+  }
+
+  applyTheme(getInitialTheme());
+
+  document.querySelector("[data-theme-toggle]")?.addEventListener("click", () => {
+    const current = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+    const next = current === "light" ? "dark" : "light";
+    localStorage.setItem(themeStorageKey, next);
+    applyTheme(next);
+  });
+</script>  </div> </div> </header> <main class="blog-main has-blog-sidebar has-toc" data-astro-cid-4dqtj3le> <div class="blog-frame" data-astro-cid-4dqtj3le> <aside class="blog-sidebar" aria-label="Blog navigation" data-astro-cid-4dqtj3le> <nav data-astro-cid-4dqtj3le> <strong data-astro-cid-4dqtj3le>Projects</strong> <a class="sidebar-link project-link" href="/SaneCppLibraries/" data-astro-cid-4dqtj3le>Sane C++ Libraries</a> <strong data-astro-cid-4dqtj3le>Blog</strong> <a class="sidebar-link active" href="/site/blog/2026-07-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☀️ Sane C++ July 26 </a><a class="sidebar-link" href="/site/blog/2026-06-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☀️ Sane C++ June 26 </a><a class="sidebar-link" href="/site/blog/2026-05-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌸 Sane C++ May 26 </a><a class="sidebar-link" href="/site/blog/2026-04-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌷 Sane C++ April 26 </a><a class="sidebar-link" href="/site/blog/2026-03-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☔️ Sane C++ March 26 </a><a class="sidebar-link" href="/site/blog/2026-02-28-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🔌 Sane C++ February 26 </a><a class="sidebar-link" href="/site/blog/2026-01-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ❄️ Sane C++ January 26 </a><a class="sidebar-link" href="/site/blog/2025-12-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌫️ Sane C++ December 25 </a><a class="sidebar-link" href="/site/blog/2025-12-23-SaneCpp2Year.html" data-astro-cid-4dqtj3le> 2️⃣ Years of Sane C++ Libraries </a><a class="sidebar-link" href="/site/blog/2025-11-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌫️ Sane C++ November 25 </a><a class="sidebar-link" href="/site/blog/2025-10-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌧️ Sane C++ October 25 </a><a class="sidebar-link" href="/site/blog/2025-09-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🍂 Sane C++ September 25 </a><a class="sidebar-link" href="/site/blog/2025-08-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌊 Sane C++ August 25 </a><a class="sidebar-link" href="/site/blog/2025-07-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🏖️ Sane C++ July 25 </a><a class="sidebar-link" href="/site/blog/2025-06-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☀️ Sane C++ June 25 </a><a class="sidebar-link" href="/site/blog/2025-05-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌸 Sane C++ May 25 </a><a class="sidebar-link" href="/site/blog/2025-04-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 💤 Sane C++ April 25 </a><a class="sidebar-link" href="/site/blog/2025-03-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☔️ Sane C++ March 25 </a><a class="sidebar-link" href="/site/blog/2025-02-28-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🎠 Sane C++ February 25 </a><a class="sidebar-link" href="/site/blog/2025-01-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ❄️ Sane C++ January 25 </a><a class="sidebar-link" href="/site/blog/2024-12-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☃️ Sane C++ December 24 </a><a class="sidebar-link" href="/site/blog/2024-12-23-SaneCpp1Year.html" data-astro-cid-4dqtj3le> 1️⃣ Year of Sane C++ </a><a class="sidebar-link" href="/site/blog/2024-11-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌫️ Sane C++ November 24 </a><a class="sidebar-link" href="/site/blog/2024-08-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌊 Sane C++ August 24 </a><a class="sidebar-link" href="/site/blog/2024-07-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🏖️ Sane C++ July 24 </a><a class="sidebar-link" href="/site/blog/2024-06-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☀️ Sane C++ June 24 </a><a class="sidebar-link" href="/site/blog/2024-05-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌸 Sane C++ May 24 </a><a class="sidebar-link" href="/site/blog/2024-04-27-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 💤 Sane C++ April 24 </a><a class="sidebar-link" href="/site/blog/2024-03-27-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☔️ Sane C++ March 24 </a><a class="sidebar-link" href="/site/blog/2024-02-23-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🎠 Sane C++ February 24 </a><a class="sidebar-link" href="/site/blog/2024-01-23-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ❄️ Sane C++ January 24 </a><a class="sidebar-link" href="/site/blog/2023-12-23-SaneCppLibrariesRelease.html" data-astro-cid-4dqtj3le> 🎉 Sane C++ Libraries </a> </nav> </aside> <div class="blog-content" data-astro-cid-4dqtj3le>  <article class="blog-post" data-astro-cid-r6jj2a6h> <header id="section-0" data-astro-cid-r6jj2a6h> <time datetime="2026-07-31" data-astro-cid-r6jj2a6h>2026-07-31</time> <h1 data-astro-cid-r6jj2a6h>☀️ Sane C++ July 26</h1> <figure class="post-hero-image" data-astro-cid-r6jj2a6h> <img src="/images/2026-07-31-SaneCppLibrariesUpdate/article.png" alt="" loading="eager" data-astro-cid-r6jj2a6h> </figure> <p data-astro-cid-r6jj2a6h>Welcome to the July 2026 update! This month introduces Fibers and AsyncFibers, and starts a careful benchmark evaluation of cooperative scheduling, worker pools, and stackless jobs.</p> </header> <div class="prose blog-prose" data-astro-cid-r6jj2a6h><h1 id="fibers">Fibers</h1>
+<p>The biggest new library this month is <a href="https://pagghiu.github.io/SaneCppLibraries/library_fibers.html"><code>Fibers</code></a>.</p>
+<a href="/images/2026-07-31-SaneCppLibrariesUpdate/2026-07-Dependencies.svg" target="_blank">
+<img src="/images/2026-07-31-SaneCppLibrariesUpdate/2026-07-Dependencies.svg" alt="Sane C++ Libraries dependency graph for July 2026">
+</a>
+
+<p>It is a stackful cooperative scheduler for code that wants synchronous-looking control flow without blocking an OS
+thread. A fiber owns a stack, runs ordinary C++ functions, and can suspend at an explicit yield or cooperative wait.
+The scheduler can then run another fiber and return to the original one later.</p>
+<p>The design is deliberately shaped around the usual Sane C++ constraints. Tasks, stacks, pools, and worker storage are
+caller-owned or backed by explicit <code>FiberAllocator</code> storage. Cancellation is cooperative, capacity is visible, and the
+runtime does not need a hidden heap or a second event loop to make progress.</p>
+<p>The first version already has a fair amount of surface area: scheduler, task-pool, worker-pool execution,
+work stealing, task groups, counters, events, semaphores, mutexes, cancellation, diagnostics, and focused tests for
+the context-switch and storage layers. It runs on the supported 64-bit macOS, Linux, and Windows targets, but it is
+still a Draft library and the API will continue to move as the scheduler is exercised by real workloads.</p>
+<p>The architecture notes (ADR) are part of the implementation rather than an afterthought. In particular, they spell out why
+fiber stacks stay explicit, why logical state cannot depend on thread-local storage, and why spawn backpressure is an
+ordinary capacity wait instead of an implicit allocation.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8233a455">Fibers: Add Fibers library</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6c244af1">Fibers: Define stack size classes</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/559a52e7">Fibers: Add bounded scheduler injection</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/91e67f7e">Fibers: Publish task status atomically</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/73a36e73">Fibers: Reclaim tasks through worker registries</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b00700c5">Fibers: Stabilize shutdown and bridge lifetime</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b27ec2a5">Fibers: Enforce runtime call contexts</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/725f4a8f">Fibers: Retain task group results until reset</a></li>
+</ul>
+<h1 id="asyncfibers">AsyncFibers</h1>
+<p>The companion library started the month under the name <code>FibersAsync</code>. It is now called
+<a href="https://pagghiu.github.io/SaneCppLibraries/library_async_fibers.html"><code>AsyncFibers</code></a>, which describes the
+direction more clearly: it is the bridge from <code>Fibers</code> to <code>Async</code>.</p>
+<p><code>AsyncFibers</code> lets a scheduled fiber wait for asynchronous sockets, files, timers, process exits, and other operations
+using ordinary function calls. The bridge does not own another I/O runtime or scheduler. It joins a caller-owned
+<code>AsyncEventLoop</code> to a caller-owned <code>FiberScheduler</code>, suspends the current fiber while an <code>AsyncRequest</code> is pending, and
+wakes that fiber when the completion is ready.</p>
+<p>That makes it useful for code that is easier to write as nested functions than as callbacks or coroutines. It also keeps
+the trade-offs visible: every concurrent fiber needs an explicitly sized stack, the event loop remains owner-thread
+affine, cross-thread commands use bounded caller-provided storage, and operation results are returned through small
+explicit output records.</p>
+<p>This is a different shape from both callback-style <code>Async</code> and C++20 <code>Await</code>. <code>AsyncFibers</code> does not turn arbitrary
+blocking calls into cooperative waits, and it does not add a second hidden loop. It is a focused adapter for applications
+that already want stackful cooperative tasks.</p>
+<p>The rename happened at the end of the month, after the implementation and architecture had settled enough that the
+public name could be corrected without hiding the history.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/51b68282">FibersAsync: Add FibersAsync library</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e9031e8b">AsyncFibers: Rename FibersAsync library</a></li>
+</ul>
+<h1 id="benchmark-evaluation-is-in-progress">Benchmark evaluation is in progress</h1>
+<p>The benchmark evaluation is still in progress, but the first conservative results are encouraging.</p>
+<p>The safest baseline so far is a quiet-machine Release run on an Apple M1 Pro, using macOS 15.7.2 and Apple Clang 17.
+Across five measured runs, one million reusable stackful <code>FiberTask</code> executions completed at a median rate above
+700,000 tasks per second. The same baseline sustained more than 7.7 million cooperative yields per second, scaled
+useful CPU work by 3.7x from one to four workers, and demonstrated 100,000 simultaneously suspended fibers.</p>
+<p>These measurements use bounded, caller-controlled storage without hidden runtime allocation. They are useful numbers,
+but they are measurements of a particular machine and build configuration, not a universal performance promise.</p>
+<p>There is also a sneak peek at the work that followed. More recent optimization runs have crossed one million stackful
+tasks per second, with one validated local checkpoint reaching approximately 1.46 million per second. The new
+stackless <code>FiberJob</code> path has produced multi-million-job-per-second results, and the opt-in Skynet benchmark is making
+the scheduler overhead easier to compare with an established task runtime.</p>
+<p>The benchmark work is also useful as a design tool. It has exposed the cost of worker wake-ups, external task
+injection, stack reservation, and scheduler coordination much more clearly than a single end-to-end timing ever could.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a490bd73">Fibers: Isolate scheduler throughput benchmarks</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3207c65f">Fibers: Stabilize micro-task benchmark samples</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e3fdbbc2">Fibers: Add isolated density benchmark mode</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/66fcde48">Fibers: Add suspended density milestones</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d082d600">Fibers: Report per-worker benchmark diagnostics</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/61ecdb14">Fibers: Measure async stack high water</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/11d74982">Fibers: Add scale-up benchmarks</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3c2376b6">Fibers: Add opt-in Skynet comparison</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5361462b">Fibers: Benchmark concurrent external producers</a></li>
+</ul>
+<h1 id="stackless-jobs-and-scheduler-work">Stackless jobs and scheduler work</h1>
+<p>Once the first stackful benchmarks were stable enough to guide the next experiments, the project started exploring a
+second scheduling shape: stackless <code>FiberJob</code> records.</p>
+<p>Stackful fibers are a good fit when a task needs to suspend through ordinary helper functions. Smaller CPU jobs do not
+always need a private stack, so <code>FiberJob</code> keeps the job record and scheduling storage separate from <code>FiberTask</code>. July
+added bounded job pools, job groups, worker records, work stealing, cancellation, retention rules, and a worker-pool
+path with explicit storage.</p>
+<p>The last part of the month focused on batching. Jobs can be published in contiguous batches, workers can retain their
+state between waves, and local publication can wake a parked peer without broadcasting to every worker. This is still
+active engineering, but the direction is promising: the benchmark becomes a way to test a specific scheduling policy,
+not just a scoreboard.</p>
+<p>The most interesting early result came from the Skynet workload. A four-worker depth-six sample moved from roughly
+137.7 ms to 70.8 ms after the local-batch wake policy was tightened, with later samples around 46-48 ms. Taskflow was
+around 31.8 ms in that particular comparison.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5859a0ed">Fibers: Prototype bounded stackless jobs</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/75f263e0">Fibers: Add bounded job groups</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/86dd1818">Fibers: Baseline pooled job lifecycle</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d4f051d4">Fibers: Add stackless job worker pool</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/60caa73d">Fibers: Add stackless Skynet benchmark</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a1c0571c">Fibers: Add sustained job benchmark</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/63bb3294">Fibers: Publish job batches transactionally</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/151d9205">Fibers: Batch Skynet child jobs</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/ef30a63e">Fibers: Recruit local batch workers gradually</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5c99e5ce">Fibers: Prove parked local batch wake</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/31be11f1">Fibers: Expose Skynet idle spin policy</a></li>
+</ul>
+<h1 id="documentation-and-other-work">Documentation and other work</h1>
+<p>The new libraries also forced the documentation and examples to become more concrete.
+<code>FibersDemo</code> now covers CPU fibers, <code>AsyncFibers</code> sleeps, and worker-pool I/O, while <code>FibersBenchmark</code> and the optional
+Skynet benchmark make the performance experiments reproducible from the repository. The dependency graph copies for
+both libraries are now part of the documentation inputs as well.</p>
+<p>There was a broader documentation pass during the month: the practical guides and examples guide were rewritten, the
+example videos were organized, user integration sizes were explained, and the library pages received styling and
+content improvements.</p>
+<p>On the HTTP side, TLS-related options were removed from the lower-level HTTP surface as the platform boundary becomes
+clearer. </p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4416d6f8">Documentation: Improve library pages</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/720e980b">Documentation: Rewrite practical guides</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/20c18bd7">Documentation: Rewrite examples guide</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d876f37f">Documentation: Explain user integration sizes</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4251a3e8">Documentation: Feature example videos</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f76eed9e">Documentation: Copy Fibers and FibersAsync dependency graph SVG</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/248df387">Http: Remove TLS related options</a></li>
+</ul>
+<p>See you next month!</p>
+</div> </article>  </div> <aside class="blog-toc" aria-label="Article sections" data-astro-cid-4dqtj3le> <strong data-astro-cid-4dqtj3le>Content</strong> <nav data-astro-cid-4dqtj3le> <a href="#section-0" data-astro-cid-4dqtj3le>July Updates</a><a href="#fibers" data-astro-cid-4dqtj3le>Fibers</a><a href="#asyncfibers" data-astro-cid-4dqtj3le>AsyncFibers</a><a href="#benchmark-evaluation-is-in-progress" data-astro-cid-4dqtj3le>Benchmark evaluation is in progress</a><a href="#stackless-jobs-and-scheduler-work" data-astro-cid-4dqtj3le>Stackless jobs and scheduler work</a><a href="#documentation-and-other-work" data-astro-cid-4dqtj3le>Documentation and other work</a> </nav> </aside> </div> </main> <footer class="blog-footer" data-astro-cid-4dqtj3le> <div class="shell" data-astro-cid-4dqtj3le> <span data-astro-cid-4dqtj3le>© Stefano Cristiano</span> <a href="/feeds/all.atom.xml" data-astro-cid-4dqtj3le>Atom feed</a> </div> </footer> </body></html> 
