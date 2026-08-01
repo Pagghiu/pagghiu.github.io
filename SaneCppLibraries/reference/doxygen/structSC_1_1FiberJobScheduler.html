@@ -125,12 +125,13 @@ $(function(){initNavTree('structSC_1_1FiberJobScheduler.html',''); initResizable
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="structSC_1_1FiberJobScheduler-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">SC::FiberJobScheduler Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Single-thread-driven, fixed-capacity scheduler for stackless run-to-completion jobs.  
+<p>Fixed-capacity scheduler for stackless run-to-completion jobs.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Fibers_8h_source.html">Fibers.h</a>&gt;</code></p>
@@ -149,18 +150,36 @@ Result&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> (Span&lt
 <tr class="memitem:a49ac323b49692e74e8ac63e5405e3c6c" id="r_a49ac323b49692e74e8ac63e5405e3c6c"><td class="memItemLeft" align="right" valign="top"><a id="a49ac323b49692e74e8ac63e5405e3c6c" name="a49ac323b49692e74e8ac63e5405e3c6c"></a>
 Result&#160;</td><td class="memItemRight" valign="bottom"><b>close</b> ()</td></tr>
 <tr class="separator:a49ac323b49692e74e8ac63e5405e3c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a68c85d3823ce1cc2535c66134edbb3" id="r_a3a68c85d3823ce1cc2535c66134edbb3"><td class="memItemLeft" align="right" valign="top"><a id="a3a68c85d3823ce1cc2535c66134edbb3" name="a3a68c85d3823ce1cc2535c66134edbb3"></a>
+Result&#160;</td><td class="memItemRight" valign="bottom"><b>createWorkerDeques</b> (<a class="el" href="structSC_1_1FiberAllocator.html">FiberAllocator</a> &amp;allocator, Span&lt; <a class="el" href="structSC_1_1FiberJobWorker.html">FiberJobWorker</a> &gt; workers, size_t capacityPerWorker)</td></tr>
+<tr class="separator:a3a68c85d3823ce1cc2535c66134edbb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fd46e8fe80cdb44621a6da5527c497f" id="r_a1fd46e8fe80cdb44621a6da5527c497f"><td class="memItemLeft" align="right" valign="top"><a id="a1fd46e8fe80cdb44621a6da5527c497f" name="a1fd46e8fe80cdb44621a6da5527c497f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>releaseWorkerDeques</b> (Span&lt; <a class="el" href="structSC_1_1FiberJobWorker.html">FiberJobWorker</a> &gt; workers)</td></tr>
+<tr class="separator:a1fd46e8fe80cdb44621a6da5527c497f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a020e74065726999c107294883ff3e394" id="r_a020e74065726999c107294883ff3e394"><td class="memItemLeft" align="right" valign="top"><a id="a020e74065726999c107294883ff3e394" name="a020e74065726999c107294883ff3e394"></a>
 Result&#160;</td><td class="memItemRight" valign="bottom"><b>spawn</b> (<a class="el" href="structSC_1_1FiberJob.html">FiberJob</a> &amp;job, FiberJob::Procedure procedure)</td></tr>
 <tr class="separator:a020e74065726999c107294883ff3e394"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7be293580e53945b39532518a607889d" id="r_a7be293580e53945b39532518a607889d"><td class="memItemLeft" align="right" valign="top"><a id="a7be293580e53945b39532518a607889d" name="a7be293580e53945b39532518a607889d"></a>
 Result&#160;</td><td class="memItemRight" valign="bottom"><b>spawn</b> (<a class="el" href="structSC_1_1FiberJob.html">FiberJob</a> &amp;job, FiberJob::Procedure procedure, <a class="el" href="structSC_1_1FiberCancellationToken.html">FiberCancellationToken</a> token)</td></tr>
 <tr class="separator:a7be293580e53945b39532518a607889d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8991c6a7ac31d0c3ea2cb8ea99d4fdb7" id="r_a8991c6a7ac31d0c3ea2cb8ea99d4fdb7"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8991c6a7ac31d0c3ea2cb8ea99d4fdb7">spawn</a> (Span&lt; <a class="el" href="structSC_1_1FiberJob.html">FiberJob</a> &gt; jobs, FiberJob::Procedure procedure)</td></tr>
+<tr class="memdesc:a8991c6a7ac31d0c3ea2cb8ea99d4fdb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transactionally publishes distinct contiguous records to the current worker or bounded external queue.  <br /></td></tr>
+<tr class="separator:a8991c6a7ac31d0c3ea2cb8ea99d4fdb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae92ce566d26fe25bb4fd633e95a09805" id="r_ae92ce566d26fe25bb4fd633e95a09805"><td class="memItemLeft" align="right" valign="top"><a id="ae92ce566d26fe25bb4fd633e95a09805" name="ae92ce566d26fe25bb4fd633e95a09805"></a>
+Result&#160;</td><td class="memItemRight" valign="bottom"><b>spawn</b> (Span&lt; <a class="el" href="structSC_1_1FiberJob.html">FiberJob</a> &gt; jobs, FiberJob::Procedure procedure, <a class="el" href="structSC_1_1FiberCancellationToken.html">FiberCancellationToken</a> token)</td></tr>
+<tr class="separator:ae92ce566d26fe25bb4fd633e95a09805"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33be27fc4c9c1aff8c3d0205045d9dfd" id="r_a33be27fc4c9c1aff8c3d0205045d9dfd"><td class="memItemLeft" align="right" valign="top"><a id="a33be27fc4c9c1aff8c3d0205045d9dfd" name="a33be27fc4c9c1aff8c3d0205045d9dfd"></a>
 Result&#160;</td><td class="memItemRight" valign="bottom"><b>runOne</b> (bool &amp;outRanJob)</td></tr>
 <tr class="separator:a33be27fc4c9c1aff8c3d0205045d9dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79a3b9cbf2d89e5a5d53e9a58b50590a" id="r_a79a3b9cbf2d89e5a5d53e9a58b50590a"><td class="memItemLeft" align="right" valign="top"><a id="a79a3b9cbf2d89e5a5d53e9a58b50590a" name="a79a3b9cbf2d89e5a5d53e9a58b50590a"></a>
+Result&#160;</td><td class="memItemRight" valign="bottom"><b>runOne</b> (<a class="el" href="structSC_1_1FiberJobWorker.html">FiberJobWorker</a> &amp;worker, Span&lt; <a class="el" href="structSC_1_1FiberJobWorker.html">FiberJobWorker</a> &gt; workerGroup, bool &amp;outRanJob)</td></tr>
+<tr class="separator:a79a3b9cbf2d89e5a5d53e9a58b50590a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16cb8534beeabd82e33b95c06a025557" id="r_a16cb8534beeabd82e33b95c06a025557"><td class="memItemLeft" align="right" valign="top"><a id="a16cb8534beeabd82e33b95c06a025557" name="a16cb8534beeabd82e33b95c06a025557"></a>
 Result&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()</td></tr>
 <tr class="separator:a16cb8534beeabd82e33b95c06a025557"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bc937b0b5ea99a4ed62e7db637acc37" id="r_a0bc937b0b5ea99a4ed62e7db637acc37"><td class="memItemLeft" align="right" valign="top"><a id="a0bc937b0b5ea99a4ed62e7db637acc37" name="a0bc937b0b5ea99a4ed62e7db637acc37"></a>
+Result&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> (<a class="el" href="structSC_1_1FiberJobWorker.html">FiberJobWorker</a> &amp;worker, Span&lt; <a class="el" href="structSC_1_1FiberJobWorker.html">FiberJobWorker</a> &gt; workerGroup)</td></tr>
+<tr class="separator:a0bc937b0b5ea99a4ed62e7db637acc37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a14a40941251b63c3b06da6eb55ed34" id="r_a1a14a40941251b63c3b06da6eb55ed34"><td class="memItemLeft" align="right" valign="top"><a id="a1a14a40941251b63c3b06da6eb55ed34" name="a1a14a40941251b63c3b06da6eb55ed34"></a>
 Result&#160;</td><td class="memItemRight" valign="bottom"><b>shutdown</b> ()</td></tr>
 <tr class="separator:a1a14a40941251b63c3b06da6eb55ed34"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,29 +195,200 @@ Result&#160;</td><td class="memItemRight" valign="bottom"><b>requestCancelAll</b
 <tr class="memitem:a4981dd301fbae6cb3c7f4b55bc20de18" id="r_a4981dd301fbae6cb3c7f4b55bc20de18"><td class="memItemLeft" align="right" valign="top"><a id="a4981dd301fbae6cb3c7f4b55bc20de18" name="a4981dd301fbae6cb3c7f4b55bc20de18"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isOpen</b> () const</td></tr>
 <tr class="separator:a4981dd301fbae6cb3c7f4b55bc20de18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a935dd88e67d945cb0370e1861efd69b2" id="r_a935dd88e67d945cb0370e1861efd69b2"><td class="memItemLeft" align="right" valign="top"><a id="a935dd88e67d945cb0370e1861efd69b2" name="a935dd88e67d945cb0370e1861efd69b2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasReadyJobs</b> () const</td></tr>
+<tr class="memitem:a935dd88e67d945cb0370e1861efd69b2" id="r_a935dd88e67d945cb0370e1861efd69b2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a935dd88e67d945cb0370e1861efd69b2">hasReadyJobs</a> () const</td></tr>
+<tr class="memdesc:a935dd88e67d945cb0370e1861efd69b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Never reports false while ready work transfers from the external queue to a worker.  <br /></td></tr>
 <tr class="separator:a935dd88e67d945cb0370e1861efd69b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa010226c46ead2edd3037d517081c478" id="r_aa010226c46ead2edd3037d517081c478"><td class="memItemLeft" align="right" valign="top"><a id="aa010226c46ead2edd3037d517081c478" name="aa010226c46ead2edd3037d517081c478"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasActiveJobs</b> () const</td></tr>
+<tr class="memitem:aa010226c46ead2edd3037d517081c478" id="r_aa010226c46ead2edd3037d517081c478"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa010226c46ead2edd3037d517081c478">hasActiveJobs</a> () const</td></tr>
+<tr class="memdesc:aa010226c46ead2edd3037d517081c478"><td class="mdescLeft">&#160;</td><td class="mdescRight">Never reports false while active work transfers from the external queue to a worker.  <br /></td></tr>
 <tr class="separator:aa010226c46ead2edd3037d517081c478"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a341933934d0e4b2e8b2b80e5325c188d" id="r_a341933934d0e4b2e8b2b80e5325c188d"><td class="memItemLeft" align="right" valign="top"><a id="a341933934d0e4b2e8b2b80e5325c188d" name="a341933934d0e4b2e8b2b80e5325c188d"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>capacity</b> () const</td></tr>
 <tr class="separator:a341933934d0e4b2e8b2b80e5325c188d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a84ce70d19fdc70afaaa4920ddbe821" id="r_a6a84ce70d19fdc70afaaa4920ddbe821"><td class="memItemLeft" align="right" valign="top"><a id="a6a84ce70d19fdc70afaaa4920ddbe821" name="a6a84ce70d19fdc70afaaa4920ddbe821"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>readyJobCount</b> () const</td></tr>
+<tr class="memitem:a6a84ce70d19fdc70afaaa4920ddbe821" id="r_a6a84ce70d19fdc70afaaa4920ddbe821"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a84ce70d19fdc70afaaa4920ddbe821">readyJobCount</a> () const</td></tr>
+<tr class="memdesc:a6a84ce70d19fdc70afaaa4920ddbe821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the exact stable count. A concurrent batch ownership transfer may conservatively overcount.  <br /></td></tr>
 <tr class="separator:a6a84ce70d19fdc70afaaa4920ddbe821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91e8754239c4b7c03cb39087e4473c58" id="r_a91e8754239c4b7c03cb39087e4473c58"><td class="memItemLeft" align="right" valign="top"><a id="a91e8754239c4b7c03cb39087e4473c58" name="a91e8754239c4b7c03cb39087e4473c58"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>activeJobCount</b> () const</td></tr>
+<tr class="memitem:a91e8754239c4b7c03cb39087e4473c58" id="r_a91e8754239c4b7c03cb39087e4473c58"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91e8754239c4b7c03cb39087e4473c58">activeJobCount</a> () const</td></tr>
+<tr class="memdesc:a91e8754239c4b7c03cb39087e4473c58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the exact stable count. A concurrent batch ownership transfer may conservatively overcount.  <br /></td></tr>
 <tr class="separator:a91e8754239c4b7c03cb39087e4473c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0788d7771004d449f2312351fbcc2c70" id="r_a0788d7771004d449f2312351fbcc2c70"><td class="memItemLeft" align="right" valign="top"><a id="a0788d7771004d449f2312351fbcc2c70" name="a0788d7771004d449f2312351fbcc2c70"></a>
 <a class="el" href="structSC_1_1FiberJob.html">FiberJob</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>currentJob</b> ()</td></tr>
 <tr class="separator:a0788d7771004d449f2312351fbcc2c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cf505992121e6c228043d58fed0f3fe" id="r_a4cf505992121e6c228043d58fed0f3fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4cf505992121e6c228043d58fed0f3fe">workerDiagnostics</a> (const <a class="el" href="structSC_1_1FiberJobWorker.html">FiberJobWorker</a> &amp;worker, <a class="el" href="structSC_1_1FiberJobWorkerDiagnostics.html">FiberJobWorkerDiagnostics</a> &amp;outDiagnostics) const</td></tr>
+<tr class="memdesc:a4cf505992121e6c228043d58fed0f3fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diagnostics remain available after a worker pool joins and reset when its deque is configured again.  <br /></td></tr>
+<tr class="separator:a4cf505992121e6c228043d58fed0f3fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a9b9b86af87f70d6875b508c89b1b2512" id="r_a9b9b86af87f70d6875b508c89b1b2512"><td class="memItemLeft" align="right" valign="top"><a id="a9b9b86af87f70d6875b508c89b1b2512" name="a9b9b86af87f70d6875b508c89b1b2512"></a>
+struct&#160;</td><td class="memItemRight" valign="bottom"><b>FiberJobContext</b></td></tr>
+<tr class="separator:a9b9b86af87f70d6875b508c89b1b2512"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7feae10c2012a0fb26635369eac5ee85" id="r_a7feae10c2012a0fb26635369eac5ee85"><td class="memItemLeft" align="right" valign="top"><a id="a7feae10c2012a0fb26635369eac5ee85" name="a7feae10c2012a0fb26635369eac5ee85"></a>
+struct&#160;</td><td class="memItemRight" valign="bottom"><b>FiberJob</b></td></tr>
+<tr class="separator:a7feae10c2012a0fb26635369eac5ee85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97261da5b002e5ed754b4d8b3c7d1a35" id="r_a97261da5b002e5ed754b4d8b3c7d1a35"><td class="memItemLeft" align="right" valign="top"><a id="a97261da5b002e5ed754b4d8b3c7d1a35" name="a97261da5b002e5ed754b4d8b3c7d1a35"></a>
+struct&#160;</td><td class="memItemRight" valign="bottom"><b>FiberJobWorkerPool</b></td></tr>
+<tr class="separator:a97261da5b002e5ed754b4d8b3c7d1a35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Single-thread-driven, fixed-capacity scheduler for stackless run-to-completion jobs. </p>
-<p>This first concrete scheduler intentionally does not create worker threads. Calls must not overlap across threads. A later worker-pool topology can build on the same <a class="el" href="structSC_1_1FiberJob.html" title="Caller-owned stackless CPU job. Its address must remain stable while active.">FiberJob</a> state and ownership contract without adding stacks. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<div class="textblock"><p>Fixed-capacity scheduler for stackless run-to-completion jobs. </p>
+<p>Plain run calls are single-thread-driven. External spawn and worker run calls may overlap while a <a class="el" href="structSC_1_1FiberJobWorkerPool.html" title="No-allocation OS-thread-owning pool for bounded stackless FiberJob execution.">FiberJobWorkerPool</a> or caller-managed <a class="el" href="structSC_1_1FiberJobWorker.html" title="Caller-owned parallel execution agent for the FiberJob runtime.">FiberJobWorker</a> threads own execution. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a91e8754239c4b7c03cb39087e4473c58" name="a91e8754239c4b7c03cb39087e4473c58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91e8754239c4b7c03cb39087e4473c58">&#9670;&#160;</a></span>activeJobCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t SC::FiberJobScheduler::activeJobCount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the exact stable count. A concurrent batch ownership transfer may conservatively overcount. </p>
+
+</div>
+</div>
+<a id="aa010226c46ead2edd3037d517081c478" name="aa010226c46ead2edd3037d517081c478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa010226c46ead2edd3037d517081c478">&#9670;&#160;</a></span>hasActiveJobs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SC::FiberJobScheduler::hasActiveJobs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Never reports false while active work transfers from the external queue to a worker. </p>
+
+</div>
+</div>
+<a id="a935dd88e67d945cb0370e1861efd69b2" name="a935dd88e67d945cb0370e1861efd69b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a935dd88e67d945cb0370e1861efd69b2">&#9670;&#160;</a></span>hasReadyJobs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SC::FiberJobScheduler::hasReadyJobs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Never reports false while ready work transfers from the external queue to a worker. </p>
+
+</div>
+</div>
+<a id="a6a84ce70d19fdc70afaaa4920ddbe821" name="a6a84ce70d19fdc70afaaa4920ddbe821"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a84ce70d19fdc70afaaa4920ddbe821">&#9670;&#160;</a></span>readyJobCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t SC::FiberJobScheduler::readyJobCount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the exact stable count. A concurrent batch ownership transfer may conservatively overcount. </p>
+
+</div>
+</div>
+<a id="a8991c6a7ac31d0c3ea2cb8ea99d4fdb7" name="a8991c6a7ac31d0c3ea2cb8ea99d4fdb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8991c6a7ac31d0c3ea2cb8ea99d4fdb7">&#9670;&#160;</a></span>spawn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::FiberJobScheduler::spawn </td>
+          <td>(</td>
+          <td class="paramtype">Span&lt; <a class="el" href="structSC_1_1FiberJob.html">FiberJob</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>jobs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FiberJob::Procedure</td>          <td class="paramname"><span class="paramname"><em>procedure</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transactionally publishes distinct contiguous records to the current worker or bounded external queue. </p>
+
+</div>
+</div>
+<a id="a4cf505992121e6c228043d58fed0f3fe" name="a4cf505992121e6c228043d58fed0f3fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cf505992121e6c228043d58fed0f3fe">&#9670;&#160;</a></span>workerDiagnostics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SC::FiberJobScheduler::workerDiagnostics </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structSC_1_1FiberJobWorker.html">FiberJobWorker</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>worker</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSC_1_1FiberJobWorkerDiagnostics.html">FiberJobWorkerDiagnostics</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>outDiagnostics</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Diagnostics remain available after a worker pool joins and reset when its deque is configured again. </p>
+<p>The caller must not read diagnostics while that worker can execute jobs. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="Fibers_8h_source.html">Fibers.h</a></li>
 </ul>
 </div><!-- contents -->

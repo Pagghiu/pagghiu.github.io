@@ -192,7 +192,7 @@ What Async Is For</h1>
 <li>bounded, caller-owned request and buffer storage with no allocation inside the library;</li>
 <li>callbacks rather than a coroutine or fiber runtime.</li>
 </ul>
-<p>For sequential stream processing, see <a class="el" href="library_async_streams.html">AsyncStreams</a>. For C++20 <code>co_await</code> syntax over a subset of these operations, see <a class="el" href="library_await.html">Await</a>. For stackful tasks that suspend on this event loop, see <a class="el" href="library_fibers_async.html">FibersAsync</a>.</p>
+<p>For sequential stream processing, see <a class="el" href="library_async_streams.html">AsyncStreams</a>. For C++20 <code>co_await</code> syntax over a subset of these operations, see <a class="el" href="library_await.html">Await</a>. For stackful tasks that suspend on this event loop, see <a class="el" href="library_async_fibers.html">AsyncFibers</a>.</p>
 <h1><a class="anchor" id="autotoc_md88"></a>
 Mental Model: Requests Live Until Completion</h1>
 <p>Every operation is an object derived from <code>AsyncRequest</code>: for example <code>AsyncSocketReceive</code>, <code>AsyncFileRead</code>, or <code>AsyncLoopTimeout</code>. The caller fills the request, installs its callback, and starts it on an <code>AsyncEventLoop</code>. The loop submits it to the platform backend and later invokes the callback while dispatching completions.</p>

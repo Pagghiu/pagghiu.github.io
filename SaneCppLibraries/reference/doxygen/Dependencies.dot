@@ -5,12 +5,12 @@ digraph LibraryDependencies {
   splines=polyline;
 
   Async;
+  AsyncFibers;
   AsyncStreams;
   Await;
   Containers;
   ContainersReflection;
   Fibers;
-  FibersAsync;
   File;
   FileSystem;
   FileSystemIterator;
@@ -62,9 +62,9 @@ digraph LibraryDependencies {
   }
   subgraph rank2 {
     rank=same;
+    AsyncFibers;
     Await;
     ContainersReflection;
-    FibersAsync;
     Http;
     Plugin;
   }
@@ -73,12 +73,12 @@ digraph LibraryDependencies {
   Async -> FileSystem;
   Async -> Socket;
   Async -> Threading;
+  AsyncFibers -> Async;
+  AsyncFibers -> Fibers;
   Await -> Async;
   Containers -> Memory;
   ContainersReflection -> Containers;
   ContainersReflection -> Reflection;
-  FibersAsync -> Async;
-  FibersAsync -> Fibers;
   Http -> Async;
   Http -> AsyncStreams;
   Plugin -> Process;

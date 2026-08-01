@@ -62,26 +62,50 @@
 <path fill="none" stroke="#6b8fc9" stroke-width="1.5" d="M480.24,-85.8C501.12,-72.61 530.07,-54.33 552.4,-40.22"/>
 <polygon fill="#6b8fc9" stroke="#6b8fc9" stroke-width="1.5" points="553.86,-42.4 558.8,-36.18 551.06,-37.96 553.86,-42.4"/>
 </g>
-<!-- AsyncStreams -->
+<!-- AsyncFibers -->
 <g id="node2" class="node">
+<title>AsyncFibers</title>
+<path fill="#e9f1ff" stroke="#7895d5" stroke-width="1.4" d="M335.5,-208C335.5,-208 256.5,-208 256.5,-208 250.5,-208 244.5,-202 244.5,-196 244.5,-196 244.5,-184 244.5,-184 244.5,-178 250.5,-172 256.5,-172 256.5,-172 335.5,-172 335.5,-172 341.5,-172 347.5,-178 347.5,-184 347.5,-184 347.5,-196 347.5,-196 347.5,-202 341.5,-208 335.5,-208"/>
+<text text-anchor="middle" x="296" y="-186.6" font-family="Helvetica Neue" font-size="13.00" fill="#17233d">AsyncFibers</text>
+</g>
+<!-- AsyncFibers&#45;&gt;Async -->
+<g id="edge5" class="edge">
+<title>AsyncFibers&#45;&gt;Async</title>
+<path fill="none" stroke="#6b8fc9" stroke-width="1.5" d="M328.15,-171.8C353.1,-158.45 387.79,-139.89 414.27,-125.72"/>
+<polygon fill="#6b8fc9" stroke="#6b8fc9" stroke-width="1.5" points="415.79,-127.89 421.16,-122.03 413.31,-123.26 415.79,-127.89"/>
+</g>
+<!-- Fibers -->
+<g id="node7" class="node">
+<title>Fibers</title>
+<path fill="#e9f1ff" stroke="#7895d5" stroke-width="1.4" d="M267,-36C267,-36 227,-36 227,-36 221,-36 215,-30 215,-24 215,-24 215,-12 215,-12 215,-6 221,0 227,0 227,0 267,0 267,0 273,0 279,-6 279,-12 279,-12 279,-24 279,-24 279,-30 273,-36 267,-36"/>
+<text text-anchor="middle" x="247" y="-14.6" font-family="Helvetica Neue" font-size="13.00" fill="#17233d">Fibers</text>
+</g>
+<!-- AsyncFibers&#45;&gt;Fibers -->
+<g id="edge6" class="edge">
+<title>AsyncFibers&#45;&gt;Fibers</title>
+<path fill="none" stroke="#6b8fc9" stroke-width="1.5" d="M291.03,-171.76C282.28,-141.39 264.08,-78.27 254.04,-43.42"/>
+<polygon fill="#6b8fc9" stroke="#6b8fc9" stroke-width="1.5" points="256.51,-42.51 251.91,-36.03 251.46,-43.96 256.51,-42.51"/>
+</g>
+<!-- AsyncStreams -->
+<g id="node3" class="node">
 <title>AsyncStreams</title>
 <path fill="#e9f1ff" stroke="#7895d5" stroke-width="1.4" d="M770,-36C770,-36 676,-36 676,-36 670,-36 664,-30 664,-24 664,-24 664,-12 664,-12 664,-6 670,0 676,0 676,0 770,0 770,0 776,0 782,-6 782,-12 782,-12 782,-24 782,-24 782,-30 776,-36 770,-36"/>
 <text text-anchor="middle" x="723" y="-14.6" font-family="Helvetica Neue" font-size="13.00" fill="#17233d">AsyncStreams</text>
 </g>
 <!-- Await -->
-<g id="node3" class="node">
+<g id="node4" class="node">
 <title>Await</title>
 <path fill="#e9f1ff" stroke="#7895d5" stroke-width="1.4" d="M471.5,-208C471.5,-208 434.5,-208 434.5,-208 428.5,-208 422.5,-202 422.5,-196 422.5,-196 422.5,-184 422.5,-184 422.5,-178 428.5,-172 434.5,-172 434.5,-172 471.5,-172 471.5,-172 477.5,-172 483.5,-178 483.5,-184 483.5,-184 483.5,-196 483.5,-196 483.5,-202 477.5,-208 471.5,-208"/>
 <text text-anchor="middle" x="453" y="-186.6" font-family="Helvetica Neue" font-size="13.00" fill="#17233d">Await</text>
 </g>
 <!-- Await&#45;&gt;Async -->
-<g id="edge5" class="edge">
+<g id="edge7" class="edge">
 <title>Await&#45;&gt;Async</title>
 <path fill="none" stroke="#6b8fc9" stroke-width="1.5" d="M453,-171.6C453,-159.46 453,-143.1 453,-129.64"/>
 <polygon fill="#6b8fc9" stroke="#6b8fc9" stroke-width="1.5" points="455.63,-129.6 453,-122.1 450.38,-129.6 455.63,-129.6"/>
 </g>
 <!-- Containers -->
-<g id="node4" class="node">
+<g id="node5" class="node">
 <title>Containers</title>
 <path fill="#e9f1ff" stroke="#7895d5" stroke-width="1.4" d="M889,-122C889,-122 817,-122 817,-122 811,-122 805,-116 805,-110 805,-110 805,-98 805,-98 805,-92 811,-86 817,-86 817,-86 889,-86 889,-86 895,-86 901,-92 901,-98 901,-98 901,-110 901,-110 901,-116 895,-122 889,-122"/>
 <text text-anchor="middle" x="853" y="-100.6" font-family="Helvetica Neue" font-size="13.00" fill="#17233d">Containers</text>
@@ -93,19 +117,19 @@
 <text text-anchor="middle" x="853" y="-14.6" font-family="Helvetica Neue" font-size="13.00" fill="#17233d">Memory</text>
 </g>
 <!-- Containers&#45;&gt;Memory -->
-<g id="edge6" class="edge">
+<g id="edge8" class="edge">
 <title>Containers&#45;&gt;Memory</title>
 <path fill="none" stroke="#6b8fc9" stroke-width="1.5" d="M853,-85.6C853,-73.46 853,-57.1 853,-43.64"/>
 <polygon fill="#6b8fc9" stroke="#6b8fc9" stroke-width="1.5" points="855.63,-43.6 853,-36.1 850.38,-43.6 855.63,-43.6"/>
 </g>
 <!-- ContainersReflection -->
-<g id="node5" class="node">
+<g id="node6" class="node">
 <title>ContainersReflection</title>
 <path fill="#e9f1ff" stroke="#7895d5" stroke-width="1.4" d="M971,-208C971,-208 833,-208 833,-208 827,-208 821,-202 821,-196 821,-196 821,-184 821,-184 821,-178 827,-172 833,-172 833,-172 971,-172 971,-172 977,-172 983,-178 983,-184 983,-184 983,-196 983,-196 983,-202 977,-208 971,-208"/>
 <text text-anchor="middle" x="902" y="-186.6" font-family="Helvetica Neue" font-size="13.00" fill="#17233d">ContainersReflection</text>
 </g>
 <!-- ContainersReflection&#45;&gt;Containers -->
-<g id="edge7" class="edge">
+<g id="edge9" class="edge">
 <title>ContainersReflection&#45;&gt;Containers</title>
 <path fill="none" stroke="#6b8fc9" stroke-width="1.5" d="M891.85,-171.6C884.64,-159.24 874.87,-142.49 866.93,-128.88"/>
 <polygon fill="#6b8fc9" stroke="#6b8fc9" stroke-width="1.5" points="869.02,-127.25 862.97,-122.1 864.48,-129.9 869.02,-127.25"/>
@@ -117,34 +141,10 @@
 <text text-anchor="middle" x="1073" y="-14.6" font-family="Helvetica Neue" font-size="13.00" fill="#17233d">Reflection</text>
 </g>
 <!-- ContainersReflection&#45;&gt;Reflection -->
-<g id="edge8" class="edge">
+<g id="edge10" class="edge">
 <title>ContainersReflection&#45;&gt;Reflection</title>
 <path fill="none" stroke="#6b8fc9" stroke-width="1.5" d="M915.38,-171.99C938.38,-142.74 983,-86 983,-86 983,-86 1017.42,-60.38 1043.68,-40.82"/>
 <polygon fill="#6b8fc9" stroke="#6b8fc9" stroke-width="1.5" points="1045.37,-42.84 1049.82,-36.25 1042.24,-38.63 1045.37,-42.84"/>
-</g>
-<!-- Fibers -->
-<g id="node6" class="node">
-<title>Fibers</title>
-<path fill="#e9f1ff" stroke="#7895d5" stroke-width="1.4" d="M267,-36C267,-36 227,-36 227,-36 221,-36 215,-30 215,-24 215,-24 215,-12 215,-12 215,-6 221,0 227,0 227,0 267,0 267,0 273,0 279,-6 279,-12 279,-12 279,-24 279,-24 279,-30 273,-36 267,-36"/>
-<text text-anchor="middle" x="247" y="-14.6" font-family="Helvetica Neue" font-size="13.00" fill="#17233d">Fibers</text>
-</g>
-<!-- FibersAsync -->
-<g id="node7" class="node">
-<title>FibersAsync</title>
-<path fill="#e9f1ff" stroke="#7895d5" stroke-width="1.4" d="M335.5,-208C335.5,-208 256.5,-208 256.5,-208 250.5,-208 244.5,-202 244.5,-196 244.5,-196 244.5,-184 244.5,-184 244.5,-178 250.5,-172 256.5,-172 256.5,-172 335.5,-172 335.5,-172 341.5,-172 347.5,-178 347.5,-184 347.5,-184 347.5,-196 347.5,-196 347.5,-202 341.5,-208 335.5,-208"/>
-<text text-anchor="middle" x="296" y="-186.6" font-family="Helvetica Neue" font-size="13.00" fill="#17233d">FibersAsync</text>
-</g>
-<!-- FibersAsync&#45;&gt;Async -->
-<g id="edge9" class="edge">
-<title>FibersAsync&#45;&gt;Async</title>
-<path fill="none" stroke="#6b8fc9" stroke-width="1.5" d="M328.15,-171.8C353.1,-158.45 387.79,-139.89 414.27,-125.72"/>
-<polygon fill="#6b8fc9" stroke="#6b8fc9" stroke-width="1.5" points="415.79,-127.89 421.16,-122.03 413.31,-123.26 415.79,-127.89"/>
-</g>
-<!-- FibersAsync&#45;&gt;Fibers -->
-<g id="edge10" class="edge">
-<title>FibersAsync&#45;&gt;Fibers</title>
-<path fill="none" stroke="#6b8fc9" stroke-width="1.5" d="M291.03,-171.76C282.28,-141.39 264.08,-78.27 254.04,-43.42"/>
-<polygon fill="#6b8fc9" stroke="#6b8fc9" stroke-width="1.5" points="256.51,-42.51 251.91,-36.03 251.46,-43.96 256.51,-42.51"/>
 </g>
 <!-- FileSystemIterator -->
 <g id="node10" class="node">
