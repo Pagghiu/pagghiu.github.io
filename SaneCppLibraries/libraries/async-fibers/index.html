@@ -121,31 +121,34 @@
     <a href="#autotoc_md102">A complete wait</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md103">What the I/O calls return</a>
+    <a href="#autotoc_md103">A bounded file-copy consumer</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md104">Memory and lifetime are part of the API</a>
+    <a href="#autotoc_md104">What the I/O calls return</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md105">Worker threads and the event-loop owner</a>
+    <a href="#autotoc_md105">Memory and lifetime are part of the API</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md106">Cancellation and shutdown</a>
+    <a href="#autotoc_md106">Worker threads and the event-loop owner</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md107">Choosing between the neighboring libraries</a>
+    <a href="#autotoc_md107">Cancellation and shutdown</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md108">Status and practical limits</a>
+    <a href="#autotoc_md108">Choosing between the neighboring libraries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md109">Blog</a>
+    <a href="#autotoc_md109">Status and practical limits</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md110">Roadmap</a>
+    <a href="#autotoc_md110">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md111">Statistics</a>
+    <a href="#autotoc_md111">Roadmap</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md112">Statistics</a>
   </li>
 </ul>
 </div></div> </details> <div class="library-main" data-astro-cid-7c432cc5> <section class="page-hero library-hero" data-astro-cid-7c432cc5> <div class="library-heading" data-astro-cid-7c432cc5> <div class="eyebrow" data-astro-cid-7c432cc5>Library</div> <h1 data-astro-cid-7c432cc5>AsyncFibers</h1> <p data-astro-cid-7c432cc5>Stackful fiber I/O bridge over Async</p> <span class="maturity-badge draft strong" data-astro-cid-blexnnyn> <span class="dot" data-astro-cid-blexnnyn></span> <span data-astro-cid-blexnnyn>Draft</span> </span>  </div> </section> <section class="meta-grid" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependencies</strong> <p class="dependency-links" data-astro-cid-7c432cc5> <a href="/SaneCppLibraries/libraries/async/" data-astro-cid-7c432cc5>Async</a><a href="/SaneCppLibraries/libraries/fibers/" data-astro-cid-7c432cc5>Fibers</a> </p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Single file</strong> <p data-astro-cid-7c432cc5><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppAsyncFibers.h" data-astro-cid-7c432cc5>Download release header</a></p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Reference</strong> <p data-astro-cid-7c432cc5><a href="/SaneCppLibraries/reference/doxygen/library_async_fibers.html" data-astro-cid-7c432cc5>Open generated API/docs</a></p> </div> </section> <article class="panel prose article doxygen-content" data-astro-cid-7c432cc5><div class="textblock"><p>🟥 Stackful fiber I/O bridge over Async</p>
@@ -215,6 +218,36 @@ A complete wait</h1>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    return</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> Result</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#005CC5;--shiki-dark:#FAB387">true</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre><p>SC::AsyncFiberIO::runUntilComplete drives ready fibers and async completions until neither remains. The shorter <code>runOnce</code>, <code>runNoWait</code>, and <code>runUntilIdle</code> variants exist for embedding the bridge in a larger application loop. A successful wait does not mean that an OS thread slept: only the calling fiber was suspended.</p>
 <p>The example also exposes the storage model. The caller supplies the event loop, scheduler, command slots, tasks, stacks, task group, and error collection. <code>AsyncFiberIO</code> itself borrows the event loop, scheduler, and command span; the scheduler and task group use the remaining storage.</p>
 <h1><a class="anchor" id="autotoc_md103"></a>
+A bounded file-copy consumer</h1>
+<p><code>Examples/AsyncFibersFileCopy</code> is a complete command-line file copier rather than a sleep demonstration. It resolves two input paths, opens non-blocking descriptors, associates them with the event loop, and copies through a fixed 64 KiB buffer owned by the caller:</p>
+<pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">    Result</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> copy</span><span style="color:#24292E;--shiki-dark:#9399B2">()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">    {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">        for</span><span style="color:#24292E;--shiki-dark:#9399B2"> (;;)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">        {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">            AsyncFiberFileReadResult readResult</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">            SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">io</span><span style="color:#24292E;--shiki-dark:#9399B2">-></span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">fileReadAt</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#D73A49;--shiki-dark:#94E2D5">*</span><span style="color:#24292E;--shiki-dark:#CDD6F4">source</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> copiedBytes</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> readResult</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">            if</span><span style="color:#24292E;--shiki-dark:#9399B2"> (</span><span style="color:#D73A49;--shiki-dark:#94E2D5">not</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> readResult</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">data</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">empty</span><span style="color:#24292E;--shiki-dark:#9399B2">())</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">            {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">                AsyncFiberFileWriteResult writeResult</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">                SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">io</span><span style="color:#24292E;--shiki-dark:#9399B2">-></span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">fileWriteAllAt</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#D73A49;--shiki-dark:#94E2D5">*</span><span style="color:#24292E;--shiki-dark:#CDD6F4">destination</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> copiedBytes</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> readResult</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">data</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> &#x26;</span><span style="color:#24292E;--shiki-dark:#CDD6F4">writeResult</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">                SC_TRY_MSG</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">writeResult</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">numBytes </span><span style="color:#D73A49;--shiki-dark:#94E2D5">==</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> readResult</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">data</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">sizeInBytes</span><span style="color:#24292E;--shiki-dark:#9399B2">(),</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#A6E3A1">                           "AsyncFibersFileCopy completed a short write"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">                copiedBytes </span><span style="color:#D73A49;--shiki-dark:#94E2D5">+=</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> writeResult</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">numBytes</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">            }</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">            else</span><span style="color:#D73A49;--shiki-dark:#CBA6F7"> if</span><span style="color:#24292E;--shiki-dark:#9399B2"> (</span><span style="color:#D73A49;--shiki-dark:#94E2D5">not</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> readResult</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">endOfFile</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">            {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">                return</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> Result</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">Error</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"AsyncFibersFileCopy read made no progress"</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">            }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">            if</span><span style="color:#24292E;--shiki-dark:#9399B2"> (</span><span style="color:#24292E;--shiki-dark:#CDD6F4">readResult</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">endOfFile</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">            {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">                return</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> Result</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#005CC5;--shiki-dark:#FAB387">true</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">            }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">        }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">    }</span></span></code></pre><p>The loop makes the partial-operation contract visible: <code>fileReadAt</code> sizes its result span to the bytes received, while <code>fileWriteAllAt</code> repeats writes at an explicit destination offset until that span is consumed. Explicit offsets keep multi-chunk behavior independent of platform file-cursor semantics. An empty non-EOF read is rejected as no progress. The destination is opened without truncation until descriptor identities prove that a symlink or hard link does not alias the source. It is then reopened once as the nonblocking write descriptor, which also performs the truncation. The executable demonstrates the required shutdown order: finish the task, destroy the bridge, close both descriptors, then close the event loop. Run it with <code>./SC.sh build run AsyncFibersFileCopy -- &lt;source&gt; &lt;destination&gt;</code>.</p>
+<p>Using the API in this consumer exposes one intentional boundary: opening and associating descriptors is still explicit <code>File</code>/<code>Async</code> setup. <code>AsyncFibers</code> adapts waits on an existing descriptor; it does not hide resource creation or turn filesystem metadata operations into fiber calls.</p>
+<h1><a class="anchor" id="autotoc_md104"></a>
 What the I/O calls return</h1>
 <p>Operations return SC::Result for success, cancellation, or an OS/backend error. Values produced by an operation use small explicit output records:</p>
 <ul>
@@ -225,7 +258,7 @@ What the I/O calls return</h1>
 </ul>
 <p>One-shot calls such as <code>send</code> and <code>fileWrite</code> may complete only part of the input. Use <code>sendAll</code> or <code>fileWriteAll</code> when the whole span is required. Likewise, <code>fileReadExact</code> repeats reads until the buffer is full or EOF is reached. Offset variants keep the position explicit rather than advancing the descriptor's shared position.</p>
 <p>The bridge currently covers timers, TCP and datagram sockets, files and readiness, file-to-socket transfer, process exit, and one-shot signal waits. It is not a stream protocol, buffered reader, DNS resolver, or general blocking-call adapter; framing, buffering, retries, and higher-level protocols remain application or neighboring-library policy.</p>
-<h1><a class="anchor" id="autotoc_md104"></a>
+<h1><a class="anchor" id="autotoc_md105"></a>
 Memory and lifetime are part of the API</h1>
 <p>Normal operation does not allocate a coroutine frame or heap-backed request. That predictability requires several hard lifetime rules:</p>
 <ul>
@@ -236,7 +269,7 @@ Memory and lifetime are part of the API</h1>
 </ul>
 <p>The request and callback state are stack-local, which is safe specifically because a suspended fiber retains its stack. Destroying or moving any referenced storage early is a correctness bug, not an operation the bridge copies around.</p>
 <p>Capacity is similarly explicit. The application chooses the number and size of fiber stacks and, for worker-pool I/O, the number of command slots. This makes peak memory visible, but it also means exhaustion is possible and must be designed for.</p>
-<h1><a class="anchor" id="autotoc_md105"></a>
+<h1><a class="anchor" id="autotoc_md106"></a>
 Worker threads and the event-loop owner</h1>
 <p><a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">SC::AsyncEventLoop</a> remains owner-thread-affine. A fiber may nevertheless resume on a worker thread. In that case the bridge queues the request's start or stop procedure in caller-provided <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncFiberCommand.html">SC::AsyncFiberCommand</a> storage, wakes the owner, and waits for the owner to execute it.</p>
 <p>The source-backed worker-pool example shows the division of responsibilities:</p>
@@ -281,35 +314,35 @@ Worker threads and the event-loop owner</h1>
 <span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">eventLoop</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">close</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">    return</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> Result</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#005CC5;--shiki-dark:#FAB387">true</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span></code></pre><p>Only the owner thread calls <code>runOwnerUntilComplete</code>; worker threads execute fibers. Command storage is a bounded queue, not scratch space sized only for one call. If simultaneous cross-thread starts and cancellation stops can fill it, the operation fails rather than allocating. Size it from the intended concurrency or impose producer backpressure. For a single-threaded scheduler, command storage can be omitted.</p>
 <p>All <code>run*</code>, <code>runOwner*</code>, and <code>cancelAll()</code> methods are event-loop-owner calls. Every I/O operation method, including a zero-length fast path, must be called by a currently running fiber of the bridge's scheduler. The bridge rejects an operation before creating pending state or starting an <code>AsyncRequest</code> when that fiber context is absent; this keeps its stack-local request and callback state valid for the entire suspension.</p>
-<h1><a class="anchor" id="autotoc_md106"></a>
+<h1><a class="anchor" id="autotoc_md107"></a>
 Cancellation and shutdown</h1>
 <p>Cancellation is cooperative. SC::FiberScheduler::requestCancel wakes an interruptible fiber wait; the bridge stops the underlying request when necessary and resumes the call with an error <code>Result</code>. SC::AsyncFiberIO::cancelAll asks the scheduler to cancel all active fibers. Their pending bridge operations are then stopped through the same cooperative path; callback-style requests sharing the event loop are not selected by this call.</p>
 <p>Cancellation does not relax lifetime rules. The owner loop still has to process the stop/completion path, the fiber must resume, and its task, stack, buffers, and request dependencies must remain alive until that happens. Treat <code>runUntilComplete</code>/<code>runOwnerUntilComplete</code>, task result collection, and <code>AsyncEventLoop::close</code> as an ordered shutdown sequence.</p>
 <p><code>AsyncFiberIO</code> is a non-copyable, non-movable borrowed wrapper. The scheduler, event loop, command storage, operation buffers, and descriptors must outlive every operation that uses them. Destroying the wrapper with a pending operation or queued owner-thread command is a programming error diagnosed by a release assertion. Command exhaustion is a normal bounded-capacity error: it does not consume a slot permanently, and the same wrapper remains usable after the owner drains previously queued work.</p>
-<h1><a class="anchor" id="autotoc_md107"></a>
+<h1><a class="anchor" id="autotoc_md108"></a>
 Choosing between the neighboring libraries</h1>
 <p>Use <a class="el" href="/SaneCppLibraries/libraries/async/">Async</a> directly when callbacks fit the state machine, minimizing per-operation stack memory and making every suspension point explicit. Add <code>AsyncFibers</code> when a workflow is easier to express as nested ordinary calls or must suspend through existing call layers. Each concurrent fiber then needs its own explicitly sized stack.</p>
 <p><a class="el" href="/SaneCppLibraries/libraries/await/">Await</a> offers another sequential syntax over the same <code>AsyncEventLoop</code>. It uses C++20 <code>co_await</code> and allocator-backed coroutine frames; <code>AsyncFibers</code> uses stackful switching and caller-provided stacks. Await generally fits code designed around coroutines. AsyncFibers fits code that needs to suspend through ordinary non-coroutine helper functions, at the cost of coarser stack reservations and a draft runtime surface.</p>
 <p><a class="el" href="/SaneCppLibraries/libraries/fibers/">Fibers</a> remains the scheduling and synchronization layer. It is useful without I/O, while <code>AsyncFibers</code> is specifically the adapter from its tasks to <code>Async</code>. Neither library turns arbitrary blocking system calls into cooperative waits.</p>
-<h1><a class="anchor" id="autotoc_md108"></a>
+<h1><a class="anchor" id="autotoc_md109"></a>
 Status and practical limits</h1>
 <p>🟥 Draft</p>
 <p>The implementation has focused tests for same-thread and worker-pool waits, sockets, datagrams, files, <code>fileSend</code>, process exit, signals, cancellation races, and command-queue overflow on macOS, Linux, and Windows. The API is still draft: DNS and stream conveniences are absent, backend coverage follows what <code>Async</code> supports on each platform, and the run-loop/cancellation surface may evolve as larger applications exercise it.</p>
 <p>For the exact operation list and result fields, see <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1AsyncFiberIO.html">SC::AsyncFiberIO</a> and the <a class="el" href="/SaneCppLibraries/reference/doxygen/group__group__async__fibers.html">AsyncFibers module</a>. <code>Examples/FibersDemo</code> is the smallest end-to-end example; <code>Tests/Libraries/AsyncFibers/AsyncFibersTest.cpp</code> contains the edge cases.</p>
-<h1><a class="anchor" id="autotoc_md109"></a>
+<h1><a class="anchor" id="autotoc_md110"></a>
 Blog</h1>
 <p>Development notes and design changes are recorded in the project updates:</p>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2026-07-31-SaneCppLibrariesUpdate.html">July 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md110"></a>
+<h1><a class="anchor" id="autotoc_md111"></a>
 Roadmap</h1>
 <ul>
 <li>Add DNS or stream helpers only when concrete consumers establish the right ownership and buffering model.</li>
 <li>Continue stress-testing cancellation, shutdown, and command-capacity races.</li>
 <li>Consider a backend-neutral fiber I/O facade only after a second real backend exists.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md111"></a>
+<h1><a class="anchor" id="autotoc_md112"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/AsyncFibers</code>. Single File counts <code>SaneCppAsyncFibers.h</code>. Standalone counts <code>SaneCppAsyncFibersStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">
@@ -333,31 +366,34 @@ Statistics</h1>
     <a href="#autotoc_md102">A complete wait</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md103">What the I/O calls return</a>
+    <a href="#autotoc_md103">A bounded file-copy consumer</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md104">Memory and lifetime are part of the API</a>
+    <a href="#autotoc_md104">What the I/O calls return</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md105">Worker threads and the event-loop owner</a>
+    <a href="#autotoc_md105">Memory and lifetime are part of the API</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md106">Cancellation and shutdown</a>
+    <a href="#autotoc_md106">Worker threads and the event-loop owner</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md107">Choosing between the neighboring libraries</a>
+    <a href="#autotoc_md107">Cancellation and shutdown</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md108">Status and practical limits</a>
+    <a href="#autotoc_md108">Choosing between the neighboring libraries</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md109">Blog</a>
+    <a href="#autotoc_md109">Status and practical limits</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md110">Roadmap</a>
+    <a href="#autotoc_md110">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md111">Statistics</a>
+    <a href="#autotoc_md111">Roadmap</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md112">Statistics</a>
   </li>
 </ul>
 </div></div> </div> </aside> </section>  </div> </div> </main> <footer class="site-footer" data-astro-cid-37fxchfa> <div class="shell footer-grid" data-astro-cid-37fxchfa> <div data-astro-cid-37fxchfa> <div class="eyebrow" data-astro-cid-37fxchfa>Platform Abstraction C++ Libraries</div> <h2 data-astro-cid-37fxchfa>Sane C++ Libraries</h2> <p class="copy-muted" data-astro-cid-37fxchfa>

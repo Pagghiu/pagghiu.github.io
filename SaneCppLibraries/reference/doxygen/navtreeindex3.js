@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"structSC_1_1AsyncDuplexStream.html":[18,0,0,8],
+"structSC_1_1AsyncDuplexStream.html":[19,0,0,8],
 "structSC_1_1AsyncDuplexStream.html#a7b3194e430943a1aa9e007965dd552f6":[18,0,0,8,0],
 "structSC_1_1AsyncDuplexStream.html#a7b3194e430943a1aa9e007965dd552f6":[19,0,0,8,0],
 "structSC_1_1AsyncEventLoop.html":[18,0,0,9],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "structSC_1_1AsyncLoopTimeout.html#a698314d3c9deee784fbc86f82cd80e07":[18,0,0,31,4],
 "structSC_1_1AsyncLoopTimeout.html#a698314d3c9deee784fbc86f82cd80e07":[19,0,0,31,4],
 "structSC_1_1AsyncLoopTimeout.html#a71c9ab224e7491e0ca068ce9a294a530":[18,0,0,31,3],
-"structSC_1_1AsyncLoopTimeout.html#a71c9ab224e7491e0ca068ce9a294a530":[19,0,0,31,3],
-"structSC_1_1AsyncLoopWakeUp.html":[18,0,0,32],
-"structSC_1_1AsyncLoopWakeUp.html":[19,0,0,32]
+"structSC_1_1AsyncLoopTimeout.html#a71c9ab224e7491e0ca068ce9a294a530":[19,0,0,31,3]
 };

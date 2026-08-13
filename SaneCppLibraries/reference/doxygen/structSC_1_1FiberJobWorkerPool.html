@@ -163,11 +163,11 @@ Result&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> (<a class
 <tr class="memitem:aff3ed289bbb9e993b6f605f898b73284" id="r_aff3ed289bbb9e993b6f605f898b73284"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff3ed289bbb9e993b6f605f898b73284">waitIdle</a> ()</td></tr>
 <tr class="memdesc:aff3ed289bbb9e993b6f605f898b73284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for the scheduler to reach an idle observation point without stopping a persistent pool.  <br /></td></tr>
 <tr class="separator:aff3ed289bbb9e993b6f605f898b73284"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fa550573d72d177d0c8700f55df8333" id="r_a3fa550573d72d177d0c8700f55df8333"><td class="memItemLeft" align="right" valign="top"><a id="a3fa550573d72d177d0c8700f55df8333" name="a3fa550573d72d177d0c8700f55df8333"></a>
-Result&#160;</td><td class="memItemRight" valign="bottom"><b>requestStop</b> ()</td></tr>
+<tr class="memitem:a3fa550573d72d177d0c8700f55df8333" id="r_a3fa550573d72d177d0c8700f55df8333"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fa550573d72d177d0c8700f55df8333">requestStop</a> ()</td></tr>
+<tr class="memdesc:a3fa550573d72d177d0c8700f55df8333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests scheduler-wide cooperative cancellation and wakes every worker before the pool drains.  <br /></td></tr>
 <tr class="separator:a3fa550573d72d177d0c8700f55df8333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b3bee70584247f80fd82dfc53828689" id="r_a7b3bee70584247f80fd82dfc53828689"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b3bee70584247f80fd82dfc53828689">join</a> ()</td></tr>
-<tr class="memdesc:a7b3bee70584247f80fd82dfc53828689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Persistent pools reject join until requestStop() has established the terminal boundary.  <br /></td></tr>
+<tr class="memdesc:a7b3bee70584247f80fd82dfc53828689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Persistent pools reject join until <a class="el" href="#a3fa550573d72d177d0c8700f55df8333" title="Requests scheduler-wide cooperative cancellation and wakes every worker before the pool drains.">requestStop()</a> has established the terminal boundary.  <br /></td></tr>
 <tr class="separator:a7b3bee70584247f80fd82dfc53828689"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a700d71c0551b86788bd586d0ce5398ff" id="r_a700d71c0551b86788bd586d0ce5398ff"><td class="memItemLeft" align="right" valign="top"><a id="a700d71c0551b86788bd586d0ce5398ff" name="a700d71c0551b86788bd586d0ce5398ff"></a>
 Result&#160;</td><td class="memItemRight" valign="bottom"><b>shutdown</b> ()</td></tr>
@@ -209,7 +209,26 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>FiberJobWorkerThrea
       </table>
 </div><div class="memdoc">
 
-<p>Persistent pools reject join until requestStop() has established the terminal boundary. </p>
+<p>Persistent pools reject join until <a class="el" href="#a3fa550573d72d177d0c8700f55df8333" title="Requests scheduler-wide cooperative cancellation and wakes every worker before the pool drains.">requestStop()</a> has established the terminal boundary. </p>
+
+</div>
+</div>
+<a id="a3fa550573d72d177d0c8700f55df8333" name="a3fa550573d72d177d0c8700f55df8333"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fa550573d72d177d0c8700f55df8333">&#9670;&#160;</a></span>requestStop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::FiberJobWorkerPool::requestStop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requests scheduler-wide cooperative cancellation and wakes every worker before the pool drains. </p>
 
 </div>
 </div>

@@ -153,7 +153,46 @@ Span&lt; const uint64_t &gt;&#160;</td><td class="memItemRight" valign="bottom">
 <tr class="memitem:ae48525322fe665e56985021552ec078c" id="r_ae48525322fe665e56985021552ec078c"><td class="memItemLeft" align="right" valign="top"><a id="ae48525322fe665e56985021552ec078c" name="ae48525322fe665e56985021552ec078c"></a>
 FiberWorkerThreadPriority&#160;</td><td class="memItemRight" valign="bottom"><b>threadPriority</b> = FiberWorkerThreadPriority::Default</td></tr>
 <tr class="separator:ae48525322fe665e56985021552ec078c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70aae862a3de4268efc16e4beceef5f3" id="r_a70aae862a3de4268efc16e4beceef5f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1FiberStackGrowthRuntime.html">FiberStackGrowthRuntime</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70aae862a3de4268efc16e4beceef5f3">stackGrowthRuntime</a> = nullptr</td></tr>
+<tr class="memdesc:a70aae862a3de4268efc16e4beceef5f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional process owner enabling incremental stacks on every worker.  <br /></td></tr>
+<tr class="separator:a70aae862a3de4268efc16e4beceef5f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae62f403cd06c02f9132837e9831be71d" id="r_ae62f403cd06c02f9132837e9831be71d"><td class="memItemLeft" align="right" valign="top">Span&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae62f403cd06c02f9132837e9831be71d">stackGrowthSignalStackStorage</a></td></tr>
+<tr class="memdesc:ae62f403cd06c02f9132837e9831be71d"><td class="mdescLeft">&#160;</td><td class="mdescRight">POSIX requires at least workerCount * FiberStackGrowthSignalStackSize bytes; Windows ignores this span.  <br /></td></tr>
+<tr class="separator:ae62f403cd06c02f9132837e9831be71d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a70aae862a3de4268efc16e4beceef5f3" name="a70aae862a3de4268efc16e4beceef5f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70aae862a3de4268efc16e4beceef5f3">&#9670;&#160;</a></span>stackGrowthRuntime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSC_1_1FiberStackGrowthRuntime.html">FiberStackGrowthRuntime</a>* SC::FiberWorkerPoolOptions::stackGrowthRuntime = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional process owner enabling incremental stacks on every worker. </p>
+
+</div>
+</div>
+<a id="ae62f403cd06c02f9132837e9831be71d" name="ae62f403cd06c02f9132837e9831be71d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae62f403cd06c02f9132837e9831be71d">&#9670;&#160;</a></span>stackGrowthSignalStackStorage</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Span&lt;char&gt; SC::FiberWorkerPoolOptions::stackGrowthSignalStackStorage</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>POSIX requires at least workerCount * FiberStackGrowthSignalStackSize bytes; Windows ignores this span. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="Fibers_8h_source.html">Fibers.h</a></li>
 </ul>

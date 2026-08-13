@@ -240,10 +240,10 @@ struct SC::FileSystemWatcherAsyncT&lt; T_AsyncEventLoop &gt;</div><p><a class="e
 <div class="line">        {</div>
 <div class="line">            <span class="keywordflow">switch</span> (notification.operation)</div>
 <div class="line">            {</div>
-<div class="line">            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="structSC_1_1FileSystemWatcher.html#a97111929c4c1ba3be0f8659b9cdc3fe0a35e0c8c0b180c95d4e122e55ed62cc64">FileSystemWatcher::Operation::Modified</a>: <span class="comment">// File has been modified</span></div>
+<div class="line">            <span class="keywordflow">case</span> FileSystemWatcher::Operation::Modified: <span class="comment">// File has been modified</span></div>
 <div class="line">                console.<a class="code hl_function" href="structSC_1_1Console.html#a90ab19d2e3479df328c87dc8c51f3c4a">print</a>(<span class="stringliteral">&quot;Modified {} {}\n&quot;</span>, notification.relativePath, fullPath.view());</div>
 <div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="structSC_1_1FileSystemWatcher.html#a97111929c4c1ba3be0f8659b9cdc3fe0ae0ff1b3de115701e9f3074c8331167cf">FileSystemWatcher::Operation::AddRemoveRename</a>: <span class="comment">// File was added / removed</span></div>
+<div class="line">            <span class="keywordflow">case</span> FileSystemWatcher::Operation::AddRemoveRename: <span class="comment">// File was added / removed</span></div>
 <div class="line">                console.<a class="code hl_function" href="structSC_1_1Console.html#a90ab19d2e3479df328c87dc8c51f3c4a">print</a>(<span class="stringliteral">&quot;AddRemoveRename {} {}\n&quot;</span>, notification.relativePath, fullPath.view());</div>
 <div class="line">                <span class="keywordflow">break</span>;</div>
 <div class="line">            }</div>

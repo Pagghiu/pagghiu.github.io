@@ -11,9 +11,11 @@ var searchData=
   ['spafallbackpath_8',['spaFallbackPath',['../structSC_1_1HttpAsyncFileServerOptions.html#ae6cc6433c322eb14cf1990bd9dab1ffc',1,'SC::HttpAsyncFileServerOptions']]],
   ['specialdevice_9',['specialDevice',['../structSC_1_1FileDescriptorStat.html#a82ec78c7a853d8898355661a14da5b6d',1,'SC::FileDescriptorStat::specialDevice'],['../structSC_1_1FileSystemStat.html#a9d9073ef12d8d3a33c85eaf52a888b73',1,'SC::FileSystemStat::specialDevice']]],
   ['splittingcharacter_10',['splittingCharacter',['../structSC_1_1StringViewTokenizer.html#ad7749a28ae272b154fa6514a8456b2cc',1,'SC::StringViewTokenizer']]],
-  ['state_11',['state',['../structSC_1_1HttpMultipartParser.html#adceb6922331a5d2e0a679df04062d8dd',1,'SC::HttpMultipartParser::state'],['../structSC_1_1HttpParser.html#a405fd69749acd688e3e36bdd6a71ef3d',1,'SC::HttpParser::state']]],
-  ['statescratch_12',['stateScratch',['../structSC_1_1HttpClientSessionMemory.html#a50538c626acb2d190389b549b88f6774',1,'SC::HttpClientSessionMemory']]],
-  ['statistics_13',['statistics',['../structSC_1_1MemoryAllocator.html#a8c5605d993184c8e77fbecf144df643b',1,'SC::MemoryAllocator']]],
-  ['statuscode_14',['statusCode',['../structSC_1_1HttpParser.html#ab162ff7824b1a47a2f3f36c014c39e93',1,'SC::HttpParser::statusCode'],['../structSC_1_1HttpClientResponse.html#a7952d482e4d825a54b4c36dfcaab7709',1,'SC::HttpClientResponse::statusCode']]],
-  ['sync_15',['sync',['../structSC_1_1FileOpen.html#a68b5dcbaa7db87ae2a06a8c56b3d7e78',1,'SC::FileOpen']]]
+  ['stackgrowthruntime_11',['stackGrowthRuntime',['../structSC_1_1FiberWorkerPoolOptions.html#a70aae862a3de4268efc16e4beceef5f3',1,'SC::FiberWorkerPoolOptions']]],
+  ['stackgrowthsignalstackstorage_12',['stackGrowthSignalStackStorage',['../structSC_1_1FiberWorkerPoolOptions.html#ae62f403cd06c02f9132837e9831be71d',1,'SC::FiberWorkerPoolOptions']]],
+  ['state_13',['state',['../structSC_1_1HttpMultipartParser.html#adceb6922331a5d2e0a679df04062d8dd',1,'SC::HttpMultipartParser::state'],['../structSC_1_1HttpParser.html#a405fd69749acd688e3e36bdd6a71ef3d',1,'SC::HttpParser::state']]],
+  ['statescratch_14',['stateScratch',['../structSC_1_1HttpClientSessionMemory.html#a50538c626acb2d190389b549b88f6774',1,'SC::HttpClientSessionMemory']]],
+  ['statistics_15',['statistics',['../structSC_1_1MemoryAllocator.html#a8c5605d993184c8e77fbecf144df643b',1,'SC::MemoryAllocator']]],
+  ['statuscode_16',['statusCode',['../structSC_1_1HttpParser.html#ab162ff7824b1a47a2f3f36c014c39e93',1,'SC::HttpParser::statusCode'],['../structSC_1_1HttpClientResponse.html#a7952d482e4d825a54b4c36dfcaab7709',1,'SC::HttpClientResponse::statusCode']]],
+  ['sync_17',['sync',['../structSC_1_1FileOpen.html#a68b5dcbaa7db87ae2a06a8c56b3d7e78',1,'SC::FileOpen']]]
 ];

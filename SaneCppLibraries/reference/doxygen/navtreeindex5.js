@@ -1,5 +1,7 @@
 var NAVTREEINDEX5 =
 {
+"structSC_1_1AsyncSocketAccept.html":[18,0,0,48],
+"structSC_1_1AsyncSocketAccept.html":[19,0,0,48],
 "structSC_1_1AsyncSocketAccept.html#a1f62e593a1a20cf094396f9d307fcdb2":[18,0,0,48,0],
 "structSC_1_1AsyncSocketAccept.html#a1f62e593a1a20cf094396f9d307fcdb2":[19,0,0,48,0],
 "structSC_1_1AsyncSocketConnect.html":[18,0,0,49],
@@ -247,7 +249,5 @@ var NAVTREEINDEX5 =
 "structSC_1_1CommandLineParseResult.html":[18,0,0,121],
 "structSC_1_1CommandLineParseResult.html":[19,0,0,121],
 "structSC_1_1CommandLinePositional.html":[18,0,0,122],
-"structSC_1_1CommandLinePositional.html":[19,0,0,122],
-"structSC_1_1CommandLineSpec.html":[18,0,0,123],
-"structSC_1_1CommandLineSpec.html":[19,0,0,123]
+"structSC_1_1CommandLinePositional.html":[19,0,0,122]
 };

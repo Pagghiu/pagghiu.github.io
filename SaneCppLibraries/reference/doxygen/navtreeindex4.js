@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"structSC_1_1AsyncLoopWakeUp.html":[18,0,0,32],
+"structSC_1_1AsyncLoopWakeUp.html":[19,0,0,32],
 "structSC_1_1AsyncLoopWakeUp.html#a39e92a08c9a6feff8250691c33bc421d":[18,0,0,32,2],
 "structSC_1_1AsyncLoopWakeUp.html#a39e92a08c9a6feff8250691c33bc421d":[19,0,0,32,2],
 "structSC_1_1AsyncLoopWakeUp.html#a8c5574bae42f75cd0be00ab2b12e7e1e":[18,0,0,32,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "structSC_1_1AsyncSignal_1_1CompletionData.html#af025f88e6f5e4a0c80f54099bb03459e":[18,0,0,46,0,1],
 "structSC_1_1AsyncSignal_1_1CompletionData.html#af025f88e6f5e4a0c80f54099bb03459e":[19,0,0,46,0,1],
 "structSC_1_1AsyncSignal_1_1Result.html":[18,0,0,46,1],
-"structSC_1_1AsyncSignal_1_1Result.html":[19,0,0,46,1],
-"structSC_1_1AsyncSocketAccept.html":[18,0,0,48],
-"structSC_1_1AsyncSocketAccept.html":[19,0,0,48]
+"structSC_1_1AsyncSignal_1_1Result.html":[19,0,0,46,1]
 };
