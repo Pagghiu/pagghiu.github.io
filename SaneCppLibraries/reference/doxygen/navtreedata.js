@@ -184,14 +184,14 @@ var NAVTREEINDEX =
 "group__group__strings.html#ga4b7aa03fde5e693b29c03a9991208574",
 "library_reflection.html#autotoc_md306",
 "structSC_1_1AsyncDuplexStream.html",
-"structSC_1_1AsyncLoopWakeUp.html",
-"structSC_1_1AsyncSocketAccept.html",
-"structSC_1_1CommandLineSpec.html",
-"structSC_1_1FileOpen.html#aeab1ae17d0e3c5f8abd6ef230862c443",
-"structSC_1_1HttpAsyncServer.html#aff4ed39c8e2965711cd96dd7c60b5f0f",
-"structSC_1_1HttpWebSocketHandshakeResult.html",
-"structSC_1_1SocketDescriptor.html#a2720319cda22d466deace32ed65ba291",
-"structSC_1_1Time_1_1Monotonic.html#a89d4f6f7cd5b0a5989a369a7ac5cfee9"
+"structSC_1_1AsyncLoopTimeout.html#a76a0782e54004630cfa54b555ab09134",
+"structSC_1_1AsyncSignal_1_1Result.html",
+"structSC_1_1CommandLinePositional.html",
+"structSC_1_1FileOpen.html#a11ba9a64dc70f5f26b77b842f53a4f31aa7a826b01b7cec06f40eb44ffb82a9d3",
+"structSC_1_1HttpAsyncServer.html#aa92f6ef801b9d9147dd58b3c321b62c1",
+"structSC_1_1HttpWebSocketFrameWriter.html",
+"structSC_1_1SocketDescriptor.html#a02f20a4f51d91f968f4b1344de7ef1d3",
+"structSC_1_1Time_1_1Monotonic.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

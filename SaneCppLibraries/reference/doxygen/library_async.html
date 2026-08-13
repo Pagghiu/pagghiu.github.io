@@ -238,7 +238,8 @@ Timers And Cross-Thread Wake-Ups</h1>
 <div class="line">};</div>
 <div class="line"><span class="comment">// Start the timeout, that will be called 200 ms from now</span></div>
 <div class="line">SC_TRY(timeout.start(eventLoop, 200_ms));</div>
-</div><!-- fragment --><p><code>AsyncLoopWakeUp</code> is the explicit bridge from another thread into the event loop. Waking a request through the event loop is thread-safe; the callback is delivered by the thread dispatching the event loop:</p>
+</div><!-- fragment --><p>An unsequenced timeout can be removed synchronously with <code>AsyncLoopTimeout::unschedule</code>. Success suppresses its callback and leaves the request free without dispatching other event-loop callbacks. The caller must serialize this operation with event-loop submission, polling, and callback dispatch. Use the ordinary asynchronous <code>stop</code> operation for sequenced timeouts and other request types.</p>
+<p><code>AsyncLoopWakeUp</code> is the explicit bridge from another thread into the event loop. Waking a request through the event loop is thread-safe; the callback is delivered by the thread dispatching the event loop:</p>
 <div class="fragment"><div class="line"><span class="comment">// Assuming an already created (and running) AsyncEventLoop named eventLoop</span></div>
 <div class="line"><span class="comment">// ...</span></div>
 <div class="line"><span class="comment">// This code runs on some different thread from the one calling SC::AsyncEventLoop::run.</span></div>

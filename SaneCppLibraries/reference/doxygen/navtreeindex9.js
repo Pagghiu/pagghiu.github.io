@@ -1,5 +1,7 @@
 var NAVTREEINDEX9 =
 {
+"structSC_1_1HttpWebSocketFrameWriter.html":[17,13,43],
+"structSC_1_1HttpWebSocketHandshake.html":[17,13,40],
 "structSC_1_1HttpWebSocketHandshakeResult.html":[17,13,39],
 "structSC_1_1HttpWebSocketHubClient.html":[17,13,47],
 "structSC_1_1HttpWebSocketMessageAssembler.html":[17,13,44],
@@ -247,7 +249,5 @@ var NAVTREEINDEX9 =
 "structSC_1_1SocketClient.html#a83851e6ce666903589ead0f61fe61fbe":[17,16,4,4],
 "structSC_1_1SocketClient.html#a9b691ac6107db42668c3b0d60723aa41":[17,16,4,5],
 "structSC_1_1SocketDNS.html":[17,16,5],
-"structSC_1_1SocketDescriptor.html":[17,16,2],
-"structSC_1_1SocketDescriptor.html#a02f20a4f51d91f968f4b1344de7ef1d3":[17,16,2,8],
-"structSC_1_1SocketDescriptor.html#a07e6ec8c77aea419d6a474ad84f97617":[17,16,2,12]
+"structSC_1_1SocketDescriptor.html":[17,16,2]
 };

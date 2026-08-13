@@ -5,7 +5,8 @@ var searchData=
   ['unlockwrite_2',['unlockWrite',['../structSC_1_1RWLock.html#a46d16c8ef0737e6a24ca36ad7e721053',1,'SC::RWLock']]],
   ['unpipe_3',['unpipe',['../structSC_1_1AsyncPipeline.html#a1ac20d8702b483f87083b3932ba94291',1,'SC::AsyncPipeline']]],
   ['unrefbuffer_4',['unrefBuffer',['../structSC_1_1AsyncBuffersPool.html#ae8285a76b99da3053040f351afac582a',1,'SC::AsyncBuffersPool']]],
-  ['unshift_5',['unshift',['../structSC_1_1AsyncReadableStream.html#aee5351803c9b915cbc9f1d450e98eadd',1,'SC::AsyncReadableStream::unshift()'],['../structSC_1_1AsyncWritableStream.html#aaedd14fb7c3e0b3b69a0e4eee061c32d',1,'SC::AsyncWritableStream::unshift()']]],
-  ['updatetime_6',['updateTime',['../structSC_1_1AsyncEventLoop.html#a23d0873dcce2d64682cce1a19a7fb1d0',1,'SC::AsyncEventLoop']]],
-  ['usedzerocopy_7',['usedZeroCopy',['../structSC_1_1AsyncFileSend_1_1Result.html#a1bf570744461b3db0b3c5111de6baf57',1,'SC::AsyncFileSend::Result']]]
+  ['unschedule_5',['unschedule',['../structSC_1_1AsyncLoopTimeout.html#a76a0782e54004630cfa54b555ab09134',1,'SC::AsyncLoopTimeout']]],
+  ['unshift_6',['unshift',['../structSC_1_1AsyncReadableStream.html#aee5351803c9b915cbc9f1d450e98eadd',1,'SC::AsyncReadableStream::unshift()'],['../structSC_1_1AsyncWritableStream.html#aaedd14fb7c3e0b3b69a0e4eee061c32d',1,'SC::AsyncWritableStream::unshift()']]],
+  ['updatetime_7',['updateTime',['../structSC_1_1AsyncEventLoop.html#a23d0873dcce2d64682cce1a19a7fb1d0',1,'SC::AsyncEventLoop']]],
+  ['usedzerocopy_8',['usedZeroCopy',['../structSC_1_1AsyncFileSend_1_1Result.html#a1bf570744461b3db0b3c5111de6baf57',1,'SC::AsyncFileSend::Result']]]
 ];

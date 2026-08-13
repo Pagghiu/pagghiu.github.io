@@ -1,5 +1,7 @@
 var NAVTREEINDEX8 =
 {
+"structSC_1_1HttpAsyncServer.html#aa92f6ef801b9d9147dd58b3c321b62c1":[19,0,0,214,10],
+"structSC_1_1HttpAsyncServer.html#aff4ed39c8e2965711cd96dd7c60b5f0f":[18,0,0,214,1],
 "structSC_1_1HttpAsyncServer.html#aff4ed39c8e2965711cd96dd7c60b5f0f":[19,0,0,214,1],
 "structSC_1_1HttpAsyncServerTransportSetup.html":[18,0,0,215],
 "structSC_1_1HttpAsyncServerTransportSetup.html":[19,0,0,215],
@@ -247,7 +249,5 @@ var NAVTREEINDEX8 =
 "structSC_1_1HttpWebSocketConnectionPump.html":[17,13,46],
 "structSC_1_1HttpWebSocketEndpoint.html":[17,13,45],
 "structSC_1_1HttpWebSocketFrameHeaderView.html":[17,13,35],
-"structSC_1_1HttpWebSocketFrameReader.html":[17,13,42],
-"structSC_1_1HttpWebSocketFrameWriter.html":[17,13,43],
-"structSC_1_1HttpWebSocketHandshake.html":[17,13,40]
+"structSC_1_1HttpWebSocketFrameReader.html":[17,13,42]
 };

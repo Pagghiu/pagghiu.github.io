@@ -1,5 +1,7 @@
 var NAVTREEINDEX10 =
 {
+"structSC_1_1SocketDescriptor.html#a02f20a4f51d91f968f4b1344de7ef1d3":[17,16,2,8],
+"structSC_1_1SocketDescriptor.html#a07e6ec8c77aea419d6a474ad84f97617":[17,16,2,12],
 "structSC_1_1SocketDescriptor.html#a2720319cda22d466deace32ed65ba291":[17,16,2,11],
 "structSC_1_1SocketDescriptor.html#a40cb31a7597f2bfccea897d82c7982c5":[17,16,2,6],
 "structSC_1_1SocketDescriptor.html#a53cbe8a38af4e173fd2971d872c8feb6":[17,16,2,10],
@@ -247,7 +249,5 @@ var NAVTREEINDEX10 =
 "structSC_1_1Time_1_1HighResolutionCounter.html#ab38287337b7dd250cf52b4f39343b71b":[17,27,7,1],
 "structSC_1_1Time_1_1HighResolutionCounter.html#ab9780370bb06463d44121f62b769fb86":[17,27,7,3],
 "structSC_1_1Time_1_1HighResolutionCounter.html#adf96060ea29a8b88c52bb7da8c9a1865":[17,27,7,5],
-"structSC_1_1Time_1_1Milliseconds.html":[17,27,1],
-"structSC_1_1Time_1_1Monotonic.html":[17,27,5],
-"structSC_1_1Time_1_1Monotonic.html#a277cbcb5a698e6c5695b494aec858d34":[17,27,5,2]
+"structSC_1_1Time_1_1Milliseconds.html":[17,27,1]
 };

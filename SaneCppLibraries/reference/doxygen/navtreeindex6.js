@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"structSC_1_1CommandLinePositional.html":[18,0,0,122],
+"structSC_1_1CommandLinePositional.html":[19,0,0,122],
 "structSC_1_1CommandLineSpec.html":[18,0,0,123],
 "structSC_1_1CommandLineSpec.html":[19,0,0,123],
 "structSC_1_1CommandLineValue.html":[18,0,0,124],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "structSC_1_1FileOpen.html#a11ba9a64dc70f5f26b77b842f53a4f31a4fc0523df2172fe72ff492a60d28106e":[17,7,1,0,0],
 "structSC_1_1FileOpen.html#a11ba9a64dc70f5f26b77b842f53a4f31a74919ba39492eab8450e7cdbf49648f8":[17,7,1,0,5],
 "structSC_1_1FileOpen.html#a11ba9a64dc70f5f26b77b842f53a4f31a7c77626e0d7456dd2d8b3b566838de5f":[17,7,1,0,1],
-"structSC_1_1FileOpen.html#a11ba9a64dc70f5f26b77b842f53a4f31a8a6f0c217a74b4551f19de8a1fb3e22e":[17,7,1,0,4],
-"structSC_1_1FileOpen.html#a11ba9a64dc70f5f26b77b842f53a4f31aa7a826b01b7cec06f40eb44ffb82a9d3":[17,7,1,0,3],
-"structSC_1_1FileOpen.html#a68b5dcbaa7db87ae2a06a8c56b3d7e78":[17,7,1,5]
+"structSC_1_1FileOpen.html#a11ba9a64dc70f5f26b77b842f53a4f31a8a6f0c217a74b4551f19de8a1fb3e22e":[17,7,1,0,4]
 };
