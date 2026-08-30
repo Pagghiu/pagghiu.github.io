@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "SC::Cryptography::Aead", "structSC_1_1Cryptography_1_1Aead.html", null ],
     [ "SC::Process::StdStream::AlreadySetup", "structSC_1_1Process_1_1StdStream_1_1AlreadySetup.html", null ],
     [ "SC::ArenaMap< T >", "structSC_1_1ArenaMap.html", null ],
     [ "SC::ArenaMap< T >::ArenaMapIterator< MapType >", "structSC_1_1ArenaMap_1_1ArenaMapIterator.html", null ],
@@ -49,6 +50,7 @@ var hierarchy =
       ] ],
       [ "SC::AsyncDuplexStream", "structSC_1_1AsyncDuplexStream.html", [
         [ "SC::AsyncTransformStream", "structSC_1_1AsyncTransformStream.html", [
+          [ "SC::AsyncCipherTransformStreamT< T_Cipher >", "structSC_1_1AsyncCipherTransformStreamT.html", null ],
           [ "SC::AsyncZLibTransformStreamT< T_AsyncEventLoop >", "structSC_1_1AsyncZLibTransformStreamT.html", null ]
         ] ],
         [ "SC::SyncZLibTransformStream", "structSC_1_1SyncZLibTransformStream.html", null ]
@@ -120,6 +122,7 @@ var hierarchy =
         [ "SC::AsyncWritableSocketStream< AsyncEventLoop >", "structSC_1_1AsyncWritableSocketStream.html", null ]
       ] ],
       [ "SC::AsyncDuplexStream", "structSC_1_1AsyncDuplexStream.html", null ],
+      [ "SC::AsyncHmacWritableStreamT< T_Hmac >", "structSC_1_1AsyncHmacWritableStreamT.html", null ],
       [ "SC::AsyncRequestWritableStream< AsyncRequestType, AsyncEventLoopType >", "structSC_1_1AsyncRequestWritableStream.html", null ],
       [ "SC::HttpOutgoingMessage::ChunkedWritableStream", "structSC_1_1HttpOutgoingMessage_1_1ChunkedWritableStream.html", null ]
     ] ],
@@ -183,6 +186,7 @@ var hierarchy =
     [ "BaseClass", null, [
       [ "SC::HttpStaticConnection< ReadQueue, WriteQueue, HeaderBytes, StreamBytes, ExtraBuffers, BaseClass >", "structSC_1_1HttpStaticConnection.html", null ]
     ] ],
+    [ "SC::Cryptography::Cipher", "structSC_1_1Cryptography_1_1Cipher.html", null ],
     [ "SC::CommandLineArguments", "structSC_1_1CommandLineArguments.html", null ],
     [ "SC::CommandLineOption", "structSC_1_1CommandLineOption.html", null ],
     [ "SC::CommandLineParseResult", "structSC_1_1CommandLineParseResult.html", null ],
@@ -194,11 +198,13 @@ var hierarchy =
     [ "SC::HttpConnectionsPool::Configuration", "structSC_1_1HttpConnectionsPool_1_1Configuration.html", null ],
     [ "SC::Console", "structSC_1_1Console.html", null ],
     [ "SC::FileSystem::CopyOperation", "structSC_1_1FileSystem_1_1CopyOperation.html", null ],
+    [ "SC::Cryptography", "structSC_1_1Cryptography.html", null ],
     [ "SC::FileSystemIterator::Entry", "structSC_1_1FileSystemIterator_1_1Entry.html", null ],
     [ "SC::FileSystemWatcher::EventLoopRunner", "structSC_1_1FileSystemWatcher_1_1EventLoopRunner.html", [
       [ "SC::FileSystemWatcherAsyncT< T_AsyncEventLoop >", "structSC_1_1FileSystemWatcherAsyncT.html", null ]
     ] ],
     [ "SC::EventObject", "structSC_1_1EventObject.html", null ],
+    [ "SC::Cryptography::Features", "structSC_1_1Cryptography_1_1Features.html", null ],
     [ "SC::FiberAllocator", "structSC_1_1FiberAllocator.html", null ],
     [ "SC::FiberAllocatorInterface", "structSC_1_1FiberAllocatorInterface.html", null ],
     [ "SC::FiberAllocatorStatistics", "structSC_1_1FiberAllocatorStatistics.html", null ],
@@ -280,6 +286,8 @@ var hierarchy =
     [ "SC::Hashing", "structSC_1_1Hashing.html", null ],
     [ "SC::HttpAsyncClient::Header", "structSC_1_1HttpAsyncClient_1_1Header.html", null ],
     [ "SC::Time::HighResolutionCounter", "structSC_1_1Time_1_1HighResolutionCounter.html", null ],
+    [ "SC::Cryptography::Hkdf", "structSC_1_1Cryptography_1_1Hkdf.html", null ],
+    [ "SC::Cryptography::Hmac", "structSC_1_1Cryptography_1_1Hmac.html", null ],
     [ "SC::HttpAsyncClient", "structSC_1_1HttpAsyncClient.html", null ],
     [ "SC::HttpAsyncClientTransportSetup", "structSC_1_1HttpAsyncClientTransportSetup.html", null ],
     [ "SC::HttpAsyncFileServer", "structSC_1_1HttpAsyncFileServer.html", null ],
@@ -396,6 +404,7 @@ var hierarchy =
       [ "SC::TestReport::Output< ConsoleType >", "structSC_1_1TestReport_1_1Output.html", null ]
     ] ],
     [ "SC::TypeTraits::IsBaseOf< Base, Derived >", "structSC_1_1TypeTraits_1_1IsBaseOf.html", null ],
+    [ "SC::Cryptography::MacResult", "structSC_1_1Cryptography_1_1MacResult.html", null ],
     [ "SC::MaxValue", "structSC_1_1MaxValue.html", null ],
     [ "SC::HttpConnectionsPool::Memory", "structSC_1_1HttpConnectionsPool_1_1Memory.html", null ],
     [ "SC::Memory", "structSC_1_1Memory.html", null ],
@@ -461,6 +470,7 @@ var hierarchy =
     [ "SC::ProcessID", "structSC_1_1ProcessID.html", null ],
     [ "SC::AwaitTask::Promise", "structSC_1_1AwaitTask_1_1Promise.html", null ],
     [ "SC::HttpAsyncFileServer::Stream::PutFileListener", "structSC_1_1HttpAsyncFileServer_1_1Stream_1_1PutFileListener.html", null ],
+    [ "SC::Cryptography::Random", "structSC_1_1Cryptography_1_1Random.html", null ],
     [ "SC::Time::Relative", "structSC_1_1Time_1_1Relative.html", null ],
     [ "SC::AsyncReadableStream::Request", "structSC_1_1AsyncReadableStream_1_1Request.html", null ],
     [ "SC::AsyncWritableStream::Request", "structSC_1_1AsyncWritableStream_1_1Request.html", null ],

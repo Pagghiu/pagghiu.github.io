@@ -10,6 +10,7 @@ digraph LibraryDependencies {
   Await;
   Containers;
   ContainersReflection;
+  Cryptography;
   Fibers;
   File;
   FileSystem;
@@ -35,6 +36,7 @@ digraph LibraryDependencies {
   subgraph rank0 {
     rank=same;
     AsyncStreams;
+    Cryptography;
     Fibers;
     File;
     FileSystem;

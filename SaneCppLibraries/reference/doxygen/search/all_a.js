@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['keep_20outputs_20and_20ownership_20explicit_0',['Keep outputs and ownership explicit',['../page_coding_style.html#autotoc_md39',1,'']]],
-  ['keep_20paths_20project_20relative_1',['Keep paths project-relative',['../page_build_external.html#autotoc_md17',1,'']]],
-  ['keepalive_2',['keepAlive',['../structSC_1_1HttpOutgoingMessage.html#a47768cf384f39f3b8b42afe843576dbb',1,'SC::HttpOutgoingMessage']]],
-  ['keepalivewhenidle_3',['keepAliveWhenIdle',['../structSC_1_1FiberJobWorkerPoolOptions.html#a5b497f60891b14b175aca9a7388bb9d1',1,'SC::FiberJobWorkerPoolOptions']]],
-  ['key_4',['key',['../structSC_1_1VectorMapItem.html#a533aefb6782d5bfc51d0d60f15f46005',1,'SC::VectorMapItem']]],
-  ['know_20the_20boundary_5',['Know the boundary',['../page_tools.html#autotoc_md85',1,'']]]
+  ['jobs_0',['Stackless Jobs',['../library_fibers.html#autotoc_md188',1,'']]],
+  ['join_1',['join',['../structSC_1_1FiberJobWorkerPool.html#a7b3bee70584247f80fd82dfc53828689',1,'SC::FiberJobWorkerPool::join()'],['../structSC_1_1Path.html#a264cf5dba5b095ad3acd776193b2d8bc',1,'SC::Path::join()'],['../structSC_1_1Thread.html#aad66dfb65ebdca81f0dea267e7a35c08',1,'SC::Thread::join()']]],
+  ['joinmulticastgroup_2',['joinMulticastGroup',['../structSC_1_1SocketDescriptor.html#aaf5078977aa13668193247867b58d357',1,'SC::SocketDescriptor']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['🚀_20speed_0',['🚀 Speed',['../page_principles.html#autotoc_md71',1,'']]]
+  ['📖_20readability_0',['📖 Readability',['../page_principles.html#autotoc_md69',1,'']]]
 ];

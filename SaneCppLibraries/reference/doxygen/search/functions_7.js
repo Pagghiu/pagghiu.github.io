@@ -10,13 +10,14 @@ var searchData=
   ['hasreceivedheaders_7',['hasReceivedHeaders',['../structSC_1_1HttpIncomingMessage.html#aaf28cbc9715aaefe22a9aa1ce22bb6b5',1,'SC::HttpIncomingMessage']]],
   ['hasstartupfailure_8',['hasStartupFailure',['../structSC_1_1TestReport.html#a349dc1164313622cb53b266841d6b2e8',1,'SC::TestReport']]],
   ['head_9',['head',['../structSC_1_1HttpAsyncClient.html#a50eeeba8b5d96ceba6e99b4be4fad56b',1,'SC::HttpAsyncClient']]],
-  ['httpcontenttypetextplainutf8_10',['HttpContentTypeTextPlainUtf8',['../group__group__http.html#ga79271c59d6080083a918092024631996',1,'SC']]],
-  ['httpformurldecode_11',['HttpFormUrlDecode',['../group__group__http.html#gae8e24c4331c6318aaa4cf56d0244e10f',1,'SC']]],
-  ['httpmultipartissafefilename_12',['HttpMultipartIsSafeFileName',['../group__group__http.html#ga7d92cd26416f040150c3a31b169a95fe',1,'SC']]],
-  ['httpparsebasiccredentials_13',['HttpParseBasicCredentials',['../group__group__http.html#gab875589b81c7dd82a368d1ba09ac6c8b',1,'SC']]],
-  ['httpparsebearertoken_14',['HttpParseBearerToken',['../group__group__http.html#gadb7f8a8bde5b683fdc1278db245aa94e',1,'SC']]],
-  ['httppercentdecode_15',['HttpPercentDecode',['../group__group__http.html#ga59ca1878f49e8132d00832a65accc720',1,'SC']]],
-  ['httpwritebasicauthorization_16',['HttpWriteBasicAuthorization',['../group__group__http.html#gac5587f6903c7d162823a5d2b3d21ee5f',1,'SC']]],
-  ['httpwritebasicauthorizationcredentials_17',['HttpWriteBasicAuthorizationCredentials',['../group__group__http.html#ga8737657a97132d2dd1fb5628b7704329',1,'SC']]],
-  ['httpwritebearerauthorization_18',['HttpWriteBearerAuthorization',['../group__group__http.html#gaf47517b2caf1f3f85160bf8f22eceafc',1,'SC']]]
+  ['hmac_10',['Hmac',['../structSC_1_1Cryptography_1_1Hmac.html#a19f13eb3ba1998adc8db9264c7d74c84',1,'SC::Cryptography::Hmac::Hmac()'],['../structSC_1_1Cryptography_1_1Hmac.html#aade3b9a45a6155789855c3045aff1280',1,'SC::Cryptography::Hmac::Hmac(Backend backend)']]],
+  ['httpcontenttypetextplainutf8_11',['HttpContentTypeTextPlainUtf8',['../group__group__http.html#ga79271c59d6080083a918092024631996',1,'SC']]],
+  ['httpformurldecode_12',['HttpFormUrlDecode',['../group__group__http.html#gae8e24c4331c6318aaa4cf56d0244e10f',1,'SC']]],
+  ['httpmultipartissafefilename_13',['HttpMultipartIsSafeFileName',['../group__group__http.html#ga7d92cd26416f040150c3a31b169a95fe',1,'SC']]],
+  ['httpparsebasiccredentials_14',['HttpParseBasicCredentials',['../group__group__http.html#gab875589b81c7dd82a368d1ba09ac6c8b',1,'SC']]],
+  ['httpparsebearertoken_15',['HttpParseBearerToken',['../group__group__http.html#gadb7f8a8bde5b683fdc1278db245aa94e',1,'SC']]],
+  ['httppercentdecode_16',['HttpPercentDecode',['../group__group__http.html#ga59ca1878f49e8132d00832a65accc720',1,'SC']]],
+  ['httpwritebasicauthorization_17',['HttpWriteBasicAuthorization',['../group__group__http.html#gac5587f6903c7d162823a5d2b3d21ee5f',1,'SC']]],
+  ['httpwritebasicauthorizationcredentials_18',['HttpWriteBasicAuthorizationCredentials',['../group__group__http.html#ga8737657a97132d2dd1fb5628b7704329',1,'SC']]],
+  ['httpwritebearerauthorization_19',['HttpWriteBearerAuthorization',['../group__group__http.html#gaf47517b2caf1f3f85160bf8f22eceafc',1,'SC']]]
 ];

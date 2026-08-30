@@ -150,31 +150,34 @@ $(function(){initNavTree('library_async_streams.html',''); initResizable(true); 
     <a href="#autotoc_md119">Transforms And Fan-Out</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md120">Errors, Ending, And Destruction</a>
+    <a href="#autotoc_md120">Cryptography Adapters Without A Library Dependency</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md121">Allocation Model</a>
+    <a href="#autotoc_md121">Errors, Ending, And Destruction</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md122">Choosing The Neighboring Abstraction</a>
+    <a href="#autotoc_md122">Allocation Model</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md123">Details</a>
+    <a href="#autotoc_md123">Choosing The Neighboring Abstraction</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md124">Status</a>
+    <a href="#autotoc_md124">Details</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md125">Videos</a>
+    <a href="#autotoc_md125">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md126">Blog</a>
+    <a href="#autotoc_md126">Videos</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md127">Roadmap</a>
+    <a href="#autotoc_md127">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md128">Statistics</a>
+    <a href="#autotoc_md128">Roadmap</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md129">Statistics</a>
   </li>
 </ul>
 </div>
@@ -198,6 +201,7 @@ What Async Streams Is For</h1>
 <li>backpressure when a sink, transform, or buffer pool cannot keep up;</li>
 <li>a fixed pipeline of one source, up to eight transforms, and up to eight sinks;</li>
 <li>file, pipe, socket, or compression streams built on the same byte-buffer model.</li>
+<li>optional cipher transforms and HMAC sinks instantiated with a caller-selected cryptography session type.</li>
 </ul>
 <p>It is not a general container for arbitrary objects, a pull-based <code>read()</code> interface, or an unbounded buffering layer. There is currently no object mode, and consumers receive pushed data events rather than a Node.js-style readable event.</p>
 <h1><a class="anchor" id="autotoc_md115"></a>
@@ -260,10 +264,67 @@ Transforms And Fan-Out</h1>
 <p>An <code>AsyncTransformStream</code> is a duplex stream: it consumes buffers through its writable side and emits new buffers from its readable side. <code>SyncZLibTransformStream</code> runs compression work synchronously; <code>AsyncZLibTransformStreamT</code> schedules the same work through a compatible event loop and can be directed to a caller-selected thread pool.</p>
 <p>A pipeline has a fixed layout rather than a dynamically growing graph. It supports at most eight transforms and eight sinks. Every sink receives the source data, with buffer references held until each write completes. This is useful for bounded fan-out, but the slowest sink applies backpressure to the shared source. If consumers need independent pacing or unbounded history, that storage and policy belongs outside this library.</p>
 <h1><a class="anchor" id="autotoc_md120"></a>
+Cryptography Adapters Without A Library Dependency</h1>
+<p><code><a class="el" href="CryptographyTransformStreams_8h_source.html">CryptographyTransformStreams.h</a></code> provides two header-only adapters:</p>
+<ul>
+<li><code>AsyncCipherTransformStreamT&lt;T_Cipher&gt;</code> turns a compatible incremental cipher into a transform;</li>
+<li><code>AsyncHmacWritableStreamT&lt;T_Hmac&gt;</code> authenticates every byte written to it and is especially useful as a fan-out sink.</li>
+</ul>
+<p>The header includes no Cryptography interface. A translation unit that wants the native implementation includes both libraries and chooses the concrete session at instantiation time:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;Libraries/AsyncStreams/CryptographyTransformStreams.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;Libraries/Cryptography/Cryptography.h&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_struct" href="structSC_1_1AsyncCipherTransformStreamT.html">SC::AsyncCipherTransformStreamT&lt;SC::Cryptography::Cipher&gt;</a> encrypt;</div>
+<div class="line">SC_TRY(encrypt.cipher.start(SC::Cryptography::CipherType::AES256CBCPKCS7,</div>
+<div class="line">                            SC::Cryptography::Cipher::Operation::Encrypt, key, initializationVector));</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_struct" href="structSC_1_1AsyncReadableStream_1_1Request.html">SC::AsyncReadableStream::Request</a> cipherReads[3];</div>
+<div class="line"><a class="code hl_struct" href="structSC_1_1AsyncWritableStream_1_1Request.html">SC::AsyncWritableStream::Request</a> cipherWrites[3];</div>
+<div class="line">SC_TRY(encrypt.init(buffersPool, cipherReads, cipherWrites));</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_struct" href="structSC_1_1AsyncPipeline.html">SC::AsyncPipeline</a> pipeline = {&amp;source, {&amp;encrypt}, {&amp;destination}};</div>
+<div class="line">SC_TRY(pipeline.<a class="code hl_function" href="structSC_1_1AsyncPipeline.html#a0ae8314ea088465274c880bb816f8667">pipe</a>());</div>
+<div class="line">SC_TRY(pipeline.<a class="code hl_function" href="structSC_1_1AsyncPipeline.html#a46320e60831513501e6157a047c06668">start</a>());</div>
+<div class="ttc" id="astructSC_1_1AsyncCipherTransformStreamT_html"><div class="ttname"><a href="structSC_1_1AsyncCipherTransformStreamT.html">SC::AsyncCipherTransformStreamT</a></div><div class="ttdoc">Adapts an allocation-free streaming cipher session to AsyncTransformStream.</div><div class="ttdef"><b>Definition</b> CryptographyTransformStreams.h:21</div></div>
+<div class="ttc" id="astructSC_1_1AsyncPipeline_html"><div class="ttname"><a href="structSC_1_1AsyncPipeline.html">SC::AsyncPipeline</a></div><div class="ttdoc">Pipes read data from SC::AsyncReadableStream, forwarding them to SC::AsyncWritableStream.</div><div class="ttdef"><b>Definition</b> AsyncStreams.h:558</div></div>
+<div class="ttc" id="astructSC_1_1AsyncPipeline_html_a0ae8314ea088465274c880bb816f8667"><div class="ttname"><a href="structSC_1_1AsyncPipeline.html#a0ae8314ea088465274c880bb816f8667">SC::AsyncPipeline::pipe</a></div><div class="ttdeci">Result pipe()</div><div class="ttdoc">Reports errors by source, transforms or sinks.</div></div>
+<div class="ttc" id="astructSC_1_1AsyncPipeline_html_a46320e60831513501e6157a047c06668"><div class="ttname"><a href="structSC_1_1AsyncPipeline.html#a46320e60831513501e6157a047c06668">SC::AsyncPipeline::start</a></div><div class="ttdeci">Result start()</div><div class="ttdoc">Starts the pipeline.</div></div>
+<div class="ttc" id="astructSC_1_1AsyncReadableStream_1_1Request_html"><div class="ttname"><a href="structSC_1_1AsyncReadableStream_1_1Request.html">SC::AsyncReadableStream::Request</a></div><div class="ttdef"><b>Definition</b> AsyncStreams.h:233</div></div>
+<div class="ttc" id="astructSC_1_1AsyncWritableStream_1_1Request_html"><div class="ttname"><a href="structSC_1_1AsyncWritableStream_1_1Request.html">SC::AsyncWritableStream::Request</a></div><div class="ttdef"><b>Definition</b> AsyncStreams.h:371</div></div>
+</div><!-- fragment --><p>The adapters forward a single constructor argument to the concrete session, so an explicitly selected backend remains possible without teaching Async Streams about Cryptography:</p>
+<div class="fragment"><div class="line"><a class="code hl_struct" href="structSC_1_1AsyncCipherTransformStreamT.html">SC::AsyncCipherTransformStreamT&lt;SC::Cryptography::Cipher&gt;</a> encrypt(SC::Cryptography::Backend::OpenSSL);</div>
+<div class="line"><a class="code hl_struct" href="structSC_1_1AsyncHmacWritableStreamT.html">SC::AsyncHmacWritableStreamT&lt;SC::Cryptography::Hmac&gt;</a> authentication(SC::Cryptography::Backend::OpenSSL);</div>
+<div class="ttc" id="astructSC_1_1AsyncHmacWritableStreamT_html"><div class="ttname"><a href="structSC_1_1AsyncHmacWritableStreamT.html">SC::AsyncHmacWritableStreamT</a></div><div class="ttdoc">Adapts an incremental message-authentication session to AsyncWritableStream.</div><div class="ttdef"><b>Definition</b> CryptographyTransformStreams.h:119</div></div>
+</div><!-- fragment --><p><code>source</code>, <code>encrypt</code>, and <code>destination</code> must use the same pool. Every reusable writable view that the pool may return to the cipher must be at least 16 bytes. Larger buffers are more efficient: the adapter reserves up to 15 bytes of capacity for output caused by input retained from an earlier update. Decryption uses the same setup with <code>Operation::Decrypt</code>.</p>
+<p>This cipher is AES-CBC with PKCS#7 padding. CBC does not authenticate ciphertext and is suitable only when an existing protocol already supplies correct authentication, IV rules, framing, and failure handling. Stream errors include native cipher failures, invalid ciphertext or padding, and undersized output buffers. Decryption may emit earlier plaintext blocks before <code>finish()</code> validates the final padding, so the surrounding protocol must authenticate the ciphertext before any plaintext is released to an application.</p>
+<p>An HMAC sink can share source buffers with a storage or network sink through normal pipeline fan-out:</p>
+<div class="fragment"><div class="line"><a class="code hl_struct" href="structSC_1_1AsyncHmacWritableStreamT.html">SC::AsyncHmacWritableStreamT&lt;SC::Cryptography::Hmac&gt;</a> authentication;</div>
+<div class="line">SC_TRY(authentication.hmac.setType(SC::Cryptography::HashType::SHA256));</div>
+<div class="line">SC_TRY(authentication.hmac.setKey(macKey));</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_struct" href="structSC_1_1AsyncWritableStream_1_1Request.html">SC::AsyncWritableStream::Request</a> hmacWrites[3];</div>
+<div class="line">authentication.<a class="code hl_function" href="structSC_1_1AsyncWritableStream.html#afbe966a9f49eb13d06bccc1fae60488d">setWriteQueue</a>(hmacWrites);</div>
+<div class="line">SC_TRY(authentication.<a class="code hl_function" href="structSC_1_1AsyncWritableStream.html#a83336ebcbb20a1c1c806a5b3a144d11a">init</a>(buffersPool));</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_struct" href="structSC_1_1Cryptography_1_1MacResult.html">SC::Cryptography::MacResult</a> mac;</div>
+<div class="line">SC_TRY_MSG(authentication.<a class="code hl_variable" href="structSC_1_1AsyncWritableStream.html#a13482a9f56a7667552078d8b9dd449da">eventFinish</a>.addListener(</div>
+<div class="line">               [&amp;authentication, &amp;mac] { SC_TRUST_RESULT(authentication.hmac.getMac(mac)); }),</div>
+<div class="line">           <span class="stringliteral">&quot;Too many HMAC finish listeners&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_struct" href="structSC_1_1AsyncPipeline.html">SC::AsyncPipeline</a> pipeline = {&amp;source, {}, {&amp;destination, &amp;authentication}};</div>
+<div class="line">SC_TRY(pipeline.<a class="code hl_function" href="structSC_1_1AsyncPipeline.html#a0ae8314ea088465274c880bb816f8667">pipe</a>());</div>
+<div class="line">SC_TRY(pipeline.<a class="code hl_function" href="structSC_1_1AsyncPipeline.html#a46320e60831513501e6157a047c06668">start</a>());</div>
+<div class="ttc" id="astructSC_1_1AsyncWritableStream_html_a13482a9f56a7667552078d8b9dd449da"><div class="ttname"><a href="structSC_1_1AsyncWritableStream.html#a13482a9f56a7667552078d8b9dd449da">SC::AsyncWritableStream::eventFinish</a></div><div class="ttdeci">Event&lt; MaxListeners &gt; eventFinish</div><div class="ttdoc">Emitted when write queue is empty.</div><div class="ttdef"><b>Definition</b> AsyncStreams.h:381</div></div>
+<div class="ttc" id="astructSC_1_1AsyncWritableStream_html_a83336ebcbb20a1c1c806a5b3a144d11a"><div class="ttname"><a href="structSC_1_1AsyncWritableStream.html#a83336ebcbb20a1c1c806a5b3a144d11a">SC::AsyncWritableStream::init</a></div><div class="ttdeci">Result init(AsyncBuffersPool &amp;buffersPool)</div><div class="ttdoc">Emitted when the underlying resource has been closed.</div></div>
+<div class="ttc" id="astructSC_1_1AsyncWritableStream_html_afbe966a9f49eb13d06bccc1fae60488d"><div class="ttname"><a href="structSC_1_1AsyncWritableStream.html#afbe966a9f49eb13d06bccc1fae60488d">SC::AsyncWritableStream::setWriteQueue</a></div><div class="ttdeci">constexpr void setWriteQueue(Span&lt; Request &gt; requests)</div><div class="ttdoc">Sets the write queue for this writable stream.</div><div class="ttdef"><b>Definition</b> AsyncStreams.h:390</div></div>
+<div class="ttc" id="astructSC_1_1Cryptography_1_1MacResult_html"><div class="ttname"><a href="structSC_1_1Cryptography_1_1MacResult.html">SC::Cryptography::MacResult</a></div><div class="ttdef"><b>Definition</b> Cryptography.h:79</div></div>
+</div><!-- fragment --><p>Retrieve the MAC inside <code>eventFinish</code>. Streams auto-destroy immediately after that event returns, and destruction resets the HMAC session so key-dependent native state is released. The fan-out does not copy the source buffer: the pool keeps the same view referenced until both sinks finish their writes.</p>
+<p>There is intentionally no AES-GCM byte-stream adapter. Secure AEAD decryption must authenticate a complete bounded record before releasing any plaintext, which requires explicit record framing, nonce derivation, tag placement, AAD, and storage policy. Those protocol decisions do not belong in an apparently generic byte transform.</p>
+<h1><a class="anchor" id="autotoc_md121"></a>
 Errors, Ending, And Destruction</h1>
 <p>Stream errors are delivered through <code>eventError</code>, and <code>AsyncPipeline::eventError</code> forwards failures from connected sources, transforms, and sinks. <code>pushEnd()</code> ends a readable after queued data is delivered; <code>end()</code> lets a writable finish queued and in-flight writes before emitting its finish event.</p>
 <p><code>destroy()</code> is the forceful, idempotent path for stopping a stream and its pending asynchronous work. Custom implementations that override asynchronous destruction must eventually call the corresponding <code>finishedDestroyingReadable()</code> or <code>finishedDestroyingWritable()</code> hook. Request-stream adapters do not close their file or socket descriptor by default; call <code>setAutoCloseDescriptor(true)</code> only when the stream owns that descriptor. Streams auto-destroy after normal completion by default, and this can be disabled when the surrounding owner needs a different lifetime policy.</p>
-<h1><a class="anchor" id="autotoc_md121"></a>
+<h1><a class="anchor" id="autotoc_md122"></a>
 Allocation Model</h1>
 <p>Async Streams performs no hidden dynamic allocation. The caller supplies:</p>
 <ul>
@@ -273,7 +334,7 @@ Allocation Model</h1>
 <li>any storage or thread pools required by the underlying asynchronous operations.</li>
 </ul>
 <p>Some examples use <code>Buffer</code>, <code>String</code>, or <code>Vector</code> to conveniently own test memory. Those allocations belong to the caller and are not required by the stream machinery; fixed spans can be used instead. Capacity failures are observable as pauses or invalid <code>Result</code> values and must be handled as normal control flow.</p>
-<h1><a class="anchor" id="autotoc_md122"></a>
+<h1><a class="anchor" id="autotoc_md123"></a>
 Choosing The Neighboring Abstraction</h1>
 <ul>
 <li>Use <a class="el" href="library_async.html">Async</a> directly for individual file, socket, process, timer, or event-loop operations where a stream graph adds no value.</li>
@@ -281,14 +342,14 @@ Choosing The Neighboring Abstraction</h1>
 <li>Use <a class="el" href="library_http_client.html">HttpClient</a> for HTTP requests. Its optional async adapter exposes body streams using this model without making the poll-driven core depend on Async Streams.</li>
 <li>Use <a class="el" href="library_http.html">Http</a> for the higher-level asynchronous HTTP server and WebSocket compositions already built on these streams.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md123"></a>
-Details</h1>
-<p>For the complete API reference, see <a class="el" href="group__group__async__streams.html">Async Streams</a>. The tests under <code>Tests/Libraries/AsyncStreams</code> contain working file, pipe, socket, fan-out, backpressure, child-view, and synchronous/asynchronous zlib compositions.</p>
 <h1><a class="anchor" id="autotoc_md124"></a>
+Details</h1>
+<p>For the complete API reference, see <a class="el" href="group__group__async__streams.html">Async Streams</a>. The tests under <code>Tests/Libraries/AsyncStreams</code> contain working file, pipe, socket, fan-out, backpressure, child-view, cryptography-adapter, and synchronous/asynchronous zlib compositions.</p>
+<h1><a class="anchor" id="autotoc_md125"></a>
 Status</h1>
 <p>🟨 MVP</p>
 <p>The core file, pipe, socket, pipeline, and zlib transform paths are implemented and exercised by tests. The pipeline automatically pauses and resumes streams as part of backpressure handling, but it does not yet expose explicit pipeline-level pause, resume, or cancellation controls. The API remains an MVP: some setup is verbose, and examples outside the test suite are limited.</p>
-<h1><a class="anchor" id="autotoc_md125"></a>
+<h1><a class="anchor" id="autotoc_md126"></a>
 Videos</h1>
 <p>This is the list of videos that have been recorded showing some of the internal thoughts that have been going into this library:</p>
 <ul>
@@ -300,7 +361,7 @@ Videos</h1>
 <li><a href="https://www.youtube.com/watch?v=KKwohFmAUCk">Ep.33 - C++ Async Transform Streams - Part 2</a></li>
 <li><a href="https://www.youtube.com/watch?v=vCh6vEfiISI">Ep.34 - C++ Async Transform Streams - Part 3</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md126"></a>
+<h1><a class="anchor" id="autotoc_md127"></a>
 Blog</h1>
 <p>Some relevant blog posts are:</p>
 <ul>
@@ -313,7 +374,7 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2026-01-31-SaneCppLibrariesUpdate.html">January 2026 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md127"></a>
+<h1><a class="anchor" id="autotoc_md128"></a>
 Roadmap</h1>
 <p>🟩 Usable features:</p><ul>
 <li>Pipeline pause</li>
@@ -326,7 +387,7 @@ Roadmap</h1>
 <li>Object Mode</li>
 <li>readable + read mode</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md128"></a>
+<h1><a class="anchor" id="autotoc_md129"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/AsyncStreams</code>. Single File counts <code>SaneCppAsyncStreams.h</code>. Standalone counts <code>SaneCppAsyncStreamsStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">
