@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"structSC_1_1AsyncSignal.html":[18,0,0,48],
 "structSC_1_1AsyncSignal.html":[19,0,0,48],
 "structSC_1_1AsyncSignal.html#a2d427d0658bdfe2739cff3abff6c457e":[18,0,0,48,2],
 "structSC_1_1AsyncSignal.html#a2d427d0658bdfe2739cff3abff6c457e":[19,0,0,48,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "structSC_1_1AwaitTaskRegistry.html":[18,0,0,111],
 "structSC_1_1AwaitTaskRegistry.html":[19,0,0,111],
 "structSC_1_1AwaitTaskRegistrySpawnResult.html":[18,0,0,112],
-"structSC_1_1AwaitTaskRegistrySpawnResult.html":[19,0,0,112],
-"structSC_1_1AwaitTaskRegistryWaitAllAwaiter.html":[18,0,0,113]
+"structSC_1_1AwaitTaskRegistrySpawnResult.html":[19,0,0,112]
 };
