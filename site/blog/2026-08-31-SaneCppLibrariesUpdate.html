@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-4dqtj3le> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>🌊 Sane C++ August 26</title><meta name="description" content="Welcome to the August 2026 update! This month introduces the new Cryptography library, adds native and optional OpenSSL backends, connects cryptography to AsyncStreams, and continues the Fibers work with incremental stacks and tighter scheduling evidence."><meta property="og:title" content="🌊 Sane C++ August 26"><meta property="og:description" content="Welcome to the August 2026 update! This month introduces the new Cryptography library, adds native and optional OpenSSL backends, connects cryptography to AsyncStreams, and continues the Fibers work with incremental stacks and tighter scheduling evidence."><meta property="og:type" content="website"><meta property="og:url" content="https://pagghiu.github.io/site/blog/2026-08-31-SaneCppLibrariesUpdate.html/"><link rel="canonical" href="https://pagghiu.github.io/site/blog/2026-08-31-SaneCppLibrariesUpdate.html/"><link rel="alternate" type="application/atom+xml" title="Sane Coding Blog" href="/feeds/all.atom.xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"><script type="module">(()=>{const e=localStorage.getItem("sc-theme"),t=e==="light"||e==="dark"?e:"dark";document.documentElement.dataset.theme=t})();</script><link rel="stylesheet" href="/_astro/index.CIXfjxd1.css">
+<style>.blog-post[data-astro-cid-r6jj2a6h]{min-width:0}.blog-post[data-astro-cid-r6jj2a6h] header[data-astro-cid-r6jj2a6h]{margin-bottom:2rem}time[data-astro-cid-r6jj2a6h]{display:block;margin-bottom:.65rem;color:color-mix(in srgb,var(--accent-cool) 70%,var(--muted));font-size:.82rem;font-weight:850;text-transform:uppercase}h1[data-astro-cid-r6jj2a6h]{margin:0 0 1.2rem;color:var(--text);font-size:clamp(2.7rem,7vw,4.6rem);line-height:1}header[data-astro-cid-r6jj2a6h] p[data-astro-cid-r6jj2a6h]{margin:1.4rem 0 0;color:var(--muted-strong);font-size:1.16rem;line-height:1.75}.post-hero-image[data-astro-cid-r6jj2a6h]{display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:2.45 / 1;margin:0;overflow:hidden;border-radius:8px;border:1px solid var(--border-strong);background:var(--surface-strong)}.post-hero-image[data-astro-cid-r6jj2a6h] img[data-astro-cid-r6jj2a6h]{width:100%;height:100%;object-fit:contain}.blog-prose[data-astro-cid-r6jj2a6h]{color:var(--muted-strong)}.blog-prose[data-astro-cid-r6jj2a6h] img{max-height:72vh;object-fit:contain;border-radius:8px;margin:1.5rem auto}.blog-prose[data-astro-cid-r6jj2a6h] a{color:var(--link)}.blog-prose[data-astro-cid-r6jj2a6h] h1[id],.blog-prose[data-astro-cid-r6jj2a6h] h2[id],.blog-prose[data-astro-cid-r6jj2a6h] h3[id]{scroll-margin-top:6rem}@media(max-width:720px){h1[data-astro-cid-r6jj2a6h]{font-size:clamp(2.2rem,12vw,3.1rem)}.post-hero-image[data-astro-cid-r6jj2a6h]{aspect-ratio:2.45 / 1}}
+.blog-body{color:var(--text);background:var(--bg);overflow-x:hidden}.blog-body:before{display:none}.blog-header[data-astro-cid-4dqtj3le]{border-bottom:1px solid var(--header-border);background:var(--header-bg);backdrop-filter:blur(18px);position:sticky;top:0;z-index:10}.blog-nav[data-astro-cid-4dqtj3le]{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:1.4rem}.blog-brand[data-astro-cid-4dqtj3le]{display:grid;grid-template-columns:46px minmax(0,1fr);align-items:center;column-gap:.9rem}.blog-brand[data-astro-cid-4dqtj3le] img[data-astro-cid-4dqtj3le]{grid-row:1 / span 2;border-radius:0}.blog-brand[data-astro-cid-4dqtj3le] strong[data-astro-cid-4dqtj3le],.blog-brand[data-astro-cid-4dqtj3le] span[data-astro-cid-4dqtj3le]{display:block}.blog-brand[data-astro-cid-4dqtj3le] strong[data-astro-cid-4dqtj3le]{font-size:1.05rem}.blog-brand[data-astro-cid-4dqtj3le] span[data-astro-cid-4dqtj3le]{color:var(--muted);font-size:.9rem;margin-top:.12rem}.blog-main[data-astro-cid-4dqtj3le]{padding-top:2rem}.blog-frame[data-astro-cid-4dqtj3le]{width:min(calc(100% - 2rem),1440px);margin:0 auto;display:grid;grid-template-columns:minmax(13rem,16rem) minmax(0,820px);justify-content:center;gap:2.2rem;min-width:0;max-width:100%}.blog-main[data-astro-cid-4dqtj3le].has-toc .blog-frame[data-astro-cid-4dqtj3le]{grid-template-columns:minmax(13rem,16rem) minmax(0,820px) minmax(12rem,15rem)}.blog-main[data-astro-cid-4dqtj3le]:not(.has-blog-sidebar) .blog-frame[data-astro-cid-4dqtj3le]{grid-template-columns:minmax(0,900px)}.blog-content[data-astro-cid-4dqtj3le]{min-width:0;max-width:100%}.blog-sidebar[data-astro-cid-4dqtj3le],.blog-toc[data-astro-cid-4dqtj3le]{position:sticky;top:calc(64px + 2rem);align-self:start;max-height:calc(100vh - 6rem);overflow:auto;color:var(--muted)}.blog-sidebar[data-astro-cid-4dqtj3le] nav[data-astro-cid-4dqtj3le],.blog-toc[data-astro-cid-4dqtj3le] nav[data-astro-cid-4dqtj3le]{display:grid;gap:.25rem}.blog-sidebar[data-astro-cid-4dqtj3le] strong[data-astro-cid-4dqtj3le],.blog-toc[data-astro-cid-4dqtj3le] strong[data-astro-cid-4dqtj3le]{display:block;margin:0 0 .65rem;color:var(--muted-strong);font-size:.9rem}.blog-sidebar[data-astro-cid-4dqtj3le] strong[data-astro-cid-4dqtj3le]:not(:first-child){margin-top:1.6rem}.sidebar-link[data-astro-cid-4dqtj3le],.blog-toc[data-astro-cid-4dqtj3le] a[data-astro-cid-4dqtj3le]{border-left:2px solid transparent;padding:.36rem 0 .36rem .9rem;color:var(--muted);line-height:1.35;font-weight:650}.sidebar-link[data-astro-cid-4dqtj3le]:hover,.sidebar-link[data-astro-cid-4dqtj3le].active,.blog-toc[data-astro-cid-4dqtj3le] a[data-astro-cid-4dqtj3le]:hover{border-left-color:var(--link);color:var(--link)}.project-link[data-astro-cid-4dqtj3le]{margin-bottom:.35rem}.blog-actions[data-astro-cid-4dqtj3le],.blog-nav[data-astro-cid-4dqtj3le] nav[data-astro-cid-4dqtj3le]{display:flex;align-items:center}.blog-actions[data-astro-cid-4dqtj3le]{gap:.75rem}.blog-nav[data-astro-cid-4dqtj3le] nav[data-astro-cid-4dqtj3le]{gap:1rem;font-weight:750;color:var(--muted-strong)}.blog-footer[data-astro-cid-4dqtj3le]{margin-top:4rem;border-top:1px solid var(--border);padding:2rem 0;color:var(--muted)}.blog-footer[data-astro-cid-4dqtj3le] .shell[data-astro-cid-4dqtj3le]{display:flex;justify-content:space-between;gap:1rem}@media(max-width:720px){.blog-main[data-astro-cid-4dqtj3le]{padding-top:1.4rem}.blog-frame[data-astro-cid-4dqtj3le],.blog-main[data-astro-cid-4dqtj3le].has-toc .blog-frame[data-astro-cid-4dqtj3le]{grid-template-columns:1fr}.blog-sidebar[data-astro-cid-4dqtj3le],.blog-toc[data-astro-cid-4dqtj3le]{display:none}.blog-nav[data-astro-cid-4dqtj3le],.blog-actions[data-astro-cid-4dqtj3le],.blog-footer[data-astro-cid-4dqtj3le] .shell[data-astro-cid-4dqtj3le]{align-items:flex-start;flex-direction:column}.blog-nav[data-astro-cid-4dqtj3le] nav[data-astro-cid-4dqtj3le]{flex-wrap:wrap}.blog-brand[data-astro-cid-4dqtj3le]{grid-template-columns:minmax(0,1fr)}.blog-brand[data-astro-cid-4dqtj3le] img[data-astro-cid-4dqtj3le]{display:none}}
+</style></head> <body class="blog-body" data-astro-cid-4dqtj3le> <header class="blog-header" data-astro-cid-4dqtj3le> <div class="shell blog-nav" data-astro-cid-4dqtj3le> <a class="blog-brand" href="/" data-astro-cid-4dqtj3le> <img src="/images/favicon.png" alt="" width="46" height="46" data-astro-cid-4dqtj3le> <strong data-astro-cid-4dqtj3le>Sane Coding Blog</strong> <span data-astro-cid-4dqtj3le>Notes on Sane C++ Libraries and practical systems work.</span> </a> <div class="blog-actions" data-astro-cid-4dqtj3le> <nav aria-label="Primary" data-astro-cid-4dqtj3le> <a href="/" data-astro-cid-4dqtj3le>Blog</a> <a href="/SaneCppLibraries/" data-astro-cid-4dqtj3le>Sane C++ Libraries</a> <a href="https://github.com/Pagghiu" data-astro-cid-4dqtj3le>GitHub</a> </nav> <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme" data-astro-cid-x3pjskd3> <span class="theme-icon" aria-hidden="true" data-astro-cid-x3pjskd3>◐</span> <span class="theme-label" data-astro-cid-x3pjskd3>Theme</span> </button> <script>
+  const themeStorageKey = "sc-theme";
+
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    const button = document.querySelector("[data-theme-toggle]");
+    const label = button?.querySelector(".theme-label");
+    const icon = button?.querySelector(".theme-icon");
+    if (label) {
+      label.textContent = theme === "light" ? "Light" : "Dark";
+    }
+    if (icon) {
+      icon.textContent = theme === "light" ? "☀" : "☾";
+    }
+  }
+
+  function getInitialTheme() {
+    const saved = localStorage.getItem(themeStorageKey);
+    if (saved === "light" || saved === "dark") return saved;
+    return "dark";
+  }
+
+  applyTheme(getInitialTheme());
+
+  document.querySelector("[data-theme-toggle]")?.addEventListener("click", () => {
+    const current = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+    const next = current === "light" ? "dark" : "light";
+    localStorage.setItem(themeStorageKey, next);
+    applyTheme(next);
+  });
+</script>  </div> </div> </header> <main class="blog-main has-blog-sidebar has-toc" data-astro-cid-4dqtj3le> <div class="blog-frame" data-astro-cid-4dqtj3le> <aside class="blog-sidebar" aria-label="Blog navigation" data-astro-cid-4dqtj3le> <nav data-astro-cid-4dqtj3le> <strong data-astro-cid-4dqtj3le>Projects</strong> <a class="sidebar-link project-link" href="/SaneCppLibraries/" data-astro-cid-4dqtj3le>Sane C++ Libraries</a> <strong data-astro-cid-4dqtj3le>Blog</strong> <a class="sidebar-link active" href="/site/blog/2026-08-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌊 Sane C++ August 26 </a><a class="sidebar-link" href="/site/blog/2026-07-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☀️ Sane C++ July 26 </a><a class="sidebar-link" href="/site/blog/2026-06-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☀️ Sane C++ June 26 </a><a class="sidebar-link" href="/site/blog/2026-05-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌸 Sane C++ May 26 </a><a class="sidebar-link" href="/site/blog/2026-04-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌷 Sane C++ April 26 </a><a class="sidebar-link" href="/site/blog/2026-03-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☔️ Sane C++ March 26 </a><a class="sidebar-link" href="/site/blog/2026-02-28-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🔌 Sane C++ February 26 </a><a class="sidebar-link" href="/site/blog/2026-01-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ❄️ Sane C++ January 26 </a><a class="sidebar-link" href="/site/blog/2025-12-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌫️ Sane C++ December 25 </a><a class="sidebar-link" href="/site/blog/2025-12-23-SaneCpp2Year.html" data-astro-cid-4dqtj3le> 2️⃣ Years of Sane C++ Libraries </a><a class="sidebar-link" href="/site/blog/2025-11-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌫️ Sane C++ November 25 </a><a class="sidebar-link" href="/site/blog/2025-10-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌧️ Sane C++ October 25 </a><a class="sidebar-link" href="/site/blog/2025-09-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🍂 Sane C++ September 25 </a><a class="sidebar-link" href="/site/blog/2025-08-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌊 Sane C++ August 25 </a><a class="sidebar-link" href="/site/blog/2025-07-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🏖️ Sane C++ July 25 </a><a class="sidebar-link" href="/site/blog/2025-06-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☀️ Sane C++ June 25 </a><a class="sidebar-link" href="/site/blog/2025-05-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌸 Sane C++ May 25 </a><a class="sidebar-link" href="/site/blog/2025-04-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 💤 Sane C++ April 25 </a><a class="sidebar-link" href="/site/blog/2025-03-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☔️ Sane C++ March 25 </a><a class="sidebar-link" href="/site/blog/2025-02-28-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🎠 Sane C++ February 25 </a><a class="sidebar-link" href="/site/blog/2025-01-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ❄️ Sane C++ January 25 </a><a class="sidebar-link" href="/site/blog/2024-12-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☃️ Sane C++ December 24 </a><a class="sidebar-link" href="/site/blog/2024-12-23-SaneCpp1Year.html" data-astro-cid-4dqtj3le> 1️⃣ Year of Sane C++ </a><a class="sidebar-link" href="/site/blog/2024-11-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌫️ Sane C++ November 24 </a><a class="sidebar-link" href="/site/blog/2024-08-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌊 Sane C++ August 24 </a><a class="sidebar-link" href="/site/blog/2024-07-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🏖️ Sane C++ July 24 </a><a class="sidebar-link" href="/site/blog/2024-06-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☀️ Sane C++ June 24 </a><a class="sidebar-link" href="/site/blog/2024-05-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌸 Sane C++ May 24 </a><a class="sidebar-link" href="/site/blog/2024-04-27-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 💤 Sane C++ April 24 </a><a class="sidebar-link" href="/site/blog/2024-03-27-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☔️ Sane C++ March 24 </a><a class="sidebar-link" href="/site/blog/2024-02-23-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🎠 Sane C++ February 24 </a><a class="sidebar-link" href="/site/blog/2024-01-23-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ❄️ Sane C++ January 24 </a><a class="sidebar-link" href="/site/blog/2023-12-23-SaneCppLibrariesRelease.html" data-astro-cid-4dqtj3le> 🎉 Sane C++ Libraries </a> </nav> </aside> <div class="blog-content" data-astro-cid-4dqtj3le>  <article class="blog-post" data-astro-cid-r6jj2a6h> <header id="section-0" data-astro-cid-r6jj2a6h> <time datetime="2026-08-31" data-astro-cid-r6jj2a6h>2026-08-31</time> <h1 data-astro-cid-r6jj2a6h>🌊 Sane C++ August 26</h1> <figure class="post-hero-image" data-astro-cid-r6jj2a6h> <img src="/images/2026-08-31-SaneCppLibrariesUpdate/article.png" alt="" loading="eager" data-astro-cid-r6jj2a6h> </figure> <p data-astro-cid-r6jj2a6h>Welcome to the August 2026 update! This month introduces the new Cryptography library, adds native and optional OpenSSL backends, connects cryptography to AsyncStreams, and continues the Fibers work with incremental stacks and tighter scheduling evidence.</p> </header> <div class="prose blog-prose" data-astro-cid-r6jj2a6h><h1 id="cryptography">Cryptography</h1>
+<p>The biggest addition this month is the new
+<a href="https://pagghiu.github.io/SaneCppLibraries/libraries/cryptography/"><code>Cryptography</code></a> library.</p>
+<p>It provides a small synchronous interface for secure random bytes, AES-GCM, HMAC, HKDF, and legacy AES-CBC with
+PKCS#7 padding. Inputs and outputs are caller-owned spans, public objects keep provider state in fixed inline storage,
+and the native implementation delegates primitive operations to the operating system instead of bundling a portable
+cryptographic implementation.</p>
+<p>The scope is intentionally narrow. This is a low-level primitive adapter, not a protocol library. It does not provide
+password hashing, signatures, public-key cryptography, certificate validation, key storage, nonce allocation, or
+protocol framing. AES-GCM is the preferred authenticated-encryption API; CBC remains available only for compatibility
+with protocols that already specify the required authentication, IV, framing, and failure rules.</p>
+<p><code>Cryptography</code> is still Draft and has not received a formal cryptographic or side-channel audit. The implementation has
+NIST known-answer vectors, mutation tests, deterministic stress coverage, and cross-platform CI, but those are not a
+replacement for a security review. I want that boundary to stay visible while the API and backend coverage are still
+evolving.</p>
+<p>The AES-GCM coverage now also compares the native and OpenSSL backends directly. It exercises message and associated-data
+boundary sizes, in-place operation, cross-backend decryption, and corrupted ciphertext, tags, and AAD. This catches
+provider differences that known-answer vectors alone may not expose.</p>
+<p>The API also makes provider capability discovery explicit. Applications query the active backend before selecting a
+primitive instead of assuming that every algorithm is available just because the code compiled. This matters most on
+Linux, where the native <code>AF_ALG</code> algorithms are runtime kernel capabilities rather than build-time guarantees.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/30c307c2">Cryptography: Add native symmetric cryptography library</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4aa30751">Cryptography: Add deterministic CBC streaming stress coverage</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4c7ae30f">Cryptography: Harden Draft contracts and test coverage</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5e345569">Cryptography: Expose maximum AEAD associated data size in Features</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/bc25f954">Cryptography: Distinguish Windows authentication failures from parameter errors</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/90e6bf5d">Cryptography: Widen NIST GCM corpus and pin HMAC long-key behavior</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/dfc0508f">Cryptography: Add AES-GCM backend differential testing</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/33142803">Cryptography: Fix Windows build broken by ntstatus.h include</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/07b205d9">Cryptography: Complete Draft capability coverage</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0bb57bb9">Cryptography: Add public umbrella header</a></li>
+</ul>
+<h1 id="native-and-openssl-backends">Native and OpenSSL Backends</h1>
+<p>The native backend uses the platform facilities already present on each operating system: CommonCrypto on Apple, CNG
+on Windows, and <code>getrandom()</code> plus <code>AF_ALG</code> on Linux. The public API stays the same, while <code>queryFeatures()</code> reports
+what the selected backend can actually provide in the running process.</p>
+<p>AES-GCM took the most platform-specific work. Linux uses the kernel AEAD interface with a bounded associated-data
+contract. Apple now has a narrowly scoped GCM composition over CommonCrypto AES because CommonCrypto does not expose a
+public GCM interface. The implementation keeps that construction private and exercises both key sizes with shared NIST
+vectors and corruption tests. Windows uses the native CNG authenticated-cipher path.</p>
+<p>An optional OpenSSL 3 backend is also available on macOS, Windows, and Linux. It is selected explicitly and loaded at
+runtime, so Sane C++ still has no OpenSSL header or link-time dependency. A missing or policy-restricted OpenSSL library
+simply reports its features as unavailable and does not change the native backend.</p>
+<p>There is an important allocation distinction here. The native Sane adapters use fixed storage and caller-owned buffers.
+When OpenSSL is selected, OpenSSL may allocate provider, algorithm, process, thread, and session state internally. The
+backend choice is therefore visible in both capability reporting and the end-to-end allocation contract.</p>
+<p>The CI matrix now exercises OpenSSL cryptography on all three platforms. Windows uses a bundled OpenSSL 3 package so
+the optional backend is tested from the same repeatable setup rather than relying on an arbitrary machine installation.
+The Debug jobs also run the native, OpenSSL, <code>AsyncStreams</code>, and transform-stream cryptography suites under ASan and
+UBSan on macOS and Linux.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6eaf2d5f">Cryptography: Add Linux AES-GCM backend</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a2794e0b">CI: Require Linux AES-GCM cryptography coverage</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/28ece212">Cryptography: Add Apple AES-GCM backend</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e53e09fd">Cryptography: Record Swift interoperability boundary</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/036af4dc">Cryptography: Treat Linux primitives as runtime capabilities</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/bae77729">Cryptography: Offer OpenSSL alongside Linux AF_ALG</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5b42ade4">Cryptography: Load OpenSSL on Apple and Windows</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/13723129">Cryptography: Stabilize OpenSSL single-file coverage</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/233d3656">CI: Exercise OpenSSL cryptography on all platforms</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/341e4e3f">CI: Use bundled Windows OpenSSL 3</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a274a308">CI: Gate Cryptography with sanitizers</a></li>
+</ul>
+<h1 id="cryptography-and-asyncstreams">Cryptography and AsyncStreams</h1>
+<p>The new library also connects to
+<a href="https://pagghiu.github.io/SaneCppLibraries/libraries/async-streams/"><code>AsyncStreams</code></a> without creating a
+hard dependency between them.</p>
+<p><code>CryptographyTransformStreams.h</code> contains header-only templates that can adapt a caller-selected cipher or HMAC
+session. An application includes both libraries and instantiates the concrete type only where it builds the pipeline.
+That keeps <code>Cryptography</code> synchronous, keeps <code>AsyncStreams</code> independent from a specific cryptography implementation,
+and still allows encrypted or authenticated data to participate in a bounded asynchronous pipeline.</p>
+<p>The cipher transform supports the incremental CBC interface, while the HMAC adapter is a sink that can share source
+buffers with a file or network destination through normal pipeline fan-out. The same adapters can receive an explicitly
+selected native or OpenSSL session.</p>
+<p>There is deliberately no generic AES-GCM byte-stream transform. Safe AEAD decryption needs a bounded record protocol
+that defines nonces, tags, AAD, framing, and when plaintext may be released. Those policy decisions should not be
+hidden inside something that looks like an ordinary stream transform.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/43cd3279">AsyncStreams: Add templated cryptography adapters</a></li>
+</ul>
+<h1 id="fibers-incremental-stacks-and-scheduling">Fibers: Incremental Stacks and Scheduling</h1>
+<p>August also continued the work on
+<a href="https://pagghiu.github.io/SaneCppLibraries/libraries/fibers/"><code>Fibers</code></a>.</p>
+<p>The largest addition is opt-in incremental stack commitment. A <code>FiberStackClass</code> can reserve the full virtual range but
+initially commit only a bounded portion, then grow that commitment when the active fiber reaches a protected page. Full
+commitment remains the default and the simpler portable option.</p>
+<p>This is necessarily platform-sensitive work. A process-wide <code>FiberStackGrowthRuntime</code> owns fault-handler integration,
+and every OS thread that may execute an incremental stack registers thread-affine growth state. POSIX workers use
+caller-owned alternate signal-stack storage; Windows uses native guard-page behavior. Migration republishes the active
+slot on the new worker, teardown releases the actual committed interval, and unsupported debugger or sanitizer
+configurations reject incremental execution rather than silently changing fault ownership.</p>
+<p>The benchmarks can now compare full and incremental commitment at equal virtual reservation, separating metadata,
+current and peak commitment, suspension, wake, and completion costs. There are also two more practical bounded examples:
+<code>FibersMandelbrot</code> uses stackless jobs for image rows, while <code>AsyncFibersFileCopy</code> combines fiber-shaped control flow with
+asynchronous file operations.</p>
+<p>The scheduler and benchmark paths received another correctness pass too. External injection claims are transactional,
+local job wakes are coalesced behind visible backlog, cancellation reuses the existing generation, and uncontended
+batches avoid unnecessary wake generations. The Skynet benchmark now assigns deterministic breadth-first slots instead
+of serializing the SC backends through a benchmark-only allocation counter. That correction makes the comparison more
+useful, even though benchmark results still remain machine- and configuration-specific development evidence.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/64a1a1cf">Fibers: Separate producer benchmark timing</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3e900c0f">Fibers: Synchronize stack growth probe</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/94366c09">Fibers: Focus scheduler benchmark workers</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/dc8e0788">Fibers: Preserve benchmark symbols</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b7d17c79">Fibers: Isolate scheduler benchmark workloads</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/61d40c85">Fibers: Distribute injected task registries</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/776ffbf0">Fibers: Claim injection batches transactionally</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c71c85e6">Fibers: Define incremental stack ownership</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0adacd4d">Fibers: Add stack growth lifecycles</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/3265c1ff">Fibers: Register stack growth workers</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a5940ae0">Fibers: Add incremental stack metadata</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5d1be335">Fibers: Execute incremental stack classes</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/59c6f1d2">Fibers: Guard incremental high-water scans</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/29249b1f">Fibers: Compare stack commitment density</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/a115e351">Fibers: Coalesce local job batch wakes</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/e699ac7b">Fibers: Add bounded consumer examples</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/74302549">Fibers: Cover nested stack fault forwarding</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/5d62c79a">Fibers: Preserve Windows guard dispatch space</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9e352a7a">Fibers: Keep Windows stack limit on guard</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/68e25100">Fibers: Accept native terminal stack faults</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/d4d1b0a2">Fibers: Forward nested POSIX stack faults</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/12a952da">Fibers: Correct Skynet scheduling evidence</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/84143b7d">Fibers: Coalesce local single-job wakes</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2110fae2">Fibers: Preserve single-job parallelism</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/28e37c52">Fibers: Streamline job cancellation preflight</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/2c37d971">Fibers: Reuse cancellation generation for job stop</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/01e1d633">Fibers: Avoid uncontended batch wake generations</a></li>
+</ul>
+<h1 id="contracts-tooling-and-ci">Contracts, Tooling and CI</h1>
+<p>The remaining changes are smaller, but they tighten a few important edges.</p>
+<p><code>Async</code> can now remove loop timeouts synchronously from its userspace schedule. <code>FileSystemWatcher</code> tests preserve the
+asynchronous event contract instead of allowing callback ordering to become accidental. The Fil-C package uses a more
+reliable zlib source, and <code>AsyncStreams</code> has a Windows registry fallback for finding zlib.</p>
+<p>The new cryptography work also exposed adjacent Windows integration issues. <code>Hashing</code> now links its CryptoAPI backend
+correctly, and the CI jobs cover both native and OpenSSL cryptography paths rather than validating only compilation.
+The generated library metrics and dependency documentation were refreshed as well, including the new <code>Cryptography</code>
+dependency graph.</p>
+<p><strong>Detailed list of commits:</strong></p>
+<ul>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8cc8976f">Documentation: Replace broken links for Fibers and AsyncFibers</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4348a7d8">Fibers: Fix Windows example discovery</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/22ded0e6">FileSystemWatcher: Preserve async event semantics</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/6c6bf978">Build: Use reliable Fil-C zlib source</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/f2feff2f">Async: Unschedule loop timeouts synchronously</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/1281c5bd">AsyncStreams: Link Windows zlib registry fallback</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/29b1d94c">Hashing: Link Windows CryptoAPI backend</a></li>
+<li><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/250d9f41">Documentation: Update LOC for August 2026</a></li>
+</ul>
+<p>See you next month!</p>
+</div> </article>  </div> <aside class="blog-toc" aria-label="Article sections" data-astro-cid-4dqtj3le> <strong data-astro-cid-4dqtj3le>Content</strong> <nav data-astro-cid-4dqtj3le> <a href="#section-0" data-astro-cid-4dqtj3le>August Updates</a><a href="#cryptography" data-astro-cid-4dqtj3le>Cryptography</a><a href="#native-and-openssl-backends" data-astro-cid-4dqtj3le>Native and OpenSSL Backends</a><a href="#cryptography-and-asyncstreams" data-astro-cid-4dqtj3le>Cryptography and AsyncStreams</a><a href="#fibers-incremental-stacks-and-scheduling" data-astro-cid-4dqtj3le>Fibers: Incremental Stacks and Scheduling</a><a href="#contracts-tooling-and-ci" data-astro-cid-4dqtj3le>Contracts, Tooling and CI</a> </nav> </aside> </div> </main> <footer class="blog-footer" data-astro-cid-4dqtj3le> <div class="shell" data-astro-cid-4dqtj3le> <span data-astro-cid-4dqtj3le>© Stefano Cristiano</span> <a href="/feeds/all.atom.xml" data-astro-cid-4dqtj3le>Atom feed</a> </div> </footer> </body></html> 

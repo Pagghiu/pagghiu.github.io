@@ -4,7 +4,14 @@
   <link href="https://pagghiu.github.io/feeds/all.atom.xml" rel="self"/>
   <link href="https://pagghiu.github.io/"/>
   <id>https://pagghiu.github.io/</id>
-  <updated>2026-07-31T00:00:00Z</updated>
+  <updated>2026-08-31T00:00:00Z</updated>
+<entry>
+  <title>🌊 Sane C++ August 26</title>
+  <link href="https://pagghiu.github.io/site/blog/2026-08-31-SaneCppLibrariesUpdate.html"/>
+  <id>https://pagghiu.github.io/site/blog/2026-08-31-SaneCppLibrariesUpdate.html</id>
+  <updated>2026-08-31T00:00:00Z</updated>
+  <summary>Welcome to the August 2026 update! This month introduces the new Cryptography library, adds native and optional OpenSSL backends, connects cryptography to AsyncStreams, and continues the Fibers work with incremental stacks and tighter scheduling evidence.</summary>
+</entry>
 <entry>
   <title>☀️ Sane C++ July 26</title>
   <link href="https://pagghiu.github.io/site/blog/2026-07-31-SaneCppLibrariesUpdate.html"/>
