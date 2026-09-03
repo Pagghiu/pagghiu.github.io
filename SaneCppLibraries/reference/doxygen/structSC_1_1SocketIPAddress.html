@@ -199,6 +199,21 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SocketClient</b></t
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(address.<a class="code hl_function" href="#a51fa59480b3d743f7f32c87fda744c37">fromAddressPort</a>(<span class="stringliteral">&quot;::1&quot;</span>, 456));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(address.<a class="code hl_function" href="#a1a8b8269f72adedac4ab83e222be1eac">getPort</a>() == 456);</div>
 <div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> utf8IPV4[] = <span class="stringliteral">&quot;127.0.0.1&quot;</span>;</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(</div>
+<div class="line">        address.<a class="code hl_function" href="#a51fa59480b3d743f7f32c87fda744c37">fromAddressPort</a>(StringSpan({utf8IPV4, <span class="keyword">sizeof</span>(utf8IPV4) - 1}, <span class="keyword">true</span>, StringEncoding::Utf8), 789));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(address.<a class="code hl_function" href="#a1a8b8269f72adedac4ab83e222be1eac">getPort</a>() == 789);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> utf8IPV6[] = <span class="stringliteral">&quot;::1&quot;</span>;</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(</div>
+<div class="line">        address.<a class="code hl_function" href="#a51fa59480b3d743f7f32c87fda744c37">fromAddressPort</a>(StringSpan({utf8IPV6, <span class="keyword">sizeof</span>(utf8IPV6) - 1}, <span class="keyword">true</span>, StringEncoding::Utf8), 987));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(address.<a class="code hl_function" href="#a1a8b8269f72adedac4ab83e222be1eac">getPort</a>() == 987);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> nonAsciiAddress[] = {</div>
+<div class="line">        <span class="charliteral">&#39;1&#39;</span>, <span class="charliteral">&#39;2&#39;</span>, <span class="charliteral">&#39;7&#39;</span>, <span class="charliteral">&#39;.&#39;</span>, <span class="charliteral">&#39;0&#39;</span>, <span class="charliteral">&#39;.&#39;</span>, <span class="charliteral">&#39;0&#39;</span>, <span class="charliteral">&#39;.&#39;</span>, <span class="charliteral">&#39;1&#39;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(0xc3), <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(0xa9)};</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not address.<a class="code hl_function" href="#a51fa59480b3d743f7f32c87fda744c37">fromAddressPort</a>(</div>
+<div class="line">        StringSpan({nonAsciiAddress, <span class="keyword">sizeof</span>(nonAsciiAddress)}, <span class="keyword">false</span>, StringEncoding::Utf8), 123));</div>
+<div class="line"> </div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span>  badMemory[]  = <span class="stringliteral">&quot;oh yeah that&#39;s a really broken socket ip address&quot;</span>;</div>
 <div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; badIPAddress = *<span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><a class="code hl_struct" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a>*<span class="keyword">&gt;</span>(&amp;badMemory);</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not badIPAddress.isValid());</div>

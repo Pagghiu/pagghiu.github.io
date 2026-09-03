@@ -148,6 +148,17 @@ Static Public Member Functions</h2></td></tr>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(SocketDNS::resolveDNS(<span class="stringliteral">&quot;localhost&quot;</span>, ipAddress));</div>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1StringView.html">StringView</a> ipString = <a class="code hl_struct" href="structSC_1_1StringView.html">StringView</a>(ipAddress, <span class="keyword">true</span>, StringEncoding::Ascii);</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(ipString == <span class="stringliteral">&quot;127.0.0.1&quot;</span> or ipString == <span class="stringliteral">&quot;::1&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> utf8Localhost[] = <span class="stringliteral">&quot;localhost&quot;</span>;</div>
+<div class="line">    ipAddress                  = {buffer};</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(SocketDNS::resolveDNS(</div>
+<div class="line">        StringSpan({utf8Localhost, <span class="keyword">sizeof</span>(utf8Localhost) - 1}, <span class="keyword">true</span>, StringEncoding::Utf8), ipAddress));</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> nonAsciiHost[] = {</div>
+<div class="line">        <span class="charliteral">&#39;l&#39;</span>, <span class="charliteral">&#39;o&#39;</span>, <span class="charliteral">&#39;c&#39;</span>, <span class="charliteral">&#39;a&#39;</span>, <span class="charliteral">&#39;l&#39;</span>, <span class="charliteral">&#39;h&#39;</span>, <span class="charliteral">&#39;o&#39;</span>, <span class="charliteral">&#39;s&#39;</span>, <span class="charliteral">&#39;t&#39;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(0xc3), <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(0xa9)};</div>
+<div class="line">    ipAddress = {buffer};</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not SocketDNS::resolveDNS(</div>
+<div class="line">        StringSpan({nonAsciiHost, <span class="keyword">sizeof</span>(nonAsciiHost)}, <span class="keyword">false</span>, StringEncoding::Utf8), ipAddress));</div>
 </div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a746a658a2e6419d06dd4dde3852c17ef" name="a746a658a2e6419d06dd4dde3852c17ef"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a746a658a2e6419d06dd4dde3852c17ef">&#9670;&#160;</a></span>resolveDNS()</h2>
@@ -190,6 +201,17 @@ Static Public Member Functions</h2></td></tr>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(SocketDNS::resolveDNS(<span class="stringliteral">&quot;localhost&quot;</span>, ipAddress));</div>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1StringView.html">StringView</a> ipString = <a class="code hl_struct" href="structSC_1_1StringView.html">StringView</a>(ipAddress, <span class="keyword">true</span>, StringEncoding::Ascii);</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(ipString == <span class="stringliteral">&quot;127.0.0.1&quot;</span> or ipString == <span class="stringliteral">&quot;::1&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> utf8Localhost[] = <span class="stringliteral">&quot;localhost&quot;</span>;</div>
+<div class="line">    ipAddress                  = {buffer};</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(SocketDNS::resolveDNS(</div>
+<div class="line">        StringSpan({utf8Localhost, <span class="keyword">sizeof</span>(utf8Localhost) - 1}, <span class="keyword">true</span>, StringEncoding::Utf8), ipAddress));</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> nonAsciiHost[] = {</div>
+<div class="line">        <span class="charliteral">&#39;l&#39;</span>, <span class="charliteral">&#39;o&#39;</span>, <span class="charliteral">&#39;c&#39;</span>, <span class="charliteral">&#39;a&#39;</span>, <span class="charliteral">&#39;l&#39;</span>, <span class="charliteral">&#39;h&#39;</span>, <span class="charliteral">&#39;o&#39;</span>, <span class="charliteral">&#39;s&#39;</span>, <span class="charliteral">&#39;t&#39;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(0xc3), <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(0xa9)};</div>
+<div class="line">    ipAddress = {buffer};</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not SocketDNS::resolveDNS(</div>
+<div class="line">        StringSpan({nonAsciiHost, <span class="keyword">sizeof</span>(nonAsciiHost)}, <span class="keyword">false</span>, StringEncoding::Utf8), ipAddress));</div>
 </div><!-- fragment --> 
 </div>
 </div>

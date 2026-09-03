@@ -182,6 +182,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a53cbe8a38af4e173fd2971d872c8feb6" id="r_a53cbe8a38af4e173fd2971d872c8feb6"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53cbe8a38af4e173fd2971d872c8feb6">setMulticastOutboundInterface</a> (const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;interfaceAddress)</td></tr>
 <tr class="memdesc:a53cbe8a38af4e173fd2971d872c8feb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the default local network interface for outgoing multicast datagrams.  <br /></td></tr>
 <tr class="separator:a53cbe8a38af4e173fd2971d872c8feb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae770da73ca594b62f51adf8a66296959" id="r_ae770da73ca594b62f51adf8a66296959"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae770da73ca594b62f51adf8a66296959">sendTo</a> (Span&lt; const char &gt; data, const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;destination)</td></tr>
+<tr class="memdesc:ae770da73ca594b62f51adf8a66296959"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a datagram to the given destination address (unconnected UDP)  <br /></td></tr>
+<tr class="separator:ae770da73ca594b62f51adf8a66296959"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05a47a78015912fb7088f861733f2ab5" id="r_a05a47a78015912fb7088f861733f2ab5"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05a47a78015912fb7088f861733f2ab5">receiveFrom</a> (Span&lt; char &gt; buffer, Span&lt; char &gt; &amp;receivedData, <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;sourceAddress)</td></tr>
+<tr class="memdesc:a05a47a78015912fb7088f861733f2ab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a datagram, reporting its source address (unconnected UDP)  <br /></td></tr>
+<tr class="separator:a05a47a78015912fb7088f861733f2ab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Low-level OS socket handle. </p>
@@ -380,6 +386,78 @@ Example (extracted from unit test): </p><div class="fragment"><div class="line">
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if the socket has successfully left the multicast group </dd></dl>
+
+</div>
+</div>
+<a id="a05a47a78015912fb7088f861733f2ab5" name="a05a47a78015912fb7088f861733f2ab5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05a47a78015912fb7088f861733f2ab5">&#9670;&#160;</a></span>receiveFrom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::SocketDescriptor::receiveFrom </td>
+          <td>(</td>
+          <td class="paramtype">Span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Span&lt; char &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>receivedData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sourceAddress</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Receives a datagram, reporting its source address (unconnected UDP) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">buffer</td><td>Span of memory that will receive the datagram and may be modified on truncation </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">receivedData</td><td>A sub-Span of <code>buffer</code> containing the received bytes; unchanged on failure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">sourceAddress</td><td>The source ip address and port; unchanged on failure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Valid Result if a complete datagram has been received successfully </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>On non-blocking sockets, an unsuccessful Result is also returned when no datagram is immediately available </dd>
+<dd>
+An oversized datagram is consumed and returns an unsuccessful Result. <code>buffer</code> may contain a truncated prefix </dd></dl>
+
+</div>
+</div>
+<a id="ae770da73ca594b62f51adf8a66296959" name="ae770da73ca594b62f51adf8a66296959"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae770da73ca594b62f51adf8a66296959">&#9670;&#160;</a></span>sendTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::SocketDescriptor::sendTo </td>
+          <td>(</td>
+          <td class="paramtype">Span&lt; const char &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>destination</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sends a datagram to the given destination address (unconnected UDP) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Bytes to send as a single datagram; the whole span must be sent for success </td></tr>
+    <tr><td class="paramname">destination</td><td>The destination ip address and port of the datagram </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Valid Result if the whole datagram has been sent successfully </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>On non-blocking sockets, an unsuccessful Result is also returned when the operation would block </dd></dl>
 
 </div>
 </div>

@@ -42,6 +42,8 @@ var group__group__socket =
       [ "isInheritable", "structSC_1_1SocketDescriptor.html#a65ac2b5205b3967dc63c0f058605e70c", null ],
       [ "joinMulticastGroup", "structSC_1_1SocketDescriptor.html#aaf5078977aa13668193247867b58d357", null ],
       [ "leaveMulticastGroup", "structSC_1_1SocketDescriptor.html#a845ba37ea726a33fec915b5c3b02be61", null ],
+      [ "receiveFrom", "structSC_1_1SocketDescriptor.html#a05a47a78015912fb7088f861733f2ab5", null ],
+      [ "sendTo", "structSC_1_1SocketDescriptor.html#ae770da73ca594b62f51adf8a66296959", null ],
       [ "setBlocking", "structSC_1_1SocketDescriptor.html#a83b5ac063fe398c0107f9d18c7370de9", null ],
       [ "setBroadcast", "structSC_1_1SocketDescriptor.html#a40cb31a7597f2bfccea897d82c7982c5", null ],
       [ "setInheritable", "structSC_1_1SocketDescriptor.html#a9ab92efb87f3bc0d42c367e4c040e7f8", null ],
