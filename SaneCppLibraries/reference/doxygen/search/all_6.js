@@ -177,12 +177,14 @@ var searchData=
   ['fromiteratorfromstart_174',['fromIteratorFromStart',['../structSC_1_1StringView.html#a4e2e072acb8f7b1105453b9acf3739ba',1,'SC::StringView']]],
   ['fromiterators_175',['fromIterators',['../structSC_1_1StringView.html#af0826be65c9a8e65049c97235b39d518',1,'SC::StringView']]],
   ['fromiteratoruntilend_176',['fromIteratorUntilEnd',['../structSC_1_1StringView.html#a9076cc4221984da9ac858fcdb6bc29f3',1,'SC::StringView']]],
-  ['fullyoverlaps_177',['fullyOverlaps',['../structSC_1_1StringView.html#ab062bf9142075614d911d046c7838568',1,'SC::StringView']]],
-  ['function_178',['function',['../structSC_1_1ThreadPoolTask.html#a072b75678d89c9fd7120c87a6a00a140',1,'SC::ThreadPoolTask']]],
-  ['further_20examples_179',['Further Examples',['../library_fibers.html#autotoc_md200',1,'']]],
-  ['further_20material_180',['Status And Further Material',['../library_threading.html#autotoc_md396',1,'']]],
-  ['further_20material_181',['Further material',['../library_http.html#autotoc_md269',1,'']]],
-  ['further_20material_182',['Status and further material',['../library_file_system_watcher.html#autotoc_md242',1,'']]],
-  ['further_20reading_183',['Further Reading',['../library_memory.html#autotoc_md292',1,'Further Reading'],['../library_time.html#autotoc_md406',1,'Further Reading']]],
-  ['further_20reading_184',['Further reading',['../library_plugin.html#autotoc_md303',1,'']]]
+  ['fromunixabstractname_177',['fromUnixAbstractName',['../structSC_1_1SocketAddress.html#ab177396ca025a5dd37621b34fa78909b',1,'SC::SocketAddress']]],
+  ['fromunixpath_178',['fromUnixPath',['../structSC_1_1SocketAddress.html#acf6db1752387f49e57e458961e06d377',1,'SC::SocketAddress']]],
+  ['fullyoverlaps_179',['fullyOverlaps',['../structSC_1_1StringView.html#ab062bf9142075614d911d046c7838568',1,'SC::StringView']]],
+  ['function_180',['function',['../structSC_1_1ThreadPoolTask.html#a072b75678d89c9fd7120c87a6a00a140',1,'SC::ThreadPoolTask']]],
+  ['further_20examples_181',['Further Examples',['../library_fibers.html#autotoc_md200',1,'']]],
+  ['further_20material_182',['Status And Further Material',['../library_threading.html#autotoc_md396',1,'']]],
+  ['further_20material_183',['Further material',['../library_http.html#autotoc_md269',1,'']]],
+  ['further_20material_184',['Status and further material',['../library_file_system_watcher.html#autotoc_md242',1,'']]],
+  ['further_20reading_185',['Further Reading',['../library_memory.html#autotoc_md292',1,'Further Reading'],['../library_time.html#autotoc_md406',1,'Further Reading']]],
+  ['further_20reading_186',['Further reading',['../library_plugin.html#autotoc_md303',1,'']]]
 ];

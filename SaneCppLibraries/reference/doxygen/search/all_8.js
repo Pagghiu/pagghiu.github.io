@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['handle_0',['handle',['../structSC_1_1AsyncSocketSend.html#aabd6e83b939457f392782639b3a9170e',1,'SC::AsyncSocketSend::handle'],['../structSC_1_1AsyncFileRead.html#a47bac7b907072a0367d3f164d54541da',1,'SC::AsyncFileRead::handle'],['../structSC_1_1AsyncFileWrite.html#a049f4e99beafda2b5f248dddbe45b780',1,'SC::AsyncFileWrite::handle'],['../structSC_1_1SocketIPAddress.html#a469fedbe1be1fd1bbb91a07c6f92c08d',1,'SC::SocketIPAddress::handle']]],
+  ['handle_0',['handle',['../structSC_1_1AsyncSocketSend.html#aabd6e83b939457f392782639b3a9170e',1,'SC::AsyncSocketSend::handle'],['../structSC_1_1AsyncFileRead.html#a47bac7b907072a0367d3f164d54541da',1,'SC::AsyncFileRead::handle'],['../structSC_1_1AsyncFileWrite.html#a049f4e99beafda2b5f248dddbe45b780',1,'SC::AsyncFileWrite::handle'],['../structSC_1_1SocketIPAddress.html#a469fedbe1be1fd1bbb91a07c6f92c08d',1,'SC::SocketIPAddress::handle'],['../structSC_1_1SocketAddress.html#aaabe99f444fdc6a0e96555b7f0d3156c',1,'SC::SocketAddress::handle']]],
   ['handle_20is_20the_20socket_20client_20and_20server_20are_20views_1',['The handle is the socket; client and server are views',['../library_socket.html#autotoc_md358',1,'']]],
   ['handlerequest_2',['handleRequest',['../structSC_1_1HttpAsyncFileServer.html#ab0ea2a6b8966f25f39be00568f11978e',1,'SC::HttpAsyncFileServer']]],
   ['handles_3',['Stable Addresses With Generation-Checked Handles',['../library_containers.html#autotoc_md152',1,'']]],

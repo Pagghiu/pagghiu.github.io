@@ -29,7 +29,7 @@ var searchData=
   ['realtime_26',['Realtime',['../structSC_1_1Time_1_1Realtime.html',1,'SC::Time']]],
   ['reason_27',['Owning Strings Are Here For A Reason',['../library_memory.html#autotoc_md287',1,'']]],
   ['receipts_20and_20exports_28',['Think in recipes, receipts, and exports',['../page_tools.html#autotoc_md77',1,'']]],
-  ['receivefrom_29',['receiveFrom',['../structSC_1_1SocketDescriptor.html#a05a47a78015912fb7088f861733f2ab5',1,'SC::SocketDescriptor']]],
+  ['receivefrom_29',['receiveFrom',['../structSC_1_1SocketDescriptor.html#ac1097a6cc8c6204418a6aaaa4858da9a',1,'SC::SocketDescriptor::receiveFrom(Span&lt; char &gt; buffer, Span&lt; char &gt; &amp;receivedData, SocketAddress &amp;sourceAddress)'],['../structSC_1_1SocketDescriptor.html#a05a47a78015912fb7088f861733f2ab5',1,'SC::SocketDescriptor::receiveFrom(Span&lt; char &gt; buffer, Span&lt; char &gt; &amp;receivedData, SocketIPAddress &amp;sourceAddress)']]],
   ['recipes_20receipts_20and_20exports_30',['Think in recipes, receipts, and exports',['../page_tools.html#autotoc_md77',1,'']]],
   ['record_20the_20resolved_20environment_31',['Record the resolved environment',['../page_tools.html#autotoc_md80',1,'']]],
   ['recordexpectation_32',['recordExpectation',['../structSC_1_1TestCase.html#aa1111aa0b5c66bceaa2369e307c11125',1,'SC::TestCase::recordExpectation(StringSpan expression, bool status, StringSpan detailedError=StringSpan())'],['../structSC_1_1TestCase.html#a3e077ac20044ffd62d5784839f6ca37e',1,'SC::TestCase::recordExpectation(StringSpan expression, Result status)']]],

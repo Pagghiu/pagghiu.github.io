@@ -20,7 +20,7 @@ var searchData=
   ['sendrequest_17',['sendRequest',['../structSC_1_1HttpAsyncClient.html#a72a608b853d725512a3915b386de3dcd',1,'SC::HttpAsyncClient']]],
   ['sendtext_18',['sendText',['../structSC_1_1HttpResponse.html#ab2caf03f64d80b047e2dd90190c35c15',1,'SC::HttpResponse']]],
   ['sendtextcopy_19',['sendTextCopy',['../structSC_1_1HttpConnection.html#ad7748620893030a3a2d2f472d55187cd',1,'SC::HttpConnection']]],
-  ['sendto_20',['sendTo',['../structSC_1_1SocketDescriptor.html#ae770da73ca594b62f51adf8a66296959',1,'SC::SocketDescriptor']]],
+  ['sendto_20',['sendTo',['../structSC_1_1SocketDescriptor.html#aed562751d50b1bb8d8ef0309a4662ea1',1,'SC::SocketDescriptor::sendTo(Span&lt; const char &gt; data, const SocketAddress &amp;destination)'],['../structSC_1_1SocketDescriptor.html#ae770da73ca594b62f51adf8a66296959',1,'SC::SocketDescriptor::sendTo(Span&lt; const char &gt; data, const SocketIPAddress &amp;destination)']]],
   ['separatorstringview_21',['SeparatorStringView',['../structSC_1_1Path.html#a90ccc533bfc7ea019a5947c9d1218c56',1,'SC::Path']]],
   ['set_22',['set',['../structSC_1_1Memory.html#a14ded34dac012f225e39de2746ab7d09',1,'SC::Memory']]],
   ['setautoclosedescriptor_23',['setAutoCloseDescriptor',['../structSC_1_1AsyncRequestReadableStream.html#a42b780d3b528ea5c8662d225827f7584',1,'SC::AsyncRequestReadableStream::setAutoCloseDescriptor()'],['../structSC_1_1AsyncRequestWritableStream.html#a8aeaf8851faa0eb118b09f20fb682d1b',1,'SC::AsyncRequestWritableStream::setAutoCloseDescriptor()']]],

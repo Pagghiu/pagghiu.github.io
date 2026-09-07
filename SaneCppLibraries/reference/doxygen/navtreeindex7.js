@@ -1,5 +1,15 @@
 var NAVTREEINDEX7 =
 {
+"structSC_1_1FiberWorkerPoolWakeDiagnostics.html#a9d3d4610640031ba28b917447c6cfcdc":[18,0,0,189,1],
+"structSC_1_1FiberWorkerPoolWakeDiagnostics.html#a9d3d4610640031ba28b917447c6cfcdc":[19,0,0,189,1],
+"structSC_1_1FiberWorkerPoolWakeDiagnostics.html#ad443c36030f130e8bf7d10aeea1fc61f":[18,0,0,189,0],
+"structSC_1_1FiberWorkerPoolWakeDiagnostics.html#ad443c36030f130e8bf7d10aeea1fc61f":[19,0,0,189,0],
+"structSC_1_1FiberWorkerPool_1_1WakeEventDefinition.html":[18,0,0,187,0],
+"structSC_1_1FiberWorkerPool_1_1WakeEventDefinition.html":[19,0,0,187,0],
+"structSC_1_1FiberWorkerThread.html":[18,0,0,190],
+"structSC_1_1FiberWorkerThread.html":[19,0,0,190],
+"structSC_1_1FileDescriptor.html":[17,8,2],
+"structSC_1_1FileDescriptor.html#a011bee61c7a59ed7997b6f2ca4ac736a":[17,8,2,0],
 "structSC_1_1FileDescriptor.html#a011bee61c7a59ed7997b6f2ca4ac736aa050759af7ddcc64ddb5380e7b05c44b1":[17,8,2,0,2],
 "structSC_1_1FileDescriptor.html#a011bee61c7a59ed7997b6f2ca4ac736aa0a0fe16d406c55bfe5654cca57702e41":[17,8,2,0,1],
 "structSC_1_1FileDescriptor.html#a011bee61c7a59ed7997b6f2ca4ac736aa4c80413c192300580419ba49bc99fa46":[17,8,2,0,0],
@@ -239,15 +249,5 @@ var NAVTREEINDEX7 =
 "structSC_1_1HttpAsyncClient_1_1RequestOptions.html":[17,14,2,1],
 "structSC_1_1HttpAsyncConnection.html":[18,0,0,214],
 "structSC_1_1HttpAsyncConnection.html":[19,0,0,214],
-"structSC_1_1HttpAsyncFileServer.html":[18,0,0,215],
-"structSC_1_1HttpAsyncFileServer.html":[19,0,0,215],
-"structSC_1_1HttpAsyncFileServer.html#a8e099b884c0e7d40a4cfa3ebed0fd11a":[18,0,0,215,7],
-"structSC_1_1HttpAsyncFileServer.html#a8e099b884c0e7d40a4cfa3ebed0fd11a":[19,0,0,215,7],
-"structSC_1_1HttpAsyncFileServer.html#aa039a0174d9fbf406b5660bb5d97c6a3":[18,0,0,215,5],
-"structSC_1_1HttpAsyncFileServer.html#aa039a0174d9fbf406b5660bb5d97c6a3":[19,0,0,215,5],
-"structSC_1_1HttpAsyncFileServer.html#aa90e5c9dc6b0764f3aacda2475fb9135":[18,0,0,215,2],
-"structSC_1_1HttpAsyncFileServer.html#aa90e5c9dc6b0764f3aacda2475fb9135":[19,0,0,215,2],
-"structSC_1_1HttpAsyncFileServer.html#ab0ea2a6b8966f25f39be00568f11978e":[18,0,0,215,4],
-"structSC_1_1HttpAsyncFileServer.html#ab0ea2a6b8966f25f39be00568f11978e":[19,0,0,215,4],
-"structSC_1_1HttpAsyncFileServer.html#ac57087e387f58fc6ac756d0375207946":[18,0,0,215,6]
+"structSC_1_1HttpAsyncFileServer.html":[18,0,0,215]
 };

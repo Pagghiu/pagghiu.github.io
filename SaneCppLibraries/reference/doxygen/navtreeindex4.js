@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"structSC_1_1AsyncFileWrite.html#a9ea2e470043b7a7cac084fd533644b05":[18,0,0,30,8],
+"structSC_1_1AsyncFileWrite.html#a9ea2e470043b7a7cac084fd533644b05":[19,0,0,30,8],
 "structSC_1_1AsyncFileWrite.html#ab0e1a4377a5e4ef7b009a0aa8d43e9c8":[18,0,0,30,9],
 "structSC_1_1AsyncFileWrite.html#ab0e1a4377a5e4ef7b009a0aa8d43e9c8":[19,0,0,30,9],
 "structSC_1_1AsyncFileWrite.html#ab9f1dd5f308c9366011c39c9d7466d2b":[18,0,0,30,13],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "structSC_1_1AsyncSequence.html":[18,0,0,47],
 "structSC_1_1AsyncSequence.html":[19,0,0,47],
 "structSC_1_1AsyncSequence.html#ab0a2938059e2d5c2a9f13497f0bf8bea":[18,0,0,47,1],
-"structSC_1_1AsyncSequence.html#ab0a2938059e2d5c2a9f13497f0bf8bea":[19,0,0,47,1],
-"structSC_1_1AsyncSequence.html#ac7e9d47258b6b2dc7bd16794fad0e43c":[18,0,0,47,0],
-"structSC_1_1AsyncSequence.html#ac7e9d47258b6b2dc7bd16794fad0e43c":[19,0,0,47,0]
+"structSC_1_1AsyncSequence.html#ab0a2938059e2d5c2a9f13497f0bf8bea":[19,0,0,47,1]
 };

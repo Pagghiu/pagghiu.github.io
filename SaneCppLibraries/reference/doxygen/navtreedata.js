@@ -184,14 +184,14 @@ var NAVTREEINDEX =
 "group__group__serialization__text.html",
 "library_plugin.html#autotoc_md303",
 "structSC_1_1AsyncBuffersPool.html#a15c1c6422b009dc271f2d6c16c5fa03e",
-"structSC_1_1AsyncFileWrite.html#ab0e1a4377a5e4ef7b009a0aa8d43e9c8",
-"structSC_1_1AsyncSignal.html",
-"structSC_1_1AwaitTaskRegistryWaitAllAwaiter.html",
-"structSC_1_1FileDescriptor.html#a011bee61c7a59ed7997b6f2ca4ac736aa050759af7ddcc64ddb5380e7b05c44b1",
-"structSC_1_1HttpAsyncFileServer.html#ac57087e387f58fc6ac756d0375207946",
-"structSC_1_1HttpParser.html#ab90d16c284d13ca54c2c81a1e0e46b25ad64ed3e9c10229648e069f56e32f4c8e",
-"structSC_1_1RWLock.html#ad0f6f1e8fee3d056f3db98d11596d0e1",
-"structSC_1_1TestCase.html#a459de05ee277d86b3e6db5ef82f8d583"
+"structSC_1_1AsyncFileWrite.html#a9ea2e470043b7a7cac084fd533644b05",
+"structSC_1_1AsyncSequence.html#ac7e9d47258b6b2dc7bd16794fad0e43c",
+"structSC_1_1AwaitTaskGroupWaitAllAwaiter.html",
+"structSC_1_1FiberWorkerPoolWakeDiagnostics.html#a9d3d4610640031ba28b917447c6cfcdc",
+"structSC_1_1HttpAsyncFileServer.html",
+"structSC_1_1HttpParser.html#a84befaaf1146b8dfdabb9184b4966752aab2fc3c3886182b6a0b76424cb7612e5",
+"structSC_1_1Process_1_1StdOut.html#ac579b346d37d53d20b4ccb47f1dc356f",
+"structSC_1_1StringView.html#aeeba9ee862bba57974352e3b6e5951ba"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

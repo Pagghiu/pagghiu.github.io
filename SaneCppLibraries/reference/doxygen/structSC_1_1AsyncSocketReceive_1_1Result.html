@@ -148,9 +148,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEnded</b> () const<
 <tr class="memitem:a030b54cea207a89babc03d18ba1c13a2" id="r_a030b54cea207a89babc03d18ba1c13a2"><td class="memItemLeft" align="right" valign="top">SC::Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a030b54cea207a89babc03d18ba1c13a2">get</a> (Span&lt; char &gt; &amp;outData)</td></tr>
 <tr class="memdesc:a030b54cea207a89babc03d18ba1c13a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a Span of the actually read data.  <br /></td></tr>
 <tr class="separator:a030b54cea207a89babc03d18ba1c13a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19039ac3e7eefaaa5e731c40f14607aa" id="r_a19039ac3e7eefaaa5e731c40f14607aa"><td class="memItemLeft" align="right" valign="top"><a id="a19039ac3e7eefaaa5e731c40f14607aa" name="a19039ac3e7eefaaa5e731c40f14607aa"></a>
-<a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getSourceAddress</b> () const</td></tr>
+<tr class="memitem:a19039ac3e7eefaaa5e731c40f14607aa" id="r_a19039ac3e7eefaaa5e731c40f14607aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19039ac3e7eefaaa5e731c40f14607aa">getSourceAddress</a> () const</td></tr>
+<tr class="memdesc:a19039ac3e7eefaaa5e731c40f14607aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the source when it is an IPv4 or IPv6 address.  <br /></td></tr>
 <tr class="separator:a19039ac3e7eefaaa5e731c40f14607aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0656ac0f06cf0f77fc6755406753b2c" id="r_ad0656ac0f06cf0f77fc6755406753b2c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1SocketAddress.html">SocketAddress</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0656ac0f06cf0f77fc6755406753b2c">getSourceSocketAddress</a> () const</td></tr>
+<tr class="memdesc:ad0656ac0f06cf0f77fc6755406753b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the family-neutral source address for receive-from operations.  <br /></td></tr>
+<tr class="separator:ad0656ac0f06cf0f77fc6755406753b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_structSC_1_1AsyncResultOf"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_structSC_1_1AsyncResultOf')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structSC_1_1AsyncResultOf.html">SC::AsyncResultOf&lt; AsyncSocketReceive, CompletionData &gt;</a></td></tr>
 <tr class="memitem:ac5d1d8dc58f8e552774201e80bcf39f6 inherit pub_methods_structSC_1_1AsyncResultOf" id="r_ac5d1d8dc58f8e552774201e80bcf39f6"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="structSC_1_1AsyncSocketReceive.html">AsyncSocketReceive</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getAsync</b> ()</td></tr>
@@ -231,6 +234,45 @@ SC::Result &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>returnCod
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid <a class="el" href="structSC_1_1AsyncSocketReceive_1_1Result.html">Result</a> if the data was read without errors </dd></dl>
+
+</div>
+</div>
+<a id="a19039ac3e7eefaaa5e731c40f14607aa" name="a19039ac3e7eefaaa5e731c40f14607aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19039ac3e7eefaaa5e731c40f14607aa">&#9670;&#160;</a></span>getSourceAddress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> SC::AsyncSocketReceive::Result::getSourceAddress </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the source when it is an IPv4 or IPv6 address. </p>
+<dl class="section note"><dt>Note</dt><dd>Use getSourceSocketAddress for family-neutral source reporting. </dd></dl>
+
+</div>
+</div>
+<a id="ad0656ac0f06cf0f77fc6755406753b2c" name="ad0656ac0f06cf0f77fc6755406753b2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0656ac0f06cf0f77fc6755406753b2c">&#9670;&#160;</a></span>getSourceSocketAddress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSC_1_1SocketAddress.html">SocketAddress</a> SC::AsyncSocketReceive::Result::getSourceSocketAddress </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the family-neutral source address for receive-from operations. </p>
 
 </div>
 </div>

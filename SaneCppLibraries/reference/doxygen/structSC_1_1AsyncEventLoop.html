@@ -275,6 +275,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae95130c4c6460492e1db62d95f0e9e90" id="r_ae95130c4c6460492e1db62d95f0e9e90"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae95130c4c6460492e1db62d95f0e9e90">createAsyncUDPSocket</a> (<a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a> family, <a class="el" href="structSC_1_1SocketDescriptor.html">SocketDescriptor</a> &amp;outDescriptor)</td></tr>
 <tr class="memdesc:ae95130c4c6460492e1db62d95f0e9e90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an async UCP (IPV4 / IPV6) socket registered with the eventLoop.  <br /></td></tr>
 <tr class="separator:ae95130c4c6460492e1db62d95f0e9e90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa945e3210a8849e3af3168aad84e4e39" id="r_aa945e3210a8849e3af3168aad84e4e39"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa945e3210a8849e3af3168aad84e4e39">createAsyncSocket</a> (<a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a> family, <a class="el" href="structSC_1_1SocketFlags.html#a357d032950bdf447d6c95bcfe9f1600e">SocketFlags::SocketType</a> socketType, <a class="el" href="structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcda">SocketFlags::ProtocolType</a> protocol, <a class="el" href="structSC_1_1SocketDescriptor.html">SocketDescriptor</a> &amp;outDescriptor)</td></tr>
+<tr class="memdesc:aa945e3210a8849e3af3168aad84e4e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a non-blocking socket registered with the event loop.  <br /></td></tr>
+<tr class="separator:aa945e3210a8849e3af3168aad84e4e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f4991e61033062316d3dfd1911f3761" id="r_a5f4991e61033062316d3dfd1911f3761"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f4991e61033062316d3dfd1911f3761">associateExternallyCreatedSocket</a> (<a class="el" href="structSC_1_1SocketDescriptor.html">SocketDescriptor</a> &amp;outDescriptor)</td></tr>
 <tr class="memdesc:a5f4991e61033062316d3dfd1911f3761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associates a previously created TCP / UDP socket with the eventLoop.  <br /></td></tr>
 <tr class="separator:a5f4991e61033062316d3dfd1911f3761"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -543,6 +546,39 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncResult</b></td
 </div><div class="memdoc">
 
 <p>Creates the event loop kernel object. </p>
+
+</div>
+</div>
+<a id="aa945e3210a8849e3af3168aad84e4e39" name="aa945e3210a8849e3af3168aad84e4e39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa945e3210a8849e3af3168aad84e4e39">&#9670;&#160;</a></span>createAsyncSocket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::AsyncEventLoop::createAsyncSocket </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a></td>          <td class="paramname"><span class="paramname"><em>family</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSC_1_1SocketFlags.html#a357d032950bdf447d6c95bcfe9f1600e">SocketFlags::SocketType</a></td>          <td class="paramname"><span class="paramname"><em>socketType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcda">SocketFlags::ProtocolType</a></td>          <td class="paramname"><span class="paramname"><em>protocol</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSC_1_1SocketDescriptor.html">SocketDescriptor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>outDescriptor</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a non-blocking socket registered with the event loop. </p>
 
 </div>
 </div>

@@ -1,5 +1,7 @@
 var NAVTREEINDEX5 =
 {
+"structSC_1_1AsyncSequence.html#ac7e9d47258b6b2dc7bd16794fad0e43c":[18,0,0,47,0],
+"structSC_1_1AsyncSequence.html#ac7e9d47258b6b2dc7bd16794fad0e43c":[19,0,0,47,0],
 "structSC_1_1AsyncSignal.html":[18,0,0,48],
 "structSC_1_1AsyncSignal.html":[19,0,0,48],
 "structSC_1_1AsyncSignal.html#a2d427d0658bdfe2739cff3abff6c457e":[18,0,0,48,2],
@@ -64,6 +66,10 @@ var NAVTREEINDEX5 =
 "structSC_1_1AsyncSocketReceive_1_1Result.html":[19,0,0,52,1],
 "structSC_1_1AsyncSocketReceive_1_1Result.html#a030b54cea207a89babc03d18ba1c13a2":[18,0,0,52,1,0],
 "structSC_1_1AsyncSocketReceive_1_1Result.html#a030b54cea207a89babc03d18ba1c13a2":[19,0,0,52,1,0],
+"structSC_1_1AsyncSocketReceive_1_1Result.html#a19039ac3e7eefaaa5e731c40f14607aa":[18,0,0,52,1,1],
+"structSC_1_1AsyncSocketReceive_1_1Result.html#a19039ac3e7eefaaa5e731c40f14607aa":[19,0,0,52,1,1],
+"structSC_1_1AsyncSocketReceive_1_1Result.html#ad0656ac0f06cf0f77fc6755406753b2c":[18,0,0,52,1,2],
+"structSC_1_1AsyncSocketReceive_1_1Result.html#ad0656ac0f06cf0f77fc6755406753b2c":[19,0,0,52,1,2],
 "structSC_1_1AsyncSocketSend.html":[18,0,0,54],
 "structSC_1_1AsyncSocketSend.html":[19,0,0,54],
 "structSC_1_1AsyncSocketSend.html#a03dd368f0780961e5ae30f29eb843d3d":[18,0,0,54,6],
@@ -218,6 +224,10 @@ var NAVTREEINDEX5 =
 "structSC_1_1AwaitSocketReceiveFromAwaiter.html":[19,0,0,95],
 "structSC_1_1AwaitSocketReceiveFromResult.html":[18,0,0,96],
 "structSC_1_1AwaitSocketReceiveFromResult.html":[19,0,0,96],
+"structSC_1_1AwaitSocketReceiveFromResult.html#a33ae58648496151a3d6058e2b86d13b8":[18,0,0,96,1],
+"structSC_1_1AwaitSocketReceiveFromResult.html#a33ae58648496151a3d6058e2b86d13b8":[19,0,0,96,1],
+"structSC_1_1AwaitSocketReceiveFromResult.html#a35e8434aa8c6dcac4769fcb39f46e45d":[18,0,0,96,0],
+"structSC_1_1AwaitSocketReceiveFromResult.html#a35e8434aa8c6dcac4769fcb39f46e45d":[19,0,0,96,0],
 "structSC_1_1AwaitSocketReceiveLineAwaiter.html":[18,0,0,97],
 "structSC_1_1AwaitSocketReceiveLineAwaiter.html":[19,0,0,97],
 "structSC_1_1AwaitSocketReceiveLineResult.html":[18,0,0,98],
@@ -239,15 +249,5 @@ var NAVTREEINDEX5 =
 "structSC_1_1AwaitTaskGroup.html":[18,0,0,106],
 "structSC_1_1AwaitTaskGroup.html":[19,0,0,106],
 "structSC_1_1AwaitTaskGroupResultSummary.html":[18,0,0,107],
-"structSC_1_1AwaitTaskGroupResultSummary.html":[19,0,0,107],
-"structSC_1_1AwaitTaskGroupWaitAllAwaiter.html":[18,0,0,108],
-"structSC_1_1AwaitTaskGroupWaitAllAwaiter.html":[19,0,0,108],
-"structSC_1_1AwaitTaskGroupWaitAnyAwaiter.html":[18,0,0,109],
-"structSC_1_1AwaitTaskGroupWaitAnyAwaiter.html":[19,0,0,109],
-"structSC_1_1AwaitTaskGroupWaitAnyResult.html":[18,0,0,110],
-"structSC_1_1AwaitTaskGroupWaitAnyResult.html":[19,0,0,110],
-"structSC_1_1AwaitTaskRegistry.html":[18,0,0,111],
-"structSC_1_1AwaitTaskRegistry.html":[19,0,0,111],
-"structSC_1_1AwaitTaskRegistrySpawnResult.html":[18,0,0,112],
-"structSC_1_1AwaitTaskRegistrySpawnResult.html":[19,0,0,112]
+"structSC_1_1AwaitTaskGroupResultSummary.html":[19,0,0,107]
 };

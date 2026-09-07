@@ -161,8 +161,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a975fef3c3e27e2ece95b6b8ccc1aab19" id="r_a975fef3c3e27e2ece95b6b8ccc1aab19"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a975fef3c3e27e2ece95b6b8ccc1aab19">close</a> ()</td></tr>
 <tr class="memdesc:a975fef3c3e27e2ece95b6b8ccc1aab19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls SocketDescriptor::close.  <br /></td></tr>
 <tr class="separator:a975fef3c3e27e2ece95b6b8ccc1aab19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a88d729d876989609ca3a63010a07b5" id="r_a9a88d729d876989609ca3a63010a07b5"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a88d729d876989609ca3a63010a07b5">bind</a> (const <a class="el" href="structSC_1_1SocketAddress.html">SocketAddress</a> &amp;nativeAddress, BindReuseAddress reuseAddress=BindReuseAddress::Enabled, BindStatus *outStatus=nullptr)</td></tr>
+<tr class="memdesc:a9a88d729d876989609ca3a63010a07b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds this socket to an address.  <br /></td></tr>
+<tr class="separator:a9a88d729d876989609ca3a63010a07b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ec321dcf34ef6b8fc82669f6955e520" id="r_a7ec321dcf34ef6b8fc82669f6955e520"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ec321dcf34ef6b8fc82669f6955e520">bind</a> (<a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> nativeAddress, BindReuseAddress reuseAddress=BindReuseAddress::Enabled, BindStatus *outStatus=nullptr)</td></tr>
-<tr class="memdesc:a7ec321dcf34ef6b8fc82669f6955e520"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds this socket to a given address / port combination.  <br /></td></tr>
+<tr class="memdesc:a7ec321dcf34ef6b8fc82669f6955e520"><td class="mdescLeft">&#160;</td><td class="mdescRight">IP-address compatibility overload for bind.  <br /></td></tr>
 <tr class="separator:a7ec321dcf34ef6b8fc82669f6955e520"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c81f73951cd951e520d3be464f4cd1b" id="r_a1c81f73951cd951e520d3be464f4cd1b"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c81f73951cd951e520d3be464f4cd1b">listen</a> (uint32_t numberOfWaitingConnections)</td></tr>
 <tr class="memdesc:a1c81f73951cd951e520d3be464f4cd1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start listening for incoming connections at a specific address / port combination (after bind)  <br /></td></tr>
@@ -170,6 +173,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aeabb14ac60f8530d60292cf87bbf4f26" id="r_aeabb14ac60f8530d60292cf87bbf4f26"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeabb14ac60f8530d60292cf87bbf4f26">accept</a> (<a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a> addressFamily, <a class="el" href="structSC_1_1SocketDescriptor.html">SocketDescriptor</a> &amp;newClient)</td></tr>
 <tr class="memdesc:aeabb14ac60f8530d60292cf87bbf4f26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accepts a new client, blocking while waiting for it.  <br /></td></tr>
 <tr class="separator:aeabb14ac60f8530d60292cf87bbf4f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4abac6ddfa7f0f7ae2ccf9a5e105e54f" id="r_a4abac6ddfa7f0f7ae2ccf9a5e105e54f"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4abac6ddfa7f0f7ae2ccf9a5e105e54f">accept</a> (<a class="el" href="structSC_1_1SocketDescriptor.html">SocketDescriptor</a> &amp;newClient, <a class="el" href="structSC_1_1SocketAddress.html">SocketAddress</a> *peerAddress=nullptr)</td></tr>
+<tr class="memdesc:a4abac6ddfa7f0f7ae2ccf9a5e105e54f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accepts a new client and optionally reports its peer address.  <br /></td></tr>
+<tr class="separator:a4abac6ddfa7f0f7ae2ccf9a5e105e54f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Use a <a class="el" href="structSC_1_1SocketDescriptor.html" title="Low-level OS socket handle.">SocketDescriptor</a> as a Server (example TCP or UDP Socket Server). </p>
@@ -233,8 +239,31 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4abac6ddfa7f0f7ae2ccf9a5e105e54f" name="a4abac6ddfa7f0f7ae2ccf9a5e105e54f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4abac6ddfa7f0f7ae2ccf9a5e105e54f">&#9670;&#160;</a></span>accept() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::SocketServer::accept </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSC_1_1SocketDescriptor.html">SocketDescriptor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>newClient</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSC_1_1SocketAddress.html">SocketAddress</a> *</td>          <td class="paramname"><span class="paramname"><em>peerAddress</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Accepts a new client and optionally reports its peer address. </p>
+
+</div>
+</div>
 <a id="aeabb14ac60f8530d60292cf87bbf4f26" name="aeabb14ac60f8530d60292cf87bbf4f26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeabb14ac60f8530d60292cf87bbf4f26">&#9670;&#160;</a></span>accept()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aeabb14ac60f8530d60292cf87bbf4f26">&#9670;&#160;</a></span>accept() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -255,7 +284,7 @@ Public Member Functions</h2></td></tr>
 <p>Accepts a new client, blocking while waiting for it. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addressFamily</td><td>The address family of the <a class="el" href="structSC_1_1SocketDescriptor.html" title="Low-level OS socket handle.">SocketDescriptor</a> that will be created </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addressFamily</td><td>Compatibility parameter; the accepted descriptor family is inherited from the listener </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">newClient</td><td>The <a class="el" href="structSC_1_1SocketDescriptor.html" title="Low-level OS socket handle.">SocketDescriptor</a> that will be accepted </td></tr>
   </table>
   </dd>
@@ -264,8 +293,45 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a9a88d729d876989609ca3a63010a07b5" name="a9a88d729d876989609ca3a63010a07b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a88d729d876989609ca3a63010a07b5">&#9670;&#160;</a></span>bind() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::SocketServer::bind </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structSC_1_1SocketAddress.html">SocketAddress</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>nativeAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BindReuseAddress</td>          <td class="paramname"><span class="paramname"><em>reuseAddress</em></span><span class="paramdefsep"> = </span><span class="paramdefval">BindReuseAddress::Enabled</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BindStatus *</td>          <td class="paramname"><span class="paramname"><em>outStatus</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Binds this socket to an address. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nativeAddress</td><td>The local address to bind </td></tr>
+    <tr><td class="paramname">reuseAddress</td><td>Whether SO_REUSEADDR should be set before binding </td></tr>
+    <tr><td class="paramname">outStatus</td><td>Optional detailed status for bind failures </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Valid Result if this socket has successfully been bound </dd></dl>
+
+</div>
+</div>
 <a id="a7ec321dcf34ef6b8fc82669f6955e520" name="a7ec321dcf34ef6b8fc82669f6955e520"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ec321dcf34ef6b8fc82669f6955e520">&#9670;&#160;</a></span>bind()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ec321dcf34ef6b8fc82669f6955e520">&#9670;&#160;</a></span>bind() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -288,16 +354,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Binds this socket to a given address / port combination. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">nativeAddress</td><td>The interface ip address and port to start listening to </td></tr>
-    <tr><td class="paramname">reuseAddress</td><td>Whether SO_REUSEADDR should be set before binding </td></tr>
-    <tr><td class="paramname">outStatus</td><td>Optional detailed status for bind failures </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Valid Result if this socket has successfully been bound </dd></dl>
+<p>IP-address compatibility overload for bind. </p>
 
 </div>
 </div>
@@ -344,7 +401,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if this socket has successfully been put in listening mode </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>UDP socket cannot be listened. TCP socket need a successful <a class="el" href="#a7ec321dcf34ef6b8fc82669f6955e520" title="Binds this socket to a given address / port combination.">SocketServer::bind</a> before <a class="el" href="#a1c81f73951cd951e520d3be464f4cd1b" title="Start listening for incoming connections at a specific address / port combination (after bind)">SocketServer::listen</a> </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Datagram sockets cannot be listened. Stream sockets need a successful bind before listen </dd></dl>
 
 </div>
 </div>

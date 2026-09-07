@@ -23,7 +23,7 @@ var searchData=
   ['big_3a_20separate_20compilation_20',['Big: separate compilation',['../page_building_user.html#autotoc_md29',1,'']]],
   ['binary_21',['Binary',['../group__group__serialization__binary.html',1,'Serialization Binary'],['../library_serialization_binary.html',1,'Serialization Binary']]],
   ['binary_20layout_20and_20the_20packed_20fast_20path_22',['Binary layout and the packed fast path',['../library_serialization_binary.html#autotoc_md332',1,'']]],
-  ['bind_23',['bind',['../structSC_1_1SocketServer.html#a7ec321dcf34ef6b8fc82669f6955e520',1,'SC::SocketServer']]],
+  ['bind_23',['bind',['../structSC_1_1SocketServer.html#a9a88d729d876989609ca3a63010a07b5',1,'SC::SocketServer::bind(const SocketAddress &amp;nativeAddress, BindReuseAddress reuseAddress=BindReuseAddress::Enabled, BindStatus *outStatus=nullptr)'],['../structSC_1_1SocketServer.html#a7ec321dcf34ef6b8fc82669f6955e520',1,'SC::SocketServer::bind(SocketIPAddress nativeAddress, BindReuseAddress reuseAddress=BindReuseAddress::Enabled, BindStatus *outStatus=nullptr)']]],
   ['bindings_24',['C Bindings',['../group__group__c__bindings.html',1,'']]],
   ['blocking_25',['Blocking',['../structSC_1_1SocketFlags.html#aec08f165e03740d9137b9e7cca67941badb7ec7386bf10eb8cade818c1b557661',1,'SC::SocketFlags']]],
   ['blocking_26',['blocking',['../structSC_1_1FileOpen.html#aeab1ae17d0e3c5f8abd6ef230862c443',1,'SC::FileOpen::blocking'],['../structSC_1_1PipeOptions.html#a8df09a9fcc11eb36f7d2ffc1504e7994',1,'SC::PipeOptions::blocking']]],

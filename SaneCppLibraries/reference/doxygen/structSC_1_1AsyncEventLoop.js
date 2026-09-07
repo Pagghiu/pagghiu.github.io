@@ -10,6 +10,7 @@ var structSC_1_1AsyncEventLoop =
     [ "clearSequence", "structSC_1_1AsyncEventLoop.html#a69cbec781d3133478a28cda8df403bd5", null ],
     [ "close", "structSC_1_1AsyncEventLoop.html#adf307341059dd5332183b092281c8129", null ],
     [ "create", "structSC_1_1AsyncEventLoop.html#acff1e9afb4330dabb78d5f491ba3d39e", null ],
+    [ "createAsyncSocket", "structSC_1_1AsyncEventLoop.html#aa945e3210a8849e3af3168aad84e4e39", null ],
     [ "createAsyncTCPSocket", "structSC_1_1AsyncEventLoop.html#add7fd25e710032ebadfb9c40a479f6a3", null ],
     [ "createAsyncUDPSocket", "structSC_1_1AsyncEventLoop.html#ae95130c4c6460492e1db62d95f0e9e90", null ],
     [ "dispatchCompletions", "structSC_1_1AsyncEventLoop.html#ab74ce20bd1429b6a2eaba0e2bbfaad8c", null ],

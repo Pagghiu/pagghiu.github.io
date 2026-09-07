@@ -146,6 +146,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8245a9ab273557a50a94559eb41a5062" id="r_a8245a9ab273557a50a94559eb41a5062"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8245a9ab273557a50a94559eb41a5062">connect</a> (<a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> ipAddress)</td></tr>
 <tr class="memdesc:a8245a9ab273557a50a94559eb41a5062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect to a given address and port combination.  <br /></td></tr>
 <tr class="separator:a8245a9ab273557a50a94559eb41a5062"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea08394e1735105327157a7a220c7bb6" id="r_aea08394e1735105327157a7a220c7bb6"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea08394e1735105327157a7a220c7bb6">connect</a> (const <a class="el" href="structSC_1_1SocketAddress.html">SocketAddress</a> &amp;address)</td></tr>
+<tr class="memdesc:aea08394e1735105327157a7a220c7bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect to a family-neutral socket address.  <br /></td></tr>
+<tr class="separator:aea08394e1735105327157a7a220c7bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b691ac6107db42668c3b0d60723aa41" id="r_a9b691ac6107db42668c3b0d60723aa41"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b691ac6107db42668c3b0d60723aa41">write</a> (Span&lt; const char &gt; data)</td></tr>
 <tr class="memdesc:a9b691ac6107db42668c3b0d60723aa41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes to this socket.  <br /></td></tr>
 <tr class="separator:a9b691ac6107db42668c3b0d60723aa41"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -236,8 +239,27 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aea08394e1735105327157a7a220c7bb6" name="aea08394e1735105327157a7a220c7bb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea08394e1735105327157a7a220c7bb6">&#9670;&#160;</a></span>connect() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::SocketClient::connect </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structSC_1_1SocketAddress.html">SocketAddress</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Connect to a family-neutral socket address. </p>
+
+</div>
+</div>
 <a id="a8245a9ab273557a50a94559eb41a5062" name="a8245a9ab273557a50a94559eb41a5062"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8245a9ab273557a50a94559eb41a5062">&#9670;&#160;</a></span>connect() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8245a9ab273557a50a94559eb41a5062">&#9670;&#160;</a></span>connect() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -263,7 +285,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a72b5ed737b5df83f1b74be41fc4aa163" name="a72b5ed737b5df83f1b74be41fc4aa163"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72b5ed737b5df83f1b74be41fc4aa163">&#9670;&#160;</a></span>connect() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a72b5ed737b5df83f1b74be41fc4aa163">&#9670;&#160;</a></span>connect() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

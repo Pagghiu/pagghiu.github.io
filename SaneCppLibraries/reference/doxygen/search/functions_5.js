@@ -21,5 +21,7 @@ var searchData=
   ['fromiteratorfromstart_18',['fromIteratorFromStart',['../structSC_1_1StringView.html#a4e2e072acb8f7b1105453b9acf3739ba',1,'SC::StringView']]],
   ['fromiterators_19',['fromIterators',['../structSC_1_1StringView.html#af0826be65c9a8e65049c97235b39d518',1,'SC::StringView']]],
   ['fromiteratoruntilend_20',['fromIteratorUntilEnd',['../structSC_1_1StringView.html#a9076cc4221984da9ac858fcdb6bc29f3',1,'SC::StringView']]],
-  ['fullyoverlaps_21',['fullyOverlaps',['../structSC_1_1StringView.html#ab062bf9142075614d911d046c7838568',1,'SC::StringView']]]
+  ['fromunixabstractname_21',['fromUnixAbstractName',['../structSC_1_1SocketAddress.html#ab177396ca025a5dd37621b34fa78909b',1,'SC::SocketAddress']]],
+  ['fromunixpath_22',['fromUnixPath',['../structSC_1_1SocketAddress.html#acf6db1752387f49e57e458961e06d377',1,'SC::SocketAddress']]],
+  ['fullyoverlaps_23',['fullyOverlaps',['../structSC_1_1StringView.html#ab062bf9142075614d911d046c7838568',1,'SC::StringView']]]
 ];

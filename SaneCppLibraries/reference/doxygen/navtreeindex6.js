@@ -1,5 +1,15 @@
 var NAVTREEINDEX6 =
 {
+"structSC_1_1AwaitTaskGroupWaitAllAwaiter.html":[18,0,0,108],
+"structSC_1_1AwaitTaskGroupWaitAllAwaiter.html":[19,0,0,108],
+"structSC_1_1AwaitTaskGroupWaitAnyAwaiter.html":[18,0,0,109],
+"structSC_1_1AwaitTaskGroupWaitAnyAwaiter.html":[19,0,0,109],
+"structSC_1_1AwaitTaskGroupWaitAnyResult.html":[18,0,0,110],
+"structSC_1_1AwaitTaskGroupWaitAnyResult.html":[19,0,0,110],
+"structSC_1_1AwaitTaskRegistry.html":[18,0,0,111],
+"structSC_1_1AwaitTaskRegistry.html":[19,0,0,111],
+"structSC_1_1AwaitTaskRegistrySpawnResult.html":[18,0,0,112],
+"structSC_1_1AwaitTaskRegistrySpawnResult.html":[19,0,0,112],
 "structSC_1_1AwaitTaskRegistryWaitAllAwaiter.html":[18,0,0,113],
 "structSC_1_1AwaitTaskRegistryWaitAllAwaiter.html":[19,0,0,113],
 "structSC_1_1AwaitTaskRegistryWaitAnyAwaiter.html":[18,0,0,114],
@@ -239,15 +249,5 @@ var NAVTREEINDEX6 =
 "structSC_1_1FiberWorkerPoolOptions.html#ae62f403cd06c02f9132837e9831be71d":[18,0,0,188,1],
 "structSC_1_1FiberWorkerPoolOptions.html#ae62f403cd06c02f9132837e9831be71d":[19,0,0,188,1],
 "structSC_1_1FiberWorkerPoolWakeDiagnostics.html":[18,0,0,189],
-"structSC_1_1FiberWorkerPoolWakeDiagnostics.html":[19,0,0,189],
-"structSC_1_1FiberWorkerPoolWakeDiagnostics.html#a9d3d4610640031ba28b917447c6cfcdc":[18,0,0,189,1],
-"structSC_1_1FiberWorkerPoolWakeDiagnostics.html#a9d3d4610640031ba28b917447c6cfcdc":[19,0,0,189,1],
-"structSC_1_1FiberWorkerPoolWakeDiagnostics.html#ad443c36030f130e8bf7d10aeea1fc61f":[18,0,0,189,0],
-"structSC_1_1FiberWorkerPoolWakeDiagnostics.html#ad443c36030f130e8bf7d10aeea1fc61f":[19,0,0,189,0],
-"structSC_1_1FiberWorkerPool_1_1WakeEventDefinition.html":[18,0,0,187,0],
-"structSC_1_1FiberWorkerPool_1_1WakeEventDefinition.html":[19,0,0,187,0],
-"structSC_1_1FiberWorkerThread.html":[18,0,0,190],
-"structSC_1_1FiberWorkerThread.html":[19,0,0,190],
-"structSC_1_1FileDescriptor.html":[17,8,2],
-"structSC_1_1FileDescriptor.html#a011bee61c7a59ed7997b6f2ca4ac736a":[17,8,2,0]
+"structSC_1_1FiberWorkerPoolWakeDiagnostics.html":[19,0,0,189]
 };

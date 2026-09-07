@@ -504,6 +504,7 @@ var hierarchy =
     [ "SC::SerializationJson", "structSC_1_1SerializationJson.html", null ],
     [ "SC::SerialOpenOptions", "structSC_1_1SerialOpenOptions.html", null ],
     [ "SC::SerialSettings", "structSC_1_1SerialSettings.html", null ],
+    [ "SC::SocketAddress", "structSC_1_1SocketAddress.html", null ],
     [ "SC::SocketClient", "structSC_1_1SocketClient.html", null ],
     [ "SC::SocketDNS", "structSC_1_1SocketDNS.html", null ],
     [ "SC::SocketFlags", "structSC_1_1SocketFlags.html", null ],
