@@ -428,6 +428,10 @@ var namespaces_dup =
         [ "Ping", "group__group__http.html#ggafb9cef8f4b82503494fdc790514a21a1ab85815d04cec053ce6deb8021f2df1b8", null ],
         [ "Pong", "group__group__http.html#ggafb9cef8f4b82503494fdc790514a21a1a4d94412495a32342e1b8c78f7960f2bc", null ]
       ] ],
+      [ "HttpWebSocketSha1Mode", "group__group__http.html#gabe86911e4fd11a84d1f5d9033cb044ad", [
+        [ "Platform", "group__group__http.html#ggabe86911e4fd11a84d1f5d9033cb044ada419f3742e6de8e0ec4b22cce005e7630", null ],
+        [ "SelfContained", "group__group__http.html#ggabe86911e4fd11a84d1f5d9033cb044adad32ddc68ef9b741e5c6741f0a7e645af", null ]
+      ] ],
       [ "HttpContentTypeTextPlainUtf8", "group__group__http.html#ga79271c59d6080083a918092024631996", null ],
       [ "HttpFormUrlDecode", "group__group__http.html#gae8e24c4331c6318aaa4cf56d0244e10f", null ],
       [ "HttpMultipartIsSafeFileName", "group__group__http.html#ga7d92cd26416f040150c3a31b169a95fe", null ],

@@ -333,6 +333,14 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ga5bdde1ed4c2627805b32bda38e8f8445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifies the local endpoint role to validate masking rules.  <a href="#ga5bdde1ed4c2627805b32bda38e8f8445">More...</a><br /></td></tr>
 <tr class="separator:ga5bdde1ed4c2627805b32bda38e8f8445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabe86911e4fd11a84d1f5d9033cb044ad" id="r_gabe86911e4fd11a84d1f5d9033cb044ad"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabe86911e4fd11a84d1f5d9033cb044ad">SC::HttpWebSocketSha1Mode</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#ggabe86911e4fd11a84d1f5d9033cb044ada419f3742e6de8e0ec4b22cce005e7630">HttpWebSocketSha1Mode::Platform</a>
+, <br />
+&#160;&#160;<a class="el" href="#ggabe86911e4fd11a84d1f5d9033cb044adad32ddc68ef9b741e5c6741f0a7e645af">HttpWebSocketSha1Mode::SelfContained</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:gabe86911e4fd11a84d1f5d9033cb044ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects the SHA-1 implementation used by the RFC 6455 opening handshake.  <a href="#gabe86911e4fd11a84d1f5d9033cb044ad">More...</a><br /></td></tr>
+<tr class="separator:gabe86911e4fd11a84d1f5d9033cb044ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -430,6 +438,38 @@ SC_HTTP_EXPORT StringSpan&#160;</td><td class="memItemRight" valign="bottom"><b>
 <p><code>#include &lt;HttpWebSocket.h&gt;</code></p>
 
 <p>WebSocket frame opcode as defined by RFC 6455. </p>
+
+</div>
+</div>
+<a id="gabe86911e4fd11a84d1f5d9033cb044ad" name="gabe86911e4fd11a84d1f5d9033cb044ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabe86911e4fd11a84d1f5d9033cb044ad">&#9670;&#160;</a></span>HttpWebSocketSha1Mode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#gabe86911e4fd11a84d1f5d9033cb044ad">SC::HttpWebSocketSha1Mode</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;HttpWebSocket.h&gt;</code></p>
+
+<p>Selects the SHA-1 implementation used by the RFC 6455 opening handshake. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggabe86911e4fd11a84d1f5d9033cb044ada419f3742e6de8e0ec4b22cce005e7630" name="ggabe86911e4fd11a84d1f5d9033cb044ada419f3742e6de8e0ec4b22cce005e7630"></a>Platform&#160;</td><td class="fielddoc"><p>Use the platform provider, returning an error when no provider is available. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggabe86911e4fd11a84d1f5d9033cb044adad32ddc68ef9b741e5c6741f0a7e645af" name="ggabe86911e4fd11a84d1f5d9033cb044adad32ddc68ef9b741e5c6741f0a7e645af"></a>SelfContained&#160;</td><td class="fielddoc"><p>Use the allocation-free SHA-1 implementation embedded in Http. </p>
+</td></tr>
+</table>
 
 </div>
 </div>

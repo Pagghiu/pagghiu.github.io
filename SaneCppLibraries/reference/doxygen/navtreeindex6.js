@@ -1,5 +1,9 @@
 var NAVTREEINDEX6 =
 {
+"structSC_1_1AwaitTaskGroup.html":[18,0,0,106],
+"structSC_1_1AwaitTaskGroup.html":[19,0,0,106],
+"structSC_1_1AwaitTaskGroupResultSummary.html":[18,0,0,107],
+"structSC_1_1AwaitTaskGroupResultSummary.html":[19,0,0,107],
 "structSC_1_1AwaitTaskGroupWaitAllAwaiter.html":[18,0,0,108],
 "structSC_1_1AwaitTaskGroupWaitAllAwaiter.html":[19,0,0,108],
 "structSC_1_1AwaitTaskGroupWaitAnyAwaiter.html":[18,0,0,109],
@@ -245,9 +249,5 @@ var NAVTREEINDEX6 =
 "structSC_1_1FiberWorkerPoolOptions.html":[18,0,0,188],
 "structSC_1_1FiberWorkerPoolOptions.html":[19,0,0,188],
 "structSC_1_1FiberWorkerPoolOptions.html#a70aae862a3de4268efc16e4beceef5f3":[18,0,0,188,0],
-"structSC_1_1FiberWorkerPoolOptions.html#a70aae862a3de4268efc16e4beceef5f3":[19,0,0,188,0],
-"structSC_1_1FiberWorkerPoolOptions.html#ae62f403cd06c02f9132837e9831be71d":[18,0,0,188,1],
-"structSC_1_1FiberWorkerPoolOptions.html#ae62f403cd06c02f9132837e9831be71d":[19,0,0,188,1],
-"structSC_1_1FiberWorkerPoolWakeDiagnostics.html":[18,0,0,189],
-"structSC_1_1FiberWorkerPoolWakeDiagnostics.html":[19,0,0,189]
+"structSC_1_1FiberWorkerPoolOptions.html#a70aae862a3de4268efc16e4beceef5f3":[19,0,0,188,0]
 };

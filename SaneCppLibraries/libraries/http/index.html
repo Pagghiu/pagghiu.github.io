@@ -128,29 +128,34 @@
   </li>
   <li class="level1">
     <a href="#autotoc_md267">Protocol helpers and deliberate boundaries</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md268">Operational notes</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md269">Further material</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md270">API reference</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md271">HttpAsyncServer</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md272">HttpAsyncFileServer</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md273">HttpAsyncClient</a>
+        <a href="#autotoc_md268">Choosing the WebSocket SHA-1 provider</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md274">Statistics</a>
+    <a href="#autotoc_md269">Operational notes</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md270">Further material</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md271">API reference</a>
+    <ul>
+      <li class="level2">
+        <a href="#autotoc_md272">HttpAsyncServer</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md273">HttpAsyncFileServer</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md274">HttpAsyncClient</a>
+      </li>
+    </ul>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md275">Statistics</a>
   </li>
 </ul>
 </div></div> </details> <div class="library-main" data-astro-cid-7c432cc5> <section class="page-hero library-hero" data-astro-cid-7c432cc5> <div class="library-heading" data-astro-cid-7c432cc5> <div class="eyebrow" data-astro-cid-7c432cc5>Library</div> <h1 data-astro-cid-7c432cc5>Http</h1> <p data-astro-cid-7c432cc5>Allocation-free HTTP/1.1 client, server, parser, and WebSocket building blocks</p> <span class="maturity-badge draft strong" data-astro-cid-blexnnyn> <span class="dot" data-astro-cid-blexnnyn></span> <span data-astro-cid-blexnnyn>Draft</span> </span>  </div> </section> <section class="meta-grid" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependencies</strong> <p class="dependency-links" data-astro-cid-7c432cc5> <a href="/SaneCppLibraries/libraries/async/" data-astro-cid-7c432cc5>Async</a><span data-astro-cid-7c432cc5>AsyncStreams</span> </p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Single file</strong> <p data-astro-cid-7c432cc5><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppHttp.h" data-astro-cid-7c432cc5>Download release header</a></p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Reference</strong> <p data-astro-cid-7c432cc5><a href="/SaneCppLibraries/reference/doxygen/library_http.html" data-astro-cid-7c432cc5>Open generated API/docs</a></p> </div> </section> <article class="panel prose article doxygen-content" data-astro-cid-7c432cc5><div class="textblock"><p>🟥 Allocation-free HTTP/1.1 client, server, parser, and WebSocket building blocks</p>
@@ -295,7 +300,25 @@ Protocol helpers and deliberate boundaries</h1>
 <li><code>HttpWebSocketHandshake</code>, frame reader/writer, endpoint, stream pump, and small hub cover RFC 6455 handshakes, framing, control frames, and bounded fan-out without turning WebSockets into a separate networking runtime.</li>
 </ul>
 <p>Unsupported input is generally rejected explicitly. Current boundaries include one in-flight client request, no HTTP pipelining or client redirect-following policy, no HTTP/2 or HTTP/3, no WebSocket extension negotiation, and limited trailer support. Server responses do have a checked <code>HttpResponse::sendRedirect</code> formatting helper. TLS belongs to <code>Https</code>; DNS and sockets belong to <code>Socket</code>; asynchronous byte ownership and backpressure belong to <code>AsyncStreams</code>. Keeping those seams visible avoids pulling transport and policy concerns into the HTTP message layer, but it also means an application integrates more pieces itself.</p>
-<h1><a class="anchor" id="autotoc_md268"></a>
+<h2><a class="anchor" id="autotoc_md268"></a>
+Choosing the WebSocket SHA-1 provider</h2>
+<p>RFC 6455 requires SHA-1 to derive <code>Sec-WebSocket-Accept</code>. This use proves that the server received the client's opening key; it does not make SHA-1 suitable for passwords, signatures, certificates, or other security decisions.</p>
+<p>Handshake helpers default to <code>HttpWebSocketSha1Mode::Platform</code>. A caller can explicitly select the allocation-free self-contained implementation instead:</p>
+<pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">char</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> acceptStorage</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF">SC</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF">HttpWebSocketHandshake</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">AcceptKeyLength</span><span style="color:#24292E;--shiki-dark:#9399B2">];</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F9E2AF">SC</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">StringSpan accept</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">SC</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-dark:#CDD6F4">HttpWebSocketHandshake</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">computeAccept</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">clientKey</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> acceptStorage</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> accept</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F9E2AF">                                                  SC</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF">HttpWebSocketSha1Mode</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">SelfContained</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span></code></pre><table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Platform   </th><th class="markdownTableHeadNone"><code>Platform</code> provider order   </th><th class="markdownTableHeadNone">Behavior when unavailable    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Windows   </td><td class="markdownTableBodyNone">CNG from <code>bcrypt.dll</code>   </td><td class="markdownTableBodyNone">Returns an error    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">macOS   </td><td class="markdownTableBodyNone">CommonCrypto   </td><td class="markdownTableBodyNone">Returns an error    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Linux   </td><td class="markdownTableBodyNone">Dynamically loaded OpenSSL EVP, then AF_ALG   </td><td class="markdownTableBodyNone">Returns an error when both are unavailable   </td></tr>
+</table>
+<p><code>Platform</code> adds no link-time dependency. Linux probes <code>libcrypto.so.3</code> and then <code>libcrypto.so.1.1</code>; if neither exposes the required public EVP functions, it tries AF_ALG. <code>SelfContained</code> never loads a provider and is useful for deployments that prefer one predictable binary over provider updates. Its implementation is tested against standard SHA-1 vectors, padding/block boundaries, chunked input, and the independent platform result. The known-answer cases come from <a href="https://doi.org/10.6028/NIST.FIPS.180-4">FIPS PUB 180-4</a>.</p>
+<h1><a class="anchor" id="autotoc_md269"></a>
 Operational notes</h1>
 <p><code>HttpAsyncServer::stop()</code> begins asynchronous shutdown; <code>close()</code> waits for outstanding work and releases references to caller memory. The same ownership rule applies to the client: close it before destroying its connection storage. For servers, set an explicit maximum header size and bound uploads and keep-alive request counts for the deployment.</p>
 <p>The focused executable examples are useful complements to the snippets:</p>
@@ -306,7 +329,7 @@ Operational notes</h1>
 <li><a class="el" href="/SaneCppLibraries/guides/examples/">SCExample</a> contains the GUI-integrated <code>WebServerExample</code>.</li>
 </ul>
 <p>The implementation is still marked draft. Before adopting it for an exposed service, evaluate the supported protocol surface against your threat model and put a production proxy in front where appropriate. The bounded <code>HttpStressTest</code> exercises repeated keep-alive requests, chunked request bursts, and WebSocket fan-out; it is a regression signal, not a claim of protocol conformance or internet hardening.</p>
-<h1><a class="anchor" id="autotoc_md269"></a>
+<h1><a class="anchor" id="autotoc_md270"></a>
 Further material</h1>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=yg438A9Db50">Ep.27 - C++ Async Http Web Server</a></li>
@@ -320,10 +343,10 @@ Further material</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026 update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-06-30-SaneCppLibrariesUpdate.html">June 2026 update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md270"></a>
+<h1><a class="anchor" id="autotoc_md271"></a>
 API reference</h1>
 <p>The reference is intentionally secondary to the model and examples above.</p>
-<h2><a class="anchor" id="autotoc_md271"></a>
+<h2><a class="anchor" id="autotoc_md272"></a>
 HttpAsyncServer</h2>
 <p>Async Http Server.   </p>
 <p>This class handles a fully asynchronous http server staying inside 5 fixed memory regions passed during init.</p>
@@ -407,7 +430,7 @@ HttpAsyncServer</h2>
 <span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">        SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">response</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">getWritableStream</span><span style="color:#24292E;--shiki-dark:#9399B2">().</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">write</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">move</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">content</span><span style="color:#24292E;--shiki-dark:#9399B2">)));</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">        SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">response</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">end</span><span style="color:#24292E;--shiki-dark:#9399B2">());</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">    };</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span></code></pre>  <h2><a class="anchor" id="autotoc_md272"></a>
+<span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span></code></pre>  <h2><a class="anchor" id="autotoc_md273"></a>
 HttpAsyncFileServer</h2>
 <p>Http file server statically serves files from a directory.   </p>
 <p>This class registers the onRequest callback provided by HttpAsyncServer to serves files from a given directory.</p>
@@ -515,7 +538,7 @@ HttpAsyncFileServer</h2>
 <span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">        SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">assignConnectionMemory</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">numClients</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">        SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">httpServer</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">resize</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">clients</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">toSpan</span><span style="color:#24292E;--shiki-dark:#9399B2">()));</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">        return</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> Result</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#005CC5;--shiki-dark:#FAB387">true</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">    }</span></span></code></pre>  <h2><a class="anchor" id="autotoc_md273"></a>
+<span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">    }</span></span></code></pre>  <h2><a class="anchor" id="autotoc_md274"></a>
 HttpAsyncClient</h2>
 <p>Asynchronous HTTP/1.1 client using caller-provided fixed storage.   </p>
 <p><code>HttpAsyncClient</code> processes a single request at a time and can sequentially reuse the same connection when keep-alive is enabled and the next request targets the same host and port.</p>
@@ -556,7 +579,7 @@ HttpAsyncClient</h2>
 <span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">    };</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    client</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">onError </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> [</span><span style="color:#005CC5;--shiki-dark:#F38BA8">this</span><span style="color:#24292E;--shiki-dark:#9399B2">](</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">Result</span><span style="color:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#EBA0AC;--shiki-dark-font-style:italic"> result</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">result</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span><span style="color:#24292E;--shiki-dark:#9399B2"> };</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">client</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">start</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">loop</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> HttpParser</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF">Method</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">HttpPUT</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> url</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">view</span><span style="color:#24292E;--shiki-dark:#9399B2">()));</span></span></code></pre>  <h1><a class="anchor" id="autotoc_md274"></a>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">    SC_TEST_EXPECT</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">client</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">start</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">loop</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> HttpParser</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF">Method</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#24292E;--shiki-dark:#CDD6F4">HttpPUT</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> url</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">view</span><span style="color:#24292E;--shiki-dark:#9399B2">()));</span></span></code></pre>  <h1><a class="anchor" id="autotoc_md275"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Http</code>. Single File counts <code>SaneCppHttp.h</code>. Standalone counts <code>SaneCppHttpStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">
@@ -587,29 +610,34 @@ Statistics</h1>
   </li>
   <li class="level1">
     <a href="#autotoc_md267">Protocol helpers and deliberate boundaries</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md268">Operational notes</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md269">Further material</a>
-  </li>
-  <li class="level1">
-    <a href="#autotoc_md270">API reference</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md271">HttpAsyncServer</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md272">HttpAsyncFileServer</a>
-      </li>
-      <li class="level2">
-        <a href="#autotoc_md273">HttpAsyncClient</a>
+        <a href="#autotoc_md268">Choosing the WebSocket SHA-1 provider</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md274">Statistics</a>
+    <a href="#autotoc_md269">Operational notes</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md270">Further material</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md271">API reference</a>
+    <ul>
+      <li class="level2">
+        <a href="#autotoc_md272">HttpAsyncServer</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md273">HttpAsyncFileServer</a>
+      </li>
+      <li class="level2">
+        <a href="#autotoc_md274">HttpAsyncClient</a>
+      </li>
+    </ul>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md275">Statistics</a>
   </li>
 </ul>
 </div></div> </div> </aside> </section>  </div> </div> </main> <footer class="site-footer" data-astro-cid-37fxchfa> <div class="shell footer-grid" data-astro-cid-37fxchfa> <div data-astro-cid-37fxchfa> <div class="eyebrow" data-astro-cid-37fxchfa>Platform Abstraction C++ Libraries</div> <h2 data-astro-cid-37fxchfa>Sane C++ Libraries</h2> <p class="copy-muted" data-astro-cid-37fxchfa>

@@ -4,8 +4,9 @@ var searchData=
   ['partbody_1',['PartBody',['../structSC_1_1HttpMultipartParser.html#a983d191289ac240ac761e3404bd69aaea475e004ed2662eccfe0ea1835b12e3db',1,'SC::HttpMultipartParser']]],
   ['partheaderend_2',['PartHeaderEnd',['../structSC_1_1HttpMultipartParser.html#a983d191289ac240ac761e3404bd69aaeace78282c8a1d91517f9b332c8a6ea181',1,'SC::HttpMultipartParser']]],
   ['persistent_3',['Persistent',['../structSC_1_1AsyncSignalOptions.html#a407f916d2f68d9b84ac7dc201291dfa3a5fe7b9358c9cb1b9eaa8d5aec000def4',1,'SC::AsyncSignalOptions']]],
-  ['processexit_4',['ProcessExit',['../structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524aa3f077cb262fbabb3168de84317d1ec5',1,'SC::AsyncRequest']]],
-  ['protocoldefault_5',['ProtocolDefault',['../structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcdaadef8e69d488d909305b2f108ca481a54',1,'SC::SocketFlags']]],
-  ['protocoltcp_6',['ProtocolTcp',['../structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcdaaf8aa232b7192311ab494f787228eb7ce',1,'SC::SocketFlags']]],
-  ['protocoludp_7',['ProtocolUdp',['../structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcdaa37047f582af977a5db4b34d1f367fd39',1,'SC::SocketFlags']]]
+  ['platform_4',['Platform',['../group__group__http.html#ggabe86911e4fd11a84d1f5d9033cb044ada419f3742e6de8e0ec4b22cce005e7630',1,'SC']]],
+  ['processexit_5',['ProcessExit',['../structSC_1_1AsyncRequest.html#af5065f89c50d598913f77f9e6a53c524aa3f077cb262fbabb3168de84317d1ec5',1,'SC::AsyncRequest']]],
+  ['protocoldefault_6',['ProtocolDefault',['../structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcdaadef8e69d488d909305b2f108ca481a54',1,'SC::SocketFlags']]],
+  ['protocoltcp_7',['ProtocolTcp',['../structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcdaaf8aa232b7192311ab494f787228eb7ce',1,'SC::SocketFlags']]],
+  ['protocoludp_8',['ProtocolUdp',['../structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcdaa37047f582af977a5db4b34d1f367fd39',1,'SC::SocketFlags']]]
 ];

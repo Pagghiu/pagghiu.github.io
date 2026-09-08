@@ -1,5 +1,9 @@
 var NAVTREEINDEX5 =
 {
+"structSC_1_1AsyncSequence.html":[18,0,0,47],
+"structSC_1_1AsyncSequence.html":[19,0,0,47],
+"structSC_1_1AsyncSequence.html#ab0a2938059e2d5c2a9f13497f0bf8bea":[18,0,0,47,1],
+"structSC_1_1AsyncSequence.html#ab0a2938059e2d5c2a9f13497f0bf8bea":[19,0,0,47,1],
 "structSC_1_1AsyncSequence.html#ac7e9d47258b6b2dc7bd16794fad0e43c":[18,0,0,47,0],
 "structSC_1_1AsyncSequence.html#ac7e9d47258b6b2dc7bd16794fad0e43c":[19,0,0,47,0],
 "structSC_1_1AsyncSignal.html":[18,0,0,48],
@@ -245,9 +249,5 @@ var NAVTREEINDEX5 =
 "structSC_1_1AwaitSocketSendToAwaiter.html":[18,0,0,104],
 "structSC_1_1AwaitSocketSendToAwaiter.html":[19,0,0,104],
 "structSC_1_1AwaitTask.html":[18,0,0,105],
-"structSC_1_1AwaitTask.html":[19,0,0,105],
-"structSC_1_1AwaitTaskGroup.html":[18,0,0,106],
-"structSC_1_1AwaitTaskGroup.html":[19,0,0,106],
-"structSC_1_1AwaitTaskGroupResultSummary.html":[18,0,0,107],
-"structSC_1_1AwaitTaskGroupResultSummary.html":[19,0,0,107]
+"structSC_1_1AwaitTask.html":[19,0,0,105]
 };

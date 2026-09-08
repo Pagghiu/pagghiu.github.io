@@ -1,5 +1,9 @@
 var NAVTREEINDEX7 =
 {
+"structSC_1_1FiberWorkerPoolOptions.html#ae62f403cd06c02f9132837e9831be71d":[18,0,0,188,1],
+"structSC_1_1FiberWorkerPoolOptions.html#ae62f403cd06c02f9132837e9831be71d":[19,0,0,188,1],
+"structSC_1_1FiberWorkerPoolWakeDiagnostics.html":[18,0,0,189],
+"structSC_1_1FiberWorkerPoolWakeDiagnostics.html":[19,0,0,189],
 "structSC_1_1FiberWorkerPoolWakeDiagnostics.html#a9d3d4610640031ba28b917447c6cfcdc":[18,0,0,189,1],
 "structSC_1_1FiberWorkerPoolWakeDiagnostics.html#a9d3d4610640031ba28b917447c6cfcdc":[19,0,0,189,1],
 "structSC_1_1FiberWorkerPoolWakeDiagnostics.html#ad443c36030f130e8bf7d10aeea1fc61f":[18,0,0,189,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX7 =
 "structSC_1_1HttpAsyncClientRequest.html":[17,14,10],
 "structSC_1_1HttpAsyncClientResponse.html":[17,14,7],
 "structSC_1_1HttpAsyncClientTransportSetup.html":[17,14,0],
-"structSC_1_1HttpAsyncClient_1_1Header.html":[17,14,2,0],
-"structSC_1_1HttpAsyncClient_1_1RequestOptions.html":[17,14,2,1],
-"structSC_1_1HttpAsyncConnection.html":[18,0,0,214],
-"structSC_1_1HttpAsyncConnection.html":[19,0,0,214],
-"structSC_1_1HttpAsyncFileServer.html":[18,0,0,215]
+"structSC_1_1HttpAsyncClient_1_1Header.html":[17,14,2,0]
 };

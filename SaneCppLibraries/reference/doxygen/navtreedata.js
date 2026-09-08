@@ -142,12 +142,12 @@ var NAVTREE =
       [ "Know the boundary", "page_tools.html#autotoc_md85", null ]
     ] ],
     [ "HTTP Library Notes", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html", [
-      [ "Architecture Overview", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md410", null ],
-      [ "Core constraints", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md411", null ],
-      [ "Hot paths", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md412", null ],
-      [ "Benchmark workflow", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md413", null ],
-      [ "Client-specific notes", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md414", null ],
-      [ "Validation", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md415", null ]
+      [ "Architecture Overview", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md411", null ],
+      [ "Core constraints", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md412", null ],
+      [ "Hot paths", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md413", null ],
+      [ "Benchmark workflow", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md414", null ],
+      [ "Client-specific notes", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md415", null ],
+      [ "Validation", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md416", null ]
     ] ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
@@ -181,17 +181,17 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "ArenaMapKey_8h_source.html",
-"group__group__serialization__text.html",
-"library_plugin.html#autotoc_md303",
-"structSC_1_1AsyncBuffersPool.html#a15c1c6422b009dc271f2d6c16c5fa03e",
-"structSC_1_1AsyncFileWrite.html#a9ea2e470043b7a7cac084fd533644b05",
-"structSC_1_1AsyncSequence.html#ac7e9d47258b6b2dc7bd16794fad0e43c",
-"structSC_1_1AwaitTaskGroupWaitAllAwaiter.html",
-"structSC_1_1FiberWorkerPoolWakeDiagnostics.html#a9d3d4610640031ba28b917447c6cfcdc",
-"structSC_1_1HttpAsyncFileServer.html",
-"structSC_1_1HttpParser.html#a84befaaf1146b8dfdabb9184b4966752aab2fc3c3886182b6a0b76424cb7612e5",
-"structSC_1_1Process_1_1StdOut.html#ac579b346d37d53d20b4ccb47f1dc356f",
-"structSC_1_1StringView.html#aeeba9ee862bba57974352e3b6e5951ba"
+"group__group__sc__hashing.html#gga849e86d2472750ad6a1913696c4bdbf1ac6e04d6f7944ea8c92c8ff0c4022be81",
+"library_plugin.html#autotoc_md300",
+"structSC_1_1AsyncBuffersPool.html",
+"structSC_1_1AsyncFileWrite.html#a57e10537ffb69b4ca0a7edca05003006",
+"structSC_1_1AsyncSequence.html",
+"structSC_1_1AwaitTaskGroup.html",
+"structSC_1_1FiberWorkerPoolOptions.html#ae62f403cd06c02f9132837e9831be71d",
+"structSC_1_1HttpAsyncClient_1_1RequestOptions.html",
+"structSC_1_1HttpParser.html#a6e6ebc8472375b98908f408420a9fef7ac2cc7082a89c1ad6631a2f66af5f00c0",
+"structSC_1_1Process_1_1StdOut.html#aa670bafc7e4af4232809021bb44b3bff",
+"structSC_1_1StringView.html#ae59944bd39c323dde4cea38a12fd9887"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

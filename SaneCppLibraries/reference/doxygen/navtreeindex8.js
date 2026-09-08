@@ -1,5 +1,9 @@
 var NAVTREEINDEX8 =
 {
+"structSC_1_1HttpAsyncClient_1_1RequestOptions.html":[17,14,2,1],
+"structSC_1_1HttpAsyncConnection.html":[18,0,0,214],
+"structSC_1_1HttpAsyncConnection.html":[19,0,0,214],
+"structSC_1_1HttpAsyncFileServer.html":[18,0,0,215],
 "structSC_1_1HttpAsyncFileServer.html":[19,0,0,215],
 "structSC_1_1HttpAsyncFileServer.html#a8e099b884c0e7d40a4cfa3ebed0fd11a":[18,0,0,215,7],
 "structSC_1_1HttpAsyncFileServer.html#a8e099b884c0e7d40a4cfa3ebed0fd11a":[19,0,0,215,7],
@@ -245,9 +249,5 @@ var NAVTREEINDEX8 =
 "structSC_1_1HttpParser.html#a405fd69749acd688e3e36bdd6a71ef3d":[17,14,25,10],
 "structSC_1_1HttpParser.html#a6e6ebc8472375b98908f408420a9fef7":[17,14,25,0],
 "structSC_1_1HttpParser.html#a6e6ebc8472375b98908f408420a9fef7a132d1f967127cbce22710ae8939b0ad3":[17,14,25,0,0],
-"structSC_1_1HttpParser.html#a6e6ebc8472375b98908f408420a9fef7ab8178dd7819d7531e93b9d8112c16e11":[17,14,25,0,2],
-"structSC_1_1HttpParser.html#a6e6ebc8472375b98908f408420a9fef7ac2cc7082a89c1ad6631a2f66af5f00c0":[17,14,25,0,1],
-"structSC_1_1HttpParser.html#a84befaaf1146b8dfdabb9184b4966752":[17,14,25,1],
-"structSC_1_1HttpParser.html#a84befaaf1146b8dfdabb9184b4966752a31acd94859dd1e33dc6510db6c84e9df":[17,14,25,1,3],
-"structSC_1_1HttpParser.html#a84befaaf1146b8dfdabb9184b4966752a3cb2d31d21c16c0c17dc4b5b7d015ee3":[17,14,25,1,1]
+"structSC_1_1HttpParser.html#a6e6ebc8472375b98908f408420a9fef7ab8178dd7819d7531e93b9d8112c16e11":[17,14,25,0,2]
 };

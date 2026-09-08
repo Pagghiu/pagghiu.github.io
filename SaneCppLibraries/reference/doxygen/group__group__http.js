@@ -237,6 +237,10 @@ var group__group__http =
     [ "SC::HttpWebSocketSmallHub", "structSC_1_1HttpWebSocketSmallHub.html", null ],
     [ "SC::HttpWebSocketEndpointRole", "group__group__http.html#ga5bdde1ed4c2627805b32bda38e8f8445", null ],
     [ "SC::HttpWebSocketOpcode", "group__group__http.html#gafb9cef8f4b82503494fdc790514a21a1", null ],
+    [ "SC::HttpWebSocketSha1Mode", "group__group__http.html#gabe86911e4fd11a84d1f5d9033cb044ad", [
+      [ "SC::HttpWebSocketSha1Mode::Platform", "group__group__http.html#ggabe86911e4fd11a84d1f5d9033cb044ada419f3742e6de8e0ec4b22cce005e7630", null ],
+      [ "SC::HttpWebSocketSha1Mode::SelfContained", "group__group__http.html#ggabe86911e4fd11a84d1f5d9033cb044adad32ddc68ef9b741e5c6741f0a7e645af", null ]
+    ] ],
     [ "SC::HttpContentTypeTextPlainUtf8", "group__group__http.html#ga79271c59d6080083a918092024631996", null ],
     [ "SC::HttpFormUrlDecode", "group__group__http.html#gae8e24c4331c6318aaa4cf56d0244e10f", null ],
     [ "SC::HttpMultipartIsSafeFileName", "group__group__http.html#ga7d92cd26416f040150c3a31b169a95fe", null ],
