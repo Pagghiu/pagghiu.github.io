@@ -1,5 +1,6 @@
 var structSC_1_1HttpAsyncServer =
 [
+    [ "acceptExternalConnection", "structSC_1_1HttpAsyncServer.html#ab80b5f69e6fcb80f8b85c8d07f24ac51", null ],
     [ "clearTransportSetup", "structSC_1_1HttpAsyncServer.html#a964bbc409d735920c86f9ed66d464a0d", null ],
     [ "close", "structSC_1_1HttpAsyncServer.html#aff4ed39c8e2965711cd96dd7c60b5f0f", null ],
     [ "getDefaultKeepAlive", "structSC_1_1HttpAsyncServer.html#a42e67c269709b5c6efc2d6e419c6ccf8", null ],
@@ -11,8 +12,11 @@ var structSC_1_1HttpAsyncServer =
     [ "setMaxHeaderSize", "structSC_1_1HttpAsyncServer.html#a7f1691bfb7dd9665e629c056de138cfc", null ],
     [ "setMaxRequestsPerConnection", "structSC_1_1HttpAsyncServer.html#a6abbb49f1b99cb77327f5587591f8883", null ],
     [ "setTransportClose", "structSC_1_1HttpAsyncServer.html#aa92f6ef801b9d9147dd58b3c321b62c1", null ],
+    [ "setTransportReuse", "structSC_1_1HttpAsyncServer.html#a9258d79a2a92b44549546962d70cf387", null ],
     [ "setTransportSetup", "structSC_1_1HttpAsyncServer.html#a054cde027b8af5126eef158a6fefe4ac", null ],
+    [ "setTransportShutdown", "structSC_1_1HttpAsyncServer.html#a00a1c7d544e619501c2a6c00ddf7344a", null ],
     [ "start", "structSC_1_1HttpAsyncServer.html#a0e99fe3442cdd85bf85592d47341edcc", null ],
+    [ "startExternal", "structSC_1_1HttpAsyncServer.html#a44a8662cedfb6c651bc42c13ce5303f7", null ],
     [ "stop", "structSC_1_1HttpAsyncServer.html#a33e309205e05e91fb05875ba8bcb3159", null ],
     [ "onError", "structSC_1_1HttpAsyncServer.html#a610f0aef3d9fd02636607fc02246edc3", null ],
     [ "onRequest", "structSC_1_1HttpAsyncServer.html#a537778a810b16268f8d375659c9bb52f", null ]

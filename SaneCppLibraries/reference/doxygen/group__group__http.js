@@ -1,6 +1,7 @@
 var group__group__http =
 [
     [ "SC::HttpAsyncClientTransportSetup", "structSC_1_1HttpAsyncClientTransportSetup.html", null ],
+    [ "SC::HttpAsyncClientExternalConnection", "structSC_1_1HttpAsyncClientExternalConnection.html", null ],
     [ "SC::HttpAsyncClientConnection< ReadQueue, WriteQueue, HeaderBytes, StreamBytes >", "structSC_1_1HttpAsyncClientConnection.html", null ],
     [ "SC::HttpAsyncClient", "structSC_1_1HttpAsyncClient.html", [
       [ "Header", "structSC_1_1HttpAsyncClient_1_1Header.html", null ],
@@ -19,9 +20,12 @@ var group__group__http =
       [ "postMultipart", "structSC_1_1HttpAsyncClient.html#a5f461b1886d1645e147c320e96f66c1d", null ],
       [ "put", "structSC_1_1HttpAsyncClient.html#ad4b1608c4094f7bfc63d0de77bcb837a", null ],
       [ "sendRequest", "structSC_1_1HttpAsyncClient.html#a72a608b853d725512a3915b386de3dcd", null ],
+      [ "setExternalConnector", "structSC_1_1HttpAsyncClient.html#a6e642f9b17cd91f544ededad6935f3dc", null ],
       [ "setResponseDecompression", "structSC_1_1HttpAsyncClient.html#a998f70246175eb767239741331dc2352", null ],
       [ "setTransportClose", "structSC_1_1HttpAsyncClient.html#ad9ea44f3cd2a0c3a02d5599f99a179bb", null ],
+      [ "setTransportPreflight", "structSC_1_1HttpAsyncClient.html#a01a160cd30913ccf732eeaaf9345b588", null ],
       [ "setTransportSetup", "structSC_1_1HttpAsyncClient.html#a7cae1c0a66995771b81950e1da5d7e38", null ],
+      [ "setTransportShutdown", "structSC_1_1HttpAsyncClient.html#a67e76a98a29e49b1d2f697606f67cad5", null ],
       [ "start", "structSC_1_1HttpAsyncClient.html#a540d32d866646058bd70645423af0c12", null ],
       [ "onError", "structSC_1_1HttpAsyncClient.html#a5816c14a19e7aa64fb2decea5dd3bd55", null ],
       [ "onPrepareRequest", "structSC_1_1HttpAsyncClient.html#ab5f3a211983791272352ca6089627858", null ],
@@ -105,6 +109,7 @@ var group__group__http =
     [ "SC::HttpConnectionsPool", "structSC_1_1HttpConnectionsPool.html", [
       [ "Configuration", "structSC_1_1HttpConnectionsPool_1_1Configuration.html", null ],
       [ "Memory", "structSC_1_1HttpConnectionsPool_1_1Memory.html", null ],
+      [ "activate", "structSC_1_1HttpConnectionsPool.html#aaa18dfac4f7a1481e29dfdccd599f987", null ],
       [ "activateNew", "structSC_1_1HttpConnectionsPool.html#ac537afc1b5510d85d77b592ae7f4453a", null ],
       [ "close", "structSC_1_1HttpConnectionsPool.html#ad6a8aa77e864e8c3f7e488d6ce8aad3b", null ],
       [ "deactivate", "structSC_1_1HttpConnectionsPool.html#af47370eea951533bd7efd00081f28d9a", null ],

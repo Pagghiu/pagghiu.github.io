@@ -289,6 +289,7 @@ var hierarchy =
     [ "SC::Cryptography::Hkdf", "structSC_1_1Cryptography_1_1Hkdf.html", null ],
     [ "SC::Cryptography::Hmac", "structSC_1_1Cryptography_1_1Hmac.html", null ],
     [ "SC::HttpAsyncClient", "structSC_1_1HttpAsyncClient.html", null ],
+    [ "SC::HttpAsyncClientExternalConnection", "structSC_1_1HttpAsyncClientExternalConnection.html", null ],
     [ "SC::HttpAsyncClientTransportSetup", "structSC_1_1HttpAsyncClientTransportSetup.html", null ],
     [ "SC::HttpAsyncFileServer", "structSC_1_1HttpAsyncFileServer.html", null ],
     [ "SC::HttpAsyncFileServerOptions", "structSC_1_1HttpAsyncFileServerOptions.html", null ],

@@ -307,6 +307,7 @@ Representative client</h1>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(client.get(loop, url.view()));</div>
 </div><!-- fragment --><p>Sequential keep-alive reuse is supported for the same origin. A different origin reconnects; pipelining is not supported. Redirect handling is application policy. Plain <code>http</code> uses the socket streams directly. An <code>https</code> URL is rejected unless a transport setup adapter is installed; the neighboring <code>Https</code> library supplies the TLS composition without putting TLS inside the HTTP message layer.</p>
+<p>A transport adapter can also install a preflight hook. It runs after URL parsing but before DNS resolution or socket activity, allowing transport-specific URL policy to fail without opening a connection. The later setup hook still owns stream replacement and asynchronous transport readiness after TCP connects.</p>
 <p>Optional gzip/deflate response decoding is also a composition: the client inserts AsyncStreams transform streams when enabled, while the caller still consumes the decoded readable stream and provides the fixed storage used by the connection.</p>
 <h1><a class="anchor" id="autotoc_md267"></a>
 Protocol helpers and deliberate boundaries</h1>

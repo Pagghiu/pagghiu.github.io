@@ -152,6 +152,12 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
 <tr class="memitem:a0e99fe3442cdd85bf85592d47341edcc" id="r_a0e99fe3442cdd85bf85592d47341edcc"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e99fe3442cdd85bf85592d47341edcc">start</a> (<a class="el" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a> &amp;loop, StringSpan address, uint16_t port)</td></tr>
 <tr class="memdesc:a0e99fe3442cdd85bf85592d47341edcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the http server on the given <a class="el" href="structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">AsyncEventLoop</a>, address and port.  <br /></td></tr>
 <tr class="separator:a0e99fe3442cdd85bf85592d47341edcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44a8662cedfb6c651bc42c13ce5303f7" id="r_a44a8662cedfb6c651bc42c13ce5303f7"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44a8662cedfb6c651bc42c13ce5303f7">startExternal</a> (<a class="el" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a> &amp;loop)</td></tr>
+<tr class="memdesc:a44a8662cedfb6c651bc42c13ce5303f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the HTTP state machine without creating a native listener.  <br /></td></tr>
+<tr class="separator:a44a8662cedfb6c651bc42c13ce5303f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab80b5f69e6fcb80f8b85c8d07f24ac51" id="r_ab80b5f69e6fcb80f8b85c8d07f24ac51"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab80b5f69e6fcb80f8b85c8d07f24ac51">acceptExternalConnection</a> (<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;connection, <a class="el" href="structSC_1_1AsyncReadableStream.html">AsyncReadableStream</a> &amp;readable, <a class="el" href="structSC_1_1AsyncWritableStream.html">AsyncWritableStream</a> &amp;writable)</td></tr>
+<tr class="memdesc:ab80b5f69e6fcb80f8b85c8d07f24ac51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates a specific connection slot for externally accepted plaintext streams.  <br /></td></tr>
+<tr class="separator:ab80b5f69e6fcb80f8b85c8d07f24ac51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33e309205e05e91fb05875ba8bcb3159" id="r_a33e309205e05e91fb05875ba8bcb3159"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33e309205e05e91fb05875ba8bcb3159">stop</a> ()</td></tr>
 <tr class="memdesc:a33e309205e05e91fb05875ba8bcb3159"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops http server asynchronously pushing cancel and close requests to the event loop.  <br /></td></tr>
 <tr class="separator:a33e309205e05e91fb05875ba8bcb3159"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,10 +171,16 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
 <tr class="memdesc:a054cde027b8af5126eef158a6fefe4ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport setup hook invoked after accepting TCP and before HTTP reads request bytes.  <br /></td></tr>
 <tr class="separator:a054cde027b8af5126eef158a6fefe4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa92f6ef801b9d9147dd58b3c321b62c1" id="r_aa92f6ef801b9d9147dd58b3c321b62c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa92f6ef801b9d9147dd58b3c321b62c1">setTransportClose</a> (Function&lt; void(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;)&gt; &amp;&amp;<a class="el" href="#aff4ed39c8e2965711cd96dd7c60b5f0f">close</a>)</td></tr>
-<tr class="memdesc:aa92f6ef801b9d9147dd58b3c321b62c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport teardown hook invoked before HTTP destroys an accepted socket's streams.  <br /></td></tr>
+<tr class="memdesc:aa92f6ef801b9d9147dd58b3c321b62c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport teardown hook invoked before HTTP destroys the installed transport streams.  <br /></td></tr>
 <tr class="separator:aa92f6ef801b9d9147dd58b3c321b62c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9258d79a2a92b44549546962d70cf387" id="r_a9258d79a2a92b44549546962d70cf387"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9258d79a2a92b44549546962d70cf387">setTransportReuse</a> (Function&lt; Result(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;)&gt; &amp;&amp;reuse)</td></tr>
+<tr class="memdesc:a9258d79a2a92b44549546962d70cf387"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional hook that reopens an alternate writable transport for the next keep-alive response.  <br /></td></tr>
+<tr class="separator:a9258d79a2a92b44549546962d70cf387"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00a1c7d544e619501c2a6c00ddf7344a" id="r_a00a1c7d544e619501c2a6c00ddf7344a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00a1c7d544e619501c2a6c00ddf7344a">setTransportShutdown</a> (Function&lt; Result(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;, Function&lt; void(Result)&gt;)&gt; &amp;&amp;shutdown)</td></tr>
+<tr class="memdesc:a00a1c7d544e619501c2a6c00ddf7344a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional asynchronous hook that drains a terminal response before closing its socket.  <br /></td></tr>
+<tr class="separator:a00a1c7d544e619501c2a6c00ddf7344a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a964bbc409d735920c86f9ed66d464a0d" id="r_a964bbc409d735920c86f9ed66d464a0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a964bbc409d735920c86f9ed66d464a0d">clearTransportSetup</a> ()</td></tr>
-<tr class="memdesc:a964bbc409d735920c86f9ed66d464a0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears optional transport setup and teardown hooks.  <br /></td></tr>
+<tr class="memdesc:a964bbc409d735920c86f9ed66d464a0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears optional transport setup, reuse, shutdown, and teardown hooks.  <br /></td></tr>
 <tr class="separator:a964bbc409d735920c86f9ed66d464a0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78fc7c746bb235fa859bb026154918f4" id="r_a78fc7c746bb235fa859bb026154918f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78fc7c746bb235fa859bb026154918f4">isStarted</a> () const</td></tr>
 <tr class="memdesc:a78fc7c746bb235fa859bb026154918f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the server has been started.  <br /></td></tr>
@@ -283,6 +295,35 @@ Public Attributes</h2></td></tr>
 <div class="line">    };</div>
 <div class="line"> </div>
 </div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab80b5f69e6fcb80f8b85c8d07f24ac51" name="ab80b5f69e6fcb80f8b85c8d07f24ac51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab80b5f69e6fcb80f8b85c8d07f24ac51">&#9670;&#160;</a></span>acceptExternalConnection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::HttpAsyncServer::acceptExternalConnection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>connection</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSC_1_1AsyncReadableStream.html">AsyncReadableStream</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>readable</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSC_1_1AsyncWritableStream.html">AsyncWritableStream</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>writable</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Activates a specific connection slot for externally accepted plaintext streams. </p>
+<p>This must be called on the server event-loop thread. Both streams and the connection storage remain caller-owned until Http has destroyed the streams and deactivated the slot. </p>
+
+</div>
+</div>
 <a id="a964bbc409d735920c86f9ed66d464a0d" name="a964bbc409d735920c86f9ed66d464a0d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a964bbc409d735920c86f9ed66d464a0d">&#9670;&#160;</a></span>clearTransportSetup()</h2>
 
@@ -306,7 +347,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Clears optional transport setup and teardown hooks. </p>
+<p>Clears optional transport setup, reuse, shutdown, and teardown hooks. </p>
 
 </div>
 </div>
@@ -585,7 +626,35 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
 </table>
 </div><div class="memdoc">
 
-<p>Sets an optional transport teardown hook invoked before HTTP destroys an accepted socket's streams. </p>
+<p>Sets an optional transport teardown hook invoked before HTTP destroys the installed transport streams. </p>
+<p>The hook may start asynchronous stream destruction but must not reset the connection's transport streams. </p>
+
+</div>
+</div>
+<a id="a9258d79a2a92b44549546962d70cf387" name="a9258d79a2a92b44549546962d70cf387"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9258d79a2a92b44549546962d70cf387">&#9670;&#160;</a></span>setTransportReuse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SC::HttpAsyncServer::setTransportReuse </td>
+          <td>(</td>
+          <td class="paramtype">Function&lt; Result(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>reuse</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets an optional hook that reopens an alternate writable transport for the next keep-alive response. </p>
 
 </div>
 </div>
@@ -613,6 +682,33 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
 </div><div class="memdoc">
 
 <p>Sets an optional transport setup hook invoked after accepting TCP and before HTTP reads request bytes. </p>
+
+</div>
+</div>
+<a id="a00a1c7d544e619501c2a6c00ddf7344a" name="a00a1c7d544e619501c2a6c00ddf7344a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00a1c7d544e619501c2a6c00ddf7344a">&#9670;&#160;</a></span>setTransportShutdown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SC::HttpAsyncServer::setTransportShutdown </td>
+          <td>(</td>
+          <td class="paramtype">Function&lt; Result(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;, Function&lt; void(Result)&gt;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>shutdown</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets an optional asynchronous hook that drains a terminal response before closing its socket. </p>
 
 </div>
 </div>
@@ -650,6 +746,26 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if http listening has been started successfully </dd></dl>
+
+</div>
+</div>
+<a id="a44a8662cedfb6c651bc42c13ce5303f7" name="a44a8662cedfb6c651bc42c13ce5303f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44a8662cedfb6c651bc42c13ce5303f7">&#9670;&#160;</a></span>startExternal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::HttpAsyncServer::startExternal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>loop</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Starts the HTTP state machine without creating a native listener. </p>
+<p>An external listener must inject accepted plaintext streams with <code><a class="el" href="#ab80b5f69e6fcb80f8b85c8d07f24ac51" title="Activates a specific connection slot for externally accepted plaintext streams.">acceptExternalConnection()</a></code>. </p>
 
 </div>
 </div>

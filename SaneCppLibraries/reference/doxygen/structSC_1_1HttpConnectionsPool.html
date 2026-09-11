@@ -169,6 +169,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac537afc1b5510d85d77b592ae7f4453a" id="r_ac537afc1b5510d85d77b592ae7f4453a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac537afc1b5510d85d77b592ae7f4453a">activateNew</a> (<a class="el" href="structSC_1_1HttpConnection_1_1ID.html">HttpConnection::ID</a> &amp;connectionID)</td></tr>
 <tr class="memdesc:ac537afc1b5510d85d77b592ae7f4453a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds an available connection (if any), activates it and returns its ID to use with getConnection(id)  <br /></td></tr>
 <tr class="separator:ac537afc1b5510d85d77b592ae7f4453a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa18dfac4f7a1481e29dfdccd599f987" id="r_aaa18dfac4f7a1481e29dfdccd599f987"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa18dfac4f7a1481e29dfdccd599f987">activate</a> (<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;connection, <a class="el" href="structSC_1_1HttpConnection_1_1ID.html">HttpConnection::ID</a> &amp;connectionID)</td></tr>
+<tr class="memdesc:aaa18dfac4f7a1481e29dfdccd599f987"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates a specific inactive connection owned by this pool.  <br /></td></tr>
+<tr class="separator:aaa18dfac4f7a1481e29dfdccd599f987"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af47370eea951533bd7efd00081f28d9a" id="r_af47370eea951533bd7efd00081f28d9a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af47370eea951533bd7efd00081f28d9a">deactivate</a> (<a class="el" href="structSC_1_1HttpConnection_1_1ID.html">HttpConnection::ID</a> connectionID)</td></tr>
 <tr class="memdesc:af47370eea951533bd7efd00081f28d9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-activates a connection previously returned by activateNew.  <br /></td></tr>
 <tr class="separator:af47370eea951533bd7efd00081f28d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,6 +179,37 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A pool of <a class="el" href="structSC_1_1HttpConnection.html" title="Http connection abstraction holding both the incoming and outgoing messages in an HTTP transaction.">HttpConnection</a> that can be active or inactive. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aaa18dfac4f7a1481e29dfdccd599f987" name="aaa18dfac4f7a1481e29dfdccd599f987"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa18dfac4f7a1481e29dfdccd599f987">&#9670;&#160;</a></span>activate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SC::HttpConnectionsPool::activate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>connection</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSC_1_1HttpConnection_1_1ID.html">HttpConnection::ID</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>connectionID</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Activates a specific inactive connection owned by this pool. </p>
+
+</div>
+</div>
 <a id="ac537afc1b5510d85d77b592ae7f4453a" name="ac537afc1b5510d85d77b592ae7f4453a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac537afc1b5510d85d77b592ae7f4453a">&#9670;&#160;</a></span>activateNew()</h2>
 

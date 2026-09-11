@@ -161,9 +161,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7cae1c0a66995771b81950e1da5d7e38" id="r_a7cae1c0a66995771b81950e1da5d7e38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cae1c0a66995771b81950e1da5d7e38">setTransportSetup</a> (Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncClientTransportSetup.html">HttpAsyncClientTransportSetup</a> &amp;)&gt; &amp;&amp;setup)</td></tr>
 <tr class="memdesc:a7cae1c0a66995771b81950e1da5d7e38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport setup hook invoked after TCP connect and before HTTP request bytes are sent.  <br /></td></tr>
 <tr class="separator:a7cae1c0a66995771b81950e1da5d7e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01a160cd30913ccf732eeaaf9345b588" id="r_a01a160cd30913ccf732eeaaf9345b588"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01a160cd30913ccf732eeaaf9345b588">setTransportPreflight</a> (Function&lt; Result(const <a class="el" href="structSC_1_1HttpURLParser.html">HttpURLParser</a> &amp;)&gt; &amp;&amp;preflight)</td></tr>
+<tr class="memdesc:a01a160cd30913ccf732eeaaf9345b588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport policy hook invoked after URL parsing and before DNS or socket activity.  <br /></td></tr>
+<tr class="separator:a01a160cd30913ccf732eeaaf9345b588"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e642f9b17cd91f544ededad6935f3dc" id="r_a6e642f9b17cd91f544ededad6935f3dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e642f9b17cd91f544ededad6935f3dc">setExternalConnector</a> (Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncClientExternalConnection.html">HttpAsyncClientExternalConnection</a> &amp;)&gt; &amp;&amp;connector)</td></tr>
+<tr class="memdesc:a6e642f9b17cd91f544ededad6935f3dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional connector that owns DNS and connection establishment for future requests.  <br /></td></tr>
+<tr class="separator:a6e642f9b17cd91f544ededad6935f3dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9ea44f3cd2a0c3a02d5599f99a179bb" id="r_ad9ea44f3cd2a0c3a02d5599f99a179bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9ea44f3cd2a0c3a02d5599f99a179bb">setTransportClose</a> (Function&lt; void()&gt; &amp;&amp;<a class="el" href="#a6c1c1c2cf1453f8d7f62b29015eb80f8">close</a>)</td></tr>
 <tr class="memdesc:ad9ea44f3cd2a0c3a02d5599f99a179bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport teardown hook invoked before HTTP destroys the connected socket streams.  <br /></td></tr>
 <tr class="separator:ad9ea44f3cd2a0c3a02d5599f99a179bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67e76a98a29e49b1d2f697606f67cad5" id="r_a67e76a98a29e49b1d2f697606f67cad5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67e76a98a29e49b1d2f697606f67cad5">setTransportShutdown</a> (Function&lt; Result(Function&lt; void(Result)&gt;)&gt; &amp;&amp;shutdown)</td></tr>
+<tr class="memdesc:a67e76a98a29e49b1d2f697606f67cad5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional asynchronous hook that drains a transport before reconnecting to another origin.  <br /></td></tr>
+<tr class="separator:a67e76a98a29e49b1d2f697606f67cad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6db4595e70bcc4e094704972edba5aec" id="r_a6db4595e70bcc4e094704972edba5aec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6db4595e70bcc4e094704972edba5aec">clearTransportSetup</a> ()</td></tr>
 <tr class="memdesc:a6db4595e70bcc4e094704972edba5aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the optional transport setup hook and restores default socket transport setup.  <br /></td></tr>
 <tr class="separator:a6db4595e70bcc4e094704972edba5aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -650,6 +659,34 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a6e642f9b17cd91f544ededad6935f3dc" name="a6e642f9b17cd91f544ededad6935f3dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e642f9b17cd91f544ededad6935f3dc">&#9670;&#160;</a></span>setExternalConnector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SC::HttpAsyncClient::setExternalConnector </td>
+          <td>(</td>
+          <td class="paramtype">Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncClientExternalConnection.html">HttpAsyncClientExternalConnection</a> &amp;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>connector</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets an optional connector that owns DNS and connection establishment for future requests. </p>
+<p>When configured, Http invokes it after URL parsing and before any socket activity. The connector must install ready plaintext streams and complete the request asynchronously or synchronously. </p>
+
+</div>
+</div>
 <a id="a998f70246175eb767239741331dc2352" name="a998f70246175eb767239741331dc2352"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a998f70246175eb767239741331dc2352">&#9670;&#160;</a></span>setResponseDecompression()</h2>
 
@@ -706,6 +743,34 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a01a160cd30913ccf732eeaaf9345b588" name="a01a160cd30913ccf732eeaaf9345b588"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01a160cd30913ccf732eeaaf9345b588">&#9670;&#160;</a></span>setTransportPreflight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SC::HttpAsyncClient::setTransportPreflight </td>
+          <td>(</td>
+          <td class="paramtype">Function&lt; Result(const <a class="el" href="structSC_1_1HttpURLParser.html">HttpURLParser</a> &amp;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>preflight</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets an optional transport policy hook invoked after URL parsing and before DNS or socket activity. </p>
+<p>This hook can reject URL forms that a transport adapter cannot represent safely. It must not retain the parser. </p>
+
+</div>
+</div>
 <a id="a7cae1c0a66995771b81950e1da5d7e38" name="a7cae1c0a66995771b81950e1da5d7e38"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7cae1c0a66995771b81950e1da5d7e38">&#9670;&#160;</a></span>setTransportSetup()</h2>
 
@@ -731,6 +796,34 @@ Public Attributes</h2></td></tr>
 
 <p>Sets an optional transport setup hook invoked after TCP connect and before HTTP request bytes are sent. </p>
 <p>The hook can leave the socket streams active for plain HTTP, or install alternate active streams and complete later. This keeps TLS and other transport adapters outside the core Http library. </p>
+
+</div>
+</div>
+<a id="a67e76a98a29e49b1d2f697606f67cad5" name="a67e76a98a29e49b1d2f697606f67cad5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67e76a98a29e49b1d2f697606f67cad5">&#9670;&#160;</a></span>setTransportShutdown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SC::HttpAsyncClient::setTransportShutdown </td>
+          <td>(</td>
+          <td class="paramtype">Function&lt; Result(Function&lt; void(Result)&gt;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>shutdown</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets an optional asynchronous hook that drains a transport before reconnecting to another origin. </p>
+<p>The hook must call <code>complete</code> exactly once after pending transport output has reached the underlying stream. Returning an error rejects the reconnect synchronously and means <code>complete</code> will not be called. The completion callback becomes invalid when the transport close hook runs and must then be discarded without invocation. </p>
 
 </div>
 </div>

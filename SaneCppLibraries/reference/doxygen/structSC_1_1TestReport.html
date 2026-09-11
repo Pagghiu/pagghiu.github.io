@@ -162,6 +162,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a67d60b3714fc6ed6f93c6eae15f29ec1" id="r_a67d60b3714fc6ed6f93c6eae15f29ec1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67d60b3714fc6ed6f93c6eae15f29ec1">isTestExplicitlySelected</a> (StringSpan testName) const</td></tr>
 <tr class="memdesc:a67d60b3714fc6ed6f93c6eae15f29ec1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true only when <code>--test</code> explicitly matches <code>testName</code>.  <br /></td></tr>
 <tr class="separator:a67d60b3714fc6ed6f93c6eae15f29ec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a701ec59126464cc188276267c719c17d" id="r_a701ec59126464cc188276267c719c17d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a701ec59126464cc188276267c719c17d">isTestEnabled</a> (StringSpan testName) const</td></tr>
+<tr class="memdesc:a701ec59126464cc188276267c719c17d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when <code>testName</code> is enabled by the current test selection.  <br /></td></tr>
+<tr class="separator:a701ec59126464cc188276267c719c17d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72b9cae659dc3dd27d60a278e275b4ba" id="r_a72b9cae659dc3dd27d60a278e275b4ba"><td class="memTemplParams" colspan="2"><a id="a72b9cae659dc3dd27d60a278e275b4ba" name="a72b9cae659dc3dd27d60a278e275b4ba"></a>
 template&lt;typename Statistics &gt; </td></tr>
 <tr class="memitem:a72b9cae659dc3dd27d60a278e275b4ba"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>runGlobalMemoryReport</b> (Statistics stats, bool reportFailure=true)</td></tr>
@@ -293,6 +296,39 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>TestCase</b></td></
 </div><div class="memdoc">
 
 <p>Returns true when startup path resolution failed before tests ran. </p>
+
+</div>
+</div>
+<a id="a701ec59126464cc188276267c719c17d" name="a701ec59126464cc188276267c719c17d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a701ec59126464cc188276267c719c17d">&#9670;&#160;</a></span>isTestEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SC::TestReport::isTestEnabled </td>
+          <td>(</td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>testName</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns true when <code>testName</code> is enabled by the current test selection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">testName</td><td>Name of test case to evaluate </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

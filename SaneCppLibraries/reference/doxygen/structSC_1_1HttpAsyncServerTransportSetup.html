@@ -146,10 +146,13 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a2c62bd825d490e368711b8fd25d73146" id="r_a2c62bd825d490e368711b8fd25d73146"><td class="memItemLeft" align="right" valign="top"><a id="a2c62bd825d490e368711b8fd25d73146" name="a2c62bd825d490e368711b8fd25d73146"></a>
 Function&lt; void(Result)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>complete</b></td></tr>
 <tr class="separator:a2c62bd825d490e368711b8fd25d73146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae034fe6d0a916958000e84c30f1687e" id="r_aae034fe6d0a916958000e84c30f1687e"><td class="memItemLeft" align="right" valign="top"><a id="aae034fe6d0a916958000e84c30f1687e" name="aae034fe6d0a916958000e84c30f1687e"></a>
+Function&lt; void(Result)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fail</b></td></tr>
+<tr class="separator:aae034fe6d0a916958000e84c30f1687e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Mutable transport setup view used by <code><a class="el" href="structSC_1_1HttpAsyncServer.html" title="Async Http Server.">HttpAsyncServer</a></code> after accepting a TCP socket. </p>
-<p>The default setup keeps <code>connection</code> using its socket streams. A custom setup can install alternate active streams with <code>HttpConnectionBase::setTransportStreams()</code> and must call <code>complete</code> when the transport is ready for HTTP. </p>
+<p>The default setup keeps <code>connection</code> using its socket streams. A custom setup can install alternate active streams with <code>HttpConnectionBase::setTransportStreams()</code> and must call <code>complete</code> when the transport is ready for HTTP. After successful setup, the transport calls <code>fail</code> once if a terminal transport error must close the connection. </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="HttpAsyncServer_8h_source.html">HttpAsyncServer.h</a></li>
 </ul>

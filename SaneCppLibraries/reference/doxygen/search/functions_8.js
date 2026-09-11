@@ -37,9 +37,10 @@ var searchData=
   ['isprecededby_34',['isPrecededBy',['../structSC_1_1StringIterator.html#ace8e0acc24c77c59f816a0c4a5e94dd2',1,'SC::StringIterator']]],
   ['isstarted_35',['isStarted',['../structSC_1_1HttpAsyncServer.html#a78fc7c746bb235fa859bb026154918f4',1,'SC::HttpAsyncServer']]],
   ['isstillwriting_36',['isStillWriting',['../structSC_1_1AsyncWritableStream.html#a3492b779292d73182879b6ad593e7b01',1,'SC::AsyncWritableStream']]],
-  ['istestexplicitlyselected_37',['isTestExplicitlySelected',['../structSC_1_1TestReport.html#a67d60b3714fc6ed6f93c6eae15f29ec1',1,'SC::TestReport']]],
-  ['isvalid_38',['isValid',['../structSC_1_1AsyncResult.html#a653f29d24de75f491beaa2d4f73fb3ce',1,'SC::AsyncResult::isValid()'],['../structSC_1_1StrongID.html#ad8b9cc8b1db1e0a87a1bd08262c0c7cc',1,'SC::StrongID::isValid()'],['../structSC_1_1SocketIPAddress.html#aeba2dbc3652c78c575cc75e1e3482a6d',1,'SC::SocketIPAddress::isValid()']]],
-  ['iswebsocketupgraded_39',['isWebSocketUpgraded',['../structSC_1_1HttpConnection.html#a058f22b3225e467d63857e1ce72aab2f',1,'SC::HttpConnection']]],
-  ['iswindowsconsolesubsystem_40',['isWindowsConsoleSubsystem',['../structSC_1_1Process.html#aa0430cfbe236aafc385384099803e17d',1,'SC::Process']]],
-  ['iswindowsemulatedprocess_41',['isWindowsEmulatedProcess',['../structSC_1_1Process.html#a8192e51e668836b9ce8592c579146c8e',1,'SC::Process']]]
+  ['istestenabled_37',['isTestEnabled',['../structSC_1_1TestReport.html#a701ec59126464cc188276267c719c17d',1,'SC::TestReport']]],
+  ['istestexplicitlyselected_38',['isTestExplicitlySelected',['../structSC_1_1TestReport.html#a67d60b3714fc6ed6f93c6eae15f29ec1',1,'SC::TestReport']]],
+  ['isvalid_39',['isValid',['../structSC_1_1AsyncResult.html#a653f29d24de75f491beaa2d4f73fb3ce',1,'SC::AsyncResult::isValid()'],['../structSC_1_1StrongID.html#ad8b9cc8b1db1e0a87a1bd08262c0c7cc',1,'SC::StrongID::isValid()'],['../structSC_1_1SocketIPAddress.html#aeba2dbc3652c78c575cc75e1e3482a6d',1,'SC::SocketIPAddress::isValid()']]],
+  ['iswebsocketupgraded_40',['isWebSocketUpgraded',['../structSC_1_1HttpConnection.html#a058f22b3225e467d63857e1ce72aab2f',1,'SC::HttpConnection']]],
+  ['iswindowsconsolesubsystem_41',['isWindowsConsoleSubsystem',['../structSC_1_1Process.html#aa0430cfbe236aafc385384099803e17d',1,'SC::Process']]],
+  ['iswindowsemulatedprocess_42',['isWindowsEmulatedProcess',['../structSC_1_1Process.html#a8192e51e668836b9ce8592c579146c8e',1,'SC::Process']]]
 ];

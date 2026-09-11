@@ -152,10 +152,13 @@ SocketDescriptor::Handle&#160;</td><td class="memItemRight" valign="bottom"><b>n
 <tr class="memitem:ab9d094c829dcf21b1ad3e5dcb81d58ff" id="r_ab9d094c829dcf21b1ad3e5dcb81d58ff"><td class="memItemLeft" align="right" valign="top"><a id="ab9d094c829dcf21b1ad3e5dcb81d58ff" name="ab9d094c829dcf21b1ad3e5dcb81d58ff"></a>
 Function&lt; void(Result)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>complete</b></td></tr>
 <tr class="separator:ab9d094c829dcf21b1ad3e5dcb81d58ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b648b35b42b947f6bf7b0817bae35b8" id="r_a2b648b35b42b947f6bf7b0817bae35b8"><td class="memItemLeft" align="right" valign="top"><a id="a2b648b35b42b947f6bf7b0817bae35b8" name="a2b648b35b42b947f6bf7b0817bae35b8"></a>
+Function&lt; void(Result)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fail</b></td></tr>
+<tr class="separator:a2b648b35b42b947f6bf7b0817bae35b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Mutable transport setup view used by <code><a class="el" href="structSC_1_1HttpAsyncClient.html" title="Asynchronous HTTP/1.1 client using caller-provided fixed storage.">HttpAsyncClient</a></code> after the TCP socket connects. </p>
-<p>The default setup keeps <code>connection</code> using its socket streams. A custom setup can install alternate active streams with <code>HttpConnectionBase::setTransportStreams()</code> and must call <code>complete</code> when the transport is ready for HTTP. The setup also exposes the connected socket handle for transport adapters. </p>
+<p>The default setup keeps <code>connection</code> using its socket streams. A custom setup can install alternate active streams with <code>HttpConnectionBase::setTransportStreams()</code> and must call <code>complete</code> when the transport is ready for HTTP. The setup also exposes the connected socket handle for transport adapters. After successful setup, the transport calls <code>fail</code> at most once if a terminal transport error must fail the active request and close the connection. The callback is valid only until the transport close hook runs; the adapter must discard it from that hook and never invoke it after client close or connection reuse. </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="HttpAsyncClient_8h_source.html">HttpAsyncClient.h</a></li>
 </ul>

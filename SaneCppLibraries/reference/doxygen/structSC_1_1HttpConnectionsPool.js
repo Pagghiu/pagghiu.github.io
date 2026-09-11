@@ -2,6 +2,7 @@ var structSC_1_1HttpConnectionsPool =
 [
     [ "Configuration", "structSC_1_1HttpConnectionsPool_1_1Configuration.html", null ],
     [ "Memory", "structSC_1_1HttpConnectionsPool_1_1Memory.html", null ],
+    [ "activate", "structSC_1_1HttpConnectionsPool.html#aaa18dfac4f7a1481e29dfdccd599f987", null ],
     [ "activateNew", "structSC_1_1HttpConnectionsPool.html#ac537afc1b5510d85d77b592ae7f4453a", null ],
     [ "close", "structSC_1_1HttpConnectionsPool.html#ad6a8aa77e864e8c3f7e488d6ce8aad3b", null ],
     [ "deactivate", "structSC_1_1HttpConnectionsPool.html#af47370eea951533bd7efd00081f28d9a", null ],

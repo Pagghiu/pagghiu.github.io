@@ -231,6 +231,7 @@ var namespaces_dup =
       [ "Hashing", "structSC_1_1Hashing.html", "structSC_1_1Hashing" ],
       [ "HttpAsyncClient", "structSC_1_1HttpAsyncClient.html", "structSC_1_1HttpAsyncClient" ],
       [ "HttpAsyncClientConnection", "structSC_1_1HttpAsyncClientConnection.html", null ],
+      [ "HttpAsyncClientExternalConnection", "structSC_1_1HttpAsyncClientExternalConnection.html", null ],
       [ "HttpAsyncClientRequest", "structSC_1_1HttpAsyncClientRequest.html", null ],
       [ "HttpAsyncClientResponse", "structSC_1_1HttpAsyncClientResponse.html", null ],
       [ "HttpAsyncClientTransportSetup", "structSC_1_1HttpAsyncClientTransportSetup.html", null ],
