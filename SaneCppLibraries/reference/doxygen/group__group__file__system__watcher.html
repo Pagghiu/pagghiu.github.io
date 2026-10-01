@@ -124,7 +124,9 @@ $(function(){initNavTree('group__group__file__system__watcher.html',''); initRes
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">FileSystem Watcher</div></div>
 </div><!--header-->
 <div class="contents">
@@ -140,9 +142,172 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1FileSystemWatcherAsyncT.html">SC::FileSystemWatcherAsyncT&lt; T_AsyncEventLoop &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structSC_1_1FileSystemWatcherAsyncT.html" title="FileSystemWatcherAsyncT is an implementation of SC::FileSystemWatcher that uses SC::Async.">FileSystemWatcherAsyncT</a> is an implementation of <a class="el" href="structSC_1_1FileSystemWatcher.html" title="Notifies about events (add, remove, rename, modified) on files and directories.">SC::FileSystemWatcher</a> that uses SC::Async.  <a href="structSC_1_1FileSystemWatcherAsyncT.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1ResultFileSystemWatcher.html">SC::ResultFileSystemWatcher</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structSC_1_1FileSystemWatcher.html" title="Notifies about events (add, remove, rename, modified) on files and directories.">FileSystemWatcher</a> result retaining backend-stage and native-error context.  <a href="structSC_1_1ResultFileSystemWatcher.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga4929229d788c83e8fa1edf66e781839d" id="r_ga4929229d788c83e8fa1edf66e781839d"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4929229d788c83e8fa1edf66e781839d">SC::FileSystemWatcherError</a> : uint32_t { <br />
+&#160;&#160;<b>NotInitialized</b> = 1
+, <br />
+&#160;&#160;<b>AlreadyWatching</b>
+, <br />
+&#160;&#160;<b>NotWatching</b>
+, <br />
+&#160;&#160;<b>UnsupportedPathEncoding</b>
+, <br />
+&#160;&#160;<b>PathPreparationFailed</b>
+, <br />
+&#160;&#160;<b>WatchLimitExceeded</b>
+, <br />
+&#160;&#160;<b>BufferTooSmall</b>
+, <br />
+&#160;&#160;<b>InitializationFailed</b>
+, <br />
+&#160;&#160;<b>WatchSetupFailed</b>
+, <br />
+&#160;&#160;<b>StopWatchingFailed</b>
+, <br />
+&#160;&#160;<b>CloseFailed</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga4929229d788c83e8fa1edf66e781839d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable portable failures returned by the FileSystemWatcher library.  <a href="#ga4929229d788c83e8fa1edf66e781839d">More...</a><br /></td></tr>
+<tr class="separator:ga4929229d788c83e8fa1edf66e781839d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga78210c0a13e63ffe680e0df78e29db2c" id="r_ga78210c0a13e63ffe680e0df78e29db2c"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga78210c0a13e63ffe680e0df78e29db2c">SC::FileSystemWatcherErrorDetail</a> : uint32_t { <br />
+&#160;&#160;<b>None</b> = 0
+, <br />
+&#160;&#160;<b>AssignWatchPath</b>
+, <br />
+&#160;&#160;<b>BuildSubfolderPath</b>
+, <br />
+&#160;&#160;<b>BuildNotificationPath</b>
+, <br />
+&#160;&#160;<b>BuildFullPath</b>
+, <br />
+&#160;&#160;<b>WatchPathCapacity</b>
+, <br />
+&#160;&#160;<b>WorkerAlreadyStarted</b>
+, <br />
+&#160;&#160;<b>PosixPthreadCreate</b>
+, <br />
+&#160;&#160;<b>PosixPthreadJoin</b>
+, <br />
+&#160;&#160;<b>WindowsCreateThread</b>
+, <br />
+&#160;&#160;<b>WindowsWaitForSingleObject</b>
+, <br />
+&#160;&#160;<b>LinuxCreateShutdownPipe</b>
+, <br />
+&#160;&#160;<b>LinuxInitializeInotify</b>
+, <br />
+&#160;&#160;<b>LinuxWriteShutdownPipe</b>
+, <br />
+&#160;&#160;<b>LinuxInotifyDescriptor</b>
+, <br />
+&#160;&#160;<b>LinuxRemoveWatch</b>
+, <br />
+&#160;&#160;<b>LinuxAddRootWatch</b>
+, <br />
+&#160;&#160;<b>LinuxAddSubdirectoryWatch</b>
+, <br />
+&#160;&#160;<b>LinuxOpenRootDirectory</b>
+, <br />
+&#160;&#160;<b>LinuxWatchHandleCapacity</b>
+, <br />
+&#160;&#160;<b>LinuxPendingDirectoryCapacity</b>
+, <br />
+&#160;&#160;<b>LinuxRelativePathStorage</b>
+, <br />
+&#160;&#160;<b>AppleRunLoop</b>
+, <br />
+&#160;&#160;<b>AppleCreateRunLoopSource</b>
+, <br />
+&#160;&#160;<b>AppleAllocateWatchPaths</b>
+, <br />
+&#160;&#160;<b>AppleCreateWatchPathString</b>
+, <br />
+&#160;&#160;<b>AppleCreateWatchPathsArray</b>
+, <br />
+&#160;&#160;<b>AppleCreateEventStream</b>
+, <br />
+&#160;&#160;<b>AppleStartEventStream</b>
+, <br />
+&#160;&#160;<b>WindowsOpenDirectory</b>
+, <br />
+&#160;&#160;<b>WindowsSubmitDirectoryChanges</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga78210c0a13e63ffe680e0df78e29db2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable backend stages retained as context for a FileSystemWatcher failure.  <a href="#ga78210c0a13e63ffe680e0df78e29db2c">More...</a><br /></td></tr>
+<tr class="separator:ga78210c0a13e63ffe680e0df78e29db2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga0af04cc4f83f2ffda757903ff5322fb1" id="r_ga0af04cc4f83f2ffda757903ff5322fb1"><td class="memItemLeft" align="right" valign="top"><a id="ga0af04cc4f83f2ffda757903ff5322fb1" name="ga0af04cc4f83f2ffda757903ff5322fb1"></a>
+ResultErrorFormat&#160;</td><td class="memItemRight" valign="bottom"><b>SC::formatFileSystemWatcherError</b> (<a class="el" href="#ga4929229d788c83e8fa1edf66e781839d">FileSystemWatcherError</a> error, Span&lt; char &gt; output)</td></tr>
+<tr class="separator:ga0af04cc4f83f2ffda757903ff5322fb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadce0a317148da8db90c4125b78e04015" id="r_gadce0a317148da8db90c4125b78e04015"><td class="memItemLeft" align="right" valign="top"><a id="gadce0a317148da8db90c4125b78e04015" name="gadce0a317148da8db90c4125b78e04015"></a>
+ResultErrorFormat&#160;</td><td class="memItemRight" valign="bottom"><b>SC::formatFileSystemWatcherError</b> (Result result, Span&lt; char &gt; output)</td></tr>
+<tr class="separator:gadce0a317148da8db90c4125b78e04015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga977b7b885c70bc396cb494e15899c455" id="r_ga977b7b885c70bc396cb494e15899c455"><td class="memItemLeft" align="right" valign="top"><a id="ga977b7b885c70bc396cb494e15899c455" name="ga977b7b885c70bc396cb494e15899c455"></a>
+ResultErrorFormat&#160;</td><td class="memItemRight" valign="bottom"><b>SC::formatFileSystemWatcherError</b> (<a class="el" href="structSC_1_1ResultFileSystemWatcher.html">ResultFileSystemWatcher</a> result, Span&lt; char &gt; output)</td></tr>
+<tr class="separator:ga977b7b885c70bc396cb494e15899c455"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>🟩 Portable, recursive directory-change notifications for files and directories    (see <a class="el" href="library_file_system_watcher.html">File System Watcher</a> for more details) </p>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga4929229d788c83e8fa1edf66e781839d" name="ga4929229d788c83e8fa1edf66e781839d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4929229d788c83e8fa1edf66e781839d">&#9670;&#160;</a></span>FileSystemWatcherError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ga4929229d788c83e8fa1edf66e781839d">SC::FileSystemWatcherError</a> : uint32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;FileSystemWatcherError.h&gt;</code></p>
+
+<p>Stable portable failures returned by the <a class="el" href="structSC_1_1FileSystemWatcher.html" title="Notifies about events (add, remove, rename, modified) on files and directories.">FileSystemWatcher</a> library. </p>
+
+</div>
+</div>
+<a id="ga78210c0a13e63ffe680e0df78e29db2c" name="ga78210c0a13e63ffe680e0df78e29db2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga78210c0a13e63ffe680e0df78e29db2c">&#9670;&#160;</a></span>FileSystemWatcherErrorDetail</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ga78210c0a13e63ffe680e0df78e29db2c">SC::FileSystemWatcherErrorDetail</a> : uint32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;FileSystemWatcherError.h&gt;</code></p>
+
+<p>Stable backend stages retained as context for a <a class="el" href="structSC_1_1FileSystemWatcher.html" title="Notifies about events (add, remove, rename, modified) on files and directories.">FileSystemWatcher</a> failure. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -7,6 +7,8 @@ var dir_92991ad157d8a166c3eca4cfc9e9e1f7 =
     [ "StringConverter.h", "StringConverter_8h_source.html", null ],
     [ "StringFormat.h", "StringFormat_8h_source.html", null ],
     [ "StringIterator.h", "StringIterator_8h_source.html", null ],
+    [ "StringsError.h", "StringsError_8h_source.html", null ],
+    [ "StringsErrorFormatter.h", "StringsErrorFormatter_8h_source.html", null ],
     [ "StringsExport.h", "StringsExport_8h_source.html", null ],
     [ "StringView.h", "StringView_8h_source.html", null ]
 ];

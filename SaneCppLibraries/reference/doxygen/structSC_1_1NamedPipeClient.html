@@ -137,15 +137,15 @@ $(function(){initNavTree('structSC_1_1NamedPipeClient.html',''); initResizable(t
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a51834918f98c2748b0fc9dd5cdb0535d" id="r_a51834918f98c2748b0fc9dd5cdb0535d"><td class="memItemLeft" align="right" valign="top">static Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51834918f98c2748b0fc9dd5cdb0535d">connect</a> (StringSpan name, <a class="el" href="structSC_1_1PipeDescriptor.html">PipeDescriptor</a> &amp;outConnection, <a class="el" href="structSC_1_1NamedPipeClientOptions.html">NamedPipeClientOptions</a> options={})</td></tr>
-<tr class="memdesc:a51834918f98c2748b0fc9dd5cdb0535d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connects to an existing named pipe server endpoint.  <br /></td></tr>
-<tr class="separator:a51834918f98c2748b0fc9dd5cdb0535d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0fc2ec97960862edf3cccd1fe336fa7" id="r_ab0fc2ec97960862edf3cccd1fe336fa7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0fc2ec97960862edf3cccd1fe336fa7">connect</a> (StringSpan name, <a class="el" href="structSC_1_1PipeDescriptor.html">PipeDescriptor</a> &amp;outConnection, <a class="el" href="structSC_1_1NamedPipeClientOptions.html">NamedPipeClientOptions</a> options={})</td></tr>
+<tr class="memdesc:ab0fc2ec97960862edf3cccd1fe336fa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connects to an existing named pipe server endpoint.  <br /></td></tr>
+<tr class="separator:ab0fc2ec97960862edf3cccd1fe336fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Named pipe client endpoint creator. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a51834918f98c2748b0fc9dd5cdb0535d" name="a51834918f98c2748b0fc9dd5cdb0535d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51834918f98c2748b0fc9dd5cdb0535d">&#9670;&#160;</a></span>connect()</h2>
+<a id="ab0fc2ec97960862edf3cccd1fe336fa7" name="ab0fc2ec97960862edf3cccd1fe336fa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0fc2ec97960862edf3cccd1fe336fa7">&#9670;&#160;</a></span>connect()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,7 +154,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static Result SC::NamedPipeClient::connect </td>
+          <td class="memname">static <a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::NamedPipeClient::connect </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
@@ -179,7 +179,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Connects to an existing named pipe server endpoint. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">name</td><td>Platform-native absolute endpoint name. Use filesystem absolute paths on POSIX and <code>\\.\pipe\...</code> or <code>\\?\pipe\...</code> on Windows. See <a class="el" href="structSC_1_1NamedPipeName.html#a65b74f2d5ee5c0e266094d956d8c4da1" title="Builds a platform-native named pipe endpoint path.">SC::NamedPipeName::build</a> for a cross-platform helper. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">name</td><td>Platform-native absolute endpoint name. Use filesystem absolute paths on POSIX and <code>\\.\pipe\...</code> or <code>\\?\pipe\...</code> on Windows. See <a class="el" href="structSC_1_1NamedPipeName.html#a2a4ab36863cda76d728270c2a020c945" title="Builds a platform-native named pipe endpoint path.">SC::NamedPipeName::build</a> for a cross-platform helper. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">outConnection</td><td>Connected read/write pipe handles. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">options</td><td>Client connection options. </td></tr>
   </table>

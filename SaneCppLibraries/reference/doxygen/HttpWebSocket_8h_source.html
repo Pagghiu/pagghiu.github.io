@@ -419,134 +419,135 @@ $(function(){initNavTree('HttpWebSocket_8h_source.html',''); initResizable(true)
 <div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>                     Span&lt;const char&gt;&amp; encodedFrame);</div>
 <div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
 <div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    [[nodiscard]] <span class="keywordtype">bool</span> hasPendingControlFrame()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> pendingControlFrame.sizeInBytes() &gt; 0; }</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    Result             getPendingControlFrame(Span&lt;const char&gt;&amp; frame) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    <span class="keywordtype">void</span>               clearPendingControlFrame();</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    [[nodiscard]] <span class="keywordtype">bool</span> hasCloseBeenSent()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> closeSent; }</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    [[nodiscard]] <span class="keywordtype">bool</span> hasCloseBeenReceived()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> closeReceived; }</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    Result onReaderFrameHeader(<span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1HttpWebSocketFrameHeaderView.html">HttpWebSocketFrameHeaderView</a>&amp; header);</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    Result onReaderPayload(Span&lt;char&gt; payload, <span class="keywordtype">bool</span> frameFinished);</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    Result handleControlFrame(Span&lt;char&gt; payload);</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    Result queueAutomaticControl(<a class="code hl_enumeration" href="group__group__http.html#gafb9cef8f4b82503494fdc790514a21a1">HttpWebSocketOpcode</a> opcode, Span&lt;const char&gt; payload);</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    Result applyOutgoingMask(<a class="code hl_struct" href="structSC_1_1HttpWebSocketFrameHeaderView.html">HttpWebSocketFrameHeaderView</a>&amp; header, <span class="keyword">const</span> uint8_t* maskKey) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    <a class="code hl_enumeration" href="group__group__http.html#ga5bdde1ed4c2627805b32bda38e8f8445">HttpWebSocketEndpointRole</a>    endpointRole = HttpWebSocketEndpointRole::Client;</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    <a class="code hl_struct" href="structSC_1_1HttpWebSocketFrameReader.html">HttpWebSocketFrameReader</a>     reader;</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    <a class="code hl_struct" href="structSC_1_1HttpWebSocketFrameWriter.html">HttpWebSocketFrameWriter</a>     writer;</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <a class="code hl_struct" href="structSC_1_1HttpWebSocketFrameHeaderView.html">HttpWebSocketFrameHeaderView</a> currentFrame;</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    <span class="keywordtype">char</span>             controlPayload[125]                      = {0};</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    <span class="keywordtype">size_t</span>           controlPayloadSize                       = 0;</div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    <span class="keywordtype">char</span>             automaticControlStorage[2 + 8 + 4 + 125] = {0};</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    Span&lt;const char&gt; pendingControlFrame;</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    uint8_t          automaticMaskKey[4] = {0, 0, 0, 0};</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span> </div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    <span class="keywordtype">bool</span> automaticMaskKeySet = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    <span class="keywordtype">bool</span> closeSent           = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    <span class="keywordtype">bool</span> closeReceived       = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>};</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno"><a class="line" href="structSC_1_1HttpWebSocketEndpoint.html#a165c179513a78d5ec20dcfec7e86af03">  287</a></span>    [[nodiscard]] Span&lt;const char&gt; <a class="code hl_function" href="structSC_1_1HttpWebSocketEndpoint.html#a165c179513a78d5ec20dcfec7e86af03">getPendingControlFrame</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> pendingControlFrame; }</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="keywordtype">void</span>                           clearPendingControlFrame();</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    [[nodiscard]] <span class="keywordtype">bool</span> hasCloseBeenSent()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> closeSent; }</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    [[nodiscard]] <span class="keywordtype">bool</span> hasCloseBeenReceived()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> closeReceived; }</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    Result onReaderFrameHeader(<span class="keyword">const</span> HttpWebSocketFrameHeaderView&amp; header);</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    Result onReaderPayload(Span&lt;char&gt; payload, <span class="keywordtype">bool</span> frameFinished);</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    Result handleControlFrame(Span&lt;char&gt; payload);</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    Result queueAutomaticControl(HttpWebSocketOpcode opcode, Span&lt;const char&gt; payload);</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    Result applyOutgoingMask(HttpWebSocketFrameHeaderView&amp; header, <span class="keyword">const</span> uint8_t* maskKey) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span> </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    <a class="code hl_enumeration" href="group__group__http.html#ga5bdde1ed4c2627805b32bda38e8f8445">HttpWebSocketEndpointRole</a>    endpointRole = HttpWebSocketEndpointRole::Client;</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    HttpWebSocketFrameReader     reader;</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    HttpWebSocketFrameWriter     writer;</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    HttpWebSocketFrameHeaderView currentFrame;</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    <span class="keywordtype">char</span>             controlPayload[125]                      = {0};</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    <span class="keywordtype">size_t</span>           controlPayloadSize                       = 0;</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    <span class="keywordtype">char</span>             automaticControlStorage[2 + 8 + 4 + 125] = {0};</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    Span&lt;const char&gt; pendingControlFrame;</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    uint8_t          automaticMaskKey[4] = {0, 0, 0, 0};</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    <span class="keywordtype">bool</span> automaticMaskKeySet = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    <span class="keywordtype">bool</span> closeSent           = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    <span class="keywordtype">bool</span> closeReceived       = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>};</div>
 </div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
-<div class="foldopen" id="foldopen00315" data-start="{" data-end="};">
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno"><a class="line" href="structSC_1_1HttpWebSocketConnectionPump.html">  315</a></span><span class="keyword">struct </span>SC_HTTP_EXPORT <a class="code hl_struct" href="structSC_1_1HttpWebSocketConnectionPump.html">HttpWebSocketConnectionPump</a></div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>{</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    Function&lt;Result(<a class="code hl_enumeration" href="group__group__http.html#gafb9cef8f4b82503494fdc790514a21a1">HttpWebSocketOpcode</a>, Span&lt;char&gt;, <span class="keywordtype">bool</span>)&gt; onDataFramePayload;</div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    Function&lt;void()&gt;                                        onEnd;</div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    Function&lt;void(Result)&gt;                                  onError;</div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    Result attach(<span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1HttpWebSocketTransportView.html">HttpWebSocketTransportView</a>&amp; transport, <a class="code hl_enumeration" href="group__group__http.html#ga5bdde1ed4c2627805b32bda38e8f8445">HttpWebSocketEndpointRole</a> endpointRole);</div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    <span class="keywordtype">void</span>   detach();</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    Result writeFrame(Span&lt;const char&gt; frame);</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>    Result flushPendingControlFrame();</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>    [[nodiscard]] <span class="keywordtype">bool</span> isAttached()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> transport.isValid(); }</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
+<div class="foldopen" id="foldopen00317" data-start="{" data-end="};">
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno"><a class="line" href="structSC_1_1HttpWebSocketConnectionPump.html">  317</a></span><span class="keyword">struct </span>SC_HTTP_EXPORT <a class="code hl_struct" href="structSC_1_1HttpWebSocketConnectionPump.html">HttpWebSocketConnectionPump</a></div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>{</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    Function&lt;Result(<a class="code hl_enumeration" href="group__group__http.html#gafb9cef8f4b82503494fdc790514a21a1">HttpWebSocketOpcode</a>, Span&lt;char&gt;, <span class="keywordtype">bool</span>)&gt; onDataFramePayload;</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    Function&lt;void()&gt;                                        onEnd;</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    Function&lt;void(Result)&gt;                                  onError;</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span> </div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    Result attach(<span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1HttpWebSocketTransportView.html">HttpWebSocketTransportView</a>&amp; transport, <a class="code hl_enumeration" href="group__group__http.html#ga5bdde1ed4c2627805b32bda38e8f8445">HttpWebSocketEndpointRole</a> endpointRole);</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    <span class="keywordtype">void</span>   detach();</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    Result writeFrame(Span&lt;const char&gt; frame);</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>    Result flushPendingControlFrame();</div>
 <div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    <a class="code hl_struct" href="structSC_1_1HttpWebSocketEndpoint.html">HttpWebSocketEndpoint</a>&amp;       getEndpoint() { <span class="keywordflow">return</span> endpoint; }</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1HttpWebSocketEndpoint.html">HttpWebSocketEndpoint</a>&amp; getEndpoint()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> endpoint; }</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span> </div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    <span class="keywordtype">void</span> onData(<a class="code hl_struct" href="structSC_1_1AsyncBufferView_1_1ID.html">AsyncBufferView::ID</a> bufferID);</div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    <span class="keywordtype">void</span> onStreamEnd();</div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span> </div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>    Result onEndpointDataFrame(<a class="code hl_enumeration" href="group__group__http.html#gafb9cef8f4b82503494fdc790514a21a1">HttpWebSocketOpcode</a> opcode, Span&lt;char&gt; payload, <span class="keywordtype">bool</span> frameFinished);</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>    <span class="keywordtype">void</span>   fail(Result result);</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    <a class="code hl_struct" href="structSC_1_1HttpWebSocketTransportView.html">HttpWebSocketTransportView</a> transport;</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>    <a class="code hl_struct" href="structSC_1_1HttpWebSocketEndpoint.html">HttpWebSocketEndpoint</a>      endpoint;</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    <span class="keywordtype">bool</span> dataListenerAdded  = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    <span class="keywordtype">bool</span> endListenerAdded   = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    <span class="keywordtype">bool</span> closeListenerAdded = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>};</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    [[nodiscard]] <span class="keywordtype">bool</span> isAttached()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> transport.isValid(); }</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>    <a class="code hl_struct" href="structSC_1_1HttpWebSocketEndpoint.html">HttpWebSocketEndpoint</a>&amp;       getEndpoint() { <span class="keywordflow">return</span> endpoint; }</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1HttpWebSocketEndpoint.html">HttpWebSocketEndpoint</a>&amp; getEndpoint()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> endpoint; }</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    <span class="keywordtype">void</span> onData(<a class="code hl_struct" href="structSC_1_1AsyncBufferView_1_1ID.html">AsyncBufferView::ID</a> bufferID);</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    <span class="keywordtype">void</span> onStreamEnd();</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    Result onEndpointDataFrame(<a class="code hl_enumeration" href="group__group__http.html#gafb9cef8f4b82503494fdc790514a21a1">HttpWebSocketOpcode</a> opcode, Span&lt;char&gt; payload, <span class="keywordtype">bool</span> frameFinished);</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    <span class="keywordtype">void</span>   fail(Result result);</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    <a class="code hl_struct" href="structSC_1_1HttpWebSocketTransportView.html">HttpWebSocketTransportView</a> transport;</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    <a class="code hl_struct" href="structSC_1_1HttpWebSocketEndpoint.html">HttpWebSocketEndpoint</a>      endpoint;</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    <span class="keywordtype">bool</span> dataListenerAdded  = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    <span class="keywordtype">bool</span> endListenerAdded   = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    <span class="keywordtype">bool</span> closeListenerAdded = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>};</div>
 </div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
-<div class="foldopen" id="foldopen00348" data-start="{" data-end="};">
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno"><a class="line" href="structSC_1_1HttpWebSocketHubClient.html">  348</a></span><span class="keyword">struct </span>SC_HTTP_EXPORT <a class="code hl_struct" href="structSC_1_1HttpWebSocketHubClient.html">HttpWebSocketHubClient</a></div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>{</div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <a class="code hl_struct" href="structSC_1_1HttpWebSocketTransportView.html">HttpWebSocketTransportView</a> transport;</div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    <span class="keywordtype">bool</span>                       active = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <span class="keywordtype">void</span> reset();</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>};</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
+<div class="foldopen" id="foldopen00350" data-start="{" data-end="};">
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno"><a class="line" href="structSC_1_1HttpWebSocketHubClient.html">  350</a></span><span class="keyword">struct </span>SC_HTTP_EXPORT <a class="code hl_struct" href="structSC_1_1HttpWebSocketHubClient.html">HttpWebSocketHubClient</a></div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>{</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    <a class="code hl_struct" href="structSC_1_1HttpWebSocketTransportView.html">HttpWebSocketTransportView</a> transport;</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <span class="keywordtype">bool</span>                       active = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span> </div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    <span class="keywordtype">void</span> reset();</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>};</div>
 </div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
-<div class="foldopen" id="foldopen00357" data-start="{" data-end="};">
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno"><a class="line" href="structSC_1_1HttpWebSocketSmallHub.html">  357</a></span><span class="keyword">struct </span>SC_HTTP_EXPORT <a class="code hl_struct" href="structSC_1_1HttpWebSocketSmallHub.html">HttpWebSocketSmallHub</a></div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>{</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>    Function&lt;Result(<span class="keywordtype">size_t</span>, Span&lt;const char&gt;)&gt; onBroadcastFrame;</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    Result init(Span&lt;HttpWebSocketHubClient&gt; clientStorage);</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span> </div>
+<div class="foldopen" id="foldopen00359" data-start="{" data-end="};">
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno"><a class="line" href="structSC_1_1HttpWebSocketSmallHub.html">  359</a></span><span class="keyword">struct </span>SC_HTTP_EXPORT <a class="code hl_struct" href="structSC_1_1HttpWebSocketSmallHub.html">HttpWebSocketSmallHub</a></div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>{</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    Function&lt;Result(<span class="keywordtype">size_t</span>, Span&lt;const char&gt;)&gt; onBroadcastFrame;</div>
 <div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>    Result join(<span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1HttpWebSocketTransportView.html">HttpWebSocketTransportView</a>&amp; transport, <span class="keywordtype">size_t</span>&amp; clientIndex);</div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    Result leave(<span class="keywordtype">size_t</span> clientIndex);</div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span> </div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>    Result broadcastFrame(Span&lt;const char&gt; encodedFrame);</div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>    Result broadcastText(Span&lt;const char&gt; payload, Span&lt;char&gt; frameStorage);</div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span> </div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    [[nodiscard]] <span class="keywordtype">size_t</span> getNumClients()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> numClients; }</div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>    [[nodiscard]] <span class="keywordtype">size_t</span> getCapacity()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> clients.sizeInElements(); }</div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>    [[nodiscard]] <span class="keywordtype">bool</span>   isClientActive(<span class="keywordtype">size_t</span> clientIndex) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span> </div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>    Span&lt;HttpWebSocketHubClient&gt; clients;</div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>    <span class="keywordtype">size_t</span>                       numClients = 0;</div>
-<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>};</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>    Result init(Span&lt;HttpWebSocketHubClient&gt; clientStorage);</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    Result join(<span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1HttpWebSocketTransportView.html">HttpWebSocketTransportView</a>&amp; transport, <span class="keywordtype">size_t</span>&amp; clientIndex);</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>    Result leave(<span class="keywordtype">size_t</span> clientIndex);</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span> </div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>    Result broadcastFrame(Span&lt;const char&gt; encodedFrame);</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    Result broadcastText(Span&lt;const char&gt; payload, Span&lt;char&gt; frameStorage);</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span> </div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>    [[nodiscard]] <span class="keywordtype">size_t</span> getNumClients()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> numClients; }</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>    [[nodiscard]] <span class="keywordtype">size_t</span> getCapacity()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> clients.sizeInElements(); }</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>    [[nodiscard]] <span class="keywordtype">bool</span>   isClientActive(<span class="keywordtype">size_t</span> clientIndex) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span> </div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>    Span&lt;HttpWebSocketHubClient&gt; clients;</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>    <span class="keywordtype">size_t</span>                       numClients = 0;</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>};</div>
 </div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span> </div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>} <span class="comment">// namespace SC</span></div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span> </div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>} <span class="comment">// namespace SC</span></div>
 <div class="ttc" id="agroup__group__http_html_ga5bdde1ed4c2627805b32bda38e8f8445"><div class="ttname"><a href="group__group__http.html#ga5bdde1ed4c2627805b32bda38e8f8445">SC::HttpWebSocketEndpointRole</a></div><div class="ttdeci">HttpWebSocketEndpointRole</div><div class="ttdoc">Identifies the local endpoint role to validate masking rules.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:38</div></div>
 <div class="ttc" id="agroup__group__http_html_gabe86911e4fd11a84d1f5d9033cb044ad"><div class="ttname"><a href="group__group__http.html#gabe86911e4fd11a84d1f5d9033cb044ad">SC::HttpWebSocketSha1Mode</a></div><div class="ttdeci">HttpWebSocketSha1Mode</div><div class="ttdoc">Selects the SHA-1 implementation used by the RFC 6455 opening handshake.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:45</div></div>
 <div class="ttc" id="agroup__group__http_html_gafb9cef8f4b82503494fdc790514a21a1"><div class="ttname"><a href="group__group__http.html#gafb9cef8f4b82503494fdc790514a21a1">SC::HttpWebSocketOpcode</a></div><div class="ttdeci">HttpWebSocketOpcode</div><div class="ttdoc">WebSocket frame opcode as defined by RFC 6455.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:26</div></div>
 <div class="ttc" id="agroup__group__http_html_ggabe86911e4fd11a84d1f5d9033cb044ada419f3742e6de8e0ec4b22cce005e7630"><div class="ttname"><a href="group__group__http.html#ggabe86911e4fd11a84d1f5d9033cb044ada419f3742e6de8e0ec4b22cce005e7630">SC::HttpWebSocketSha1Mode::Platform</a></div><div class="ttdeci">@ Platform</div><div class="ttdoc">Use the platform provider, returning an error when no provider is available.</div></div>
 <div class="ttc" id="agroup__group__http_html_ggabe86911e4fd11a84d1f5d9033cb044adad32ddc68ef9b741e5c6741f0a7e645af"><div class="ttname"><a href="group__group__http.html#ggabe86911e4fd11a84d1f5d9033cb044adad32ddc68ef9b741e5c6741f0a7e645af">SC::HttpWebSocketSha1Mode::SelfContained</a></div><div class="ttdeci">@ SelfContained</div><div class="ttdoc">Use the allocation-free SHA-1 implementation embedded in Http.</div></div>
-<div class="ttc" id="astructSC_1_1AsyncBufferView_1_1ID_html"><div class="ttname"><a href="structSC_1_1AsyncBufferView_1_1ID.html">SC::AsyncBufferView::ID</a></div><div class="ttdef"><b>Definition</b> AsyncStreams.h:66</div></div>
-<div class="ttc" id="astructSC_1_1AsyncBuffersPool_html"><div class="ttname"><a href="structSC_1_1AsyncBuffersPool.html">SC::AsyncBuffersPool</a></div><div class="ttdoc">Holds a Span of AsyncBufferView (allocated by user) holding available memory for the streams.</div><div class="ttdef"><b>Definition</b> AsyncStreams.h:177</div></div>
-<div class="ttc" id="astructSC_1_1AsyncEventLoop_html"><div class="ttname"><a href="structSC_1_1AsyncEventLoop.html">SC::AsyncEventLoop</a></div><div class="ttdoc">Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...</div><div class="ttdef"><b>Definition</b> Async.h:1506</div></div>
-<div class="ttc" id="astructSC_1_1AsyncReadableStream_html"><div class="ttname"><a href="structSC_1_1AsyncReadableStream.html">SC::AsyncReadableStream</a></div><div class="ttdoc">Async source abstraction emitting data events in caller provided byte buffers.</div><div class="ttdef"><b>Definition</b> AsyncStreams.h:228</div></div>
-<div class="ttc" id="astructSC_1_1AsyncWritableStream_html"><div class="ttname"><a href="structSC_1_1AsyncWritableStream.html">SC::AsyncWritableStream</a></div><div class="ttdoc">Async destination abstraction where bytes can be written to.</div><div class="ttdef"><b>Definition</b> AsyncStreams.h:364</div></div>
-<div class="ttc" id="astructSC_1_1HttpAsyncClientRequest_html"><div class="ttname"><a href="structSC_1_1HttpAsyncClientRequest.html">SC::HttpAsyncClientRequest</a></div><div class="ttdoc">Outgoing HTTP request sent by the client.</div><div class="ttdef"><b>Definition</b> HttpConnection.h:428</div></div>
-<div class="ttc" id="astructSC_1_1HttpAsyncClientResponse_html"><div class="ttname"><a href="structSC_1_1HttpAsyncClientResponse.html">SC::HttpAsyncClientResponse</a></div><div class="ttdoc">Incoming HTTP response received by the client.</div><div class="ttdef"><b>Definition</b> HttpConnection.h:259</div></div>
+<div class="ttc" id="astructSC_1_1AsyncBufferView_1_1ID_html"><div class="ttname"><a href="structSC_1_1AsyncBufferView_1_1ID.html">SC::AsyncBufferView::ID</a></div><div class="ttdef"><b>Definition</b> AsyncStreams.h:67</div></div>
+<div class="ttc" id="astructSC_1_1AsyncBuffersPool_html"><div class="ttname"><a href="structSC_1_1AsyncBuffersPool.html">SC::AsyncBuffersPool</a></div><div class="ttdoc">Holds a Span of AsyncBufferView (allocated by user) holding available memory for the streams.</div><div class="ttdef"><b>Definition</b> AsyncStreams.h:178</div></div>
+<div class="ttc" id="astructSC_1_1AsyncEventLoop_html"><div class="ttname"><a href="structSC_1_1AsyncEventLoop.html">SC::AsyncEventLoop</a></div><div class="ttdoc">Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...</div><div class="ttdef"><b>Definition</b> Async.h:1511</div></div>
+<div class="ttc" id="astructSC_1_1AsyncReadableStream_html"><div class="ttname"><a href="structSC_1_1AsyncReadableStream.html">SC::AsyncReadableStream</a></div><div class="ttdoc">Async source abstraction emitting data events in caller provided byte buffers.</div><div class="ttdef"><b>Definition</b> AsyncStreams.h:229</div></div>
+<div class="ttc" id="astructSC_1_1AsyncWritableStream_html"><div class="ttname"><a href="structSC_1_1AsyncWritableStream.html">SC::AsyncWritableStream</a></div><div class="ttdoc">Async destination abstraction where bytes can be written to.</div><div class="ttdef"><b>Definition</b> AsyncStreams.h:365</div></div>
+<div class="ttc" id="astructSC_1_1HttpAsyncClientRequest_html"><div class="ttname"><a href="structSC_1_1HttpAsyncClientRequest.html">SC::HttpAsyncClientRequest</a></div><div class="ttdoc">Outgoing HTTP request sent by the client.</div><div class="ttdef"><b>Definition</b> HttpConnection.h:427</div></div>
+<div class="ttc" id="astructSC_1_1HttpAsyncClientResponse_html"><div class="ttname"><a href="structSC_1_1HttpAsyncClientResponse.html">SC::HttpAsyncClientResponse</a></div><div class="ttdoc">Incoming HTTP response received by the client.</div><div class="ttdef"><b>Definition</b> HttpConnection.h:258</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_html"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html">SC::HttpAsyncClient</a></div><div class="ttdoc">Asynchronous HTTP/1.1 client using caller-provided fixed storage.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:85</div></div>
-<div class="ttc" id="astructSC_1_1HttpConnection_html"><div class="ttname"><a href="structSC_1_1HttpConnection.html">SC::HttpConnection</a></div><div class="ttdoc">Http connection abstraction holding both the incoming and outgoing messages in an HTTP transaction.</div><div class="ttdef"><b>Definition</b> HttpConnection.h:490</div></div>
+<div class="ttc" id="astructSC_1_1HttpConnection_html"><div class="ttname"><a href="structSC_1_1HttpConnection.html">SC::HttpConnection</a></div><div class="ttdoc">Http connection abstraction holding both the incoming and outgoing messages in an HTTP transaction.</div><div class="ttdef"><b>Definition</b> HttpConnection.h:489</div></div>
 <div class="ttc" id="astructSC_1_1HttpParser_html_a84befaaf1146b8dfdabb9184b4966752"><div class="ttname"><a href="structSC_1_1HttpParser.html#a84befaaf1146b8dfdabb9184b4966752">SC::HttpParser::Method</a></div><div class="ttdeci">Method</div><div class="ttdoc">Method of the current request / response.</div><div class="ttdef"><b>Definition</b> HttpParser.h:19</div></div>
-<div class="ttc" id="astructSC_1_1HttpRequest_html"><div class="ttname"><a href="structSC_1_1HttpRequest.html">SC::HttpRequest</a></div><div class="ttdoc">Incoming HTTP request received by the server.</div><div class="ttdef"><b>Definition</b> HttpConnection.h:233</div></div>
-<div class="ttc" id="astructSC_1_1HttpResponse_html"><div class="ttname"><a href="structSC_1_1HttpResponse.html">SC::HttpResponse</a></div><div class="ttdoc">Outgoing HTTP response sent by the server.</div><div class="ttdef"><b>Definition</b> HttpConnection.h:383</div></div>
+<div class="ttc" id="astructSC_1_1HttpRequest_html"><div class="ttname"><a href="structSC_1_1HttpRequest.html">SC::HttpRequest</a></div><div class="ttdoc">Incoming HTTP request received by the server.</div><div class="ttdef"><b>Definition</b> HttpConnection.h:232</div></div>
+<div class="ttc" id="astructSC_1_1HttpResponse_html"><div class="ttname"><a href="structSC_1_1HttpResponse.html">SC::HttpResponse</a></div><div class="ttdoc">Outgoing HTTP response sent by the server.</div><div class="ttdef"><b>Definition</b> HttpConnection.h:382</div></div>
 <div class="ttc" id="astructSC_1_1HttpWebSocketClientHandshakeResponseView_html"><div class="ttname"><a href="structSC_1_1HttpWebSocketClientHandshakeResponseView.html">SC::HttpWebSocketClientHandshakeResponseView</a></div><div class="ttdoc">Normalized client-side WebSocket opening handshake response data.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:94</div></div>
 <div class="ttc" id="astructSC_1_1HttpWebSocketClientHandshake_html"><div class="ttname"><a href="structSC_1_1HttpWebSocketClientHandshake.html">SC::HttpWebSocketClientHandshake</a></div><div class="ttdoc">Small client-side helper that upgrades an HttpAsyncClient connection to a WebSocket transport.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:154</div></div>
-<div class="ttc" id="astructSC_1_1HttpWebSocketConnectionPump_html"><div class="ttname"><a href="structSC_1_1HttpWebSocketConnectionPump.html">SC::HttpWebSocketConnectionPump</a></div><div class="ttdoc">Optional stream pump that binds a WebSocket transport to an endpoint lifecycle.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:316</div></div>
+<div class="ttc" id="astructSC_1_1HttpWebSocketConnectionPump_html"><div class="ttname"><a href="structSC_1_1HttpWebSocketConnectionPump.html">SC::HttpWebSocketConnectionPump</a></div><div class="ttdoc">Optional stream pump that binds a WebSocket transport to an endpoint lifecycle.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:318</div></div>
 <div class="ttc" id="astructSC_1_1HttpWebSocketEndpoint_html"><div class="ttname"><a href="structSC_1_1HttpWebSocketEndpoint.html">SC::HttpWebSocketEndpoint</a></div><div class="ttdoc">Small frame-lifecycle helper for ping / pong, close, and explicit fixed-buffer send backpressure.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:261</div></div>
+<div class="ttc" id="astructSC_1_1HttpWebSocketEndpoint_html_a165c179513a78d5ec20dcfec7e86af03"><div class="ttname"><a href="structSC_1_1HttpWebSocketEndpoint.html#a165c179513a78d5ec20dcfec7e86af03">SC::HttpWebSocketEndpoint::getPendingControlFrame</a></div><div class="ttdeci">Span&lt; const char &gt; getPendingControlFrame() const</div><div class="ttdoc">Returns an empty view when no automatic control frame is pending.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:287</div></div>
 <div class="ttc" id="astructSC_1_1HttpWebSocketFrameHeaderView_html"><div class="ttname"><a href="structSC_1_1HttpWebSocketFrameHeaderView.html">SC::HttpWebSocketFrameHeaderView</a></div><div class="ttdoc">Parsed or to-be-written WebSocket frame header.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:54</div></div>
 <div class="ttc" id="astructSC_1_1HttpWebSocketFrameReader_html"><div class="ttname"><a href="structSC_1_1HttpWebSocketFrameReader.html">SC::HttpWebSocketFrameReader</a></div><div class="ttdoc">Incremental WebSocket frame reader operating on caller-owned mutable byte slices.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:177</div></div>
 <div class="ttc" id="astructSC_1_1HttpWebSocketFrameWriter_html"><div class="ttname"><a href="structSC_1_1HttpWebSocketFrameWriter.html">SC::HttpWebSocketFrameWriter</a></div><div class="ttdoc">Incremental WebSocket frame writer operating on caller-owned header storage and payload buffers.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:217</div></div>
 <div class="ttc" id="astructSC_1_1HttpWebSocketHandshakeResult_html"><div class="ttname"><a href="structSC_1_1HttpWebSocketHandshakeResult.html">SC::HttpWebSocketHandshakeResult</a></div><div class="ttdoc">Outcome of validating a WebSocket opening handshake.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:104</div></div>
 <div class="ttc" id="astructSC_1_1HttpWebSocketHandshake_html"><div class="ttname"><a href="structSC_1_1HttpWebSocketHandshake.html">SC::HttpWebSocketHandshake</a></div><div class="ttdoc">Dependency-free RFC 6455 opening handshake helpers.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:120</div></div>
-<div class="ttc" id="astructSC_1_1HttpWebSocketHubClient_html"><div class="ttname"><a href="structSC_1_1HttpWebSocketHubClient.html">SC::HttpWebSocketHubClient</a></div><div class="ttdoc">Fixed-slot WebSocket hub client entry.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:349</div></div>
+<div class="ttc" id="astructSC_1_1HttpWebSocketHubClient_html"><div class="ttname"><a href="structSC_1_1HttpWebSocketHubClient.html">SC::HttpWebSocketHubClient</a></div><div class="ttdoc">Fixed-slot WebSocket hub client entry.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:351</div></div>
 <div class="ttc" id="astructSC_1_1HttpWebSocketMessageAssembler_html"><div class="ttname"><a href="structSC_1_1HttpWebSocketMessageAssembler.html">SC::HttpWebSocketMessageAssembler</a></div><div class="ttdoc">Optional caller-buffered message assembly helper for applications that want complete messages.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:237</div></div>
 <div class="ttc" id="astructSC_1_1HttpWebSocketServerHandshakeRequestView_html"><div class="ttname"><a href="structSC_1_1HttpWebSocketServerHandshakeRequestView.html">SC::HttpWebSocketServerHandshakeRequestView</a></div><div class="ttdoc">Normalized server-side WebSocket opening handshake data.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:82</div></div>
-<div class="ttc" id="astructSC_1_1HttpWebSocketSmallHub_html"><div class="ttname"><a href="structSC_1_1HttpWebSocketSmallHub.html">SC::HttpWebSocketSmallHub</a></div><div class="ttdoc">Small fixed-capacity broadcast helper for server-side WebSocket fan-out.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:358</div></div>
+<div class="ttc" id="astructSC_1_1HttpWebSocketSmallHub_html"><div class="ttname"><a href="structSC_1_1HttpWebSocketSmallHub.html">SC::HttpWebSocketSmallHub</a></div><div class="ttdoc">Small fixed-capacity broadcast helper for server-side WebSocket fan-out.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:360</div></div>
 <div class="ttc" id="astructSC_1_1HttpWebSocketTransportView_html"><div class="ttname"><a href="structSC_1_1HttpWebSocketTransportView.html">SC::HttpWebSocketTransportView</a></div><div class="ttdoc">Minimal transport handoff shape for later HTTP upgrade integration.</div><div class="ttdef"><b>Definition</b> HttpWebSocket.h:67</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -124,7 +124,8 @@ $(function(){initNavTree('group__group__socket.html',''); initResizable(true); }
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle"><div class="title">Group_socket</div></div>
 </div><!--header-->
 <div class="contents">
@@ -155,8 +156,260 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1SocketNetworking.html">SC::SocketNetworking</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Networking globals initialization (Winsock2 WSAStartup)  <a href="structSC_1_1SocketNetworking.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionSC_1_1SocketErrorContext.html">SC::SocketErrorContext</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A typed scalar payload for a Socket error. Its interpretation is selected by SocketErrorContextKind.  <a href="unionSC_1_1SocketErrorContext.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1ResultSocket.html">SC::ResultSocket</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Socket result retaining a stable operation detail and one scalar diagnostic context.  <a href="structSC_1_1ResultSocket.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga4492377508ab679b206c3c201b1f8e0d" id="r_ga4492377508ab679b206c3c201b1f8e0d"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4492377508ab679b206c3c201b1f8e0d">SC::SocketError</a> : uint32_t { <br />
+&#160;&#160;<b>NetworkingNotInitialized</b> = 1
+, <br />
+&#160;&#160;<b>UnsupportedTextEncoding</b>
+, <br />
+&#160;&#160;<b>InputCapacityExceeded</b>
+, <br />
+&#160;&#160;<b>InvalidIPAddress</b>
+, <br />
+&#160;&#160;<b>InvalidAddress</b>
+, <br />
+&#160;&#160;<b>AddressTypeMismatch</b>
+, <br />
+&#160;&#160;<b>AddressFamilyMismatch</b>
+, <br />
+&#160;&#160;<b>OperationUnsupported</b>
+, <br />
+&#160;&#160;<b>InvalidSocket</b>
+, <br />
+&#160;&#160;<b>DestinationSocketInUse</b>
+, <br />
+&#160;&#160;<b>InvalidShutdownType</b>
+, <br />
+&#160;&#160;<b>SocketCreationFailed</b>
+, <br />
+&#160;&#160;<b>SocketCloseFailed</b>
+, <br />
+&#160;&#160;<b>DescriptorQueryFailed</b>
+, <br />
+&#160;&#160;<b>DescriptorConfigurationFailed</b>
+, <br />
+&#160;&#160;<b>SocketOptionFailed</b>
+, <br />
+&#160;&#160;<b>ShutdownFailed</b>
+, <br />
+&#160;&#160;<b>BindFailed</b>
+, <br />
+&#160;&#160;<b>AddressInUse</b>
+, <br />
+&#160;&#160;<b>ListenFailed</b>
+, <br />
+&#160;&#160;<b>AcceptFailed</b>
+, <br />
+&#160;&#160;<b>ConnectFailed</b>
+, <br />
+&#160;&#160;<b>SendFailed</b>
+, <br />
+&#160;&#160;<b>ReceiveFailed</b>
+, <br />
+&#160;&#160;<b>IncompleteSend</b>
+, <br />
+&#160;&#160;<b>DatagramTruncated</b>
+, <br />
+&#160;&#160;<b>WouldBlock</b>
+, <br />
+&#160;&#160;<b>TimedOut</b>
+, <br />
+&#160;&#160;<b>DNSResolutionFailed</b>
+, <br />
+&#160;&#160;<b>OutputCapacityExceeded</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga4492377508ab679b206c3c201b1f8e0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable portable failures returned by the Socket library.  <a href="#ga4492377508ab679b206c3c201b1f8e0d">More...</a><br /></td></tr>
+<tr class="separator:ga4492377508ab679b206c3c201b1f8e0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3f8da05037b18d34dee5f1cb5cba5a61" id="r_ga3f8da05037b18d34dee5f1cb5cba5a61"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3f8da05037b18d34dee5f1cb5cba5a61">SC::SocketErrorDetail</a> : uint16_t { <br />
+&#160;&#160;<b>None</b> = 0
+, <br />
+&#160;&#160;<b>ParseIPv4Address</b>
+, <br />
+&#160;&#160;<b>ParseIPv6Address</b>
+, <br />
+&#160;&#160;<b>BuildUnixPathAddress</b>
+, <br />
+&#160;&#160;<b>BuildUnixAbstractAddress</b>
+, <br />
+&#160;&#160;<b>ExtractIPAddress</b>
+, <br />
+&#160;&#160;<b>ExtractUnixAddress</b>
+, <br />
+&#160;&#160;<b>CopyHostName</b>
+, <br />
+&#160;&#160;<b>ResolveHostName</b>
+, <br />
+&#160;&#160;<b>CopyResolvedAddress</b>
+, <br />
+&#160;&#160;<b>GetSocketAddress</b>
+, <br />
+&#160;&#160;<b>PosixCloseDescriptor</b>
+, <br />
+&#160;&#160;<b>WindowsCloseSocket</b>
+, <br />
+&#160;&#160;<b>PosixGetDescriptorFlags</b>
+, <br />
+&#160;&#160;<b>PosixSetDescriptorFlags</b>
+, <br />
+&#160;&#160;<b>WindowsGetHandleInformation</b>
+, <br />
+&#160;&#160;<b>WindowsSetHandleInformation</b>
+, <br />
+&#160;&#160;<b>WindowsSetBlocking</b>
+, <br />
+&#160;&#160;<b>CreateSocket</b>
+, <br />
+&#160;&#160;<b>SetTcpNoDelay</b>
+, <br />
+&#160;&#160;<b>SetBroadcast</b>
+, <br />
+&#160;&#160;<b>JoinIPv4Multicast</b>
+, <br />
+&#160;&#160;<b>JoinIPv6Multicast</b>
+, <br />
+&#160;&#160;<b>LeaveIPv4Multicast</b>
+, <br />
+&#160;&#160;<b>LeaveIPv6Multicast</b>
+, <br />
+&#160;&#160;<b>SetIPv4MulticastLoopback</b>
+, <br />
+&#160;&#160;<b>SetIPv6MulticastLoopback</b>
+, <br />
+&#160;&#160;<b>SetIPv4MulticastHops</b>
+, <br />
+&#160;&#160;<b>SetIPv6MulticastHops</b>
+, <br />
+&#160;&#160;<b>SetIPv4MulticastInterface</b>
+, <br />
+&#160;&#160;<b>SetIPv6MulticastInterface</b>
+, <br />
+&#160;&#160;<b>ShutdownSocket</b>
+, <br />
+&#160;&#160;<b>SendDatagram</b>
+, <br />
+&#160;&#160;<b>ReceiveDatagram</b>
+, <br />
+&#160;&#160;<b>BindSocket</b>
+, <br />
+&#160;&#160;<b>ListenSocket</b>
+, <br />
+&#160;&#160;<b>AcceptConnection</b>
+, <br />
+&#160;&#160;<b>ConnectSocket</b>
+, <br />
+&#160;&#160;<b>SendStream</b>
+, <br />
+&#160;&#160;<b>ReceiveStream</b>
+, <br />
+&#160;&#160;<b>WaitForRead</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga3f8da05037b18d34dee5f1cb5cba5a61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable operation or backend stage retained for a Socket failure.  <a href="#ga3f8da05037b18d34dee5f1cb5cba5a61">More...</a><br /></td></tr>
+<tr class="separator:ga3f8da05037b18d34dee5f1cb5cba5a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5cfc3bf623a6041c994225f9151b7c72" id="r_ga5cfc3bf623a6041c994225f9151b7c72"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5cfc3bf623a6041c994225f9151b7c72">SC::SocketErrorContextKind</a> : uint16_t { <br />
+&#160;&#160;<b>None</b> = 0
+, <br />
+&#160;&#160;<b>NativeError</b>
+, <br />
+&#160;&#160;<b>ResolverError</b>
+, <br />
+&#160;&#160;<b>RequiredBytes</b>
+, <br />
+&#160;&#160;<b>ActualBytes</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga5cfc3bf623a6041c994225f9151b7c72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kind of the scalar diagnostic context stored in ResultSocket.  <a href="#ga5cfc3bf623a6041c994225f9151b7c72">More...</a><br /></td></tr>
+<tr class="separator:ga5cfc3bf623a6041c994225f9151b7c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga4492377508ab679b206c3c201b1f8e0d" name="ga4492377508ab679b206c3c201b1f8e0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4492377508ab679b206c3c201b1f8e0d">&#9670;&#160;</a></span>SocketError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ga4492377508ab679b206c3c201b1f8e0d">SC::SocketError</a> : uint32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;SocketError.h&gt;</code></p>
+
+<p>Stable portable failures returned by the Socket library. </p>
+
+</div>
+</div>
+<a id="ga5cfc3bf623a6041c994225f9151b7c72" name="ga5cfc3bf623a6041c994225f9151b7c72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5cfc3bf623a6041c994225f9151b7c72">&#9670;&#160;</a></span>SocketErrorContextKind</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ga5cfc3bf623a6041c994225f9151b7c72">SC::SocketErrorContextKind</a> : uint16_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;SocketError.h&gt;</code></p>
+
+<p>Kind of the scalar diagnostic context stored in <a class="el" href="structSC_1_1ResultSocket.html" title="Socket result retaining a stable operation detail and one scalar diagnostic context.">ResultSocket</a>. </p>
+
+</div>
+</div>
+<a id="ga3f8da05037b18d34dee5f1cb5cba5a61" name="ga3f8da05037b18d34dee5f1cb5cba5a61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3f8da05037b18d34dee5f1cb5cba5a61">&#9670;&#160;</a></span>SocketErrorDetail</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ga3f8da05037b18d34dee5f1cb5cba5a61">SC::SocketErrorDetail</a> : uint16_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;SocketError.h&gt;</code></p>
+
+<p>Stable operation or backend stage retained for a Socket failure. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

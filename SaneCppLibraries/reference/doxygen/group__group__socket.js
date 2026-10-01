@@ -30,7 +30,7 @@ var group__group__socket =
     [ "SC::SocketIPAddress", "structSC_1_1SocketIPAddress.html", [
       [ "AsciiBuffer", "structSC_1_1SocketIPAddress.html#a1e39061c75db7c62f939b6b7bd5d5864", null ],
       [ "SocketIPAddress", "structSC_1_1SocketIPAddress.html#ac9bd0b9ee15dee138ba7cef9d916428d", null ],
-      [ "fromAddressPort", "structSC_1_1SocketIPAddress.html#a51fa59480b3d743f7f32c87fda744c37", null ],
+      [ "fromAddressPort", "structSC_1_1SocketIPAddress.html#a3eafdd3576ea9eee42a055d5c85423ab", null ],
       [ "getAddressFamily", "structSC_1_1SocketIPAddress.html#a8b96b772a8942235abfd8748b3467462", null ],
       [ "getPort", "structSC_1_1SocketIPAddress.html#a1a8b8269f72adedac4ab83e222be1eac", null ],
       [ "isValid", "structSC_1_1SocketIPAddress.html#aeba2dbc3652c78c575cc75e1e3482a6d", null ],
@@ -39,49 +39,58 @@ var group__group__socket =
       [ "handle", "structSC_1_1SocketIPAddress.html#a469fedbe1be1fd1bbb91a07c6f92c08d", null ]
     ] ],
     [ "SC::SocketAddress", "structSC_1_1SocketAddress.html", [
-      [ "fromUnixAbstractName", "structSC_1_1SocketAddress.html#ab177396ca025a5dd37621b34fa78909b", null ],
-      [ "fromUnixPath", "structSC_1_1SocketAddress.html#acf6db1752387f49e57e458961e06d377", null ],
-      [ "getIPAddress", "structSC_1_1SocketAddress.html#a04012bc6340098ec5070ee0bbdb399d7", null ],
-      [ "getUnixName", "structSC_1_1SocketAddress.html#afd944f7da35770f04914028e5a657e58", null ],
+      [ "fromUnixAbstractName", "structSC_1_1SocketAddress.html#afd3258814abc11fdf6e57d862e73a15f", null ],
+      [ "fromUnixPath", "structSC_1_1SocketAddress.html#a1f5f0899886acf1dc1857a969a2d8d23", null ],
+      [ "getIPAddress", "structSC_1_1SocketAddress.html#aad82a8eab3769acdf335cb81866c8fe2", null ],
+      [ "getUnixName", "structSC_1_1SocketAddress.html#acb1c7f94ad8798564f724c181a0420ab", null ],
       [ "handle", "structSC_1_1SocketAddress.html#aaabe99f444fdc6a0e96555b7f0d3156c", null ]
     ] ],
     [ "SC::SocketDescriptor", "structSC_1_1SocketDescriptor.html", [
-      [ "create", "structSC_1_1SocketDescriptor.html#abae627322ab6d511fdf774516aa12bec", null ],
-      [ "getAddressFamily", "structSC_1_1SocketDescriptor.html#ae29af8163e309dc67209c852eb1c92f0", null ],
-      [ "isInheritable", "structSC_1_1SocketDescriptor.html#a65ac2b5205b3967dc63c0f058605e70c", null ],
-      [ "joinMulticastGroup", "structSC_1_1SocketDescriptor.html#aaf5078977aa13668193247867b58d357", null ],
-      [ "leaveMulticastGroup", "structSC_1_1SocketDescriptor.html#a845ba37ea726a33fec915b5c3b02be61", null ],
-      [ "receiveFrom", "structSC_1_1SocketDescriptor.html#ac1097a6cc8c6204418a6aaaa4858da9a", null ],
-      [ "receiveFrom", "structSC_1_1SocketDescriptor.html#a05a47a78015912fb7088f861733f2ab5", null ],
-      [ "sendTo", "structSC_1_1SocketDescriptor.html#aed562751d50b1bb8d8ef0309a4662ea1", null ],
-      [ "sendTo", "structSC_1_1SocketDescriptor.html#ae770da73ca594b62f51adf8a66296959", null ],
-      [ "setBlocking", "structSC_1_1SocketDescriptor.html#a83b5ac063fe398c0107f9d18c7370de9", null ],
-      [ "setBroadcast", "structSC_1_1SocketDescriptor.html#a40cb31a7597f2bfccea897d82c7982c5", null ],
-      [ "setInheritable", "structSC_1_1SocketDescriptor.html#a9ab92efb87f3bc0d42c367e4c040e7f8", null ],
-      [ "setMulticastHops", "structSC_1_1SocketDescriptor.html#a02f20a4f51d91f968f4b1344de7ef1d3", null ],
-      [ "setMulticastLoopback", "structSC_1_1SocketDescriptor.html#a86180e6e13407c63dbfaa9993336f963", null ],
-      [ "setMulticastOutboundInterface", "structSC_1_1SocketDescriptor.html#a53cbe8a38af4e173fd2971d872c8feb6", null ],
-      [ "setTcpNoDelay", "structSC_1_1SocketDescriptor.html#a2720319cda22d466deace32ed65ba291", null ],
-      [ "shutdown", "structSC_1_1SocketDescriptor.html#a07e6ec8c77aea419d6a474ad84f97617", null ]
+      [ "create", "structSC_1_1SocketDescriptor.html#a42ce30e6d93fa71acfb16d247970b919", null ],
+      [ "getAddressFamily", "structSC_1_1SocketDescriptor.html#ac2cecb26db1f2f4cfd168e2f4bce397b", null ],
+      [ "isInheritable", "structSC_1_1SocketDescriptor.html#af0d26790abd6ca235bf0b4b5e835dc09", null ],
+      [ "joinMulticastGroup", "structSC_1_1SocketDescriptor.html#a69e0e61d4075a420d900307063589cb4", null ],
+      [ "leaveMulticastGroup", "structSC_1_1SocketDescriptor.html#a41290e646e5fc1a23b980507e3a744b6", null ],
+      [ "receiveFrom", "structSC_1_1SocketDescriptor.html#a997454270cb9fa8dc01171477c6c718e", null ],
+      [ "receiveFrom", "structSC_1_1SocketDescriptor.html#a510927d0ad62f09b12e25a9b453b32e7", null ],
+      [ "sendTo", "structSC_1_1SocketDescriptor.html#a81c3c5f4260d3fa8ad2c8eb5d2499953", null ],
+      [ "sendTo", "structSC_1_1SocketDescriptor.html#a4158fb727ba2e51f501fb1b438c51627", null ],
+      [ "setBlocking", "structSC_1_1SocketDescriptor.html#a2bccda13963535b62604609bd88a60ad", null ],
+      [ "setBroadcast", "structSC_1_1SocketDescriptor.html#a66e588c36c3feec7f45fb36cee0dcaad", null ],
+      [ "setInheritable", "structSC_1_1SocketDescriptor.html#a6cefddac753d46a2ff3ce2fcf552542b", null ],
+      [ "setMulticastHops", "structSC_1_1SocketDescriptor.html#a65f1a4bbcf945cf61d4823bd0424d112", null ],
+      [ "setMulticastLoopback", "structSC_1_1SocketDescriptor.html#a310ea4ea1d560b2ad7743ac833b224b9", null ],
+      [ "setMulticastOutboundInterface", "structSC_1_1SocketDescriptor.html#a820280825646db214c14275a6dc0d96d", null ],
+      [ "setTcpNoDelay", "structSC_1_1SocketDescriptor.html#ab51ea0450b48a89f502b937fb6e9a25f", null ],
+      [ "shutdown", "structSC_1_1SocketDescriptor.html#a1d1de46d75dfd6b17f2a508093756c5a", null ]
     ] ],
     [ "SC::SocketServer", "structSC_1_1SocketServer.html", [
       [ "SocketServer", "structSC_1_1SocketServer.html#a3464c4e648817ae773d60f3d4ce8a772", null ],
-      [ "accept", "structSC_1_1SocketServer.html#a4abac6ddfa7f0f7ae2ccf9a5e105e54f", null ],
-      [ "accept", "structSC_1_1SocketServer.html#aeabb14ac60f8530d60292cf87bbf4f26", null ],
-      [ "bind", "structSC_1_1SocketServer.html#a9a88d729d876989609ca3a63010a07b5", null ],
-      [ "bind", "structSC_1_1SocketServer.html#a7ec321dcf34ef6b8fc82669f6955e520", null ],
-      [ "close", "structSC_1_1SocketServer.html#a975fef3c3e27e2ece95b6b8ccc1aab19", null ],
-      [ "listen", "structSC_1_1SocketServer.html#a1c81f73951cd951e520d3be464f4cd1b", null ]
+      [ "accept", "structSC_1_1SocketServer.html#a6fb99bfa11bda26fe3052252f836025c", null ],
+      [ "accept", "structSC_1_1SocketServer.html#a670e24bfaa95bc4f64dbcf555d6a831f", null ],
+      [ "bind", "structSC_1_1SocketServer.html#aacfc9099eadc0250d6f2d21f353c4ec0", null ],
+      [ "bind", "structSC_1_1SocketServer.html#acfc3937eca46e97ca2e2c567e664d969", null ],
+      [ "close", "structSC_1_1SocketServer.html#a01819b95bc6dd8dc13e134422de396d5", null ],
+      [ "listen", "structSC_1_1SocketServer.html#a8e5ba8bb6da5ca99d6433e14b9f95880", null ]
     ] ],
     [ "SC::SocketClient", "structSC_1_1SocketClient.html", [
       [ "SocketClient", "structSC_1_1SocketClient.html#a456d893010b8a6dfbd793ae4efc087bb", null ],
-      [ "connect", "structSC_1_1SocketClient.html#aea08394e1735105327157a7a220c7bb6", null ],
-      [ "connect", "structSC_1_1SocketClient.html#a8245a9ab273557a50a94559eb41a5062", null ],
-      [ "connect", "structSC_1_1SocketClient.html#a72b5ed737b5df83f1b74be41fc4aa163", null ],
-      [ "read", "structSC_1_1SocketClient.html#a0824c36280ebdab4befcde0db8ed41b8", null ],
-      [ "readWithTimeout", "structSC_1_1SocketClient.html#a83851e6ce666903589ead0f61fe61fbe", null ],
-      [ "write", "structSC_1_1SocketClient.html#a9b691ac6107db42668c3b0d60723aa41", null ]
+      [ "connect", "structSC_1_1SocketClient.html#a211461a147592954e1b2c20f162c0399", null ],
+      [ "connect", "structSC_1_1SocketClient.html#af33e530e1719d974da7bb47362d39ba1", null ],
+      [ "connect", "structSC_1_1SocketClient.html#ad7f7299d838e8587aca914f439b0390a", null ],
+      [ "read", "structSC_1_1SocketClient.html#a1bb5ad8f8b435f2045794c76bbc08f28", null ],
+      [ "readWithTimeout", "structSC_1_1SocketClient.html#a4ff729f65611b46d0d4a5f6c46e1cd90", null ],
+      [ "write", "structSC_1_1SocketClient.html#aa327ccd9c198df667714f82bb7718762", null ]
     ] ],
     [ "SC::SocketDNS", "structSC_1_1SocketDNS.html", null ],
-    [ "SC::SocketNetworking", "structSC_1_1SocketNetworking.html", null ]
+    [ "SC::SocketNetworking", "structSC_1_1SocketNetworking.html", null ],
+    [ "SC::SocketErrorContext", "unionSC_1_1SocketErrorContext.html", [
+      [ "ActualBytes", "structSC_1_1SocketErrorContext_1_1ActualBytes.html", null ],
+      [ "RequiredBytes", "structSC_1_1SocketErrorContext_1_1RequiredBytes.html", null ],
+      [ "ResolverError", "structSC_1_1SocketErrorContext_1_1ResolverError.html", null ]
+    ] ],
+    [ "SC::ResultSocket", "structSC_1_1ResultSocket.html", null ],
+    [ "SC::SocketError", "group__group__socket.html#ga4492377508ab679b206c3c201b1f8e0d", null ],
+    [ "SC::SocketErrorContextKind", "group__group__socket.html#ga5cfc3bf623a6041c994225f9151b7c72", null ],
+    [ "SC::SocketErrorDetail", "group__group__socket.html#ga3f8da05037b18d34dee5f1cb5cba5a61", null ]
 ];

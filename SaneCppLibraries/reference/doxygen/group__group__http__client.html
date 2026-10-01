@@ -125,6 +125,7 @@ $(function(){initNavTree('group__group__http__client.html',''); initResizable(tr
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Group_http_client</div></div>
 </div><!--header-->
@@ -237,6 +238,271 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional caller-owned state layer above the stateless <a class="el" href="structSC_1_1HttpClient.html" title="Reusable HTTP backend/session owner.">HttpClient</a> core.  <a href="structSC_1_1HttpClientSession.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gadc2093ee5ab238a6a2f9130c19d0aa89" id="r_gadc2093ee5ab238a6a2f9130c19d0aa89"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gadc2093ee5ab238a6a2f9130c19d0aa89">SC::HttpClientError</a> : uint32_t { <br />
+&#160;&#160;<b>RequestHeaderNameEmpty</b> = 1
+, <br />
+&#160;&#160;<b>RequestHeaderNameInvalid</b>
+, <br />
+&#160;&#160;<b>RequestHeaderValueInvalid</b>
+, <br />
+&#160;&#160;<b>RequestTransferEncodingForbidden</b>
+, <br />
+&#160;&#160;<b>RequestChunkedContentLengthConflict</b>
+, <br />
+&#160;&#160;<b>RequestFixedBodyProviderUnexpected</b>
+, <br />
+&#160;&#160;<b>RequestFixedBodySizeMismatch</b>
+, <br />
+&#160;&#160;<b>RequestStreamInlineBytesUnexpected</b>
+, <br />
+&#160;&#160;<b>RequestStreamProviderMissing</b>
+, <br />
+&#160;&#160;<b>RequestChunkedDeclaredSizeInvalid</b>
+, <br />
+&#160;&#160;<b>RequestBodyFramingInvalid</b>
+, <br />
+&#160;&#160;<b>RequestUrlEmpty</b>
+, <br />
+&#160;&#160;<b>RequestUrlUnsafe</b>
+, <br />
+&#160;&#160;<b>RequestUrlSchemeUnsupported</b>
+, <br />
+&#160;&#160;<b>RequestUrlHostEmpty</b>
+, <br />
+&#160;&#160;<b>RequestMethodInvalid</b>
+, <br />
+&#160;&#160;<b>RequestRedirectModeInvalid</b>
+, <br />
+&#160;&#160;<b>RequestProtocolPreferenceInvalid</b>
+, <br />
+&#160;&#160;<b>RequestTlsCaPathInvalid</b>
+, <br />
+&#160;&#160;<b>RequestRedirectMethodInvalid</b>
+, <br />
+&#160;&#160;<b>RequestRedirectBodyNotReplayable</b>
+, <br />
+&#160;&#160;<b>ProxyModeInvalid</b>
+, <br />
+&#160;&#160;<b>ProxyUrlEmpty</b>
+, <br />
+&#160;&#160;<b>ProxyUrlSchemeUnsupported</b>
+, <br />
+&#160;&#160;<b>ProxyUrlUnsafe</b>
+, <br />
+&#160;&#160;<b>ProxyUrlHostEmpty</b>
+, <br />
+&#160;&#160;<b>ProxyUrlPathUnsupported</b>
+, <br />
+&#160;&#160;<b>ProxyAuthorizationInvalid</b>
+, <br />
+&#160;&#160;<b>ProxyBypassListInvalid</b>
+, <br />
+&#160;&#160;<b>ProxyUrlWithoutHttpMode</b>
+, <br />
+&#160;&#160;<b>ProxyAuthorizationWithoutHttpMode</b>
+, <br />
+&#160;&#160;<b>ProxyBypassListWithoutHttpMode</b>
+, <br />
+&#160;&#160;<b>RedirectPolicyUnsupported</b>
+, <br />
+&#160;&#160;<b>Http11OnlyUnsupported</b>
+, <br />
+&#160;&#160;<b>Http2PreferredUnsupported</b>
+, <br />
+&#160;&#160;<b>Http2RequiredUnsupported</b>
+, <br />
+&#160;&#160;<b>TlsDisablePeerVerificationUnsupported</b>
+, <br />
+&#160;&#160;<b>TlsCustomCaPathUnsupported</b>
+, <br />
+&#160;&#160;<b>NoProxyPolicyUnsupported</b>
+, <br />
+&#160;&#160;<b>HttpProxyPolicyUnsupported</b>
+, <br />
+&#160;&#160;<b>ProxyAuthorizationUnsupported</b>
+, <br />
+&#160;&#160;<b>ProxyBypassListUnsupported</b>
+, <br />
+&#160;&#160;<b>RequiredBackendUnavailable</b>
+, <br />
+&#160;&#160;<b>RequiredFeatureUnsupported</b>
+, <br />
+&#160;&#160;<b>ClientAlreadyInitialized</b>
+, <br />
+&#160;&#160;<b>OperationClientNotInitialized</b>
+, <br />
+&#160;&#160;<b>OperationAlreadyInitialized</b>
+, <br />
+&#160;&#160;<b>ResponseBuffersMissing</b>
+, <br />
+&#160;&#160;<b>ResponseBufferMemoryTooSmall</b>
+, <br />
+&#160;&#160;<b>ResponseBufferEmpty</b>
+, <br />
+&#160;&#160;<b>OperationEventQueueMissing</b>
+, <br />
+&#160;&#160;<b>OperationResponseHeadersMissing</b>
+, <br />
+&#160;&#160;<b>OperationResponseMetadataMissing</b>
+, <br />
+&#160;&#160;<b>OperationNotInitialized</b>
+, <br />
+&#160;&#160;<b>OperationRequestInFlight</b>
+, <br />
+&#160;&#160;<b>RequestBodyDestinationEmpty</b>
+, <br />
+&#160;&#160;<b>RequestBodyProviderOverflow</b>
+, <br />
+&#160;&#160;<b>RequestBodyProviderStalled</b>
+, <br />
+&#160;&#160;<b>RequestBodyDeclaredSizeExceeded</b>
+, <br />
+&#160;&#160;<b>RequestBodyDeclaredSizeIncomplete</b>
+, <br />
+&#160;&#160;<b>ResponseBufferCapacityInsufficient</b>
+, <br />
+&#160;&#160;<b>RequestCancelled</b>
+, <br />
+&#160;&#160;<b>ResponseBufferIndexInvalid</b>
+, <br />
+&#160;&#160;<b>OperationResponseMissing</b>
+, <br />
+&#160;&#160;<b>ResponseMetadataTooSmall</b>
+, <br />
+&#160;&#160;<b>BlockingResponseBodyBufferTooSmall</b>
+, <br />
+&#160;&#160;<b>PlatformUnsupported</b>
+, <br />
+&#160;&#160;<b>ContentCodingListEmpty</b>
+, <br />
+&#160;&#160;<b>ContentCodingUnknown</b>
+, <br />
+&#160;&#160;<b>AcceptEncodingOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>SchedulerAlreadyInitialized</b>
+, <br />
+&#160;&#160;<b>SchedulerOperationsMissing</b>
+, <br />
+&#160;&#160;<b>SchedulerReadyStorageTooSmall</b>
+, <br />
+&#160;&#160;<b>SchedulerOperationNull</b>
+, <br />
+&#160;&#160;<b>SchedulerOperationNotInitialized</b>
+, <br />
+&#160;&#160;<b>SchedulerNotInitialized</b>
+, <br />
+&#160;&#160;<b>SchedulerOperationNotRegistered</b>
+, <br />
+&#160;&#160;<b>AsyncAlreadyInitialized</b>
+, <br />
+&#160;&#160;<b>AsyncResponseBuffersMissing</b>
+, <br />
+&#160;&#160;<b>AsyncResponseReadQueueMissing</b>
+, <br />
+&#160;&#160;<b>AsyncRequestWriteQueueMissing</b>
+, <br />
+&#160;&#160;<b>AsyncNotInitialized</b>
+, <br />
+&#160;&#160;<b>AsyncRequestBodyPoolMissing</b>
+, <br />
+&#160;&#160;<b>AsyncRequestBodySinkOwnerMissing</b>
+, <br />
+&#160;&#160;<b>AsyncRequestBodySinkDestroyed</b>
+, <br />
+&#160;&#160;<b>SessionAlreadyInitialized</b>
+, <br />
+&#160;&#160;<b>SessionRequestHeadersMissing</b>
+, <br />
+&#160;&#160;<b>SessionNotInitialized</b>
+, <br />
+&#160;&#160;<b>SessionStateInvalid</b>
+, <br />
+&#160;&#160;<b>SessionCopySpanMismatch</b>
+, <br />
+&#160;&#160;<b>SessionStateStorageTooSmall</b>
+, <br />
+&#160;&#160;<b>SessionRequestHeaderStorageTooSmall</b>
+, <br />
+&#160;&#160;<b>SessionHeaderScratchTooSmall</b>
+, <br />
+&#160;&#160;<b>SessionAuthOriginMissing</b>
+, <br />
+&#160;&#160;<b>SessionAuthorizationMissing</b>
+, <br />
+&#160;&#160;<b>SessionAuthorizationInvalid</b>
+, <br />
+&#160;&#160;<b>SessionAuthOriginInvalid</b>
+, <br />
+&#160;&#160;<b>SessionAuthOriginPathUnsupported</b>
+, <br />
+&#160;&#160;<b>SessionAuthCacheFull</b>
+, <br />
+&#160;&#160;<b>SessionBasicUsernameMissing</b>
+, <br />
+&#160;&#160;<b>SessionBasicUsernameColonInvalid</b>
+, <br />
+&#160;&#160;<b>SessionBasicOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>SessionAuthChallengeTargetInvalid</b>
+, <br />
+&#160;&#160;<b>SessionAuthResponseStatusInvalid</b>
+, <br />
+&#160;&#160;<b>SessionBasicChallengeMissing</b>
+, <br />
+&#160;&#160;<b>SessionRequestUrlInvalid</b>
+, <br />
+&#160;&#160;<b>SessionCookieCacheFull</b>
+, <br />
+&#160;&#160;<b>SessionRetryAttemptsInvalid</b>
+, <br />
+&#160;&#160;<b>ResponseHeadersTooSmall</b>
+, <br />
+&#160;&#160;<b>TransportFailed</b>
+, <br />
+&#160;&#160;<b>RequestUrlConversionFailed</b>
+, <br />
+&#160;&#160;<b>RequestUrlInvalid</b>
+, <br />
+&#160;&#160;<b>BackendScratchTooSmall</b>
+, <br />
+&#160;&#160;<b>RequestBodyStreamUnavailable</b>
+, <br />
+&#160;&#160;<b>RequestTaskUnavailable</b>
+, <br />
+&#160;&#160;<b>RequestHeaderPreparationFailed</b>
+, <br />
+&#160;&#160;<b>TransportConfigurationFailed</b>
+, <br />
+&#160;&#160;<b>Http2RequiredNotNegotiated</b>
+, <br />
+&#160;&#160;<b>RequestBodySizeUnsupported</b>
+, <br />
+&#160;&#160;<b>ConnectionFailed</b>
+, <br />
+&#160;&#160;<b>ProxyUrlConversionFailed</b>
+, <br />
+&#160;&#160;<b>ProxyBypassConversionFailed</b>
+, <br />
+&#160;&#160;<b>ProxyAuthorizationConversionFailed</b>
+, <br />
+&#160;&#160;<b>RequestHeaderNameConversionFailed</b>
+, <br />
+&#160;&#160;<b>RequestHeaderValueConversionFailed</b>
+, <br />
+&#160;&#160;<b>RequestSendFailed</b>
+, <br />
+&#160;&#160;<b>RequestBodyWriteFailed</b>
+, <br />
+&#160;&#160;<b>ResponseReceiveFailed</b>
+, <br />
+&#160;&#160;<b>ResponseBodyReadFailed</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:gadc2093ee5ab238a6a2f9130c19d0aa89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable portable failures owned by HttpClient. Values are append-only.  <a href="#gadc2093ee5ab238a6a2f9130c19d0aa89">More...</a><br /></td></tr>
+<tr class="separator:gadc2093ee5ab238a6a2f9130c19d0aa89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:gaa79efe3e217dab1828fecaff8404966b" id="r_gaa79efe3e217dab1828fecaff8404966b"><td class="memItemLeft" align="right" valign="top"><a id="gaa79efe3e217dab1828fecaff8404966b" name="gaa79efe3e217dab1828fecaff8404966b"></a>
@@ -250,6 +516,33 @@ struct SC_HTTP_CLIENT_EXPORT&#160;</td><td class="memItemRight" valign="bottom">
 <tr class="separator:ga9255851628330f97dce1db74232726cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="gadc2093ee5ab238a6a2f9130c19d0aa89" name="gadc2093ee5ab238a6a2f9130c19d0aa89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadc2093ee5ab238a6a2f9130c19d0aa89">&#9670;&#160;</a></span>HttpClientError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#gadc2093ee5ab238a6a2f9130c19d0aa89">SC::HttpClientError</a> : uint32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;HttpClientError.h&gt;</code></p>
+
+<p>Stable portable failures owned by <a class="el" href="structSC_1_1HttpClient.html" title="Reusable HTTP backend/session owner.">HttpClient</a>. Values are append-only. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

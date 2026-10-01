@@ -146,20 +146,23 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6e6559a3690b3a9378e58b6b1132eab3" id="r_a6e6559a3690b3a9378e58b6b1132eab3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structSC_1_1PluginFile.html">PluginFile</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e6559a3690b3a9378e58b6b1132eab3">getMainPluginFile</a> () const</td></tr>
 <tr class="memdesc:a6e6559a3690b3a9378e58b6b1132eab3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get main plugin file, holding plugin definition.  <br /></td></tr>
 <tr class="separator:a6e6559a3690b3a9378e58b6b1132eab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2fdd841eea42740fa3b8a677e720340" id="r_aa2fdd841eea42740fa3b8a677e720340"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2fdd841eea42740fa3b8a677e720340">getDynamicLibraryAbsolutePath</a> (StringPath &amp;fullDynamicPath) const</td></tr>
-<tr class="memdesc:aa2fdd841eea42740fa3b8a677e720340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets absolute path of where compiled dynamic library will exist after plugin is compiled.  <br /></td></tr>
-<tr class="separator:aa2fdd841eea42740fa3b8a677e720340"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6b69adf04509a831773ee7bb982caf2" id="r_ad6b69adf04509a831773ee7bb982caf2"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6b69adf04509a831773ee7bb982caf2">getDynamicLibraryPDBAbsolutePath</a> (StringPath &amp;fullDynamicPath) const</td></tr>
-<tr class="memdesc:ad6b69adf04509a831773ee7bb982caf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets absolute path of where compiled Program Database File will exist after plugin is compiled.  <br /></td></tr>
-<tr class="separator:ad6b69adf04509a831773ee7bb982caf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fc297124410bffd5f04f17a5f0c8690" id="r_a3fc297124410bffd5f04f17a5f0c8690"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultPlugin.html">ResultPlugin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fc297124410bffd5f04f17a5f0c8690">getDynamicLibraryAbsolutePath</a> (StringPath &amp;fullDynamicPath) const</td></tr>
+<tr class="memdesc:a3fc297124410bffd5f04f17a5f0c8690"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets absolute path of where compiled dynamic library will exist after plugin is compiled.  <br /></td></tr>
+<tr class="separator:a3fc297124410bffd5f04f17a5f0c8690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af117b963f75344282b61ba1e9d9a5ef4" id="r_af117b963f75344282b61ba1e9d9a5ef4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultPlugin.html">ResultPlugin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af117b963f75344282b61ba1e9d9a5ef4">getDynamicLibraryPDBAbsolutePath</a> (StringPath &amp;fullDynamicPath) const</td></tr>
+<tr class="memdesc:af117b963f75344282b61ba1e9d9a5ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets absolute path of where compiled Program Database File will exist after plugin is compiled.  <br /></td></tr>
+<tr class="separator:af117b963f75344282b61ba1e9d9a5ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a15476b941cd0af1c894696d71d7c7939" id="r_a15476b941cd0af1c894696d71d7c7939"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15476b941cd0af1c894696d71d7c7939">find</a> (StringSpan text, StringSpan &amp;extracted)</td></tr>
 <tr class="memdesc:a15476b941cd0af1c894696d71d7c7939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts the plugin definition (SC_BEGIN_PLUGIN / SC_END_PLUGIN) comment from a .cpp file.  <br /></td></tr>
 <tr class="separator:a15476b941cd0af1c894696d71d7c7939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9d7255fc7ca44262e89c54e3648d1cd" id="r_aa9d7255fc7ca44262e89c54e3648d1cd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structSC_1_1ResultPlugin.html">ResultPlugin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9d7255fc7ca44262e89c54e3648d1cd">parse</a> (StringSpan text, <a class="el" href="structSC_1_1PluginDefinition.html">PluginDefinition</a> &amp;pluginDefinition, bool &amp;parsed)</td></tr>
+<tr class="memdesc:aa9d7255fc7ca44262e89c54e3648d1cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses an extracted plugin definition text.  <br /></td></tr>
+<tr class="separator:aa9d7255fc7ca44262e89c54e3648d1cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf039c8f32766f9685c2eef720b74bb6" id="r_acf039c8f32766f9685c2eef720b74bb6"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf039c8f32766f9685c2eef720b74bb6">parse</a> (StringSpan text, <a class="el" href="structSC_1_1PluginDefinition.html">PluginDefinition</a> &amp;pluginDefinition)</td></tr>
-<tr class="memdesc:acf039c8f32766f9685c2eef720b74bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses an extracted plugin definition text.  <br /></td></tr>
+<tr class="memdesc:acf039c8f32766f9685c2eef720b74bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compatibility helper that returns false for either normal absence or a parsing storage failure.  <br /></td></tr>
 <tr class="separator:acf039c8f32766f9685c2eef720b74bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -234,14 +237,14 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PluginScanner</b></
 
 </div>
 </div>
-<a id="aa2fdd841eea42740fa3b8a677e720340" name="aa2fdd841eea42740fa3b8a677e720340"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2fdd841eea42740fa3b8a677e720340">&#9670;&#160;</a></span>getDynamicLibraryAbsolutePath()</h2>
+<a id="a3fc297124410bffd5f04f17a5f0c8690" name="a3fc297124410bffd5f04f17a5f0c8690"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fc297124410bffd5f04f17a5f0c8690">&#9670;&#160;</a></span>getDynamicLibraryAbsolutePath()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::PluginDefinition::getDynamicLibraryAbsolutePath </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultPlugin.html">ResultPlugin</a> SC::PluginDefinition::getDynamicLibraryAbsolutePath </td>
           <td>(</td>
           <td class="paramtype">StringPath &amp;</td>          <td class="paramname"><span class="paramname"><em>fullDynamicPath</em></span></td><td>)</td>
           <td> const</td>
@@ -260,14 +263,14 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PluginScanner</b></
 
 </div>
 </div>
-<a id="ad6b69adf04509a831773ee7bb982caf2" name="ad6b69adf04509a831773ee7bb982caf2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6b69adf04509a831773ee7bb982caf2">&#9670;&#160;</a></span>getDynamicLibraryPDBAbsolutePath()</h2>
+<a id="af117b963f75344282b61ba1e9d9a5ef4" name="af117b963f75344282b61ba1e9d9a5ef4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af117b963f75344282b61ba1e9d9a5ef4">&#9670;&#160;</a></span>getDynamicLibraryPDBAbsolutePath()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::PluginDefinition::getDynamicLibraryPDBAbsolutePath </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultPlugin.html">ResultPlugin</a> SC::PluginDefinition::getDynamicLibraryPDBAbsolutePath </td>
           <td>(</td>
           <td class="paramtype">StringPath &amp;</td>          <td class="paramname"><span class="paramname"><em>fullDynamicPath</em></span></td><td>)</td>
           <td> const</td>
@@ -343,7 +346,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PluginScanner</b></
 </div>
 </div>
 <a id="acf039c8f32766f9685c2eef720b74bb6" name="acf039c8f32766f9685c2eef720b74bb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf039c8f32766f9685c2eef720b74bb6">&#9670;&#160;</a></span>parse()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acf039c8f32766f9685c2eef720b74bb6">&#9670;&#160;</a></span>parse() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -369,15 +372,52 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PluginScanner</b></
 </table>
 </div><div class="memdoc">
 
+<p>Compatibility helper that returns false for either normal absence or a parsing storage failure. </p>
+
+</div>
+</div>
+<a id="aa9d7255fc7ca44262e89c54e3648d1cd" name="aa9d7255fc7ca44262e89c54e3648d1cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9d7255fc7ca44262e89c54e3648d1cd">&#9670;&#160;</a></span>parse() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structSC_1_1ResultPlugin.html">ResultPlugin</a> SC::PluginDefinition::parse </td>
+          <td>(</td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSC_1_1PluginDefinition.html">PluginDefinition</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pluginDefinition</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>parsed</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 <p>Parses an extracted plugin definition text. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td>An extracted plugin definition text (<code>extracted</code> of <a class="el" href="#a15476b941cd0af1c894696d71d7c7939" title="Extracts the plugin definition (SC_BEGIN_PLUGIN / SC_END_PLUGIN) comment from a .cpp file.">PluginDefinition::find</a>) </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">pluginDefinition</td><td>A valid <a class="el" href="structSC_1_1PluginDefinition.html" title="Plugin description, category, dependencies, files and directory location.">PluginDefinition</a> parsed from the given text </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">parsed</td><td><code>true</code> when text contains a complete valid definition. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the plugin definition can be parsed successfully </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A Plugin error when metadata is malformed or bounded storage cannot hold the definition. </dd></dl>
 
 </div>
 </div>

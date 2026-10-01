@@ -126,6 +126,7 @@ $(function(){initNavTree('group__group__strings.html',''); initResizable(true); 
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Strings</div></div>
 </div><!--header-->
@@ -184,6 +185,17 @@ Typedefs</h2></td></tr>
 <tr class="memdesc:ga4b7aa03fde5e693b29c03a9991208574"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTF code point (32 bit)  <br /></td></tr>
 <tr class="separator:ga4b7aa03fde5e693b29c03a9991208574"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga195abdf608a23b3686b36da7d3c22580" id="r_ga195abdf608a23b3686b36da7d3c22580"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga195abdf608a23b3686b36da7d3c22580">SC::StringsError</a> : uint32_t { <br />
+&#160;&#160;<b>InvalidArgumentCount</b> = 1
+, <br />
+&#160;&#160;<b>InsufficientArgumentStorage</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga195abdf608a23b3686b36da7d3c22580"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable error codes returned by the Strings library.  <a href="#ga195abdf608a23b3686b36da7d3c22580">More...</a><br /></td></tr>
+<tr class="separator:ga195abdf608a23b3686b36da7d3c22580"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga5ef1ec205762e517ccda361f2e5f6455" id="r_ga5ef1ec205762e517ccda361f2e5f6455"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
@@ -193,6 +205,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ga37e07d5e5fe0f109ddadb92b1e3d657e" id="r_ga37e07d5e5fe0f109ddadb92b1e3d657e"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga37e07d5e5fe0f109ddadb92b1e3d657e">SC::StringEncodingAreBinaryCompatible</a> (StringEncoding encoding1, StringEncoding encoding2)</td></tr>
 <tr class="memdesc:ga37e07d5e5fe0f109ddadb92b1e3d657e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if two encodings have the same utf unit size.  <br /></td></tr>
 <tr class="separator:ga37e07d5e5fe0f109ddadb92b1e3d657e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga26db19c01669df85240091d9f0d52b9e" id="r_ga26db19c01669df85240091d9f0d52b9e"><td class="memItemLeft" align="right" valign="top">ResultErrorFormat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga26db19c01669df85240091d9f0d52b9e">SC::formatStringsError</a> (<a class="el" href="#ga195abdf608a23b3686b36da7d3c22580">StringsError</a> error, Span&lt; char &gt; output)</td></tr>
+<tr class="memdesc:ga26db19c01669df85240091d9f0d52b9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a canonical English Strings diagnostic into caller-owned storage.  <br /></td></tr>
+<tr class="separator:ga26db19c01669df85240091d9f0d52b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1d21b7caf9e31478dd72ef6a9ddbc5f5" id="r_ga1d21b7caf9e31478dd72ef6a9ddbc5f5"><td class="memItemLeft" align="right" valign="top">ResultErrorFormat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1d21b7caf9e31478dd72ef6a9ddbc5f5">SC::formatStringsError</a> (Result result, Span&lt; char &gt; output)</td></tr>
+<tr class="memdesc:ga1d21b7caf9e31478dd72ef6a9ddbc5f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a plain Result when it contains a Strings error.  <br /></td></tr>
+<tr class="separator:ga1d21b7caf9e31478dd72ef6a9ddbc5f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>🟩 Non-owning encoded text, formatting, conversion, parsing, and path manipulation    (see <a class="el" href="library_strings.html">Strings</a> for more details) </p>
@@ -216,7 +234,101 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga195abdf608a23b3686b36da7d3c22580" name="ga195abdf608a23b3686b36da7d3c22580"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga195abdf608a23b3686b36da7d3c22580">&#9670;&#160;</a></span>StringsError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ga195abdf608a23b3686b36da7d3c22580">SC::StringsError</a> : uint32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;StringsError.h&gt;</code></p>
+
+<p>Stable error codes returned by the Strings library. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ga1d21b7caf9e31478dd72ef6a9ddbc5f5" name="ga1d21b7caf9e31478dd72ef6a9ddbc5f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1d21b7caf9e31478dd72ef6a9ddbc5f5">&#9670;&#160;</a></span>formatStringsError() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ResultErrorFormat SC::formatStringsError </td>
+          <td>(</td>
+          <td class="paramtype">Result</td>          <td class="paramname"><span class="paramname"><em>result</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;StringsErrorFormatter.h&gt;</code></p>
+
+<p>Formats a plain Result when it contains a Strings error. </p>
+
+</div>
+</div>
+<a id="ga26db19c01669df85240091d9f0d52b9e" name="ga26db19c01669df85240091d9f0d52b9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga26db19c01669df85240091d9f0d52b9e">&#9670;&#160;</a></span>formatStringsError() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ResultErrorFormat SC::formatStringsError </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ga195abdf608a23b3686b36da7d3c22580">StringsError</a></td>          <td class="paramname"><span class="paramname"><em>error</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;StringsErrorFormatter.h&gt;</code></p>
+
+<p>Formats a canonical English Strings diagnostic into caller-owned storage. </p>
+<p>This opt-in header owns the canonical strings. Applications can use ResultErrorFormatter with translated text instead. </p>
+
+</div>
+</div>
 <a id="ga5ef1ec205762e517ccda361f2e5f6455" name="ga5ef1ec205762e517ccda361f2e5f6455"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga5ef1ec205762e517ccda361f2e5f6455">&#9670;&#160;</a></span>PluginHash()</h2>
 

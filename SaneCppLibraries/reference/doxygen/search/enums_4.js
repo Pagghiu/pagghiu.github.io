@@ -1,7 +1,19 @@
 var searchData=
 [
-  ['headertype_0',['HeaderType',['../structSC_1_1HttpParser.html#a6e6ebc8472375b98908f408420a9fef7',1,'SC::HttpParser']]],
-  ['httpwebsocketendpointrole_1',['HttpWebSocketEndpointRole',['../group__group__http.html#ga5bdde1ed4c2627805b32bda38e8f8445',1,'SC']]],
-  ['httpwebsocketopcode_2',['HttpWebSocketOpcode',['../group__group__http.html#gafb9cef8f4b82503494fdc790514a21a1',1,'SC']]],
-  ['httpwebsocketsha1mode_3',['HttpWebSocketSha1Mode',['../group__group__http.html#gabe86911e4fd11a84d1f5d9033cb044ad',1,'SC']]]
+  ['fiberserror_0',['FibersError',['../group__group__fibers.html#ga6f4157f2fa4a86f64309e6b72ee03611',1,'SC']]],
+  ['filedescriptorentrytype_1',['FileDescriptorEntryType',['../group__group__file.html#ga3284572f6992e9abf36e60593c4d4d43',1,'SC']]],
+  ['fileerror_2',['FileError',['../group__group__file.html#ga282bad81409c1402a22205903c66c86b',1,'SC']]],
+  ['fileerrorcontextkind_3',['FileErrorContextKind',['../group__group__file.html#gaab2b383f0d60c7209857d129ddf246cf',1,'SC']]],
+  ['fileerrordetail_4',['FileErrorDetail',['../group__group__file.html#gac093ff57fcfa6d4a916195211a8c5abd',1,'SC']]],
+  ['filesystemaccessmode_5',['FileSystemAccessMode',['../group__group__file__system.html#ga0fe8fe856eace07319d3aef08f8c18a0',1,'SC']]],
+  ['filesystementrytype_6',['FileSystemEntryType',['../group__group__file__system.html#gaf55b9c478b3a0ecfaa29dfa9154d0242',1,'SC']]],
+  ['filesystemerror_7',['FileSystemError',['../group__group__file__system.html#gaa7cc7b68eced3a53bd484160fe299ae8',1,'SC']]],
+  ['filesystemerrorcontextkind_8',['FileSystemErrorContextKind',['../group__group__file__system.html#ga0d9588d01f808f2ae0bacaebc6c7a840',1,'SC']]],
+  ['filesystemerrordetail_9',['FileSystemErrorDetail',['../group__group__file__system.html#ga63603ec0b6ebacddf396fe934b791a3d',1,'SC']]],
+  ['filesystemiteratorerror_10',['FileSystemIteratorError',['../group__group__file__system__iterator.html#ga98130a6992d9bbf3180067227e62342d',1,'SC']]],
+  ['filesystemiteratorerrordetail_11',['FileSystemIteratorErrorDetail',['../group__group__file__system__iterator.html#gaaa034e2398ce735ae47327afada301d9',1,'SC']]],
+  ['filesystemwatchererror_12',['FileSystemWatcherError',['../group__group__file__system__watcher.html#ga4929229d788c83e8fa1edf66e781839d',1,'SC']]],
+  ['filesystemwatchererrordetail_13',['FileSystemWatcherErrorDetail',['../group__group__file__system__watcher.html#ga78210c0a13e63ffe680e0df78e29db2c',1,'SC']]],
+  ['flags_14',['Flags',['../structSC_1_1StringBuilder.html#a4469f304bc2f7accc20ea5c12254e232',1,'SC::StringBuilder']]],
+  ['framing_15',['Framing',['../structSC_1_1HttpClientRequestBody.html#ab62a48cd0d2ff73366f30872e61cf049',1,'SC::HttpClientRequestBody']]]
 ];

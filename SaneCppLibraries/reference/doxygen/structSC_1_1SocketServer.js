@@ -1,10 +1,10 @@
 var structSC_1_1SocketServer =
 [
     [ "SocketServer", "structSC_1_1SocketServer.html#a3464c4e648817ae773d60f3d4ce8a772", null ],
-    [ "accept", "structSC_1_1SocketServer.html#a4abac6ddfa7f0f7ae2ccf9a5e105e54f", null ],
-    [ "accept", "structSC_1_1SocketServer.html#aeabb14ac60f8530d60292cf87bbf4f26", null ],
-    [ "bind", "structSC_1_1SocketServer.html#a9a88d729d876989609ca3a63010a07b5", null ],
-    [ "bind", "structSC_1_1SocketServer.html#a7ec321dcf34ef6b8fc82669f6955e520", null ],
-    [ "close", "structSC_1_1SocketServer.html#a975fef3c3e27e2ece95b6b8ccc1aab19", null ],
-    [ "listen", "structSC_1_1SocketServer.html#a1c81f73951cd951e520d3be464f4cd1b", null ]
+    [ "accept", "structSC_1_1SocketServer.html#a6fb99bfa11bda26fe3052252f836025c", null ],
+    [ "accept", "structSC_1_1SocketServer.html#a670e24bfaa95bc4f64dbcf555d6a831f", null ],
+    [ "bind", "structSC_1_1SocketServer.html#aacfc9099eadc0250d6f2d21f353c4ec0", null ],
+    [ "bind", "structSC_1_1SocketServer.html#acfc3937eca46e97ca2e2c567e664d969", null ],
+    [ "close", "structSC_1_1SocketServer.html#a01819b95bc6dd8dc13e134422de396d5", null ],
+    [ "listen", "structSC_1_1SocketServer.html#a8e5ba8bb6da5ca99d6433e14b9f95880", null ]
 ];

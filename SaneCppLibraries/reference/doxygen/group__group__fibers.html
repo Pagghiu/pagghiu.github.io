@@ -123,14 +123,121 @@ $(function(){initNavTree('group__group__fibers.html',''); initResizable(true); }
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle"><div class="title">Fibers</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Experimental cooperative runtime for stackful fibers and stackless jobs.  
 <a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga6f4157f2fa4a86f64309e6b72ee03611" id="r_ga6f4157f2fa4a86f64309e6b72ee03611"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6f4157f2fa4a86f64309e6b72ee03611">SC::FibersError</a> : uint32_t { <br />
+&#160;&#160;<b>InvalidState</b> = 1
+, <br />
+&#160;&#160;<b>WrongOwner</b>
+, <br />
+&#160;&#160;<b>WrongScheduler</b>
+, <br />
+&#160;&#160;<b>WrongExecutionContext</b>
+, <br />
+&#160;&#160;<b>InvalidConfiguration</b>
+, <br />
+&#160;&#160;<b>CapacityExceeded</b>
+, <br />
+&#160;&#160;<b>StorageTooSmall</b>
+, <br />
+&#160;&#160;<b>GroupStorageTooSmall</b>
+, <br />
+&#160;&#160;<b>SlotUnavailable</b>
+, <br />
+&#160;&#160;<b>QueueUnavailable</b>
+, <br />
+&#160;&#160;<b>InvalidProcedure</b>
+, <br />
+&#160;&#160;<b>OperationUnsupported</b>
+, <br />
+&#160;&#160;<b>Cancelled</b>
+, <br />
+&#160;&#160;<b>NoProgress</b>
+, <br />
+&#160;&#160;<b>CounterUnderflow</b>
+, <br />
+&#160;&#160;<b>SynchronizationViolation</b>
+, <br />
+&#160;&#160;<b>GroupNotReset</b>
+, <br />
+&#160;&#160;<b>UnexpectedWorkerState</b>
+, <br />
+&#160;&#160;<b>AllocationFailed</b>
+, <br />
+&#160;&#160;<b>MemoryReservationFailed</b>
+, <br />
+&#160;&#160;<b>MemoryCommitFailed</b>
+, <br />
+&#160;&#160;<b>MemoryDecommitFailed</b>
+, <br />
+&#160;&#160;<b>MemoryReleaseFailed</b>
+, <br />
+&#160;&#160;<b>MemoryProtectionFailed</b>
+, <br />
+&#160;&#160;<b>StackGrowthPreparationFailed</b>
+, <br />
+&#160;&#160;<b>StackGuardPreparationFailed</b>
+, <br />
+&#160;&#160;<b>SignalHandlerInstallFailed</b>
+, <br />
+&#160;&#160;<b>SignalHandlerRestoreFailed</b>
+, <br />
+&#160;&#160;<b>SignalStackInstallFailed</b>
+, <br />
+&#160;&#160;<b>SignalStackRestoreFailed</b>
+, <br />
+&#160;&#160;<b>ThreadStartFailed</b>
+, <br />
+&#160;&#160;<b>ThreadJoinFailed</b>
+, <br />
+&#160;&#160;<b>ThreadPriorityApplyFailed</b>
+, <br />
+&#160;&#160;<b>ThreadAffinityApplyFailed</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga6f4157f2fa4a86f64309e6b72ee03611"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable portable failures owned by Fibers.  <a href="#ga6f4157f2fa4a86f64309e6b72ee03611">More...</a><br /></td></tr>
+<tr class="separator:ga6f4157f2fa4a86f64309e6b72ee03611"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Experimental cooperative runtime for stackful fibers and stackless jobs. </p>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga6f4157f2fa4a86f64309e6b72ee03611" name="ga6f4157f2fa4a86f64309e6b72ee03611"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6f4157f2fa4a86f64309e6b72ee03611">&#9670;&#160;</a></span>FibersError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ga6f4157f2fa4a86f64309e6b72ee03611">SC::FibersError</a> : uint32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;FibersError.h&gt;</code></p>
+
+<p>Stable portable failures owned by Fibers. </p>
+<p>Values are append-only.</p>
+<p>Procedure results from callers are not translated into this domain. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

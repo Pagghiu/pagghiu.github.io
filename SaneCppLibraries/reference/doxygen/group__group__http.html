@@ -301,6 +301,406 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:gab2ca9941d93d1c08a88a43b7c7e3e1a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacd74a0594a479e73fa7b218dac634a89" id="r_gacd74a0594a479e73fa7b218dac634a89"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gacd74a0594a479e73fa7b218dac634a89">SC::HttpError</a> : uint32_t { <br />
+&#160;&#160;<b>MalformedPercentEscape</b> = 1
+, <br />
+&#160;&#160;<b>DecodedOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>RequestTargetEmpty</b>
+, <br />
+&#160;&#160;<b>RequestTargetWhitespace</b>
+, <br />
+&#160;&#160;<b>UnsupportedRequestTargetForm</b>
+, <br />
+&#160;&#160;<b>MalformedURL</b>
+, <br />
+&#160;&#160;<b>UnsupportedProtocol</b>
+, <br />
+&#160;&#160;<b>InvalidURLPath</b>
+, <br />
+&#160;&#160;<b>InvalidURLHost</b>
+, <br />
+&#160;&#160;<b>InvalidURLUserInfo</b>
+, <br />
+&#160;&#160;<b>InvalidIPv6Host</b>
+, <br />
+&#160;&#160;<b>InvalidURLPort</b>
+, <br />
+&#160;&#160;<b>AllowHeaderOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>MultipartDispositionEmpty</b>
+, <br />
+&#160;&#160;<b>MultipartDispositionTypeEmpty</b>
+, <br />
+&#160;&#160;<b>MultipartBoundaryInvalid</b>
+, <br />
+&#160;&#160;<b>MultipartBoundaryTooLong</b>
+, <br />
+&#160;&#160;<b>MultipartBoundaryCandidateTooLong</b>
+, <br />
+&#160;&#160;<b>MultipartMalformedSyntax</b>
+, <br />
+&#160;&#160;<b>MultipartSpanInvalid</b>
+, <br />
+&#160;&#160;<b>AuthorizationCredentialsMissing</b>
+, <br />
+&#160;&#160;<b>AuthorizationNotBearer</b>
+, <br />
+&#160;&#160;<b>AuthorizationNotBasic</b>
+, <br />
+&#160;&#160;<b>BasicBase64Incomplete</b>
+, <br />
+&#160;&#160;<b>BasicBase64Invalid</b>
+, <br />
+&#160;&#160;<b>BasicBase64PaddingInvalid</b>
+, <br />
+&#160;&#160;<b>BasicBase64TrailingData</b>
+, <br />
+&#160;&#160;<b>BasicDecodeOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>BasicPasswordSeparatorMissing</b>
+, <br />
+&#160;&#160;<b>BasicUsernameContainsColon</b>
+, <br />
+&#160;&#160;<b>AuthorizationOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>BearerTokenEmpty</b>
+, <br />
+&#160;&#160;<b>BasicCredentialsEmpty</b>
+, <br />
+&#160;&#160;<b>SetCookieHeaderEmpty</b>
+, <br />
+&#160;&#160;<b>SetCookieNameValueMissing</b>
+, <br />
+&#160;&#160;<b>SetCookieNameEmpty</b>
+, <br />
+&#160;&#160;<b>SetCookieOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>CacheControlConflictingVisibility</b>
+, <br />
+&#160;&#160;<b>CacheControlOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>CacheControlNoDirectives</b>
+, <br />
+&#160;&#160;<b>HeaderStorageExhausted</b>
+, <br />
+&#160;&#160;<b>HeaderSizeLimitExceeded</b>
+, <br />
+&#160;&#160;<b>HeaderTokenLimitExceeded</b>
+, <br />
+&#160;&#160;<b>HeaderOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>MultipartBodyOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>ContentLengthFormattingFailed</b>
+, <br />
+&#160;&#160;<b>MultipartWriterBoundaryEmpty</b>
+, <br />
+&#160;&#160;<b>MultipartWriterBoundaryUnsafe</b>
+, <br />
+&#160;&#160;<b>MultipartWriterBoundaryMissing</b>
+, <br />
+&#160;&#160;<b>MultipartWriterFieldNameEmpty</b>
+, <br />
+&#160;&#160;<b>MultipartWriterFieldNameUnsafe</b>
+, <br />
+&#160;&#160;<b>MultipartWriterFileNameUnsafe</b>
+, <br />
+&#160;&#160;<b>MultipartWriterContentTypeUnsafe</b>
+, <br />
+&#160;&#160;<b>MultipartWriterPartLimitExceeded</b>
+, <br />
+&#160;&#160;<b>BodyExceedsContentLength</b>
+, <br />
+&#160;&#160;<b>BodyFramingHeadersConflict</b>
+, <br />
+&#160;&#160;<b>TransferEncodingUnsupported</b>
+, <br />
+&#160;&#160;<b>UnexpectedBodyData</b>
+, <br />
+&#160;&#160;<b>BodyStreamConsumptionMismatch</b>
+, <br />
+&#160;&#160;<b>ChunkSizeOverflow</b>
+, <br />
+&#160;&#160;<b>ChunkSizeInvalid</b>
+, <br />
+&#160;&#160;<b>ChunkHeaderMalformed</b>
+, <br />
+&#160;&#160;<b>ChunkTerminatorMalformed</b>
+, <br />
+&#160;&#160;<b>ChunkTrailersUnsupported</b>
+, <br />
+&#160;&#160;<b>ChunkTrailerTerminatorMalformed</b>
+, <br />
+&#160;&#160;<b>PipelinedBodyUnsupported</b>
+, <br />
+&#160;&#160;<b>ChunkHeaderOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>ChunkedDestinationMissing</b>
+, <br />
+&#160;&#160;<b>HeadersAlreadySent</b>
+, <br />
+&#160;&#160;<b>HeaderStartMissing</b>
+, <br />
+&#160;&#160;<b>MessageStartAlreadyWritten</b>
+, <br />
+&#160;&#160;<b>KeepAliveDisabled</b>
+, <br />
+&#160;&#160;<b>ContentLengthTransferEncodingConflict</b>
+, <br />
+&#160;&#160;<b>DestinationStreamMissing</b>
+, <br />
+&#160;&#160;<b>HeadersNotSent</b>
+, <br />
+&#160;&#160;<b>ResponseStatusUnsupported</b>
+, <br />
+&#160;&#160;<b>ResponseStatusInvalid</b>
+, <br />
+&#160;&#160;<b>ResponseReasonPhraseEmpty</b>
+, <br />
+&#160;&#160;<b>ResponseReasonPhraseInvalid</b>
+, <br />
+&#160;&#160;<b>ResponseStatusFormattingFailed</b>
+, <br />
+&#160;&#160;<b>RedirectStatusInvalid</b>
+, <br />
+&#160;&#160;<b>RedirectLocationEmpty</b>
+, <br />
+&#160;&#160;<b>ContentEncodingUnsupported</b>
+, <br />
+&#160;&#160;<b>CompressedBodyEncodingInvalid</b> = 85
+, <br />
+&#160;&#160;<b>MultipartWriterMissing</b>
+, <br />
+&#160;&#160;<b>PoolActiveConnectionsRemain</b>
+, <br />
+&#160;&#160;<b>PoolHeaderStorageEmpty</b>
+, <br />
+&#160;&#160;<b>PoolReadQueueConfigurationInvalid</b>
+, <br />
+&#160;&#160;<b>PoolBufferQueueConfigurationInvalid</b>
+, <br />
+&#160;&#160;<b>PoolReadQueueStorageTooSmall</b>
+, <br />
+&#160;&#160;<b>PoolWriteQueueStorageTooSmall</b>
+, <br />
+&#160;&#160;<b>PoolBufferQueueStorageTooSmall</b>
+, <br />
+&#160;&#160;<b>PoolHeaderStorageTooSmall</b>
+, <br />
+&#160;&#160;<b>PoolStreamStorageTooSmall</b>
+, <br />
+&#160;&#160;<b>ParserMethodMalformed</b>
+, <br />
+&#160;&#160;<b>ParserRequestTargetMalformed</b>
+, <br />
+&#160;&#160;<b>ParserVersionMalformed</b>
+, <br />
+&#160;&#160;<b>ParserStatusCodeMalformed</b>
+, <br />
+&#160;&#160;<b>ParserStatusTextMalformed</b>
+, <br />
+&#160;&#160;<b>ParserHeaderNameMalformed</b>
+, <br />
+&#160;&#160;<b>ParserHeaderValueMalformed</b>
+, <br />
+&#160;&#160;<b>ParserContentLengthMalformed</b>
+, <br />
+&#160;&#160;<b>ParserConnectionHeaderMalformed</b>
+, <br />
+&#160;&#160;<b>ParserHeaderTerminatorMalformed</b>
+, <br />
+&#160;&#160;<b>ParserSpanInvalid</b>
+, <br />
+&#160;&#160;<b>HeaderBlockIncomplete</b>
+, <br />
+&#160;&#160;<b>ServerReadQueueEmpty</b>
+, <br />
+&#160;&#160;<b>ServerWriteQueueEmpty</b>
+, <br />
+&#160;&#160;<b>ServerBufferPoolEmpty</b>
+, <br />
+&#160;&#160;<b>ServerResizeAddressChanged</b>
+, <br />
+&#160;&#160;<b>ServerResizeActiveConnection</b>
+, <br />
+&#160;&#160;<b>ServerAlreadyStarted</b>
+, <br />
+&#160;&#160;<b>ServerNotInitialized</b>
+, <br />
+&#160;&#160;<b>ServerExternalListenerRequired</b>
+, <br />
+&#160;&#160;<b>ServerConnectionSlotUnavailable</b>
+, <br />
+&#160;&#160;<b>ServerStopRequired</b>
+, <br />
+&#160;&#160;<b>ServerNotStarted</b>
+, <br />
+&#160;&#160;<b>ServerNotStopping</b>
+, <br />
+&#160;&#160;<b>ServerDataListenerUnavailable</b>
+, <br />
+&#160;&#160;<b>FileServerAlreadyInitialized</b>
+, <br />
+&#160;&#160;<b>FileServerDirectoryUnavailable</b>
+, <br />
+&#160;&#160;<b>FileServerRequestTargetNotPath</b>
+, <br />
+&#160;&#160;<b>FileServerPathEmpty</b>
+, <br />
+&#160;&#160;<b>FileServerPathCharacterInvalid</b>
+, <br />
+&#160;&#160;<b>FileServerDotSegment</b>
+, <br />
+&#160;&#160;<b>FileServerParentSegment</b>
+, <br />
+&#160;&#160;<b>FileServerDateConversionFailed</b>
+, <br />
+&#160;&#160;<b>FileServerDateOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>FileServerContentRangeOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>FileServerETagOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>ClientClosed</b>
+, <br />
+&#160;&#160;<b>ClientBodyStreamMissing</b>
+, <br />
+&#160;&#160;<b>ClientNotInitialized</b>
+, <br />
+&#160;&#160;<b>ClientConnectionUpgraded</b>
+, <br />
+&#160;&#160;<b>ClientRequestInProgress</b>
+, <br />
+&#160;&#160;<b>ClientUpgradeHeadersMissing</b>
+, <br />
+&#160;&#160;<b>ClientUpgradeStatusInvalid</b>
+, <br />
+&#160;&#160;<b>ClientUserInfoUnsupported</b>
+, <br />
+&#160;&#160;<b>ClientReconnectNotPending</b>
+, <br />
+&#160;&#160;<b>ClientReconnectListenerUnavailable</b>
+, <br />
+&#160;&#160;<b>ClientSocketInvalid</b> = 145
+, <br />
+&#160;&#160;<b>ClientHttpsTransportMissing</b>
+, <br />
+&#160;&#160;<b>ClientProtocolStorageTooSmall</b>
+, <br />
+&#160;&#160;<b>ClientHostStorageTooSmall</b>
+, <br />
+&#160;&#160;<b>ClientResponseListenerUnavailable</b>
+, <br />
+&#160;&#160;<b>ClientBodyStreamPoolMismatch</b>
+, <br />
+&#160;&#160;<b>ClientTransformReadablePoolMismatch</b>
+, <br />
+&#160;&#160;<b>ClientTransformWritablePoolMismatch</b>
+, <br />
+&#160;&#160;<b>ClientDecoderListenerUnavailable</b>
+, <br />
+&#160;&#160;<b>ClientInformationalResponseUnsupported</b> = 158
+, <br />
+&#160;&#160;<b>ClientResponseIncomplete</b>
+, <br />
+&#160;&#160;<b>WebSocketBase64OutputTooSmall</b>
+, <br />
+&#160;&#160;<b>WebSocketBase64LengthInvalid</b>
+, <br />
+&#160;&#160;<b>WebSocketBase64PaddingInvalid</b>
+, <br />
+&#160;&#160;<b>WebSocketBase64CharacterInvalid</b>
+, <br />
+&#160;&#160;<b>WebSocketBase64DecodeOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>WebSocketSha1ProviderUnavailable</b>
+, <br />
+&#160;&#160;<b>WebSocketSha1ModeInvalid</b>
+, <br />
+&#160;&#160;<b>WebSocketSha1DigestSizeInvalid</b>
+, <br />
+&#160;&#160;<b>WebSocketNonceLengthInvalid</b>
+, <br />
+&#160;&#160;<b>WebSocketClientKeyLengthInvalid</b>
+, <br />
+&#160;&#160;<b>WebSocketClientKeyDecodedLengthInvalid</b>
+, <br />
+&#160;&#160;<b>WebSocketUpgradeStatusInvalid</b>
+, <br />
+&#160;&#160;<b>WebSocketUpgradeHeaderInvalid</b>
+, <br />
+&#160;&#160;<b>WebSocketConnectionHeaderInvalid</b>
+, <br />
+&#160;&#160;<b>WebSocketAcceptHeaderInvalid</b>
+, <br />
+&#160;&#160;<b>WebSocketServerRequestNotAcceptable</b>
+, <br />
+&#160;&#160;<b>WebSocketRejectAcceptedRequest</b>
+, <br />
+&#160;&#160;<b>WebSocketFrameReservedBitsUnsupported</b>
+, <br />
+&#160;&#160;<b>WebSocketOpcodeUnsupported</b>
+, <br />
+&#160;&#160;<b>WebSocketFrameLengthInvalid</b>
+, <br />
+&#160;&#160;<b>WebSocketFramePayloadProgressInvalid</b>
+, <br />
+&#160;&#160;<b>WebSocketFrameMaskInvalid</b>
+, <br />
+&#160;&#160;<b>WebSocketControlFrameFragmented</b>
+, <br />
+&#160;&#160;<b>WebSocketControlFrameTooLarge</b>
+, <br />
+&#160;&#160;<b>WebSocketContinuationUnexpected</b>
+, <br />
+&#160;&#160;<b>WebSocketContinuationExpected</b>
+, <br />
+&#160;&#160;<b>WebSocketFrameAlreadyInProgress</b>
+, <br />
+&#160;&#160;<b>WebSocketFrameHeaderOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>WebSocketFrameMissing</b>
+, <br />
+&#160;&#160;<b>WebSocketFramePayloadExceedsLength</b>
+, <br />
+&#160;&#160;<b>WebSocketFramePayloadIncomplete</b>
+, <br />
+&#160;&#160;<b>WebSocketMessageMissing</b>
+, <br />
+&#160;&#160;<b>WebSocketMessageStorageTooSmall</b>
+, <br />
+&#160;&#160;<b>WebSocketMaskKeyMissing</b>
+, <br />
+&#160;&#160;<b>WebSocketFramePayloadLengthMismatch</b>
+, <br />
+&#160;&#160;<b>WebSocketFrameOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>WebSocketDataOpcodeRequired</b>
+, <br />
+&#160;&#160;<b>WebSocketCloseStatusRequired</b>
+, <br />
+&#160;&#160;<b>WebSocketClosePayloadMalformed</b>
+, <br />
+&#160;&#160;<b>WebSocketControlBackpressure</b>
+, <br />
+&#160;&#160;<b>WebSocketAutomaticControlOutputTooSmall</b>
+, <br />
+&#160;&#160;<b>WebSocketTransportInvalid</b>
+, <br />
+&#160;&#160;<b>WebSocketPumpListenerUnavailable</b>
+, <br />
+&#160;&#160;<b>WebSocketPumpNotAttached</b> = 205
+, <br />
+&#160;&#160;<b>WebSocketFrameEmpty</b>
+, <br />
+&#160;&#160;<b>WebSocketHubFull</b>
+, <br />
+&#160;&#160;<b>WebSocketHubClientIndexInvalid</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:gacd74a0594a479e73fa7b218dac634a89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable portable failures owned by Http.  <a href="#gacd74a0594a479e73fa7b218dac634a89">More...</a><br /></td></tr>
+<tr class="separator:gacd74a0594a479e73fa7b218dac634a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga983ee01d449a6bd5decda6b328c5e562" id="r_ga983ee01d449a6bd5decda6b328c5e562"><td class="memItemLeft" align="right" valign="top"><a id="ga983ee01d449a6bd5decda6b328c5e562" name="ga983ee01d449a6bd5decda6b328c5e562"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>HttpRouteMatchStatus</b> { <br />
 &#160;&#160;<b>Matched</b>
 , <br />
@@ -392,6 +792,34 @@ SC_HTTP_EXPORT StringSpan&#160;</td><td class="memItemRight" valign="bottom"><b>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="gacd74a0594a479e73fa7b218dac634a89" name="gacd74a0594a479e73fa7b218dac634a89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacd74a0594a479e73fa7b218dac634a89">&#9670;&#160;</a></span>HttpError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#gacd74a0594a479e73fa7b218dac634a89">SC::HttpError</a> : uint32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;HttpError.h&gt;</code></p>
+
+<p>Stable portable failures owned by Http. </p>
+<p>Values are append-only.</p>
+<p>Transport and caller failures preserve their original category and value. </p>
+
+</div>
+</div>
 <a id="ga5bdde1ed4c2627805b32bda38e8f8445" name="ga5bdde1ed4c2627805b32bda38e8f8445"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga5bdde1ed4c2627805b32bda38e8f8445">&#9670;&#160;</a></span>HttpWebSocketEndpointRole</h2>
 

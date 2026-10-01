@@ -123,15 +123,124 @@ $(function(){initNavTree('group__group__await.html',''); initResizable(true); })
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle"><div class="title">Await</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>🟨 C++20 coroutine layer over Async    (see <a class="el" href="library_await.html">Await</a> for more details) C++20 coroutine layer over <a class="el" href="structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">SC::AsyncEventLoop</a>.  
 <a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga006f99f09dd1499472433bce089bdb24" id="r_ga006f99f09dd1499472433bce089bdb24"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga006f99f09dd1499472433bce089bdb24">SC::AwaitError</a> : uint32_t { <br />
+&#160;&#160;<b>Cancelled</b> = 1
+, <br />
+&#160;&#160;<b>WrongEventLoop</b>
+, <br />
+&#160;&#160;<b>AllocatorAlreadyOpen</b>
+, <br />
+&#160;&#160;<b>AllocatorStorageEmpty</b>
+, <br />
+&#160;&#160;<b>AllocatorReservationEmpty</b>
+, <br />
+&#160;&#160;<b>AllocatorReservationFailed</b>
+, <br />
+&#160;&#160;<b>AllocatorCommitFailed</b>
+, <br />
+&#160;&#160;<b>AllocatorHasLiveAllocations</b>
+, <br />
+&#160;&#160;<b>InvalidTask</b>
+, <br />
+&#160;&#160;<b>TaskNotCompleted</b>
+, <br />
+&#160;&#160;<b>TaskNotStarted</b>
+, <br />
+&#160;&#160;<b>TaskAlreadyStarted</b>
+, <br />
+&#160;&#160;<b>TaskCancellationUnavailable</b>
+, <br />
+&#160;&#160;<b>UnhandledException</b>
+, <br />
+&#160;&#160;<b>SocketSendNoProgress</b>
+, <br />
+&#160;&#160;<b>SocketReceiveIncomplete</b>
+, <br />
+&#160;&#160;<b>SocketReceiveNoProgress</b>
+, <br />
+&#160;&#160;<b>EmptyReceiveBuffer</b>
+, <br />
+&#160;&#160;<b>ReceiveLineBufferExhausted</b>
+, <br />
+&#160;&#160;<b>FileReadNoProgress</b>
+, <br />
+&#160;&#160;<b>OperationUnsupported</b>
+, <br />
+&#160;&#160;<b>InvalidFileHandle</b>
+, <br />
+&#160;&#160;<b>MissingOutputFile</b>
+, <br />
+&#160;&#160;<b>MissingFile</b>
+, <br />
+&#160;&#160;<b>MissingReadResult</b>
+, <br />
+&#160;&#160;<b>InvalidFileSystemOperation</b>
+, <br />
+&#160;&#160;<b>TaskGroupStorageFull</b>
+, <br />
+&#160;&#160;<b>TaskGroupResultStorageTooSmall</b> = 29
+, <br />
+&#160;&#160;<b>InactiveTask</b>
+, <br />
+&#160;&#160;<b>TaskGroupEmpty</b>
+, <br />
+&#160;&#160;<b>TaskAlreadyAwaited</b>
+, <br />
+&#160;&#160;<b>RegistryStorageFull</b> = 34
+, <br />
+&#160;&#160;<b>RegistryEmpty</b> = 36
+, <br />
+&#160;&#160;<b>TaskTimedOut</b> = 38
+, <br />
+&#160;&#160;<b>InvalidWorkCallback</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga006f99f09dd1499472433bce089bdb24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable portable failures owned by Await.  <a href="#ga006f99f09dd1499472433bce089bdb24">More...</a><br /></td></tr>
+<tr class="separator:ga006f99f09dd1499472433bce089bdb24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>🟨 C++20 coroutine layer over Async    (see <a class="el" href="library_await.html">Await</a> for more details) C++20 coroutine layer over <a class="el" href="structSC_1_1AsyncEventLoop.html" title="Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...">SC::AsyncEventLoop</a>. </p>
 <p>Await is an experimental wrapper that lets coroutine bodies express asynchronous operations with <code>co_await</code> while still returning plain SC::Result values and using caller-provided output objects. </p>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga006f99f09dd1499472433bce089bdb24" name="ga006f99f09dd1499472433bce089bdb24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga006f99f09dd1499472433bce089bdb24">&#9670;&#160;</a></span>AwaitError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ga006f99f09dd1499472433bce089bdb24">SC::AwaitError</a> : uint32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;AwaitError.h&gt;</code></p>
+
+<p>Stable portable failures owned by Await. </p>
+<p>Values are append-only.</p>
+<p>Results from Async and other libraries retain their original identity. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

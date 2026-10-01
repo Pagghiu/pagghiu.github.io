@@ -144,6 +144,12 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1FileSystem.html">SC::FileSystem</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute fs operations { exists, copy, delete } for { files and directories }.  <a href="structSC_1_1FileSystem.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionSC_1_1FileSystemErrorContext.html">SC::FileSystemErrorContext</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typed scalar payload for a <a class="el" href="structSC_1_1FileSystem.html" title="Execute fs operations { exists, copy, delete } for { files and directories }.">FileSystem</a> error.  <a href="unionSC_1_1FileSystemErrorContext.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1ResultFileSystem.html">SC::ResultFileSystem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structSC_1_1FileSystem.html" title="Execute fs operations { exists, copy, delete } for { files and directories }.">FileSystem</a> result retaining an operation detail and one scalar diagnostic context.  <a href="structSC_1_1ResultFileSystem.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1Path.html">SC::Path</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse and compose filesystem paths for windows and posix.  <a href="structSC_1_1Path.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,6 +182,164 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ga0fe8fe856eace07319d3aef08f8c18a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access mode for path checks.  <a href="#ga0fe8fe856eace07319d3aef08f8c18a0">More...</a><br /></td></tr>
 <tr class="separator:ga0fe8fe856eace07319d3aef08f8c18a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa7cc7b68eced3a53bd484160fe299ae8" id="r_gaa7cc7b68eced3a53bd484160fe299ae8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa7cc7b68eced3a53bd484160fe299ae8">SC::FileSystemError</a> : uint32_t { <br />
+&#160;&#160;<b>NotInitialized</b> = 1
+, <br />
+&#160;&#160;<b>UnsupportedPathEncoding</b>
+, <br />
+&#160;&#160;<b>InvalidPath</b>
+, <br />
+&#160;&#160;<b>PathMustBeAbsolute</b>
+, <br />
+&#160;&#160;<b>PathCapacityExceeded</b>
+, <br />
+&#160;&#160;<b>InvalidState</b>
+, <br />
+&#160;&#160;<b>EntryNotFound</b>
+, <br />
+&#160;&#160;<b>EntryAlreadyExists</b>
+, <br />
+&#160;&#160;<b>EntryTypeMismatch</b>
+, <br />
+&#160;&#160;<b>AccessDenied</b>
+, <br />
+&#160;&#160;<b>ReadOnlyFileSystem</b>
+, <br />
+&#160;&#160;<b>StorageCapacityExceeded</b>
+, <br />
+&#160;&#160;<b>DirectoryNotEmpty</b>
+, <br />
+&#160;&#160;<b>TooManyLinks</b>
+, <br />
+&#160;&#160;<b>SymbolicLinkLoop</b>
+, <br />
+&#160;&#160;<b>CrossDeviceOperation</b>
+, <br />
+&#160;&#160;<b>InvalidArgument</b>
+, <br />
+&#160;&#160;<b>OperationUnsupported</b>
+, <br />
+&#160;&#160;<b>OutOfMemory</b>
+, <br />
+&#160;&#160;<b>BufferCapacityExceeded</b>
+, <br />
+&#160;&#160;<b>FileTooLarge</b>
+, <br />
+&#160;&#160;<b>IncompleteRead</b>
+, <br />
+&#160;&#160;<b>IncompleteWrite</b>
+, <br />
+&#160;&#160;<b>UnsupportedEntryType</b>
+, <br />
+&#160;&#160;<b>IoFailure</b>
+, <br />
+&#160;&#160;<b>OperationFailed</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:gaa7cc7b68eced3a53bd484160fe299ae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable portable failures returned by the FileSystem library.  <a href="#gaa7cc7b68eced3a53bd484160fe299ae8">More...</a><br /></td></tr>
+<tr class="separator:gaa7cc7b68eced3a53bd484160fe299ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga63603ec0b6ebacddf396fe934b791a3d" id="r_ga63603ec0b6ebacddf396fe934b791a3d"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga63603ec0b6ebacddf396fe934b791a3d">SC::FileSystemErrorDetail</a> : uint16_t { <br />
+&#160;&#160;<b>None</b> = 0
+, <br />
+&#160;&#160;<b>ValidatePathEncoding</b>
+, <br />
+&#160;&#160;<b>NormalizePath</b>
+, <br />
+&#160;&#160;<b>ValidateAbsoluteBasePath</b>
+, <br />
+&#160;&#160;<b>BuildTransportPath</b>
+, <br />
+&#160;&#160;<b>ChangeDirectory</b>
+, <br />
+&#160;&#160;<b>CheckAccess</b>
+, <br />
+&#160;&#160;<b>QueryEntryMetadata</b>
+, <br />
+&#160;&#160;<b>OpenFileForRead</b>
+, <br />
+&#160;&#160;<b>OpenFileForWrite</b>
+, <br />
+&#160;&#160;<b>QueryFileSize</b>
+, <br />
+&#160;&#160;<b>GrowReadBuffer</b>
+, <br />
+&#160;&#160;<b>ReadFileContent</b>
+, <br />
+&#160;&#160;<b>WriteFileContent</b>
+, <br />
+&#160;&#160;<b>AppendFileContent</b>
+, <br />
+&#160;&#160;<b>CreateDirectoryEntry</b>
+, <br />
+&#160;&#160;<b>CreateParentDirectory</b>
+, <br />
+&#160;&#160;<b>RemoveFileEntry</b>
+, <br />
+&#160;&#160;<b>RemoveDirectoryEntry</b>
+, <br />
+&#160;&#160;<b>RenameEntry</b>
+, <br />
+&#160;&#160;<b>CreateSymbolicLinkEntry</b>
+, <br />
+&#160;&#160;<b>CreateHardLinkEntry</b>
+, <br />
+&#160;&#160;<b>ReadSymbolicLinkTarget</b>
+, <br />
+&#160;&#160;<b>StoreSymbolicLinkTarget</b>
+, <br />
+&#160;&#160;<b>ChangePermissions</b>
+, <br />
+&#160;&#160;<b>ChangeOwnership</b>
+, <br />
+&#160;&#160;<b>ChangeLinkPermissions</b>
+, <br />
+&#160;&#160;<b>ChangeLinkOwnership</b>
+, <br />
+&#160;&#160;<b>ChangeModifiedTime</b>
+, <br />
+&#160;&#160;<b>CopyFileEntry</b>
+, <br />
+&#160;&#160;<b>CopyDirectoryTree</b>
+, <br />
+&#160;&#160;<b>CloneEntry</b>
+, <br />
+&#160;&#160;<b>OpenSourceFile</b>
+, <br />
+&#160;&#160;<b>OpenDestinationFile</b>
+, <br />
+&#160;&#160;<b>OpenSourceDirectory</b>
+, <br />
+&#160;&#160;<b>EnumerateDirectory</b>
+, <br />
+&#160;&#160;<b>BuildChildPath</b>
+, <br />
+&#160;&#160;<b>QueryChildMetadata</b>
+, <br />
+&#160;&#160;<b>CopyChildEntry</b>
+, <br />
+&#160;&#160;<b>RemoveChildEntry</b>
+, <br />
+&#160;&#160;<b>WindowsQueryReparsePoint</b>
+, <br />
+&#160;&#160;<b>QueryFileTimes</b>
+, <br />
+&#160;&#160;<b>SetFileTimes</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga63603ec0b6ebacddf396fe934b791a3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable logical operation or backend stage retained for a FileSystem failure.  <a href="#ga63603ec0b6ebacddf396fe934b791a3d">More...</a><br /></td></tr>
+<tr class="separator:ga63603ec0b6ebacddf396fe934b791a3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0d9588d01f808f2ae0bacaebc6c7a840" id="r_ga0d9588d01f808f2ae0bacaebc6c7a840"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0d9588d01f808f2ae0bacaebc6c7a840">SC::FileSystemErrorContextKind</a> : uint16_t { <br />
+&#160;&#160;<b>None</b> = 0
+, <br />
+&#160;&#160;<b>NativeError</b>
+, <br />
+&#160;&#160;<b>RequiredBytes</b>
+, <br />
+&#160;&#160;<b>ActualBytes</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga0d9588d01f808f2ae0bacaebc6c7a840"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kind of scalar diagnostic context stored in ResultFileSystem.  <a href="#ga0d9588d01f808f2ae0bacaebc6c7a840">More...</a><br /></td></tr>
+<tr class="separator:ga0d9588d01f808f2ae0bacaebc6c7a840"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>🟩 Synchronous, path-based file and directory operations    (see <a class="el" href="library_file_system.html">File System</a> for more details) </p>
@@ -239,6 +403,84 @@ Enumerations</h2></td></tr>
 <p><code>#include &lt;FileSystem.h&gt;</code></p>
 
 <p>A structure to describe file stats. </p>
+
+</div>
+</div>
+<a id="gaa7cc7b68eced3a53bd484160fe299ae8" name="gaa7cc7b68eced3a53bd484160fe299ae8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa7cc7b68eced3a53bd484160fe299ae8">&#9670;&#160;</a></span>FileSystemError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#gaa7cc7b68eced3a53bd484160fe299ae8">SC::FileSystemError</a> : uint32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;FileSystemError.h&gt;</code></p>
+
+<p>Stable portable failures returned by the <a class="el" href="structSC_1_1FileSystem.html" title="Execute fs operations { exists, copy, delete } for { files and directories }.">FileSystem</a> library. </p>
+
+</div>
+</div>
+<a id="ga0d9588d01f808f2ae0bacaebc6c7a840" name="ga0d9588d01f808f2ae0bacaebc6c7a840"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0d9588d01f808f2ae0bacaebc6c7a840">&#9670;&#160;</a></span>FileSystemErrorContextKind</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ga0d9588d01f808f2ae0bacaebc6c7a840">SC::FileSystemErrorContextKind</a> : uint16_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;FileSystemError.h&gt;</code></p>
+
+<p>Kind of scalar diagnostic context stored in <a class="el" href="structSC_1_1ResultFileSystem.html" title="FileSystem result retaining an operation detail and one scalar diagnostic context.">ResultFileSystem</a>. </p>
+
+</div>
+</div>
+<a id="ga63603ec0b6ebacddf396fe934b791a3d" name="ga63603ec0b6ebacddf396fe934b791a3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga63603ec0b6ebacddf396fe934b791a3d">&#9670;&#160;</a></span>FileSystemErrorDetail</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ga63603ec0b6ebacddf396fe934b791a3d">SC::FileSystemErrorDetail</a> : uint16_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;FileSystemError.h&gt;</code></p>
+
+<p>Stable logical operation or backend stage retained for a <a class="el" href="structSC_1_1FileSystem.html" title="Execute fs operations { exists, copy, delete } for { files and directories }.">FileSystem</a> failure. </p>
 
 </div>
 </div>

@@ -121,37 +121,40 @@
     <a href="#autotoc_md88">Mental Model: Requests Live Until Completion</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md89">Driving The Event Loop</a>
+    <a href="#autotoc_md89">Process Exit</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md90">Timers And Cross-Thread Wake-Ups</a>
+    <a href="#autotoc_md90">Driving The Event Loop</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md91">Socket I/O</a>
+    <a href="#autotoc_md91">Timers And Cross-Thread Wake-Ups</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md92">File I/O And Blocking Backends</a>
+    <a href="#autotoc_md92">Socket I/O</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md93">Sequencing And Long-Lived Operations</a>
+    <a href="#autotoc_md93">File I/O And Blocking Backends</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md94">Platform Backends And Tradeoffs</a>
+    <a href="#autotoc_md94">Sequencing And Long-Lived Operations</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md95">Status</a>
+    <a href="#autotoc_md95">Platform Backends And Tradeoffs</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md96">Videos</a>
+    <a href="#autotoc_md96">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md97">Blog</a>
+    <a href="#autotoc_md97">Videos</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md98">Roadmap</a>
+    <a href="#autotoc_md98">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md99">Statistics</a>
+    <a href="#autotoc_md99">Roadmap</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md100">Statistics</a>
   </li>
 </ul>
 </div></div> </details> <div class="library-main" data-astro-cid-7c432cc5> <section class="page-hero library-hero" data-astro-cid-7c432cc5> <div class="library-heading" data-astro-cid-7c432cc5> <div class="eyebrow" data-astro-cid-7c432cc5>Library</div> <h1 data-astro-cid-7c432cc5>Async</h1> <p data-astro-cid-7c432cc5>Cross-platform completion-based asynchronous I/O</p> <span class="maturity-badge mvp strong" data-astro-cid-blexnnyn> <span class="dot" data-astro-cid-blexnnyn></span> <span data-astro-cid-blexnnyn>MVP</span> </span>  </div> </section> <section class="meta-grid" data-astro-cid-7c432cc5> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Dependencies</strong> <p class="dependency-links" data-astro-cid-7c432cc5> <a href="/SaneCppLibraries/libraries/file/" data-astro-cid-7c432cc5>File</a><span data-astro-cid-7c432cc5>FileSystem</span><a href="/SaneCppLibraries/libraries/socket/" data-astro-cid-7c432cc5>Socket</a><a href="/SaneCppLibraries/libraries/threading/" data-astro-cid-7c432cc5>Threading</a> </p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Single file</strong> <p data-astro-cid-7c432cc5><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppAsync.h" data-astro-cid-7c432cc5>Download release header</a></p> </div> <div class="card" data-astro-cid-7c432cc5> <strong data-astro-cid-7c432cc5>Reference</strong> <p data-astro-cid-7c432cc5><a href="/SaneCppLibraries/reference/doxygen/library_async.html" data-astro-cid-7c432cc5>Open generated API/docs</a></p> </div> </section> <article class="panel prose article doxygen-content" data-astro-cid-7c432cc5><div class="textblock"><p>🟨 Cross-platform completion-based asynchronous I/O</p>
@@ -182,6 +185,10 @@ Mental Model: Requests Live Until Completion</h1>
 <p>Once <code>start()</code> succeeds, completion—including an operating-system error—is reported through the callback. A request whose start fails was not accepted. Explicitly stopping a request suppresses its normal callback. Until the optional stop callback runs, the request is still owned by the loop and its storage cannot be reused; without that callback, the caller must otherwise drive teardown to completion before destroying it.</p>
 <p>A completion callback may call <code>result.reactivateRequest(true)</code> to submit the same request again. This is useful for a repeating timer, a receive loop, or another long-lived operation, but it also extends the request and buffer lifetime to the next completion.</p>
 <h1><a class="anchor" id="autotoc_md89"></a>
+Process Exit</h1>
+<p><code>AsyncProcessExit</code> waits for one child process. On macOS and Linux, a successful exit callback has already reaped the child, so do not call <code>Process::waitForExitSync</code> afterward. A failed start or a request stopped before its exit callback leaves waiting and reaping with the caller. Register only one exit request for each child; two waiters can race to consume the same exit status. On Windows, the callback reads the process exit code from the native handle; the caller still owns that handle through its <code>Process</code> object.</p>
+<p>For a process with redirected output, keep its storage alive until the exit callback and both output streams have finished. A canceled exit request does not terminate or reap the child.</p>
+<h1><a class="anchor" id="autotoc_md90"></a>
 Driving The Event Loop</h1>
 <p>The smallest complete shape is: create a loop, create caller-owned requests, start them, and run until no work remains. This example is compiled as part of <code>AsyncTest</code>:</p>
 <pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">AsyncEventLoop eventLoop</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
@@ -201,7 +208,7 @@ Driving The Event Loop</h1>
 </ul>
 <p>Applications that already own their main loop can separate the three phases with <code>submitRequests()</code>, <code>blockingPoll()</code>, and <code>dispatchCompletions()</code>. <code>AsyncEventLoopMonitor</code> goes further: one thread can monitor the OS backend while another thread stops monitoring and dispatches completions. This separation is the important integration seam—callbacks still run on the thread that dispatches them, not on an arbitrary kernel thread.</p>
 <p><code>run()</code> normally returns after counted work drains, but <code>interrupt()</code> can make it return early and <code>excludeFromActiveCount()</code> can keep a long-lived request from holding it open. Neither facility releases an active request: it must still complete, be stopped, or be released when the loop closes.</p>
-<h1><a class="anchor" id="autotoc_md90"></a>
+<h1><a class="anchor" id="autotoc_md91"></a>
 Timers And Cross-Thread Wake-Ups</h1>
 <p><code>AsyncLoopTimeout</code> schedules an absolute or relative timeout. Its callback can alter the request and reactivate it, turning the same stable object into a repeating timer:</p>
 <pre class="fragment shiki shiki-themes github-light catppuccin-mocha" style="background-color:#fff;--shiki-dark-bg:#1e1e2e;color:#24292e;--shiki-dark:#cdd6f4" tabindex="0"><code><span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">// Create a timeout that will be called after 200 milliseconds</span></span>
@@ -231,7 +238,7 @@ Timers And Cross-Thread Wake-Ups</h1>
 <span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">    result</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">reactivateRequest</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#005CC5;--shiki-dark:#FAB387">true</span><span style="color:#24292E;--shiki-dark:#9399B2">);</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic"> // To allow waking-up again later</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">};</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">wakeUp</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">start</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">eventLoop</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span></code></pre><p>Use <code>AsyncLoopWork</code> for work submitted to a caller-provided <code>ThreadPool</code>, and <code>AsyncExternalCompletion</code> when an external API already has its own asynchronous completion mechanism that needs to re-enter the loop.</p>
-<h1><a class="anchor" id="autotoc_md91"></a>
+<h1><a class="anchor" id="autotoc_md92"></a>
 Socket I/O</h1>
 <p>The loop can create asynchronous IP and Unix-domain sockets and operate on <code>SocketDescriptor</code> values from the <a class="el" href="/SaneCppLibraries/libraries/socket/">Socket</a> library. Accept/connect and stream send/receive are separate request types; unconnected datagrams use send-to/receive-from requests that carry a family-neutral <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1SocketAddress.html" title="Family-neutral native socket address.">SC::SocketAddress</a>. Existing <a class="el" href="/SaneCppLibraries/reference/doxygen/structSC_1_1SocketIPAddress.html" title="Native representation of an IP Address.">SC::SocketIPAddress</a> overloads remain available for IP callers. Unix pathname streams and datagrams work on macOS and Linux, with Linux abstract names supplied by Socket; Windows and Emscripten report Unix-domain creation as unsupported.</p>
 <p>A receive request owns no payload memory: the destination buffer in this compiled example remains in scope until the callback finishes. The callback may reactivate the request after consuming data to continue the receive loop.</p>
@@ -268,7 +275,7 @@ Socket I/O</h1>
 <span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">    }</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#9399B2">};</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">receiveAsync</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">start</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">eventLoop</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> client</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> {receivedData</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> sizeof</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">receivedData</span><span style="color:#24292E;--shiki-dark:#9399B2">)</span><span style="color:#24292E;--shiki-dark:#CDD6F4">}</span><span style="color:#24292E;--shiki-dark:#9399B2">));</span></span></code></pre><p>Send and receive operations may complete with fewer bytes than requested. Applications must advance through their data or use <a class="el" href="/SaneCppLibraries/libraries/async-streams/">AsyncStreams</a> when they want higher-level streaming and buffering behavior.</p>
-<h1><a class="anchor" id="autotoc_md92"></a>
+<h1><a class="anchor" id="autotoc_md93"></a>
 File I/O And Blocking Backends</h1>
 <p>Files expose a portability distinction that the API keeps visible. Some backends can perform a file operation natively; others require blocking work. For operations that may block, the caller supplies a <code>ThreadPool</code> and associates the request with an <code>AsyncTaskSequence</code> through <code>executeOn()</code>.</p>
 <p><code>AsyncThreadPoolMode::NativePreferred</code> uses native support when available and the supplied pool where necessary. <code>AsyncThreadPoolMode::ForceThreadPool</code> forces the pool even on a native-capable backend. The pool, its storage, the file descriptor, request object, and buffers all remain caller-owned.</p>
@@ -320,7 +327,7 @@ File I/O And Blocking Backends</h1>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#CBA6F7">char</span><span style="color:#24292E;--shiki-dark:#CDD6F4"> buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">[</span><span style="color:#005CC5;--shiki-dark:#FAB387">100</span><span style="color:#24292E;--shiki-dark:#9399B2">]</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> =</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#005CC5;--shiki-dark:#FAB387">0</span><span style="color:#24292E;--shiki-dark:#9399B2">};</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">asyncReadFile</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">buffer </span><span style="color:#D73A49;--shiki-dark:#94E2D5">=</span><span style="color:#24292E;--shiki-dark:#9399B2"> {</span><span style="color:#24292E;--shiki-dark:#CDD6F4">buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#D73A49;--shiki-dark:#94E2D5"> sizeof</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">buffer</span><span style="color:#24292E;--shiki-dark:#9399B2">)};</span></span>
 <span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">// Obtain file descriptor handle and associate it with event loop</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">fd</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">get</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">asyncReadFile</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">handle</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-dark:#F9E2AF"> Result</span><span style="color:#24292E;--shiki-dark:#9399B2">::</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">Error</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#032F62;--shiki-dark:#A6E3A1">"Invalid handle"</span><span style="color:#24292E;--shiki-dark:#9399B2">)));</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">SC_TRY</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">fd</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">get</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#24292E;--shiki-dark:#CDD6F4">asyncReadFile</span><span style="color:#24292E;--shiki-dark:#9399B2">.</span><span style="color:#24292E;--shiki-dark:#CDD6F4">handle</span><span style="color:#24292E;--shiki-dark:#9399B2">,</span><span style="color:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> Result</span><span style="color:#24292E;--shiki-dark:#9399B2">(</span><span style="color:#005CC5;--shiki-dark:#FAB387">false</span><span style="color:#24292E;--shiki-dark:#9399B2">)));</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4"> </span></span>
 <span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">// Start the operation on a thread pool</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#CDD6F4">AsyncTaskSequence asyncFileTask</span><span style="color:#24292E;--shiki-dark:#9399B2">;</span></span>
@@ -333,12 +340,12 @@ File I/O And Blocking Backends</h1>
 <span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">// SC_TRY(asyncReadFile.start(eventLoop));</span></span></code></pre><p>When using explicit file offsets, prefer one contiguous buffer for portable code. Scatter/gather writes combined with an offset need backend-specific validation before being treated as a portable idiom.</p>
 <p><code>AsyncFileReadiness</code> is different from file read/write: it waits for readiness on descriptors where the operating system provides that concept. POSIX file readiness is exposed directly. Windows does not provide a portable equivalent for ordinary file or pipe handles, and higher layers should not pretend otherwise.</p>
 <p>The file request types also operate on compatible descriptor handles from neighboring libraries. That includes serial ports from <a class="el" href="/SaneCppLibraries/libraries/serial-port/">SerialPort</a> and <code>PipeDescriptor</code> endpoints accepted or connected through <code>NamedPipeServer</code> and <code>NamedPipeClient</code>; their framing, connection, and platform rules still come from those APIs rather than from <code>Async</code>.</p>
-<h1><a class="anchor" id="autotoc_md93"></a>
+<h1><a class="anchor" id="autotoc_md94"></a>
 Sequencing And Long-Lived Operations</h1>
 <p><code>AsyncSequence</code> serializes requests by submitting the next request after the current one completes. It is useful when operations share a descriptor or must preserve ordering. <code>AsyncTaskSequence</code> combines that ordering with a supplied thread pool for potentially blocking work.</p>
 <p>Long-lived sources such as <code>FileSystemWatcher</code> naturally remain callback streams. Their request and any bounded event storage must remain owned by the application until the watcher is stopped. This is also why <a class="el" href="/SaneCppLibraries/libraries/await/">Await</a> does not expose a watcher as a single awaitable operation.</p>
 <p>The library also provides requests for child-process exit, signals, filesystem operations, and external completions. See the <a class="el" href="/SaneCppLibraries/reference/doxygen/group__group__async.html">Async API group</a> for the complete reference after choosing the relevant operation family.</p>
-<h1><a class="anchor" id="autotoc_md94"></a>
+<h1><a class="anchor" id="autotoc_md95"></a>
 Platform Backends And Tradeoffs</h1>
 <p>The common request model maps to different operating-system facilities:</p>
 <table class="markdownTable">
@@ -353,10 +360,10 @@ Platform Backends And Tradeoffs</h1>
 </table>
 <p>The Linux backend first attempts direct io_uring setup and falls back to epoll when the kernel or runtime policy does not permit it. Applications should depend on the <code>Async</code> semantics rather than assuming which backend was selected.</p>
 <p>Caller-owned request and payload storage gives predictable ownership and makes bounded pools possible, but it is not automatic lifetime management. A request accidentally moved, destroyed, or paired with a temporary buffer while active is a programming error. <code>ArenaMap</code> from <a class="el" href="/SaneCppLibraries/libraries/containers/">Containers</a> can provide a preallocated bounded pool of stable request objects when an application needs many operations.</p>
-<h1><a class="anchor" id="autotoc_md95"></a>
+<h1><a class="anchor" id="autotoc_md96"></a>
 Status</h1>
 <p>🟨 MVP This is usable but needs some more testing and a few more features.</p>
-<h1><a class="anchor" id="autotoc_md96"></a>
+<h1><a class="anchor" id="autotoc_md97"></a>
 Videos</h1>
 <p>These videos record the implementation and integration work behind the library:</p>
 <ul>
@@ -371,7 +378,7 @@ Videos</h1>
 <li><a href="https://www.youtube.com/watch?v=4acqdGcUQnE">Ep.20 - Pause Immediate Mode UI - Save CPU Time</a></li>
 <li><a href="https://www.youtube.com/watch?v=z7QaTa7drFo">Ep.21 - Add Async IO to Immediate Mode GUI</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md97"></a>
+<h1><a class="anchor" id="autotoc_md98"></a>
 Blog</h1>
 <p>Development notes and design changes are recorded in the project updates:</p>
 <ul>
@@ -394,8 +401,9 @@ Blog</h1>
 <li><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html">March 2026 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html">May 2026 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-06-30-SaneCppLibrariesUpdate.html">June 2026 Update</a></li>
+<li><a href="https://pagghiu.github.io/site/blog/2026-09-30-SaneCppLibrariesUpdate.html">September 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md98"></a>
+<h1><a class="anchor" id="autotoc_md99"></a>
 Roadmap</h1>
 <p>🟩 Usable Features:</p><ul>
 <li>More AsyncFileSystemOperations</li>
@@ -405,19 +413,19 @@ Roadmap</h1>
 <li>TTY with ANSI Escape Codes</li>
 <li>Signal handling (multi-watcher, cross-platform)</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md99"></a>
+<h1><a class="anchor" id="autotoc_md100"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Async</code>. Single File counts <code>SaneCppAsync.h</code>. Standalone counts <code>SaneCppAsyncStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Metric   </th><th class="markdownTableHeadNone">Header   </th><th class="markdownTableHeadNone">Source   </th><th class="markdownTableHeadNone">Sum    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Library   </td><td class="markdownTableBodyNone">1929   </td><td class="markdownTableBodyNone">5876   </td><td class="markdownTableBodyNone">7805    </td></tr>
+<td class="markdownTableBodyNone">Library   </td><td class="markdownTableBodyNone">2121   </td><td class="markdownTableBodyNone">6094   </td><td class="markdownTableBodyNone">8215    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Single File   </td><td class="markdownTableBodyNone">1648   </td><td class="markdownTableBodyNone">7009   </td><td class="markdownTableBodyNone">8657    </td></tr>
+<td class="markdownTableBodyNone">Single File   </td><td class="markdownTableBodyNone">2100   </td><td class="markdownTableBodyNone">7228   </td><td class="markdownTableBodyNone">9328    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Standalone   </td><td class="markdownTableBodyNone">6192   </td><td class="markdownTableBodyNone">13314   </td><td class="markdownTableBodyNone">19506   </td></tr>
-</table></article> <section class="panel related-posts" aria-labelledby="related-posts-heading" data-astro-cid-7c432cc5> <h2 id="related-posts-heading" data-astro-cid-7c432cc5>Related blog posts</h2> <div class="related-links" data-astro-cid-7c432cc5> <a href="https://pagghiu.github.io/site/blog/2026-06-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☀️ Sane C++ June 26</a><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌸 Sane C++ May 26</a><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☔️ Sane C++ March 26</a><a href="https://pagghiu.github.io/site/blog/2026-02-28-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🔌 Sane C++ February 26</a><a href="https://pagghiu.github.io/site/blog/2026-01-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>❄️ Sane C++ January 26</a><a href="https://pagghiu.github.io/site/blog/2025-12-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌫️ Sane C++ December 25</a><a href="https://pagghiu.github.io/site/blog/2025-11-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌫️ Sane C++ November 25</a><a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌊 Sane C++ August 25</a><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🏖️ Sane C++ July 25</a><a href="https://pagghiu.github.io/site/blog/2025-06-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☀️ Sane C++ June 25</a><a href="https://pagghiu.github.io/site/blog/2025-05-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌸 Sane C++ May 25</a><a href="https://pagghiu.github.io/site/blog/2025-04-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>💤 Sane C++ April 25</a><a href="https://pagghiu.github.io/site/blog/2025-01-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>❄️ Sane C++ January 25</a><a href="https://pagghiu.github.io/site/blog/2024-12-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☃️ Sane C++ December 24</a><a href="https://pagghiu.github.io/site/blog/2024-08-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌊 Sane C++ August 24</a><a href="https://pagghiu.github.io/site/blog/2024-07-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🏖️ Sane C++ July 24</a><a href="https://pagghiu.github.io/site/blog/2024-06-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☀️ Sane C++ June 24</a><a href="https://pagghiu.github.io/site/blog/2024-05-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌸 Sane C++ May 24</a><a href="https://pagghiu.github.io/site/blog/2024-04-27-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>💤 Sane C++ April 24</a> </div> </section> </div> <aside class="context-rail" aria-label="Page context" data-astro-cid-7c432cc5> <div class="card context-panel" data-astro-cid-7c432cc5> <div class="generated-toc" aria-label="Page sections" data-astro-cid-7c432cc5><div class="toc"><h3>Table of Contents</h3>
+<td class="markdownTableBodyNone">Standalone   </td><td class="markdownTableBodyNone">8432   </td><td class="markdownTableBodyNone">14790   </td><td class="markdownTableBodyNone">23222   </td></tr>
+</table></article> <section class="panel related-posts" aria-labelledby="related-posts-heading" data-astro-cid-7c432cc5> <h2 id="related-posts-heading" data-astro-cid-7c432cc5>Related blog posts</h2> <div class="related-links" data-astro-cid-7c432cc5> <a href="https://pagghiu.github.io/site/blog/2026-09-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🍂 Sane C++ September 26</a><a href="https://pagghiu.github.io/site/blog/2026-06-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☀️ Sane C++ June 26</a><a href="https://pagghiu.github.io/site/blog/2026-05-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌸 Sane C++ May 26</a><a href="https://pagghiu.github.io/site/blog/2026-03-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☔️ Sane C++ March 26</a><a href="https://pagghiu.github.io/site/blog/2026-02-28-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🔌 Sane C++ February 26</a><a href="https://pagghiu.github.io/site/blog/2026-01-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>❄️ Sane C++ January 26</a><a href="https://pagghiu.github.io/site/blog/2025-12-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌫️ Sane C++ December 25</a><a href="https://pagghiu.github.io/site/blog/2025-11-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌫️ Sane C++ November 25</a><a href="https://pagghiu.github.io/site/blog/2025-08-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌊 Sane C++ August 25</a><a href="https://pagghiu.github.io/site/blog/2025-07-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🏖️ Sane C++ July 25</a><a href="https://pagghiu.github.io/site/blog/2025-06-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☀️ Sane C++ June 25</a><a href="https://pagghiu.github.io/site/blog/2025-05-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌸 Sane C++ May 25</a><a href="https://pagghiu.github.io/site/blog/2025-04-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>💤 Sane C++ April 25</a><a href="https://pagghiu.github.io/site/blog/2025-01-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>❄️ Sane C++ January 25</a><a href="https://pagghiu.github.io/site/blog/2024-12-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☃️ Sane C++ December 24</a><a href="https://pagghiu.github.io/site/blog/2024-08-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌊 Sane C++ August 24</a><a href="https://pagghiu.github.io/site/blog/2024-07-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🏖️ Sane C++ July 24</a><a href="https://pagghiu.github.io/site/blog/2024-06-30-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>☀️ Sane C++ June 24</a><a href="https://pagghiu.github.io/site/blog/2024-05-31-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>🌸 Sane C++ May 24</a><a href="https://pagghiu.github.io/site/blog/2024-04-27-SaneCppLibrariesUpdate.html" target="_blank" rel="noreferrer" data-astro-cid-7c432cc5>💤 Sane C++ April 24</a> </div> </section> </div> <aside class="context-rail" aria-label="Page context" data-astro-cid-7c432cc5> <div class="card context-panel" data-astro-cid-7c432cc5> <div class="generated-toc" aria-label="Page sections" data-astro-cid-7c432cc5><div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
     <a href="#autotoc_md86">Dependencies</a>
@@ -429,37 +437,40 @@ Statistics</h1>
     <a href="#autotoc_md88">Mental Model: Requests Live Until Completion</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md89">Driving The Event Loop</a>
+    <a href="#autotoc_md89">Process Exit</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md90">Timers And Cross-Thread Wake-Ups</a>
+    <a href="#autotoc_md90">Driving The Event Loop</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md91">Socket I/O</a>
+    <a href="#autotoc_md91">Timers And Cross-Thread Wake-Ups</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md92">File I/O And Blocking Backends</a>
+    <a href="#autotoc_md92">Socket I/O</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md93">Sequencing And Long-Lived Operations</a>
+    <a href="#autotoc_md93">File I/O And Blocking Backends</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md94">Platform Backends And Tradeoffs</a>
+    <a href="#autotoc_md94">Sequencing And Long-Lived Operations</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md95">Status</a>
+    <a href="#autotoc_md95">Platform Backends And Tradeoffs</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md96">Videos</a>
+    <a href="#autotoc_md96">Status</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md97">Blog</a>
+    <a href="#autotoc_md97">Videos</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md98">Roadmap</a>
+    <a href="#autotoc_md98">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md99">Statistics</a>
+    <a href="#autotoc_md99">Roadmap</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md100">Statistics</a>
   </li>
 </ul>
 </div></div> </div> </aside> </section>  </div> </div> </main> <footer class="site-footer" data-astro-cid-37fxchfa> <div class="shell footer-grid" data-astro-cid-37fxchfa> <div data-astro-cid-37fxchfa> <div class="eyebrow" data-astro-cid-37fxchfa>Platform Abstraction C++ Libraries</div> <h2 data-astro-cid-37fxchfa>Sane C++ Libraries</h2> <p class="copy-muted" data-astro-cid-37fxchfa>

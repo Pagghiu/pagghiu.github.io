@@ -156,90 +156,90 @@ Public Types</h2></td></tr>
 &#160;&#160;<a class="el" href="#a011bee61c7a59ed7997b6f2ca4ac736aa050759af7ddcc64ddb5380e7b05c44b1">SeekCurrent</a>
 <br />
  }</td></tr>
-<tr class="memdesc:a011bee61c7a59ed7997b6f2ca4ac736a"><td class="mdescLeft">&#160;</td><td class="mdescRight">How the offset to <a class="el" href="#a3cc02813b7a9f125d5408bfa8a8f2a54" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a> is defined.  <a href="#a011bee61c7a59ed7997b6f2ca4ac736a">More...</a><br /></td></tr>
+<tr class="memdesc:a011bee61c7a59ed7997b6f2ca4ac736a"><td class="mdescLeft">&#160;</td><td class="mdescRight">How the offset to <a class="el" href="#ad5ca8ed2a68870fce1db8ec20beea2a0" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a> is defined.  <a href="#a011bee61c7a59ed7997b6f2ca4ac736a">More...</a><br /></td></tr>
 <tr class="separator:a011bee61c7a59ed7997b6f2ca4ac736a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a298d6ec860c6d7ede60b18c079a236ec" id="r_a298d6ec860c6d7ede60b18c079a236ec"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a298d6ec860c6d7ede60b18c079a236ec">openForWriteToDevNull</a> ()</td></tr>
-<tr class="memdesc:a298d6ec860c6d7ede60b18c079a236ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">... [UniqueHandleDeclaration2Snippet]  <br /></td></tr>
-<tr class="separator:a298d6ec860c6d7ede60b18c079a236ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7699e9f075698a6f428a4fa19aeffd7b" id="r_a7699e9f075698a6f428a4fa19aeffd7b"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7699e9f075698a6f428a4fa19aeffd7b">openStdOutDuplicate</a> ()</td></tr>
-<tr class="memdesc:a7699e9f075698a6f428a4fa19aeffd7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a duplicated file descriptor handle for reading from stdout.  <br /></td></tr>
-<tr class="separator:a7699e9f075698a6f428a4fa19aeffd7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a335b123251f5c164b9eb607685611cf9" id="r_a335b123251f5c164b9eb607685611cf9"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a335b123251f5c164b9eb607685611cf9">openStdErrDuplicate</a> ()</td></tr>
-<tr class="memdesc:a335b123251f5c164b9eb607685611cf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a duplicated file descriptor handle for reading from stderr.  <br /></td></tr>
-<tr class="separator:a335b123251f5c164b9eb607685611cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8021688fbad7924cf830f3d809c79d1" id="r_ab8021688fbad7924cf830f3d809c79d1"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8021688fbad7924cf830f3d809c79d1">openStdInDuplicate</a> ()</td></tr>
-<tr class="memdesc:ab8021688fbad7924cf830f3d809c79d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a duplicated file descriptor handle for reading from stdin.  <br /></td></tr>
-<tr class="separator:ab8021688fbad7924cf830f3d809c79d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb9e7b63235cd19a0926f6e838eca79b" id="r_abb9e7b63235cd19a0926f6e838eca79b"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb9e7b63235cd19a0926f6e838eca79b">open</a> (StringSpan path, <a class="el" href="structSC_1_1FileOpen.html">FileOpen</a> mode)</td></tr>
-<tr class="memdesc:abb9e7b63235cd19a0926f6e838eca79b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a file descriptor handle from a file system path.  <br /></td></tr>
-<tr class="separator:abb9e7b63235cd19a0926f6e838eca79b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7872531dfb1a1f7eddeb1591452f684c" id="r_a7872531dfb1a1f7eddeb1591452f684c"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7872531dfb1a1f7eddeb1591452f684c">read</a> (Span&lt; char &gt; data, Span&lt; char &gt; &amp;actuallyRead, uint64_t offset)</td></tr>
-<tr class="memdesc:a7872531dfb1a1f7eddeb1591452f684c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads bytes at offset into user supplied span.  <br /></td></tr>
-<tr class="separator:a7872531dfb1a1f7eddeb1591452f684c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac847b6b50038713c2b4f3bb84159eeac" id="r_ac847b6b50038713c2b4f3bb84159eeac"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac847b6b50038713c2b4f3bb84159eeac">read</a> (Span&lt; uint8_t &gt; data, Span&lt; uint8_t &gt; &amp;actuallyRead, uint64_t offset)</td></tr>
-<tr class="memdesc:ac847b6b50038713c2b4f3bb84159eeac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads bytes at offset into user supplied span.  <br /></td></tr>
-<tr class="separator:ac847b6b50038713c2b4f3bb84159eeac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a3a019bcd723a250f04931c4989d61f" id="r_a4a3a019bcd723a250f04931c4989d61f"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a3a019bcd723a250f04931c4989d61f">read</a> (Span&lt; char &gt; data, Span&lt; char &gt; &amp;actuallyRead)</td></tr>
-<tr class="memdesc:a4a3a019bcd723a250f04931c4989d61f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads bytes from current position (<a class="el" href="#a3cc02813b7a9f125d5408bfa8a8f2a54" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) into user supplied Span.  <br /></td></tr>
-<tr class="separator:a4a3a019bcd723a250f04931c4989d61f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f69d94e5e2a2febb7a8af68fa2752fa" id="r_a8f69d94e5e2a2febb7a8af68fa2752fa"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f69d94e5e2a2febb7a8af68fa2752fa">readUntilFullOrEOF</a> (Span&lt; char &gt; data, Span&lt; char &gt; &amp;actuallyRead)</td></tr>
-<tr class="memdesc:a8f69d94e5e2a2febb7a8af68fa2752fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads bytes from current position (<a class="el" href="#a3cc02813b7a9f125d5408bfa8a8f2a54" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) into Span, until full or EOF is reached.  <br /></td></tr>
-<tr class="separator:a8f69d94e5e2a2febb7a8af68fa2752fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fe3f4c5e8fda8b795f6d1863ac54499" id="r_a0fe3f4c5e8fda8b795f6d1863ac54499"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fe3f4c5e8fda8b795f6d1863ac54499">read</a> (Span&lt; uint8_t &gt; data, Span&lt; uint8_t &gt; &amp;actuallyRead)</td></tr>
-<tr class="memdesc:a0fe3f4c5e8fda8b795f6d1863ac54499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads bytes from current position (<a class="el" href="#a3cc02813b7a9f125d5408bfa8a8f2a54" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) into user supplied Span.  <br /></td></tr>
-<tr class="separator:a0fe3f4c5e8fda8b795f6d1863ac54499"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a0c46183b22f201ef7f087b9e7e94e4" id="r_a3a0c46183b22f201ef7f087b9e7e94e4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a3a0c46183b22f201ef7f087b9e7e94e4"><td class="memTemplItemLeft" align="right" valign="top">Result&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3a0c46183b22f201ef7f087b9e7e94e4">readUntilEOF</a> (T &amp;destination)</td></tr>
-<tr class="memdesc:a3a0c46183b22f201ef7f087b9e7e94e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads into a given dynamic buffer until End of File (EOF) is signaled.  <br /></td></tr>
-<tr class="separator:a3a0c46183b22f201ef7f087b9e7e94e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cbf3cbf6c3f4124947cb6554e6bfb46" id="r_a3cbf3cbf6c3f4124947cb6554e6bfb46"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cbf3cbf6c3f4124947cb6554e6bfb46">readUntilEOF</a> (IGrowableBuffer &amp;&amp;buffer)</td></tr>
-<tr class="memdesc:a3cbf3cbf6c3f4124947cb6554e6bfb46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads into a given dynamic buffer until End of File (EOF) is signaled.  <br /></td></tr>
-<tr class="separator:a3cbf3cbf6c3f4124947cb6554e6bfb46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb0a95d2186e639427a70882e6f534c9" id="r_adb0a95d2186e639427a70882e6f534c9"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb0a95d2186e639427a70882e6f534c9">writeString</a> (StringSpan data)</td></tr>
-<tr class="memdesc:adb0a95d2186e639427a70882e6f534c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a string to the file descriptor.  <br /></td></tr>
-<tr class="separator:adb0a95d2186e639427a70882e6f534c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5551f0d07b77177e38dfc777fbb8aabf" id="r_a5551f0d07b77177e38dfc777fbb8aabf"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5551f0d07b77177e38dfc777fbb8aabf">write</a> (Span&lt; const char &gt; data, uint64_t offset)</td></tr>
-<tr class="memdesc:a5551f0d07b77177e38dfc777fbb8aabf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes at offset from start of the file descriptor.  <br /></td></tr>
-<tr class="separator:a5551f0d07b77177e38dfc777fbb8aabf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30873edf1831fcb89bffd94eaf326792" id="r_a30873edf1831fcb89bffd94eaf326792"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30873edf1831fcb89bffd94eaf326792">write</a> (Span&lt; const uint8_t &gt; data, uint64_t offset)</td></tr>
-<tr class="memdesc:a30873edf1831fcb89bffd94eaf326792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes at offset from start of the file descriptor.  <br /></td></tr>
-<tr class="separator:a30873edf1831fcb89bffd94eaf326792"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4c6c280484e23f7d2217af2cd1b0a10" id="r_ae4c6c280484e23f7d2217af2cd1b0a10"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4c6c280484e23f7d2217af2cd1b0a10">write</a> (Span&lt; const char &gt; data)</td></tr>
-<tr class="memdesc:ae4c6c280484e23f7d2217af2cd1b0a10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes from current position (<a class="el" href="#a3cc02813b7a9f125d5408bfa8a8f2a54" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) of the file descriptor.  <br /></td></tr>
-<tr class="separator:ae4c6c280484e23f7d2217af2cd1b0a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53f91df5591abbb1fa9952167f62fe05" id="r_a53f91df5591abbb1fa9952167f62fe05"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53f91df5591abbb1fa9952167f62fe05">write</a> (Span&lt; const uint8_t &gt; data)</td></tr>
-<tr class="memdesc:a53f91df5591abbb1fa9952167f62fe05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes from current position (<a class="el" href="#a3cc02813b7a9f125d5408bfa8a8f2a54" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) of the file descriptor.  <br /></td></tr>
-<tr class="separator:a53f91df5591abbb1fa9952167f62fe05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cc02813b7a9f125d5408bfa8a8f2a54" id="r_a3cc02813b7a9f125d5408bfa8a8f2a54"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cc02813b7a9f125d5408bfa8a8f2a54">seek</a> (<a class="el" href="#a011bee61c7a59ed7997b6f2ca4ac736a">SeekMode</a> seekMode, int64_t offset)</td></tr>
-<tr class="memdesc:a3cc02813b7a9f125d5408bfa8a8f2a54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the current position in the file descriptor, if seekable.  <br /></td></tr>
-<tr class="separator:a3cc02813b7a9f125d5408bfa8a8f2a54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d177829f238df4dc41640510193a342" id="r_a4d177829f238df4dc41640510193a342"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d177829f238df4dc41640510193a342">currentPosition</a> (size_t &amp;position) const</td></tr>
-<tr class="memdesc:a4d177829f238df4dc41640510193a342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current descriptor position (if seekable)  <br /></td></tr>
-<tr class="separator:a4d177829f238df4dc41640510193a342"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c53f608a344203235e3ac29b872c4c9" id="r_a6c53f608a344203235e3ac29b872c4c9"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c53f608a344203235e3ac29b872c4c9">sizeInBytes</a> (size_t &amp;sizeInBytes) const</td></tr>
-<tr class="memdesc:a6c53f608a344203235e3ac29b872c4c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets total file size in bytes (if seekable)  <br /></td></tr>
-<tr class="separator:a6c53f608a344203235e3ac29b872c4c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f1e7141b4136bc2437faf59d499e63a" id="r_a3f1e7141b4136bc2437faf59d499e63a"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f1e7141b4136bc2437faf59d499e63a">stat</a> (<a class="el" href="structSC_1_1FileDescriptorStat.html">FileDescriptorStat</a> &amp;fileStat) const</td></tr>
-<tr class="memdesc:a3f1e7141b4136bc2437faf59d499e63a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains richer metadata associated with the currently open descriptor.  <br /></td></tr>
-<tr class="separator:a3f1e7141b4136bc2437faf59d499e63a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39e8350ce80e2a8f0bfd2c32d5cea71d" id="r_a39e8350ce80e2a8f0bfd2c32d5cea71d"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39e8350ce80e2a8f0bfd2c32d5cea71d">chmod</a> (uint32_t mode)</td></tr>
-<tr class="memdesc:a39e8350ce80e2a8f0bfd2c32d5cea71d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change file permission bits for the currently open descriptor.  <br /></td></tr>
-<tr class="separator:a39e8350ce80e2a8f0bfd2c32d5cea71d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa96e58f23693d38fc5c77161315452a4" id="r_aa96e58f23693d38fc5c77161315452a4"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa96e58f23693d38fc5c77161315452a4">chown</a> (uint32_t uid, uint32_t gid)</td></tr>
-<tr class="memdesc:aa96e58f23693d38fc5c77161315452a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change owner and group for the currently open descriptor.  <br /></td></tr>
-<tr class="separator:aa96e58f23693d38fc5c77161315452a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaaa79b890312086a34c4d3983ebbf93c" id="r_aaaa79b890312086a34c4d3983ebbf93c"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaaa79b890312086a34c4d3983ebbf93c">sync</a> ()</td></tr>
-<tr class="memdesc:aaaa79b890312086a34c4d3983ebbf93c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flush file data and metadata to stable storage.  <br /></td></tr>
-<tr class="separator:aaaa79b890312086a34c4d3983ebbf93c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0131bf2a7d6f8d4f26dd698c09b4386e" id="r_a0131bf2a7d6f8d4f26dd698c09b4386e"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0131bf2a7d6f8d4f26dd698c09b4386e">syncData</a> ()</td></tr>
-<tr class="memdesc:a0131bf2a7d6f8d4f26dd698c09b4386e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flush file data to stable storage.  <br /></td></tr>
-<tr class="separator:a0131bf2a7d6f8d4f26dd698c09b4386e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d3a86aa7a7c066fafe23663e7ff64ac" id="r_a6d3a86aa7a7c066fafe23663e7ff64ac"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d3a86aa7a7c066fafe23663e7ff64ac">truncate</a> (uint64_t <a class="el" href="#a6c53f608a344203235e3ac29b872c4c9">sizeInBytes</a>)</td></tr>
-<tr class="memdesc:a6d3a86aa7a7c066fafe23663e7ff64ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize the underlying file to the specified size in bytes.  <br /></td></tr>
-<tr class="separator:a6d3a86aa7a7c066fafe23663e7ff64ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6ab3d6919dbf37367d6df136301d9c8" id="r_ae6ab3d6919dbf37367d6df136301d9c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6ab3d6919dbf37367d6df136301d9c8">openForWriteToDevNull</a> ()</td></tr>
+<tr class="memdesc:ae6ab3d6919dbf37367d6df136301d9c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">... [UniqueHandleDeclaration2Snippet]  <br /></td></tr>
+<tr class="separator:ae6ab3d6919dbf37367d6df136301d9c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d049c7cf189a6605719229cb3783c3a" id="r_a8d049c7cf189a6605719229cb3783c3a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d049c7cf189a6605719229cb3783c3a">openStdOutDuplicate</a> ()</td></tr>
+<tr class="memdesc:a8d049c7cf189a6605719229cb3783c3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a duplicated file descriptor handle for reading from stdout.  <br /></td></tr>
+<tr class="separator:a8d049c7cf189a6605719229cb3783c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab21aa08cfec04e38272856b5bcde8f71" id="r_ab21aa08cfec04e38272856b5bcde8f71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab21aa08cfec04e38272856b5bcde8f71">openStdErrDuplicate</a> ()</td></tr>
+<tr class="memdesc:ab21aa08cfec04e38272856b5bcde8f71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a duplicated file descriptor handle for reading from stderr.  <br /></td></tr>
+<tr class="separator:ab21aa08cfec04e38272856b5bcde8f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5faef430490ca0823e4a588877e71341" id="r_a5faef430490ca0823e4a588877e71341"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5faef430490ca0823e4a588877e71341">openStdInDuplicate</a> ()</td></tr>
+<tr class="memdesc:a5faef430490ca0823e4a588877e71341"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a duplicated file descriptor handle for reading from stdin.  <br /></td></tr>
+<tr class="separator:a5faef430490ca0823e4a588877e71341"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addcf97d07d804c00bd36317efc774130" id="r_addcf97d07d804c00bd36317efc774130"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addcf97d07d804c00bd36317efc774130">open</a> (StringSpan path, <a class="el" href="structSC_1_1FileOpen.html">FileOpen</a> mode)</td></tr>
+<tr class="memdesc:addcf97d07d804c00bd36317efc774130"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a file descriptor handle from a file system path.  <br /></td></tr>
+<tr class="separator:addcf97d07d804c00bd36317efc774130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8778b0792422ac7ef8d4178be9fa7f29" id="r_a8778b0792422ac7ef8d4178be9fa7f29"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8778b0792422ac7ef8d4178be9fa7f29">read</a> (Span&lt; char &gt; data, Span&lt; char &gt; &amp;actuallyRead, uint64_t offset)</td></tr>
+<tr class="memdesc:a8778b0792422ac7ef8d4178be9fa7f29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads bytes at offset into user supplied span.  <br /></td></tr>
+<tr class="separator:a8778b0792422ac7ef8d4178be9fa7f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a446702d74ab88c81a312000e70aa4685" id="r_a446702d74ab88c81a312000e70aa4685"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a446702d74ab88c81a312000e70aa4685">read</a> (Span&lt; uint8_t &gt; data, Span&lt; uint8_t &gt; &amp;actuallyRead, uint64_t offset)</td></tr>
+<tr class="memdesc:a446702d74ab88c81a312000e70aa4685"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads bytes at offset into user supplied span.  <br /></td></tr>
+<tr class="separator:a446702d74ab88c81a312000e70aa4685"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad42a183fed8ebb2a7d50b89f3fb0e851" id="r_ad42a183fed8ebb2a7d50b89f3fb0e851"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad42a183fed8ebb2a7d50b89f3fb0e851">read</a> (Span&lt; char &gt; data, Span&lt; char &gt; &amp;actuallyRead)</td></tr>
+<tr class="memdesc:ad42a183fed8ebb2a7d50b89f3fb0e851"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads bytes from current position (<a class="el" href="#ad5ca8ed2a68870fce1db8ec20beea2a0" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) into user supplied Span.  <br /></td></tr>
+<tr class="separator:ad42a183fed8ebb2a7d50b89f3fb0e851"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ba19b79e21aa101866c9523467c013b" id="r_a2ba19b79e21aa101866c9523467c013b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ba19b79e21aa101866c9523467c013b">readUntilFullOrEOF</a> (Span&lt; char &gt; data, Span&lt; char &gt; &amp;actuallyRead)</td></tr>
+<tr class="memdesc:a2ba19b79e21aa101866c9523467c013b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads bytes from current position (<a class="el" href="#ad5ca8ed2a68870fce1db8ec20beea2a0" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) into Span, until full or EOF is reached.  <br /></td></tr>
+<tr class="separator:a2ba19b79e21aa101866c9523467c013b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac167e0c58b0c3ff9ee4c64bd4ea0f3d5" id="r_ac167e0c58b0c3ff9ee4c64bd4ea0f3d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac167e0c58b0c3ff9ee4c64bd4ea0f3d5">read</a> (Span&lt; uint8_t &gt; data, Span&lt; uint8_t &gt; &amp;actuallyRead)</td></tr>
+<tr class="memdesc:ac167e0c58b0c3ff9ee4c64bd4ea0f3d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads bytes from current position (<a class="el" href="#ad5ca8ed2a68870fce1db8ec20beea2a0" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) into user supplied Span.  <br /></td></tr>
+<tr class="separator:ac167e0c58b0c3ff9ee4c64bd4ea0f3d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e6c17c4e2186230d5f14abb108993df" id="r_a6e6c17c4e2186230d5f14abb108993df"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a6e6c17c4e2186230d5f14abb108993df"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a6e6c17c4e2186230d5f14abb108993df">readUntilEOF</a> (T &amp;destination)</td></tr>
+<tr class="memdesc:a6e6c17c4e2186230d5f14abb108993df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads into a given dynamic buffer until End of File (EOF) is signaled.  <br /></td></tr>
+<tr class="separator:a6e6c17c4e2186230d5f14abb108993df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac701004dafb790efa7865ed2f3cc1461" id="r_ac701004dafb790efa7865ed2f3cc1461"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac701004dafb790efa7865ed2f3cc1461">readUntilEOF</a> (IGrowableBuffer &amp;&amp;buffer)</td></tr>
+<tr class="memdesc:ac701004dafb790efa7865ed2f3cc1461"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads into a given dynamic buffer until End of File (EOF) is signaled.  <br /></td></tr>
+<tr class="separator:ac701004dafb790efa7865ed2f3cc1461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fbc77e744e967b9ef8fe481fbb85554" id="r_a8fbc77e744e967b9ef8fe481fbb85554"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fbc77e744e967b9ef8fe481fbb85554">writeString</a> (StringSpan data)</td></tr>
+<tr class="memdesc:a8fbc77e744e967b9ef8fe481fbb85554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a string to the file descriptor.  <br /></td></tr>
+<tr class="separator:a8fbc77e744e967b9ef8fe481fbb85554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d3af17314ed710967b7953cc1042986" id="r_a3d3af17314ed710967b7953cc1042986"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d3af17314ed710967b7953cc1042986">write</a> (Span&lt; const char &gt; data, uint64_t offset)</td></tr>
+<tr class="memdesc:a3d3af17314ed710967b7953cc1042986"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes at offset from start of the file descriptor.  <br /></td></tr>
+<tr class="separator:a3d3af17314ed710967b7953cc1042986"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3b66ecacca108a97e30564ce7dce4ba" id="r_ac3b66ecacca108a97e30564ce7dce4ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3b66ecacca108a97e30564ce7dce4ba">write</a> (Span&lt; const uint8_t &gt; data, uint64_t offset)</td></tr>
+<tr class="memdesc:ac3b66ecacca108a97e30564ce7dce4ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes at offset from start of the file descriptor.  <br /></td></tr>
+<tr class="separator:ac3b66ecacca108a97e30564ce7dce4ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad929ef509340ce37a3b3295963d4bd93" id="r_ad929ef509340ce37a3b3295963d4bd93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad929ef509340ce37a3b3295963d4bd93">write</a> (Span&lt; const char &gt; data)</td></tr>
+<tr class="memdesc:ad929ef509340ce37a3b3295963d4bd93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes from current position (<a class="el" href="#ad5ca8ed2a68870fce1db8ec20beea2a0" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) of the file descriptor.  <br /></td></tr>
+<tr class="separator:ad929ef509340ce37a3b3295963d4bd93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03d4acfd813acddb52c443eed697373e" id="r_a03d4acfd813acddb52c443eed697373e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03d4acfd813acddb52c443eed697373e">write</a> (Span&lt; const uint8_t &gt; data)</td></tr>
+<tr class="memdesc:a03d4acfd813acddb52c443eed697373e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes from current position (<a class="el" href="#ad5ca8ed2a68870fce1db8ec20beea2a0" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) of the file descriptor.  <br /></td></tr>
+<tr class="separator:a03d4acfd813acddb52c443eed697373e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5ca8ed2a68870fce1db8ec20beea2a0" id="r_ad5ca8ed2a68870fce1db8ec20beea2a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5ca8ed2a68870fce1db8ec20beea2a0">seek</a> (<a class="el" href="#a011bee61c7a59ed7997b6f2ca4ac736a">SeekMode</a> seekMode, int64_t offset)</td></tr>
+<tr class="memdesc:ad5ca8ed2a68870fce1db8ec20beea2a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the current position in the file descriptor, if seekable.  <br /></td></tr>
+<tr class="separator:ad5ca8ed2a68870fce1db8ec20beea2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28725820357b471dae9b58a510feb201" id="r_a28725820357b471dae9b58a510feb201"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28725820357b471dae9b58a510feb201">currentPosition</a> (size_t &amp;position) const</td></tr>
+<tr class="memdesc:a28725820357b471dae9b58a510feb201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current descriptor position (if seekable)  <br /></td></tr>
+<tr class="separator:a28725820357b471dae9b58a510feb201"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96a7128e7a36a58bfb65eca893497e79" id="r_a96a7128e7a36a58bfb65eca893497e79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96a7128e7a36a58bfb65eca893497e79">sizeInBytes</a> (size_t &amp;sizeInBytes) const</td></tr>
+<tr class="memdesc:a96a7128e7a36a58bfb65eca893497e79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets total file size in bytes (if seekable)  <br /></td></tr>
+<tr class="separator:a96a7128e7a36a58bfb65eca893497e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a844dbe6f264380e03a17c1c077ebcea6" id="r_a844dbe6f264380e03a17c1c077ebcea6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a844dbe6f264380e03a17c1c077ebcea6">stat</a> (<a class="el" href="structSC_1_1FileDescriptorStat.html">FileDescriptorStat</a> &amp;fileStat) const</td></tr>
+<tr class="memdesc:a844dbe6f264380e03a17c1c077ebcea6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains richer metadata associated with the currently open descriptor.  <br /></td></tr>
+<tr class="separator:a844dbe6f264380e03a17c1c077ebcea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5baaec32600e7b189aa6a2624269b62c" id="r_a5baaec32600e7b189aa6a2624269b62c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5baaec32600e7b189aa6a2624269b62c">chmod</a> (uint32_t mode)</td></tr>
+<tr class="memdesc:a5baaec32600e7b189aa6a2624269b62c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change file permission bits for the currently open descriptor.  <br /></td></tr>
+<tr class="separator:a5baaec32600e7b189aa6a2624269b62c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac41a148b3b63aee7e1c9ee0e63fb5e0b" id="r_ac41a148b3b63aee7e1c9ee0e63fb5e0b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac41a148b3b63aee7e1c9ee0e63fb5e0b">chown</a> (uint32_t uid, uint32_t gid)</td></tr>
+<tr class="memdesc:ac41a148b3b63aee7e1c9ee0e63fb5e0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change owner and group for the currently open descriptor.  <br /></td></tr>
+<tr class="separator:ac41a148b3b63aee7e1c9ee0e63fb5e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0ed3605f3e84c22bac1907a1e851608" id="r_aa0ed3605f3e84c22bac1907a1e851608"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0ed3605f3e84c22bac1907a1e851608">sync</a> ()</td></tr>
+<tr class="memdesc:aa0ed3605f3e84c22bac1907a1e851608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flush file data and metadata to stable storage.  <br /></td></tr>
+<tr class="separator:aa0ed3605f3e84c22bac1907a1e851608"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2709a78b92ed3c180c4206b122ec6beb" id="r_a2709a78b92ed3c180c4206b122ec6beb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2709a78b92ed3c180c4206b122ec6beb">syncData</a> ()</td></tr>
+<tr class="memdesc:a2709a78b92ed3c180c4206b122ec6beb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flush file data to stable storage.  <br /></td></tr>
+<tr class="separator:a2709a78b92ed3c180c4206b122ec6beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae50b0a6cf625da780da83d454c7e1f5" id="r_aae50b0a6cf625da780da83d454c7e1f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae50b0a6cf625da780da83d454c7e1f5">truncate</a> (uint64_t <a class="el" href="#a96a7128e7a36a58bfb65eca893497e79">sizeInBytes</a>)</td></tr>
+<tr class="memdesc:aae50b0a6cf625da780da83d454c7e1f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize the underlying file to the specified size in bytes.  <br /></td></tr>
+<tr class="separator:aae50b0a6cf625da780da83d454c7e1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -266,27 +266,27 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PipeDescriptor</b><
       </table>
 </div><div class="memdoc">
 
-<p>How the offset to <a class="el" href="#a3cc02813b7a9f125d5408bfa8a8f2a54" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a> is defined. </p>
+<p>How the offset to <a class="el" href="#ad5ca8ed2a68870fce1db8ec20beea2a0" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a> is defined. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a011bee61c7a59ed7997b6f2ca4ac736aa4c80413c192300580419ba49bc99fa46" name="a011bee61c7a59ed7997b6f2ca4ac736aa4c80413c192300580419ba49bc99fa46"></a>SeekStart&#160;</td><td class="fielddoc"><p>Offset to <a class="el" href="#a3cc02813b7a9f125d5408bfa8a8f2a54" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a> is to be applied from start of descriptor. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a011bee61c7a59ed7997b6f2ca4ac736aa4c80413c192300580419ba49bc99fa46" name="a011bee61c7a59ed7997b6f2ca4ac736aa4c80413c192300580419ba49bc99fa46"></a>SeekStart&#160;</td><td class="fielddoc"><p>Offset to <a class="el" href="#ad5ca8ed2a68870fce1db8ec20beea2a0" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a> is to be applied from start of descriptor. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a011bee61c7a59ed7997b6f2ca4ac736aa0a0fe16d406c55bfe5654cca57702e41" name="a011bee61c7a59ed7997b6f2ca4ac736aa0a0fe16d406c55bfe5654cca57702e41"></a>SeekEnd&#160;</td><td class="fielddoc"><p>Offset to <a class="el" href="#a3cc02813b7a9f125d5408bfa8a8f2a54" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a> is to be applied (backwards) from end of descriptor. </p>
+<tr><td class="fieldname"><a id="a011bee61c7a59ed7997b6f2ca4ac736aa0a0fe16d406c55bfe5654cca57702e41" name="a011bee61c7a59ed7997b6f2ca4ac736aa0a0fe16d406c55bfe5654cca57702e41"></a>SeekEnd&#160;</td><td class="fielddoc"><p>Offset to <a class="el" href="#ad5ca8ed2a68870fce1db8ec20beea2a0" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a> is to be applied (backwards) from end of descriptor. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a011bee61c7a59ed7997b6f2ca4ac736aa050759af7ddcc64ddb5380e7b05c44b1" name="a011bee61c7a59ed7997b6f2ca4ac736aa050759af7ddcc64ddb5380e7b05c44b1"></a>SeekCurrent&#160;</td><td class="fielddoc"><p>Offset to <a class="el" href="#a3cc02813b7a9f125d5408bfa8a8f2a54" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a> is to be applied from current descriptor position. </p>
+<tr><td class="fieldname"><a id="a011bee61c7a59ed7997b6f2ca4ac736aa050759af7ddcc64ddb5380e7b05c44b1" name="a011bee61c7a59ed7997b6f2ca4ac736aa050759af7ddcc64ddb5380e7b05c44b1"></a>SeekCurrent&#160;</td><td class="fielddoc"><p>Offset to <a class="el" href="#ad5ca8ed2a68870fce1db8ec20beea2a0" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a> is to be applied from current descriptor position. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a39e8350ce80e2a8f0bfd2c32d5cea71d" name="a39e8350ce80e2a8f0bfd2c32d5cea71d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39e8350ce80e2a8f0bfd2c32d5cea71d">&#9670;&#160;</a></span>chmod()</h2>
+<a id="a5baaec32600e7b189aa6a2624269b62c" name="a5baaec32600e7b189aa6a2624269b62c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5baaec32600e7b189aa6a2624269b62c">&#9670;&#160;</a></span>chmod()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::chmod </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::chmod </td>
           <td>(</td>
           <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>mode</em></span></td><td>)</td>
           <td></td>
@@ -305,14 +305,14 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PipeDescriptor</b><
 
 </div>
 </div>
-<a id="aa96e58f23693d38fc5c77161315452a4" name="aa96e58f23693d38fc5c77161315452a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa96e58f23693d38fc5c77161315452a4">&#9670;&#160;</a></span>chown()</h2>
+<a id="ac41a148b3b63aee7e1c9ee0e63fb5e0b" name="ac41a148b3b63aee7e1c9ee0e63fb5e0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac41a148b3b63aee7e1c9ee0e63fb5e0b">&#9670;&#160;</a></span>chown()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::chown </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::chown </td>
           <td>(</td>
           <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>uid</em></span>, </td>
         </tr>
@@ -336,14 +336,14 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PipeDescriptor</b><
 
 </div>
 </div>
-<a id="a4d177829f238df4dc41640510193a342" name="a4d177829f238df4dc41640510193a342"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d177829f238df4dc41640510193a342">&#9670;&#160;</a></span>currentPosition()</h2>
+<a id="a28725820357b471dae9b58a510feb201" name="a28725820357b471dae9b58a510feb201"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28725820357b471dae9b58a510feb201">&#9670;&#160;</a></span>currentPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::currentPosition </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::currentPosition </td>
           <td>(</td>
           <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
           <td> const</td>
@@ -362,14 +362,14 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PipeDescriptor</b><
 
 </div>
 </div>
-<a id="abb9e7b63235cd19a0926f6e838eca79b" name="abb9e7b63235cd19a0926f6e838eca79b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb9e7b63235cd19a0926f6e838eca79b">&#9670;&#160;</a></span>open()</h2>
+<a id="addcf97d07d804c00bd36317efc774130" name="addcf97d07d804c00bd36317efc774130"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addcf97d07d804c00bd36317efc774130">&#9670;&#160;</a></span>open()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::open </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::open </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
         </tr>
@@ -393,14 +393,14 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PipeDescriptor</b><
 
 </div>
 </div>
-<a id="a298d6ec860c6d7ede60b18c079a236ec" name="a298d6ec860c6d7ede60b18c079a236ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a298d6ec860c6d7ede60b18c079a236ec">&#9670;&#160;</a></span>openForWriteToDevNull()</h2>
+<a id="ae6ab3d6919dbf37367d6df136301d9c8" name="ae6ab3d6919dbf37367d6df136301d9c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6ab3d6919dbf37367d6df136301d9c8">&#9670;&#160;</a></span>openForWriteToDevNull()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::openForWriteToDevNull </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::openForWriteToDevNull </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -413,14 +413,14 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PipeDescriptor</b><
 
 </div>
 </div>
-<a id="a335b123251f5c164b9eb607685611cf9" name="a335b123251f5c164b9eb607685611cf9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a335b123251f5c164b9eb607685611cf9">&#9670;&#160;</a></span>openStdErrDuplicate()</h2>
+<a id="ab21aa08cfec04e38272856b5bcde8f71" name="ab21aa08cfec04e38272856b5bcde8f71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab21aa08cfec04e38272856b5bcde8f71">&#9670;&#160;</a></span>openStdErrDuplicate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::openStdErrDuplicate </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::openStdErrDuplicate </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -433,14 +433,14 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PipeDescriptor</b><
 
 </div>
 </div>
-<a id="ab8021688fbad7924cf830f3d809c79d1" name="ab8021688fbad7924cf830f3d809c79d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8021688fbad7924cf830f3d809c79d1">&#9670;&#160;</a></span>openStdInDuplicate()</h2>
+<a id="a5faef430490ca0823e4a588877e71341" name="a5faef430490ca0823e4a588877e71341"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5faef430490ca0823e4a588877e71341">&#9670;&#160;</a></span>openStdInDuplicate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::openStdInDuplicate </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::openStdInDuplicate </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -453,14 +453,14 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PipeDescriptor</b><
 
 </div>
 </div>
-<a id="a7699e9f075698a6f428a4fa19aeffd7b" name="a7699e9f075698a6f428a4fa19aeffd7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7699e9f075698a6f428a4fa19aeffd7b">&#9670;&#160;</a></span>openStdOutDuplicate()</h2>
+<a id="a8d049c7cf189a6605719229cb3783c3a" name="a8d049c7cf189a6605719229cb3783c3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d049c7cf189a6605719229cb3783c3a">&#9670;&#160;</a></span>openStdOutDuplicate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::openStdOutDuplicate </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::openStdOutDuplicate </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -473,14 +473,14 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PipeDescriptor</b><
 
 </div>
 </div>
-<a id="a4a3a019bcd723a250f04931c4989d61f" name="a4a3a019bcd723a250f04931c4989d61f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a3a019bcd723a250f04931c4989d61f">&#9670;&#160;</a></span>read() <span class="overload">[1/4]</span></h2>
+<a id="ad42a183fed8ebb2a7d50b89f3fb0e851" name="ad42a183fed8ebb2a7d50b89f3fb0e851"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad42a183fed8ebb2a7d50b89f3fb0e851">&#9670;&#160;</a></span>read() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::read </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::read </td>
           <td>(</td>
           <td class="paramtype">Span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
@@ -492,7 +492,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PipeDescriptor</b><
       </table>
 </div><div class="memdoc">
 
-<p>Reads bytes from current position (<a class="el" href="#a3cc02813b7a9f125d5408bfa8a8f2a54" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) into user supplied Span. </p>
+<p>Reads bytes from current position (<a class="el" href="#ad5ca8ed2a68870fce1db8ec20beea2a0" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) into user supplied Span. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>Span of bytes where data should be written to </td></tr>
@@ -504,14 +504,14 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PipeDescriptor</b><
 
 </div>
 </div>
-<a id="a7872531dfb1a1f7eddeb1591452f684c" name="a7872531dfb1a1f7eddeb1591452f684c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7872531dfb1a1f7eddeb1591452f684c">&#9670;&#160;</a></span>read() <span class="overload">[2/4]</span></h2>
+<a id="a8778b0792422ac7ef8d4178be9fa7f29" name="a8778b0792422ac7ef8d4178be9fa7f29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8778b0792422ac7ef8d4178be9fa7f29">&#9670;&#160;</a></span>read() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::read </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::read </td>
           <td>(</td>
           <td class="paramtype">Span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
@@ -541,14 +541,14 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PipeDescriptor</b><
 
 </div>
 </div>
-<a id="a0fe3f4c5e8fda8b795f6d1863ac54499" name="a0fe3f4c5e8fda8b795f6d1863ac54499"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fe3f4c5e8fda8b795f6d1863ac54499">&#9670;&#160;</a></span>read() <span class="overload">[3/4]</span></h2>
+<a id="ac167e0c58b0c3ff9ee4c64bd4ea0f3d5" name="ac167e0c58b0c3ff9ee4c64bd4ea0f3d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac167e0c58b0c3ff9ee4c64bd4ea0f3d5">&#9670;&#160;</a></span>read() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::read </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::read </td>
           <td>(</td>
           <td class="paramtype">Span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
@@ -560,7 +560,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PipeDescriptor</b><
       </table>
 </div><div class="memdoc">
 
-<p>Reads bytes from current position (<a class="el" href="#a3cc02813b7a9f125d5408bfa8a8f2a54" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) into user supplied Span. </p>
+<p>Reads bytes from current position (<a class="el" href="#ad5ca8ed2a68870fce1db8ec20beea2a0" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) into user supplied Span. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>Span of bytes where data should be written to </td></tr>
@@ -572,14 +572,14 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PipeDescriptor</b><
 
 </div>
 </div>
-<a id="ac847b6b50038713c2b4f3bb84159eeac" name="ac847b6b50038713c2b4f3bb84159eeac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac847b6b50038713c2b4f3bb84159eeac">&#9670;&#160;</a></span>read() <span class="overload">[4/4]</span></h2>
+<a id="a446702d74ab88c81a312000e70aa4685" name="a446702d74ab88c81a312000e70aa4685"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a446702d74ab88c81a312000e70aa4685">&#9670;&#160;</a></span>read() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::read </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::read </td>
           <td>(</td>
           <td class="paramtype">Span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
@@ -609,14 +609,14 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PipeDescriptor</b><
 
 </div>
 </div>
-<a id="a3cbf3cbf6c3f4124947cb6554e6bfb46" name="a3cbf3cbf6c3f4124947cb6554e6bfb46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3cbf3cbf6c3f4124947cb6554e6bfb46">&#9670;&#160;</a></span>readUntilEOF() <span class="overload">[1/2]</span></h2>
+<a id="ac701004dafb790efa7865ed2f3cc1461" name="ac701004dafb790efa7865ed2f3cc1461"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac701004dafb790efa7865ed2f3cc1461">&#9670;&#160;</a></span>readUntilEOF() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::readUntilEOF </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::readUntilEOF </td>
           <td>(</td>
           <td class="paramtype">IGrowableBuffer &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span></td><td>)</td>
           <td></td>
@@ -635,8 +635,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>PipeDescriptor</b><
 
 </div>
 </div>
-<a id="a3a0c46183b22f201ef7f087b9e7e94e4" name="a3a0c46183b22f201ef7f087b9e7e94e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a0c46183b22f201ef7f087b9e7e94e4">&#9670;&#160;</a></span>readUntilEOF() <span class="overload">[2/2]</span></h2>
+<a id="a6e6c17c4e2186230d5f14abb108993df" name="a6e6c17c4e2186230d5f14abb108993df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e6c17c4e2186230d5f14abb108993df">&#9670;&#160;</a></span>readUntilEOF() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -647,7 +647,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::readUntilEOF </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::readUntilEOF </td>
           <td>(</td>
           <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>destination</em></span></td><td>)</td>
           <td></td>
@@ -677,14 +677,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a8f69d94e5e2a2febb7a8af68fa2752fa" name="a8f69d94e5e2a2febb7a8af68fa2752fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f69d94e5e2a2febb7a8af68fa2752fa">&#9670;&#160;</a></span>readUntilFullOrEOF()</h2>
+<a id="a2ba19b79e21aa101866c9523467c013b" name="a2ba19b79e21aa101866c9523467c013b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ba19b79e21aa101866c9523467c013b">&#9670;&#160;</a></span>readUntilFullOrEOF()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::readUntilFullOrEOF </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::readUntilFullOrEOF </td>
           <td>(</td>
           <td class="paramtype">Span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
@@ -696,7 +696,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Reads bytes from current position (<a class="el" href="#a3cc02813b7a9f125d5408bfa8a8f2a54" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) into Span, until full or EOF is reached. </p>
+<p>Reads bytes from current position (<a class="el" href="#ad5ca8ed2a68870fce1db8ec20beea2a0" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) into Span, until full or EOF is reached. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>Span of bytes where data should be written to </td></tr>
@@ -708,14 +708,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a3cc02813b7a9f125d5408bfa8a8f2a54" name="a3cc02813b7a9f125d5408bfa8a8f2a54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3cc02813b7a9f125d5408bfa8a8f2a54">&#9670;&#160;</a></span>seek()</h2>
+<a id="ad5ca8ed2a68870fce1db8ec20beea2a0" name="ad5ca8ed2a68870fce1db8ec20beea2a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5ca8ed2a68870fce1db8ec20beea2a0">&#9670;&#160;</a></span>seek()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::seek </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::seek </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="#a011bee61c7a59ed7997b6f2ca4ac736a">SeekMode</a></td>          <td class="paramname"><span class="paramname"><em>seekMode</em></span>, </td>
         </tr>
@@ -739,14 +739,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a6c53f608a344203235e3ac29b872c4c9" name="a6c53f608a344203235e3ac29b872c4c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c53f608a344203235e3ac29b872c4c9">&#9670;&#160;</a></span>sizeInBytes()</h2>
+<a id="a96a7128e7a36a58bfb65eca893497e79" name="a96a7128e7a36a58bfb65eca893497e79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96a7128e7a36a58bfb65eca893497e79">&#9670;&#160;</a></span>sizeInBytes()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::sizeInBytes </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::sizeInBytes </td>
           <td>(</td>
           <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>sizeInBytes</em></span></td><td>)</td>
           <td> const</td>
@@ -765,14 +765,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a3f1e7141b4136bc2437faf59d499e63a" name="a3f1e7141b4136bc2437faf59d499e63a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f1e7141b4136bc2437faf59d499e63a">&#9670;&#160;</a></span>stat()</h2>
+<a id="a844dbe6f264380e03a17c1c077ebcea6" name="a844dbe6f264380e03a17c1c077ebcea6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a844dbe6f264380e03a17c1c077ebcea6">&#9670;&#160;</a></span>stat()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::stat </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::stat </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structSC_1_1FileDescriptorStat.html">FileDescriptorStat</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>fileStat</em></span></td><td>)</td>
           <td> const</td>
@@ -791,14 +791,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="aaaa79b890312086a34c4d3983ebbf93c" name="aaaa79b890312086a34c4d3983ebbf93c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaaa79b890312086a34c4d3983ebbf93c">&#9670;&#160;</a></span>sync()</h2>
+<a id="aa0ed3605f3e84c22bac1907a1e851608" name="aa0ed3605f3e84c22bac1907a1e851608"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0ed3605f3e84c22bac1907a1e851608">&#9670;&#160;</a></span>sync()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::sync </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::sync </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -811,14 +811,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a0131bf2a7d6f8d4f26dd698c09b4386e" name="a0131bf2a7d6f8d4f26dd698c09b4386e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0131bf2a7d6f8d4f26dd698c09b4386e">&#9670;&#160;</a></span>syncData()</h2>
+<a id="a2709a78b92ed3c180c4206b122ec6beb" name="a2709a78b92ed3c180c4206b122ec6beb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2709a78b92ed3c180c4206b122ec6beb">&#9670;&#160;</a></span>syncData()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::syncData </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::syncData </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -831,14 +831,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a6d3a86aa7a7c066fafe23663e7ff64ac" name="a6d3a86aa7a7c066fafe23663e7ff64ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d3a86aa7a7c066fafe23663e7ff64ac">&#9670;&#160;</a></span>truncate()</h2>
+<a id="aae50b0a6cf625da780da83d454c7e1f5" name="aae50b0a6cf625da780da83d454c7e1f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae50b0a6cf625da780da83d454c7e1f5">&#9670;&#160;</a></span>truncate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::truncate </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::truncate </td>
           <td>(</td>
           <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>sizeInBytes</em></span></td><td>)</td>
           <td></td>
@@ -857,14 +857,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ae4c6c280484e23f7d2217af2cd1b0a10" name="ae4c6c280484e23f7d2217af2cd1b0a10"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4c6c280484e23f7d2217af2cd1b0a10">&#9670;&#160;</a></span>write() <span class="overload">[1/4]</span></h2>
+<a id="ad929ef509340ce37a3b3295963d4bd93" name="ad929ef509340ce37a3b3295963d4bd93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad929ef509340ce37a3b3295963d4bd93">&#9670;&#160;</a></span>write() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::write </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::write </td>
           <td>(</td>
           <td class="paramtype">Span&lt; const char &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
           <td></td>
@@ -872,7 +872,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Writes bytes from current position (<a class="el" href="#a3cc02813b7a9f125d5408bfa8a8f2a54" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) of the file descriptor. </p>
+<p>Writes bytes from current position (<a class="el" href="#ad5ca8ed2a68870fce1db8ec20beea2a0" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) of the file descriptor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>Span of bytes containing the data to write </td></tr>
@@ -883,14 +883,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a5551f0d07b77177e38dfc777fbb8aabf" name="a5551f0d07b77177e38dfc777fbb8aabf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5551f0d07b77177e38dfc777fbb8aabf">&#9670;&#160;</a></span>write() <span class="overload">[2/4]</span></h2>
+<a id="a3d3af17314ed710967b7953cc1042986" name="a3d3af17314ed710967b7953cc1042986"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d3af17314ed710967b7953cc1042986">&#9670;&#160;</a></span>write() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::write </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::write </td>
           <td>(</td>
           <td class="paramtype">Span&lt; const char &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
@@ -914,14 +914,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a53f91df5591abbb1fa9952167f62fe05" name="a53f91df5591abbb1fa9952167f62fe05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53f91df5591abbb1fa9952167f62fe05">&#9670;&#160;</a></span>write() <span class="overload">[3/4]</span></h2>
+<a id="a03d4acfd813acddb52c443eed697373e" name="a03d4acfd813acddb52c443eed697373e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03d4acfd813acddb52c443eed697373e">&#9670;&#160;</a></span>write() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::write </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::write </td>
           <td>(</td>
           <td class="paramtype">Span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
           <td></td>
@@ -929,7 +929,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Writes bytes from current position (<a class="el" href="#a3cc02813b7a9f125d5408bfa8a8f2a54" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) of the file descriptor. </p>
+<p>Writes bytes from current position (<a class="el" href="#ad5ca8ed2a68870fce1db8ec20beea2a0" title="Changes the current position in the file descriptor, if seekable.">FileDescriptor::seek</a>) of the file descriptor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>Span of bytes containing the data to write </td></tr>
@@ -940,14 +940,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a30873edf1831fcb89bffd94eaf326792" name="a30873edf1831fcb89bffd94eaf326792"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30873edf1831fcb89bffd94eaf326792">&#9670;&#160;</a></span>write() <span class="overload">[4/4]</span></h2>
+<a id="ac3b66ecacca108a97e30564ce7dce4ba" name="ac3b66ecacca108a97e30564ce7dce4ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3b66ecacca108a97e30564ce7dce4ba">&#9670;&#160;</a></span>write() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::write </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::write </td>
           <td>(</td>
           <td class="paramtype">Span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
@@ -971,14 +971,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="adb0a95d2186e639427a70882e6f534c9" name="adb0a95d2186e639427a70882e6f534c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb0a95d2186e639427a70882e6f534c9">&#9670;&#160;</a></span>writeString()</h2>
+<a id="a8fbc77e744e967b9ef8fe481fbb85554" name="a8fbc77e744e967b9ef8fe481fbb85554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fbc77e744e967b9ef8fe481fbb85554">&#9670;&#160;</a></span>writeString()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileDescriptor::writeString </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFile.html">ResultFile</a> SC::FileDescriptor::writeString </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
           <td></td>

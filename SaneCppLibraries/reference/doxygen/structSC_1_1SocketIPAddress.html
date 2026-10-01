@@ -156,9 +156,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1a8b8269f72adedac4ab83e222be1eac" id="r_a1a8b8269f72adedac4ab83e222be1eac"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a8b8269f72adedac4ab83e222be1eac">getPort</a> () const</td></tr>
 <tr class="memdesc:a1a8b8269f72adedac4ab83e222be1eac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get port of this ip address.  <br /></td></tr>
 <tr class="separator:a1a8b8269f72adedac4ab83e222be1eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51fa59480b3d743f7f32c87fda744c37" id="r_a51fa59480b3d743f7f32c87fda744c37"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51fa59480b3d743f7f32c87fda744c37">fromAddressPort</a> (StringSpan interfaceAddress, uint16_t port)</td></tr>
-<tr class="memdesc:a51fa59480b3d743f7f32c87fda744c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds this <a class="el" href="structSC_1_1SocketIPAddress.html" title="Native representation of an IP Address.">SocketIPAddress</a> parsing given address string and port.  <br /></td></tr>
-<tr class="separator:a51fa59480b3d743f7f32c87fda744c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3eafdd3576ea9eee42a055d5c85423ab" id="r_a3eafdd3576ea9eee42a055d5c85423ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3eafdd3576ea9eee42a055d5c85423ab">fromAddressPort</a> (StringSpan interfaceAddress, uint16_t port)</td></tr>
+<tr class="memdesc:a3eafdd3576ea9eee42a055d5c85423ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds this <a class="el" href="structSC_1_1SocketIPAddress.html" title="Native representation of an IP Address.">SocketIPAddress</a> parsing given address string and port.  <br /></td></tr>
+<tr class="separator:a3eafdd3576ea9eee42a055d5c85423ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1d39689840b451f49d607ce08f9b0a5" id="r_ab1d39689840b451f49d607ce08f9b0a5"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1d39689840b451f49d607ce08f9b0a5">sizeOfHandle</a> () const</td></tr>
 <tr class="memdesc:ab1d39689840b451f49d607ce08f9b0a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the native IP Address representation.  <br /></td></tr>
 <tr class="separator:ab1d39689840b451f49d607ce08f9b0a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -193,25 +193,25 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SocketClient</b></t
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Native representation of an IP Address. </p>
 <p>Example: </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> address;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not address.<a class="code hl_function" href="#a51fa59480b3d743f7f32c87fda744c37">fromAddressPort</a>(<span class="stringliteral">&quot;1223.22.44.1&quot;</span>, 6666));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(address.<a class="code hl_function" href="#a51fa59480b3d743f7f32c87fda744c37">fromAddressPort</a>(<span class="stringliteral">&quot;127.0.0.1&quot;</span>, 123));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not address.<a class="code hl_function" href="#a3eafdd3576ea9eee42a055d5c85423ab">fromAddressPort</a>(<span class="stringliteral">&quot;1223.22.44.1&quot;</span>, 6666));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(address.<a class="code hl_function" href="#a3eafdd3576ea9eee42a055d5c85423ab">fromAddressPort</a>(<span class="stringliteral">&quot;127.0.0.1&quot;</span>, 123));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(address.<a class="code hl_function" href="#a1a8b8269f72adedac4ab83e222be1eac">getPort</a>() == 123);</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(address.<a class="code hl_function" href="#a51fa59480b3d743f7f32c87fda744c37">fromAddressPort</a>(<span class="stringliteral">&quot;::1&quot;</span>, 456));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(address.<a class="code hl_function" href="#a3eafdd3576ea9eee42a055d5c85423ab">fromAddressPort</a>(<span class="stringliteral">&quot;::1&quot;</span>, 456));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(address.<a class="code hl_function" href="#a1a8b8269f72adedac4ab83e222be1eac">getPort</a>() == 456);</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> utf8IPV4[] = <span class="stringliteral">&quot;127.0.0.1&quot;</span>;</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(</div>
-<div class="line">        address.<a class="code hl_function" href="#a51fa59480b3d743f7f32c87fda744c37">fromAddressPort</a>(StringSpan({utf8IPV4, <span class="keyword">sizeof</span>(utf8IPV4) - 1}, <span class="keyword">true</span>, StringEncoding::Utf8), 789));</div>
+<div class="line">        address.<a class="code hl_function" href="#a3eafdd3576ea9eee42a055d5c85423ab">fromAddressPort</a>(StringSpan({utf8IPV4, <span class="keyword">sizeof</span>(utf8IPV4) - 1}, <span class="keyword">true</span>, StringEncoding::Utf8), 789));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(address.<a class="code hl_function" href="#a1a8b8269f72adedac4ab83e222be1eac">getPort</a>() == 789);</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> utf8IPV6[] = <span class="stringliteral">&quot;::1&quot;</span>;</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(</div>
-<div class="line">        address.<a class="code hl_function" href="#a51fa59480b3d743f7f32c87fda744c37">fromAddressPort</a>(StringSpan({utf8IPV6, <span class="keyword">sizeof</span>(utf8IPV6) - 1}, <span class="keyword">true</span>, StringEncoding::Utf8), 987));</div>
+<div class="line">        address.<a class="code hl_function" href="#a3eafdd3576ea9eee42a055d5c85423ab">fromAddressPort</a>(StringSpan({utf8IPV6, <span class="keyword">sizeof</span>(utf8IPV6) - 1}, <span class="keyword">true</span>, StringEncoding::Utf8), 987));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(address.<a class="code hl_function" href="#a1a8b8269f72adedac4ab83e222be1eac">getPort</a>() == 987);</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> nonAsciiAddress[] = {</div>
 <div class="line">        <span class="charliteral">&#39;1&#39;</span>, <span class="charliteral">&#39;2&#39;</span>, <span class="charliteral">&#39;7&#39;</span>, <span class="charliteral">&#39;.&#39;</span>, <span class="charliteral">&#39;0&#39;</span>, <span class="charliteral">&#39;.&#39;</span>, <span class="charliteral">&#39;0&#39;</span>, <span class="charliteral">&#39;.&#39;</span>, <span class="charliteral">&#39;1&#39;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(0xc3), <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(0xa9)};</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not address.<a class="code hl_function" href="#a51fa59480b3d743f7f32c87fda744c37">fromAddressPort</a>(</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not address.<a class="code hl_function" href="#a3eafdd3576ea9eee42a055d5c85423ab">fromAddressPort</a>(</div>
 <div class="line">        StringSpan({nonAsciiAddress, <span class="keyword">sizeof</span>(nonAsciiAddress)}, <span class="keyword">false</span>, StringEncoding::Utf8), 123));</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span>  badMemory[]  = <span class="stringliteral">&quot;oh yeah that&#39;s a really broken socket ip address&quot;</span>;</div>
@@ -261,14 +261,14 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SocketClient</b></t
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a51fa59480b3d743f7f32c87fda744c37" name="a51fa59480b3d743f7f32c87fda744c37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51fa59480b3d743f7f32c87fda744c37">&#9670;&#160;</a></span>fromAddressPort()</h2>
+<a id="a3eafdd3576ea9eee42a055d5c85423ab" name="a3eafdd3576ea9eee42a055d5c85423ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3eafdd3576ea9eee42a055d5c85423ab">&#9670;&#160;</a></span>fromAddressPort()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketIPAddress::fromAddressPort </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketIPAddress::fromAddressPort </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>interfaceAddress</em></span>, </td>
         </tr>

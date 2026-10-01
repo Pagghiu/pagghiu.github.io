@@ -41,32 +41,32 @@ var group__group__file =
         [ "SeekEnd", "structSC_1_1FileDescriptor.html#a011bee61c7a59ed7997b6f2ca4ac736aa0a0fe16d406c55bfe5654cca57702e41", null ],
         [ "SeekCurrent", "structSC_1_1FileDescriptor.html#a011bee61c7a59ed7997b6f2ca4ac736aa050759af7ddcc64ddb5380e7b05c44b1", null ]
       ] ],
-      [ "chmod", "structSC_1_1FileDescriptor.html#a39e8350ce80e2a8f0bfd2c32d5cea71d", null ],
-      [ "chown", "structSC_1_1FileDescriptor.html#aa96e58f23693d38fc5c77161315452a4", null ],
-      [ "currentPosition", "structSC_1_1FileDescriptor.html#a4d177829f238df4dc41640510193a342", null ],
-      [ "open", "structSC_1_1FileDescriptor.html#abb9e7b63235cd19a0926f6e838eca79b", null ],
-      [ "openForWriteToDevNull", "structSC_1_1FileDescriptor.html#a298d6ec860c6d7ede60b18c079a236ec", null ],
-      [ "openStdErrDuplicate", "structSC_1_1FileDescriptor.html#a335b123251f5c164b9eb607685611cf9", null ],
-      [ "openStdInDuplicate", "structSC_1_1FileDescriptor.html#ab8021688fbad7924cf830f3d809c79d1", null ],
-      [ "openStdOutDuplicate", "structSC_1_1FileDescriptor.html#a7699e9f075698a6f428a4fa19aeffd7b", null ],
-      [ "read", "structSC_1_1FileDescriptor.html#a4a3a019bcd723a250f04931c4989d61f", null ],
-      [ "read", "structSC_1_1FileDescriptor.html#a7872531dfb1a1f7eddeb1591452f684c", null ],
-      [ "read", "structSC_1_1FileDescriptor.html#a0fe3f4c5e8fda8b795f6d1863ac54499", null ],
-      [ "read", "structSC_1_1FileDescriptor.html#ac847b6b50038713c2b4f3bb84159eeac", null ],
-      [ "readUntilEOF", "structSC_1_1FileDescriptor.html#a3cbf3cbf6c3f4124947cb6554e6bfb46", null ],
-      [ "readUntilEOF", "structSC_1_1FileDescriptor.html#a3a0c46183b22f201ef7f087b9e7e94e4", null ],
-      [ "readUntilFullOrEOF", "structSC_1_1FileDescriptor.html#a8f69d94e5e2a2febb7a8af68fa2752fa", null ],
-      [ "seek", "structSC_1_1FileDescriptor.html#a3cc02813b7a9f125d5408bfa8a8f2a54", null ],
-      [ "sizeInBytes", "structSC_1_1FileDescriptor.html#a6c53f608a344203235e3ac29b872c4c9", null ],
-      [ "stat", "structSC_1_1FileDescriptor.html#a3f1e7141b4136bc2437faf59d499e63a", null ],
-      [ "sync", "structSC_1_1FileDescriptor.html#aaaa79b890312086a34c4d3983ebbf93c", null ],
-      [ "syncData", "structSC_1_1FileDescriptor.html#a0131bf2a7d6f8d4f26dd698c09b4386e", null ],
-      [ "truncate", "structSC_1_1FileDescriptor.html#a6d3a86aa7a7c066fafe23663e7ff64ac", null ],
-      [ "write", "structSC_1_1FileDescriptor.html#ae4c6c280484e23f7d2217af2cd1b0a10", null ],
-      [ "write", "structSC_1_1FileDescriptor.html#a5551f0d07b77177e38dfc777fbb8aabf", null ],
-      [ "write", "structSC_1_1FileDescriptor.html#a53f91df5591abbb1fa9952167f62fe05", null ],
-      [ "write", "structSC_1_1FileDescriptor.html#a30873edf1831fcb89bffd94eaf326792", null ],
-      [ "writeString", "structSC_1_1FileDescriptor.html#adb0a95d2186e639427a70882e6f534c9", null ]
+      [ "chmod", "structSC_1_1FileDescriptor.html#a5baaec32600e7b189aa6a2624269b62c", null ],
+      [ "chown", "structSC_1_1FileDescriptor.html#ac41a148b3b63aee7e1c9ee0e63fb5e0b", null ],
+      [ "currentPosition", "structSC_1_1FileDescriptor.html#a28725820357b471dae9b58a510feb201", null ],
+      [ "open", "structSC_1_1FileDescriptor.html#addcf97d07d804c00bd36317efc774130", null ],
+      [ "openForWriteToDevNull", "structSC_1_1FileDescriptor.html#ae6ab3d6919dbf37367d6df136301d9c8", null ],
+      [ "openStdErrDuplicate", "structSC_1_1FileDescriptor.html#ab21aa08cfec04e38272856b5bcde8f71", null ],
+      [ "openStdInDuplicate", "structSC_1_1FileDescriptor.html#a5faef430490ca0823e4a588877e71341", null ],
+      [ "openStdOutDuplicate", "structSC_1_1FileDescriptor.html#a8d049c7cf189a6605719229cb3783c3a", null ],
+      [ "read", "structSC_1_1FileDescriptor.html#ad42a183fed8ebb2a7d50b89f3fb0e851", null ],
+      [ "read", "structSC_1_1FileDescriptor.html#a8778b0792422ac7ef8d4178be9fa7f29", null ],
+      [ "read", "structSC_1_1FileDescriptor.html#ac167e0c58b0c3ff9ee4c64bd4ea0f3d5", null ],
+      [ "read", "structSC_1_1FileDescriptor.html#a446702d74ab88c81a312000e70aa4685", null ],
+      [ "readUntilEOF", "structSC_1_1FileDescriptor.html#ac701004dafb790efa7865ed2f3cc1461", null ],
+      [ "readUntilEOF", "structSC_1_1FileDescriptor.html#a6e6c17c4e2186230d5f14abb108993df", null ],
+      [ "readUntilFullOrEOF", "structSC_1_1FileDescriptor.html#a2ba19b79e21aa101866c9523467c013b", null ],
+      [ "seek", "structSC_1_1FileDescriptor.html#ad5ca8ed2a68870fce1db8ec20beea2a0", null ],
+      [ "sizeInBytes", "structSC_1_1FileDescriptor.html#a96a7128e7a36a58bfb65eca893497e79", null ],
+      [ "stat", "structSC_1_1FileDescriptor.html#a844dbe6f264380e03a17c1c077ebcea6", null ],
+      [ "sync", "structSC_1_1FileDescriptor.html#aa0ed3605f3e84c22bac1907a1e851608", null ],
+      [ "syncData", "structSC_1_1FileDescriptor.html#a2709a78b92ed3c180c4206b122ec6beb", null ],
+      [ "truncate", "structSC_1_1FileDescriptor.html#aae50b0a6cf625da780da83d454c7e1f5", null ],
+      [ "write", "structSC_1_1FileDescriptor.html#ad929ef509340ce37a3b3295963d4bd93", null ],
+      [ "write", "structSC_1_1FileDescriptor.html#a3d3af17314ed710967b7953cc1042986", null ],
+      [ "write", "structSC_1_1FileDescriptor.html#a03d4acfd813acddb52c443eed697373e", null ],
+      [ "write", "structSC_1_1FileDescriptor.html#ac3b66ecacca108a97e30564ce7dce4ba", null ],
+      [ "writeString", "structSC_1_1FileDescriptor.html#a8fbc77e744e967b9ef8fe481fbb85554", null ]
     ] ],
     [ "SC::PipeOptions", "structSC_1_1PipeOptions.html", [
       [ "blocking", "structSC_1_1PipeOptions.html#a8df09a9fcc11eb36f7d2ffc1504e7994", null ],
@@ -74,8 +74,8 @@ var group__group__file =
       [ "writeInheritable", "structSC_1_1PipeOptions.html#ada6b39b0afe4ff4e27284fe6d9b9812b", null ]
     ] ],
     [ "SC::PipeDescriptor", "structSC_1_1PipeDescriptor.html", [
-      [ "close", "structSC_1_1PipeDescriptor.html#a78cfe351d6ea85c80339df9ff0ec715d", null ],
-      [ "createPipe", "structSC_1_1PipeDescriptor.html#a36f3d1f293d648d682df0136953ea996", null ],
+      [ "close", "structSC_1_1PipeDescriptor.html#a8a7368d21e95cacf430847f4a32228c2", null ],
+      [ "createPipe", "structSC_1_1PipeDescriptor.html#a894b341a80f9f8a1d9d68756cc91160b", null ],
       [ "readPipe", "structSC_1_1PipeDescriptor.html#ab97fa3a07fcf1e113f0cc3cf1273c1e4", null ],
       [ "writePipe", "structSC_1_1PipeDescriptor.html#a3dcae6cfbee78db33167e4f183463bf4", null ]
     ] ],
@@ -98,10 +98,18 @@ var group__group__file =
       [ "connectionOptions", "structSC_1_1NamedPipeClientOptions.html#a6e6a30332478de9bf6dcbb98a419b96f", null ]
     ] ],
     [ "SC::NamedPipeServer", "structSC_1_1NamedPipeServer.html", [
-      [ "accept", "structSC_1_1NamedPipeServer.html#add437fd7721c4868a714963e3dfaedce", null ],
-      [ "close", "structSC_1_1NamedPipeServer.html#a71d72d38259d5fed38d7b87ac50f209a", null ],
-      [ "create", "structSC_1_1NamedPipeServer.html#a961ac307b7098d7da0887984253fc3e5", null ]
+      [ "accept", "structSC_1_1NamedPipeServer.html#ad78eba77a36201915473eb58743d3e36", null ],
+      [ "close", "structSC_1_1NamedPipeServer.html#a6c6ca3c494cc3c6f9bac819ae027a0ae", null ],
+      [ "create", "structSC_1_1NamedPipeServer.html#a8105991197bcc0f5349c406fc5bbb1ee", null ]
     ] ],
     [ "SC::NamedPipeClient", "structSC_1_1NamedPipeClient.html", null ],
-    [ "SC::FileDescriptorEntryType", "group__group__file.html#ga3284572f6992e9abf36e60593c4d4d43", null ]
+    [ "SC::FileErrorContext", "unionSC_1_1FileErrorContext.html", [
+      [ "ActualBytes", "structSC_1_1FileErrorContext_1_1ActualBytes.html", null ],
+      [ "RequiredBytes", "structSC_1_1FileErrorContext_1_1RequiredBytes.html", null ]
+    ] ],
+    [ "SC::ResultFile", "structSC_1_1ResultFile.html", null ],
+    [ "SC::FileDescriptorEntryType", "group__group__file.html#ga3284572f6992e9abf36e60593c4d4d43", null ],
+    [ "SC::FileError", "group__group__file.html#ga282bad81409c1402a22205903c66c86b", null ],
+    [ "SC::FileErrorContextKind", "group__group__file.html#gaab2b383f0d60c7209857d129ddf246cf", null ],
+    [ "SC::FileErrorDetail", "group__group__file.html#gac093ff57fcfa6d4a916195211a8c5abd", null ]
 ];

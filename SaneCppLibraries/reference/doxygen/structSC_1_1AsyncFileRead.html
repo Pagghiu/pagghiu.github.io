@@ -365,7 +365,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isThreadPoolForced</b
 <div class="line"><span class="keywordtype">char</span> buffer[100] = {0};</div>
 <div class="line">asyncReadFile.buffer = {buffer, <span class="keyword">sizeof</span>(buffer)};</div>
 <div class="line"><span class="comment">// Obtain file descriptor handle and associate it with event loop</span></div>
-<div class="line">SC_TRY(fd.get(asyncReadFile.handle, Result::Error(<span class="stringliteral">&quot;Invalid handle&quot;</span>)));</div>
+<div class="line">SC_TRY(fd.get(asyncReadFile.handle, Result(<span class="keyword">false</span>)));</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Start the operation on a thread pool</span></div>
 <div class="line">AsyncTaskSequence asyncFileTask;</div>

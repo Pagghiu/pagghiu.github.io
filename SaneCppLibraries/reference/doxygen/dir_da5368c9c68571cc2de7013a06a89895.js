@@ -4,6 +4,8 @@ var dir_da5368c9c68571cc2de7013a06a89895 =
     [ "HttpAsyncFileServer.h", "HttpAsyncFileServer_8h_source.html", null ],
     [ "HttpAsyncServer.h", "HttpAsyncServer_8h_source.html", null ],
     [ "HttpConnection.h", "HttpConnection_8h_source.html", null ],
+    [ "HttpError.h", "HttpError_8h_source.html", null ],
+    [ "HttpErrorFormatter.h", "HttpErrorFormatter_8h_source.html", null ],
     [ "HttpExport.h", "HttpExport_8h_source.html", null ],
     [ "HttpHeaders.h", "HttpHeaders_8h_source.html", null ],
     [ "HttpMultipartParser.h", "HttpMultipartParser_8h_source.html", null ],

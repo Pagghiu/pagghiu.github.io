@@ -18,11 +18,17 @@ var group__group__file__system__iterator =
         [ "File", "structSC_1_1FileSystemIterator.html#af1efa7365fb46b74b8af53f4b340a968a0b27918290ff5323bea1e3b78a9cf04e", null ]
       ] ],
       [ "~FileSystemIterator", "structSC_1_1FileSystemIterator.html#ad48b96d1532d88815ab00f6397028588", null ],
-      [ "checkErrors", "structSC_1_1FileSystemIterator.html#a6a766755dbf3cc07e95c0ec36590b5d8", null ],
-      [ "enumerateNext", "structSC_1_1FileSystemIterator.html#ad0c01b172558e37e949045f0520a55b6", null ],
+      [ "checkErrors", "structSC_1_1FileSystemIterator.html#ac4950da6c7db1038a7224c64fccad594", null ],
+      [ "enumerateNext", "structSC_1_1FileSystemIterator.html#a28427916478ddd9f7dffafe1032b9de8", null ],
       [ "get", "structSC_1_1FileSystemIterator.html#a3095bc292f512c4c8e4c022172d413dc", null ],
-      [ "init", "structSC_1_1FileSystemIterator.html#a5b05563dd42178bc0562455206e6da02", null ],
-      [ "recurseSubdirectory", "structSC_1_1FileSystemIterator.html#aa8cf8da817e4783df2f2b1892b31d50d", null ],
+      [ "init", "structSC_1_1FileSystemIterator.html#a4f61f3ae072c6ef1972e114f4538d247", null ],
+      [ "recurseSubdirectory", "structSC_1_1FileSystemIterator.html#afff35fe653ef12bf2fa5663bd407f83c", null ],
       [ "options", "structSC_1_1FileSystemIterator.html#a62810505b933b0a1e52b4d91bfd54d99", null ]
-    ] ]
+    ] ],
+    [ "SC::ResultFileSystemIterator", "structSC_1_1ResultFileSystemIterator.html", null ],
+    [ "SC::FileSystemIteratorError", "group__group__file__system__iterator.html#ga98130a6992d9bbf3180067227e62342d", null ],
+    [ "SC::FileSystemIteratorErrorDetail", "group__group__file__system__iterator.html#gaaa034e2398ce735ae47327afada301d9", null ],
+    [ "SC::formatFileSystemIteratorError", "group__group__file__system__iterator.html#gabf4fa321d794c4894e01f49be2984a01", null ],
+    [ "SC::formatFileSystemIteratorError", "group__group__file__system__iterator.html#ga2069a89984fd960d3c83dd03c5c6308a", null ],
+    [ "SC::formatFileSystemIteratorError", "group__group__file__system__iterator.html#gadbd3390ba5cd909f6674e1ab3beaccf1", null ]
 ];

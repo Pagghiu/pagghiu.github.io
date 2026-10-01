@@ -127,7 +127,6 @@ $(function(){initNavTree('structSC_1_1FileSystem.html',''); initResizable(true);
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structSC_1_1FileSystem-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">SC::FileSystem Struct Reference<div class="ingroups"><a class="el" href="group__group__file__system.html">FileSystem</a></div></div></div>
 </div><!--header-->
@@ -161,190 +160,199 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1fd637d740d1784669730c832631baaf" id="r_a1fd637d740d1784669730c832631baaf"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fd637d740d1784669730c832631baaf">init</a> (StringSpan initialDirectory)</td></tr>
-<tr class="memdesc:a1fd637d740d1784669730c832631baaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call init function when instantiating the class to set directory for all operations using relative paths.  <br /></td></tr>
-<tr class="separator:a1fd637d740d1784669730c832631baaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a314148c633cf60a45a5700af7e524607" id="r_a314148c633cf60a45a5700af7e524607"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a314148c633cf60a45a5700af7e524607">changeDirectory</a> (StringSpan newDirectory)</td></tr>
-<tr class="memdesc:a314148c633cf60a45a5700af7e524607"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes current directory.  <br /></td></tr>
-<tr class="separator:a314148c633cf60a45a5700af7e524607"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a496fdbb8cbf227307c754dc6f97b7646" id="r_a496fdbb8cbf227307c754dc6f97b7646"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a496fdbb8cbf227307c754dc6f97b7646">copyFiles</a> (Span&lt; const <a class="el" href="structSC_1_1FileSystem_1_1CopyOperation.html">CopyOperation</a> &gt; sourceDestination)</td></tr>
-<tr class="memdesc:a496fdbb8cbf227307c754dc6f97b7646"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies many files.  <br /></td></tr>
-<tr class="separator:a496fdbb8cbf227307c754dc6f97b7646"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad30ad24318fc6caa998ff817825702a7" id="r_ad30ad24318fc6caa998ff817825702a7"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad30ad24318fc6caa998ff817825702a7">copyFile</a> (StringSpan source, StringSpan destination, <a class="el" href="#af15e2499738026af5d43ecfadc095d30">CopyFlags</a> copyFlags=<a class="el" href="#af15e2499738026af5d43ecfadc095d30">CopyFlags</a>())</td></tr>
-<tr class="memdesc:ad30ad24318fc6caa998ff817825702a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a single file.  <br /></td></tr>
-<tr class="separator:ad30ad24318fc6caa998ff817825702a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2b9509466b9f63fbf664e5e2f209998" id="r_ac2b9509466b9f63fbf664e5e2f209998"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2b9509466b9f63fbf664e5e2f209998">copyDirectories</a> (Span&lt; const <a class="el" href="structSC_1_1FileSystem_1_1CopyOperation.html">CopyOperation</a> &gt; sourceDestination)</td></tr>
-<tr class="memdesc:ac2b9509466b9f63fbf664e5e2f209998"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy many directories.  <br /></td></tr>
-<tr class="separator:ac2b9509466b9f63fbf664e5e2f209998"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2c49712608e73c143022d2a7d61ebfc" id="r_aa2c49712608e73c143022d2a7d61ebfc"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2c49712608e73c143022d2a7d61ebfc">copyDirectory</a> (StringSpan source, StringSpan destination, <a class="el" href="#af15e2499738026af5d43ecfadc095d30">CopyFlags</a> copyFlags=<a class="el" href="#af15e2499738026af5d43ecfadc095d30">CopyFlags</a>())</td></tr>
-<tr class="memdesc:aa2c49712608e73c143022d2a7d61ebfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a single directory.  <br /></td></tr>
-<tr class="separator:aa2c49712608e73c143022d2a7d61ebfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b4aa48531a6c63039184a18cee0749d" id="r_a6b4aa48531a6c63039184a18cee0749d"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b4aa48531a6c63039184a18cee0749d">rename</a> (StringSpan path, StringSpan newPath)</td></tr>
-<tr class="memdesc:a6b4aa48531a6c63039184a18cee0749d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rename a file or directory.  <br /></td></tr>
-<tr class="separator:a6b4aa48531a6c63039184a18cee0749d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09129409620b045d6551e46ef02cb680" id="r_a09129409620b045d6551e46ef02cb680"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09129409620b045d6551e46ef02cb680">removeFiles</a> (Span&lt; const StringSpan &gt; files)</td></tr>
-<tr class="memdesc:a09129409620b045d6551e46ef02cb680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove multiple files.  <br /></td></tr>
-<tr class="separator:a09129409620b045d6551e46ef02cb680"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1465c729e64880777d2d25c98179a8ab" id="r_a1465c729e64880777d2d25c98179a8ab"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1465c729e64880777d2d25c98179a8ab">removeFile</a> (StringSpan source)</td></tr>
-<tr class="memdesc:a1465c729e64880777d2d25c98179a8ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a single file.  <br /></td></tr>
-<tr class="separator:a1465c729e64880777d2d25c98179a8ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d376d2cdace056ade8bd5ac59359c37" id="r_a5d376d2cdace056ade8bd5ac59359c37"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d376d2cdace056ade8bd5ac59359c37">removeFileIfExists</a> (StringSpan source)</td></tr>
-<tr class="memdesc:a5d376d2cdace056ade8bd5ac59359c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a single file, giving no error if it doesn't exist.  <br /></td></tr>
-<tr class="separator:a5d376d2cdace056ade8bd5ac59359c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c6b47d0b18c00dc7aa0a07d1652cbb9" id="r_a3c6b47d0b18c00dc7aa0a07d1652cbb9"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c6b47d0b18c00dc7aa0a07d1652cbb9">removeLinkIfExists</a> (StringSpan source)</td></tr>
-<tr class="memdesc:a3c6b47d0b18c00dc7aa0a07d1652cbb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a single link, giving no error if it doesn't exist.  <br /></td></tr>
-<tr class="separator:a3c6b47d0b18c00dc7aa0a07d1652cbb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a494c2a5455ae69b756c4001fbc445f71" id="r_a494c2a5455ae69b756c4001fbc445f71"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a494c2a5455ae69b756c4001fbc445f71">removeDirectoriesRecursive</a> (Span&lt; const StringSpan &gt; directories)</td></tr>
-<tr class="memdesc:a494c2a5455ae69b756c4001fbc445f71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove multiple directories with their entire content (like posix <code>rm -rf</code>)  <br /></td></tr>
-<tr class="separator:a494c2a5455ae69b756c4001fbc445f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83c97e78517a179fe4c7458a5b912863" id="r_a83c97e78517a179fe4c7458a5b912863"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83c97e78517a179fe4c7458a5b912863">removeDirectoryRecursive</a> (StringSpan directory)</td></tr>
-<tr class="memdesc:a83c97e78517a179fe4c7458a5b912863"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove single directory with its entire content (like posix <code>rm -rf</code>)  <br /></td></tr>
-<tr class="separator:a83c97e78517a179fe4c7458a5b912863"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5319159aa06eda0ca51fde6fb90387e4" id="r_a5319159aa06eda0ca51fde6fb90387e4"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5319159aa06eda0ca51fde6fb90387e4">removeEmptyDirectories</a> (Span&lt; const StringSpan &gt; directories)</td></tr>
-<tr class="memdesc:a5319159aa06eda0ca51fde6fb90387e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes multiple empty directories.  <br /></td></tr>
-<tr class="separator:a5319159aa06eda0ca51fde6fb90387e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae59bf3574eb30df766ef37af11c709bb" id="r_ae59bf3574eb30df766ef37af11c709bb"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a> (StringSpan directory)</td></tr>
-<tr class="memdesc:ae59bf3574eb30df766ef37af11c709bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an empty directory.  <br /></td></tr>
-<tr class="separator:ae59bf3574eb30df766ef37af11c709bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bd00d76724a6fb894d223145dcb4b01" id="r_a8bd00d76724a6fb894d223145dcb4b01"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bd00d76724a6fb894d223145dcb4b01">makeDirectories</a> (Span&lt; const StringSpan &gt; directories)</td></tr>
-<tr class="memdesc:a8bd00d76724a6fb894d223145dcb4b01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates new directories that do not already exist.  <br /></td></tr>
-<tr class="separator:a8bd00d76724a6fb894d223145dcb4b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f1643f6603faca2c299e0239ef3a026" id="r_a6f1643f6603faca2c299e0239ef3a026"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f1643f6603faca2c299e0239ef3a026">makeDirectory</a> (StringSpan directory)</td></tr>
-<tr class="memdesc:a6f1643f6603faca2c299e0239ef3a026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new directory that does not already exist.  <br /></td></tr>
-<tr class="separator:a6f1643f6603faca2c299e0239ef3a026"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9eb5c63e558c04c6afcef0af88af8f4b" id="r_a9eb5c63e558c04c6afcef0af88af8f4b"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9eb5c63e558c04c6afcef0af88af8f4b">makeDirectoriesIfNotExists</a> (Span&lt; const StringSpan &gt; directories)</td></tr>
-<tr class="memdesc:a9eb5c63e558c04c6afcef0af88af8f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates new directories, if they don't already exist at the given path.  <br /></td></tr>
-<tr class="separator:a9eb5c63e558c04c6afcef0af88af8f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcdea3f7a7aaef028ff84181fc74bc7f" id="r_adcdea3f7a7aaef028ff84181fc74bc7f"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcdea3f7a7aaef028ff84181fc74bc7f">makeDirectoryIfNotExists</a> (StringSpan directory)</td></tr>
-<tr class="memdesc:adcdea3f7a7aaef028ff84181fc74bc7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new directory, if it doesn't already exists at the given path.  <br /></td></tr>
-<tr class="separator:adcdea3f7a7aaef028ff84181fc74bc7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a387449fd15f696c834f9f94470592f41" id="r_a387449fd15f696c834f9f94470592f41"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a387449fd15f696c834f9f94470592f41">makeDirectoriesRecursive</a> (Span&lt; const StringSpan &gt; directories)</td></tr>
-<tr class="memdesc:a387449fd15f696c834f9f94470592f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create new directories, creating also intermediate non existing directories (like posix <code>mkdir -p</code>)  <br /></td></tr>
-<tr class="separator:a387449fd15f696c834f9f94470592f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54293925bbb6a67ffec893d5ccd77930" id="r_a54293925bbb6a67ffec893d5ccd77930"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54293925bbb6a67ffec893d5ccd77930">makeDirectoryRecursive</a> (StringSpan directory)</td></tr>
-<tr class="memdesc:a54293925bbb6a67ffec893d5ccd77930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new directory, creating also intermediate non existing directories (like posix <code>mkdir -p</code>)  <br /></td></tr>
-<tr class="separator:a54293925bbb6a67ffec893d5ccd77930"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab05006d72848fd4565bdd519d67184b9" id="r_ab05006d72848fd4565bdd519d67184b9"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab05006d72848fd4565bdd519d67184b9">createSymbolicLink</a> (StringSpan sourceFileOrDirectory, StringSpan linkFile)</td></tr>
-<tr class="memdesc:ab05006d72848fd4565bdd519d67184b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a symbolic link at location linkFile pointing at sourceFileOrDirectory.  <br /></td></tr>
-<tr class="separator:ab05006d72848fd4565bdd519d67184b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9cb6bcaf3fd3d5369c6a0c0a2686f5a" id="r_aa9cb6bcaf3fd3d5369c6a0c0a2686f5a"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9cb6bcaf3fd3d5369c6a0c0a2686f5a">createHardLink</a> (StringSpan sourceFile, StringSpan linkFile)</td></tr>
-<tr class="memdesc:aa9cb6bcaf3fd3d5369c6a0c0a2686f5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a hard link at location linkFile pointing at sourceFile.  <br /></td></tr>
-<tr class="separator:aa9cb6bcaf3fd3d5369c6a0c0a2686f5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ed567a143700e89d1637dc21144c10f" id="r_a6ed567a143700e89d1637dc21144c10f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ed567a143700e89d1637dc21144c10f">init</a> (StringSpan initialDirectory)</td></tr>
+<tr class="memdesc:a6ed567a143700e89d1637dc21144c10f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call init function when instantiating the class to set directory for all operations using relative paths.  <br /></td></tr>
+<tr class="separator:a6ed567a143700e89d1637dc21144c10f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f619580986a3a99835b2d1268c131be" id="r_a8f619580986a3a99835b2d1268c131be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f619580986a3a99835b2d1268c131be">changeDirectory</a> (StringSpan newDirectory)</td></tr>
+<tr class="memdesc:a8f619580986a3a99835b2d1268c131be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes current directory.  <br /></td></tr>
+<tr class="separator:a8f619580986a3a99835b2d1268c131be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a909b1d23cdf2b92f90d52fca98cfa1f3" id="r_a909b1d23cdf2b92f90d52fca98cfa1f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a909b1d23cdf2b92f90d52fca98cfa1f3">copyFiles</a> (Span&lt; const <a class="el" href="structSC_1_1FileSystem_1_1CopyOperation.html">CopyOperation</a> &gt; sourceDestination)</td></tr>
+<tr class="memdesc:a909b1d23cdf2b92f90d52fca98cfa1f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies many files.  <br /></td></tr>
+<tr class="separator:a909b1d23cdf2b92f90d52fca98cfa1f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec94dd8f1e0bc4aca64a63e1e29e808f" id="r_aec94dd8f1e0bc4aca64a63e1e29e808f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec94dd8f1e0bc4aca64a63e1e29e808f">copyFile</a> (StringSpan source, StringSpan destination, <a class="el" href="#af15e2499738026af5d43ecfadc095d30">CopyFlags</a> copyFlags=<a class="el" href="#af15e2499738026af5d43ecfadc095d30">CopyFlags</a>())</td></tr>
+<tr class="memdesc:aec94dd8f1e0bc4aca64a63e1e29e808f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a single file.  <br /></td></tr>
+<tr class="separator:aec94dd8f1e0bc4aca64a63e1e29e808f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaf16deb9b4a2e7a966cd562fe5b16a3" id="r_aaaf16deb9b4a2e7a966cd562fe5b16a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaaf16deb9b4a2e7a966cd562fe5b16a3">copyDirectories</a> (Span&lt; const <a class="el" href="structSC_1_1FileSystem_1_1CopyOperation.html">CopyOperation</a> &gt; sourceDestination)</td></tr>
+<tr class="memdesc:aaaf16deb9b4a2e7a966cd562fe5b16a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy many directories.  <br /></td></tr>
+<tr class="separator:aaaf16deb9b4a2e7a966cd562fe5b16a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf6f0239a045056a668f7f571589e95d" id="r_adf6f0239a045056a668f7f571589e95d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf6f0239a045056a668f7f571589e95d">copyDirectory</a> (StringSpan source, StringSpan destination, <a class="el" href="#af15e2499738026af5d43ecfadc095d30">CopyFlags</a> copyFlags=<a class="el" href="#af15e2499738026af5d43ecfadc095d30">CopyFlags</a>())</td></tr>
+<tr class="memdesc:adf6f0239a045056a668f7f571589e95d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a single directory.  <br /></td></tr>
+<tr class="separator:adf6f0239a045056a668f7f571589e95d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a148e60acb4c43aff94b5115164430f43" id="r_a148e60acb4c43aff94b5115164430f43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a148e60acb4c43aff94b5115164430f43">rename</a> (StringSpan path, StringSpan newPath)</td></tr>
+<tr class="memdesc:a148e60acb4c43aff94b5115164430f43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rename a file or directory.  <br /></td></tr>
+<tr class="separator:a148e60acb4c43aff94b5115164430f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96e07c730e90b70892e508daa24e9f30" id="r_a96e07c730e90b70892e508daa24e9f30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96e07c730e90b70892e508daa24e9f30">removeFiles</a> (Span&lt; const StringSpan &gt; files)</td></tr>
+<tr class="memdesc:a96e07c730e90b70892e508daa24e9f30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove multiple files.  <br /></td></tr>
+<tr class="separator:a96e07c730e90b70892e508daa24e9f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a8162bae02fd1eb40236a4bc2d500b8" id="r_a3a8162bae02fd1eb40236a4bc2d500b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a8162bae02fd1eb40236a4bc2d500b8">removeFile</a> (StringSpan source)</td></tr>
+<tr class="memdesc:a3a8162bae02fd1eb40236a4bc2d500b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a single file.  <br /></td></tr>
+<tr class="separator:a3a8162bae02fd1eb40236a4bc2d500b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab295ef38c6b70f0ba45fa886f1c2ea37" id="r_ab295ef38c6b70f0ba45fa886f1c2ea37"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab295ef38c6b70f0ba45fa886f1c2ea37">removeFileIfExists</a> (StringSpan source)</td></tr>
+<tr class="memdesc:ab295ef38c6b70f0ba45fa886f1c2ea37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a single file, giving no error if it doesn't exist.  <br /></td></tr>
+<tr class="separator:ab295ef38c6b70f0ba45fa886f1c2ea37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa030885dc8867e15a3e20c43403990a3" id="r_aa030885dc8867e15a3e20c43403990a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa030885dc8867e15a3e20c43403990a3">removeLinkIfExists</a> (StringSpan source)</td></tr>
+<tr class="memdesc:aa030885dc8867e15a3e20c43403990a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a single link, giving no error if it doesn't exist.  <br /></td></tr>
+<tr class="separator:aa030885dc8867e15a3e20c43403990a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56521f9a46d9ae873ab8abc43785af90" id="r_a56521f9a46d9ae873ab8abc43785af90"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56521f9a46d9ae873ab8abc43785af90">removeDirectoriesRecursive</a> (Span&lt; const StringSpan &gt; directories)</td></tr>
+<tr class="memdesc:a56521f9a46d9ae873ab8abc43785af90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove multiple directories with their entire content (like posix <code>rm -rf</code>)  <br /></td></tr>
+<tr class="separator:a56521f9a46d9ae873ab8abc43785af90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58704ef001f4ee0b815b4646778fbf10" id="r_a58704ef001f4ee0b815b4646778fbf10"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58704ef001f4ee0b815b4646778fbf10">removeDirectoryRecursive</a> (StringSpan directory)</td></tr>
+<tr class="memdesc:a58704ef001f4ee0b815b4646778fbf10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove single directory with its entire content (like posix <code>rm -rf</code>)  <br /></td></tr>
+<tr class="separator:a58704ef001f4ee0b815b4646778fbf10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2023478f79354e677d86f12a246e0efe" id="r_a2023478f79354e677d86f12a246e0efe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2023478f79354e677d86f12a246e0efe">removeEmptyDirectories</a> (Span&lt; const StringSpan &gt; directories)</td></tr>
+<tr class="memdesc:a2023478f79354e677d86f12a246e0efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes multiple empty directories.  <br /></td></tr>
+<tr class="separator:a2023478f79354e677d86f12a246e0efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe6f8aec667898e2fd55f300a9091e7a" id="r_abe6f8aec667898e2fd55f300a9091e7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe6f8aec667898e2fd55f300a9091e7a">removeEmptyDirectory</a> (StringSpan directory)</td></tr>
+<tr class="memdesc:abe6f8aec667898e2fd55f300a9091e7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an empty directory.  <br /></td></tr>
+<tr class="separator:abe6f8aec667898e2fd55f300a9091e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92fe619d1c868af85ae50e9e5d3ceb93" id="r_a92fe619d1c868af85ae50e9e5d3ceb93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92fe619d1c868af85ae50e9e5d3ceb93">makeDirectories</a> (Span&lt; const StringSpan &gt; directories)</td></tr>
+<tr class="memdesc:a92fe619d1c868af85ae50e9e5d3ceb93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates new directories that do not already exist.  <br /></td></tr>
+<tr class="separator:a92fe619d1c868af85ae50e9e5d3ceb93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ec5baccd4626adea153351d50188ff5" id="r_a5ec5baccd4626adea153351d50188ff5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ec5baccd4626adea153351d50188ff5">makeDirectory</a> (StringSpan directory)</td></tr>
+<tr class="memdesc:a5ec5baccd4626adea153351d50188ff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new directory that does not already exist.  <br /></td></tr>
+<tr class="separator:a5ec5baccd4626adea153351d50188ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0154f8883e96d83ad163fb0d011f8dc" id="r_ab0154f8883e96d83ad163fb0d011f8dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0154f8883e96d83ad163fb0d011f8dc">makeDirectoriesIfNotExists</a> (Span&lt; const StringSpan &gt; directories)</td></tr>
+<tr class="memdesc:ab0154f8883e96d83ad163fb0d011f8dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates new directories, if they don't already exist at the given path.  <br /></td></tr>
+<tr class="separator:ab0154f8883e96d83ad163fb0d011f8dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b15b19006d431524694f9f29d2bc1e1" id="r_a3b15b19006d431524694f9f29d2bc1e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b15b19006d431524694f9f29d2bc1e1">makeDirectoryIfNotExists</a> (StringSpan directory)</td></tr>
+<tr class="memdesc:a3b15b19006d431524694f9f29d2bc1e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new directory, if it doesn't already exists at the given path.  <br /></td></tr>
+<tr class="separator:a3b15b19006d431524694f9f29d2bc1e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c44049508bc47a37ae5f1dff2c92eff" id="r_a7c44049508bc47a37ae5f1dff2c92eff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c44049508bc47a37ae5f1dff2c92eff">makeDirectoriesRecursive</a> (Span&lt; const StringSpan &gt; directories)</td></tr>
+<tr class="memdesc:a7c44049508bc47a37ae5f1dff2c92eff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create new directories, creating also intermediate non existing directories (like posix <code>mkdir -p</code>)  <br /></td></tr>
+<tr class="separator:a7c44049508bc47a37ae5f1dff2c92eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9c772a3f5226ed96d13fab3e61771fc" id="r_ae9c772a3f5226ed96d13fab3e61771fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9c772a3f5226ed96d13fab3e61771fc">makeDirectoryRecursive</a> (StringSpan directory)</td></tr>
+<tr class="memdesc:ae9c772a3f5226ed96d13fab3e61771fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new directory, creating also intermediate non existing directories (like posix <code>mkdir -p</code>)  <br /></td></tr>
+<tr class="separator:ae9c772a3f5226ed96d13fab3e61771fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc507ee14e8618a198af8072035cab5a" id="r_afc507ee14e8618a198af8072035cab5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc507ee14e8618a198af8072035cab5a">createSymbolicLink</a> (StringSpan sourceFileOrDirectory, StringSpan linkFile)</td></tr>
+<tr class="memdesc:afc507ee14e8618a198af8072035cab5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a symbolic link at location linkFile pointing at sourceFileOrDirectory.  <br /></td></tr>
+<tr class="separator:afc507ee14e8618a198af8072035cab5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd7e53c872f32f72dba9980acecdbbe1" id="r_afd7e53c872f32f72dba9980acecdbbe1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd7e53c872f32f72dba9980acecdbbe1">createHardLink</a> (StringSpan sourceFile, StringSpan linkFile)</td></tr>
+<tr class="memdesc:afd7e53c872f32f72dba9980acecdbbe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a hard link at location linkFile pointing at sourceFile.  <br /></td></tr>
+<tr class="separator:afd7e53c872f32f72dba9980acecdbbe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4275a8dc6156e7c752724bcbce071a73" id="r_a4275a8dc6156e7c752724bcbce071a73"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4275a8dc6156e7c752724bcbce071a73">exists</a> (StringSpan fileOrDirectory)</td></tr>
 <tr class="memdesc:a4275a8dc6156e7c752724bcbce071a73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a file or directory exists at a given path.  <br /></td></tr>
 <tr class="separator:a4275a8dc6156e7c752724bcbce071a73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c891f1ac576ea784c80d26aeeeada79" id="r_a1c891f1ac576ea784c80d26aeeeada79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c891f1ac576ea784c80d26aeeeada79">exists</a> (StringSpan fileOrDirectory, bool &amp;doesExist)</td></tr>
+<tr class="memdesc:a1c891f1ac576ea784c80d26aeeeada79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detailed query: a missing entry is a successful false answer; validation and I/O failures are errors.  <br /></td></tr>
+<tr class="separator:a1c891f1ac576ea784c80d26aeeeada79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57f57af54061e2370bef5e164ab44335" id="r_a57f57af54061e2370bef5e164ab44335"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a> (StringSpan directory)</td></tr>
 <tr class="memdesc:a57f57af54061e2370bef5e164ab44335"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a directory exists at given path.  <br /></td></tr>
 <tr class="separator:a57f57af54061e2370bef5e164ab44335"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05d27b53be8b72b88a7f82a410d973af" id="r_a05d27b53be8b72b88a7f82a410d973af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05d27b53be8b72b88a7f82a410d973af">existsAndIsDirectory</a> (StringSpan directory, bool &amp;isDirectory)</td></tr>
+<tr class="memdesc:a05d27b53be8b72b88a7f82a410d973af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detailed query: absence or another entry type is a successful false answer.  <br /></td></tr>
+<tr class="separator:a05d27b53be8b72b88a7f82a410d973af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06befd291c35a36b21adf1498d746762" id="r_a06befd291c35a36b21adf1498d746762"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a> (StringSpan file)</td></tr>
 <tr class="memdesc:a06befd291c35a36b21adf1498d746762"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a file exists at given path.  <br /></td></tr>
 <tr class="separator:a06befd291c35a36b21adf1498d746762"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55a1a98554b57cebfcb6a024323acf79" id="r_a55a1a98554b57cebfcb6a024323acf79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55a1a98554b57cebfcb6a024323acf79">existsAndIsFile</a> (StringSpan file, bool &amp;isFile)</td></tr>
+<tr class="memdesc:a55a1a98554b57cebfcb6a024323acf79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detailed query: absence or another entry type is a successful false answer.  <br /></td></tr>
+<tr class="separator:a55a1a98554b57cebfcb6a024323acf79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af83b9e24cd82181539e17e24c1b0bfec" id="r_af83b9e24cd82181539e17e24c1b0bfec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af83b9e24cd82181539e17e24c1b0bfec">existsAndIsLink</a> (StringSpan file)</td></tr>
 <tr class="memdesc:af83b9e24cd82181539e17e24c1b0bfec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a link exists at given path.  <br /></td></tr>
 <tr class="separator:af83b9e24cd82181539e17e24c1b0bfec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab71bb1bf1ece901984db05861a359212" id="r_ab71bb1bf1ece901984db05861a359212"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab71bb1bf1ece901984db05861a359212">existsAndIsLink</a> (StringSpan file, bool &amp;isLink)</td></tr>
+<tr class="memdesc:ab71bb1bf1ece901984db05861a359212"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detailed query: absence or another entry type is a successful false answer.  <br /></td></tr>
+<tr class="separator:ab71bb1bf1ece901984db05861a359212"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0998b050e3530b43d053ac82b279094" id="r_ab0998b050e3530b43d053ac82b279094"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0998b050e3530b43d053ac82b279094">canAccess</a> (StringSpan fileOrDirectory, <a class="el" href="group__group__file__system.html#ga0fe8fe856eace07319d3aef08f8c18a0">AccessMode</a> accessMode=AccessMode::Exists)</td></tr>
 <tr class="memdesc:ab0998b050e3530b43d053ac82b279094"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether the current process can access a path with the requested mode.  <br /></td></tr>
 <tr class="separator:ab0998b050e3530b43d053ac82b279094"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4293ba8f4288095db7ce6d9064a7d643" id="r_a4293ba8f4288095db7ce6d9064a7d643"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4293ba8f4288095db7ce6d9064a7d643">moveDirectory</a> (StringSpan sourceDirectory, StringSpan destinationDirectory)</td></tr>
-<tr class="memdesc:a4293ba8f4288095db7ce6d9064a7d643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves a directory from source to destination.  <br /></td></tr>
-<tr class="separator:a4293ba8f4288095db7ce6d9064a7d643"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a957e09ef70c51f82fdf6147f09403af0" id="r_a957e09ef70c51f82fdf6147f09403af0"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a957e09ef70c51f82fdf6147f09403af0">write</a> (StringSpan file, Span&lt; const char &gt; data)</td></tr>
-<tr class="memdesc:a957e09ef70c51f82fdf6147f09403af0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a block of memory to a file.  <br /></td></tr>
-<tr class="separator:a957e09ef70c51f82fdf6147f09403af0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4de4911d90008ed6fea4a68ff2376e88" id="r_a4de4911d90008ed6fea4a68ff2376e88"><td class="memItemLeft" align="right" valign="top"><a id="a4de4911d90008ed6fea4a68ff2376e88" name="a4de4911d90008ed6fea4a68ff2376e88"></a>
-Result&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (StringSpan file, Span&lt; const uint8_t &gt; data)</td></tr>
-<tr class="separator:a4de4911d90008ed6fea4a68ff2376e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe1fb31f6a2e6ecfc31133b17fa69eda" id="r_afe1fb31f6a2e6ecfc31133b17fa69eda"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe1fb31f6a2e6ecfc31133b17fa69eda">writeString</a> (StringSpan file, StringSpan text)</td></tr>
-<tr class="memdesc:afe1fb31f6a2e6ecfc31133b17fa69eda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace the entire content of a file with the provided StringSpan.  <br /></td></tr>
-<tr class="separator:afe1fb31f6a2e6ecfc31133b17fa69eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a591c7df57809ef9e7dc4c081b8a778" id="r_a5a591c7df57809ef9e7dc4c081b8a778"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a591c7df57809ef9e7dc4c081b8a778">writeStringAppend</a> (StringSpan file, StringSpan text)</td></tr>
-<tr class="memdesc:a5a591c7df57809ef9e7dc4c081b8a778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a StringSpan to a file.  <br /></td></tr>
-<tr class="separator:a5a591c7df57809ef9e7dc4c081b8a778"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3079e4e57bf371f1ba6323f6a85f92b1" id="r_a3079e4e57bf371f1ba6323f6a85f92b1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a3079e4e57bf371f1ba6323f6a85f92b1"><td class="memTemplItemLeft" align="right" valign="top">Result&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3079e4e57bf371f1ba6323f6a85f92b1">read</a> (StringSpan file, T &amp;data)</td></tr>
-<tr class="memdesc:a3079e4e57bf371f1ba6323f6a85f92b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read contents of a file into a <a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">String</a> or <a class="el" href="structSC_1_1Buffer.html" title="An heap allocated byte buffer that can optionally use an inline buffer.">Buffer</a>.  <br /></td></tr>
-<tr class="separator:a3079e4e57bf371f1ba6323f6a85f92b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97ce655c442f9038cc0093077952e282" id="r_a97ce655c442f9038cc0093077952e282"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97ce655c442f9038cc0093077952e282">read</a> (StringSpan file, IGrowableBuffer &amp;&amp;buffer)</td></tr>
-<tr class="memdesc:a97ce655c442f9038cc0093077952e282"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read contents of a file into an IGrowableBuffer.  <br /></td></tr>
-<tr class="separator:a97ce655c442f9038cc0093077952e282"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60a20f1d08b8643bbd746281d2de0f6d" id="r_a60a20f1d08b8643bbd746281d2de0f6d"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60a20f1d08b8643bbd746281d2de0f6d">stat</a> (StringSpan file, <a class="el" href="#a79c31d84a8b70b444257bd7e59314376">FileStat</a> &amp;fileStat)</td></tr>
-<tr class="memdesc:a60a20f1d08b8643bbd746281d2de0f6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains richer metadata about a path, following symbolic links.  <br /></td></tr>
-<tr class="separator:a60a20f1d08b8643bbd746281d2de0f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c71293fc6fbab346710532dbfd95e18" id="r_a1c71293fc6fbab346710532dbfd95e18"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c71293fc6fbab346710532dbfd95e18">lstat</a> (StringSpan file, <a class="el" href="#a79c31d84a8b70b444257bd7e59314376">FileStat</a> &amp;fileStat)</td></tr>
-<tr class="memdesc:a1c71293fc6fbab346710532dbfd95e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains richer metadata about a path without following symbolic links.  <br /></td></tr>
-<tr class="separator:a1c71293fc6fbab346710532dbfd95e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bc7e8751c69ce9af3c82f911e898b3a" id="r_a5bc7e8751c69ce9af3c82f911e898b3a"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bc7e8751c69ce9af3c82f911e898b3a">getFileStat</a> (StringSpan file, <a class="el" href="#a79c31d84a8b70b444257bd7e59314376">FileStat</a> &amp;fileStat)</td></tr>
-<tr class="memdesc:a5bc7e8751c69ce9af3c82f911e898b3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Legacy convenience alias for <a class="el" href="#a60a20f1d08b8643bbd746281d2de0f6d" title="Obtains richer metadata about a path, following symbolic links.">stat(StringSpan, FileStat&amp;)</a>  <br /></td></tr>
-<tr class="separator:a5bc7e8751c69ce9af3c82f911e898b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d22f2cbbd7dd503256be7715ca1d26a" id="r_a1d22f2cbbd7dd503256be7715ca1d26a"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d22f2cbbd7dd503256be7715ca1d26a">readSymbolicLink</a> (StringSpan linkFile, StringPath &amp;destination)</td></tr>
-<tr class="memdesc:a1d22f2cbbd7dd503256be7715ca1d26a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the target path stored by a symbolic link.  <br /></td></tr>
-<tr class="separator:a1d22f2cbbd7dd503256be7715ca1d26a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a934a1bfa3acda9759e4c612c96bb1813" id="r_a934a1bfa3acda9759e4c612c96bb1813"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a934a1bfa3acda9759e4c612c96bb1813">chmod</a> (StringSpan path, uint32_t mode)</td></tr>
-<tr class="memdesc:a934a1bfa3acda9759e4c612c96bb1813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change file permission bits for a path, following symbolic links.  <br /></td></tr>
-<tr class="separator:a934a1bfa3acda9759e4c612c96bb1813"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d13ef9394c49e07dccd27a91069b011" id="r_a1d13ef9394c49e07dccd27a91069b011"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d13ef9394c49e07dccd27a91069b011">chown</a> (StringSpan path, uint32_t uid, uint32_t gid)</td></tr>
-<tr class="memdesc:a1d13ef9394c49e07dccd27a91069b011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change owner and group for a path, following symbolic links.  <br /></td></tr>
-<tr class="separator:a1d13ef9394c49e07dccd27a91069b011"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ba8e1135033344550c5934c1709e1e9" id="r_a4ba8e1135033344550c5934c1709e1e9"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ba8e1135033344550c5934c1709e1e9">lchown</a> (StringSpan path, uint32_t uid, uint32_t gid)</td></tr>
-<tr class="memdesc:a4ba8e1135033344550c5934c1709e1e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change owner and group for a path without following symbolic links.  <br /></td></tr>
-<tr class="separator:a4ba8e1135033344550c5934c1709e1e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6a15dc578e8278551f080d81436e2a5" id="r_ad6a15dc578e8278551f080d81436e2a5"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6a15dc578e8278551f080d81436e2a5">lchmod</a> (StringSpan path, uint32_t mode)</td></tr>
-<tr class="memdesc:ad6a15dc578e8278551f080d81436e2a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change file permission bits for a symbolic link without following it.  <br /></td></tr>
-<tr class="separator:ad6a15dc578e8278551f080d81436e2a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49555df8f65b725bc140a01f3be4b3fa" id="r_a49555df8f65b725bc140a01f3be4b3fa"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49555df8f65b725bc140a01f3be4b3fa">setLastModifiedTime</a> (StringSpan file, TimeMs time)</td></tr>
-<tr class="memdesc:a49555df8f65b725bc140a01f3be4b3fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change last modified time of a given file.  <br /></td></tr>
-<tr class="separator:a49555df8f65b725bc140a01f3be4b3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:ab4f4015b0c578f09469206286efbfb9c" id="r_ab4f4015b0c578f09469206286efbfb9c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4f4015b0c578f09469206286efbfb9c">preciseErrorMessages</a> = false</td></tr>
-<tr class="memdesc:ab4f4015b0c578f09469206286efbfb9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats errors in an internal buffer when returning failed Result.  <br /></td></tr>
-<tr class="separator:ab4f4015b0c578f09469206286efbfb9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19c5b534dc4de6aacec8b1f9b9680402" id="r_a19c5b534dc4de6aacec8b1f9b9680402"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19c5b534dc4de6aacec8b1f9b9680402">canAccess</a> (StringSpan fileOrDirectory, <a class="el" href="group__group__file__system.html#ga0fe8fe856eace07319d3aef08f8c18a0">AccessMode</a> accessMode, bool &amp;canAccessPath)</td></tr>
+<tr class="memdesc:a19c5b534dc4de6aacec8b1f9b9680402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detailed query: denied access or absence is a successful false answer.  <br /></td></tr>
+<tr class="separator:a19c5b534dc4de6aacec8b1f9b9680402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b334c452ade6b3afd3512fb99c0a483" id="r_a6b334c452ade6b3afd3512fb99c0a483"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b334c452ade6b3afd3512fb99c0a483">moveDirectory</a> (StringSpan sourceDirectory, StringSpan destinationDirectory)</td></tr>
+<tr class="memdesc:a6b334c452ade6b3afd3512fb99c0a483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves a directory from source to destination.  <br /></td></tr>
+<tr class="separator:a6b334c452ade6b3afd3512fb99c0a483"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ed1623ad2a4ba82eac8dba4bff911c7" id="r_a6ed1623ad2a4ba82eac8dba4bff911c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ed1623ad2a4ba82eac8dba4bff911c7">write</a> (StringSpan file, Span&lt; const char &gt; data)</td></tr>
+<tr class="memdesc:a6ed1623ad2a4ba82eac8dba4bff911c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a block of memory to a file.  <br /></td></tr>
+<tr class="separator:a6ed1623ad2a4ba82eac8dba4bff911c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e6533e1efaecd8b954f268bc787e0e1" id="r_a6e6533e1efaecd8b954f268bc787e0e1"><td class="memItemLeft" align="right" valign="top"><a id="a6e6533e1efaecd8b954f268bc787e0e1" name="a6e6533e1efaecd8b954f268bc787e0e1"></a>
+<a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (StringSpan file, Span&lt; const uint8_t &gt; data)</td></tr>
+<tr class="separator:a6e6533e1efaecd8b954f268bc787e0e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8349e93d930bdccc697a84384167c469" id="r_a8349e93d930bdccc697a84384167c469"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8349e93d930bdccc697a84384167c469">writeString</a> (StringSpan file, StringSpan text)</td></tr>
+<tr class="memdesc:a8349e93d930bdccc697a84384167c469"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace the entire content of a file with the provided StringSpan.  <br /></td></tr>
+<tr class="separator:a8349e93d930bdccc697a84384167c469"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a702af3c560483cec9cd9cb35615f0b98" id="r_a702af3c560483cec9cd9cb35615f0b98"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a702af3c560483cec9cd9cb35615f0b98">writeStringAppend</a> (StringSpan file, StringSpan text)</td></tr>
+<tr class="memdesc:a702af3c560483cec9cd9cb35615f0b98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a StringSpan to a file.  <br /></td></tr>
+<tr class="separator:a702af3c560483cec9cd9cb35615f0b98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a5091bf36c799b3d16774581ec352a0" id="r_a9a5091bf36c799b3d16774581ec352a0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a9a5091bf36c799b3d16774581ec352a0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a9a5091bf36c799b3d16774581ec352a0">read</a> (StringSpan file, T &amp;data)</td></tr>
+<tr class="memdesc:a9a5091bf36c799b3d16774581ec352a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read contents of a file into a <a class="el" href="structSC_1_1String.html" title="A non-modifiable owning string with associated encoding.">String</a> or <a class="el" href="structSC_1_1Buffer.html" title="An heap allocated byte buffer that can optionally use an inline buffer.">Buffer</a>.  <br /></td></tr>
+<tr class="separator:a9a5091bf36c799b3d16774581ec352a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac10e556715c08e214eac8b8e8710f188" id="r_ac10e556715c08e214eac8b8e8710f188"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac10e556715c08e214eac8b8e8710f188">read</a> (StringSpan file, IGrowableBuffer &amp;&amp;buffer)</td></tr>
+<tr class="memdesc:ac10e556715c08e214eac8b8e8710f188"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read contents of a file into an IGrowableBuffer.  <br /></td></tr>
+<tr class="separator:ac10e556715c08e214eac8b8e8710f188"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabc4b14984230ec8da6b47d032d523ad" id="r_aabc4b14984230ec8da6b47d032d523ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabc4b14984230ec8da6b47d032d523ad">stat</a> (StringSpan file, <a class="el" href="#a79c31d84a8b70b444257bd7e59314376">FileStat</a> &amp;fileStat)</td></tr>
+<tr class="memdesc:aabc4b14984230ec8da6b47d032d523ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains richer metadata about a path, following symbolic links.  <br /></td></tr>
+<tr class="separator:aabc4b14984230ec8da6b47d032d523ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac508016ff00a910fc470044134544c3c" id="r_ac508016ff00a910fc470044134544c3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac508016ff00a910fc470044134544c3c">lstat</a> (StringSpan file, <a class="el" href="#a79c31d84a8b70b444257bd7e59314376">FileStat</a> &amp;fileStat)</td></tr>
+<tr class="memdesc:ac508016ff00a910fc470044134544c3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains richer metadata about a path without following symbolic links.  <br /></td></tr>
+<tr class="separator:ac508016ff00a910fc470044134544c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b6fcde2b61a04f3d847e2afd8147048" id="r_a5b6fcde2b61a04f3d847e2afd8147048"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b6fcde2b61a04f3d847e2afd8147048">getFileStat</a> (StringSpan file, <a class="el" href="#a79c31d84a8b70b444257bd7e59314376">FileStat</a> &amp;fileStat)</td></tr>
+<tr class="memdesc:a5b6fcde2b61a04f3d847e2afd8147048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Legacy convenience alias for <a class="el" href="#aabc4b14984230ec8da6b47d032d523ad" title="Obtains richer metadata about a path, following symbolic links.">stat(StringSpan, FileStat&amp;)</a>  <br /></td></tr>
+<tr class="separator:a5b6fcde2b61a04f3d847e2afd8147048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ea09df2cad28a5eb0c1559e23b7c8b5" id="r_a3ea09df2cad28a5eb0c1559e23b7c8b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ea09df2cad28a5eb0c1559e23b7c8b5">readSymbolicLink</a> (StringSpan linkFile, StringPath &amp;destination)</td></tr>
+<tr class="memdesc:a3ea09df2cad28a5eb0c1559e23b7c8b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the target path stored by a symbolic link.  <br /></td></tr>
+<tr class="separator:a3ea09df2cad28a5eb0c1559e23b7c8b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21c288cce6062c674fae238d0e55b962" id="r_a21c288cce6062c674fae238d0e55b962"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21c288cce6062c674fae238d0e55b962">chmod</a> (StringSpan path, uint32_t mode)</td></tr>
+<tr class="memdesc:a21c288cce6062c674fae238d0e55b962"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change file permission bits for a path, following symbolic links.  <br /></td></tr>
+<tr class="separator:a21c288cce6062c674fae238d0e55b962"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75a49c77945d4f39b2d52370192f38f5" id="r_a75a49c77945d4f39b2d52370192f38f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75a49c77945d4f39b2d52370192f38f5">chown</a> (StringSpan path, uint32_t uid, uint32_t gid)</td></tr>
+<tr class="memdesc:a75a49c77945d4f39b2d52370192f38f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change owner and group for a path, following symbolic links.  <br /></td></tr>
+<tr class="separator:a75a49c77945d4f39b2d52370192f38f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d6bddd4723bd687a5827ea1f9ed24a1" id="r_a1d6bddd4723bd687a5827ea1f9ed24a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d6bddd4723bd687a5827ea1f9ed24a1">lchown</a> (StringSpan path, uint32_t uid, uint32_t gid)</td></tr>
+<tr class="memdesc:a1d6bddd4723bd687a5827ea1f9ed24a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change owner and group for a path without following symbolic links.  <br /></td></tr>
+<tr class="separator:a1d6bddd4723bd687a5827ea1f9ed24a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a514508374d4f725e90805fbab5020349" id="r_a514508374d4f725e90805fbab5020349"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a514508374d4f725e90805fbab5020349">lchmod</a> (StringSpan path, uint32_t mode)</td></tr>
+<tr class="memdesc:a514508374d4f725e90805fbab5020349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change file permission bits for a symbolic link without following it.  <br /></td></tr>
+<tr class="separator:a514508374d4f725e90805fbab5020349"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f63b2bd07e4ebfffe7d0c3989912402" id="r_a8f63b2bd07e4ebfffe7d0c3989912402"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f63b2bd07e4ebfffe7d0c3989912402">setLastModifiedTime</a> (StringSpan file, TimeMs time)</td></tr>
+<tr class="memdesc:a8f63b2bd07e4ebfffe7d0c3989912402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change last modified time of a given file.  <br /></td></tr>
+<tr class="separator:a8f63b2bd07e4ebfffe7d0c3989912402"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Execute fs operations { exists, copy, delete } for { files and directories }. </p>
-<p>It will scope all operations on relative paths to the <code>initialWorkingDirectory</code> passed in <a class="el" href="#a1fd637d740d1784669730c832631baaf" title="Call init function when instantiating the class to set directory for all operations using relative pa...">SC::FileSystem::init</a>. All methods can always return failure due to access or disk I/O errors, and they will be omitted in the return clauses for each method. Only the specific returned result behaviour of the given method will be described.</p>
+<p>It will scope all operations on relative paths to the <code>initialWorkingDirectory</code> passed in <a class="el" href="#a6ed567a143700e89d1637dc21144c10f" title="Call init function when instantiating the class to set directory for all operations using relative pa...">SC::FileSystem::init</a>. All methods can always return failure due to access or disk I/O errors, and they will be omitted in the return clauses for each method. Only the specific returned result behaviour of the given method will be described.</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
 <div class="line"><span class="comment">// Make all operations relative to applicationRootDirectory</span></div>
-<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
+<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6ed567a143700e89d1637dc21144c10f">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Create a nested directory structure with some files too</span></div>
-<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a54293925bbb6a67ffec893d5ccd77930">makeDirectoryRecursive</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory&quot;</span>));</div>
-<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a957e09ef70c51f82fdf6147f09403af0">write</a>(<span class="stringliteral">&quot;copyDirectory/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
+<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#ae9c772a3f5226ed96d13fab3e61771fc">makeDirectoryRecursive</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory&quot;</span>));</div>
+<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6ed1623ad2a4ba82eac8dba4bff911c7">write</a>(<span class="stringliteral">&quot;copyDirectory/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
 <div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;copyDirectory/testFile.txt&quot;</span>));</div>
-<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a957e09ef70c51f82fdf6147f09403af0">write</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
+<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6ed1623ad2a4ba82eac8dba4bff911c7">write</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Copy the directory (recursively)</span></div>
-<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#aa2c49712608e73c143022d2a7d61ebfc">copyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>, <span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
+<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#adf6f0239a045056a668f7f571589e95d">copyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>, <span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Check that file exists in the new copied directory</span></div>
 <div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;COPY_copyDirectory/testFile.txt&quot;</span>));</div>
 <div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;COPY_copyDirectory/subdirectory/testFile.txt&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Copying again fails (because we&#39;re not overwriting)</span></div>
-<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#aa2c49712608e73c143022d2a7d61ebfc">copyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>, <span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
+<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#adf6f0239a045056a668f7f571589e95d">copyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>, <span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Try copying again but now we ask to overwrite destination</span></div>
-<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#aa2c49712608e73c143022d2a7d61ebfc">copyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>, <span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>,</div>
+<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#adf6f0239a045056a668f7f571589e95d">copyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>, <span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>,</div>
 <div class="line">                <a class="code hl_struct" href="structSC_1_1FileSystemCopyFlags.html">FileSystem::CopyFlags</a>().<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a7a7bbd09647669be8d2c087a9fe91f22">setOverwrite</a>(<span class="keyword">true</span>)));</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Rename the directory (fs.rename works also for files)</span></div>
-<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6b4aa48531a6c63039184a18cee0749d">rename</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>, <span class="stringliteral">&quot;COPY_copyDirectory2&quot;</span>));</div>
+<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a148e60acb4c43aff94b5115164430f43">rename</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>, <span class="stringliteral">&quot;COPY_copyDirectory2&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Check that the directory has been renamed</span></div>
 <div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a>(<span class="stringliteral">&quot;COPY_copyDirectory2&quot;</span>));</div>
 <div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Rename the directory back to the original name</span></div>
-<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6b4aa48531a6c63039184a18cee0749d">rename</a>(<span class="stringliteral">&quot;COPY_copyDirectory2&quot;</span>, <span class="stringliteral">&quot;copyDirectory&quot;</span>));</div>
+<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a148e60acb4c43aff94b5115164430f43">rename</a>(<span class="stringliteral">&quot;COPY_copyDirectory2&quot;</span>, <span class="stringliteral">&quot;copyDirectory&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Remove all files created</span></div>
-<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a1465c729e64880777d2d25c98179a8ab">removeFile</a>(<span class="stringliteral">&quot;copyDirectory/testFile.txt&quot;</span>));</div>
-<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a1465c729e64880777d2d25c98179a8ab">removeFile</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory/testFile.txt&quot;</span>));</div>
-<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory&quot;</span>));</div>
-<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>));</div>
+<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a3a8162bae02fd1eb40236a4bc2d500b8">removeFile</a>(<span class="stringliteral">&quot;copyDirectory/testFile.txt&quot;</span>));</div>
+<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a3a8162bae02fd1eb40236a4bc2d500b8">removeFile</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory/testFile.txt&quot;</span>));</div>
+<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#abe6f8aec667898e2fd55f300a9091e7a">removeEmptyDirectory</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory&quot;</span>));</div>
+<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#abe6f8aec667898e2fd55f300a9091e7a">removeEmptyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>));</div>
 <div class="line"><span class="comment">// Remove the entire tree of directories for the copy</span></div>
-<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a83c97e78517a179fe4c7458a5b912863">removeDirectoryRecursive</a>(<span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
+<div class="line"><a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a58704ef001f4ee0b815b4646778fbf10">removeDirectoryRecursive</a>(<span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
 </div><!-- fragment --> </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="acc9f86b24de5827dfe6e39495f894454" name="acc9f86b24de5827dfe6e39495f894454"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acc9f86b24de5827dfe6e39495f894454">&#9670;&#160;</a></span>AccessMode</h2>
@@ -395,8 +403,36 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a19c5b534dc4de6aacec8b1f9b9680402" name="a19c5b534dc4de6aacec8b1f9b9680402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19c5b534dc4de6aacec8b1f9b9680402">&#9670;&#160;</a></span>canAccess() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::canAccess </td>
+          <td>(</td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>fileOrDirectory</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__group__file__system.html#ga0fe8fe856eace07319d3aef08f8c18a0">AccessMode</a></td>          <td class="paramname"><span class="paramname"><em>accessMode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>canAccessPath</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Detailed query: denied access or absence is a successful false answer. </p>
+
+</div>
+</div>
 <a id="ab0998b050e3530b43d053ac82b279094" name="ab0998b050e3530b43d053ac82b279094"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0998b050e3530b43d053ac82b279094">&#9670;&#160;</a></span>canAccess()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0998b050e3530b43d053ac82b279094">&#9670;&#160;</a></span>canAccess() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -434,14 +470,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a314148c633cf60a45a5700af7e524607" name="a314148c633cf60a45a5700af7e524607"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a314148c633cf60a45a5700af7e524607">&#9670;&#160;</a></span>changeDirectory()</h2>
+<a id="a8f619580986a3a99835b2d1268c131be" name="a8f619580986a3a99835b2d1268c131be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f619580986a3a99835b2d1268c131be">&#9670;&#160;</a></span>changeDirectory()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::changeDirectory </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::changeDirectory </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>newDirectory</em></span></td><td>)</td>
           <td></td>
@@ -460,14 +496,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a934a1bfa3acda9759e4c612c96bb1813" name="a934a1bfa3acda9759e4c612c96bb1813"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a934a1bfa3acda9759e4c612c96bb1813">&#9670;&#160;</a></span>chmod()</h2>
+<a id="a21c288cce6062c674fae238d0e55b962" name="a21c288cce6062c674fae238d0e55b962"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21c288cce6062c674fae238d0e55b962">&#9670;&#160;</a></span>chmod()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::chmod </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::chmod </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
         </tr>
@@ -491,14 +527,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1d13ef9394c49e07dccd27a91069b011" name="a1d13ef9394c49e07dccd27a91069b011"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d13ef9394c49e07dccd27a91069b011">&#9670;&#160;</a></span>chown()</h2>
+<a id="a75a49c77945d4f39b2d52370192f38f5" name="a75a49c77945d4f39b2d52370192f38f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75a49c77945d4f39b2d52370192f38f5">&#9670;&#160;</a></span>chown()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::chown </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::chown </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
         </tr>
@@ -528,14 +564,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ac2b9509466b9f63fbf664e5e2f209998" name="ac2b9509466b9f63fbf664e5e2f209998"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2b9509466b9f63fbf664e5e2f209998">&#9670;&#160;</a></span>copyDirectories()</h2>
+<a id="aaaf16deb9b4a2e7a966cd562fe5b16a3" name="aaaf16deb9b4a2e7a966cd562fe5b16a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaf16deb9b4a2e7a966cd562fe5b16a3">&#9670;&#160;</a></span>copyDirectories()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::copyDirectories </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::copyDirectories </td>
           <td>(</td>
           <td class="paramtype">Span&lt; const <a class="el" href="structSC_1_1FileSystem_1_1CopyOperation.html">CopyOperation</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>sourceDestination</em></span></td><td>)</td>
           <td></td>
@@ -551,12 +587,12 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if all copies succeeded </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#aa2c49712608e73c143022d2a7d61ebfc" title="Copy a single directory.">copyDirectory</a> (for an usage example) </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#adf6f0239a045056a668f7f571589e95d" title="Copy a single directory.">copyDirectory</a> (for an usage example) </dd></dl>
 
 </div>
 </div>
-<a id="aa2c49712608e73c143022d2a7d61ebfc" name="aa2c49712608e73c143022d2a7d61ebfc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2c49712608e73c143022d2a7d61ebfc">&#9670;&#160;</a></span>copyDirectory()</h2>
+<a id="adf6f0239a045056a668f7f571589e95d" name="adf6f0239a045056a668f7f571589e95d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf6f0239a045056a668f7f571589e95d">&#9670;&#160;</a></span>copyDirectory()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -565,7 +601,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::copyDirectory </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::copyDirectory </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
         </tr>
@@ -599,42 +635,42 @@ Public Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if copy succeeded</dd></dl>
 <p>Example: </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
 <div class="line">    <span class="comment">// Make all operations relative to applicationRootDirectory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6ed567a143700e89d1637dc21144c10f">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Create a nested directory structure with some files too</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6f1643f6603faca2c299e0239ef3a026">makeDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a957e09ef70c51f82fdf6147f09403af0">write</a>(<span class="stringliteral">&quot;copyDirectory/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a5ec5baccd4626adea153351d50188ff5">makeDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6ed1623ad2a4ba82eac8dba4bff911c7">write</a>(<span class="stringliteral">&quot;copyDirectory/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;copyDirectory/testFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6f1643f6603faca2c299e0239ef3a026">makeDirectory</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a957e09ef70c51f82fdf6147f09403af0">write</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a5ec5baccd4626adea153351d50188ff5">makeDirectory</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6ed1623ad2a4ba82eac8dba4bff911c7">write</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Copy the directory (recursively)</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#aa2c49712608e73c143022d2a7d61ebfc">copyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>, <span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#adf6f0239a045056a668f7f571589e95d">copyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>, <span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Check that file exists in the new copied directory</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;COPY_copyDirectory/testFile.txt&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;COPY_copyDirectory/subdirectory/testFile.txt&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Copying again fails (because we&#39;re not overwriting)</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#aa2c49712608e73c143022d2a7d61ebfc">copyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>, <span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#adf6f0239a045056a668f7f571589e95d">copyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>, <span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Try copying again but now we ask to overwrite destination</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#aa2c49712608e73c143022d2a7d61ebfc">copyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>, <span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>, <a class="code hl_struct" href="structSC_1_1FileSystemCopyFlags.html">FileSystem::CopyFlags</a>().<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a7a7bbd09647669be8d2c087a9fe91f22">setOverwrite</a>(<span class="keyword">true</span>)));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#adf6f0239a045056a668f7f571589e95d">copyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>, <span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>, <a class="code hl_struct" href="structSC_1_1FileSystemCopyFlags.html">FileSystem::CopyFlags</a>().<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a7a7bbd09647669be8d2c087a9fe91f22">setOverwrite</a>(<span class="keyword">true</span>)));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Remove all files created by the test</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a1465c729e64880777d2d25c98179a8ab">removeFile</a>(<span class="stringliteral">&quot;copyDirectory/testFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a1465c729e64880777d2d25c98179a8ab">removeFile</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory/testFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a1465c729e64880777d2d25c98179a8ab">removeFile</a>(<span class="stringliteral">&quot;COPY_copyDirectory/testFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a1465c729e64880777d2d25c98179a8ab">removeFile</a>(<span class="stringliteral">&quot;COPY_copyDirectory/subdirectory/testFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;COPY_copyDirectory/subdirectory&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a3a8162bae02fd1eb40236a4bc2d500b8">removeFile</a>(<span class="stringliteral">&quot;copyDirectory/testFile.txt&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a3a8162bae02fd1eb40236a4bc2d500b8">removeFile</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory/testFile.txt&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#abe6f8aec667898e2fd55f300a9091e7a">removeEmptyDirectory</a>(<span class="stringliteral">&quot;copyDirectory/subdirectory&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#abe6f8aec667898e2fd55f300a9091e7a">removeEmptyDirectory</a>(<span class="stringliteral">&quot;copyDirectory&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a3a8162bae02fd1eb40236a4bc2d500b8">removeFile</a>(<span class="stringliteral">&quot;COPY_copyDirectory/testFile.txt&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a3a8162bae02fd1eb40236a4bc2d500b8">removeFile</a>(<span class="stringliteral">&quot;COPY_copyDirectory/subdirectory/testFile.txt&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#abe6f8aec667898e2fd55f300a9091e7a">removeEmptyDirectory</a>(<span class="stringliteral">&quot;COPY_copyDirectory/subdirectory&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#abe6f8aec667898e2fd55f300a9091e7a">removeEmptyDirectory</a>(<span class="stringliteral">&quot;COPY_copyDirectory&quot;</span>));</div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="ad30ad24318fc6caa998ff817825702a7" name="ad30ad24318fc6caa998ff817825702a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad30ad24318fc6caa998ff817825702a7">&#9670;&#160;</a></span>copyFile()</h2>
+<a id="aec94dd8f1e0bc4aca64a63e1e29e808f" name="aec94dd8f1e0bc4aca64a63e1e29e808f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec94dd8f1e0bc4aca64a63e1e29e808f">&#9670;&#160;</a></span>copyFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -643,7 +679,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::copyFile </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::copyFile </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
         </tr>
@@ -677,50 +713,50 @@ Public Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if copy succeeded</dd></dl>
 <p>Example: </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
 <div class="line">    <span class="comment">// Make all operations relative to applicationRootDirectory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6ed567a143700e89d1637dc21144c10f">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Create a File names &#39;sourceFile.txt&#39;</span></div>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1StringView.html">StringView</a> contentSource = <span class="stringliteral">&quot;this is some content&quot;</span>;</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#afe1fb31f6a2e6ecfc31133b17fa69eda">writeString</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, contentSource));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a8349e93d930bdccc697a84384167c469">writeString</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, contentSource));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Check that &#39;sourceFile.txt&#39; exist, but not &#39;destinationFile.txt&#39;</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Ask to copy sourceFile.txt to destinationFile.txt (eventually overwriting, but without cloning)</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#ad30ad24318fc6caa998ff817825702a7">copyFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>,</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#aec94dd8f1e0bc4aca64a63e1e29e808f">copyFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>,</div>
 <div class="line">                               <a class="code hl_struct" href="structSC_1_1FileSystemCopyFlags.html">FileSystem::CopyFlags</a>().<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a7a7bbd09647669be8d2c087a9fe91f22">setOverwrite</a>(<span class="keyword">true</span>).<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a05995644e6811c1569619244c9f37557">setUseCloneIfSupported</a>(<span class="keyword">false</span>)));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Now read the destinationFile.txt content and check if it&#39;s the same as source</span></div>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1String.html">String</a> content = StringEncoding::Ascii;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a3079e4e57bf371f1ba6323f6a85f92b1">read</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>, content));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a9a5091bf36c799b3d16774581ec352a0">read</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>, content));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(content.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>() == contentSource);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Copy again sourceFile.txt to destinationFile.txt but using clone this time</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#ad30ad24318fc6caa998ff817825702a7">copyFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>,</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#aec94dd8f1e0bc4aca64a63e1e29e808f">copyFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>,</div>
 <div class="line">                               <a class="code hl_struct" href="structSC_1_1FileSystemCopyFlags.html">FileSystem::CopyFlags</a>().<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a7a7bbd09647669be8d2c087a9fe91f22">setOverwrite</a>(<span class="keyword">true</span>).<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a05995644e6811c1569619244c9f37557">setUseCloneIfSupported</a>(<span class="keyword">true</span>)));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Check again if file exists and its content</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a3079e4e57bf371f1ba6323f6a85f92b1">read</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>, content));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a9a5091bf36c799b3d16774581ec352a0">read</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>, content));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(content.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>() == contentSource);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Remove all files created by the test</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a09129409620b045d6551e46ef02cb680">removeFiles</a>({<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>}));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a96e07c730e90b70892e508daa24e9f30">removeFiles</a>({<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>}));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>));</div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a496fdbb8cbf227307c754dc6f97b7646" name="a496fdbb8cbf227307c754dc6f97b7646"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a496fdbb8cbf227307c754dc6f97b7646">&#9670;&#160;</a></span>copyFiles()</h2>
+<a id="a909b1d23cdf2b92f90d52fca98cfa1f3" name="a909b1d23cdf2b92f90d52fca98cfa1f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a909b1d23cdf2b92f90d52fca98cfa1f3">&#9670;&#160;</a></span>copyFiles()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::copyFiles </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::copyFiles </td>
           <td>(</td>
           <td class="paramtype">Span&lt; const <a class="el" href="structSC_1_1FileSystem_1_1CopyOperation.html">CopyOperation</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>sourceDestination</em></span></td><td>)</td>
           <td></td>
@@ -736,18 +772,18 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if all copies succeeded</dd></dl>
-<p>Example: </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="#ad30ad24318fc6caa998ff817825702a7" title="Copy a single file.">copyFile</a> (for an usage example) </dd></dl>
+<p>Example: </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="#aec94dd8f1e0bc4aca64a63e1e29e808f" title="Copy a single file.">copyFile</a> (for an usage example) </dd></dl>
 
 </div>
 </div>
-<a id="aa9cb6bcaf3fd3d5369c6a0c0a2686f5a" name="aa9cb6bcaf3fd3d5369c6a0c0a2686f5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9cb6bcaf3fd3d5369c6a0c0a2686f5a">&#9670;&#160;</a></span>createHardLink()</h2>
+<a id="afd7e53c872f32f72dba9980acecdbbe1" name="afd7e53c872f32f72dba9980acecdbbe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd7e53c872f32f72dba9980acecdbbe1">&#9670;&#160;</a></span>createHardLink()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::createHardLink </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::createHardLink </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>sourceFile</em></span>, </td>
         </tr>
@@ -771,14 +807,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ab05006d72848fd4565bdd519d67184b9" name="ab05006d72848fd4565bdd519d67184b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab05006d72848fd4565bdd519d67184b9">&#9670;&#160;</a></span>createSymbolicLink()</h2>
+<a id="afc507ee14e8618a198af8072035cab5a" name="afc507ee14e8618a198af8072035cab5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc507ee14e8618a198af8072035cab5a">&#9670;&#160;</a></span>createSymbolicLink()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::createSymbolicLink </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::createSymbolicLink </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>sourceFileOrDirectory</em></span>, </td>
         </tr>
@@ -803,7 +839,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a4275a8dc6156e7c752724bcbce071a73" name="a4275a8dc6156e7c752724bcbce071a73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4275a8dc6156e7c752724bcbce071a73">&#9670;&#160;</a></span>exists()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4275a8dc6156e7c752724bcbce071a73">&#9670;&#160;</a></span>exists() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -837,8 +873,31 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a1c891f1ac576ea784c80d26aeeeada79" name="a1c891f1ac576ea784c80d26aeeeada79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c891f1ac576ea784c80d26aeeeada79">&#9670;&#160;</a></span>exists() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::exists </td>
+          <td>(</td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>fileOrDirectory</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>doesExist</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Detailed query: a missing entry is a successful false answer; validation and I/O failures are errors. </p>
+
+</div>
+</div>
 <a id="a57f57af54061e2370bef5e164ab44335" name="a57f57af54061e2370bef5e164ab44335"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57f57af54061e2370bef5e164ab44335">&#9670;&#160;</a></span>existsAndIsDirectory()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a57f57af54061e2370bef5e164ab44335">&#9670;&#160;</a></span>existsAndIsDirectory() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -871,8 +930,31 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a05d27b53be8b72b88a7f82a410d973af" name="a05d27b53be8b72b88a7f82a410d973af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05d27b53be8b72b88a7f82a410d973af">&#9670;&#160;</a></span>existsAndIsDirectory() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::existsAndIsDirectory </td>
+          <td>(</td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>directory</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>isDirectory</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Detailed query: absence or another entry type is a successful false answer. </p>
+
+</div>
+</div>
 <a id="a06befd291c35a36b21adf1498d746762" name="a06befd291c35a36b21adf1498d746762"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06befd291c35a36b21adf1498d746762">&#9670;&#160;</a></span>existsAndIsFile()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a06befd291c35a36b21adf1498d746762">&#9670;&#160;</a></span>existsAndIsFile() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -904,44 +986,67 @@ Public Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if a file exists at the given path</dd></dl>
 <p>Example: </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
 <div class="line">    <span class="comment">// Make all operations relative to applicationRootDirectory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6ed567a143700e89d1637dc21144c10f">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Create a File names &#39;sourceFile.txt&#39;</span></div>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1StringView.html">StringView</a> contentSource = <span class="stringliteral">&quot;this is some content&quot;</span>;</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#afe1fb31f6a2e6ecfc31133b17fa69eda">writeString</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, contentSource));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a8349e93d930bdccc697a84384167c469">writeString</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, contentSource));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Check that &#39;sourceFile.txt&#39; exist, but not &#39;destinationFile.txt&#39;</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Ask to copy sourceFile.txt to destinationFile.txt (eventually overwriting, but without cloning)</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#ad30ad24318fc6caa998ff817825702a7">copyFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>,</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#aec94dd8f1e0bc4aca64a63e1e29e808f">copyFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>,</div>
 <div class="line">                               <a class="code hl_struct" href="structSC_1_1FileSystemCopyFlags.html">FileSystem::CopyFlags</a>().<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a7a7bbd09647669be8d2c087a9fe91f22">setOverwrite</a>(<span class="keyword">true</span>).<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a05995644e6811c1569619244c9f37557">setUseCloneIfSupported</a>(<span class="keyword">false</span>)));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Now read the destinationFile.txt content and check if it&#39;s the same as source</span></div>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1String.html">String</a> content = StringEncoding::Ascii;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a3079e4e57bf371f1ba6323f6a85f92b1">read</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>, content));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a9a5091bf36c799b3d16774581ec352a0">read</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>, content));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(content.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>() == contentSource);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Copy again sourceFile.txt to destinationFile.txt but using clone this time</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#ad30ad24318fc6caa998ff817825702a7">copyFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>,</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#aec94dd8f1e0bc4aca64a63e1e29e808f">copyFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>,</div>
 <div class="line">                               <a class="code hl_struct" href="structSC_1_1FileSystemCopyFlags.html">FileSystem::CopyFlags</a>().<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a7a7bbd09647669be8d2c087a9fe91f22">setOverwrite</a>(<span class="keyword">true</span>).<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a05995644e6811c1569619244c9f37557">setUseCloneIfSupported</a>(<span class="keyword">true</span>)));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Check again if file exists and its content</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a3079e4e57bf371f1ba6323f6a85f92b1">read</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>, content));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a9a5091bf36c799b3d16774581ec352a0">read</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>, content));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(content.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>() == contentSource);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Remove all files created by the test</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a09129409620b045d6551e46ef02cb680">removeFiles</a>({<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>}));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a96e07c730e90b70892e508daa24e9f30">removeFiles</a>({<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>}));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>));</div>
 </div><!-- fragment --> 
 </div>
 </div>
+<a id="a55a1a98554b57cebfcb6a024323acf79" name="a55a1a98554b57cebfcb6a024323acf79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55a1a98554b57cebfcb6a024323acf79">&#9670;&#160;</a></span>existsAndIsFile() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::existsAndIsFile </td>
+          <td>(</td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>isFile</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Detailed query: absence or another entry type is a successful false answer. </p>
+
+</div>
+</div>
 <a id="af83b9e24cd82181539e17e24c1b0bfec" name="af83b9e24cd82181539e17e24c1b0bfec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af83b9e24cd82181539e17e24c1b0bfec">&#9670;&#160;</a></span>existsAndIsLink()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af83b9e24cd82181539e17e24c1b0bfec">&#9670;&#160;</a></span>existsAndIsLink() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -974,14 +1079,37 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a5bc7e8751c69ce9af3c82f911e898b3a" name="a5bc7e8751c69ce9af3c82f911e898b3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5bc7e8751c69ce9af3c82f911e898b3a">&#9670;&#160;</a></span>getFileStat()</h2>
+<a id="ab71bb1bf1ece901984db05861a359212" name="ab71bb1bf1ece901984db05861a359212"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab71bb1bf1ece901984db05861a359212">&#9670;&#160;</a></span>existsAndIsLink() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::getFileStat </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::existsAndIsLink </td>
+          <td>(</td>
+          <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>isLink</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Detailed query: absence or another entry type is a successful false answer. </p>
+
+</div>
+</div>
+<a id="a5b6fcde2b61a04f3d847e2afd8147048" name="a5b6fcde2b61a04f3d847e2afd8147048"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b6fcde2b61a04f3d847e2afd8147048">&#9670;&#160;</a></span>getFileStat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::getFileStat </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
         </tr>
@@ -993,7 +1121,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Legacy convenience alias for <a class="el" href="#a60a20f1d08b8643bbd746281d2de0f6d" title="Obtains richer metadata about a path, following symbolic links.">stat(StringSpan, FileStat&amp;)</a> </p>
+<p>Legacy convenience alias for <a class="el" href="#aabc4b14984230ec8da6b47d032d523ad" title="Obtains richer metadata about a path, following symbolic links.">stat(StringSpan, FileStat&amp;)</a> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">file</td><td><a class="el" href="structSC_1_1Path.html" title="Parse and compose filesystem paths for windows and posix.">Path</a> to the file of interest </td></tr>
@@ -1005,14 +1133,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1fd637d740d1784669730c832631baaf" name="a1fd637d740d1784669730c832631baaf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fd637d740d1784669730c832631baaf">&#9670;&#160;</a></span>init()</h2>
+<a id="a6ed567a143700e89d1637dc21144c10f" name="a6ed567a143700e89d1637dc21144c10f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ed567a143700e89d1637dc21144c10f">&#9670;&#160;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::init </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::init </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>initialDirectory</em></span></td><td>)</td>
           <td></td>
@@ -1031,14 +1159,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ad6a15dc578e8278551f080d81436e2a5" name="ad6a15dc578e8278551f080d81436e2a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6a15dc578e8278551f080d81436e2a5">&#9670;&#160;</a></span>lchmod()</h2>
+<a id="a514508374d4f725e90805fbab5020349" name="a514508374d4f725e90805fbab5020349"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a514508374d4f725e90805fbab5020349">&#9670;&#160;</a></span>lchmod()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::lchmod </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::lchmod </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
         </tr>
@@ -1062,14 +1190,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a4ba8e1135033344550c5934c1709e1e9" name="a4ba8e1135033344550c5934c1709e1e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ba8e1135033344550c5934c1709e1e9">&#9670;&#160;</a></span>lchown()</h2>
+<a id="a1d6bddd4723bd687a5827ea1f9ed24a1" name="a1d6bddd4723bd687a5827ea1f9ed24a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d6bddd4723bd687a5827ea1f9ed24a1">&#9670;&#160;</a></span>lchown()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::lchown </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::lchown </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
         </tr>
@@ -1099,14 +1227,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1c71293fc6fbab346710532dbfd95e18" name="a1c71293fc6fbab346710532dbfd95e18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c71293fc6fbab346710532dbfd95e18">&#9670;&#160;</a></span>lstat()</h2>
+<a id="ac508016ff00a910fc470044134544c3c" name="ac508016ff00a910fc470044134544c3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac508016ff00a910fc470044134544c3c">&#9670;&#160;</a></span>lstat()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::lstat </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::lstat </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
         </tr>
@@ -1130,14 +1258,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8bd00d76724a6fb894d223145dcb4b01" name="a8bd00d76724a6fb894d223145dcb4b01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8bd00d76724a6fb894d223145dcb4b01">&#9670;&#160;</a></span>makeDirectories()</h2>
+<a id="a92fe619d1c868af85ae50e9e5d3ceb93" name="a92fe619d1c868af85ae50e9e5d3ceb93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92fe619d1c868af85ae50e9e5d3ceb93">&#9670;&#160;</a></span>makeDirectories()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::makeDirectories </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::makeDirectories </td>
           <td>(</td>
           <td class="paramtype">Span&lt; const StringSpan &gt;</td>          <td class="paramname"><span class="paramname"><em>directories</em></span></td><td>)</td>
           <td></td>
@@ -1153,18 +1281,18 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Invalid Results if directories already exist </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a54293925bbb6a67ffec893d5ccd77930" title="Create a new directory, creating also intermediate non existing directories (like posix mkdir -p)">makeDirectoryRecursive</a> (for an usage example) </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#ae9c772a3f5226ed96d13fab3e61771fc" title="Create a new directory, creating also intermediate non existing directories (like posix mkdir -p)">makeDirectoryRecursive</a> (for an usage example) </dd></dl>
 
 </div>
 </div>
-<a id="a9eb5c63e558c04c6afcef0af88af8f4b" name="a9eb5c63e558c04c6afcef0af88af8f4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9eb5c63e558c04c6afcef0af88af8f4b">&#9670;&#160;</a></span>makeDirectoriesIfNotExists()</h2>
+<a id="ab0154f8883e96d83ad163fb0d011f8dc" name="ab0154f8883e96d83ad163fb0d011f8dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0154f8883e96d83ad163fb0d011f8dc">&#9670;&#160;</a></span>makeDirectoriesIfNotExists()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::makeDirectoriesIfNotExists </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::makeDirectoriesIfNotExists </td>
           <td>(</td>
           <td class="paramtype">Span&lt; const StringSpan &gt;</td>          <td class="paramname"><span class="paramname"><em>directories</em></span></td><td>)</td>
           <td></td>
@@ -1183,14 +1311,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a387449fd15f696c834f9f94470592f41" name="a387449fd15f696c834f9f94470592f41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a387449fd15f696c834f9f94470592f41">&#9670;&#160;</a></span>makeDirectoriesRecursive()</h2>
+<a id="a7c44049508bc47a37ae5f1dff2c92eff" name="a7c44049508bc47a37ae5f1dff2c92eff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c44049508bc47a37ae5f1dff2c92eff">&#9670;&#160;</a></span>makeDirectoriesRecursive()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::makeDirectoriesRecursive </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::makeDirectoriesRecursive </td>
           <td>(</td>
           <td class="paramtype">Span&lt; const StringSpan &gt;</td>          <td class="paramname"><span class="paramname"><em>directories</em></span></td><td>)</td>
           <td></td>
@@ -1206,12 +1334,12 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Invalid Result in case of I/O or access error </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a54293925bbb6a67ffec893d5ccd77930" title="Create a new directory, creating also intermediate non existing directories (like posix mkdir -p)">makeDirectoryRecursive</a> (for an usage example) </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#ae9c772a3f5226ed96d13fab3e61771fc" title="Create a new directory, creating also intermediate non existing directories (like posix mkdir -p)">makeDirectoryRecursive</a> (for an usage example) </dd></dl>
 
 </div>
 </div>
-<a id="a6f1643f6603faca2c299e0239ef3a026" name="a6f1643f6603faca2c299e0239ef3a026"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f1643f6603faca2c299e0239ef3a026">&#9670;&#160;</a></span>makeDirectory()</h2>
+<a id="a5ec5baccd4626adea153351d50188ff5" name="a5ec5baccd4626adea153351d50188ff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ec5baccd4626adea153351d50188ff5">&#9670;&#160;</a></span>makeDirectory()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1220,7 +1348,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::makeDirectory </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::makeDirectory </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>directory</em></span></td><td>)</td>
           <td></td>
@@ -1241,12 +1369,12 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Invalid Results if directory already exist </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a54293925bbb6a67ffec893d5ccd77930" title="Create a new directory, creating also intermediate non existing directories (like posix mkdir -p)">makeDirectoryRecursive</a> (for an usage example) </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#ae9c772a3f5226ed96d13fab3e61771fc" title="Create a new directory, creating also intermediate non existing directories (like posix mkdir -p)">makeDirectoryRecursive</a> (for an usage example) </dd></dl>
 
 </div>
 </div>
-<a id="adcdea3f7a7aaef028ff84181fc74bc7f" name="adcdea3f7a7aaef028ff84181fc74bc7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adcdea3f7a7aaef028ff84181fc74bc7f">&#9670;&#160;</a></span>makeDirectoryIfNotExists()</h2>
+<a id="a3b15b19006d431524694f9f29d2bc1e1" name="a3b15b19006d431524694f9f29d2bc1e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b15b19006d431524694f9f29d2bc1e1">&#9670;&#160;</a></span>makeDirectoryIfNotExists()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1255,7 +1383,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::makeDirectoryIfNotExists </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::makeDirectoryIfNotExists </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>directory</em></span></td><td>)</td>
           <td></td>
@@ -1279,8 +1407,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a54293925bbb6a67ffec893d5ccd77930" name="a54293925bbb6a67ffec893d5ccd77930"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54293925bbb6a67ffec893d5ccd77930">&#9670;&#160;</a></span>makeDirectoryRecursive()</h2>
+<a id="ae9c772a3f5226ed96d13fab3e61771fc" name="ae9c772a3f5226ed96d13fab3e61771fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9c772a3f5226ed96d13fab3e61771fc">&#9670;&#160;</a></span>makeDirectoryRecursive()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1289,7 +1417,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::makeDirectoryRecursive </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::makeDirectoryRecursive </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>directory</em></span></td><td>)</td>
           <td></td>
@@ -1311,24 +1439,24 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Invalid Result in case of I/O or access error <div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
 <div class="line">    <span class="comment">// Make all operations relative to applicationRootDirectory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6ed567a143700e89d1637dc21144c10f">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Create a directory with 2 levels of nesting</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a54293925bbb6a67ffec893d5ccd77930">makeDirectoryRecursive</a>(<span class="stringliteral">&quot;Test3/Subdir&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#ae9c772a3f5226ed96d13fab3e61771fc">makeDirectoryRecursive</a>(<span class="stringliteral">&quot;Test3/Subdir&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Check that both levels have been created</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a>(<span class="stringliteral">&quot;Test3&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a>(<span class="stringliteral">&quot;Test3/Subdir&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Remove both levels of directory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;Test3/Subdir&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#ae59bf3574eb30df766ef37af11c709bb">removeEmptyDirectory</a>(<span class="stringliteral">&quot;Test3&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#abe6f8aec667898e2fd55f300a9091e7a">removeEmptyDirectory</a>(<span class="stringliteral">&quot;Test3/Subdir&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#abe6f8aec667898e2fd55f300a9091e7a">removeEmptyDirectory</a>(<span class="stringliteral">&quot;Test3&quot;</span>));</div>
 </div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
-<a id="a4293ba8f4288095db7ce6d9064a7d643" name="a4293ba8f4288095db7ce6d9064a7d643"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4293ba8f4288095db7ce6d9064a7d643">&#9670;&#160;</a></span>moveDirectory()</h2>
+<a id="a6b334c452ade6b3afd3512fb99c0a483" name="a6b334c452ade6b3afd3512fb99c0a483"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b334c452ade6b3afd3512fb99c0a483">&#9670;&#160;</a></span>moveDirectory()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1337,7 +1465,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool SC::FileSystem::moveDirectory </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::moveDirectory </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>sourceDirectory</em></span>, </td>
         </tr>
@@ -1362,18 +1490,18 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the move succeeded </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Valid Result if the move succeeded </dd></dl>
 
 </div>
 </div>
-<a id="a97ce655c442f9038cc0093077952e282" name="a97ce655c442f9038cc0093077952e282"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97ce655c442f9038cc0093077952e282">&#9670;&#160;</a></span>read() <span class="overload">[1/2]</span></h2>
+<a id="ac10e556715c08e214eac8b8e8710f188" name="ac10e556715c08e214eac8b8e8710f188"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac10e556715c08e214eac8b8e8710f188">&#9670;&#160;</a></span>read() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::read </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::read </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
         </tr>
@@ -1397,8 +1525,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a3079e4e57bf371f1ba6323f6a85f92b1" name="a3079e4e57bf371f1ba6323f6a85f92b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3079e4e57bf371f1ba6323f6a85f92b1">&#9670;&#160;</a></span>read() <span class="overload">[2/2]</span></h2>
+<a id="a9a5091bf36c799b3d16774581ec352a0" name="a9a5091bf36c799b3d16774581ec352a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a5091bf36c799b3d16774581ec352a0">&#9670;&#160;</a></span>read() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1409,7 +1537,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::read </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::read </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
         </tr>
@@ -1435,18 +1563,18 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if the entire file has been read successfully </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a957e09ef70c51f82fdf6147f09403af0" title="Writes a block of memory to a file.">write</a> (for an usage example) </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a6ed1623ad2a4ba82eac8dba4bff911c7" title="Writes a block of memory to a file.">write</a> (for an usage example) </dd></dl>
 
 </div>
 </div>
-<a id="a1d22f2cbbd7dd503256be7715ca1d26a" name="a1d22f2cbbd7dd503256be7715ca1d26a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d22f2cbbd7dd503256be7715ca1d26a">&#9670;&#160;</a></span>readSymbolicLink()</h2>
+<a id="a3ea09df2cad28a5eb0c1559e23b7c8b5" name="a3ea09df2cad28a5eb0c1559e23b7c8b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ea09df2cad28a5eb0c1559e23b7c8b5">&#9670;&#160;</a></span>readSymbolicLink()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::readSymbolicLink </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::readSymbolicLink </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>linkFile</em></span>, </td>
         </tr>
@@ -1470,14 +1598,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a494c2a5455ae69b756c4001fbc445f71" name="a494c2a5455ae69b756c4001fbc445f71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a494c2a5455ae69b756c4001fbc445f71">&#9670;&#160;</a></span>removeDirectoriesRecursive()</h2>
+<a id="a56521f9a46d9ae873ab8abc43785af90" name="a56521f9a46d9ae873ab8abc43785af90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56521f9a46d9ae873ab8abc43785af90">&#9670;&#160;</a></span>removeDirectoriesRecursive()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::removeDirectoriesRecursive </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::removeDirectoriesRecursive </td>
           <td>(</td>
           <td class="paramtype">Span&lt; const StringSpan &gt;</td>          <td class="paramname"><span class="paramname"><em>directories</em></span></td><td>)</td>
           <td></td>
@@ -1493,12 +1621,12 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if all directories and their contents have been successfully removed </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a83c97e78517a179fe4c7458a5b912863" title="Remove single directory with its entire content (like posix rm -rf)">removeDirectoryRecursive</a> (for an usage example) </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a58704ef001f4ee0b815b4646778fbf10" title="Remove single directory with its entire content (like posix rm -rf)">removeDirectoryRecursive</a> (for an usage example) </dd></dl>
 
 </div>
 </div>
-<a id="a83c97e78517a179fe4c7458a5b912863" name="a83c97e78517a179fe4c7458a5b912863"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83c97e78517a179fe4c7458a5b912863">&#9670;&#160;</a></span>removeDirectoryRecursive()</h2>
+<a id="a58704ef001f4ee0b815b4646778fbf10" name="a58704ef001f4ee0b815b4646778fbf10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58704ef001f4ee0b815b4646778fbf10">&#9670;&#160;</a></span>removeDirectoryRecursive()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1507,7 +1635,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::removeDirectoryRecursive </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::removeDirectoryRecursive </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>directory</em></span></td><td>)</td>
           <td></td>
@@ -1530,16 +1658,16 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if directory contents has been successfully deleted</dd></dl>
 <p>Example: </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
 <div class="line">    <span class="comment">// Make all operations relative to applicationRootDirectory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6ed567a143700e89d1637dc21144c10f">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Create a nested directory structure with some files too</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6f1643f6603faca2c299e0239ef3a026">makeDirectory</a>(<span class="stringliteral">&quot;removeDirectoryTest&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a957e09ef70c51f82fdf6147f09403af0">write</a>(<span class="stringliteral">&quot;removeDirectoryTest/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6f1643f6603faca2c299e0239ef3a026">makeDirectory</a>(<span class="stringliteral">&quot;removeDirectoryTest/another&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a957e09ef70c51f82fdf6147f09403af0">write</a>(<span class="stringliteral">&quot;removeDirectoryTest/another/yeah.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a5ec5baccd4626adea153351d50188ff5">makeDirectory</a>(<span class="stringliteral">&quot;removeDirectoryTest&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6ed1623ad2a4ba82eac8dba4bff911c7">write</a>(<span class="stringliteral">&quot;removeDirectoryTest/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a5ec5baccd4626adea153351d50188ff5">makeDirectory</a>(<span class="stringliteral">&quot;removeDirectoryTest/another&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6ed1623ad2a4ba82eac8dba4bff911c7">write</a>(<span class="stringliteral">&quot;removeDirectoryTest/another/yeah.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Remove the entire tree of directories</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a83c97e78517a179fe4c7458a5b912863">removeDirectoryRecursive</a>(<span class="stringliteral">&quot;removeDirectoryTest&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a58704ef001f4ee0b815b4646778fbf10">removeDirectoryRecursive</a>(<span class="stringliteral">&quot;removeDirectoryTest&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Check that all files and directories have been removed</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;removeDirectoryTest/testFile.txt&quot;</span>));</div>
@@ -1549,14 +1677,14 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a5319159aa06eda0ca51fde6fb90387e4" name="a5319159aa06eda0ca51fde6fb90387e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5319159aa06eda0ca51fde6fb90387e4">&#9670;&#160;</a></span>removeEmptyDirectories()</h2>
+<a id="a2023478f79354e677d86f12a246e0efe" name="a2023478f79354e677d86f12a246e0efe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2023478f79354e677d86f12a246e0efe">&#9670;&#160;</a></span>removeEmptyDirectories()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::removeEmptyDirectories </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::removeEmptyDirectories </td>
           <td>(</td>
           <td class="paramtype">Span&lt; const StringSpan &gt;</td>          <td class="paramname"><span class="paramname"><em>directories</em></span></td><td>)</td>
           <td></td>
@@ -1572,12 +1700,12 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Invalid Result if one of the directories doesn't exist or it's not empty </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a54293925bbb6a67ffec893d5ccd77930" title="Create a new directory, creating also intermediate non existing directories (like posix mkdir -p)">makeDirectoryRecursive</a> (for an usage example) </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#ae9c772a3f5226ed96d13fab3e61771fc" title="Create a new directory, creating also intermediate non existing directories (like posix mkdir -p)">makeDirectoryRecursive</a> (for an usage example) </dd></dl>
 
 </div>
 </div>
-<a id="ae59bf3574eb30df766ef37af11c709bb" name="ae59bf3574eb30df766ef37af11c709bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae59bf3574eb30df766ef37af11c709bb">&#9670;&#160;</a></span>removeEmptyDirectory()</h2>
+<a id="abe6f8aec667898e2fd55f300a9091e7a" name="abe6f8aec667898e2fd55f300a9091e7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe6f8aec667898e2fd55f300a9091e7a">&#9670;&#160;</a></span>removeEmptyDirectory()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1586,7 +1714,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::removeEmptyDirectory </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::removeEmptyDirectory </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>directory</em></span></td><td>)</td>
           <td></td>
@@ -1607,12 +1735,12 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Invalid Result if the directory doesn't exist or it's not empty </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a54293925bbb6a67ffec893d5ccd77930" title="Create a new directory, creating also intermediate non existing directories (like posix mkdir -p)">makeDirectoryRecursive</a> (for an usage example) </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#ae9c772a3f5226ed96d13fab3e61771fc" title="Create a new directory, creating also intermediate non existing directories (like posix mkdir -p)">makeDirectoryRecursive</a> (for an usage example) </dd></dl>
 
 </div>
 </div>
-<a id="a1465c729e64880777d2d25c98179a8ab" name="a1465c729e64880777d2d25c98179a8ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1465c729e64880777d2d25c98179a8ab">&#9670;&#160;</a></span>removeFile()</h2>
+<a id="a3a8162bae02fd1eb40236a4bc2d500b8" name="a3a8162bae02fd1eb40236a4bc2d500b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a8162bae02fd1eb40236a4bc2d500b8">&#9670;&#160;</a></span>removeFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1621,7 +1749,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::removeFile </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::removeFile </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>source</em></span></td><td>)</td>
           <td></td>
@@ -1642,18 +1770,18 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if file was existing and it has been removed successfully </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a957e09ef70c51f82fdf6147f09403af0" title="Writes a block of memory to a file.">write</a> (for an usage example) </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a6ed1623ad2a4ba82eac8dba4bff911c7" title="Writes a block of memory to a file.">write</a> (for an usage example) </dd></dl>
 
 </div>
 </div>
-<a id="a5d376d2cdace056ade8bd5ac59359c37" name="a5d376d2cdace056ade8bd5ac59359c37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d376d2cdace056ade8bd5ac59359c37">&#9670;&#160;</a></span>removeFileIfExists()</h2>
+<a id="ab295ef38c6b70f0ba45fa886f1c2ea37" name="ab295ef38c6b70f0ba45fa886f1c2ea37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab295ef38c6b70f0ba45fa886f1c2ea37">&#9670;&#160;</a></span>removeFileIfExists()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::removeFileIfExists </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::removeFileIfExists </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>source</em></span></td><td>)</td>
           <td></td>
@@ -1672,14 +1800,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a09129409620b045d6551e46ef02cb680" name="a09129409620b045d6551e46ef02cb680"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09129409620b045d6551e46ef02cb680">&#9670;&#160;</a></span>removeFiles()</h2>
+<a id="a96e07c730e90b70892e508daa24e9f30" name="a96e07c730e90b70892e508daa24e9f30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96e07c730e90b70892e508daa24e9f30">&#9670;&#160;</a></span>removeFiles()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::removeFiles </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::removeFiles </td>
           <td>(</td>
           <td class="paramtype">Span&lt; const StringSpan &gt;</td>          <td class="paramname"><span class="paramname"><em>files</em></span></td><td>)</td>
           <td></td>
@@ -1698,14 +1826,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a3c6b47d0b18c00dc7aa0a07d1652cbb9" name="a3c6b47d0b18c00dc7aa0a07d1652cbb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c6b47d0b18c00dc7aa0a07d1652cbb9">&#9670;&#160;</a></span>removeLinkIfExists()</h2>
+<a id="aa030885dc8867e15a3e20c43403990a3" name="aa030885dc8867e15a3e20c43403990a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa030885dc8867e15a3e20c43403990a3">&#9670;&#160;</a></span>removeLinkIfExists()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::removeLinkIfExists </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::removeLinkIfExists </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>source</em></span></td><td>)</td>
           <td></td>
@@ -1724,14 +1852,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a6b4aa48531a6c63039184a18cee0749d" name="a6b4aa48531a6c63039184a18cee0749d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b4aa48531a6c63039184a18cee0749d">&#9670;&#160;</a></span>rename()</h2>
+<a id="a148e60acb4c43aff94b5115164430f43" name="a148e60acb4c43aff94b5115164430f43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a148e60acb4c43aff94b5115164430f43">&#9670;&#160;</a></span>rename()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::rename </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::rename </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
         </tr>
@@ -1753,47 +1881,47 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if the file or directory was renamed</dd></dl>
 <p>Example: </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6ed567a143700e89d1637dc21144c10f">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Create a file and check that it exists</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#afe1fb31f6a2e6ecfc31133b17fa69eda">writeString</a>(<span class="stringliteral">&quot;renameTest.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a8349e93d930bdccc697a84384167c469">writeString</a>(<span class="stringliteral">&quot;renameTest.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameTest.txt&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Rename the file</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6b4aa48531a6c63039184a18cee0749d">rename</a>(<span class="stringliteral">&quot;renameTest.txt&quot;</span>, <span class="stringliteral">&quot;renameTest2.txt&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a148e60acb4c43aff94b5115164430f43">rename</a>(<span class="stringliteral">&quot;renameTest.txt&quot;</span>, <span class="stringliteral">&quot;renameTest2.txt&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Check that the file has been renamed</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameTest2.txt&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameTest.txt&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Rename the file again</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6b4aa48531a6c63039184a18cee0749d">rename</a>(<span class="stringliteral">&quot;renameTest2.txt&quot;</span>, <span class="stringliteral">&quot;renameTest.txt&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a148e60acb4c43aff94b5115164430f43">rename</a>(<span class="stringliteral">&quot;renameTest2.txt&quot;</span>, <span class="stringliteral">&quot;renameTest.txt&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Check that the file has been renamed</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameTest.txt&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameTest2.txt&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Remove all files created by the test</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a1465c729e64880777d2d25c98179a8ab">removeFile</a>(<span class="stringliteral">&quot;renameTest.txt&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a3a8162bae02fd1eb40236a4bc2d500b8">removeFile</a>(<span class="stringliteral">&quot;renameTest.txt&quot;</span>));</div>
 </div><!-- fragment --> <div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6ed567a143700e89d1637dc21144c10f">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Create a directory and check that it exists</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6f1643f6603faca2c299e0239ef3a026">makeDirectory</a>(<span class="stringliteral">&quot;renameDirectoryTest&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a5ec5baccd4626adea153351d50188ff5">makeDirectory</a>(<span class="stringliteral">&quot;renameDirectoryTest&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a>(<span class="stringliteral">&quot;renameDirectoryTest&quot;</span>));</div>
 <div class="line">    <span class="comment">// Create a file in the directory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#afe1fb31f6a2e6ecfc31133b17fa69eda">writeString</a>(<span class="stringliteral">&quot;renameDirectoryTest/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a8349e93d930bdccc697a84384167c469">writeString</a>(<span class="stringliteral">&quot;renameDirectoryTest/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameDirectoryTest/testFile.txt&quot;</span>));</div>
 <div class="line">    <span class="comment">// Create a subdirectory in the directory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6f1643f6603faca2c299e0239ef3a026">makeDirectory</a>(<span class="stringliteral">&quot;renameDirectoryTest/subdirectory&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a5ec5baccd4626adea153351d50188ff5">makeDirectory</a>(<span class="stringliteral">&quot;renameDirectoryTest/subdirectory&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a>(<span class="stringliteral">&quot;renameDirectoryTest/subdirectory&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Create a file in the subdirectory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#afe1fb31f6a2e6ecfc31133b17fa69eda">writeString</a>(<span class="stringliteral">&quot;renameDirectoryTest/subdirectory/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a8349e93d930bdccc697a84384167c469">writeString</a>(<span class="stringliteral">&quot;renameDirectoryTest/subdirectory/testFile.txt&quot;</span>, <span class="stringliteral">&quot;asdf&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameDirectoryTest/subdirectory/testFile.txt&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Rename the directory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6b4aa48531a6c63039184a18cee0749d">rename</a>(<span class="stringliteral">&quot;renameDirectoryTest&quot;</span>, <span class="stringliteral">&quot;renameDirectoryTest2&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a148e60acb4c43aff94b5115164430f43">rename</a>(<span class="stringliteral">&quot;renameDirectoryTest&quot;</span>, <span class="stringliteral">&quot;renameDirectoryTest2&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Check that the directory has been renamed</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a57f57af54061e2370bef5e164ab44335">existsAndIsDirectory</a>(<span class="stringliteral">&quot;renameDirectoryTest2&quot;</span>));</div>
@@ -1807,18 +1935,18 @@ template&lt;typename T &gt; </div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;renameDirectoryTest/subdirectory/testFile.txt&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Remove all directories created by the test</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a83c97e78517a179fe4c7458a5b912863">removeDirectoryRecursive</a>(<span class="stringliteral">&quot;renameDirectoryTest2&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a58704ef001f4ee0b815b4646778fbf10">removeDirectoryRecursive</a>(<span class="stringliteral">&quot;renameDirectoryTest2&quot;</span>));</div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a49555df8f65b725bc140a01f3be4b3fa" name="a49555df8f65b725bc140a01f3be4b3fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49555df8f65b725bc140a01f3be4b3fa">&#9670;&#160;</a></span>setLastModifiedTime()</h2>
+<a id="a8f63b2bd07e4ebfffe7d0c3989912402" name="a8f63b2bd07e4ebfffe7d0c3989912402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f63b2bd07e4ebfffe7d0c3989912402">&#9670;&#160;</a></span>setLastModifiedTime()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::setLastModifiedTime </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::setLastModifiedTime </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
         </tr>
@@ -1842,14 +1970,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a60a20f1d08b8643bbd746281d2de0f6d" name="a60a20f1d08b8643bbd746281d2de0f6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60a20f1d08b8643bbd746281d2de0f6d">&#9670;&#160;</a></span>stat()</h2>
+<a id="aabc4b14984230ec8da6b47d032d523ad" name="aabc4b14984230ec8da6b47d032d523ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabc4b14984230ec8da6b47d032d523ad">&#9670;&#160;</a></span>stat()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::stat </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::stat </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
         </tr>
@@ -1873,14 +2001,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a957e09ef70c51f82fdf6147f09403af0" name="a957e09ef70c51f82fdf6147f09403af0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a957e09ef70c51f82fdf6147f09403af0">&#9670;&#160;</a></span>write()</h2>
+<a id="a6ed1623ad2a4ba82eac8dba4bff911c7" name="a6ed1623ad2a4ba82eac8dba4bff911c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ed1623ad2a4ba82eac8dba4bff911c7">&#9670;&#160;</a></span>write()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::write </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::write </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
         </tr>
@@ -1903,33 +2031,33 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if the memory was successfully written</dd></dl>
 <p>Example: </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystem.html">FileSystem</a> fs;</div>
 <div class="line">    <span class="comment">// Make all operations relative to applicationRootDirectory</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a1fd637d740d1784669730c832631baaf">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6ed567a143700e89d1637dc21144c10f">init</a>(report.<a class="code hl_variable" href="structSC_1_1TestReport.html#a08786c84045a4e642202fe2ef3ee26ba">applicationRootDirectory</a>.view()));</div>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1StringView.html">StringView</a> content = <span class="stringliteral">&quot;ASDF content&quot;</span>;</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Check that file doesn&#39;t exists before write-ing it and then check that it exist</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;file.txt&quot;</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#afe1fb31f6a2e6ecfc31133b17fa69eda">writeString</a>(<span class="stringliteral">&quot;file.txt&quot;</span>, content));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a8349e93d930bdccc697a84384167c469">writeString</a>(<span class="stringliteral">&quot;file.txt&quot;</span>, content));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;file.txt&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Read the file and check its content</span></div>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1String.html">String</a> newString = StringEncoding::Ascii;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a3079e4e57bf371f1ba6323f6a85f92b1">read</a>(<span class="stringliteral">&quot;file.txt&quot;</span>, newString));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a9a5091bf36c799b3d16774581ec352a0">read</a>(<span class="stringliteral">&quot;file.txt&quot;</span>, newString));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(newString.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>() == content);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Remove all files created by the test</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a1465c729e64880777d2d25c98179a8ab">removeFile</a>(<span class="stringliteral">&quot;file.txt&quot;</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a3a8162bae02fd1eb40236a4bc2d500b8">removeFile</a>(<span class="stringliteral">&quot;file.txt&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;file.txt&quot;</span>));</div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="afe1fb31f6a2e6ecfc31133b17fa69eda" name="afe1fb31f6a2e6ecfc31133b17fa69eda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe1fb31f6a2e6ecfc31133b17fa69eda">&#9670;&#160;</a></span>writeString()</h2>
+<a id="a8349e93d930bdccc697a84384167c469" name="a8349e93d930bdccc697a84384167c469"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8349e93d930bdccc697a84384167c469">&#9670;&#160;</a></span>writeString()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::writeString </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::writeString </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
         </tr>
@@ -1950,18 +2078,18 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if the memory was successfully written </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a957e09ef70c51f82fdf6147f09403af0" title="Writes a block of memory to a file.">write</a> (for an usage example) </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a6ed1623ad2a4ba82eac8dba4bff911c7" title="Writes a block of memory to a file.">write</a> (for an usage example) </dd></dl>
 
 </div>
 </div>
-<a id="a5a591c7df57809ef9e7dc4c081b8a778" name="a5a591c7df57809ef9e7dc4c081b8a778"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a591c7df57809ef9e7dc4c081b8a778">&#9670;&#160;</a></span>writeStringAppend()</h2>
+<a id="a702af3c560483cec9cd9cb35615f0b98" name="a702af3c560483cec9cd9cb35615f0b98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a702af3c560483cec9cd9cb35615f0b98">&#9670;&#160;</a></span>writeStringAppend()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::FileSystem::writeStringAppend </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultFileSystem.html">ResultFileSystem</a> SC::FileSystem::writeStringAppend </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
         </tr>
@@ -1982,23 +2110,6 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if the memory was successfully appended </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ab4f4015b0c578f09469206286efbfb9c" name="ab4f4015b0c578f09469206286efbfb9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4f4015b0c578f09469206286efbfb9c">&#9670;&#160;</a></span>preciseErrorMessages</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool SC::FileSystem::preciseErrorMessages = false</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Formats errors in an internal buffer when returning failed Result. </p>
 
 </div>
 </div>

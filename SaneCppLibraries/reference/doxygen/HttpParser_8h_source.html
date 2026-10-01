@@ -129,9 +129,9 @@ $(function(){initNavTree('HttpParser_8h_source.html',''); initResizable(true); }
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright (c) Stefano Cristiano</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// SPDX-License-Identifier: MIT</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../Common/Result.h&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../Common/Span.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;../Common/StringSpan.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../Common/Span.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../Common/StringSpan.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;HttpError.h&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;HttpExport.h&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span>SC</div>
@@ -196,56 +196,56 @@ $(function(){initNavTree('HttpParser_8h_source.html',''); initResizable(true); }
 </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="structSC_1_1HttpParser.html#a08a40ddc268288eed3f8a289eab2793a">   67</a></span>    <a class="code hl_enumeration" href="structSC_1_1HttpParser.html#ab90d16c284d13ca54c2c81a1e0e46b25">Type</a> type = Type::Request; </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="structSC_1_1HttpParser.html#a8ed6c9943e88dab7276bb6baed55c24a">   74</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpParser.html#a8ed6c9943e88dab7276bb6baed55c24a">parse</a>(Span&lt;const char&gt; data, <span class="keywordtype">size_t</span>&amp; readBytes, Span&lt;const char&gt;&amp; parsedData);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="foldopen" id="foldopen00077" data-start="{" data-end="};">
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="structSC_1_1HttpParser.html#a6e6ebc8472375b98908f408420a9fef7">   77</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="structSC_1_1HttpParser.html#a6e6ebc8472375b98908f408420a9fef7">HeaderType</a></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    {</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        ContentLength = 0, </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        Connection    = 1, </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        ContentType   = 2, </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    };</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="structSC_1_1HttpParser.html#a8ed6c9943e88dab7276bb6baed55c24a">   75</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpParser.html#a8ed6c9943e88dab7276bb6baed55c24a">parse</a>(Span&lt;const char&gt; data, <span class="keywordtype">size_t</span>&amp; readBytes, Span&lt;const char&gt;&amp; parsedData);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="};">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="structSC_1_1HttpParser.html#a6e6ebc8472375b98908f408420a9fef7">   78</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="structSC_1_1HttpParser.html#a6e6ebc8472375b98908f408420a9fef7">HeaderType</a></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        ContentLength = 0, </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        Connection    = 1, </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        ContentType   = 2, </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    };</div>
 </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="structSC_1_1HttpParser.html#abefc08c8b6011c432ef875946e00e390">   85</a></span>    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="structSC_1_1HttpParser.html#abefc08c8b6011c432ef875946e00e390">matchesHeader</a>(<a class="code hl_enumeration" href="structSC_1_1HttpParser.html#a6e6ebc8472375b98908f408420a9fef7">HeaderType</a> headerName) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">size_t</span> globalStart           = 0;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">size_t</span> globalLength          = 0;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">int</span>    topLevelCoroutine     = 0;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">int</span>    nestedParserCoroutine = 0;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">bool</span>   parsedContentLength   = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">bool</span>   parsedConnection      = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">size_t</span> matchIndex            = 0;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> numMatches = <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(HeaderType::ContentType) + 1;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">size_t</span>   matchingHeader[numMatches]      = {0};</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">bool</span>     matchingHeaderValid[numMatches] = {<span class="keyword">false</span>};</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    uint64_t number                          = 0;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseHeaderName(<span class="keywordtype">char</span> currentChar);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseHeaderValue(<span class="keywordtype">char</span> currentChar);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseStatusCode(<span class="keywordtype">char</span> currentChar);</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseNumberValue(<span class="keywordtype">char</span> currentChar);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseConnectionValue(<span class="keywordtype">char</span> currentChar);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseHeadersEnd(<span class="keywordtype">char</span> currentChar);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseMethod(<span class="keywordtype">char</span> currentChar);</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseUrl(<span class="keywordtype">char</span> currentChar);</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keyword">template</span> &lt;<span class="keywordtype">bool</span> spaces&gt;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseVersion(<span class="keywordtype">char</span> currentChar);</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keyword">template</span> &lt;<span class="keywordtype">bool</span> (HttpParser::*Func)(<span class="keywordtype">char</span>), Token currentResult&gt;</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    Result process(Span&lt;const char&gt;&amp; data, <span class="keywordtype">size_t</span>&amp; readBytes, Span&lt;const char&gt;&amp; parsedData);</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>};</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="structSC_1_1HttpParser.html#abefc08c8b6011c432ef875946e00e390">   86</a></span>    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="structSC_1_1HttpParser.html#abefc08c8b6011c432ef875946e00e390">matchesHeader</a>(<a class="code hl_enumeration" href="structSC_1_1HttpParser.html#a6e6ebc8472375b98908f408420a9fef7">HeaderType</a> headerName) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">size_t</span> globalStart           = 0;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">size_t</span> globalLength          = 0;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">int</span>    topLevelCoroutine     = 0;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">int</span>    nestedParserCoroutine = 0;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">bool</span>   parsedContentLength   = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">bool</span>   parsedConnection      = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">size_t</span> matchIndex            = 0;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> numMatches = <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(HeaderType::ContentType) + 1;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">size_t</span>   matchingHeader[numMatches]      = {0};</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">bool</span>     matchingHeaderValid[numMatches] = {<span class="keyword">false</span>};</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    uint64_t number                          = 0;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseHeaderName(<span class="keywordtype">char</span> currentChar);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseHeaderValue(<span class="keywordtype">char</span> currentChar);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseStatusCode(<span class="keywordtype">char</span> currentChar);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseNumberValue(<span class="keywordtype">char</span> currentChar);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseConnectionValue(<span class="keywordtype">char</span> currentChar);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseHeadersEnd(<span class="keywordtype">char</span> currentChar);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseMethod(<span class="keywordtype">char</span> currentChar);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseUrl(<span class="keywordtype">char</span> currentChar);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keyword">template</span> &lt;<span class="keywordtype">bool</span> spaces&gt;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    [[nodiscard]] <span class="keywordtype">bool</span> parseVersion(<span class="keywordtype">char</span> currentChar);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keyword">template</span> &lt;<span class="keywordtype">bool</span> (HttpParser::*Func)(<span class="keywordtype">char</span>), Token currentResult, HttpError malformed&gt;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    Result process(Span&lt;const char&gt;&amp; data, <span class="keywordtype">size_t</span>&amp; readBytes, Span&lt;const char&gt;&amp; parsedData);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>};</div>
 </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>} <span class="comment">// namespace SC</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>} <span class="comment">// namespace SC</span></div>
 <div class="ttc" id="astructSC_1_1HttpParser_html"><div class="ttname"><a href="structSC_1_1HttpParser.html">SC::HttpParser</a></div><div class="ttdoc">Incremental HTTP request or response parser.</div><div class="ttdef"><b>Definition</b> HttpParser.h:16</div></div>
 <div class="ttc" id="astructSC_1_1HttpParser_html_a10a5d2f71f600570cf25038a0f8111ca"><div class="ttname"><a href="structSC_1_1HttpParser.html#a10a5d2f71f600570cf25038a0f8111ca">SC::HttpParser::State</a></div><div class="ttdeci">State</div><div class="ttdoc">State of the parser.</div><div class="ttdef"><b>Definition</b> HttpParser.h:38</div></div>
 <div class="ttc" id="astructSC_1_1HttpParser_html_a2e7a31ffb1e096e00f8aa82a87745e33"><div class="ttname"><a href="structSC_1_1HttpParser.html#a2e7a31ffb1e096e00f8aa82a87745e33">SC::HttpParser::Token</a></div><div class="ttdeci">Token</div><div class="ttdoc">One possible Token reported by the parser.</div><div class="ttdef"><b>Definition</b> HttpParser.h:46</div></div>
-<div class="ttc" id="astructSC_1_1HttpParser_html_a6e6ebc8472375b98908f408420a9fef7"><div class="ttname"><a href="structSC_1_1HttpParser.html#a6e6ebc8472375b98908f408420a9fef7">SC::HttpParser::HeaderType</a></div><div class="ttdeci">HeaderType</div><div class="ttdoc">Header types.</div><div class="ttdef"><b>Definition</b> HttpParser.h:78</div></div>
+<div class="ttc" id="astructSC_1_1HttpParser_html_a6e6ebc8472375b98908f408420a9fef7"><div class="ttname"><a href="structSC_1_1HttpParser.html#a6e6ebc8472375b98908f408420a9fef7">SC::HttpParser::HeaderType</a></div><div class="ttdeci">HeaderType</div><div class="ttdoc">Header types.</div><div class="ttdef"><b>Definition</b> HttpParser.h:79</div></div>
 <div class="ttc" id="astructSC_1_1HttpParser_html_a84befaaf1146b8dfdabb9184b4966752"><div class="ttname"><a href="structSC_1_1HttpParser.html#a84befaaf1146b8dfdabb9184b4966752">SC::HttpParser::Method</a></div><div class="ttdeci">Method</div><div class="ttdoc">Method of the current request / response.</div><div class="ttdef"><b>Definition</b> HttpParser.h:19</div></div>
 <div class="ttc" id="astructSC_1_1HttpParser_html_a8ed6c9943e88dab7276bb6baed55c24a"><div class="ttname"><a href="structSC_1_1HttpParser.html#a8ed6c9943e88dab7276bb6baed55c24a">SC::HttpParser::parse</a></div><div class="ttdeci">Result parse(Span&lt; const char &gt; data, size_t &amp;readBytes, Span&lt; const char &gt; &amp;parsedData)</div><div class="ttdoc">Parse an incoming chunk of bytes, returning actually parsed span.</div></div>
 <div class="ttc" id="astructSC_1_1HttpParser_html_ab90d16c284d13ca54c2c81a1e0e46b25"><div class="ttname"><a href="structSC_1_1HttpParser.html#ab90d16c284d13ca54c2c81a1e0e46b25">SC::HttpParser::Type</a></div><div class="ttdeci">Type</div><div class="ttdoc">Type of the stream to be parsed (Request or Response)</div><div class="ttdef"><b>Definition</b> HttpParser.h:63</div></div>

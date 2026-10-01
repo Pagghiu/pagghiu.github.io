@@ -164,6 +164,12 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1NamedPipeClient.html">SC::NamedPipeClient</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Named pipe client endpoint creator.  <a href="structSC_1_1NamedPipeClient.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionSC_1_1FileErrorContext.html">SC::FileErrorContext</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typed scalar payload for a File error.  <a href="unionSC_1_1FileErrorContext.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1ResultFile.html">SC::ResultFile</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">File result retaining an operation detail and one scalar diagnostic context.  <a href="structSC_1_1ResultFile.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -181,6 +187,168 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ga3284572f6992e9abf36e60593c4d4d43"><td class="mdescLeft">&#160;</td><td class="mdescRight">A structure to describe metadata associated with an open descriptor.  <a href="#ga3284572f6992e9abf36e60593c4d4d43">More...</a><br /></td></tr>
 <tr class="separator:ga3284572f6992e9abf36e60593c4d4d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga282bad81409c1402a22205903c66c86b" id="r_ga282bad81409c1402a22205903c66c86b"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga282bad81409c1402a22205903c66c86b">SC::FileError</a> : uint32_t { <br />
+&#160;&#160;<b>InvalidHandle</b> = 1
+, <br />
+&#160;&#160;<b>UnsupportedPathEncoding</b>
+, <br />
+&#160;&#160;<b>InvalidPath</b>
+, <br />
+&#160;&#160;<b>PathMustBeAbsolute</b>
+, <br />
+&#160;&#160;<b>PathCapacityExceeded</b>
+, <br />
+&#160;&#160;<b>InvalidNamedPipeName</b>
+, <br />
+&#160;&#160;<b>InvalidState</b>
+, <br />
+&#160;&#160;<b>OperationUnsupported</b>
+, <br />
+&#160;&#160;<b>OpenFailed</b>
+, <br />
+&#160;&#160;<b>CloseFailed</b>
+, <br />
+&#160;&#160;<b>ReadFailed</b>
+, <br />
+&#160;&#160;<b>WriteFailed</b>
+, <br />
+&#160;&#160;<b>IncompleteWrite</b>
+, <br />
+&#160;&#160;<b>SeekFailed</b>
+, <br />
+&#160;&#160;<b>MetadataQueryFailed</b>
+, <br />
+&#160;&#160;<b>PermissionsChangeFailed</b>
+, <br />
+&#160;&#160;<b>OwnershipChangeFailed</b>
+, <br />
+&#160;&#160;<b>SyncFailed</b>
+, <br />
+&#160;&#160;<b>TruncateFailed</b>
+, <br />
+&#160;&#160;<b>DuplicateFailed</b>
+, <br />
+&#160;&#160;<b>DescriptorConfigurationFailed</b>
+, <br />
+&#160;&#160;<b>PipeCreationFailed</b>
+, <br />
+&#160;&#160;<b>NamedPipeCreationFailed</b>
+, <br />
+&#160;&#160;<b>NamedPipeConnectionFailed</b>
+, <br />
+&#160;&#160;<b>NamedPipeAcceptFailed</b>
+, <br />
+&#160;&#160;<b>EndpointCleanupFailed</b>
+, <br />
+&#160;&#160;<b>BufferCapacityExceeded</b>
+, <br />
+&#160;&#160;<b>WouldBlock</b>
+, <br />
+&#160;&#160;<b>TimedOut</b>
+, <br />
+&#160;&#160;<b>OperationCancelled</b>
+, <br />
+&#160;&#160;<b>PipeDisconnected</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga282bad81409c1402a22205903c66c86b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable portable failures returned by the File library.  <a href="#ga282bad81409c1402a22205903c66c86b">More...</a><br /></td></tr>
+<tr class="separator:ga282bad81409c1402a22205903c66c86b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac093ff57fcfa6d4a916195211a8c5abd" id="r_gac093ff57fcfa6d4a916195211a8c5abd"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac093ff57fcfa6d4a916195211a8c5abd">SC::FileErrorDetail</a> : uint16_t { <br />
+&#160;&#160;<b>None</b> = 0
+, <br />
+&#160;&#160;<b>ValidatePathEncoding</b>
+, <br />
+&#160;&#160;<b>NormalizePath</b>
+, <br />
+&#160;&#160;<b>ValidateAbsolutePath</b>
+, <br />
+&#160;&#160;<b>BuildTransportPath</b>
+, <br />
+&#160;&#160;<b>OpenFile</b>
+, <br />
+&#160;&#160;<b>CloseDescriptor</b>
+, <br />
+&#160;&#160;<b>ReadDescriptor</b>
+, <br />
+&#160;&#160;<b>ReadDescriptorAtOffset</b>
+, <br />
+&#160;&#160;<b>GrowReadBuffer</b>
+, <br />
+&#160;&#160;<b>ResetReadBuffer</b>
+, <br />
+&#160;&#160;<b>WriteDescriptor</b>
+, <br />
+&#160;&#160;<b>WriteDescriptorAtOffset</b>
+, <br />
+&#160;&#160;<b>SeekDescriptor</b>
+, <br />
+&#160;&#160;<b>QueryDescriptorPosition</b>
+, <br />
+&#160;&#160;<b>QueryDescriptorSize</b>
+, <br />
+&#160;&#160;<b>QueryDescriptorMetadata</b>
+, <br />
+&#160;&#160;<b>ChangeDescriptorPermissions</b>
+, <br />
+&#160;&#160;<b>ChangeDescriptorOwnership</b>
+, <br />
+&#160;&#160;<b>SynchronizeDescriptor</b>
+, <br />
+&#160;&#160;<b>SynchronizeDescriptorData</b>
+, <br />
+&#160;&#160;<b>TruncateDescriptor</b>
+, <br />
+&#160;&#160;<b>GetStandardHandle</b>
+, <br />
+&#160;&#160;<b>DuplicateStandardHandle</b>
+, <br />
+&#160;&#160;<b>CreateAnonymousPipe</b>
+, <br />
+&#160;&#160;<b>DuplicatePipeDescriptor</b>
+, <br />
+&#160;&#160;<b>AssignPipeDescriptor</b>
+, <br />
+&#160;&#160;<b>QueryDescriptorFlags</b>
+, <br />
+&#160;&#160;<b>ConfigureDescriptorFlags</b>
+, <br />
+&#160;&#160;<b>ValidateNamedPipeLogicalName</b>
+, <br />
+&#160;&#160;<b>BuildNamedPipePath</b>
+, <br />
+&#160;&#160;<b>ValidateNamedPipePath</b>
+, <br />
+&#160;&#160;<b>CreateNamedPipeServer</b>
+, <br />
+&#160;&#160;<b>RemoveNamedPipeEndpoint</b>
+, <br />
+&#160;&#160;<b>BindNamedPipeServer</b>
+, <br />
+&#160;&#160;<b>ListenNamedPipeServer</b>
+, <br />
+&#160;&#160;<b>AcceptNamedPipeConnection</b>
+, <br />
+&#160;&#160;<b>WaitNamedPipeClient</b>
+, <br />
+&#160;&#160;<b>ConnectNamedPipeClient</b>
+, <br />
+&#160;&#160;<b>DuplicateNamedPipeConnection</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:gac093ff57fcfa6d4a916195211a8c5abd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable logical operation or native backend stage retained for a File failure.  <a href="#gac093ff57fcfa6d4a916195211a8c5abd">More...</a><br /></td></tr>
+<tr class="separator:gac093ff57fcfa6d4a916195211a8c5abd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab2b383f0d60c7209857d129ddf246cf" id="r_gaab2b383f0d60c7209857d129ddf246cf"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaab2b383f0d60c7209857d129ddf246cf">SC::FileErrorContextKind</a> : uint16_t { <br />
+&#160;&#160;<b>None</b> = 0
+, <br />
+&#160;&#160;<b>NativeError</b>
+, <br />
+&#160;&#160;<b>RequiredBytes</b>
+, <br />
+&#160;&#160;<b>ActualBytes</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:gaab2b383f0d60c7209857d129ddf246cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kind of scalar diagnostic context stored in ResultFile.  <a href="#gaab2b383f0d60c7209857d129ddf246cf">More...</a><br /></td></tr>
+<tr class="separator:gaab2b383f0d60c7209857d129ddf246cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>🟩 Synchronous Disk File I/O    (see <a class="el" href="library_file.html">File</a> for more details) </p>
@@ -208,6 +376,84 @@ Enumerations</h2></td></tr>
 <p><code>#include &lt;File.h&gt;</code></p>
 
 <p>A structure to describe metadata associated with an open descriptor. </p>
+
+</div>
+</div>
+<a id="ga282bad81409c1402a22205903c66c86b" name="ga282bad81409c1402a22205903c66c86b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga282bad81409c1402a22205903c66c86b">&#9670;&#160;</a></span>FileError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ga282bad81409c1402a22205903c66c86b">SC::FileError</a> : uint32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;FileError.h&gt;</code></p>
+
+<p>Stable portable failures returned by the File library. </p>
+
+</div>
+</div>
+<a id="gaab2b383f0d60c7209857d129ddf246cf" name="gaab2b383f0d60c7209857d129ddf246cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaab2b383f0d60c7209857d129ddf246cf">&#9670;&#160;</a></span>FileErrorContextKind</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#gaab2b383f0d60c7209857d129ddf246cf">SC::FileErrorContextKind</a> : uint16_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;FileError.h&gt;</code></p>
+
+<p>Kind of scalar diagnostic context stored in <a class="el" href="structSC_1_1ResultFile.html" title="File result retaining an operation detail and one scalar diagnostic context.">ResultFile</a>. </p>
+
+</div>
+</div>
+<a id="gac093ff57fcfa6d4a916195211a8c5abd" name="gac093ff57fcfa6d4a916195211a8c5abd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac093ff57fcfa6d4a916195211a8c5abd">&#9670;&#160;</a></span>FileErrorDetail</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#gac093ff57fcfa6d4a916195211a8c5abd">SC::FileErrorDetail</a> : uint16_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;FileError.h&gt;</code></p>
+
+<p>Stable logical operation or native backend stage retained for a File failure. </p>
 
 </div>
 </div>

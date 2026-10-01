@@ -1,13 +1,13 @@
 var topics =
 [
-    [ "Async", "group__group__async.html", null ],
-    [ "Async Streams", "group__group__async__streams.html", null ],
-    [ "AsyncFibers", "group__group__async__fibers.html", null ],
-    [ "Await", "group__group__await.html", null ],
+    [ "Async", "group__group__async.html", "group__group__async" ],
+    [ "Async Streams", "group__group__async__streams.html", "group__group__async__streams" ],
+    [ "AsyncFibers", "group__group__async__fibers.html", "group__group__async__fibers" ],
+    [ "Await", "group__group__await.html", "group__group__await" ],
     [ "C Bindings", "group__group__c__bindings.html", "group__group__c__bindings" ],
     [ "Containers", "group__group__containers.html", "group__group__containers" ],
     [ "Cryptography", "group__group__cryptography.html", "group__group__cryptography" ],
-    [ "Fibers", "group__group__fibers.html", null ],
+    [ "Fibers", "group__group__fibers.html", "group__group__fibers" ],
     [ "File", "group__group__file.html", "group__group__file" ],
     [ "FileSystem", "group__group__file__system.html", "group__group__file__system" ],
     [ "FileSystem Iterator", "group__group__file__system__iterator.html", "group__group__file__system__iterator" ],

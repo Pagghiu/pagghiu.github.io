@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loadmode_0',['LoadMode',['../structSC_1_1PluginRegistry.html#a0ab8576eabd1ec66c5093af93f7d0513',1,'SC::PluginRegistry']]]
+  ['inheritabletype_0',['InheritableType',['../structSC_1_1SocketFlags.html#ab7ac892f56746963a049a84488c11bad',1,'SC::SocketFlags']]]
 ];

@@ -355,7 +355,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isThreadPoolForced</b
 <div class="line">    }</div>
 <div class="line">};</div>
 <div class="line"><span class="comment">// Obtain file descriptor handle</span></div>
-<div class="line">SC_TRY(fd.get(asyncWriteFile.handle, Result::Error(<span class="stringliteral">&quot;Invalid Handle&quot;</span>)));</div>
+<div class="line">SC_TRY(fd.get(asyncWriteFile.handle, Result(<span class="keyword">false</span>)));</div>
 <div class="line">asyncWriteFile.buffer = StringView(<span class="stringliteral">&quot;test&quot;</span>).toCharSpan();</div>
 <div class="line"><span class="comment">// Vectorized writes: use proper start overload or set</span></div>
 <div class="line"><span class="comment">// AsyncFileWrite::buffers and AsyncFileWrite::singleBuffer = false</span></div>

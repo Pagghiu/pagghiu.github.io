@@ -137,9 +137,9 @@ $(function(){initNavTree('structSC_1_1SocketDNS.html',''); initResizable(true); 
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a746a658a2e6419d06dd4dde3852c17ef" id="r_a746a658a2e6419d06dd4dde3852c17ef"><td class="memItemLeft" align="right" valign="top">static Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a746a658a2e6419d06dd4dde3852c17ef">resolveDNS</a> (StringSpan host, Span&lt; char &gt; &amp;ipAddress)</td></tr>
-<tr class="memdesc:a746a658a2e6419d06dd4dde3852c17ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolve an host string to an ip address (blocking until DNS response arrives)  <br /></td></tr>
-<tr class="separator:a746a658a2e6419d06dd4dde3852c17ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1951d144c808aa2cc3534bfe0c62fb2d" id="r_a1951d144c808aa2cc3534bfe0c62fb2d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1951d144c808aa2cc3534bfe0c62fb2d">resolveDNS</a> (StringSpan host, Span&lt; char &gt; &amp;ipAddress)</td></tr>
+<tr class="memdesc:a1951d144c808aa2cc3534bfe0c62fb2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolve an host string to an ip address (blocking until DNS response arrives)  <br /></td></tr>
+<tr class="separator:a1951d144c808aa2cc3534bfe0c62fb2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Synchronous DNS Resolution. </p>
@@ -160,8 +160,8 @@ Static Public Member Functions</h2></td></tr>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not SocketDNS::resolveDNS(</div>
 <div class="line">        StringSpan({nonAsciiHost, <span class="keyword">sizeof</span>(nonAsciiHost)}, <span class="keyword">false</span>, StringEncoding::Utf8), ipAddress));</div>
 </div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a746a658a2e6419d06dd4dde3852c17ef" name="a746a658a2e6419d06dd4dde3852c17ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a746a658a2e6419d06dd4dde3852c17ef">&#9670;&#160;</a></span>resolveDNS()</h2>
+<a id="a1951d144c808aa2cc3534bfe0c62fb2d" name="a1951d144c808aa2cc3534bfe0c62fb2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1951d144c808aa2cc3534bfe0c62fb2d">&#9670;&#160;</a></span>resolveDNS()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,7 +170,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static Result SC::SocketDNS::resolveDNS </td>
+          <td class="memname">static <a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDNS::resolveDNS </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>host</em></span>, </td>
         </tr>

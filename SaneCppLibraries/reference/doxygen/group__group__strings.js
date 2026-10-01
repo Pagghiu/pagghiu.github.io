@@ -136,6 +136,9 @@ var group__group__strings =
     ] ],
     [ "SC::StringAlgorithms", "structSC_1_1StringAlgorithms.html", null ],
     [ "SC::StringCodePoint", "group__group__strings.html#ga4b7aa03fde5e693b29c03a9991208574", null ],
+    [ "SC::StringsError", "group__group__strings.html#ga195abdf608a23b3686b36da7d3c22580", null ],
+    [ "SC::formatStringsError", "group__group__strings.html#ga1d21b7caf9e31478dd72ef6a9ddbc5f5", null ],
+    [ "SC::formatStringsError", "group__group__strings.html#ga26db19c01669df85240091d9f0d52b9e", null ],
     [ "SC::PluginHash", "group__group__strings.html#ga5ef1ec205762e517ccda361f2e5f6455", null ],
     [ "SC::StringEncodingAreBinaryCompatible", "group__group__strings.html#ga37e07d5e5fe0f109ddadb92b1e3d657e", null ]
 ];

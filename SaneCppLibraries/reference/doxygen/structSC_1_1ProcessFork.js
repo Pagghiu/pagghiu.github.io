@@ -8,11 +8,11 @@ var structSC_1_1ProcessFork =
       [ "Suspended", "structSC_1_1ProcessFork.html#a5c16be36b906a74b0cdece2fc8d321c0a9fdda95d464c589b84fb42f5ee20cf6f", null ],
       [ "Immediate", "structSC_1_1ProcessFork.html#a5c16be36b906a74b0cdece2fc8d321c0aface357efe9b9684e72220ac838ddaef", null ]
     ] ],
-    [ "fork", "structSC_1_1ProcessFork.html#adafc40dbeda2b330cfdfd3ee39acc68b", null ],
+    [ "fork", "structSC_1_1ProcessFork.html#a6a44502bd9ecf152c878b17b095e4624", null ],
     [ "getExitStatus", "structSC_1_1ProcessFork.html#afa782691688fb48380062978c27301c8", null ],
     [ "getReadPipe", "structSC_1_1ProcessFork.html#ad3b09abc911e5e9da7f56a2f31b6fc68", null ],
     [ "getSide", "structSC_1_1ProcessFork.html#a6b285c8f4db82968d130227eebdaf7d6", null ],
     [ "getWritePipe", "structSC_1_1ProcessFork.html#a7f35d8b1cf18fc9d035d8b769eef3254", null ],
-    [ "resumeChildFork", "structSC_1_1ProcessFork.html#aadad52aeb2d91591b8af32ba508511ab", null ],
-    [ "waitForChild", "structSC_1_1ProcessFork.html#a28f1eefd2b5e636a51cdaf68ec4b78be", null ]
+    [ "resumeChildFork", "structSC_1_1ProcessFork.html#ae4d0f1863a1f3a0ad61982c4a1e2edea", null ],
+    [ "waitForChild", "structSC_1_1ProcessFork.html#a5ba71af337f0dc47761a8e24bc2e4d62", null ]
 ];

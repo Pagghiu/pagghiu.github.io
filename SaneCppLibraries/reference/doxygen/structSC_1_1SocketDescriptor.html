@@ -143,57 +143,57 @@ Inheritance diagram for SC::SocketDescriptor:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abae627322ab6d511fdf774516aa12bec" id="r_abae627322ab6d511fdf774516aa12bec"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abae627322ab6d511fdf774516aa12bec">create</a> (<a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a> addressFamily, <a class="el" href="structSC_1_1SocketFlags.html#a357d032950bdf447d6c95bcfe9f1600e">SocketFlags::SocketType</a> socketType=<a class="el" href="structSC_1_1SocketFlags.html#a357d032950bdf447d6c95bcfe9f1600ea4c9f6424d4cdbf38ac35c8bdf3d17488">SocketFlags::SocketStream</a>, <a class="el" href="structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcda">SocketFlags::ProtocolType</a> protocol=<a class="el" href="structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcdaaf8aa232b7192311ab494f787228eb7ce">SocketFlags::ProtocolTcp</a>, <a class="el" href="structSC_1_1SocketFlags.html#aec08f165e03740d9137b9e7cca67941b">SocketFlags::BlockingType</a> blocking=<a class="el" href="structSC_1_1SocketFlags.html#aec08f165e03740d9137b9e7cca67941badb7ec7386bf10eb8cade818c1b557661">SocketFlags::Blocking</a>, <a class="el" href="structSC_1_1SocketFlags.html#ab7ac892f56746963a049a84488c11bad">SocketFlags::InheritableType</a> inheritable=<a class="el" href="structSC_1_1SocketFlags.html#ab7ac892f56746963a049a84488c11bada0c8ad2aeef309cc59c03268de46e977c">SocketFlags::NonInheritable</a>)</td></tr>
-<tr class="memdesc:abae627322ab6d511fdf774516aa12bec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="structSC_1_1SocketDescriptor.html" title="Low-level OS socket handle.">SocketDescriptor</a> Descriptor of given family, type, protocol.  <br /></td></tr>
-<tr class="separator:abae627322ab6d511fdf774516aa12bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65ac2b5205b3967dc63c0f058605e70c" id="r_a65ac2b5205b3967dc63c0f058605e70c"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65ac2b5205b3967dc63c0f058605e70c">isInheritable</a> (bool &amp;value) const</td></tr>
-<tr class="memdesc:a65ac2b5205b3967dc63c0f058605e70c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if socket is inheritable by child processes.  <br /></td></tr>
-<tr class="separator:a65ac2b5205b3967dc63c0f058605e70c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ab92efb87f3bc0d42c367e4c040e7f8" id="r_a9ab92efb87f3bc0d42c367e4c040e7f8"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ab92efb87f3bc0d42c367e4c040e7f8">setInheritable</a> (bool value)</td></tr>
-<tr class="memdesc:a9ab92efb87f3bc0d42c367e4c040e7f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the inheritable flag for this socket.  <br /></td></tr>
-<tr class="separator:a9ab92efb87f3bc0d42c367e4c040e7f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83b5ac063fe398c0107f9d18c7370de9" id="r_a83b5ac063fe398c0107f9d18c7370de9"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83b5ac063fe398c0107f9d18c7370de9">setBlocking</a> (bool value)</td></tr>
-<tr class="memdesc:a83b5ac063fe398c0107f9d18c7370de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the blocking flag for this socket (if IO reads / writes should be blocking or not)  <br /></td></tr>
-<tr class="separator:a83b5ac063fe398c0107f9d18c7370de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae29af8163e309dc67209c852eb1c92f0" id="r_ae29af8163e309dc67209c852eb1c92f0"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae29af8163e309dc67209c852eb1c92f0">getAddressFamily</a> (<a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a> &amp;addressFamily) const</td></tr>
-<tr class="memdesc:ae29af8163e309dc67209c852eb1c92f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the address family of this socket.  <br /></td></tr>
-<tr class="separator:ae29af8163e309dc67209c852eb1c92f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07e6ec8c77aea419d6a474ad84f97617" id="r_a07e6ec8c77aea419d6a474ad84f97617"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07e6ec8c77aea419d6a474ad84f97617">shutdown</a> (<a class="el" href="structSC_1_1SocketFlags.html#ae79c503d33c03ff6be39c5b79c5f651d">SocketFlags::ShutdownType</a> shutdownType)</td></tr>
-<tr class="memdesc:a07e6ec8c77aea419d6a474ad84f97617"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shuts down the socket for reading, writing, or both.  <br /></td></tr>
-<tr class="separator:a07e6ec8c77aea419d6a474ad84f97617"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2720319cda22d466deace32ed65ba291" id="r_a2720319cda22d466deace32ed65ba291"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2720319cda22d466deace32ed65ba291">setTcpNoDelay</a> (bool tcpNoDelay)</td></tr>
-<tr class="memdesc:a2720319cda22d466deace32ed65ba291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables Nagle's algorithm for low-latency communication.  <br /></td></tr>
-<tr class="separator:a2720319cda22d466deace32ed65ba291"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40cb31a7597f2bfccea897d82c7982c5" id="r_a40cb31a7597f2bfccea897d82c7982c5"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40cb31a7597f2bfccea897d82c7982c5">setBroadcast</a> (bool enableBroadcast)</td></tr>
-<tr class="memdesc:a40cb31a7597f2bfccea897d82c7982c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables broadcast on this socket (for UDP)  <br /></td></tr>
-<tr class="separator:a40cb31a7597f2bfccea897d82c7982c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf5078977aa13668193247867b58d357" id="r_aaf5078977aa13668193247867b58d357"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf5078977aa13668193247867b58d357">joinMulticastGroup</a> (const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;multicastAddress, const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;interfaceAddress)</td></tr>
-<tr class="memdesc:aaf5078977aa13668193247867b58d357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Joins an IPv4 or IPv6 multicast group on a specific interface.  <br /></td></tr>
-<tr class="separator:aaf5078977aa13668193247867b58d357"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a845ba37ea726a33fec915b5c3b02be61" id="r_a845ba37ea726a33fec915b5c3b02be61"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a845ba37ea726a33fec915b5c3b02be61">leaveMulticastGroup</a> (const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;multicastAddress, const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;interfaceAddress)</td></tr>
-<tr class="memdesc:a845ba37ea726a33fec915b5c3b02be61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Leaves a previously joined IPv4 or IPv6 multicast group on a specific interface.  <br /></td></tr>
-<tr class="separator:a845ba37ea726a33fec915b5c3b02be61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86180e6e13407c63dbfaa9993336f963" id="r_a86180e6e13407c63dbfaa9993336f963"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86180e6e13407c63dbfaa9993336f963">setMulticastLoopback</a> (<a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a> addressFamily, bool enableLoopback)</td></tr>
-<tr class="memdesc:a86180e6e13407c63dbfaa9993336f963"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls whether multicast traffic is sent back to the local host.  <br /></td></tr>
-<tr class="separator:a86180e6e13407c63dbfaa9993336f963"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02f20a4f51d91f968f4b1344de7ef1d3" id="r_a02f20a4f51d91f968f4b1344de7ef1d3"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02f20a4f51d91f968f4b1344de7ef1d3">setMulticastHops</a> (<a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a> addressFamily, int hops)</td></tr>
-<tr class="memdesc:a02f20a4f51d91f968f4b1344de7ef1d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the default TTL or hop limit for outgoing multicast datagrams.  <br /></td></tr>
-<tr class="separator:a02f20a4f51d91f968f4b1344de7ef1d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53cbe8a38af4e173fd2971d872c8feb6" id="r_a53cbe8a38af4e173fd2971d872c8feb6"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53cbe8a38af4e173fd2971d872c8feb6">setMulticastOutboundInterface</a> (const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;interfaceAddress)</td></tr>
-<tr class="memdesc:a53cbe8a38af4e173fd2971d872c8feb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the default local network interface for outgoing multicast datagrams.  <br /></td></tr>
-<tr class="separator:a53cbe8a38af4e173fd2971d872c8feb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed562751d50b1bb8d8ef0309a4662ea1" id="r_aed562751d50b1bb8d8ef0309a4662ea1"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed562751d50b1bb8d8ef0309a4662ea1">sendTo</a> (Span&lt; const char &gt; data, const <a class="el" href="structSC_1_1SocketAddress.html">SocketAddress</a> &amp;destination)</td></tr>
-<tr class="memdesc:aed562751d50b1bb8d8ef0309a4662ea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a datagram to the given destination address.  <br /></td></tr>
-<tr class="separator:aed562751d50b1bb8d8ef0309a4662ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae770da73ca594b62f51adf8a66296959" id="r_ae770da73ca594b62f51adf8a66296959"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae770da73ca594b62f51adf8a66296959">sendTo</a> (Span&lt; const char &gt; data, const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;destination)</td></tr>
-<tr class="memdesc:ae770da73ca594b62f51adf8a66296959"><td class="mdescLeft">&#160;</td><td class="mdescRight">IP-address compatibility overload for sendTo.  <br /></td></tr>
-<tr class="separator:ae770da73ca594b62f51adf8a66296959"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1097a6cc8c6204418a6aaaa4858da9a" id="r_ac1097a6cc8c6204418a6aaaa4858da9a"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1097a6cc8c6204418a6aaaa4858da9a">receiveFrom</a> (Span&lt; char &gt; buffer, Span&lt; char &gt; &amp;receivedData, <a class="el" href="structSC_1_1SocketAddress.html">SocketAddress</a> &amp;sourceAddress)</td></tr>
-<tr class="memdesc:ac1097a6cc8c6204418a6aaaa4858da9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a datagram, reporting its source address.  <br /></td></tr>
-<tr class="separator:ac1097a6cc8c6204418a6aaaa4858da9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05a47a78015912fb7088f861733f2ab5" id="r_a05a47a78015912fb7088f861733f2ab5"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05a47a78015912fb7088f861733f2ab5">receiveFrom</a> (Span&lt; char &gt; buffer, Span&lt; char &gt; &amp;receivedData, <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;sourceAddress)</td></tr>
-<tr class="memdesc:a05a47a78015912fb7088f861733f2ab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">IP-address compatibility overload for receiveFrom.  <br /></td></tr>
-<tr class="separator:a05a47a78015912fb7088f861733f2ab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42ce30e6d93fa71acfb16d247970b919" id="r_a42ce30e6d93fa71acfb16d247970b919"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42ce30e6d93fa71acfb16d247970b919">create</a> (<a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a> addressFamily, <a class="el" href="structSC_1_1SocketFlags.html#a357d032950bdf447d6c95bcfe9f1600e">SocketFlags::SocketType</a> socketType=<a class="el" href="structSC_1_1SocketFlags.html#a357d032950bdf447d6c95bcfe9f1600ea4c9f6424d4cdbf38ac35c8bdf3d17488">SocketFlags::SocketStream</a>, <a class="el" href="structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcda">SocketFlags::ProtocolType</a> protocol=<a class="el" href="structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcdaaf8aa232b7192311ab494f787228eb7ce">SocketFlags::ProtocolTcp</a>, <a class="el" href="structSC_1_1SocketFlags.html#aec08f165e03740d9137b9e7cca67941b">SocketFlags::BlockingType</a> blocking=<a class="el" href="structSC_1_1SocketFlags.html#aec08f165e03740d9137b9e7cca67941badb7ec7386bf10eb8cade818c1b557661">SocketFlags::Blocking</a>, <a class="el" href="structSC_1_1SocketFlags.html#ab7ac892f56746963a049a84488c11bad">SocketFlags::InheritableType</a> inheritable=<a class="el" href="structSC_1_1SocketFlags.html#ab7ac892f56746963a049a84488c11bada0c8ad2aeef309cc59c03268de46e977c">SocketFlags::NonInheritable</a>)</td></tr>
+<tr class="memdesc:a42ce30e6d93fa71acfb16d247970b919"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="structSC_1_1SocketDescriptor.html" title="Low-level OS socket handle.">SocketDescriptor</a> Descriptor of given family, type, protocol.  <br /></td></tr>
+<tr class="separator:a42ce30e6d93fa71acfb16d247970b919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0d26790abd6ca235bf0b4b5e835dc09" id="r_af0d26790abd6ca235bf0b4b5e835dc09"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0d26790abd6ca235bf0b4b5e835dc09">isInheritable</a> (bool &amp;value) const</td></tr>
+<tr class="memdesc:af0d26790abd6ca235bf0b4b5e835dc09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if socket is inheritable by child processes.  <br /></td></tr>
+<tr class="separator:af0d26790abd6ca235bf0b4b5e835dc09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cefddac753d46a2ff3ce2fcf552542b" id="r_a6cefddac753d46a2ff3ce2fcf552542b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6cefddac753d46a2ff3ce2fcf552542b">setInheritable</a> (bool value)</td></tr>
+<tr class="memdesc:a6cefddac753d46a2ff3ce2fcf552542b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the inheritable flag for this socket.  <br /></td></tr>
+<tr class="separator:a6cefddac753d46a2ff3ce2fcf552542b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bccda13963535b62604609bd88a60ad" id="r_a2bccda13963535b62604609bd88a60ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2bccda13963535b62604609bd88a60ad">setBlocking</a> (bool value)</td></tr>
+<tr class="memdesc:a2bccda13963535b62604609bd88a60ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the blocking flag for this socket (if IO reads / writes should be blocking or not)  <br /></td></tr>
+<tr class="separator:a2bccda13963535b62604609bd88a60ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2cecb26db1f2f4cfd168e2f4bce397b" id="r_ac2cecb26db1f2f4cfd168e2f4bce397b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2cecb26db1f2f4cfd168e2f4bce397b">getAddressFamily</a> (<a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a> &amp;addressFamily) const</td></tr>
+<tr class="memdesc:ac2cecb26db1f2f4cfd168e2f4bce397b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the address family of this socket.  <br /></td></tr>
+<tr class="separator:ac2cecb26db1f2f4cfd168e2f4bce397b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d1de46d75dfd6b17f2a508093756c5a" id="r_a1d1de46d75dfd6b17f2a508093756c5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d1de46d75dfd6b17f2a508093756c5a">shutdown</a> (<a class="el" href="structSC_1_1SocketFlags.html#ae79c503d33c03ff6be39c5b79c5f651d">SocketFlags::ShutdownType</a> shutdownType)</td></tr>
+<tr class="memdesc:a1d1de46d75dfd6b17f2a508093756c5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shuts down the socket for reading, writing, or both.  <br /></td></tr>
+<tr class="separator:a1d1de46d75dfd6b17f2a508093756c5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab51ea0450b48a89f502b937fb6e9a25f" id="r_ab51ea0450b48a89f502b937fb6e9a25f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab51ea0450b48a89f502b937fb6e9a25f">setTcpNoDelay</a> (bool tcpNoDelay)</td></tr>
+<tr class="memdesc:ab51ea0450b48a89f502b937fb6e9a25f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables Nagle's algorithm for low-latency communication.  <br /></td></tr>
+<tr class="separator:ab51ea0450b48a89f502b937fb6e9a25f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66e588c36c3feec7f45fb36cee0dcaad" id="r_a66e588c36c3feec7f45fb36cee0dcaad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66e588c36c3feec7f45fb36cee0dcaad">setBroadcast</a> (bool enableBroadcast)</td></tr>
+<tr class="memdesc:a66e588c36c3feec7f45fb36cee0dcaad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables broadcast on this socket (for UDP)  <br /></td></tr>
+<tr class="separator:a66e588c36c3feec7f45fb36cee0dcaad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69e0e61d4075a420d900307063589cb4" id="r_a69e0e61d4075a420d900307063589cb4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69e0e61d4075a420d900307063589cb4">joinMulticastGroup</a> (const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;multicastAddress, const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;interfaceAddress)</td></tr>
+<tr class="memdesc:a69e0e61d4075a420d900307063589cb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Joins an IPv4 or IPv6 multicast group on a specific interface.  <br /></td></tr>
+<tr class="separator:a69e0e61d4075a420d900307063589cb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41290e646e5fc1a23b980507e3a744b6" id="r_a41290e646e5fc1a23b980507e3a744b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41290e646e5fc1a23b980507e3a744b6">leaveMulticastGroup</a> (const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;multicastAddress, const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;interfaceAddress)</td></tr>
+<tr class="memdesc:a41290e646e5fc1a23b980507e3a744b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Leaves a previously joined IPv4 or IPv6 multicast group on a specific interface.  <br /></td></tr>
+<tr class="separator:a41290e646e5fc1a23b980507e3a744b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a310ea4ea1d560b2ad7743ac833b224b9" id="r_a310ea4ea1d560b2ad7743ac833b224b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a310ea4ea1d560b2ad7743ac833b224b9">setMulticastLoopback</a> (<a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a> addressFamily, bool enableLoopback)</td></tr>
+<tr class="memdesc:a310ea4ea1d560b2ad7743ac833b224b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls whether multicast traffic is sent back to the local host.  <br /></td></tr>
+<tr class="separator:a310ea4ea1d560b2ad7743ac833b224b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65f1a4bbcf945cf61d4823bd0424d112" id="r_a65f1a4bbcf945cf61d4823bd0424d112"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65f1a4bbcf945cf61d4823bd0424d112">setMulticastHops</a> (<a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a> addressFamily, int hops)</td></tr>
+<tr class="memdesc:a65f1a4bbcf945cf61d4823bd0424d112"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the default TTL or hop limit for outgoing multicast datagrams.  <br /></td></tr>
+<tr class="separator:a65f1a4bbcf945cf61d4823bd0424d112"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a820280825646db214c14275a6dc0d96d" id="r_a820280825646db214c14275a6dc0d96d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a820280825646db214c14275a6dc0d96d">setMulticastOutboundInterface</a> (const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;interfaceAddress)</td></tr>
+<tr class="memdesc:a820280825646db214c14275a6dc0d96d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the default local network interface for outgoing multicast datagrams.  <br /></td></tr>
+<tr class="separator:a820280825646db214c14275a6dc0d96d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81c3c5f4260d3fa8ad2c8eb5d2499953" id="r_a81c3c5f4260d3fa8ad2c8eb5d2499953"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81c3c5f4260d3fa8ad2c8eb5d2499953">sendTo</a> (Span&lt; const char &gt; data, const <a class="el" href="structSC_1_1SocketAddress.html">SocketAddress</a> &amp;destination)</td></tr>
+<tr class="memdesc:a81c3c5f4260d3fa8ad2c8eb5d2499953"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a datagram to the given destination address.  <br /></td></tr>
+<tr class="separator:a81c3c5f4260d3fa8ad2c8eb5d2499953"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4158fb727ba2e51f501fb1b438c51627" id="r_a4158fb727ba2e51f501fb1b438c51627"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4158fb727ba2e51f501fb1b438c51627">sendTo</a> (Span&lt; const char &gt; data, const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;destination)</td></tr>
+<tr class="memdesc:a4158fb727ba2e51f501fb1b438c51627"><td class="mdescLeft">&#160;</td><td class="mdescRight">IP-address compatibility overload for sendTo.  <br /></td></tr>
+<tr class="separator:a4158fb727ba2e51f501fb1b438c51627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a997454270cb9fa8dc01171477c6c718e" id="r_a997454270cb9fa8dc01171477c6c718e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a997454270cb9fa8dc01171477c6c718e">receiveFrom</a> (Span&lt; char &gt; buffer, Span&lt; char &gt; &amp;receivedData, <a class="el" href="structSC_1_1SocketAddress.html">SocketAddress</a> &amp;sourceAddress)</td></tr>
+<tr class="memdesc:a997454270cb9fa8dc01171477c6c718e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a datagram, reporting its source address.  <br /></td></tr>
+<tr class="separator:a997454270cb9fa8dc01171477c6c718e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a510927d0ad62f09b12e25a9b453b32e7" id="r_a510927d0ad62f09b12e25a9b453b32e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a510927d0ad62f09b12e25a9b453b32e7">receiveFrom</a> (Span&lt; char &gt; buffer, Span&lt; char &gt; &amp;receivedData, <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;sourceAddress)</td></tr>
+<tr class="memdesc:a510927d0ad62f09b12e25a9b453b32e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">IP-address compatibility overload for receiveFrom.  <br /></td></tr>
+<tr class="separator:a510927d0ad62f09b12e25a9b453b32e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Low-level OS socket handle. </p>
@@ -203,43 +203,43 @@ Example (extracted from unit test): </p><div class="fragment"><div class="line">
 <div class="line">    <span class="comment">// We are testing only the inheritable because on windows there is no reliable</span></div>
 <div class="line">    <span class="comment">// way of checking if a non-connected socket is in non-blocking mode</span></div>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1SocketDescriptor.html">SocketDescriptor</a> socket;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#abae627322ab6d511fdf774516aa12bec">create</a>(SocketFlags::AddressFamilyIPV4, SocketFlags::SocketStream, SocketFlags::ProtocolTcp,</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#a42ce30e6d93fa71acfb16d247970b919">create</a>(SocketFlags::AddressFamilyIPV4, SocketFlags::SocketStream, SocketFlags::ProtocolTcp,</div>
 <div class="line">                                 SocketFlags::NonBlocking, SocketFlags::NonInheritable));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.isValid());</div>
 <div class="line">    isInheritable = <span class="keyword">false</span>;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#a65ac2b5205b3967dc63c0f058605e70c">isInheritable</a>(isInheritable));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#af0d26790abd6ca235bf0b4b5e835dc09">isInheritable</a>(isInheritable));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not isInheritable);</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.close());</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#abae627322ab6d511fdf774516aa12bec">create</a>(SocketFlags::AddressFamilyIPV4, SocketFlags::SocketStream, SocketFlags::ProtocolTcp,</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#a42ce30e6d93fa71acfb16d247970b919">create</a>(SocketFlags::AddressFamilyIPV4, SocketFlags::SocketStream, SocketFlags::ProtocolTcp,</div>
 <div class="line">                                 SocketFlags::Blocking, SocketFlags::NonInheritable));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.isValid());</div>
 <div class="line">    isInheritable = <span class="keyword">false</span>;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#a65ac2b5205b3967dc63c0f058605e70c">isInheritable</a>(isInheritable));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#af0d26790abd6ca235bf0b4b5e835dc09">isInheritable</a>(isInheritable));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not isInheritable);</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.close());</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#abae627322ab6d511fdf774516aa12bec">create</a>(SocketFlags::AddressFamilyIPV4, SocketFlags::SocketStream, SocketFlags::ProtocolTcp,</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#a42ce30e6d93fa71acfb16d247970b919">create</a>(SocketFlags::AddressFamilyIPV4, SocketFlags::SocketStream, SocketFlags::ProtocolTcp,</div>
 <div class="line">                                 SocketFlags::Blocking, SocketFlags::Inheritable));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.isValid());</div>
 <div class="line">    isInheritable = <span class="keyword">false</span>;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#a65ac2b5205b3967dc63c0f058605e70c">isInheritable</a>(isInheritable));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#af0d26790abd6ca235bf0b4b5e835dc09">isInheritable</a>(isInheritable));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(isInheritable);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Test TCP_NODELAY</span></div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#a2720319cda22d466deace32ed65ba291">setTcpNoDelay</a>(<span class="keyword">true</span>));</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#a2720319cda22d466deace32ed65ba291">setTcpNoDelay</a>(<span class="keyword">false</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#ab51ea0450b48a89f502b937fb6e9a25f">setTcpNoDelay</a>(<span class="keyword">true</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#ab51ea0450b48a89f502b937fb6e9a25f">setTcpNoDelay</a>(<span class="keyword">false</span>));</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.close());</div>
 </div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="abae627322ab6d511fdf774516aa12bec" name="abae627322ab6d511fdf774516aa12bec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abae627322ab6d511fdf774516aa12bec">&#9670;&#160;</a></span>create()</h2>
+<a id="a42ce30e6d93fa71acfb16d247970b919" name="a42ce30e6d93fa71acfb16d247970b919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42ce30e6d93fa71acfb16d247970b919">&#9670;&#160;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketDescriptor::create </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::create </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a></td>          <td class="paramname"><span class="paramname"><em>addressFamily</em></span>, </td>
         </tr>
@@ -281,14 +281,14 @@ Example (extracted from unit test): </p><div class="fragment"><div class="line">
 
 </div>
 </div>
-<a id="ae29af8163e309dc67209c852eb1c92f0" name="ae29af8163e309dc67209c852eb1c92f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae29af8163e309dc67209c852eb1c92f0">&#9670;&#160;</a></span>getAddressFamily()</h2>
+<a id="ac2cecb26db1f2f4cfd168e2f4bce397b" name="ac2cecb26db1f2f4cfd168e2f4bce397b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2cecb26db1f2f4cfd168e2f4bce397b">&#9670;&#160;</a></span>getAddressFamily()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketDescriptor::getAddressFamily </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::getAddressFamily </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>addressFamily</em></span></td><td>)</td>
           <td> const</td>
@@ -307,14 +307,14 @@ Example (extracted from unit test): </p><div class="fragment"><div class="line">
 
 </div>
 </div>
-<a id="a65ac2b5205b3967dc63c0f058605e70c" name="a65ac2b5205b3967dc63c0f058605e70c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65ac2b5205b3967dc63c0f058605e70c">&#9670;&#160;</a></span>isInheritable()</h2>
+<a id="af0d26790abd6ca235bf0b4b5e835dc09" name="af0d26790abd6ca235bf0b4b5e835dc09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0d26790abd6ca235bf0b4b5e835dc09">&#9670;&#160;</a></span>isInheritable()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketDescriptor::isInheritable </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::isInheritable </td>
           <td>(</td>
           <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td> const</td>
@@ -333,14 +333,14 @@ Example (extracted from unit test): </p><div class="fragment"><div class="line">
 
 </div>
 </div>
-<a id="aaf5078977aa13668193247867b58d357" name="aaf5078977aa13668193247867b58d357"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf5078977aa13668193247867b58d357">&#9670;&#160;</a></span>joinMulticastGroup()</h2>
+<a id="a69e0e61d4075a420d900307063589cb4" name="a69e0e61d4075a420d900307063589cb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69e0e61d4075a420d900307063589cb4">&#9670;&#160;</a></span>joinMulticastGroup()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketDescriptor::joinMulticastGroup </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::joinMulticastGroup </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>multicastAddress</em></span>, </td>
         </tr>
@@ -364,14 +364,14 @@ Example (extracted from unit test): </p><div class="fragment"><div class="line">
 
 </div>
 </div>
-<a id="a845ba37ea726a33fec915b5c3b02be61" name="a845ba37ea726a33fec915b5c3b02be61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a845ba37ea726a33fec915b5c3b02be61">&#9670;&#160;</a></span>leaveMulticastGroup()</h2>
+<a id="a41290e646e5fc1a23b980507e3a744b6" name="a41290e646e5fc1a23b980507e3a744b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41290e646e5fc1a23b980507e3a744b6">&#9670;&#160;</a></span>leaveMulticastGroup()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketDescriptor::leaveMulticastGroup </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::leaveMulticastGroup </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>multicastAddress</em></span>, </td>
         </tr>
@@ -395,14 +395,14 @@ Example (extracted from unit test): </p><div class="fragment"><div class="line">
 
 </div>
 </div>
-<a id="ac1097a6cc8c6204418a6aaaa4858da9a" name="ac1097a6cc8c6204418a6aaaa4858da9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1097a6cc8c6204418a6aaaa4858da9a">&#9670;&#160;</a></span>receiveFrom() <span class="overload">[1/2]</span></h2>
+<a id="a997454270cb9fa8dc01171477c6c718e" name="a997454270cb9fa8dc01171477c6c718e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a997454270cb9fa8dc01171477c6c718e">&#9670;&#160;</a></span>receiveFrom() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketDescriptor::receiveFrom </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::receiveFrom </td>
           <td>(</td>
           <td class="paramtype">Span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
         </tr>
@@ -435,14 +435,14 @@ An oversized datagram is consumed and returns an unsuccessful Result. <code>buff
 
 </div>
 </div>
-<a id="a05a47a78015912fb7088f861733f2ab5" name="a05a47a78015912fb7088f861733f2ab5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05a47a78015912fb7088f861733f2ab5">&#9670;&#160;</a></span>receiveFrom() <span class="overload">[2/2]</span></h2>
+<a id="a510927d0ad62f09b12e25a9b453b32e7" name="a510927d0ad62f09b12e25a9b453b32e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a510927d0ad62f09b12e25a9b453b32e7">&#9670;&#160;</a></span>receiveFrom() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketDescriptor::receiveFrom </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::receiveFrom </td>
           <td>(</td>
           <td class="paramtype">Span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
         </tr>
@@ -463,14 +463,14 @@ An oversized datagram is consumed and returns an unsuccessful Result. <code>buff
 
 </div>
 </div>
-<a id="aed562751d50b1bb8d8ef0309a4662ea1" name="aed562751d50b1bb8d8ef0309a4662ea1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed562751d50b1bb8d8ef0309a4662ea1">&#9670;&#160;</a></span>sendTo() <span class="overload">[1/2]</span></h2>
+<a id="a81c3c5f4260d3fa8ad2c8eb5d2499953" name="a81c3c5f4260d3fa8ad2c8eb5d2499953"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81c3c5f4260d3fa8ad2c8eb5d2499953">&#9670;&#160;</a></span>sendTo() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketDescriptor::sendTo </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::sendTo </td>
           <td>(</td>
           <td class="paramtype">Span&lt; const char &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
@@ -495,14 +495,14 @@ An oversized datagram is consumed and returns an unsuccessful Result. <code>buff
 
 </div>
 </div>
-<a id="ae770da73ca594b62f51adf8a66296959" name="ae770da73ca594b62f51adf8a66296959"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae770da73ca594b62f51adf8a66296959">&#9670;&#160;</a></span>sendTo() <span class="overload">[2/2]</span></h2>
+<a id="a4158fb727ba2e51f501fb1b438c51627" name="a4158fb727ba2e51f501fb1b438c51627"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4158fb727ba2e51f501fb1b438c51627">&#9670;&#160;</a></span>sendTo() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketDescriptor::sendTo </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::sendTo </td>
           <td>(</td>
           <td class="paramtype">Span&lt; const char &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
@@ -518,14 +518,14 @@ An oversized datagram is consumed and returns an unsuccessful Result. <code>buff
 
 </div>
 </div>
-<a id="a83b5ac063fe398c0107f9d18c7370de9" name="a83b5ac063fe398c0107f9d18c7370de9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83b5ac063fe398c0107f9d18c7370de9">&#9670;&#160;</a></span>setBlocking()</h2>
+<a id="a2bccda13963535b62604609bd88a60ad" name="a2bccda13963535b62604609bd88a60ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bccda13963535b62604609bd88a60ad">&#9670;&#160;</a></span>setBlocking()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketDescriptor::setBlocking </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::setBlocking </td>
           <td>(</td>
           <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td></td>
@@ -544,14 +544,14 @@ An oversized datagram is consumed and returns an unsuccessful Result. <code>buff
 
 </div>
 </div>
-<a id="a40cb31a7597f2bfccea897d82c7982c5" name="a40cb31a7597f2bfccea897d82c7982c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40cb31a7597f2bfccea897d82c7982c5">&#9670;&#160;</a></span>setBroadcast()</h2>
+<a id="a66e588c36c3feec7f45fb36cee0dcaad" name="a66e588c36c3feec7f45fb36cee0dcaad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66e588c36c3feec7f45fb36cee0dcaad">&#9670;&#160;</a></span>setBroadcast()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketDescriptor::setBroadcast </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::setBroadcast </td>
           <td>(</td>
           <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>enableBroadcast</em></span></td><td>)</td>
           <td></td>
@@ -570,14 +570,14 @@ An oversized datagram is consumed and returns an unsuccessful Result. <code>buff
 
 </div>
 </div>
-<a id="a9ab92efb87f3bc0d42c367e4c040e7f8" name="a9ab92efb87f3bc0d42c367e4c040e7f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ab92efb87f3bc0d42c367e4c040e7f8">&#9670;&#160;</a></span>setInheritable()</h2>
+<a id="a6cefddac753d46a2ff3ce2fcf552542b" name="a6cefddac753d46a2ff3ce2fcf552542b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cefddac753d46a2ff3ce2fcf552542b">&#9670;&#160;</a></span>setInheritable()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketDescriptor::setInheritable </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::setInheritable </td>
           <td>(</td>
           <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td></td>
@@ -596,14 +596,14 @@ An oversized datagram is consumed and returns an unsuccessful Result. <code>buff
 
 </div>
 </div>
-<a id="a02f20a4f51d91f968f4b1344de7ef1d3" name="a02f20a4f51d91f968f4b1344de7ef1d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02f20a4f51d91f968f4b1344de7ef1d3">&#9670;&#160;</a></span>setMulticastHops()</h2>
+<a id="a65f1a4bbcf945cf61d4823bd0424d112" name="a65f1a4bbcf945cf61d4823bd0424d112"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65f1a4bbcf945cf61d4823bd0424d112">&#9670;&#160;</a></span>setMulticastHops()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketDescriptor::setMulticastHops </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::setMulticastHops </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a></td>          <td class="paramname"><span class="paramname"><em>addressFamily</em></span>, </td>
         </tr>
@@ -627,14 +627,14 @@ An oversized datagram is consumed and returns an unsuccessful Result. <code>buff
 
 </div>
 </div>
-<a id="a86180e6e13407c63dbfaa9993336f963" name="a86180e6e13407c63dbfaa9993336f963"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86180e6e13407c63dbfaa9993336f963">&#9670;&#160;</a></span>setMulticastLoopback()</h2>
+<a id="a310ea4ea1d560b2ad7743ac833b224b9" name="a310ea4ea1d560b2ad7743ac833b224b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a310ea4ea1d560b2ad7743ac833b224b9">&#9670;&#160;</a></span>setMulticastLoopback()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketDescriptor::setMulticastLoopback </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::setMulticastLoopback </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a></td>          <td class="paramname"><span class="paramname"><em>addressFamily</em></span>, </td>
         </tr>
@@ -658,14 +658,14 @@ An oversized datagram is consumed and returns an unsuccessful Result. <code>buff
 
 </div>
 </div>
-<a id="a53cbe8a38af4e173fd2971d872c8feb6" name="a53cbe8a38af4e173fd2971d872c8feb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53cbe8a38af4e173fd2971d872c8feb6">&#9670;&#160;</a></span>setMulticastOutboundInterface()</h2>
+<a id="a820280825646db214c14275a6dc0d96d" name="a820280825646db214c14275a6dc0d96d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a820280825646db214c14275a6dc0d96d">&#9670;&#160;</a></span>setMulticastOutboundInterface()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketDescriptor::setMulticastOutboundInterface </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::setMulticastOutboundInterface </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>interfaceAddress</em></span></td><td>)</td>
           <td></td>
@@ -684,14 +684,14 @@ An oversized datagram is consumed and returns an unsuccessful Result. <code>buff
 
 </div>
 </div>
-<a id="a2720319cda22d466deace32ed65ba291" name="a2720319cda22d466deace32ed65ba291"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2720319cda22d466deace32ed65ba291">&#9670;&#160;</a></span>setTcpNoDelay()</h2>
+<a id="ab51ea0450b48a89f502b937fb6e9a25f" name="ab51ea0450b48a89f502b937fb6e9a25f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab51ea0450b48a89f502b937fb6e9a25f">&#9670;&#160;</a></span>setTcpNoDelay()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketDescriptor::setTcpNoDelay </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::setTcpNoDelay </td>
           <td>(</td>
           <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>tcpNoDelay</em></span></td><td>)</td>
           <td></td>
@@ -710,14 +710,14 @@ An oversized datagram is consumed and returns an unsuccessful Result. <code>buff
 
 </div>
 </div>
-<a id="a07e6ec8c77aea419d6a474ad84f97617" name="a07e6ec8c77aea419d6a474ad84f97617"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07e6ec8c77aea419d6a474ad84f97617">&#9670;&#160;</a></span>shutdown()</h2>
+<a id="a1d1de46d75dfd6b17f2a508093756c5a" name="a1d1de46d75dfd6b17f2a508093756c5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d1de46d75dfd6b17f2a508093756c5a">&#9670;&#160;</a></span>shutdown()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketDescriptor::shutdown </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::shutdown </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structSC_1_1SocketFlags.html#ae79c503d33c03ff6be39c5b79c5f651d">SocketFlags::ShutdownType</a></td>          <td class="paramname"><span class="paramname"><em>shutdownType</em></span></td><td>)</td>
           <td></td>

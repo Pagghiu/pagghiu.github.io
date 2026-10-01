@@ -52,7 +52,7 @@ var group__group__http =
       [ "hasReceivedHeaders", "structSC_1_1HttpIncomingMessage.html#aaf28cbc9715aaefe22a9aa1ce22bb6b5", null ],
       [ "isBodyComplete", "structSC_1_1HttpIncomingMessage.html#a948ec9fa92134e6c5651057b5dc3f8d7", null ],
       [ "isMultipart", "structSC_1_1HttpIncomingMessage.html#a3a165d5b3da5881bff8c79400a838243", null ],
-      [ "writeHeaders", "structSC_1_1HttpIncomingMessage.html#ae769f497ec3838a1f331f564e4f888bb", null ]
+      [ "writeHeaders", "structSC_1_1HttpIncomingMessage.html#a01af79eee1cfa2a54c33c4347be4b9d8", null ]
     ] ],
     [ "SC::HttpRequest", "structSC_1_1HttpRequest.html", [
       [ "getRequestTarget", "structSC_1_1HttpRequest.html#a73de697c5ab97f1f7cc26ca88bd422a8", null ],
@@ -236,10 +236,13 @@ var group__group__http =
     [ "SC::HttpWebSocketFrameReader", "structSC_1_1HttpWebSocketFrameReader.html", null ],
     [ "SC::HttpWebSocketFrameWriter", "structSC_1_1HttpWebSocketFrameWriter.html", null ],
     [ "SC::HttpWebSocketMessageAssembler", "structSC_1_1HttpWebSocketMessageAssembler.html", null ],
-    [ "SC::HttpWebSocketEndpoint", "structSC_1_1HttpWebSocketEndpoint.html", null ],
+    [ "SC::HttpWebSocketEndpoint", "structSC_1_1HttpWebSocketEndpoint.html", [
+      [ "getPendingControlFrame", "structSC_1_1HttpWebSocketEndpoint.html#a165c179513a78d5ec20dcfec7e86af03", null ]
+    ] ],
     [ "SC::HttpWebSocketConnectionPump", "structSC_1_1HttpWebSocketConnectionPump.html", null ],
     [ "SC::HttpWebSocketHubClient", "structSC_1_1HttpWebSocketHubClient.html", null ],
     [ "SC::HttpWebSocketSmallHub", "structSC_1_1HttpWebSocketSmallHub.html", null ],
+    [ "SC::HttpError", "group__group__http.html#gacd74a0594a479e73fa7b218dac634a89", null ],
     [ "SC::HttpWebSocketEndpointRole", "group__group__http.html#ga5bdde1ed4c2627805b32bda38e8f8445", null ],
     [ "SC::HttpWebSocketOpcode", "group__group__http.html#gafb9cef8f4b82503494fdc790514a21a1", null ],
     [ "SC::HttpWebSocketSha1Mode", "group__group__http.html#gabe86911e4fd11a84d1f5d9033cb044ad", [

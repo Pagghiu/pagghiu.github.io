@@ -13,5 +13,6 @@ var searchData=
   ['configuration_10',['Configuration',['../structSC_1_1HttpConnectionsPool_1_1Configuration.html',1,'SC::HttpConnectionsPool']]],
   ['console_11',['Console',['../structSC_1_1Console.html',1,'SC']]],
   ['copyoperation_12',['CopyOperation',['../structSC_1_1FileSystem_1_1CopyOperation.html',1,'SC::FileSystem']]],
-  ['cryptography_13',['Cryptography',['../structSC_1_1Cryptography.html',1,'SC']]]
+  ['cryptography_13',['Cryptography',['../structSC_1_1Cryptography.html',1,'SC']]],
+  ['cryptographyerrorcontext_14',['CryptographyErrorContext',['../unionSC_1_1CryptographyErrorContext.html',1,'SC']]]
 ];

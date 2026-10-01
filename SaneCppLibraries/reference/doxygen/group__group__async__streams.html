@@ -123,12 +123,128 @@ $(function(){initNavTree('group__group__async__streams.html',''); initResizable(
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle"><div class="title">Async Streams</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Read, transform and write data concurrently from async sources to destinations.  
 <a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gaf4704525fbe41ba7449f26c3db12c09e" id="r_gaf4704525fbe41ba7449f26c3db12c09e"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf4704525fbe41ba7449f26c3db12c09e">SC::AsyncStreamsError</a> : uint32_t { <br />
+&#160;&#160;<b>InvalidBufferID</b> = 1
+, <br />
+&#160;&#160;<b>InvalidParentBufferID</b>
+, <br />
+&#160;&#160;<b>BufferNotWritable</b>
+, <br />
+&#160;&#160;<b>NoReusableBuffer</b>
+, <br />
+&#160;&#160;<b>BufferPoolFull</b>
+, <br />
+&#160;&#160;<b>InsufficientSliceStorage</b>
+, <br />
+&#160;&#160;<b>InvalidSliceCount</b>
+, <br />
+&#160;&#160;<b>ChildViewOutOfBounds</b>
+, <br />
+&#160;&#160;<b>InvalidRootBufferType</b>
+, <br />
+&#160;&#160;<b>ReadableNotReady</b>
+, <br />
+&#160;&#160;<b>ReadQueueMissing</b>
+, <br />
+&#160;&#160;<b>EmptyReadBuffer</b>
+, <br />
+&#160;&#160;<b>ReadQueueFull</b>
+, <br />
+&#160;&#160;<b>InvalidReadableState</b>
+, <br />
+&#160;&#160;<b>ReadReactivationMissing</b>
+, <br />
+&#160;&#160;<b>ReadableDestroying</b>
+, <br />
+&#160;&#160;<b>ReadableEnded</b>
+, <br />
+&#160;&#160;<b>ReadableNotInitialized</b>
+, <br />
+&#160;&#160;<b>ReadableErrored</b>
+, <br />
+&#160;&#160;<b>InvalidWritableState</b>
+, <br />
+&#160;&#160;<b>WriteQueueMissing</b>
+, <br />
+&#160;&#160;<b>WriteAfterEnd</b>
+, <br />
+&#160;&#160;<b>WriteQueueFull</b>
+, <br />
+&#160;&#160;<b>WritableDestroying</b>
+, <br />
+&#160;&#160;<b>WritableEndAlreadyCalled</b>
+, <br />
+&#160;&#160;<b>PipelineSourceMissing</b>
+, <br />
+&#160;&#160;<b>PipelineSinkMissing</b>
+, <br />
+&#160;&#160;<b>PipelineBufferPoolMismatch</b>
+, <br />
+&#160;&#160;<b>PipelineListenerStorageFull</b>
+, <br />
+&#160;&#160;<b>TransformInputChanged</b>
+, <br />
+&#160;&#160;<b>TransformAlreadyFinalized</b>
+, <br />
+&#160;&#160;<b>TransformAlreadyProcessing</b>
+, <br />
+&#160;&#160;<b>TransformAlreadyFinalizing</b>
+, <br />
+&#160;&#160;<b>CompressionRuntimeUnavailable</b>
+, <br />
+&#160;&#160;<b>CompressionSymbolMissing</b>
+, <br />
+&#160;&#160;<b>CompressionSpanInvalid</b>
+, <br />
+&#160;&#160;<b>CompressionNoProgress</b>
+, <br />
+&#160;&#160;<b>CompressionUnexpectedEnd</b>
+, <br />
+&#160;&#160;<b>CompressionDictionaryRequired</b>
+, <br />
+&#160;&#160;<b>CompressionIOFailure</b>
+, <br />
+&#160;&#160;<b>CompressionStreamInvalid</b>
+, <br />
+&#160;&#160;<b>CompressionDataInvalid</b>
+, <br />
+&#160;&#160;<b>CompressionMemoryUnavailable</b>
+, <br />
+&#160;&#160;<b>CompressionVersionMismatch</b>
+, <br />
+&#160;&#160;<b>CompressionFailed</b>
+, <br />
+&#160;&#160;<b>CompressionAlreadyInitialized</b>
+, <br />
+&#160;&#160;<b>CompressionOutputBufferEmpty</b>
+, <br />
+&#160;&#160;<b>CompressionNotInitialized</b>
+, <br />
+&#160;&#160;<b>AsyncEventLoopMissing</b>
+, <br />
+&#160;&#160;<b>AsyncRequestDestroying</b>
+, <br />
+&#160;&#160;<b>AsyncDescriptorMissing</b>
+, <br />
+&#160;&#160;<b>CipherOutputBufferTooSmall</b>
+, <br />
+&#160;&#160;<b>CipherInvalidOutputSize</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:gaf4704525fbe41ba7449f26c3db12c09e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable portable failures owned by AsyncStreams.  <a href="#gaf4704525fbe41ba7449f26c3db12c09e">More...</a><br /></td></tr>
+<tr class="separator:gaf4704525fbe41ba7449f26c3db12c09e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Read, transform and write data concurrently from async sources to destinations. </p>
 <p>Read, writes and transforms happen in parallel if sources and destinations are asynchronous. This library does not allocate any memory, all buffers are supplied by the caller.</p>
@@ -144,9 +260,38 @@ $(function(){initNavTree('group__group__async__streams.html',''); initResizable(
 <ul>
 <li>No allocation (designed to work inside user-provided list of buffers)</li>
 <li>No object mode</li>
-<li>Fixed Layout to create data pipelines (AsyncPipeline)</li>
+<li>Fixed Layout to create data pipelines (<a class="el" href="structSC_1_1AsyncPipeline.html" title="Pipes read data from SC::AsyncReadableStream, forwarding them to SC::AsyncWritableStream.">AsyncPipeline</a>)</li>
 <li>onData support only (no readable event) </li>
 </ul>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="gaf4704525fbe41ba7449f26c3db12c09e" name="gaf4704525fbe41ba7449f26c3db12c09e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf4704525fbe41ba7449f26c3db12c09e">&#9670;&#160;</a></span>AsyncStreamsError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#gaf4704525fbe41ba7449f26c3db12c09e">SC::AsyncStreamsError</a> : uint32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;AsyncStreamsError.h&gt;</code></p>
+
+<p>Stable portable failures owned by <a class="el" href="structSC_1_1AsyncStreams.html" title="Traits exposing AsyncStreams public types through a single template parameter.">AsyncStreams</a>. </p>
+<p>Values are append-only.</p>
+<p>Errors propagated from another library retain their original category and value. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

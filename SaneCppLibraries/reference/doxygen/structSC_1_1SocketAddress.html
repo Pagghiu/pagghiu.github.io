@@ -154,12 +154,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a370a51dc945a0769f2c418ba277a6974" id="r_a370a51dc945a0769f2c418ba277a6974"><td class="memItemLeft" align="right" valign="top"><a id="a370a51dc945a0769f2c418ba277a6974" name="a370a51dc945a0769f2c418ba277a6974"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>SocketAddress</b> (const <a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;ipAddress)</td></tr>
 <tr class="separator:a370a51dc945a0769f2c418ba277a6974"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf6db1752387f49e57e458961e06d377" id="r_acf6db1752387f49e57e458961e06d377"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf6db1752387f49e57e458961e06d377">fromUnixPath</a> (StringSpan path)</td></tr>
-<tr class="memdesc:acf6db1752387f49e57e458961e06d377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a filesystem-named Unix-domain address.  <br /></td></tr>
-<tr class="separator:acf6db1752387f49e57e458961e06d377"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab177396ca025a5dd37621b34fa78909b" id="r_ab177396ca025a5dd37621b34fa78909b"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab177396ca025a5dd37621b34fa78909b">fromUnixAbstractName</a> (Span&lt; const char &gt; name)</td></tr>
-<tr class="memdesc:ab177396ca025a5dd37621b34fa78909b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a Linux abstract-namespace Unix-domain address.  <br /></td></tr>
-<tr class="separator:ab177396ca025a5dd37621b34fa78909b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f5f0899886acf1dc1857a969a2d8d23" id="r_a1f5f0899886acf1dc1857a969a2d8d23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f5f0899886acf1dc1857a969a2d8d23">fromUnixPath</a> (StringSpan path)</td></tr>
+<tr class="memdesc:a1f5f0899886acf1dc1857a969a2d8d23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a filesystem-named Unix-domain address.  <br /></td></tr>
+<tr class="separator:a1f5f0899886acf1dc1857a969a2d8d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd3258814abc11fdf6e57d862e73a15f" id="r_afd3258814abc11fdf6e57d862e73a15f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd3258814abc11fdf6e57d862e73a15f">fromUnixAbstractName</a> (Span&lt; const char &gt; name)</td></tr>
+<tr class="memdesc:afd3258814abc11fdf6e57d862e73a15f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a Linux abstract-namespace Unix-domain address.  <br /></td></tr>
+<tr class="separator:afd3258814abc11fdf6e57d862e73a15f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21ff6af8be3e0d13962b024a144efd08" id="r_a21ff6af8be3e0d13962b024a144efd08"><td class="memItemLeft" align="right" valign="top"><a id="a21ff6af8be3e0d13962b024a144efd08" name="a21ff6af8be3e0d13962b024a144efd08"></a>
 <a class="el" href="structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4">SocketFlags::AddressFamily</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getAddressFamily</b> () const</td></tr>
 <tr class="separator:a21ff6af8be3e0d13962b024a144efd08"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -169,12 +169,12 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>sizeOfHandle</b> 
 <tr class="memitem:a82cfd08cf492670da59a44e5c6bdf238" id="r_a82cfd08cf492670da59a44e5c6bdf238"><td class="memItemLeft" align="right" valign="top"><a id="a82cfd08cf492670da59a44e5c6bdf238" name="a82cfd08cf492670da59a44e5c6bdf238"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isValid</b> () const</td></tr>
 <tr class="separator:a82cfd08cf492670da59a44e5c6bdf238"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04012bc6340098ec5070ee0bbdb399d7" id="r_a04012bc6340098ec5070ee0bbdb399d7"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04012bc6340098ec5070ee0bbdb399d7">getIPAddress</a> (<a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;output) const</td></tr>
-<tr class="memdesc:a04012bc6340098ec5070ee0bbdb399d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts an IP address when this address contains IPv4 or IPv6.  <br /></td></tr>
-<tr class="separator:a04012bc6340098ec5070ee0bbdb399d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd944f7da35770f04914028e5a657e58" id="r_afd944f7da35770f04914028e5a657e58"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd944f7da35770f04914028e5a657e58">getUnixName</a> (Span&lt; const char &gt; &amp;output, UnixNamespace &amp;unixNamespace) const</td></tr>
-<tr class="memdesc:afd944f7da35770f04914028e5a657e58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a view into the inline Unix-domain name storage.  <br /></td></tr>
-<tr class="separator:afd944f7da35770f04914028e5a657e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad82a8eab3769acdf335cb81866c8fe2" id="r_aad82a8eab3769acdf335cb81866c8fe2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad82a8eab3769acdf335cb81866c8fe2">getIPAddress</a> (<a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;output) const</td></tr>
+<tr class="memdesc:aad82a8eab3769acdf335cb81866c8fe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts an IP address when this address contains IPv4 or IPv6.  <br /></td></tr>
+<tr class="separator:aad82a8eab3769acdf335cb81866c8fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb1c7f94ad8798564f724c181a0420ab" id="r_acb1c7f94ad8798564f724c181a0420ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb1c7f94ad8798564f724c181a0420ab">getUnixName</a> (Span&lt; const char &gt; &amp;output, UnixNamespace &amp;unixNamespace) const</td></tr>
+<tr class="memdesc:acb1c7f94ad8798564f724c181a0420ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a view into the inline Unix-domain name storage.  <br /></td></tr>
+<tr class="separator:acb1c7f94ad8798564f724c181a0420ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -189,14 +189,14 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>nativeSize</b> = 
 <div class="textblock"><p>Family-neutral native socket address. </p>
 <p>Stores IPv4, IPv6, or Unix-domain addresses inline without exposing platform socket headers. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab177396ca025a5dd37621b34fa78909b" name="ab177396ca025a5dd37621b34fa78909b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab177396ca025a5dd37621b34fa78909b">&#9670;&#160;</a></span>fromUnixAbstractName()</h2>
+<a id="afd3258814abc11fdf6e57d862e73a15f" name="afd3258814abc11fdf6e57d862e73a15f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd3258814abc11fdf6e57d862e73a15f">&#9670;&#160;</a></span>fromUnixAbstractName()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketAddress::fromUnixAbstractName </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketAddress::fromUnixAbstractName </td>
           <td>(</td>
           <td class="paramtype">Span&lt; const char &gt;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
           <td></td>
@@ -209,14 +209,14 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>nativeSize</b> = 
 
 </div>
 </div>
-<a id="acf6db1752387f49e57e458961e06d377" name="acf6db1752387f49e57e458961e06d377"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf6db1752387f49e57e458961e06d377">&#9670;&#160;</a></span>fromUnixPath()</h2>
+<a id="a1f5f0899886acf1dc1857a969a2d8d23" name="a1f5f0899886acf1dc1857a969a2d8d23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f5f0899886acf1dc1857a969a2d8d23">&#9670;&#160;</a></span>fromUnixPath()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketAddress::fromUnixPath </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketAddress::fromUnixPath </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
           <td></td>
@@ -228,14 +228,14 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>nativeSize</b> = 
 
 </div>
 </div>
-<a id="a04012bc6340098ec5070ee0bbdb399d7" name="a04012bc6340098ec5070ee0bbdb399d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04012bc6340098ec5070ee0bbdb399d7">&#9670;&#160;</a></span>getIPAddress()</h2>
+<a id="aad82a8eab3769acdf335cb81866c8fe2" name="aad82a8eab3769acdf335cb81866c8fe2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad82a8eab3769acdf335cb81866c8fe2">&#9670;&#160;</a></span>getIPAddress()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketAddress::getIPAddress </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketAddress::getIPAddress </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>output</em></span></td><td>)</td>
           <td> const</td>
@@ -247,14 +247,14 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>nativeSize</b> = 
 
 </div>
 </div>
-<a id="afd944f7da35770f04914028e5a657e58" name="afd944f7da35770f04914028e5a657e58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd944f7da35770f04914028e5a657e58">&#9670;&#160;</a></span>getUnixName()</h2>
+<a id="acb1c7f94ad8798564f724c181a0420ab" name="acb1c7f94ad8798564f724c181a0420ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb1c7f94ad8798564f724c181a0420ab">&#9670;&#160;</a></span>getUnixName()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketAddress::getUnixName </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketAddress::getUnixName </td>
           <td>(</td>
           <td class="paramtype">Span&lt; const char &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>, </td>
         </tr>

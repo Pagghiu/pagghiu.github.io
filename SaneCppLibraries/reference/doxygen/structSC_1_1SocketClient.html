@@ -138,30 +138,30 @@ $(function(){initNavTree('structSC_1_1SocketClient.html',''); initResizable(true
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a456d893010b8a6dfbd793ae4efc087bb" id="r_a456d893010b8a6dfbd793ae4efc087bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a456d893010b8a6dfbd793ae4efc087bb">SocketClient</a> (const <a class="el" href="structSC_1_1SocketDescriptor.html">SocketDescriptor</a> &amp;socket)</td></tr>
-<tr class="memdesc:a456d893010b8a6dfbd793ae4efc087bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs this <a class="el" href="structSC_1_1SocketClient.html" title="Use a SocketDescriptor as a client (example a TCP or UDP socket client).">SocketClient</a> from a <a class="el" href="structSC_1_1SocketDescriptor.html" title="Low-level OS socket handle.">SocketDescriptor</a> (already created with <a class="el" href="structSC_1_1SocketDescriptor.html#abae627322ab6d511fdf774516aa12bec" title="Creates a new SocketDescriptor Descriptor of given family, type, protocol.">SocketDescriptor::create</a>)  <br /></td></tr>
+<tr class="memdesc:a456d893010b8a6dfbd793ae4efc087bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs this <a class="el" href="structSC_1_1SocketClient.html" title="Use a SocketDescriptor as a client (example a TCP or UDP socket client).">SocketClient</a> from a <a class="el" href="structSC_1_1SocketDescriptor.html" title="Low-level OS socket handle.">SocketDescriptor</a> (already created with <a class="el" href="structSC_1_1SocketDescriptor.html#a42ce30e6d93fa71acfb16d247970b919" title="Creates a new SocketDescriptor Descriptor of given family, type, protocol.">SocketDescriptor::create</a>)  <br /></td></tr>
 <tr class="separator:a456d893010b8a6dfbd793ae4efc087bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72b5ed737b5df83f1b74be41fc4aa163" id="r_a72b5ed737b5df83f1b74be41fc4aa163"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72b5ed737b5df83f1b74be41fc4aa163">connect</a> (StringSpan address, uint16_t port)</td></tr>
-<tr class="memdesc:a72b5ed737b5df83f1b74be41fc4aa163"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect to a given address and port combination.  <br /></td></tr>
-<tr class="separator:a72b5ed737b5df83f1b74be41fc4aa163"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8245a9ab273557a50a94559eb41a5062" id="r_a8245a9ab273557a50a94559eb41a5062"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8245a9ab273557a50a94559eb41a5062">connect</a> (<a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> ipAddress)</td></tr>
-<tr class="memdesc:a8245a9ab273557a50a94559eb41a5062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect to a given address and port combination.  <br /></td></tr>
-<tr class="separator:a8245a9ab273557a50a94559eb41a5062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea08394e1735105327157a7a220c7bb6" id="r_aea08394e1735105327157a7a220c7bb6"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea08394e1735105327157a7a220c7bb6">connect</a> (const <a class="el" href="structSC_1_1SocketAddress.html">SocketAddress</a> &amp;address)</td></tr>
-<tr class="memdesc:aea08394e1735105327157a7a220c7bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect to a family-neutral socket address.  <br /></td></tr>
-<tr class="separator:aea08394e1735105327157a7a220c7bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b691ac6107db42668c3b0d60723aa41" id="r_a9b691ac6107db42668c3b0d60723aa41"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b691ac6107db42668c3b0d60723aa41">write</a> (Span&lt; const char &gt; data)</td></tr>
-<tr class="memdesc:a9b691ac6107db42668c3b0d60723aa41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes to this socket.  <br /></td></tr>
-<tr class="separator:a9b691ac6107db42668c3b0d60723aa41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0824c36280ebdab4befcde0db8ed41b8" id="r_a0824c36280ebdab4befcde0db8ed41b8"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0824c36280ebdab4befcde0db8ed41b8">read</a> (Span&lt; char &gt; data, Span&lt; char &gt; &amp;readData)</td></tr>
-<tr class="memdesc:a0824c36280ebdab4befcde0db8ed41b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read bytes from this socket blocking until they're actually received.  <br /></td></tr>
-<tr class="separator:a0824c36280ebdab4befcde0db8ed41b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83851e6ce666903589ead0f61fe61fbe" id="r_a83851e6ce666903589ead0f61fe61fbe"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83851e6ce666903589ead0f61fe61fbe">readWithTimeout</a> (Span&lt; char &gt; data, Span&lt; char &gt; &amp;readData, int64_t timeout)</td></tr>
-<tr class="memdesc:a83851e6ce666903589ead0f61fe61fbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read bytes from this socket blocking until they're actually received or timeout occurs.  <br /></td></tr>
-<tr class="separator:a83851e6ce666903589ead0f61fe61fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7f7299d838e8587aca914f439b0390a" id="r_ad7f7299d838e8587aca914f439b0390a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7f7299d838e8587aca914f439b0390a">connect</a> (StringSpan address, uint16_t port)</td></tr>
+<tr class="memdesc:ad7f7299d838e8587aca914f439b0390a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect to a given address and port combination.  <br /></td></tr>
+<tr class="separator:ad7f7299d838e8587aca914f439b0390a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af33e530e1719d974da7bb47362d39ba1" id="r_af33e530e1719d974da7bb47362d39ba1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af33e530e1719d974da7bb47362d39ba1">connect</a> (<a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a> ipAddress)</td></tr>
+<tr class="memdesc:af33e530e1719d974da7bb47362d39ba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect to a given address and port combination.  <br /></td></tr>
+<tr class="separator:af33e530e1719d974da7bb47362d39ba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a211461a147592954e1b2c20f162c0399" id="r_a211461a147592954e1b2c20f162c0399"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a211461a147592954e1b2c20f162c0399">connect</a> (const <a class="el" href="structSC_1_1SocketAddress.html">SocketAddress</a> &amp;address)</td></tr>
+<tr class="memdesc:a211461a147592954e1b2c20f162c0399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect to a family-neutral socket address.  <br /></td></tr>
+<tr class="separator:a211461a147592954e1b2c20f162c0399"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa327ccd9c198df667714f82bb7718762" id="r_aa327ccd9c198df667714f82bb7718762"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa327ccd9c198df667714f82bb7718762">write</a> (Span&lt; const char &gt; data)</td></tr>
+<tr class="memdesc:aa327ccd9c198df667714f82bb7718762"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes to this socket.  <br /></td></tr>
+<tr class="separator:aa327ccd9c198df667714f82bb7718762"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bb5ad8f8b435f2045794c76bbc08f28" id="r_a1bb5ad8f8b435f2045794c76bbc08f28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1bb5ad8f8b435f2045794c76bbc08f28">read</a> (Span&lt; char &gt; data, Span&lt; char &gt; &amp;readData)</td></tr>
+<tr class="memdesc:a1bb5ad8f8b435f2045794c76bbc08f28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read bytes from this socket blocking until they're actually received.  <br /></td></tr>
+<tr class="separator:a1bb5ad8f8b435f2045794c76bbc08f28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ff729f65611b46d0d4a5f6c46e1cd90" id="r_a4ff729f65611b46d0d4a5f6c46e1cd90"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ff729f65611b46d0d4a5f6c46e1cd90">readWithTimeout</a> (Span&lt; char &gt; data, Span&lt; char &gt; &amp;readData, int64_t timeout)</td></tr>
+<tr class="memdesc:a4ff729f65611b46d0d4a5f6c46e1cd90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read bytes from this socket blocking until they're actually received or timeout occurs.  <br /></td></tr>
+<tr class="separator:a4ff729f65611b46d0d4a5f6c46e1cd90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Use a <a class="el" href="structSC_1_1SocketDescriptor.html" title="Low-level OS socket handle.">SocketDescriptor</a> as a client (example a TCP or UDP socket client). </p>
-<p>The socket client can be obtained via <a class="el" href="structSC_1_1SocketServer.html#aeabb14ac60f8530d60292cf87bbf4f26" title="Accepts a new client, blocking while waiting for it.">SC::SocketServer::accept</a> or connected to an endpoint through <a class="el" href="#a72b5ed737b5df83f1b74be41fc4aa163" title="Connect to a given address and port combination.">SC::SocketClient::connect</a>.</p>
+<p>The socket client can be obtained via <a class="el" href="structSC_1_1SocketServer.html#a670e24bfaa95bc4f64dbcf555d6a831f" title="Accepts a new client, blocking while waiting for it.">SC::SocketServer::accept</a> or connected to an endpoint through <a class="el" href="#ad7f7299d838e8587aca914f439b0390a" title="Connect to a given address and port combination.">SC::SocketClient::connect</a>.</p>
 <p>Example (accepted client from server, doing a synchronous read): </p><div class="fragment"><div class="line">    <a class="code hl_struct" href="structSC_1_1SocketDescriptor.html">SocketDescriptor</a> acceptedClientSocket;</div>
 <div class="line">    <span class="comment">// ... assuming to obtain a TCP socket using SocketServer::accept</span></div>
 <div class="line">    SC_TRY(server.accept(family, acceptedClientSocket));</div>
@@ -187,7 +187,7 @@ Public Member Functions</h2></td></tr>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1SocketClient.html">SocketClient</a>     client(clientSocket);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Create a (TCP) socket</span></div>
-<div class="line">    SC_TRY(clientSocket.<a class="code hl_function" href="structSC_1_1SocketDescriptor.html#abae627322ab6d511fdf774516aa12bec">create</a>(family));</div>
+<div class="line">    SC_TRY(clientSocket.<a class="code hl_function" href="structSC_1_1SocketDescriptor.html#a42ce30e6d93fa71acfb16d247970b919">create</a>(family));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// [Alternatively] Create an UDP socket instead</span></div>
 <div class="line">    <span class="comment">// SC_TRY(clientSocket.create(family, SocketFlags::SocketDgram, SocketFlags::ProtocolUdp));</span></div>
@@ -228,10 +228,10 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs this <a class="el" href="structSC_1_1SocketClient.html" title="Use a SocketDescriptor as a client (example a TCP or UDP socket client).">SocketClient</a> from a <a class="el" href="structSC_1_1SocketDescriptor.html" title="Low-level OS socket handle.">SocketDescriptor</a> (already created with <a class="el" href="structSC_1_1SocketDescriptor.html#abae627322ab6d511fdf774516aa12bec" title="Creates a new SocketDescriptor Descriptor of given family, type, protocol.">SocketDescriptor::create</a>) </p>
+<p>Constructs this <a class="el" href="structSC_1_1SocketClient.html" title="Use a SocketDescriptor as a client (example a TCP or UDP socket client).">SocketClient</a> from a <a class="el" href="structSC_1_1SocketDescriptor.html" title="Low-level OS socket handle.">SocketDescriptor</a> (already created with <a class="el" href="structSC_1_1SocketDescriptor.html#a42ce30e6d93fa71acfb16d247970b919" title="Creates a new SocketDescriptor Descriptor of given family, type, protocol.">SocketDescriptor::create</a>) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">socket</td><td>A socket descriptor created with <a class="el" href="structSC_1_1SocketDescriptor.html#abae627322ab6d511fdf774516aa12bec" title="Creates a new SocketDescriptor Descriptor of given family, type, protocol.">SocketDescriptor::create</a> to be used as client </td></tr>
+    <tr><td class="paramname">socket</td><td>A socket descriptor created with <a class="el" href="structSC_1_1SocketDescriptor.html#a42ce30e6d93fa71acfb16d247970b919" title="Creates a new SocketDescriptor Descriptor of given family, type, protocol.">SocketDescriptor::create</a> to be used as client </td></tr>
   </table>
   </dd>
 </dl>
@@ -239,14 +239,14 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aea08394e1735105327157a7a220c7bb6" name="aea08394e1735105327157a7a220c7bb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea08394e1735105327157a7a220c7bb6">&#9670;&#160;</a></span>connect() <span class="overload">[1/3]</span></h2>
+<a id="a211461a147592954e1b2c20f162c0399" name="a211461a147592954e1b2c20f162c0399"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a211461a147592954e1b2c20f162c0399">&#9670;&#160;</a></span>connect() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketClient::connect </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketClient::connect </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structSC_1_1SocketAddress.html">SocketAddress</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
           <td></td>
@@ -258,14 +258,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8245a9ab273557a50a94559eb41a5062" name="a8245a9ab273557a50a94559eb41a5062"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8245a9ab273557a50a94559eb41a5062">&#9670;&#160;</a></span>connect() <span class="overload">[2/3]</span></h2>
+<a id="af33e530e1719d974da7bb47362d39ba1" name="af33e530e1719d974da7bb47362d39ba1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af33e530e1719d974da7bb47362d39ba1">&#9670;&#160;</a></span>connect() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketClient::connect </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketClient::connect </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structSC_1_1SocketIPAddress.html">SocketIPAddress</a></td>          <td class="paramname"><span class="paramname"><em>ipAddress</em></span></td><td>)</td>
           <td></td>
@@ -284,14 +284,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a72b5ed737b5df83f1b74be41fc4aa163" name="a72b5ed737b5df83f1b74be41fc4aa163"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72b5ed737b5df83f1b74be41fc4aa163">&#9670;&#160;</a></span>connect() <span class="overload">[3/3]</span></h2>
+<a id="ad7f7299d838e8587aca914f439b0390a" name="ad7f7299d838e8587aca914f439b0390a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7f7299d838e8587aca914f439b0390a">&#9670;&#160;</a></span>connect() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketClient::connect </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketClient::connect </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
         </tr>
@@ -312,18 +312,18 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if this client successfully connected to the specified address and port </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Socket descriptor MUST have already been created with <a class="el" href="structSC_1_1SocketDescriptor.html#abae627322ab6d511fdf774516aa12bec" title="Creates a new SocketDescriptor Descriptor of given family, type, protocol.">SocketDescriptor::create</a> </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Socket descriptor MUST have already been created with <a class="el" href="structSC_1_1SocketDescriptor.html#a42ce30e6d93fa71acfb16d247970b919" title="Creates a new SocketDescriptor Descriptor of given family, type, protocol.">SocketDescriptor::create</a> </dd></dl>
 
 </div>
 </div>
-<a id="a0824c36280ebdab4befcde0db8ed41b8" name="a0824c36280ebdab4befcde0db8ed41b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0824c36280ebdab4befcde0db8ed41b8">&#9670;&#160;</a></span>read()</h2>
+<a id="a1bb5ad8f8b435f2045794c76bbc08f28" name="a1bb5ad8f8b435f2045794c76bbc08f28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bb5ad8f8b435f2045794c76bbc08f28">&#9670;&#160;</a></span>read()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketClient::read </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketClient::read </td>
           <td>(</td>
           <td class="paramtype">Span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
@@ -347,14 +347,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a83851e6ce666903589ead0f61fe61fbe" name="a83851e6ce666903589ead0f61fe61fbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83851e6ce666903589ead0f61fe61fbe">&#9670;&#160;</a></span>readWithTimeout()</h2>
+<a id="a4ff729f65611b46d0d4a5f6c46e1cd90" name="a4ff729f65611b46d0d4a5f6c46e1cd90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ff729f65611b46d0d4a5f6c46e1cd90">&#9670;&#160;</a></span>readWithTimeout()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketClient::readWithTimeout </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketClient::readWithTimeout </td>
           <td>(</td>
           <td class="paramtype">Span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
@@ -384,14 +384,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a9b691ac6107db42668c3b0d60723aa41" name="a9b691ac6107db42668c3b0d60723aa41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b691ac6107db42668c3b0d60723aa41">&#9670;&#160;</a></span>write()</h2>
+<a id="aa327ccd9c198df667714f82bb7718762" name="aa327ccd9c198df667714f82bb7718762"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa327ccd9c198df667714f82bb7718762">&#9670;&#160;</a></span>write()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::SocketClient::write </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketClient::write </td>
           <td>(</td>
           <td class="paramtype">Span&lt; const char &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
           <td></td>

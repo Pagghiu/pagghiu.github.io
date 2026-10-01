@@ -133,7 +133,7 @@ $(function(){initNavTree('structSC_1_1AsyncProcessExit.html',''); initResizable(
 </div><!--header-->
 <div class="contents">
 
-<p>Starts monitoring a process, notifying about its termination.  
+<p>Waits for a child process to exit and reports its exit status.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Async_8h_source.html">Async.h</a>&gt;</code></p>
@@ -288,8 +288,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isThreadPoolForced</b
 <tr class="separator:a092e95888a9bc39926c600fce972ed4f inherit pro_attribs_structSC_1_1AsyncRequest"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Starts monitoring a process, notifying about its termination. </p>
-<p><a class="el" href="library_process.html">Process</a> library can be used to start a process and obtain the native process handle.</p>
+<div class="textblock"><p>Waits for a child process to exit and reports its exit status. </p>
+<p><a class="el" href="library_process.html">Process</a> library can be used to start a process and obtain the native process handle. On POSIX, successful completion reaps the child before the callback. Do not also call <a class="el" href="structSC_1_1Process.html#acf110c0c9a4f6987a0d042aec854ce3f" title="Waits (blocking) for process to exit after launch. It can only be called if Process::launch succeeded...">Process::waitForExitSync</a> for that child. If start fails or the request is stopped before completion, the caller remains responsible for waiting for the child. Only one exit request may wait for a given child process.</p>
 <div class="fragment"><div class="line"><span class="comment">// Assuming an already created (and running) AsyncEventLoop named eventLoop</span></div>
 <div class="line"><span class="comment">// ...</span></div>
 <div class="line">Process process;</div>

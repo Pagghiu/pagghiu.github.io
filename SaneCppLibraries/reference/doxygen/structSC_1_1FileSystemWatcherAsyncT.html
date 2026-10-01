@@ -229,7 +229,7 @@ struct SC::FileSystemWatcherAsyncT&lt; T_AsyncEventLoop &gt;</div><p><a class="e
 <div class="line"> </div>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystemWatcherAsyncT.html">FileSystemWatcherAsyncT&lt;AsyncEventLoop&gt;</a> eventLoopRunner;</div>
 <div class="line">    eventLoopRunner.init(eventLoop);</div>
-<div class="line">    SC_TRY(fileSystemWatcher.<a class="code hl_function" href="structSC_1_1FileSystemWatcher.html#a6fbb3ce10ebae059d57b85134c7c8c24">init</a>(eventLoopRunner));</div>
+<div class="line">    SC_TRY(fileSystemWatcher.<a class="code hl_function" href="structSC_1_1FileSystemWatcher.html#adeba36ad2e51331f08698e36068aa026">init</a>(eventLoopRunner));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Setup notification callback</span></div>
 <div class="line">    <span class="keyword">auto</span> onFileModified = [&amp;](<span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1FileSystemWatcher_1_1Notification.html">FileSystemWatcher::Notification</a>&amp; notification)</div>
@@ -253,15 +253,15 @@ struct SC::FileSystemWatcherAsyncT&lt; T_AsyncEventLoop &gt;</div><p><a class="e
 <div class="line">    <span class="comment">// Start watching a specific folder</span></div>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html">FileSystemWatcher::FolderWatcher</a> folderWatcher;</div>
 <div class="line">    folderWatcher.<a class="code hl_variable" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html#a5e385be5f0997604bb77b0d199855e44">notifyCallback</a> = onFileModified;</div>
-<div class="line">    SC_TRY(fileSystemWatcher.<a class="code hl_function" href="structSC_1_1FileSystemWatcher.html#a98f3c1b713ac0d6f64584232ca6707a5">watch</a>(folderWatcher, <span class="stringliteral">&quot;/path/to/dir&quot;</span>));</div>
+<div class="line">    SC_TRY(fileSystemWatcher.<a class="code hl_function" href="structSC_1_1FileSystemWatcher.html#a042e6075e101363e5de6174d44c0e83c">watch</a>(folderWatcher, <span class="stringliteral">&quot;/path/to/dir&quot;</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// ...</span></div>
 <div class="line">    <span class="comment">// At a later point when there is no more need of watching the folder</span></div>
-<div class="line">    SC_TRY(folderWatcher.<a class="code hl_function" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html#acd70f88c0914fd4bf1e5d3312e3d4016">stopWatching</a>());</div>
+<div class="line">    SC_TRY(folderWatcher.<a class="code hl_function" href="structSC_1_1FileSystemWatcher_1_1FolderWatcher.html#a9cab21b55295768586011f1ae0f597ae">stopWatching</a>());</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// ...</span></div>
 <div class="line">    <span class="comment">// When all watchers have been unwatched and to dispose all system resources</span></div>
-<div class="line">    SC_TRY(fileSystemWatcher.<a class="code hl_function" href="structSC_1_1FileSystemWatcher.html#a4d59b6afcd7686a3800b3f913271813e">close</a>());</div>
+<div class="line">    SC_TRY(fileSystemWatcher.<a class="code hl_function" href="structSC_1_1FileSystemWatcher.html#a63ad92cabdaaf63e743366ec00914ab8">close</a>());</div>
 </div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab02fb11ea3e6478f7a7acdb25fa287f9" name="ab02fb11ea3e6478f7a7acdb25fa287f9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab02fb11ea3e6478f7a7acdb25fa287f9">&#9670;&#160;</a></span>windowsClearFolderExternalCompletionPending()</h2>

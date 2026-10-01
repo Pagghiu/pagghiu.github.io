@@ -3,10 +3,10 @@ var group__group__threading =
     [ "SC::Mutex", "structSC_1_1Mutex.html", null ],
     [ "SC::ConditionVariable", "structSC_1_1ConditionVariable.html", null ],
     [ "SC::Thread", "structSC_1_1Thread.html", [
-      [ "detach", "structSC_1_1Thread.html#a7ec0ae5d34ef6821aa884452c17c5046", null ],
-      [ "join", "structSC_1_1Thread.html#aad66dfb65ebdca81f0dea267e7a35c08", null ],
+      [ "detach", "structSC_1_1Thread.html#a13dafd8f96b8fa93baaa6019e21e9b24", null ],
+      [ "join", "structSC_1_1Thread.html#a1c052f83691ba940c5b7cc50028858fa", null ],
       [ "setThreadName", "structSC_1_1Thread.html#a723caa0356ffbcad4a1a54eeb3d666e3", null ],
-      [ "start", "structSC_1_1Thread.html#a2d0ab4a372a9bb9a4cb5032166f4b3c0", null ],
+      [ "start", "structSC_1_1Thread.html#a9008f37360e6b101eb02e66ee2973c24", null ],
       [ "threadID", "structSC_1_1Thread.html#a97edb5fab16dce61d534af722506e553", null ],
       [ "wasStarted", "structSC_1_1Thread.html#a02645a664fcf19384ec50200beff6f6a", null ]
     ] ],
@@ -29,14 +29,20 @@ var group__group__threading =
       [ "acquire", "structSC_1_1Semaphore.html#a00a9db0035539912dab521a9e18d51e1", null ],
       [ "release", "structSC_1_1Semaphore.html#a3e72717a36fd95f25d89415407254e66", null ]
     ] ],
+    [ "SC::ResultThreading", "structSC_1_1ResultThreading.html", null ],
     [ "SC::ThreadPoolTask", "structSC_1_1ThreadPoolTask.html", [
       [ "function", "structSC_1_1ThreadPoolTask.html#a072b75678d89c9fd7120c87a6a00a140", null ]
     ] ],
     [ "SC::ThreadPool", "structSC_1_1ThreadPool.html", [
-      [ "create", "structSC_1_1ThreadPool.html#ac4d16bfc16be6192930cb1609b50eedc", null ],
-      [ "destroy", "structSC_1_1ThreadPool.html#a1627e46fb137380bb55e816c08ce2cb0", null ],
-      [ "queueTask", "structSC_1_1ThreadPool.html#aaf653d678170723e58062fe5a8c6e3fd", null ],
-      [ "waitForAllTasks", "structSC_1_1ThreadPool.html#af47fc96560293a054580e8290f08e410", null ],
-      [ "waitForTask", "structSC_1_1ThreadPool.html#abe38d572aa49547a745591820fb0973e", null ]
-    ] ]
+      [ "create", "structSC_1_1ThreadPool.html#aa7618a9dfecffb08e340e64a92f586cd", null ],
+      [ "destroy", "structSC_1_1ThreadPool.html#a8acd5eccd1830a13986a19ce1f16ae59", null ],
+      [ "queueTask", "structSC_1_1ThreadPool.html#ab0a2c7c2ebdf267037f8600b1f2dc7ed", null ],
+      [ "waitForAllTasks", "structSC_1_1ThreadPool.html#aa2855571a2d31de4001baf7df415d92d", null ],
+      [ "waitForTask", "structSC_1_1ThreadPool.html#a446e87d622faf2ce48daf64ba4354a47", null ]
+    ] ],
+    [ "SC::ThreadingError", "group__group__threading.html#gaecf4fab5961e736f60a981a045a9a768", null ],
+    [ "SC::ThreadingErrorDetail", "group__group__threading.html#ga4682b5515b25763866e154be3ea04f64", null ],
+    [ "SC::formatThreadingError", "group__group__threading.html#ga9fe40fd577a4fdd9b67c3ab32c4929d6", null ],
+    [ "SC::formatThreadingError", "group__group__threading.html#ga71c1538c014df9ffca55797f07dbbc04", null ],
+    [ "SC::formatThreadingError", "group__group__threading.html#ga33eb6b4e21c2b36a73953ea70bc57945", null ]
 ];

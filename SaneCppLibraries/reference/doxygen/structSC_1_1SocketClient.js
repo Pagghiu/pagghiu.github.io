@@ -1,10 +1,10 @@
 var structSC_1_1SocketClient =
 [
     [ "SocketClient", "structSC_1_1SocketClient.html#a456d893010b8a6dfbd793ae4efc087bb", null ],
-    [ "connect", "structSC_1_1SocketClient.html#aea08394e1735105327157a7a220c7bb6", null ],
-    [ "connect", "structSC_1_1SocketClient.html#a8245a9ab273557a50a94559eb41a5062", null ],
-    [ "connect", "structSC_1_1SocketClient.html#a72b5ed737b5df83f1b74be41fc4aa163", null ],
-    [ "read", "structSC_1_1SocketClient.html#a0824c36280ebdab4befcde0db8ed41b8", null ],
-    [ "readWithTimeout", "structSC_1_1SocketClient.html#a83851e6ce666903589ead0f61fe61fbe", null ],
-    [ "write", "structSC_1_1SocketClient.html#a9b691ac6107db42668c3b0d60723aa41", null ]
+    [ "connect", "structSC_1_1SocketClient.html#a211461a147592954e1b2c20f162c0399", null ],
+    [ "connect", "structSC_1_1SocketClient.html#af33e530e1719d974da7bb47362d39ba1", null ],
+    [ "connect", "structSC_1_1SocketClient.html#ad7f7299d838e8587aca914f439b0390a", null ],
+    [ "read", "structSC_1_1SocketClient.html#a1bb5ad8f8b435f2045794c76bbc08f28", null ],
+    [ "readWithTimeout", "structSC_1_1SocketClient.html#a4ff729f65611b46d0d4a5f6c46e1cd90", null ],
+    [ "write", "structSC_1_1SocketClient.html#aa327ccd9c198df667714f82bb7718762", null ]
 ];

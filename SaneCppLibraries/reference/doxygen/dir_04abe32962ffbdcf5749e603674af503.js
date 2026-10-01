@@ -1,4 +1,6 @@
 var dir_04abe32962ffbdcf5749e603674af503 =
 [
-    [ "Async.h", "Async_8h_source.html", null ]
+    [ "Async.h", "Async_8h_source.html", null ],
+    [ "AsyncError.h", "AsyncError_8h_source.html", null ],
+    [ "AsyncErrorFormatter.h", "AsyncErrorFormatter_8h_source.html", null ]
 ];

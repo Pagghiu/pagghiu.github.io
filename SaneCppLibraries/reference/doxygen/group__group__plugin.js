@@ -10,8 +10,8 @@ var group__group__plugin =
       [ "version", "structSC_1_1PluginIdentity.html#ae9012ed8869c8427c1bacee0a8da0ee2", null ]
     ] ],
     [ "SC::PluginDefinition", "structSC_1_1PluginDefinition.html", [
-      [ "getDynamicLibraryAbsolutePath", "structSC_1_1PluginDefinition.html#aa2fdd841eea42740fa3b8a677e720340", null ],
-      [ "getDynamicLibraryPDBAbsolutePath", "structSC_1_1PluginDefinition.html#ad6b69adf04509a831773ee7bb982caf2", null ],
+      [ "getDynamicLibraryAbsolutePath", "structSC_1_1PluginDefinition.html#a3fc297124410bffd5f04f17a5f0c8690", null ],
+      [ "getDynamicLibraryPDBAbsolutePath", "structSC_1_1PluginDefinition.html#af117b963f75344282b61ba1e9d9a5ef4", null ],
       [ "getMainPluginFile", "structSC_1_1PluginDefinition.html#ae56a9bb1859e765c94f50b2b83a500eb", null ],
       [ "getMainPluginFile", "structSC_1_1PluginDefinition.html#a6e6559a3690b3a9378e58b6b1132eab3", null ],
       [ "build", "structSC_1_1PluginDefinition.html#aeb4c3a5a534463353ecd144f928bdb50", null ],
@@ -29,8 +29,8 @@ var group__group__plugin =
         [ "GnuCompiler", "structSC_1_1PluginCompiler.html#acb6e80ac884acb67ec167d350f77db68a3cbeb39d53e1c5b7121fad9b947e9015", null ],
         [ "MicrosoftCompiler", "structSC_1_1PluginCompiler.html#acb6e80ac884acb67ec167d350f77db68aa4440d5f72c4fadebbaae3e3e9e34773", null ]
       ] ],
-      [ "compile", "structSC_1_1PluginCompiler.html#acdfe884c52fea57207cd5d87b4d7a020", null ],
-      [ "link", "structSC_1_1PluginCompiler.html#a0b7ea1fe74678f69ee0e8e791ea43f2c", null ],
+      [ "compile", "structSC_1_1PluginCompiler.html#a10d02a74a69a66dcd323a3b41f9064ba", null ],
+      [ "link", "structSC_1_1PluginCompiler.html#a66dd5d5375740554026fbbf36d5d5412", null ],
       [ "compilerIncludePaths", "structSC_1_1PluginCompiler.html#acdaf8cf6b5f9223d6f26572cf6eedfb2", null ],
       [ "compilerLibraryPaths", "structSC_1_1PluginCompiler.html#abea2cb484c194d5af28bc726488f4c63", null ],
       [ "compilerPath", "structSC_1_1PluginCompiler.html#ad6a2e3b02e614485ac1a3aeafce07abd", null ],
@@ -58,16 +58,25 @@ var group__group__plugin =
         [ "Load", "structSC_1_1PluginRegistry.html#a0ab8576eabd1ec66c5093af93f7d0513af19dbf2edb3a0bd74b0524d960ff21eb", null ],
         [ "Reload", "structSC_1_1PluginRegistry.html#a0ab8576eabd1ec66c5093af93f7d0513a4d1c8263ba1036754f8db14a98f9f006", null ]
       ] ],
-      [ "close", "structSC_1_1PluginRegistry.html#aac855eaebfbcfc92ed8ca477104e0024", null ],
+      [ "close", "structSC_1_1PluginRegistry.html#a4814f684b55c0679ae123709d49fcc80", null ],
       [ "findPlugin", "structSC_1_1PluginRegistry.html#a14bb30fc789c448a09f5ddb118368ac1", null ],
       [ "getIdentifierAt", "structSC_1_1PluginRegistry.html#ab31b3e3bc134d1d2908cc15850692e4a", null ],
       [ "getNumberOfEntries", "structSC_1_1PluginRegistry.html#a4e09645535bf9a6a427d204badb7c348", null ],
       [ "getPluginDynamicLibraryAt", "structSC_1_1PluginRegistry.html#a804997c206a1e1880fa0452c61c534e2", null ],
       [ "getPluginsToReloadBecauseOf", "structSC_1_1PluginRegistry.html#a6999a4037a0469210379ffa793b86fbc", null ],
       [ "init", "structSC_1_1PluginRegistry.html#a1d95d2bcfa848f41ebcf0db2edf56b0c", null ],
-      [ "loadPlugin", "structSC_1_1PluginRegistry.html#a9422c35d5ed7f8a34aad38cad0c2b572", null ],
-      [ "removeAllBuildProducts", "structSC_1_1PluginRegistry.html#ab8eb06ca2b420bb685f3bf6979e69f47", null ],
-      [ "replaceDefinitions", "structSC_1_1PluginRegistry.html#ab46dbf4dae5a931aedc46d283478513b", null ],
-      [ "unloadPlugin", "structSC_1_1PluginRegistry.html#aaa55e26c6ee4ae93477b65d7bbaa2c22", null ]
-    ] ]
+      [ "loadPlugin", "structSC_1_1PluginRegistry.html#ad51cfdc28d677ff32dca8dea83e2e6bc", null ],
+      [ "removeAllBuildProducts", "structSC_1_1PluginRegistry.html#a6f3c269e5aa2347c0ef69a09f6b58d6a", null ],
+      [ "replaceDefinitions", "structSC_1_1PluginRegistry.html#a618fd2b9b33881ef47a23a2323950f8b", null ],
+      [ "unloadPlugin", "structSC_1_1PluginRegistry.html#ae7d1afd7e1a2849364c4d08874abd87f", null ]
+    ] ],
+    [ "SC::PluginErrorContext", "unionSC_1_1PluginErrorContext.html", [
+      [ "ExitCode", "structSC_1_1PluginErrorContext_1_1ExitCode.html", null ],
+      [ "RequiredBytes", "structSC_1_1PluginErrorContext_1_1RequiredBytes.html", null ],
+      [ "RequiredElements", "structSC_1_1PluginErrorContext_1_1RequiredElements.html", null ]
+    ] ],
+    [ "SC::ResultPlugin", "structSC_1_1ResultPlugin.html", null ],
+    [ "SC::PluginError", "group__group__plugin.html#gaaa10816004c792e61383e80166a379cd", null ],
+    [ "SC::PluginErrorContextKind", "group__group__plugin.html#ga4287be73d7366813456a63357a509e35", null ],
+    [ "SC::PluginErrorDetail", "group__group__plugin.html#ga98e5593d470929f3dde32708eb514aa7", null ]
 ];

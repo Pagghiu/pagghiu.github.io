@@ -124,7 +124,9 @@ $(function(){initNavTree('group__group__file__system__iterator.html',''); initRe
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">FileSystem Iterator</div></div>
 </div><!--header-->
 <div class="contents">
@@ -137,9 +139,222 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1FileSystemIterator.html">SC::FileSystemIterator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates files and directories inside a given path without allocating any memory.  <a href="structSC_1_1FileSystemIterator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1ResultFileSystemIterator.html">SC::ResultFileSystemIterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structSC_1_1FileSystemIterator.html" title="Iterates files and directories inside a given path without allocating any memory.">FileSystemIterator</a> result retaining optional native, backend-stage, and directory-depth details.  <a href="structSC_1_1ResultFileSystemIterator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga98130a6992d9bbf3180067227e62342d" id="r_ga98130a6992d9bbf3180067227e62342d"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga98130a6992d9bbf3180067227e62342d">SC::FileSystemIteratorError</a> : uint32_t { <br />
+&#160;&#160;<b>NotInitialized</b> = 1
+, <br />
+&#160;&#160;<b>InvalidRecursionState</b>
+, <br />
+&#160;&#160;<b>UnsupportedPathEncoding</b>
+, <br />
+&#160;&#160;<b>PathTooLong</b>
+, <br />
+&#160;&#160;<b>RecursionLimitExceeded</b>
+, <br />
+&#160;&#160;<b>PathResolutionFailed</b>
+, <br />
+&#160;&#160;<b>OpenDirectoryFailed</b>
+, <br />
+&#160;&#160;<b>DirectoryEnumerationFailed</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga98130a6992d9bbf3180067227e62342d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable error codes returned by the FileSystemIterator library.  <a href="#ga98130a6992d9bbf3180067227e62342d">More...</a><br /></td></tr>
+<tr class="separator:ga98130a6992d9bbf3180067227e62342d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa034e2398ce735ae47327afada301d9" id="r_gaaa034e2398ce735ae47327afada301d9"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaaa034e2398ce735ae47327afada301d9">SC::FileSystemIteratorErrorDetail</a> : uint16_t { <br />
+&#160;&#160;<b>None</b> = 0
+, <br />
+&#160;&#160;<b>WindowsResolveLogicalPath</b>
+, <br />
+&#160;&#160;<b>BuildPath</b>
+, <br />
+&#160;&#160;<b>PosixOpen</b>
+, <br />
+&#160;&#160;<b>PosixFdOpenDir</b>
+, <br />
+&#160;&#160;<b>WindowsFindFirstFile</b>
+, <br />
+&#160;&#160;<b>PushRecursionState</b>
+, <br />
+&#160;&#160;<b>PosixReadDir</b>
+, <br />
+&#160;&#160;<b>WindowsFindNextFile</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:gaaa034e2398ce735ae47327afada301d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable detail identifying the backend stage of a FileSystemIterator failure.  <a href="#gaaa034e2398ce735ae47327afada301d9">More...</a><br /></td></tr>
+<tr class="separator:gaaa034e2398ce735ae47327afada301d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gabf4fa321d794c4894e01f49be2984a01" id="r_gabf4fa321d794c4894e01f49be2984a01"><td class="memItemLeft" align="right" valign="top">ResultErrorFormat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabf4fa321d794c4894e01f49be2984a01">SC::formatFileSystemIteratorError</a> (<a class="el" href="#ga98130a6992d9bbf3180067227e62342d">FileSystemIteratorError</a> error, Span&lt; char &gt; output)</td></tr>
+<tr class="memdesc:gabf4fa321d794c4894e01f49be2984a01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a canonical English <a class="el" href="structSC_1_1FileSystemIterator.html" title="Iterates files and directories inside a given path without allocating any memory.">FileSystemIterator</a> diagnostic into caller-owned storage.  <br /></td></tr>
+<tr class="separator:gabf4fa321d794c4894e01f49be2984a01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2069a89984fd960d3c83dd03c5c6308a" id="r_ga2069a89984fd960d3c83dd03c5c6308a"><td class="memItemLeft" align="right" valign="top">ResultErrorFormat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2069a89984fd960d3c83dd03c5c6308a">SC::formatFileSystemIteratorError</a> (Result result, Span&lt; char &gt; output)</td></tr>
+<tr class="memdesc:ga2069a89984fd960d3c83dd03c5c6308a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a plain Result when it contains a <a class="el" href="structSC_1_1FileSystemIterator.html" title="Iterates files and directories inside a given path without allocating any memory.">FileSystemIterator</a> error.  <br /></td></tr>
+<tr class="separator:ga2069a89984fd960d3c83dd03c5c6308a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadbd3390ba5cd909f6674e1ab3beaccf1" id="r_gadbd3390ba5cd909f6674e1ab3beaccf1"><td class="memItemLeft" align="right" valign="top">ResultErrorFormat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gadbd3390ba5cd909f6674e1ab3beaccf1">SC::formatFileSystemIteratorError</a> (<a class="el" href="structSC_1_1ResultFileSystemIterator.html">ResultFileSystemIterator</a> result, Span&lt; char &gt; output)</td></tr>
+<tr class="memdesc:gadbd3390ba5cd909f6674e1ab3beaccf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a <a class="el" href="structSC_1_1FileSystemIterator.html" title="Iterates files and directories inside a given path without allocating any memory.">FileSystemIterator</a> result, including its fixed-size context when available.  <br /></td></tr>
+<tr class="separator:gadbd3390ba5cd909f6674e1ab3beaccf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>🟩 Allocation-free, pull-based directory traversal    (see <a class="el" href="library_file_system_iterator.html">File System Iterator</a> for more details) </p>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga98130a6992d9bbf3180067227e62342d" name="ga98130a6992d9bbf3180067227e62342d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga98130a6992d9bbf3180067227e62342d">&#9670;&#160;</a></span>FileSystemIteratorError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ga98130a6992d9bbf3180067227e62342d">SC::FileSystemIteratorError</a> : uint32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;FileSystemIteratorError.h&gt;</code></p>
+
+<p>Stable error codes returned by the <a class="el" href="structSC_1_1FileSystemIterator.html" title="Iterates files and directories inside a given path without allocating any memory.">FileSystemIterator</a> library. </p>
+
+</div>
+</div>
+<a id="gaaa034e2398ce735ae47327afada301d9" name="gaaa034e2398ce735ae47327afada301d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaa034e2398ce735ae47327afada301d9">&#9670;&#160;</a></span>FileSystemIteratorErrorDetail</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#gaaa034e2398ce735ae47327afada301d9">SC::FileSystemIteratorErrorDetail</a> : uint16_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;FileSystemIteratorError.h&gt;</code></p>
+
+<p>Stable detail identifying the backend stage of a <a class="el" href="structSC_1_1FileSystemIterator.html" title="Iterates files and directories inside a given path without allocating any memory.">FileSystemIterator</a> failure. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gabf4fa321d794c4894e01f49be2984a01" name="gabf4fa321d794c4894e01f49be2984a01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabf4fa321d794c4894e01f49be2984a01">&#9670;&#160;</a></span>formatFileSystemIteratorError() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ResultErrorFormat SC::formatFileSystemIteratorError </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ga98130a6992d9bbf3180067227e62342d">FileSystemIteratorError</a></td>          <td class="paramname"><span class="paramname"><em>error</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;FileSystemIteratorErrorFormatter.h&gt;</code></p>
+
+<p>Formats a canonical English <a class="el" href="structSC_1_1FileSystemIterator.html" title="Iterates files and directories inside a given path without allocating any memory.">FileSystemIterator</a> diagnostic into caller-owned storage. </p>
+
+</div>
+</div>
+<a id="ga2069a89984fd960d3c83dd03c5c6308a" name="ga2069a89984fd960d3c83dd03c5c6308a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2069a89984fd960d3c83dd03c5c6308a">&#9670;&#160;</a></span>formatFileSystemIteratorError() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ResultErrorFormat SC::formatFileSystemIteratorError </td>
+          <td>(</td>
+          <td class="paramtype">Result</td>          <td class="paramname"><span class="paramname"><em>result</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;FileSystemIteratorErrorFormatter.h&gt;</code></p>
+
+<p>Formats a plain Result when it contains a <a class="el" href="structSC_1_1FileSystemIterator.html" title="Iterates files and directories inside a given path without allocating any memory.">FileSystemIterator</a> error. </p>
+
+</div>
+</div>
+<a id="gadbd3390ba5cd909f6674e1ab3beaccf1" name="gadbd3390ba5cd909f6674e1ab3beaccf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadbd3390ba5cd909f6674e1ab3beaccf1">&#9670;&#160;</a></span>formatFileSystemIteratorError() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ResultErrorFormat SC::formatFileSystemIteratorError </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSC_1_1ResultFileSystemIterator.html">ResultFileSystemIterator</a></td>          <td class="paramname"><span class="paramname"><em>result</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;FileSystemIteratorErrorFormatter.h&gt;</code></p>
+
+<p>Formats a <a class="el" href="structSC_1_1FileSystemIterator.html" title="Iterates files and directories inside a given path without allocating any memory.">FileSystemIterator</a> result, including its fixed-size context when available. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

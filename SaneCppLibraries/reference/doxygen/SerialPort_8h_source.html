@@ -137,81 +137,83 @@ $(function(){initNavTree('SerialPort_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define SC_SERIAL_PORT_EXPORT SC_COMPILER_LIBRARY_EXPORT(SC_EXPORT_LIBRARY_SERIAL_PORT)</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;../File/File.h&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span>SC</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structSC_1_1SerialSettings.html">   23</a></span><span class="keyword">struct </span>SC_SERIAL_PORT_EXPORT <a class="code hl_struct" href="structSC_1_1SerialSettings.html">SerialSettings</a></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>{</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">enum class</span> DataBits : uint8_t</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    {</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        Bits5 = 5,</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        Bits6 = 6,</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        Bits7 = 7,</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        Bits8 = 8,</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    };</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">enum class</span> Parity : uint8_t</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        None = 0,</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        Odd,</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        Even,</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    };</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">enum class</span> StopBits : uint8_t</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        One = 1,</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        Two = 2,</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    };</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">enum class</span> FlowControl : uint8_t</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        None = 0,</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        Software,</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        Hardware,</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    };</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    uint32_t    baudRate    = 9600;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    DataBits    dataBits    = DataBits::Bits8;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    Parity      parity      = Parity::None;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    StopBits    stopBits    = StopBits::One;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    FlowControl flowControl = FlowControl::None;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>};</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;SerialPortError.h&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span>SC</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structSC_1_1SerialSettings.html">   24</a></span><span class="keyword">struct </span>SC_SERIAL_PORT_EXPORT <a class="code hl_struct" href="structSC_1_1SerialSettings.html">SerialSettings</a></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">enum class</span> DataBits : uint8_t</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        Bits5 = 5,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        Bits6 = 6,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        Bits7 = 7,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        Bits8 = 8,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    };</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">enum class</span> Parity : uint8_t</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        None = 0,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        Odd,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        Even,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    };</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">enum class</span> StopBits : uint8_t</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        One = 1,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        Two = 2,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    };</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">enum class</span> FlowControl : uint8_t</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        None = 0,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        Software,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        Hardware,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    };</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    uint32_t    baudRate    = 9600;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    DataBits    dataBits    = DataBits::Bits8;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    Parity      parity      = Parity::None;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    StopBits    stopBits    = StopBits::One;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    FlowControl flowControl = FlowControl::None;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
 </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="foldopen" id="foldopen00061" data-start="{" data-end="};">
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structSC_1_1SerialOpenOptions.html">   61</a></span><span class="keyword">struct </span>SC_SERIAL_PORT_EXPORT <a class="code hl_struct" href="structSC_1_1SerialOpenOptions.html">SerialOpenOptions</a></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>{</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">bool</span> blocking    = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">bool</span> inheritable = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">bool</span> exclusive   = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_struct" href="structSC_1_1SerialSettings.html">SerialSettings</a> settings;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>};</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="foldopen" id="foldopen00062" data-start="{" data-end="};">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="structSC_1_1SerialOpenOptions.html">   62</a></span><span class="keyword">struct </span>SC_SERIAL_PORT_EXPORT <a class="code hl_struct" href="structSC_1_1SerialOpenOptions.html">SerialOpenOptions</a></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>{</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">bool</span> blocking    = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">bool</span> inheritable = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">bool</span> exclusive   = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_struct" href="structSC_1_1SerialSettings.html">SerialSettings</a> settings;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>};</div>
 </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="foldopen" id="foldopen00072" data-start="{" data-end="};">
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="structSC_1_1SerialDescriptor.html">   72</a></span><span class="keyword">struct </span>SC_SERIAL_PORT_EXPORT <a class="code hl_struct" href="structSC_1_1SerialDescriptor.html">SerialDescriptor</a> : <span class="keyword">public</span> <a class="code hl_struct" href="structSC_1_1FileDescriptor.html">FileDescriptor</a></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>{</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="structSC_1_1SerialDescriptor.html#a1c381c7077766780e66954364c7227f9">   78</a></span>    Result <a class="code hl_function" href="structSC_1_1SerialDescriptor.html#a1c381c7077766780e66954364c7227f9">open</a>(StringSpan path, <span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1SerialOpenOptions.html">SerialOpenOptions</a>&amp; options = <a class="code hl_struct" href="structSC_1_1SerialOpenOptions.html">SerialOpenOptions</a>());</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="structSC_1_1SerialDescriptor.html#a97637bcc3759773ec894ffd7acde368d">   83</a></span>    Result <a class="code hl_function" href="structSC_1_1SerialDescriptor.html#a97637bcc3759773ec894ffd7acde368d">setSettings</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1SerialSettings.html">SerialSettings</a>&amp; settings);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="structSC_1_1SerialDescriptor.html#aa2c7c645b72963c19762734a6e45f5c0">   88</a></span>    Result <a class="code hl_function" href="structSC_1_1SerialDescriptor.html#aa2c7c645b72963c19762734a6e45f5c0">getSettings</a>(<a class="code hl_struct" href="structSC_1_1SerialSettings.html">SerialSettings</a>&amp; settings) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>};</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="};">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="structSC_1_1SerialDescriptor.html">   73</a></span><span class="keyword">struct </span>SC_SERIAL_PORT_EXPORT <a class="code hl_struct" href="structSC_1_1SerialDescriptor.html">SerialDescriptor</a> : <span class="keyword">public</span> <a class="code hl_struct" href="structSC_1_1FileDescriptor.html">FileDescriptor</a></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>{</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="structSC_1_1SerialDescriptor.html#a7366541f16850e201487de010a5613ec">   79</a></span>    <a class="code hl_struct" href="structSC_1_1ResultSerialPort.html">ResultSerialPort</a> <a class="code hl_function" href="structSC_1_1SerialDescriptor.html#a7366541f16850e201487de010a5613ec">open</a>(StringSpan path, <span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1SerialOpenOptions.html">SerialOpenOptions</a>&amp; options = <a class="code hl_struct" href="structSC_1_1SerialOpenOptions.html">SerialOpenOptions</a>());</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="structSC_1_1SerialDescriptor.html#a5326dd95fe5d3c7f58c5ccefc0c02605">   84</a></span>    <a class="code hl_struct" href="structSC_1_1ResultSerialPort.html">ResultSerialPort</a> <a class="code hl_function" href="structSC_1_1SerialDescriptor.html#a5326dd95fe5d3c7f58c5ccefc0c02605">setSettings</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1SerialSettings.html">SerialSettings</a>&amp; settings);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="structSC_1_1SerialDescriptor.html#a7930c5e697668d1cddb5dd4733820569">   89</a></span>    <a class="code hl_struct" href="structSC_1_1ResultSerialPort.html">ResultSerialPort</a> <a class="code hl_function" href="structSC_1_1SerialDescriptor.html#a7930c5e697668d1cddb5dd4733820569">getSettings</a>(<a class="code hl_struct" href="structSC_1_1SerialSettings.html">SerialSettings</a>&amp; settings) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>};</div>
 </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>} <span class="comment">// namespace SC</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>} <span class="comment">// namespace SC</span></div>
 <div class="ttc" id="astructSC_1_1FileDescriptor_html"><div class="ttname"><a href="structSC_1_1FileDescriptor.html">SC::FileDescriptor</a></div><div class="ttdoc">[UniqueHandleDeclaration2Snippet]</div><div class="ttdef"><b>Definition</b> File.h:130</div></div>
-<div class="ttc" id="astructSC_1_1SerialDescriptor_html"><div class="ttname"><a href="structSC_1_1SerialDescriptor.html">SC::SerialDescriptor</a></div><div class="ttdoc">Native serial port descriptor with configuration support.</div><div class="ttdef"><b>Definition</b> SerialPort.h:73</div></div>
-<div class="ttc" id="astructSC_1_1SerialDescriptor_html_a1c381c7077766780e66954364c7227f9"><div class="ttname"><a href="structSC_1_1SerialDescriptor.html#a1c381c7077766780e66954364c7227f9">SC::SerialDescriptor::open</a></div><div class="ttdeci">Result open(StringSpan path, const SerialOpenOptions &amp;options=SerialOpenOptions())</div><div class="ttdoc">Opens a serial port and applies the requested settings.</div></div>
-<div class="ttc" id="astructSC_1_1SerialDescriptor_html_a97637bcc3759773ec894ffd7acde368d"><div class="ttname"><a href="structSC_1_1SerialDescriptor.html#a97637bcc3759773ec894ffd7acde368d">SC::SerialDescriptor::setSettings</a></div><div class="ttdeci">Result setSettings(const SerialSettings &amp;settings)</div><div class="ttdoc">Applies settings to an already opened serial descriptor.</div></div>
-<div class="ttc" id="astructSC_1_1SerialDescriptor_html_aa2c7c645b72963c19762734a6e45f5c0"><div class="ttname"><a href="structSC_1_1SerialDescriptor.html#aa2c7c645b72963c19762734a6e45f5c0">SC::SerialDescriptor::getSettings</a></div><div class="ttdeci">Result getSettings(SerialSettings &amp;settings) const</div><div class="ttdoc">Reads current settings from an opened serial descriptor.</div></div>
-<div class="ttc" id="astructSC_1_1SerialOpenOptions_html"><div class="ttname"><a href="structSC_1_1SerialOpenOptions.html">SC::SerialOpenOptions</a></div><div class="ttdoc">Open options for a serial descriptor.</div><div class="ttdef"><b>Definition</b> SerialPort.h:62</div></div>
-<div class="ttc" id="astructSC_1_1SerialSettings_html"><div class="ttname"><a href="structSC_1_1SerialSettings.html">SC::SerialSettings</a></div><div class="ttdoc">Serial port settings.</div><div class="ttdef"><b>Definition</b> SerialPort.h:24</div></div>
+<div class="ttc" id="astructSC_1_1ResultSerialPort_html"><div class="ttname"><a href="structSC_1_1ResultSerialPort.html">SC::ResultSerialPort</a></div><div class="ttdoc">SerialPort result retaining optional lower-level and native error details.</div><div class="ttdef"><b>Definition</b> SerialPortError.h:60</div></div>
+<div class="ttc" id="astructSC_1_1SerialDescriptor_html"><div class="ttname"><a href="structSC_1_1SerialDescriptor.html">SC::SerialDescriptor</a></div><div class="ttdoc">Native serial port descriptor with configuration support.</div><div class="ttdef"><b>Definition</b> SerialPort.h:74</div></div>
+<div class="ttc" id="astructSC_1_1SerialDescriptor_html_a5326dd95fe5d3c7f58c5ccefc0c02605"><div class="ttname"><a href="structSC_1_1SerialDescriptor.html#a5326dd95fe5d3c7f58c5ccefc0c02605">SC::SerialDescriptor::setSettings</a></div><div class="ttdeci">ResultSerialPort setSettings(const SerialSettings &amp;settings)</div><div class="ttdoc">Applies settings to an already opened serial descriptor.</div></div>
+<div class="ttc" id="astructSC_1_1SerialDescriptor_html_a7366541f16850e201487de010a5613ec"><div class="ttname"><a href="structSC_1_1SerialDescriptor.html#a7366541f16850e201487de010a5613ec">SC::SerialDescriptor::open</a></div><div class="ttdeci">ResultSerialPort open(StringSpan path, const SerialOpenOptions &amp;options=SerialOpenOptions())</div><div class="ttdoc">Opens a serial port and applies the requested settings.</div></div>
+<div class="ttc" id="astructSC_1_1SerialDescriptor_html_a7930c5e697668d1cddb5dd4733820569"><div class="ttname"><a href="structSC_1_1SerialDescriptor.html#a7930c5e697668d1cddb5dd4733820569">SC::SerialDescriptor::getSettings</a></div><div class="ttdeci">ResultSerialPort getSettings(SerialSettings &amp;settings) const</div><div class="ttdoc">Reads current settings from an opened serial descriptor.</div></div>
+<div class="ttc" id="astructSC_1_1SerialOpenOptions_html"><div class="ttname"><a href="structSC_1_1SerialOpenOptions.html">SC::SerialOpenOptions</a></div><div class="ttdoc">Open options for a serial descriptor.</div><div class="ttdef"><b>Definition</b> SerialPort.h:63</div></div>
+<div class="ttc" id="astructSC_1_1SerialSettings_html"><div class="ttname"><a href="structSC_1_1SerialSettings.html">SC::SerialSettings</a></div><div class="ttdoc">Serial port settings.</div><div class="ttdef"><b>Definition</b> SerialPort.h:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

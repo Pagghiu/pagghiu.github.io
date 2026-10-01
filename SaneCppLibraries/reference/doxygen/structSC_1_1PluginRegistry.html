@@ -152,21 +152,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1d95d2bcfa848f41ebcf0db2edf56b0c" id="r_a1d95d2bcfa848f41ebcf0db2edf56b0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d95d2bcfa848f41ebcf0db2edf56b0c">init</a> (Span&lt; <a class="el" href="structSC_1_1PluginDynamicLibrary.html">PluginDynamicLibrary</a> &gt; librariesStorage)</td></tr>
 <tr class="memdesc:a1d95d2bcfa848f41ebcf0db2edf56b0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Init a <a class="el" href="structSC_1_1PluginRegistry.html" title="Holds a registry of plugins, loading and compiling them on the fly.">PluginRegistry</a> with some given storage.  <br /></td></tr>
 <tr class="separator:a1d95d2bcfa848f41ebcf0db2edf56b0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac855eaebfbcfc92ed8ca477104e0024" id="r_aac855eaebfbcfc92ed8ca477104e0024"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac855eaebfbcfc92ed8ca477104e0024">close</a> ()</td></tr>
-<tr class="memdesc:aac855eaebfbcfc92ed8ca477104e0024"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregisters all plugins.  <br /></td></tr>
-<tr class="separator:aac855eaebfbcfc92ed8ca477104e0024"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab46dbf4dae5a931aedc46d283478513b" id="r_ab46dbf4dae5a931aedc46d283478513b"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab46dbf4dae5a931aedc46d283478513b">replaceDefinitions</a> (Span&lt; <a class="el" href="structSC_1_1PluginDefinition.html">PluginDefinition</a> &gt; &amp;&amp;definitions)</td></tr>
-<tr class="memdesc:ab46dbf4dae5a931aedc46d283478513b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends the definitions to registry.  <br /></td></tr>
-<tr class="separator:ab46dbf4dae5a931aedc46d283478513b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9422c35d5ed7f8a34aad38cad0c2b572" id="r_a9422c35d5ed7f8a34aad38cad0c2b572"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9422c35d5ed7f8a34aad38cad0c2b572">loadPlugin</a> (StringSpan identifier, const <a class="el" href="structSC_1_1PluginCompiler.html">PluginCompiler</a> &amp;compiler, const <a class="el" href="structSC_1_1PluginSysroot.html">PluginSysroot</a> &amp;sysroot, StringSpan executablePath, <a class="el" href="#a0ab8576eabd1ec66c5093af93f7d0513">LoadMode</a> loadMode=LoadMode::Load)</td></tr>
-<tr class="memdesc:a9422c35d5ed7f8a34aad38cad0c2b572"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a plugin with given identifier, compiling it with given <a class="el" href="structSC_1_1PluginCompiler.html" title="Compiles a plugin to a dynamic library.">PluginCompiler</a>.  <br /></td></tr>
-<tr class="separator:a9422c35d5ed7f8a34aad38cad0c2b572"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa55e26c6ee4ae93477b65d7bbaa2c22" id="r_aaa55e26c6ee4ae93477b65d7bbaa2c22"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa55e26c6ee4ae93477b65d7bbaa2c22">unloadPlugin</a> (StringSpan identifier)</td></tr>
-<tr class="memdesc:aaa55e26c6ee4ae93477b65d7bbaa2c22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unloads an already loaded plugin by its identifier.  <br /></td></tr>
-<tr class="separator:aaa55e26c6ee4ae93477b65d7bbaa2c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8eb06ca2b420bb685f3bf6979e69f47" id="r_ab8eb06ca2b420bb685f3bf6979e69f47"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8eb06ca2b420bb685f3bf6979e69f47">removeAllBuildProducts</a> (StringSpan identifier)</td></tr>
-<tr class="memdesc:ab8eb06ca2b420bb685f3bf6979e69f47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all temporary build products of the Plugin with given identifier.  <br /></td></tr>
-<tr class="separator:ab8eb06ca2b420bb685f3bf6979e69f47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4814f684b55c0679ae123709d49fcc80" id="r_a4814f684b55c0679ae123709d49fcc80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultPlugin.html">ResultPlugin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4814f684b55c0679ae123709d49fcc80">close</a> ()</td></tr>
+<tr class="memdesc:a4814f684b55c0679ae123709d49fcc80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregisters all plugins.  <br /></td></tr>
+<tr class="separator:a4814f684b55c0679ae123709d49fcc80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a618fd2b9b33881ef47a23a2323950f8b" id="r_a618fd2b9b33881ef47a23a2323950f8b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultPlugin.html">ResultPlugin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a618fd2b9b33881ef47a23a2323950f8b">replaceDefinitions</a> (Span&lt; <a class="el" href="structSC_1_1PluginDefinition.html">PluginDefinition</a> &gt; &amp;&amp;definitions)</td></tr>
+<tr class="memdesc:a618fd2b9b33881ef47a23a2323950f8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends the definitions to registry.  <br /></td></tr>
+<tr class="separator:a618fd2b9b33881ef47a23a2323950f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad51cfdc28d677ff32dca8dea83e2e6bc" id="r_ad51cfdc28d677ff32dca8dea83e2e6bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultPlugin.html">ResultPlugin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad51cfdc28d677ff32dca8dea83e2e6bc">loadPlugin</a> (StringSpan identifier, const <a class="el" href="structSC_1_1PluginCompiler.html">PluginCompiler</a> &amp;compiler, const <a class="el" href="structSC_1_1PluginSysroot.html">PluginSysroot</a> &amp;sysroot, StringSpan executablePath, <a class="el" href="#a0ab8576eabd1ec66c5093af93f7d0513">LoadMode</a> loadMode=LoadMode::Load)</td></tr>
+<tr class="memdesc:ad51cfdc28d677ff32dca8dea83e2e6bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a plugin with given identifier, compiling it with given <a class="el" href="structSC_1_1PluginCompiler.html" title="Compiles a plugin to a dynamic library.">PluginCompiler</a>.  <br /></td></tr>
+<tr class="separator:ad51cfdc28d677ff32dca8dea83e2e6bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7d1afd7e1a2849364c4d08874abd87f" id="r_ae7d1afd7e1a2849364c4d08874abd87f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultPlugin.html">ResultPlugin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7d1afd7e1a2849364c4d08874abd87f">unloadPlugin</a> (StringSpan identifier)</td></tr>
+<tr class="memdesc:ae7d1afd7e1a2849364c4d08874abd87f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unloads an already loaded plugin by its identifier.  <br /></td></tr>
+<tr class="separator:ae7d1afd7e1a2849364c4d08874abd87f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f3c269e5aa2347c0ef69a09f6b58d6a" id="r_a6f3c269e5aa2347c0ef69a09f6b58d6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultPlugin.html">ResultPlugin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f3c269e5aa2347c0ef69a09f6b58d6a">removeAllBuildProducts</a> (StringSpan identifier)</td></tr>
+<tr class="memdesc:a6f3c269e5aa2347c0ef69a09f6b58d6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all temporary build products of the Plugin with given identifier.  <br /></td></tr>
+<tr class="separator:a6f3c269e5aa2347c0ef69a09f6b58d6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14bb30fc789c448a09f5ddb118368ac1" id="r_a14bb30fc789c448a09f5ddb118368ac1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1PluginDynamicLibrary.html">PluginDynamicLibrary</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14bb30fc789c448a09f5ddb118368ac1">findPlugin</a> (StringSpan identifier)</td></tr>
 <tr class="memdesc:a14bb30fc789c448a09f5ddb118368ac1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a <a class="el" href="structSC_1_1PluginDynamicLibrary.html" title="A plugin dynamic library loaded from a SC::PluginRegistry.">PluginDynamicLibrary</a> in the registry with a given identifier.  <br /></td></tr>
 <tr class="separator:a14bb30fc789c448a09f5ddb118368ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -211,14 +211,14 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aac855eaebfbcfc92ed8ca477104e0024" name="aac855eaebfbcfc92ed8ca477104e0024"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac855eaebfbcfc92ed8ca477104e0024">&#9670;&#160;</a></span>close()</h2>
+<a id="a4814f684b55c0679ae123709d49fcc80" name="a4814f684b55c0679ae123709d49fcc80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4814f684b55c0679ae123709d49fcc80">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::PluginRegistry::close </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultPlugin.html">ResultPlugin</a> SC::PluginRegistry::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -400,14 +400,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a9422c35d5ed7f8a34aad38cad0c2b572" name="a9422c35d5ed7f8a34aad38cad0c2b572"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9422c35d5ed7f8a34aad38cad0c2b572">&#9670;&#160;</a></span>loadPlugin()</h2>
+<a id="ad51cfdc28d677ff32dca8dea83e2e6bc" name="ad51cfdc28d677ff32dca8dea83e2e6bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad51cfdc28d677ff32dca8dea83e2e6bc">&#9670;&#160;</a></span>loadPlugin()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::PluginRegistry::loadPlugin </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultPlugin.html">ResultPlugin</a> SC::PluginRegistry::loadPlugin </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>identifier</em></span>, </td>
         </tr>
@@ -449,14 +449,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab8eb06ca2b420bb685f3bf6979e69f47" name="ab8eb06ca2b420bb685f3bf6979e69f47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8eb06ca2b420bb685f3bf6979e69f47">&#9670;&#160;</a></span>removeAllBuildProducts()</h2>
+<a id="a6f3c269e5aa2347c0ef69a09f6b58d6a" name="a6f3c269e5aa2347c0ef69a09f6b58d6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f3c269e5aa2347c0ef69a09f6b58d6a">&#9670;&#160;</a></span>removeAllBuildProducts()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::PluginRegistry::removeAllBuildProducts </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultPlugin.html">ResultPlugin</a> SC::PluginRegistry::removeAllBuildProducts </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>identifier</em></span></td><td>)</td>
           <td></td>
@@ -475,14 +475,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab46dbf4dae5a931aedc46d283478513b" name="ab46dbf4dae5a931aedc46d283478513b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab46dbf4dae5a931aedc46d283478513b">&#9670;&#160;</a></span>replaceDefinitions()</h2>
+<a id="a618fd2b9b33881ef47a23a2323950f8b" name="a618fd2b9b33881ef47a23a2323950f8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a618fd2b9b33881ef47a23a2323950f8b">&#9670;&#160;</a></span>replaceDefinitions()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::PluginRegistry::replaceDefinitions </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultPlugin.html">ResultPlugin</a> SC::PluginRegistry::replaceDefinitions </td>
           <td>(</td>
           <td class="paramtype">Span&lt; <a class="el" href="structSC_1_1PluginDefinition.html">PluginDefinition</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>definitions</em></span></td><td>)</td>
           <td></td>
@@ -501,14 +501,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aaa55e26c6ee4ae93477b65d7bbaa2c22" name="aaa55e26c6ee4ae93477b65d7bbaa2c22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa55e26c6ee4ae93477b65d7bbaa2c22">&#9670;&#160;</a></span>unloadPlugin()</h2>
+<a id="ae7d1afd7e1a2849364c4d08874abd87f" name="ae7d1afd7e1a2849364c4d08874abd87f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7d1afd7e1a2849364c4d08874abd87f">&#9670;&#160;</a></span>unloadPlugin()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Result SC::PluginRegistry::unloadPlugin </td>
+          <td class="memname"><a class="el" href="structSC_1_1ResultPlugin.html">ResultPlugin</a> SC::PluginRegistry::unloadPlugin </td>
           <td>(</td>
           <td class="paramtype">StringSpan</td>          <td class="paramname"><span class="paramname"><em>identifier</em></span></td><td>)</td>
           <td></td>

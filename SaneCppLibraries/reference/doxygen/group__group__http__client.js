@@ -85,5 +85,6 @@ var group__group__http__client =
     ] ],
     [ "SC::HttpClientSessionRetryPolicy", "structSC_1_1HttpClientSessionRetryPolicy.html", null ],
     [ "SC::HttpClientSessionRetryState", "structSC_1_1HttpClientSessionRetryState.html", null ],
-    [ "SC::HttpClientSession", "structSC_1_1HttpClientSession.html", null ]
+    [ "SC::HttpClientSession", "structSC_1_1HttpClientSession.html", null ],
+    [ "SC::HttpClientError", "group__group__http__client.html#gadc2093ee5ab238a6a2f9130c19d0aa89", null ]
 ];

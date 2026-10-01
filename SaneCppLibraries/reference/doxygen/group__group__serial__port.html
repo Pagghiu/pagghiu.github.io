@@ -124,7 +124,9 @@ $(function(){initNavTree('group__group__serial__port.html',''); initResizable(tr
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">SerialPort</div></div>
 </div><!--header-->
 <div class="contents">
@@ -143,9 +145,250 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1SerialDescriptor.html">SC::SerialDescriptor</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Native serial port descriptor with configuration support.  <a href="structSC_1_1SerialDescriptor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1ResultSerialPort.html">SC::ResultSerialPort</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">SerialPort result retaining optional lower-level and native error details.  <a href="structSC_1_1ResultSerialPort.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gad6489303946b05bff93580733928637d" id="r_gad6489303946b05bff93580733928637d"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad6489303946b05bff93580733928637d">SC::SerialPortError</a> : uint32_t { <br />
+&#160;&#160;<b>InvalidBaudRate</b> = 1
+, <br />
+&#160;&#160;<b>InvalidDataBits</b>
+, <br />
+&#160;&#160;<b>InvalidParity</b>
+, <br />
+&#160;&#160;<b>InvalidStopBits</b>
+, <br />
+&#160;&#160;<b>InvalidFlowControl</b>
+, <br />
+&#160;&#160;<b>InvalidHandle</b>
+, <br />
+&#160;&#160;<b>UnsupportedPathEncoding</b>
+, <br />
+&#160;&#160;<b>InvalidPath</b>
+, <br />
+&#160;&#160;<b>PathMustBeAbsolute</b>
+, <br />
+&#160;&#160;<b>OpenFailed</b>
+, <br />
+&#160;&#160;<b>ReadSettingsFailed</b>
+, <br />
+&#160;&#160;<b>SetSettingsFailed</b>
+, <br />
+&#160;&#160;<b>UnsupportedHardwareFlowControl</b>
+, <br />
+&#160;&#160;<b>UnsupportedBaudRate</b>
+, <br />
+&#160;&#160;<b>UnsupportedDataBits</b>
+, <br />
+&#160;&#160;<b>UnsupportedParity</b>
+, <br />
+&#160;&#160;<b>UnsupportedStopBits</b>
+, <br />
+&#160;&#160;<b>PathTooLong</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:gad6489303946b05bff93580733928637d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable error codes returned by the SerialPort library.  <a href="#gad6489303946b05bff93580733928637d">More...</a><br /></td></tr>
+<tr class="separator:gad6489303946b05bff93580733928637d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4c84cfa0727c31d4e89ec63596150b15" id="r_ga4c84cfa0727c31d4e89ec63596150b15"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4c84cfa0727c31d4e89ec63596150b15">SC::SerialPortErrorDetail</a> : uint32_t { <br />
+&#160;&#160;<b>None</b> = 0
+, <br />
+&#160;&#160;<b>PosixOpen</b>
+, <br />
+&#160;&#160;<b>PosixReadDescriptorFlags</b>
+, <br />
+&#160;&#160;<b>PosixSetDescriptorFlags</b>
+, <br />
+&#160;&#160;<b>PosixReadSettings</b>
+, <br />
+&#160;&#160;<b>PosixSetInputBaudRate</b>
+, <br />
+&#160;&#160;<b>PosixSetOutputBaudRate</b>
+, <br />
+&#160;&#160;<b>PosixSetSettings</b>
+, <br />
+&#160;&#160;<b>WindowsCreateFile</b>
+, <br />
+&#160;&#160;<b>WindowsSetTimeouts</b>
+, <br />
+&#160;&#160;<b>WindowsReadSettings</b>
+, <br />
+&#160;&#160;<b>WindowsSetSettings</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga4c84cfa0727c31d4e89ec63596150b15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable lower-level and backend-specific context for a SerialPort error.  <a href="#ga4c84cfa0727c31d4e89ec63596150b15">More...</a><br /></td></tr>
+<tr class="separator:ga4c84cfa0727c31d4e89ec63596150b15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gaef6cfde2aee620895234ba489da2864d" id="r_gaef6cfde2aee620895234ba489da2864d"><td class="memItemLeft" align="right" valign="top">ResultErrorFormat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaef6cfde2aee620895234ba489da2864d">SC::formatSerialPortError</a> (<a class="el" href="#gad6489303946b05bff93580733928637d">SerialPortError</a> error, Span&lt; char &gt; output)</td></tr>
+<tr class="memdesc:gaef6cfde2aee620895234ba489da2864d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a canonical English SerialPort diagnostic into caller-owned storage.  <br /></td></tr>
+<tr class="separator:gaef6cfde2aee620895234ba489da2864d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga38b45f9ef043bd7de6c585b80bccd205" id="r_ga38b45f9ef043bd7de6c585b80bccd205"><td class="memItemLeft" align="right" valign="top">ResultErrorFormat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga38b45f9ef043bd7de6c585b80bccd205">SC::formatSerialPortError</a> (Result result, Span&lt; char &gt; output)</td></tr>
+<tr class="memdesc:ga38b45f9ef043bd7de6c585b80bccd205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a plain Result when it contains a SerialPort error.  <br /></td></tr>
+<tr class="separator:ga38b45f9ef043bd7de6c585b80bccd205"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga012f9e6dd8ae92c3d8365f42eaf53e2c" id="r_ga012f9e6dd8ae92c3d8365f42eaf53e2c"><td class="memItemLeft" align="right" valign="top">ResultErrorFormat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga012f9e6dd8ae92c3d8365f42eaf53e2c">SC::formatSerialPortError</a> (<a class="el" href="structSC_1_1ResultSerialPort.html">ResultSerialPort</a> result, Span&lt; char &gt; output)</td></tr>
+<tr class="memdesc:ga012f9e6dd8ae92c3d8365f42eaf53e2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a SerialPort result, including its native error value when available.  <br /></td></tr>
+<tr class="separator:ga012f9e6dd8ae92c3d8365f42eaf53e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>🟨 Synchronous serial-port configuration and byte I/O    (see <a class="el" href="library_serial_port.html">SerialPort</a> for more details) </p>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="gad6489303946b05bff93580733928637d" name="gad6489303946b05bff93580733928637d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad6489303946b05bff93580733928637d">&#9670;&#160;</a></span>SerialPortError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#gad6489303946b05bff93580733928637d">SC::SerialPortError</a> : uint32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;SerialPortError.h&gt;</code></p>
+
+<p>Stable error codes returned by the SerialPort library. </p>
+
+</div>
+</div>
+<a id="ga4c84cfa0727c31d4e89ec63596150b15" name="ga4c84cfa0727c31d4e89ec63596150b15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4c84cfa0727c31d4e89ec63596150b15">&#9670;&#160;</a></span>SerialPortErrorDetail</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ga4c84cfa0727c31d4e89ec63596150b15">SC::SerialPortErrorDetail</a> : uint32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;SerialPortError.h&gt;</code></p>
+
+<p>Stable lower-level and backend-specific context for a SerialPort error. </p>
+<p>The platform is part of every OS-specific value so callers can use this context without relying on platform headers. Detail values are diagnostic context and are deliberately not encoded in Result. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga38b45f9ef043bd7de6c585b80bccd205" name="ga38b45f9ef043bd7de6c585b80bccd205"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga38b45f9ef043bd7de6c585b80bccd205">&#9670;&#160;</a></span>formatSerialPortError() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ResultErrorFormat SC::formatSerialPortError </td>
+          <td>(</td>
+          <td class="paramtype">Result</td>          <td class="paramname"><span class="paramname"><em>result</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;SerialPortErrorFormatter.h&gt;</code></p>
+
+<p>Formats a plain Result when it contains a SerialPort error. </p>
+
+</div>
+</div>
+<a id="ga012f9e6dd8ae92c3d8365f42eaf53e2c" name="ga012f9e6dd8ae92c3d8365f42eaf53e2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga012f9e6dd8ae92c3d8365f42eaf53e2c">&#9670;&#160;</a></span>formatSerialPortError() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ResultErrorFormat SC::formatSerialPortError </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSC_1_1ResultSerialPort.html">ResultSerialPort</a></td>          <td class="paramname"><span class="paramname"><em>result</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;SerialPortErrorFormatter.h&gt;</code></p>
+
+<p>Formats a SerialPort result, including its native error value when available. </p>
+
+</div>
+</div>
+<a id="gaef6cfde2aee620895234ba489da2864d" name="gaef6cfde2aee620895234ba489da2864d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaef6cfde2aee620895234ba489da2864d">&#9670;&#160;</a></span>formatSerialPortError() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ResultErrorFormat SC::formatSerialPortError </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#gad6489303946b05bff93580733928637d">SerialPortError</a></td>          <td class="paramname"><span class="paramname"><em>error</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;SerialPortErrorFormatter.h&gt;</code></p>
+
+<p>Formats a canonical English SerialPort diagnostic into caller-owned storage. </p>
+<p>This opt-in header owns the canonical strings. Applications can instead switch on SerialPortError and use ResultErrorFormatter with their own translated text. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

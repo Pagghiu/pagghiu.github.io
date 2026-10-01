@@ -416,7 +416,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isThreadPoolForced</b
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(Path::join(path, {report.applicationRootDirectory.view(), <span class="stringliteral">&quot;FileSystemOperationClose.txt&quot;</span>}));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.open(path.view(), FileOpen::Read));</div>
 <div class="line">    FileDescriptor::Handle handle = FileDescriptor::Invalid;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.get(handle, Result::Error(<span class="stringliteral">&quot;Invalid FD&quot;</span>)));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.get(handle, asyncTestFailure(AsyncTestFailure::DescriptorUnavailable)));</div>
 <div class="line">    fd.detach();</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(asyncFileSystemOperation.close(eventLoop, handle));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(eventLoop.run());</div>
@@ -445,7 +445,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isThreadPoolForced</b
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(Path::join(path, {report.applicationRootDirectory.view(), <span class="stringliteral">&quot;FileSystemOperationRead.txt&quot;</span>}));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.open(path.view(), FileOpen::Read));</div>
 <div class="line">    FileDescriptor::Handle handle = FileDescriptor::Invalid;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.get(handle, Result::Error(<span class="stringliteral">&quot;Invalid FD&quot;</span>)));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.get(handle, asyncTestFailure(AsyncTestFailure::DescriptorUnavailable)));</div>
 <div class="line">    fd.detach();</div>
 <div class="line"> </div>
 <div class="line">    AsyncFileSystemOperation asyncFileSystemOperation;</div>
@@ -484,7 +484,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isThreadPoolForced</b
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(Path::join(path, {report.applicationRootDirectory.view(), <span class="stringliteral">&quot;FileSystemOperationWrite.txt&quot;</span>}));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.open(path.view(), FileOpen::Write));</div>
 <div class="line">    FileDescriptor::Handle handle = FileDescriptor::Invalid;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.get(handle, Result::Error(<span class="stringliteral">&quot;Invalid FD&quot;</span>)));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.get(handle, asyncTestFailure(AsyncTestFailure::DescriptorUnavailable)));</div>
 <div class="line">    fd.detach();</div>
 <div class="line"> </div>
 <div class="line">    AsyncFileSystemOperation asyncFileSystemOperation;</div>
@@ -774,7 +774,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isThreadPoolForced</b
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(Path::join(path, {report.applicationRootDirectory.view(), <span class="stringliteral">&quot;FileSystemOperationClose.txt&quot;</span>}));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.open(path.view(), FileOpen::Read));</div>
 <div class="line">    FileDescriptor::Handle handle = FileDescriptor::Invalid;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.get(handle, Result::Error(<span class="stringliteral">&quot;Invalid FD&quot;</span>)));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.get(handle, asyncTestFailure(AsyncTestFailure::DescriptorUnavailable)));</div>
 <div class="line">    fd.detach();</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(asyncFileSystemOperation.close(eventLoop, handle));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(eventLoop.run());</div>
@@ -1101,7 +1101,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isThreadPoolForced</b
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(Path::join(path, {report.applicationRootDirectory.view(), <span class="stringliteral">&quot;FileSystemOperationRead.txt&quot;</span>}));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.open(path.view(), FileOpen::Read));</div>
 <div class="line">    FileDescriptor::Handle handle = FileDescriptor::Invalid;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.get(handle, Result::Error(<span class="stringliteral">&quot;Invalid FD&quot;</span>)));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.get(handle, asyncTestFailure(AsyncTestFailure::DescriptorUnavailable)));</div>
 <div class="line">    fd.detach();</div>
 <div class="line"> </div>
 <div class="line">    AsyncFileSystemOperation asyncFileSystemOperation;</div>
@@ -1434,7 +1434,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isThreadPoolForced</b
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(Path::join(path, {report.applicationRootDirectory.view(), <span class="stringliteral">&quot;FileSystemOperationWrite.txt&quot;</span>}));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.open(path.view(), FileOpen::Write));</div>
 <div class="line">    FileDescriptor::Handle handle = FileDescriptor::Invalid;</div>
-<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.get(handle, Result::Error(<span class="stringliteral">&quot;Invalid FD&quot;</span>)));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fd.get(handle, asyncTestFailure(AsyncTestFailure::DescriptorUnavailable)));</div>
 <div class="line">    fd.detach();</div>
 <div class="line"> </div>
 <div class="line">    AsyncFileSystemOperation asyncFileSystemOperation;</div>

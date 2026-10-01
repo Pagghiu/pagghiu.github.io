@@ -6,7 +6,20 @@ var searchData=
   ['request_3',['Request',['../structSC_1_1AsyncReadableStream_1_1Request.html',1,'SC::AsyncReadableStream::Request'],['../structSC_1_1AsyncWritableStream_1_1Request.html',1,'SC::AsyncWritableStream::Request']]],
   ['requestbodysink_4',['RequestBodySink',['../structSC_1_1HttpClientAsyncT_1_1RequestBodySink.html',1,'SC::HttpClientAsyncT']]],
   ['requestoptions_5',['RequestOptions',['../structSC_1_1HttpAsyncClient_1_1RequestOptions.html',1,'SC::HttpAsyncClient']]],
-  ['responsebodystream_6',['ResponseBodyStream',['../structSC_1_1HttpClientAsyncT_1_1ResponseBodyStream.html',1,'SC::HttpClientAsyncT']]],
-  ['result_7',['Result',['../structSC_1_1AsyncFileRead_1_1Result.html',1,'SC::AsyncFileRead::Result'],['../structSC_1_1AsyncFileSend_1_1Result.html',1,'SC::AsyncFileSend::Result'],['../structSC_1_1AsyncFileWrite_1_1Result.html',1,'SC::AsyncFileWrite::Result'],['../structSC_1_1AsyncProcessExit_1_1Result.html',1,'SC::AsyncProcessExit::Result'],['../structSC_1_1AsyncSignal_1_1Result.html',1,'SC::AsyncSignal::Result'],['../structSC_1_1AsyncSocketReceive_1_1Result.html',1,'SC::AsyncSocketReceive::Result'],['../structSC_1_1Hashing_1_1Result.html',1,'SC::Hashing::Result']]],
-  ['rwlock_8',['RWLock',['../structSC_1_1RWLock.html',1,'SC']]]
+  ['requiredbytes_6',['RequiredBytes',['../structSC_1_1CryptographyErrorContext_1_1RequiredBytes.html',1,'SC::CryptographyErrorContext::RequiredBytes'],['../structSC_1_1FileErrorContext_1_1RequiredBytes.html',1,'SC::FileErrorContext::RequiredBytes'],['../structSC_1_1FileSystemErrorContext_1_1RequiredBytes.html',1,'SC::FileSystemErrorContext::RequiredBytes'],['../structSC_1_1PluginErrorContext_1_1RequiredBytes.html',1,'SC::PluginErrorContext::RequiredBytes'],['../structSC_1_1SocketErrorContext_1_1RequiredBytes.html',1,'SC::SocketErrorContext::RequiredBytes']]],
+  ['requiredelements_7',['RequiredElements',['../structSC_1_1PluginErrorContext_1_1RequiredElements.html',1,'SC::PluginErrorContext']]],
+  ['resolvererror_8',['ResolverError',['../structSC_1_1SocketErrorContext_1_1ResolverError.html',1,'SC::SocketErrorContext']]],
+  ['responsebodystream_9',['ResponseBodyStream',['../structSC_1_1HttpClientAsyncT_1_1ResponseBodyStream.html',1,'SC::HttpClientAsyncT']]],
+  ['result_10',['Result',['../structSC_1_1AsyncFileRead_1_1Result.html',1,'SC::AsyncFileRead::Result'],['../structSC_1_1AsyncFileSend_1_1Result.html',1,'SC::AsyncFileSend::Result'],['../structSC_1_1AsyncFileWrite_1_1Result.html',1,'SC::AsyncFileWrite::Result'],['../structSC_1_1AsyncProcessExit_1_1Result.html',1,'SC::AsyncProcessExit::Result'],['../structSC_1_1AsyncSignal_1_1Result.html',1,'SC::AsyncSignal::Result'],['../structSC_1_1AsyncSocketReceive_1_1Result.html',1,'SC::AsyncSocketReceive::Result'],['../structSC_1_1Hashing_1_1Result.html',1,'SC::Hashing::Result']]],
+  ['resultcryptography_11',['ResultCryptography',['../structSC_1_1ResultCryptography.html',1,'SC']]],
+  ['resultfile_12',['ResultFile',['../structSC_1_1ResultFile.html',1,'SC']]],
+  ['resultfilesystem_13',['ResultFileSystem',['../structSC_1_1ResultFileSystem.html',1,'SC']]],
+  ['resultfilesystemiterator_14',['ResultFileSystemIterator',['../structSC_1_1ResultFileSystemIterator.html',1,'SC']]],
+  ['resultfilesystemwatcher_15',['ResultFileSystemWatcher',['../structSC_1_1ResultFileSystemWatcher.html',1,'SC']]],
+  ['resultplugin_16',['ResultPlugin',['../structSC_1_1ResultPlugin.html',1,'SC']]],
+  ['resultprocess_17',['ResultProcess',['../structSC_1_1ResultProcess.html',1,'SC']]],
+  ['resultserialport_18',['ResultSerialPort',['../structSC_1_1ResultSerialPort.html',1,'SC']]],
+  ['resultsocket_19',['ResultSocket',['../structSC_1_1ResultSocket.html',1,'SC']]],
+  ['resultthreading_20',['ResultThreading',['../structSC_1_1ResultThreading.html',1,'SC']]],
+  ['rwlock_21',['RWLock',['../structSC_1_1RWLock.html',1,'SC']]]
 ];

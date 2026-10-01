@@ -16,5 +16,5 @@ var structSC_1_1HttpIncomingMessage =
     [ "hasReceivedHeaders", "structSC_1_1HttpIncomingMessage.html#aaf28cbc9715aaefe22a9aa1ce22bb6b5", null ],
     [ "isBodyComplete", "structSC_1_1HttpIncomingMessage.html#a948ec9fa92134e6c5651057b5dc3f8d7", null ],
     [ "isMultipart", "structSC_1_1HttpIncomingMessage.html#a3a165d5b3da5881bff8c79400a838243", null ],
-    [ "writeHeaders", "structSC_1_1HttpIncomingMessage.html#ae769f497ec3838a1f331f564e4f888bb", null ]
+    [ "writeHeaders", "structSC_1_1HttpIncomingMessage.html#a01af79eee1cfa2a54c33c4347be4b9d8", null ]
 ];

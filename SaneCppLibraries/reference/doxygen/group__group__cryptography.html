@@ -124,7 +124,8 @@ $(function(){initNavTree('group__group__cryptography.html',''); initResizable(tr
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle"><div class="title">Cryptography</div></div>
 </div><!--header-->
 <div class="contents">
@@ -137,9 +138,353 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1Cryptography.html">SC::Cryptography</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Platform-backed symmetric cryptography primitives.  <a href="structSC_1_1Cryptography.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionSC_1_1CryptographyErrorContext.html">SC::CryptographyErrorContext</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A typed scalar payload for a <a class="el" href="structSC_1_1Cryptography.html" title="Platform-backed symmetric cryptography primitives.">Cryptography</a> error.  <a href="unionSC_1_1CryptographyErrorContext.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSC_1_1ResultCryptography.html">SC::ResultCryptography</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structSC_1_1Cryptography.html" title="Platform-backed symmetric cryptography primitives.">Cryptography</a> result retaining a stable operation detail and one scalar diagnostic context.  <a href="structSC_1_1ResultCryptography.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga4d3d544e0eb898bef97b7417448669a2" id="r_ga4d3d544e0eb898bef97b7417448669a2"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4d3d544e0eb898bef97b7417448669a2">SC::CryptographyError</a> : uint32_t { <br />
+&#160;&#160;<b>OperationUnsupported</b> = 1
+, <br />
+&#160;&#160;<b>BackendUnavailable</b>
+, <br />
+&#160;&#160;<b>InvalidAeadType</b>
+, <br />
+&#160;&#160;<b>InvalidCipherType</b>
+, <br />
+&#160;&#160;<b>InvalidHashType</b>
+, <br />
+&#160;&#160;<b>InvalidCipherOperation</b>
+, <br />
+&#160;&#160;<b>InvalidKeySize</b>
+, <br />
+&#160;&#160;<b>InvalidNonceSize</b>
+, <br />
+&#160;&#160;<b>InvalidInitializationVectorSize</b>
+, <br />
+&#160;&#160;<b>InvalidTagSize</b>
+, <br />
+&#160;&#160;<b>SizeLimitExceeded</b>
+, <br />
+&#160;&#160;<b>OutputCapacityExceeded</b>
+, <br />
+&#160;&#160;<b>BufferOverlap</b>
+, <br />
+&#160;&#160;<b>SessionNotInitialized</b>
+, <br />
+&#160;&#160;<b>KeyNotSet</b>
+, <br />
+&#160;&#160;<b>InvalidCiphertext</b>
+, <br />
+&#160;&#160;<b>AuthenticationFailed</b>
+, <br />
+&#160;&#160;<b>RandomGenerationFailed</b>
+, <br />
+&#160;&#160;<b>BackendInitializationFailed</b>
+, <br />
+&#160;&#160;<b>BackendConfigurationFailed</b>
+, <br />
+&#160;&#160;<b>BackendOperationFailed</b>
+, <br />
+&#160;&#160;<b>InternalCapacityExceeded</b>
+, <br />
+&#160;&#160;<b>UnexpectedOutputSize</b>
+, <br />
+&#160;&#160;<b>InvalidBlockInputSize</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga4d3d544e0eb898bef97b7417448669a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable portable failures returned by the Cryptography library.  <a href="#ga4d3d544e0eb898bef97b7417448669a2">More...</a><br /></td></tr>
+<tr class="separator:ga4d3d544e0eb898bef97b7417448669a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga13f710dc6ead8221aeebbb5fcdb719c5" id="r_ga13f710dc6ead8221aeebbb5fcdb719c5"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga13f710dc6ead8221aeebbb5fcdb719c5">SC::CryptographyErrorDetail</a> : uint16_t { <br />
+&#160;&#160;<b>None</b> = 0
+, <br />
+&#160;&#160;<b>FillRandom</b>
+, <br />
+&#160;&#160;<b>InitializeAead</b>
+, <br />
+&#160;&#160;<b>SealAead</b>
+, <br />
+&#160;&#160;<b>OpenAead</b>
+, <br />
+&#160;&#160;<b>StartCipher</b>
+, <br />
+&#160;&#160;<b>UpdateCipher</b>
+, <br />
+&#160;&#160;<b>FinishCipher</b>
+, <br />
+&#160;&#160;<b>SetHmacType</b>
+, <br />
+&#160;&#160;<b>SetHmacKey</b>
+, <br />
+&#160;&#160;<b>AddHmacData</b>
+, <br />
+&#160;&#160;<b>FinalizeHmac</b>
+, <br />
+&#160;&#160;<b>DeriveHkdf</b>
+, <br />
+&#160;&#160;<b>ValidateAeadKey</b>
+, <br />
+&#160;&#160;<b>ValidateAeadNonce</b>
+, <br />
+&#160;&#160;<b>ValidateAeadTag</b>
+, <br />
+&#160;&#160;<b>ValidateAeadMessageSize</b>
+, <br />
+&#160;&#160;<b>ValidateAeadOutput</b>
+, <br />
+&#160;&#160;<b>ValidateAeadPartialOverlap</b>
+, <br />
+&#160;&#160;<b>ValidateAeadSealCiphertextOverlap</b>
+, <br />
+&#160;&#160;<b>ValidateAeadSealTagOverlap</b>
+, <br />
+&#160;&#160;<b>ValidateAeadOpenPlaintextOverlap</b>
+, <br />
+&#160;&#160;<b>ValidateCipherKey</b>
+, <br />
+&#160;&#160;<b>ValidateCipherInitializationVector</b>
+, <br />
+&#160;&#160;<b>ValidateCipherOutput</b>
+, <br />
+&#160;&#160;<b>ValidateCipherOverlap</b>
+, <br />
+&#160;&#160;<b>ValidateCipherBlockInput</b>
+, <br />
+&#160;&#160;<b>ValidateCipherFinalBlock</b>
+, <br />
+&#160;&#160;<b>ValidateCipherPadding</b>
+, <br />
+&#160;&#160;<b>ValidateHkdfOutput</b>
+, <br />
+&#160;&#160;<b>AppleCommonCryptoRandomGenerate</b>
+, <br />
+&#160;&#160;<b>AppleCommonCryptoAeadCreate</b>
+, <br />
+&#160;&#160;<b>AppleCommonCryptoAeadEncrypt</b>
+, <br />
+&#160;&#160;<b>AppleCommonCryptoCipherCreate</b>
+, <br />
+&#160;&#160;<b>AppleCommonCryptoCipherUpdate</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptRandomGenerate</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptAeadOpenAlgorithm</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptAeadSetGcmMode</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptAeadQueryObjectLength</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptAeadKeyObjectCapacity</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptAeadGenerateKey</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptAeadEncrypt</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptAeadDecrypt</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptCipherOpenAlgorithm</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptCipherSetCbcMode</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptCipherQueryObjectLength</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptCipherKeyObjectCapacity</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptCipherGenerateKey</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptCipherEncrypt</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptCipherDecrypt</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptHmacOpenAlgorithm</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptHmacQueryObjectLength</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptHmacObjectCapacity</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptHmacCreate</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptHmacUpdate</b>
+, <br />
+&#160;&#160;<b>WindowsBCryptHmacFinalize</b>
+, <br />
+&#160;&#160;<b>LinuxGetRandom</b>
+, <br />
+&#160;&#160;<b>LinuxAFAlgCreateAlgorithmSocket</b>
+, <br />
+&#160;&#160;<b>LinuxAFAlgBindAlgorithmSocket</b>
+, <br />
+&#160;&#160;<b>LinuxAFAlgAcceptOperationSocket</b>
+, <br />
+&#160;&#160;<b>LinuxAFAlgSetKey</b>
+, <br />
+&#160;&#160;<b>LinuxAFAlgSetAeadAuthenticationSize</b>
+, <br />
+&#160;&#160;<b>LinuxAFAlgAeadSealSend</b>
+, <br />
+&#160;&#160;<b>LinuxAFAlgAeadSealReceive</b>
+, <br />
+&#160;&#160;<b>LinuxAFAlgAeadOpenSend</b>
+, <br />
+&#160;&#160;<b>LinuxAFAlgAeadOpenReceive</b>
+, <br />
+&#160;&#160;<b>LinuxAFAlgCipherSend</b>
+, <br />
+&#160;&#160;<b>LinuxAFAlgCipherReceive</b>
+, <br />
+&#160;&#160;<b>LinuxAFAlgHmacSend</b>
+, <br />
+&#160;&#160;<b>LinuxAFAlgHmacReceive</b>
+, <br />
+&#160;&#160;<b>OpenSSL3RuntimeUnavailable</b>
+, <br />
+&#160;&#160;<b>OpenSSL3AeadFetchCipher</b>
+, <br />
+&#160;&#160;<b>OpenSSL3AeadCreateContext</b>
+, <br />
+&#160;&#160;<b>OpenSSL3AeadInitialize</b>
+, <br />
+&#160;&#160;<b>OpenSSL3AeadAssociatedDataUpdate</b>
+, <br />
+&#160;&#160;<b>OpenSSL3AeadPayloadUpdate</b>
+, <br />
+&#160;&#160;<b>OpenSSL3AeadSealFinalize</b>
+, <br />
+&#160;&#160;<b>OpenSSL3AeadGetAuthenticationTag</b>
+, <br />
+&#160;&#160;<b>OpenSSL3AeadSetAuthenticationTag</b>
+, <br />
+&#160;&#160;<b>OpenSSL3AeadOpenFinalize</b>
+, <br />
+&#160;&#160;<b>OpenSSL3CipherFetch</b>
+, <br />
+&#160;&#160;<b>OpenSSL3CipherCreateContext</b>
+, <br />
+&#160;&#160;<b>OpenSSL3CipherInitialize</b>
+, <br />
+&#160;&#160;<b>OpenSSL3CipherSetPadding</b>
+, <br />
+&#160;&#160;<b>OpenSSL3CipherUpdate</b>
+, <br />
+&#160;&#160;<b>OpenSSL3HmacFetch</b>
+, <br />
+&#160;&#160;<b>OpenSSL3HmacCreateContext</b>
+, <br />
+&#160;&#160;<b>OpenSSL3HmacInitialize</b>
+, <br />
+&#160;&#160;<b>OpenSSL3HmacUpdate</b>
+, <br />
+&#160;&#160;<b>OpenSSL3HmacFinalize</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga13f710dc6ead8221aeebbb5fcdb719c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable operation or backend stage retained for a Cryptography failure.  <a href="#ga13f710dc6ead8221aeebbb5fcdb719c5">More...</a><br /></td></tr>
+<tr class="separator:ga13f710dc6ead8221aeebbb5fcdb719c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga43716ccf80842d226f3e0e69bbd2dc17" id="r_ga43716ccf80842d226f3e0e69bbd2dc17"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga43716ccf80842d226f3e0e69bbd2dc17">SC::CryptographyErrorContextKind</a> : uint16_t { <br />
+&#160;&#160;<b>None</b> = 0
+, <br />
+&#160;&#160;<b>AppleCommonCryptoStatus</b>
+, <br />
+&#160;&#160;<b>WindowsNtStatus</b>
+, <br />
+&#160;&#160;<b>PosixErrno</b>
+, <br />
+&#160;&#160;<b>ExpectedBytes</b>
+, <br />
+&#160;&#160;<b>RequiredBytes</b>
+, <br />
+&#160;&#160;<b>MaximumBytes</b>
+, <br />
+&#160;&#160;<b>ActualBytes</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga43716ccf80842d226f3e0e69bbd2dc17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kind of the scalar diagnostic context stored in ResultCryptography.  <a href="#ga43716ccf80842d226f3e0e69bbd2dc17">More...</a><br /></td></tr>
+<tr class="separator:ga43716ccf80842d226f3e0e69bbd2dc17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>🟥 Fixed-storage wrappers over native and optional OpenSSL symmetric cryptography APIs    (see <a class="el" href="library_cryptography.html">Cryptography</a> for more details) </p>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga4d3d544e0eb898bef97b7417448669a2" name="ga4d3d544e0eb898bef97b7417448669a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4d3d544e0eb898bef97b7417448669a2">&#9670;&#160;</a></span>CryptographyError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ga4d3d544e0eb898bef97b7417448669a2">SC::CryptographyError</a> : uint32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CryptographyError.h&gt;</code></p>
+
+<p>Stable portable failures returned by the <a class="el" href="structSC_1_1Cryptography.html" title="Platform-backed symmetric cryptography primitives.">Cryptography</a> library. </p>
+
+</div>
+</div>
+<a id="ga43716ccf80842d226f3e0e69bbd2dc17" name="ga43716ccf80842d226f3e0e69bbd2dc17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga43716ccf80842d226f3e0e69bbd2dc17">&#9670;&#160;</a></span>CryptographyErrorContextKind</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ga43716ccf80842d226f3e0e69bbd2dc17">SC::CryptographyErrorContextKind</a> : uint16_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CryptographyError.h&gt;</code></p>
+
+<p>Kind of the scalar diagnostic context stored in <a class="el" href="structSC_1_1ResultCryptography.html" title="Cryptography result retaining a stable operation detail and one scalar diagnostic context.">ResultCryptography</a>. </p>
+
+</div>
+</div>
+<a id="ga13f710dc6ead8221aeebbb5fcdb719c5" name="ga13f710dc6ead8221aeebbb5fcdb719c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga13f710dc6ead8221aeebbb5fcdb719c5">&#9670;&#160;</a></span>CryptographyErrorDetail</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ga13f710dc6ead8221aeebbb5fcdb719c5">SC::CryptographyErrorDetail</a> : uint16_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CryptographyError.h&gt;</code></p>
+
+<p>Stable operation or backend stage retained for a <a class="el" href="structSC_1_1Cryptography.html" title="Platform-backed symmetric cryptography primitives.">Cryptography</a> failure. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

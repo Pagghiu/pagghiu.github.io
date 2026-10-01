@@ -17,7 +17,7 @@ var searchData=
   ['trimendanyof_14',['trimEndAnyOf',['../structSC_1_1StringView.html#a4458e122c9c214b713bb176eb1ce972e',1,'SC::StringView']]],
   ['trimstartanyof_15',['trimStartAnyOf',['../structSC_1_1StringView.html#ab6a06b5b30bd56897c30c78d60c5d341',1,'SC::StringView']]],
   ['trimwhitespaces_16',['trimWhiteSpaces',['../structSC_1_1StringView.html#aa7a0537b4b7a650fbcacee971c4fd156',1,'SC::StringView']]],
-  ['truncate_17',['truncate',['../structSC_1_1FileDescriptor.html#a6d3a86aa7a7c066fafe23663e7ff64ac',1,'SC::FileDescriptor']]],
+  ['truncate_17',['truncate',['../structSC_1_1FileDescriptor.html#aae50b0a6cf625da780da83d454c7e1f5',1,'SC::FileDescriptor']]],
   ['tryasync_18',['tryAsync',['../structSC_1_1AsyncWritableStream.html#aa943071433e37fb05a14d29bc0e44f10',1,'SC::AsyncWritableStream']]],
   ['tryattachingtoparentconsole_19',['tryAttachingToParentConsole',['../structSC_1_1Console.html#ad63a03acb69e94b6ec2aa1587f58d981',1,'SC::Console']]],
   ['tryprobingiouring_20',['tryProbingIOUring',['../structSC_1_1AsyncEventLoop.html#a4730487bb6295964fee2f930b182f18c',1,'SC::AsyncEventLoop']]]
