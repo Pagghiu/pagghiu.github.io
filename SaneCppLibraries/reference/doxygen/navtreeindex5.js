@@ -1,5 +1,7 @@
 var NAVTREEINDEX5 =
 {
+"structSC_1_1AsyncRequest.html#a2d427d0658bdfe2739cff3abff6c457e":[19,0,0,42,12],
+"structSC_1_1AsyncRequest.html#a30d6471c05f7834b6cfa810e0e2dcd87":[18,0,0,42,7],
 "structSC_1_1AsyncRequest.html#a30d6471c05f7834b6cfa810e0e2dcd87":[19,0,0,42,7],
 "structSC_1_1AsyncRequest.html#a36ae8a4f8ede7f32ff662c2a27add137":[18,0,0,42,5],
 "structSC_1_1AsyncRequest.html#a36ae8a4f8ede7f32ff662c2a27add137":[19,0,0,42,5],
@@ -247,7 +249,5 @@ var NAVTREEINDEX5 =
 "structSC_1_1AsyncWritableStream.html#afbe966a9f49eb13d06bccc1fae60488d":[19,0,0,61,17],
 "structSC_1_1AsyncWritableStream_1_1Request.html":[18,0,0,61,0],
 "structSC_1_1AsyncWritableStream_1_1Request.html":[19,0,0,61,0],
-"structSC_1_1AsyncZLibTransformStreamT.html":[18,0,0,62],
-"structSC_1_1AsyncZLibTransformStreamT.html":[19,0,0,62],
-"structSC_1_1Atomic.html":[18,0,0,63]
+"structSC_1_1AsyncZLibTransformStreamT.html":[18,0,0,62]
 };

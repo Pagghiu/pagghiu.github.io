@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"structSC_1_1AsyncZLibTransformStreamT.html":[19,0,0,62],
+"structSC_1_1Atomic.html":[18,0,0,63],
 "structSC_1_1Atomic.html":[19,0,0,63],
 "structSC_1_1AwaitAllocator.html":[18,0,0,64],
 "structSC_1_1AwaitAllocator.html":[19,0,0,64],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "structSC_1_1FiberJobWorker.html":[19,0,0,152],
 "structSC_1_1FiberJobWorkerDiagnostics.html":[18,0,0,153],
 "structSC_1_1FiberJobWorkerDiagnostics.html":[19,0,0,153],
-"structSC_1_1FiberJobWorkerPool.html":[18,0,0,154],
-"structSC_1_1FiberJobWorkerPool.html":[19,0,0,154],
-"structSC_1_1FiberJobWorkerPool.html#a3fa550573d72d177d0c8700f55df8333":[18,0,0,154,2]
+"structSC_1_1FiberJobWorkerPool.html":[18,0,0,154]
 };

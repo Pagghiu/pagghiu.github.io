@@ -173,7 +173,7 @@ var annotated_dup =
       [ "FiberScheduler", "structSC_1_1FiberScheduler.html", null ],
       [ "FiberSchedulerDiagnostics", "structSC_1_1FiberSchedulerDiagnostics.html", null ],
       [ "FiberSemaphore", "structSC_1_1FiberSemaphore.html", "structSC_1_1FiberSemaphore" ],
-      [ "FiberStack", "structSC_1_1FiberStack.html", null ],
+      [ "FiberStack", "structSC_1_1FiberStack.html", "structSC_1_1FiberStack" ],
       [ "FiberStackClass", "structSC_1_1FiberStackClass.html", null ],
       [ "FiberStackClassDefinition", "structSC_1_1FiberStackClassDefinition.html", null ],
       [ "FiberStackClassDiagnostics", "structSC_1_1FiberStackClassDiagnostics.html", null ],

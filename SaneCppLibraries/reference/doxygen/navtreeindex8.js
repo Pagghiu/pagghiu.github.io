@@ -1,5 +1,9 @@
 var NAVTREEINDEX8 =
 {
+"structSC_1_1FileSystemIterator_1_1Entry.html#af5b915b6c652e3ea86c83e4b7e1caac0":[17,10,0,0,2],
+"structSC_1_1FileSystemIterator_1_1Entry.html#afb6f1f57ff56d04e1f58acab97167570":[17,10,0,0,4],
+"structSC_1_1FileSystemIterator_1_1FolderState.html":[17,10,0,1],
+"structSC_1_1FileSystemIterator_1_1Options.html":[17,10,0,2],
 "structSC_1_1FileSystemIterator_1_1Options.html#a20c696fe67bca871d4ab63ba1560cd94":[17,10,0,2,0],
 "structSC_1_1FileSystemIterator_1_1Options.html#ac22d18b589a977f762c8a7ec21770c62":[17,10,0,2,1],
 "structSC_1_1FileSystemStat.html":[17,9,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX8 =
 "structSC_1_1HttpClientResponse.html":[17,15,15],
 "structSC_1_1HttpClientResponse.html#a7952d482e4d825a54b4c36dfcaab7709":[17,15,15,0],
 "structSC_1_1HttpClientResponseBuffer.html":[17,15,19],
-"structSC_1_1HttpClientResponseHeaderIterator.html":[17,15,1],
-"structSC_1_1HttpClientSession.html":[17,15,34],
-"structSC_1_1HttpClientSessionAuthCacheEntry.html":[17,15,29],
-"structSC_1_1HttpClientSessionAuthCacheEntry.html#a1f7492ac34c2d98e3b05149230491af4":[17,15,29,0],
-"structSC_1_1HttpClientSessionAuthCacheEntry.html#a38f3afbcdd9972ebb3394008f3e47b04":[17,15,29,1]
+"structSC_1_1HttpClientResponseHeaderIterator.html":[17,15,1]
 };

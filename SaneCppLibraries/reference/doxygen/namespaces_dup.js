@@ -181,7 +181,7 @@ var namespaces_dup =
       [ "FiberScheduler", "structSC_1_1FiberScheduler.html", null ],
       [ "FiberSchedulerDiagnostics", "structSC_1_1FiberSchedulerDiagnostics.html", null ],
       [ "FiberSemaphore", "structSC_1_1FiberSemaphore.html", "structSC_1_1FiberSemaphore" ],
-      [ "FiberStack", "structSC_1_1FiberStack.html", null ],
+      [ "FiberStack", "structSC_1_1FiberStack.html", "structSC_1_1FiberStack" ],
       [ "FiberStackClass", "structSC_1_1FiberStackClass.html", null ],
       [ "FiberStackClassDefinition", "structSC_1_1FiberStackClassDefinition.html", null ],
       [ "FiberStackClassDiagnostics", "structSC_1_1FiberStackClassDiagnostics.html", null ],
@@ -1383,7 +1383,8 @@ var namespaces_dup =
         [ "PluginNotFound", "group__group__plugin.html#ggaaa10816004c792e61383e80166a379cdab9e096c4594a2cf7ea1be0070650b35a", null ],
         [ "PluginInitializationFailed", "group__group__plugin.html#ggaaa10816004c792e61383e80166a379cda5c3a92da42818cbf804bf4e11db52705", null ],
         [ "PluginShutdownFailed", "group__group__plugin.html#ggaaa10816004c792e61383e80166a379cda3d59b26c924df5fb33b2680d0d72bcc7", null ],
-        [ "DebuggerUnlockFailed", "group__group__plugin.html#ggaaa10816004c792e61383e80166a379cda7f0d5d5b52ab0750cd082f3b8a47413e", null ]
+        [ "DebuggerUnlockFailed", "group__group__plugin.html#ggaaa10816004c792e61383e80166a379cda7f0d5d5b52ab0750cd082f3b8a47413e", null ],
+        [ "ReloadUnsupported", "group__group__plugin.html#ggaaa10816004c792e61383e80166a379cda3f3e3aafecc489cfc080ff1e622a5a29", null ]
       ] ],
       [ "PluginErrorContextKind", "group__group__plugin.html#ga4287be73d7366813456a63357a509e35", [
         [ "None", "group__group__plugin.html#gga4287be73d7366813456a63357a509e35a6adf97f83acf6453d4a6a4b1070f3754", null ],

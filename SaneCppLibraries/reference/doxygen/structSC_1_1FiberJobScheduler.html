@@ -196,10 +196,10 @@ Result&#160;</td><td class="memItemRight" valign="bottom"><b>requestCancelAll</b
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isOpen</b> () const</td></tr>
 <tr class="separator:a4981dd301fbae6cb3c7f4b55bc20de18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a935dd88e67d945cb0370e1861efd69b2" id="r_a935dd88e67d945cb0370e1861efd69b2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a935dd88e67d945cb0370e1861efd69b2">hasReadyJobs</a> () const</td></tr>
-<tr class="memdesc:a935dd88e67d945cb0370e1861efd69b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Never reports false while ready work transfers from the external queue to a worker.  <br /></td></tr>
+<tr class="memdesc:a935dd88e67d945cb0370e1861efd69b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Confirms zero while preventing new ready-count activation across accounting domains.  <br /></td></tr>
 <tr class="separator:a935dd88e67d945cb0370e1861efd69b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa010226c46ead2edd3037d517081c478" id="r_aa010226c46ead2edd3037d517081c478"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa010226c46ead2edd3037d517081c478">hasActiveJobs</a> () const</td></tr>
-<tr class="memdesc:aa010226c46ead2edd3037d517081c478"><td class="mdescLeft">&#160;</td><td class="mdescRight">Never reports false while active work transfers from the external queue to a worker.  <br /></td></tr>
+<tr class="memdesc:aa010226c46ead2edd3037d517081c478"><td class="mdescLeft">&#160;</td><td class="mdescRight">Confirms zero while preventing new active-count activation across accounting domains.  <br /></td></tr>
 <tr class="separator:aa010226c46ead2edd3037d517081c478"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a341933934d0e4b2e8b2b80e5325c188d" id="r_a341933934d0e4b2e8b2b80e5325c188d"><td class="memItemLeft" align="right" valign="top"><a id="a341933934d0e4b2e8b2b80e5325c188d" name="a341933934d0e4b2e8b2b80e5325c188d"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>capacity</b> () const</td></tr>
@@ -283,7 +283,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>FiberJobWorkerPool<
 </table>
 </div><div class="memdoc">
 
-<p>Never reports false while active work transfers from the external queue to a worker. </p>
+<p>Confirms zero while preventing new active-count activation across accounting domains. </p>
 
 </div>
 </div>
@@ -310,7 +310,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>FiberJobWorkerPool<
 </table>
 </div><div class="memdoc">
 
-<p>Never reports false while ready work transfers from the external queue to a worker. </p>
+<p>Confirms zero while preventing new ready-count activation across accounting domains. </p>
 
 </div>
 </div>

@@ -125,6 +125,7 @@ $(function(){initNavTree('structSC_1_1FiberScheduler.html',''); initResizable(tr
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="structSC_1_1FiberScheduler-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">SC::FiberScheduler Struct Reference</div></div>
@@ -144,6 +145,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a004a93d751a5c0fdee5c67afd11a476b" id="r_a004a93d751a5c0fdee5c67afd11a476b"><td class="memItemLeft" align="right" valign="top"><a id="a004a93d751a5c0fdee5c67afd11a476b" name="a004a93d751a5c0fdee5c67afd11a476b"></a>
 <a class="el" href="structSC_1_1FiberScheduler.html">FiberScheduler</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="structSC_1_1FiberScheduler.html">FiberScheduler</a> &amp;)=delete</td></tr>
 <tr class="separator:a004a93d751a5c0fdee5c67afd11a476b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4883da2b4fde2496102f6723ecd6015" id="r_ac4883da2b4fde2496102f6723ecd6015"><td class="memItemLeft" align="right" valign="top"><a id="ac4883da2b4fde2496102f6723ecd6015" name="ac4883da2b4fde2496102f6723ecd6015"></a>
+Result&#160;</td><td class="memItemRight" valign="bottom"><b>enableRuntimeOwnedStacks</b> ()</td></tr>
+<tr class="separator:ac4883da2b4fde2496102f6723ecd6015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace6efb2494a8480a6b73fbb1e1769c05" id="r_ace6efb2494a8480a6b73fbb1e1769c05"><td class="memItemLeft" align="right" valign="top"><a id="ace6efb2494a8480a6b73fbb1e1769c05" name="ace6efb2494a8480a6b73fbb1e1769c05"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>usesRuntimeOwnedStacks</b> () const</td></tr>
+<tr class="separator:ace6efb2494a8480a6b73fbb1e1769c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9178c8f5f2c4ddc6a59fda1a6a619ca" id="r_ae9178c8f5f2c4ddc6a59fda1a6a619ca"><td class="memItemLeft" align="right" valign="top"><a id="ae9178c8f5f2c4ddc6a59fda1a6a619ca" name="ae9178c8f5f2c4ddc6a59fda1a6a619ca"></a>
+Result&#160;</td><td class="memItemRight" valign="bottom"><b>checkExecutionThread</b> () const</td></tr>
+<tr class="separator:ae9178c8f5f2c4ddc6a59fda1a6a619ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa972067cfe4ddf824b64a6c79af25d1d" id="r_aa972067cfe4ddf824b64a6c79af25d1d"><td class="memItemLeft" align="right" valign="top"><a id="aa972067cfe4ddf824b64a6c79af25d1d" name="aa972067cfe4ddf824b64a6c79af25d1d"></a>
 Result&#160;</td><td class="memItemRight" valign="bottom"><b>spawn</b> (<a class="el" href="structSC_1_1FiberTask.html">FiberTask</a> &amp;task, <a class="el" href="structSC_1_1FiberStack.html">FiberStack</a> &amp;stack, FiberTask::Procedure procedure, <a class="el" href="structSC_1_1FiberCounter.html">FiberCounter</a> *counter=nullptr)</td></tr>
 <tr class="separator:aa972067cfe4ddf824b64a6c79af25d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -283,6 +293,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>resetWorkerDiagnostic
 void&#160;</td><td class="memItemRight" valign="bottom"><b>resetWorkerDiagnostics</b> (Span&lt; <a class="el" href="structSC_1_1FiberWorker.html">FiberWorker</a> &gt; workers)</td></tr>
 <tr class="separator:aefa3b15961051a241611906720571d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a0ab62b6d3ab58cb28f7ac71cdc636f50" id="r_a0ab62b6d3ab58cb28f7ac71cdc636f50"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ab62b6d3ab58cb28f7ac71cdc636f50">supportsRuntimeOwnedStacks</a> ()</td></tr>
+<tr class="memdesc:a0ab62b6d3ab58cb28f7ac71cdc636f50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opt in before spawning. The scheduler remains bound to this thread and rejects worker pools.  <br /></td></tr>
+<tr class="separator:a0ab62b6d3ab58cb28f7ac71cdc636f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a6cc1424f38aa4213355af37a2ec2d872" id="r_a6cc1424f38aa4213355af37a2ec2d872"><td class="memItemLeft" align="right" valign="top"><a id="a6cc1424f38aa4213355af37a2ec2d872" name="a6cc1424f38aa4213355af37a2ec2d872"></a>
@@ -291,7 +307,35 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>FiberWorkerPool</b>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Cooperative fiber scheduler with explicit workers and caller-owned storage. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0ab62b6d3ab58cb28f7ac71cdc636f50" name="a0ab62b6d3ab58cb28f7ac71cdc636f50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ab62b6d3ab58cb28f7ac71cdc636f50">&#9670;&#160;</a></span>supportsRuntimeOwnedStacks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool SC::FiberScheduler::supportsRuntimeOwnedStacks </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Opt in before spawning. The scheduler remains bound to this thread and rejects worker pools. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="Fibers_8h_source.html">Fibers.h</a></li>
 </ul>
 </div><!-- contents -->

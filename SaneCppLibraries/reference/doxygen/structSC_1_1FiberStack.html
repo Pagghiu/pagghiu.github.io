@@ -125,6 +125,7 @@ $(function(){initNavTree('structSC_1_1FiberStack.html',''); initResizable(true);
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="structSC_1_1FiberStack-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">SC::FiberStack Struct Reference</div></div>
@@ -141,6 +142,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2253f50a85a92b8e21ce1131d5f68a80" id="r_a2253f50a85a92b8e21ce1131d5f68a80"><td class="memItemLeft" align="right" valign="top"><a id="a2253f50a85a92b8e21ce1131d5f68a80" name="a2253f50a85a92b8e21ce1131d5f68a80"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>FiberStack</b> (Span&lt; char &gt; memory)</td></tr>
 <tr class="separator:a2253f50a85a92b8e21ce1131d5f68a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5624455b0635677be4df0833bad97312" id="r_a5624455b0635677be4df0833bad97312"><td class="memItemLeft" align="right" valign="top"><a id="a5624455b0635677be4df0833bad97312" name="a5624455b0635677be4df0833bad97312"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRuntimeOwned</b> () const</td></tr>
+<tr class="separator:a5624455b0635677be4df0833bad97312"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac80221406a89ca8e20310c9536ddfa84" id="r_ac80221406a89ca8e20310c9536ddfa84"><td class="memItemLeft" align="right" valign="top"><a id="ac80221406a89ca8e20310c9536ddfa84" name="ac80221406a89ca8e20310c9536ddfa84"></a>
 Span&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>memory</b> () const</td></tr>
 <tr class="separator:ac80221406a89ca8e20310c9536ddfa84"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,12 +163,18 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isUsable</b> () const
 <tr class="memitem:ae0e3b8af7a6c5997659fc07a4fc71e11" id="r_ae0e3b8af7a6c5997659fc07a4fc71e11"><td class="memItemLeft" align="right" valign="top"><a id="ae0e3b8af7a6c5997659fc07a4fc71e11" name="ae0e3b8af7a6c5997659fc07a4fc71e11"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>fillHighWaterMark</b> ()</td></tr>
 <tr class="separator:ae0e3b8af7a6c5997659fc07a4fc71e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93ab8175696b1ca6adf949bd73adc838" id="r_a93ab8175696b1ca6adf949bd73adc838"><td class="memItemLeft" align="right" valign="top"><a id="a93ab8175696b1ca6adf949bd73adc838" name="a93ab8175696b1ca6adf949bd73adc838"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>highWaterUsedBytes</b> () const</td></tr>
+<tr class="memitem:a93ab8175696b1ca6adf949bd73adc838" id="r_a93ab8175696b1ca6adf949bd73adc838"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93ab8175696b1ca6adf949bd73adc838">highWaterUsedBytes</a> () const</td></tr>
+<tr class="memdesc:a93ab8175696b1ca6adf949bd73adc838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runtime-owned stacks expose no measurements; both high-water counters return zero.  <br /></td></tr>
 <tr class="separator:a93ab8175696b1ca6adf949bd73adc838"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5caae1d7d30d5f930fc5f9c88309e4da" id="r_a5caae1d7d30d5f930fc5f9c88309e4da"><td class="memItemLeft" align="right" valign="top"><a id="a5caae1d7d30d5f930fc5f9c88309e4da" name="a5caae1d7d30d5f930fc5f9c88309e4da"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>highWaterUnusedBytes</b> () const</td></tr>
 <tr class="separator:a5caae1d7d30d5f930fc5f9c88309e4da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a3a89704d1e4a6ce1a1ff41c029e75345" id="r_a3a89704d1e4a6ce1a1ff41c029e75345"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structSC_1_1FiberStack.html">FiberStack</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a89704d1e4a6ce1a1ff41c029e75345">runtimeOwned</a> (size_t sizeInBytes)</td></tr>
+<tr class="memdesc:a3a89704d1e4a6ce1a1ff41c029e75345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fil-C/glibc only: request a hidden runtime-owned stack, not caller storage.  <br /></td></tr>
+<tr class="separator:a3a89704d1e4a6ce1a1ff41c029e75345"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -177,7 +187,62 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>FiberVirtualStack</
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Caller-owned stack storage used by fiber contexts. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a93ab8175696b1ca6adf949bd73adc838" name="a93ab8175696b1ca6adf949bd73adc838"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93ab8175696b1ca6adf949bd73adc838">&#9670;&#160;</a></span>highWaterUsedBytes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t SC::FiberStack::highWaterUsedBytes </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Runtime-owned stacks expose no measurements; both high-water counters return zero. </p>
+
+</div>
+</div>
+<a id="a3a89704d1e4a6ce1a1ff41c029e75345" name="a3a89704d1e4a6ce1a1ff41c029e75345"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a89704d1e4a6ce1a1ff41c029e75345">&#9670;&#160;</a></span>runtimeOwned()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structSC_1_1FiberStack.html">FiberStack</a> SC::FiberStack::runtimeOwned </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>sizeInBytes</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fil-C/glibc only: request a hidden runtime-owned stack, not caller storage. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="Fibers_8h_source.html">Fibers.h</a></li>
 </ul>
 </div><!-- contents -->

@@ -1,5 +1,9 @@
 var NAVTREEINDEX9 =
 {
+"structSC_1_1HttpClientSession.html":[17,15,34],
+"structSC_1_1HttpClientSessionAuthCacheEntry.html":[17,15,29],
+"structSC_1_1HttpClientSessionAuthCacheEntry.html#a1f7492ac34c2d98e3b05149230491af4":[17,15,29,0],
+"structSC_1_1HttpClientSessionAuthCacheEntry.html#a38f3afbcdd9972ebb3394008f3e47b04":[17,15,29,1],
 "structSC_1_1HttpClientSessionAuthChallenge.html":[17,15,30],
 "structSC_1_1HttpClientSessionCookie.html":[17,15,28],
 "structSC_1_1HttpClientSessionMemory.html":[17,15,31],
@@ -245,9 +249,5 @@ var NAVTREEINDEX9 =
 "structSC_1_1Path_1_1ParsedView.html#aeb837ba4b3e0b28a5e7279081cdb100d":[17,9,5,0,0],
 "structSC_1_1Path_1_1Posix.html":[17,9,5,1],
 "structSC_1_1Path_1_1Windows.html":[17,9,5,2],
-"structSC_1_1PipeDescriptor.html":[17,8,4],
-"structSC_1_1PipeDescriptor.html#a3dcae6cfbee78db33167e4f183463bf4":[17,8,4,3],
-"structSC_1_1PipeDescriptor.html#a894b341a80f9f8a1d9d68756cc91160b":[17,8,4,1],
-"structSC_1_1PipeDescriptor.html#a8a7368d21e95cacf430847f4a32228c2":[17,8,4,0],
-"structSC_1_1PipeDescriptor.html#ab97fa3a07fcf1e113f0cc3cf1273c1e4":[17,8,4,2]
+"structSC_1_1PipeDescriptor.html":[17,8,4]
 };

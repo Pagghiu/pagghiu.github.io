@@ -129,43 +129,43 @@ $(function(){initNavTree('page_build_external.html',''); initResizable(true); })
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md10">What the external launcher does</a>
+    <a href="#autotoc_md11">What the external launcher does</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md11">Create the smallest project</a>
+    <a href="#autotoc_md12">Create the smallest project</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md12">Choose where the libraries live</a>
+    <a href="#autotoc_md13">Choose where the libraries live</a>
     <ul>
       <li class="level2">
-        <a href="#autotoc_md13">Vendored checkout</a>
+        <a href="#autotoc_md14">Vendored checkout</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md14">Shared checkout</a>
+        <a href="#autotoc_md15">Shared checkout</a>
       </li>
       <li class="level2">
-        <a href="#autotoc_md15">Standalone launcher and cache</a>
+        <a href="#autotoc_md16">Standalone launcher and cache</a>
       </li>
     </ul>
   </li>
   <li class="level1">
-    <a href="#autotoc_md16">Pin the revision</a>
+    <a href="#autotoc_md17">Pin the revision</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md17">Keep paths project-relative</a>
+    <a href="#autotoc_md18">Keep paths project-relative</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md18">Troubleshooting by layer</a>
+    <a href="#autotoc_md19">Troubleshooting by layer</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>Use <code>SC::Build</code> in another repository when you want a small C++ build description, direct native builds, and optional access to the Sane C++ libraries without copying this repository's project structure.</p>
-<h1><a class="anchor" id="autotoc_md10"></a>
+<h1><a class="anchor" id="autotoc_md11"></a>
 What the external launcher does</h1>
 <p>An external project owns its <code>SC-build.cpp</code>. The launcher finds a compatible SaneCppLibraries checkout, compiles the build description, and executes the requested action from the external project directory.</p>
 <p>The launcher resolves the requested SaneCppLibraries revision, compiles the project's definition when necessary, and then builds the selected target. The project remains the entry point throughout that process.</p>
 <p>The external project remains in control of its sources and revision pin. SaneCppLibraries supplies the build API, bootstrap, and any libraries selected by the definition.</p>
-<h1><a class="anchor" id="autotoc_md11"></a>
+<h1><a class="anchor" id="autotoc_md12"></a>
 Create the smallest project</h1>
 <p>Start with this layout:</p>
 <div class="fragment"><div class="line">MyProject/</div>
@@ -196,34 +196,34 @@ Create the smallest project</h1>
 <div class="ttc" id="astructSC_1_1Console_html"><div class="ttname"><a href="structSC_1_1Console.html">SC::Console</a></div><div class="ttdoc">Writes to console using SC::StringFormat.</div><div class="ttdef"><b>Definition</b> Console.h:26</div></div>
 <div class="ttc" id="astructSC_1_1Console_html_a90ab19d2e3479df328c87dc8c51f3c4a"><div class="ttname"><a href="structSC_1_1Console.html#a90ab19d2e3479df328c87dc8c51f3c4a">SC::Console::print</a></div><div class="ttdeci">bool print(StringSpan fmt, Types &amp;&amp;... args)</div><div class="ttdoc">Prints a formatted string using SC::StringFormat to stdout.</div><div class="ttdef"><b>Definition</b> Console.h:34</div></div>
 </div><!-- fragment --><p><code>addSaneCppLibraries</code> adds the public include directory and the unity-build library source. Pass <code>Libraries::Multiple</code> as its third argument only when you specifically want separate library compilation.</p>
-<h1><a class="anchor" id="autotoc_md12"></a>
+<h1><a class="anchor" id="autotoc_md13"></a>
 Choose where the libraries live</h1>
 <p>There are three useful layouts. Choose one deliberately rather than letting local machine state decide.</p>
-<h2><a class="anchor" id="autotoc_md13"></a>
+<h2><a class="anchor" id="autotoc_md14"></a>
 Vendored checkout</h2>
 <p>Keep SaneCppLibraries below the project, for example <code>ThirdParty/SaneCppLibraries</code>. This is easy to inspect and works without network access after checkout, but updating the dependency changes the project tree.</p>
 <div class="fragment"><div class="line">ThirdParty/SaneCppLibraries/SC-build.sh compile MyProject Debug</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md14"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md15"></a>
 Shared checkout</h2>
 <p>Point the launcher at an existing checkout while developing both projects together:</p>
 <div class="fragment"><div class="line">/path/to/SaneCppLibraries/SC-build.sh --libraries-root /path/to/SaneCppLibraries compile MyProject Debug</div>
 </div><!-- fragment --><p>This is convenient for local development. It is not a reproducible dependency declaration by itself.</p>
-<h2><a class="anchor" id="autotoc_md15"></a>
+<h2><a class="anchor" id="autotoc_md16"></a>
 Standalone launcher and cache</h2>
 <p>Download the small launcher into the project and let it maintain one shared clone plus versioned worktrees in the user cache. This keeps the dependency outside the project while allowing the revision pragma to select an exact checkout.</p>
 <div class="fragment"><div class="line">curl -L -o SC-build.sh https://raw.githubusercontent.com/Pagghiu/SaneCppLibraries/main/SC-build.sh</div>
 <div class="line">chmod +x SC-build.sh</div>
 <div class="line">./SC-build.sh compile MyProject Debug</div>
 </div><!-- fragment --><p>On Windows, download <code>SC-build.ps1</code>; <code>SC-build.bat</code> is a wrapper for command-prompt use.</p>
-<h1><a class="anchor" id="autotoc_md16"></a>
+<h1><a class="anchor" id="autotoc_md17"></a>
 Pin the revision</h1>
 <p>The cache flow reads a pragma near the top of <code>SC-build.cpp</code>:</p>
 <div class="fragment"><div class="line"><span class="comment">// sc-build-version: 5ab42c5abfea35e9c148e18ff244563b593979a2</span></div>
 </div><!-- fragment --><p>A branch is useful while collaborating on active development. A tag or commit SHA is a better choice when another person or CI must reproduce the same build. Without the pragma, the launcher follows the current default branch and warns that the result is not pinned.</p>
-<h1><a class="anchor" id="autotoc_md17"></a>
+<h1><a class="anchor" id="autotoc_md18"></a>
 Keep paths project-relative</h1>
 <p>External definitions may be launched from nested directories and may use a cached library checkout. Resolve project files from <code>parameters.directories.projectDirectory</code>; do not derive them from the location of SaneCppLibraries.</p>
-<h1><a class="anchor" id="autotoc_md18"></a>
+<h1><a class="anchor" id="autotoc_md19"></a>
 Troubleshooting by layer</h1>
 <ul>
 <li><code>Cannot find SC-build.cpp</code>: run inside the project tree or pass <code>--project-dir</code>.</li>

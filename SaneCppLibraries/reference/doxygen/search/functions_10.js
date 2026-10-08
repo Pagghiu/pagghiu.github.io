@@ -53,5 +53,6 @@ var searchData=
   ['rounduptopagesize_50',['roundUpToPageSize',['../structSC_1_1VirtualMemory.html#a7634f24ec730110e5a3ae4d1ae95f5f8',1,'SC::VirtualMemory']]],
   ['run_51',['run',['../structSC_1_1AsyncEventLoop.html#af77cd7ac7a1a577204e43d14debc45c5',1,'SC::AsyncEventLoop']]],
   ['runnowait_52',['runNoWait',['../structSC_1_1AsyncEventLoop.html#a1bc6365abc9c05fdbeec9c7f4519c319',1,'SC::AsyncEventLoop']]],
-  ['runonce_53',['runOnce',['../structSC_1_1AsyncEventLoop.html#aeef889e7c4c8f7cbbfe974ee6be27f09',1,'SC::AsyncEventLoop']]]
+  ['runonce_53',['runOnce',['../structSC_1_1AsyncEventLoop.html#aeef889e7c4c8f7cbbfe974ee6be27f09',1,'SC::AsyncEventLoop']]],
+  ['runtimeowned_54',['runtimeOwned',['../structSC_1_1FiberStack.html#a3a89704d1e4a6ce1a1ff41c029e75345',1,'SC::FiberStack']]]
 ];

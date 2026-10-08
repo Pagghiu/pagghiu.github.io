@@ -129,70 +129,70 @@ $(function(){initNavTree('library_cryptography.html',''); initResizable(true); }
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md170">Status and security notice</a>
+    <a href="#autotoc_md171">Status and security notice</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md171">Dependencies</a>
+    <a href="#autotoc_md172">Dependencies</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md172">Choosing a primitive</a>
+    <a href="#autotoc_md173">Choosing a primitive</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md173">Capability discovery</a>
+    <a href="#autotoc_md174">Capability discovery</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md174">Secure random bytes</a>
+    <a href="#autotoc_md175">Secure random bytes</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md175">AES-GCM authenticated encryption</a>
+    <a href="#autotoc_md176">AES-GCM authenticated encryption</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md176">HMAC</a>
+    <a href="#autotoc_md177">HMAC</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md177">HKDF</a>
+    <a href="#autotoc_md178">HKDF</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md178">Legacy AES-CBC with PKCS#7</a>
+    <a href="#autotoc_md179">Legacy AES-CBC with PKCS#7</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md179">Composing CBC And HMAC With Async Streams</a>
+    <a href="#autotoc_md180">Composing CBC And HMAC With Async Streams</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md180">Storage, allocation, and secret lifetime</a>
+    <a href="#autotoc_md181">Storage, allocation, and secret lifetime</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md181">Platform support</a>
+    <a href="#autotoc_md182">Platform support</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md182">Error handling</a>
+    <a href="#autotoc_md183">Error handling</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md183">Roadmap</a>
+    <a href="#autotoc_md184">Roadmap</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md184">Blog</a>
+    <a href="#autotoc_md185">Blog</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md185">Statistics</a>
+    <a href="#autotoc_md186">Statistics</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>🟥 Fixed-storage wrappers over native and optional OpenSSL symmetric cryptography APIs</p>
 <p><a href="https://github.com/Pagghiu/SaneCppLibraries/releases/latest/download/SaneCppCryptography.h">SaneCppCryptography.h</a> provides synchronous, caller-buffered access to secure random bytes, AES-GCM, HMAC, HKDF, and legacy AES-CBC with PKCS#7 padding. The default <code>Native</code> backend delegates to operating-system providers. Apple, Windows, and Linux callers can explicitly select a runtime-loaded OpenSSL 3 backend instead. On Apple, the native backend implements the narrowly scoped SP 800-38D GCM composition over CommonCrypto AES because CommonCrypto has no public GCM interface. No portable AES implementation is included.</p>
-<h1><a class="anchor" id="autotoc_md170"></a>
+<h1><a class="anchor" id="autotoc_md171"></a>
 Status and security notice</h1>
 <p>🟥 <b>Draft / experimental</b></p>
 <p>The API, storage sizes, and platform coverage may change while the library is in Draft. The implementation has NIST known-answer, deterministic mutation, and cross-platform tests, but it has <b>not received a formal cryptographic or side-channel audit</b>. No formal audit has been performed or is required for Draft publication; users should judge the library accordingly. Treat it as a low-level primitive adapter, not as a complete protocol or a substitute for expert review of a security design.</p>
 <p>Prefer an authenticated-encryption mode such as AES-GCM whenever it is available. Use AES-CBC only when an existing protocol requires that exact construction; CBC encryption by itself does not authenticate ciphertext and is malleable.</p>
-<h1><a class="anchor" id="autotoc_md171"></a>
+<h1><a class="anchor" id="autotoc_md172"></a>
 Dependencies</h1>
 <ul>
 <li>Dependencies: <em>(none)</em></li>
 <li>All dependencies: <em>(none)</em></li>
 </ul>
 <p><img src="Cryptography.svg" alt="Dependency Graph" style="pointer-events: none;" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md172"></a>
+<h1><a class="anchor" id="autotoc_md173"></a>
 Choosing a primitive</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -209,7 +209,7 @@ Choosing a primitive</h1>
 <td class="markdownTableBodyLeft">Interoperate with legacy AES-CBC   </td><td class="markdownTableBodyLeft"><code><a class="el" href="structSC_1_1Cryptography_1_1Cipher.html">SC::Cryptography::Cipher</a></code>   </td><td class="markdownTableBodyLeft">CBC is unauthenticated; use only inside a correctly specified authenticated protocol   </td></tr>
 </table>
 <p>This library does not provide password hashing, signatures, public-key cryptography, certificate validation, key storage, nonce allocation, protocol framing, or constant-time comparison.</p>
-<h1><a class="anchor" id="autotoc_md173"></a>
+<h1><a class="anchor" id="autotoc_md174"></a>
 Capability discovery</h1>
 <p>Backend availability is part of the API. The overload without a backend always queries <code>Backend::Native</code>:</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structSC_1_1Cryptography_1_1Features.html">SC::Cryptography::Features</a> features;</div>
@@ -231,7 +231,7 @@ Capability discovery</h1>
 <div class="ttc" id="astructSC_1_1Cryptography_1_1Aead_html"><div class="ttname"><a href="structSC_1_1Cryptography_1_1Aead.html">SC::Cryptography::Aead</a></div><div class="ttdef"><b>Definition</b> Cryptography.h:99</div></div>
 </div><!-- fragment --><p>Default constructors, the original <code>queryFeatures()</code> overload, and the original <code>Hkdf::derive()</code> overload all use <code>Backend::Native</code>. On Linux this means AF_ALG. <code>Aead</code>, <code>Cipher</code>, and <code>Hmac</code> bind their backend at construction; <code>Hkdf::derive()</code> has a backend-taking overload because it constructs HMAC sessions internally. OpenSSL remains optional on every platform: if a suitable OpenSSL 3 shared library cannot be loaded, its cryptographic features report unavailable without affecting the native backend.</p>
 <p><code>queryFeatures()</code> reports primitive availability, not whether a chosen key, nonce, IV, message size, or surrounding protocol is secure. <code>maximumAeadAssociatedDataSize</code> is zero when AES-GCM is unavailable or when the active backend has no AAD-specific limit below its general maximum message size. Linux <code>Backend::Native</code> reports 4096 when either AF_ALG AES-GCM variant is available; <code>Backend::OpenSSL</code> reports zero because it has no AF_ALG-specific AAD ceiling.</p>
-<h1><a class="anchor" id="autotoc_md174"></a>
+<h1><a class="anchor" id="autotoc_md175"></a>
 Secure random bytes</h1>
 <p><code>Random::fill()</code> fills the complete caller-owned span or returns an error. An empty span succeeds. Use it for secret keys and for protocol values that are required to be random; do not use predictable counters where a specification requires an unpredictable IV.</p>
 <p>The compiled test demonstrates the call:</p>
@@ -239,7 +239,7 @@ Secure random bytes</h1>
 <div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(<a class="code hl_function" href="structSC_1_1Cryptography_1_1Random.html#a82c187ef492bbf594b331aa354cc718c">Cryptography::Random::fill</a>(randomBytes));</div>
 <div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(anyNonZero(randomBytes));</div>
 </div><!-- fragment --><p>Random output must not be tested for “random-looking” patterns in application code. The test's non-zero assertion is only a smoke check that the backend wrote the buffer.</p>
-<h1><a class="anchor" id="autotoc_md175"></a>
+<h1><a class="anchor" id="autotoc_md176"></a>
 AES-GCM authenticated encryption</h1>
 <p><code>Aead</code> binds one AES-128 or AES-256 key with <code>init()</code>, then encrypts or decrypts independent messages with <code>seal()</code> and <code>open()</code>. Ciphertext has the same length as plaintext. This API fixes the nonce at 12 bytes and the authentication tag at 16 bytes. Every <code>init()</code> attempt discards the previous key, including when initialization fails.</p>
 <p>For every message encrypted under one key:</p>
@@ -276,7 +276,7 @@ AES-GCM authenticated encryption</h1>
 <div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(sameBytes(decrypted, zeroPlain16));</div>
 </div><!-- fragment --><p>See <a href="https://doi.org/10.6028/NIST.SP.800-38D">NIST SP 800-38D</a> for GCM requirements and usage bounds.</p>
 <p>The Apple adapter uses CommonCrypto for every AES block operation and implements counter construction, GHASH, and tag verification privately. It supports only the fixed nonce and tag sizes above. GHASH uses fixed-iteration multiplication without secret-indexed lookup tables, and <code>open()</code> authenticates ciphertext before decrypting it. Shared tests include official NIST CAVP vectors plus deterministic boundary and corruption stress for both key sizes. The vectors come from the <a href="https://csrc.nist.gov/Projects/Cryptographic-Algorithm-Validation-Program/CAVP-TESTING-BLOCK-CIPHER-MODES">NIST GCM validation corpus</a>.</p>
-<h1><a class="anchor" id="autotoc_md176"></a>
+<h1><a class="anchor" id="autotoc_md177"></a>
 HMAC</h1>
 <p><code>Hmac</code> is an incremental HMAC-SHA256 or HMAC-SHA384 session:</p>
 <ol type="1">
@@ -296,7 +296,7 @@ HMAC</h1>
 <div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(hmac.getMac(result));</div>
 <div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(sameBytes(result.toBytesSpan(), hmacSha256Expected));</div>
 </div><!-- fragment --><p>The snippet is an RFC known-answer test. Production code should use a secret key of the size and origin required by its protocol and should compare received MACs in constant time.</p>
-<h1><a class="anchor" id="autotoc_md177"></a>
+<h1><a class="anchor" id="autotoc_md178"></a>
 HKDF</h1>
 <p><code>Hkdf::derive()</code> implements RFC 5869 extract-and-expand with HMAC-SHA256 or HMAC-SHA384. Output is written directly to the caller span and is limited to <code>255 * HashLen</code> bytes. An empty salt means the RFC-defined <code>HashLen</code> zero octets; an empty output span succeeds.</p>
 <div class="fragment"><div class="line">        uint8_t output[42] = {0};</div>
@@ -307,7 +307,7 @@ HKDF</h1>
 <div class="line">            <span class="stringliteral">&quot;\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9&quot;</span>_a8.toBytesSpan(), output));</div>
 <div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(sameBytes(output, hkdfSha256Expected));</div>
 </div><!-- fragment --><p>Use <code>info</code> for domain separation: encode the protocol version, algorithm suite, application context, and purpose of the derived key. HKDF is not a password hash and does not make low-entropy passwords suitable key material. See <a href="https://www.rfc-editor.org/rfc/rfc5869">RFC 5869</a> for the construction and guidance.</p>
-<h1><a class="anchor" id="autotoc_md178"></a>
+<h1><a class="anchor" id="autotoc_md179"></a>
 Legacy AES-CBC with PKCS#7</h1>
 <p><code>Cipher</code> exposes AES-128-CBC and AES-256-CBC solely for compatibility with protocols that already specify CBC, PKCS#7, IV generation, and authentication. New designs should use AEAD.</p>
 <p>For encryption, the 16-byte IV must be unpredictable and freshly generated for each message. Reusing an IV leaks relationships between plaintext prefixes. For decryption, do not reveal padding failures differently from other authentication or message failures; doing so can create a padding oracle.</p>
@@ -345,18 +345,18 @@ Legacy AES-CBC with PKCS#7</h1>
 <div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(decryptUpdate + decryptFinish == <span class="keyword">sizeof</span>(zeroPlain16));</div>
 <div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(sameBytes(Span&lt;const uint8_t&gt;(plaintext, decryptUpdate + decryptFinish), zeroPlain16));</div>
 </div><!-- fragment --><p>Again, the zero values in this snippet are a known-answer vector, not acceptable production key or IV generation.</p>
-<h1><a class="anchor" id="autotoc_md179"></a>
+<h1><a class="anchor" id="autotoc_md180"></a>
 Composing CBC And HMAC With Async Streams</h1>
 <p><a class="el" href="library_async_streams.html">Async Streams</a> provides header-only <code>AsyncCipherTransformStreamT</code> and <code>AsyncHmacWritableStreamT</code> adapters. They are templates specifically so Cryptography remains synchronous and neither library acquires a hard dependency on the other. Include both headers only in the application translation unit that builds the pipeline.</p>
 <p>The cipher adapter inherits all CBC warnings above. The HMAC adapter is a sink rather than a pass-through transform; use pipeline fan-out when the same bytes must also reach a file, socket, or another destination. The Async Streams documentation shows complete setup and buffer requirements.</p>
 <p>There is no AES-GCM stream adapter. The one-shot <code>Aead</code> interface deliberately keeps authenticated messages explicit; streaming it safely requires a separately specified record protocol that withholds plaintext until its tag verifies.</p>
-<h1><a class="anchor" id="autotoc_md180"></a>
+<h1><a class="anchor" id="autotoc_md181"></a>
 Storage, allocation, and secret lifetime</h1>
 <p>All public objects hold provider state in fixed inline opaque storage. Public operations borrow input spans only for the duration of the call and write to caller-owned output spans. The library performs no C++ heap allocation and has no STL, exception, or RTTI dependency. The Linux AF_ALG backend uses fixed Sane storage and kernel resources and does not require or load OpenSSL.</p>
 <p>Selecting <code>Backend::OpenSSL</code> changes that end-to-end allocation contract. OpenSSL allocates provider, algorithm, cipher/MAC context, process, and thread state internally; Cryptography cannot redirect or prevent those allocations. Capability queries, session initialization, and provider operations can therefore allocate inside OpenSSL even though Sane C++ continues to use fixed inline storage and caller-owned output buffers.</p>
 <p><code>Aead</code>, <code>Cipher</code>, and <code>Hmac</code> are non-copyable and non-movable because each owns live native state. Keep an active object on one thread unless the caller provides external synchronization. Destruction releases native handles. Fixed native key-object buffers, CBC pending blocks, HMAC contexts, and HKDF intermediate key material are cleared when their session ends; copies held by the operating system remain governed by that platform API.</p>
 <p>The library does not lock caller key buffers into RAM, prevent callers from copying secrets, or guarantee that every compiler, kernel, crash dump, swap configuration, or debugger removes all historical copies. Applications with stronger key-erasure requirements need platform-specific memory and process controls in addition to this API.</p>
-<h1><a class="anchor" id="autotoc_md181"></a>
+<h1><a class="anchor" id="autotoc_md182"></a>
 Platform support</h1>
 <p><code>queryFeatures()</code> is the runtime source of truth.</p>
 <table class="markdownTable">
@@ -379,10 +379,10 @@ Platform support</h1>
 <p>Use <code>algif_aead</code> only on a security-updated kernel. The interface was affected by <a href="https://ubuntu.com/security/CVE-2026-31431">CVE-2026-31431</a>, and some distributions disable its module on affected kernels. <code>queryFeatures()</code> can detect whether the interface is usable, but it cannot prove that a vendor kernel contains all relevant security fixes.</p>
 <p>The optional OpenSSL backend loads only an OpenSSL 3 <code>libcrypto</code> ABI, requires no OpenSSL headers or link-time <code>libcrypto</code> dependency, and probes actual provider algorithm initialization. Linux probes <code>libcrypto.so.3</code>. macOS first uses the dynamic loader's search paths for <code>libcrypto.3.dylib</code>, then checks the conventional Homebrew and MacPorts locations. Windows probes the architecture-specific OpenSSL 3 DLL name and <code>libcrypto-3.dll</code> through the safe default DLL directories. It does not search the process working directory.</p>
 <p>The backend uses the process default OpenSSL library context without loading providers or changing policy. Missing libraries, incomplete symbols, configuration/FIPS policy, or unavailable algorithms are reflected in that backend's feature result and do not affect the native backend.</p>
-<h1><a class="anchor" id="autotoc_md182"></a>
+<h1><a class="anchor" id="autotoc_md183"></a>
 Error handling</h1>
 <p>Every operation returns <code>SC::Result</code>. Check every result and propagate failures with <code>SC_TRY</code>; do not continue with partially produced ciphertext, plaintext, MAC, or derived key material. Error strings are stable diagnostic categories, not portable native error codes and not suitable as protocol responses.</p>
-<h1><a class="anchor" id="autotoc_md183"></a>
+<h1><a class="anchor" id="autotoc_md184"></a>
 Roadmap</h1>
 <p>Current Draft goals:</p>
 <ul>
@@ -392,14 +392,14 @@ Roadmap</h1>
 <li>consider a C binding only after the C++ lifecycle and storage contract stabilizes;</li>
 <li>keep the absence of a formal audit explicit and use sustained testing, real-world use, and focused community feedback to inform any future maturity change.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md184"></a>
+<h1><a class="anchor" id="autotoc_md185"></a>
 Blog</h1>
 <p>Development notes and design changes are recorded in the project updates:</p>
 <ul>
 <li><a href="https://pagghiu.github.io/site/blog/2026-08-31-SaneCppLibrariesUpdate.html">August 2026 Update</a></li>
 <li><a href="https://pagghiu.github.io/site/blog/2026-09-30-SaneCppLibrariesUpdate.html">September 2026 Update</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md185"></a>
+<h1><a class="anchor" id="autotoc_md186"></a>
 Statistics</h1>
 <p>LOC counts exclude comments. Library counts files physically under <code>Libraries/Cryptography</code>. Single File counts <code>SaneCppCryptography.h</code>. Standalone counts <code>SaneCppCryptographyStandalone.h</code> and intentionally includes dependency payloads.</p>
 <table class="markdownTable">

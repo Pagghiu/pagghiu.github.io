@@ -445,7 +445,8 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Valid Result if the plugin has been found, compiled, loaded and inited successfully </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Valid Result if the plugin has been found, compiled, loaded and inited successfully</dd></dl>
+<p>Fil-C glibc rejects LoadMode::Reload with PluginError::ReloadUnsupported without changing live plugins. Rootless Fil-C reload retains old module mappings; it does not provide bounded-memory module reclamation. </p>
 
 </div>
 </div>

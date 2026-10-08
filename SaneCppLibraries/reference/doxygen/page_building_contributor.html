@@ -129,34 +129,34 @@ $(function(){initNavTree('page_building_contributor.html',''); initResizable(tru
 <div class="toc"><h3>Table of Contents</h3>
 <ul>
   <li class="level1">
-    <a href="#autotoc_md19">Prepare the checkout</a>
+    <a href="#autotoc_md20">Prepare the checkout</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md20">Use the focused feedback loop</a>
+    <a href="#autotoc_md21">Use the focused feedback loop</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md21">Expand validation deliberately</a>
+    <a href="#autotoc_md22">Expand validation deliberately</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md22">Format and inspect the change</a>
+    <a href="#autotoc_md23">Format and inspect the change</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md23">Generate IDE projects only when useful</a>
+    <a href="#autotoc_md24">Generate IDE projects only when useful</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md24">Debug a failing test</a>
+    <a href="#autotoc_md25">Debug a failing test</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md25">Build documentation</a>
+    <a href="#autotoc_md26">Build documentation</a>
   </li>
 </ul>
 </div>
 <div class="textblock"><p>Contributor builds are organized around a short feedback loop: compile the affected target, run the narrowest relevant test, then expand validation before committing. Project generation is optional.</p>
-<h1><a class="anchor" id="autotoc_md19"></a>
+<h1><a class="anchor" id="autotoc_md20"></a>
 Prepare the checkout</h1>
 <p>Use a recent C++ compiler supported by the host platform and make sure Git subcommands and the repository bootstrap can run. The first tool invocation compiles the small bootstrap and may download pinned development tools into <code>_Build</code>.</p>
 <p>Read <a href="https://github.com/Pagghiu/SaneCppLibraries/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> before changing code. It defines the issue-first workflow, commit format, and agent guidance. Read <a class="el" href="page_coding_style.html">Coding Style</a> before writing a new API.</p>
-<h1><a class="anchor" id="autotoc_md20"></a>
+<h1><a class="anchor" id="autotoc_md21"></a>
 Use the focused feedback loop</h1>
 <p>Compile the test executable before running it:</p>
 <div class="fragment"><div class="line">./SC.sh build compile SCTest Debug</div>
@@ -165,7 +165,7 @@ Use the focused feedback loop</h1>
 <div class="fragment"><div class="line">./SC.sh build run SCTest Debug -- --test &quot;HttpClientTest&quot; --test-section &quot;basic GET&quot;</div>
 </div><!-- fragment --><p>Arguments after <code>--</code> belong to the test executable. Arguments before it belong to <code>SC::Build</code>.</p>
 <p>Network tests can run alongside other worktrees by adding a unique <code>--port-offset</code>. A hang usually means an async handle, task, or reference count was not closed; reduce the run to one section before adding temporary tracing.</p>
-<h1><a class="anchor" id="autotoc_md21"></a>
+<h1><a class="anchor" id="autotoc_md22"></a>
 Expand validation deliberately</h1>
 <p>After focused tests pass:</p>
 <ol type="1">
@@ -181,17 +181,17 @@ Expand validation deliberately</h1>
 <div class="line">./SC.sh build compile &quot;SCSingleFileLibs:&quot; Release</div>
 </div><!-- fragment --><p><code>BuildTest</code> is omitted from ordinary local <code>SCTest</code> runs because it exercises broader toolchain flows. Use <code>--all-tests</code> when the change touches SC::Build, package resolution, bootstrap behavior, or CI-equivalent validation:</p>
 <div class="fragment"><div class="line">./SC.sh build run SCTest Debug -- --all-tests</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md22"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md23"></a>
 Format and inspect the change</h1>
 <p>Format supported source files with the pinned formatter:</p>
 <div class="fragment"><div class="line">./SC.sh format execute</div>
 </div><!-- fragment --><p>Then inspect the diff. Formatting is necessary but does not catch accidental generated files, over-wide declaration alignment, stale comments, or unrelated edits.</p>
-<h1><a class="anchor" id="autotoc_md23"></a>
+<h1><a class="anchor" id="autotoc_md24"></a>
 Generate IDE projects only when useful</h1>
 <p>The native backend is the default command-line workflow. Generate projects when you want an IDE's project model or a generated Make flow:</p>
 <div class="fragment"><div class="line">./SC.sh build configure SCTest</div>
 </div><!-- fragment --><p>Generated projects are placed below <code>_Build/_Projects</code>. They are disposable and should not become the source of truth for target definitions; edit <code>Tools/SC-build.cpp</code> instead.</p>
-<h1><a class="anchor" id="autotoc_md24"></a>
+<h1><a class="anchor" id="autotoc_md25"></a>
 Debug a failing test</h1>
 <p>Build Debug, reduce the test selection, and launch the produced executable through LLDB, GDB, Visual Studio, or the repository's VS Code configuration. The output directory printed by SC::Build identifies the exact executable for the selected platform, architecture, toolchain, and configuration.</p>
 <p>When debugging async code, reconstruct ownership and completion in order:</p>
@@ -202,7 +202,7 @@ Debug a failing test</h1>
 <li>Does every error path perform the same cleanup?</li>
 </ol>
 <p>Remove temporary logging after the behavior is understood.</p>
-<h1><a class="anchor" id="autotoc_md25"></a>
+<h1><a class="anchor" id="autotoc_md26"></a>
 Build documentation</h1>
 <p>Documentation is part of validation when changing public headers or Markdown pages:</p>
 <div class="fragment"><div class="line">./SC.sh build documentation</div>

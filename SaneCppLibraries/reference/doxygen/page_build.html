@@ -147,7 +147,10 @@ $(function(){initNavTree('page_build.html',''); initResizable(true); });
     <a href="#autotoc_md8">Cross builds are three decisions</a>
   </li>
   <li class="level1">
-    <a href="#autotoc_md9">Continue from here</a>
+    <a href="#autotoc_md9">Experimental Fil-C toolchain</a>
+  </li>
+  <li class="level1">
+    <a href="#autotoc_md10">Continue from here</a>
   </li>
 </ul>
 </div>
@@ -213,6 +216,13 @@ Cross builds are three decisions</h1>
 <div class="fragment"><div class="line">./SC.sh build compile --help</div>
 <div class="line">./SC.sh build run --help</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md9"></a>
+Experimental Fil-C toolchain</h1>
+<p>On Linux, <code>--toolchain filc</code> selects the native host architecture. Fil-C 0.686 packages are available for Intel64 (<code>x86_64</code>) and ARM64 (<code>aarch64</code>); the imported compiler's target triple must match the host. Fil-C remains toolchain-only and does not add a <code>linux-filc-*</code> target profile.</p>
+<p>Install the archive for the current host, then build without an explicit cross-target:</p>
+<div class="fragment"><div class="line">./SC.sh package install filc</div>
+<div class="line">./SC.sh build compile SaneHttpGet Debug --toolchain filc</div>
+</div><!-- fragment --><p>The ARM64 distribution is experimental and requires a 4 KiB kernel page size. Archive setup requires <code>patchelf</code>. Use <code>--import-directory</code> only for an installation that has already completed upstream's <code>setup.sh</code>.</p>
+<h1><a class="anchor" id="autotoc_md10"></a>
 Continue from here</h1>
 <ul>
 <li>Use <a class="el" href="page_build_external.html">SC::Build (External use)</a> to adopt the build system outside this repository.</li>

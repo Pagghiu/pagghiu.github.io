@@ -115,6 +115,7 @@ var searchData=
   ['submitrequests_112',['submitRequests',['../structSC_1_1AsyncEventLoop.html#a76c7d12a2689a730471371881ec8d096',1,'SC::AsyncEventLoop']]],
   ['subtractapproximate_113',['subtractApproximate',['../structSC_1_1Time_1_1HighResolutionCounter.html#a1a539c2354eff50b84398fca0f9cbd1f',1,'SC::Time::HighResolutionCounter']]],
   ['subtractexact_114',['subtractExact',['../structSC_1_1Time_1_1Absolute.html#ad84201c15e38917b836fa864b8f1f284',1,'SC::Time::Absolute::subtractExact()'],['../structSC_1_1Time_1_1HighResolutionCounter.html#adf96060ea29a8b88c52bb7da8c9a1865',1,'SC::Time::HighResolutionCounter::subtractExact()']]],
-  ['sync_115',['sync',['../structSC_1_1FileDescriptor.html#aa0ed3605f3e84c22bac1907a1e851608',1,'SC::FileDescriptor']]],
-  ['syncdata_116',['syncData',['../structSC_1_1FileDescriptor.html#a2709a78b92ed3c180c4206b122ec6beb',1,'SC::FileDescriptor']]]
+  ['supportsruntimeownedstacks_115',['supportsRuntimeOwnedStacks',['../structSC_1_1FiberScheduler.html#a0ab62b6d3ab58cb28f7ac71cdc636f50',1,'SC::FiberScheduler']]],
+  ['sync_116',['sync',['../structSC_1_1FileDescriptor.html#aa0ed3605f3e84c22bac1907a1e851608',1,'SC::FileDescriptor']]],
+  ['syncdata_117',['syncData',['../structSC_1_1FileDescriptor.html#a2709a78b92ed3c180c4206b122ec6beb',1,'SC::FileDescriptor']]]
 ];

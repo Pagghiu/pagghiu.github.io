@@ -25,8 +25,8 @@
 var NAVTREE =
 [
   [ "Sane C++ Libraries", "index.html", [
-    [ "Motivation", "index.html#autotoc_md67", null ],
-    [ "Status", "index.html#autotoc_md68", null ],
+    [ "Motivation", "index.html#autotoc_md68", null ],
+    [ "Status", "index.html#autotoc_md69", null ],
     [ "Dependencies", "page_dependencies.html", [
       [ "Dependencies", "page_dependencies.html#autotoc_md0", null ],
       [ "Dependencies (automatically generated)", "page_dependencies.html#autotoc_md1", null ],
@@ -39,115 +39,116 @@ var NAVTREE =
       [ "Native and generated workflows", "page_build.html#autotoc_md6", null ],
       [ "Choose the integration size", "page_build.html#autotoc_md7", null ],
       [ "Cross builds are three decisions", "page_build.html#autotoc_md8", null ],
-      [ "Continue from here", "page_build.html#autotoc_md9", null ]
+      [ "Experimental Fil-C toolchain", "page_build.html#autotoc_md9", null ],
+      [ "Continue from here", "page_build.html#autotoc_md10", null ]
     ] ],
     [ "SC::Build (External use)", "page_build_external.html", [
-      [ "What the external launcher does", "page_build_external.html#autotoc_md10", null ],
-      [ "Create the smallest project", "page_build_external.html#autotoc_md11", null ],
-      [ "Choose where the libraries live", "page_build_external.html#autotoc_md12", [
-        [ "Vendored checkout", "page_build_external.html#autotoc_md13", null ],
-        [ "Shared checkout", "page_build_external.html#autotoc_md14", null ],
-        [ "Standalone launcher and cache", "page_build_external.html#autotoc_md15", null ]
+      [ "What the external launcher does", "page_build_external.html#autotoc_md11", null ],
+      [ "Create the smallest project", "page_build_external.html#autotoc_md12", null ],
+      [ "Choose where the libraries live", "page_build_external.html#autotoc_md13", [
+        [ "Vendored checkout", "page_build_external.html#autotoc_md14", null ],
+        [ "Shared checkout", "page_build_external.html#autotoc_md15", null ],
+        [ "Standalone launcher and cache", "page_build_external.html#autotoc_md16", null ]
       ] ],
-      [ "Pin the revision", "page_build_external.html#autotoc_md16", null ],
-      [ "Keep paths project-relative", "page_build_external.html#autotoc_md17", null ],
-      [ "Troubleshooting by layer", "page_build_external.html#autotoc_md18", null ]
+      [ "Pin the revision", "page_build_external.html#autotoc_md17", null ],
+      [ "Keep paths project-relative", "page_build_external.html#autotoc_md18", null ],
+      [ "Troubleshooting by layer", "page_build_external.html#autotoc_md19", null ]
     ] ],
     [ "Building (Contributor)", "page_building_contributor.html", [
-      [ "Prepare the checkout", "page_building_contributor.html#autotoc_md19", null ],
-      [ "Use the focused feedback loop", "page_building_contributor.html#autotoc_md20", null ],
-      [ "Expand validation deliberately", "page_building_contributor.html#autotoc_md21", null ],
-      [ "Format and inspect the change", "page_building_contributor.html#autotoc_md22", null ],
-      [ "Generate IDE projects only when useful", "page_building_contributor.html#autotoc_md23", null ],
-      [ "Debug a failing test", "page_building_contributor.html#autotoc_md24", null ],
-      [ "Build documentation", "page_building_contributor.html#autotoc_md25", null ]
+      [ "Prepare the checkout", "page_building_contributor.html#autotoc_md20", null ],
+      [ "Use the focused feedback loop", "page_building_contributor.html#autotoc_md21", null ],
+      [ "Expand validation deliberately", "page_building_contributor.html#autotoc_md22", null ],
+      [ "Format and inspect the change", "page_building_contributor.html#autotoc_md23", null ],
+      [ "Generate IDE projects only when useful", "page_building_contributor.html#autotoc_md24", null ],
+      [ "Debug a failing test", "page_building_contributor.html#autotoc_md25", null ],
+      [ "Build documentation", "page_building_contributor.html#autotoc_md26", null ]
     ] ],
     [ "Building (User)", "page_building_user.html", [
-      [ "Small, medium, or big?", "page_building_user.html#autotoc_md26", [
-        [ "Small: one standalone library", "page_building_user.html#autotoc_md27", null ],
-        [ "Medium: the unity build", "page_building_user.html#autotoc_md28", null ],
-        [ "Big: separate compilation", "page_building_user.html#autotoc_md29", null ]
+      [ "Small, medium, or big?", "page_building_user.html#autotoc_md27", [
+        [ "Small: one standalone library", "page_building_user.html#autotoc_md28", null ],
+        [ "Medium: the unity build", "page_building_user.html#autotoc_md29", null ],
+        [ "Big: separate compilation", "page_building_user.html#autotoc_md30", null ]
       ] ],
-      [ "Add one library to an existing program", "page_building_user.html#autotoc_md30", null ],
-      [ "Use normal C++ around Sane C++", "page_building_user.html#autotoc_md31", null ],
-      [ "Account for platform libraries", "page_building_user.html#autotoc_md32", null ],
-      [ "Plugins need exported library symbols", "page_building_user.html#autotoc_md33", null ],
-      [ "When to use SC::Build", "page_building_user.html#autotoc_md34", null ]
+      [ "Add one library to an existing program", "page_building_user.html#autotoc_md31", null ],
+      [ "Use normal C++ around Sane C++", "page_building_user.html#autotoc_md32", null ],
+      [ "Account for platform libraries", "page_building_user.html#autotoc_md33", null ],
+      [ "Plugins need exported library symbols", "page_building_user.html#autotoc_md34", null ],
+      [ "When to use SC::Build", "page_building_user.html#autotoc_md35", null ]
     ] ],
     [ "Coding Style", "page_coding_style.html", [
-      [ "Start from the repository constraints", "page_coding_style.html#autotoc_md35", null ],
-      [ "Let the formatter establish the baseline", "page_coding_style.html#autotoc_md36", null ],
-      [ "Name by role", "page_coding_style.html#autotoc_md37", null ],
-      [ "Make failure part of the type", "page_coding_style.html#autotoc_md38", null ],
-      [ "Keep outputs and ownership explicit", "page_coding_style.html#autotoc_md39", null ],
-      [ "Design public headers as boundaries", "page_coding_style.html#autotoc_md40", null ],
-      [ "Prefer small, testable operations", "page_coding_style.html#autotoc_md41", null ],
-      [ "Write tests as contract examples", "page_coding_style.html#autotoc_md42", null ],
-      [ "Review checklist", "page_coding_style.html#autotoc_md43", null ]
+      [ "Start from the repository constraints", "page_coding_style.html#autotoc_md36", null ],
+      [ "Let the formatter establish the baseline", "page_coding_style.html#autotoc_md37", null ],
+      [ "Name by role", "page_coding_style.html#autotoc_md38", null ],
+      [ "Make failure part of the type", "page_coding_style.html#autotoc_md39", null ],
+      [ "Keep outputs and ownership explicit", "page_coding_style.html#autotoc_md40", null ],
+      [ "Design public headers as boundaries", "page_coding_style.html#autotoc_md41", null ],
+      [ "Prefer small, testable operations", "page_coding_style.html#autotoc_md42", null ],
+      [ "Write tests as contract examples", "page_coding_style.html#autotoc_md43", null ],
+      [ "Review checklist", "page_coding_style.html#autotoc_md44", null ]
     ] ],
     [ "Examples", "page_examples.html", [
-      [ "Examples", "page_examples.html#autotoc_md44", [
-        [ "See the examples in action", "page_examples.html#autotoc_md45", [
-          [ "Applications and runtime behavior", "page_examples.html#autotoc_md46", null ],
-          [ "SC::Build workflows", "page_examples.html#autotoc_md47", null ]
+      [ "Examples", "page_examples.html#autotoc_md45", [
+        [ "See the examples in action", "page_examples.html#autotoc_md46", [
+          [ "Applications and runtime behavior", "page_examples.html#autotoc_md47", null ],
+          [ "SC::Build workflows", "page_examples.html#autotoc_md48", null ]
         ] ],
-        [ "Quick start", "page_examples.html#autotoc_md48", null ],
-        [ "HTTP and networking", "page_examples.html#autotoc_md49", null ],
-        [ "Await cookbook", "page_examples.html#autotoc_md50", [
-          [ "Task ownership and coordination", "page_examples.html#autotoc_md51", null ],
-          [ "Networking", "page_examples.html#autotoc_md52", null ],
-          [ "File I/O", "page_examples.html#autotoc_md53", null ],
-          [ "System integration", "page_examples.html#autotoc_md54", null ],
-          [ "Composed workflow", "page_examples.html#autotoc_md55", null ]
+        [ "Quick start", "page_examples.html#autotoc_md49", null ],
+        [ "HTTP and networking", "page_examples.html#autotoc_md50", null ],
+        [ "Await cookbook", "page_examples.html#autotoc_md51", [
+          [ "Task ownership and coordination", "page_examples.html#autotoc_md52", null ],
+          [ "Networking", "page_examples.html#autotoc_md53", null ],
+          [ "File I/O", "page_examples.html#autotoc_md54", null ],
+          [ "System integration", "page_examples.html#autotoc_md55", null ],
+          [ "Composed workflow", "page_examples.html#autotoc_md56", null ]
         ] ],
-        [ "Fibers", "page_examples.html#autotoc_md56", null ],
-        [ "Native integration and hot reload", "page_examples.html#autotoc_md57", null ],
-        [ "More source-backed examples", "page_examples.html#autotoc_md58", null ]
+        [ "Fibers", "page_examples.html#autotoc_md57", null ],
+        [ "Native integration and hot reload", "page_examples.html#autotoc_md58", null ],
+        [ "More source-backed examples", "page_examples.html#autotoc_md59", null ]
       ] ]
     ] ],
     [ "FAQ", "page_faq.html", [
-      [ "Can my application use the C++ standard library?", "page_faq.html#autotoc_md59", null ],
-      [ "How do application containers interoperate?", "page_faq.html#autotoc_md60", null ],
-      [ "What is strict no-standard-library mode?", "page_faq.html#autotoc_md61", null ],
-      [ "Can standard headers be used without linking the C++ runtime?", "page_faq.html#autotoc_md62", null ],
-      [ "Can exceptions and RTTI be disabled?", "page_faq.html#autotoc_md63", null ],
-      [ "Which debugger visualizers are available?", "page_faq.html#autotoc_md64", null ],
-      [ "Are API and ABI stable?", "page_faq.html#autotoc_md65", null ]
+      [ "Can my application use the C++ standard library?", "page_faq.html#autotoc_md60", null ],
+      [ "How do application containers interoperate?", "page_faq.html#autotoc_md61", null ],
+      [ "What is strict no-standard-library mode?", "page_faq.html#autotoc_md62", null ],
+      [ "Can standard headers be used without linking the C++ runtime?", "page_faq.html#autotoc_md63", null ],
+      [ "Can exceptions and RTTI be disabled?", "page_faq.html#autotoc_md64", null ],
+      [ "Which debugger visualizers are available?", "page_faq.html#autotoc_md65", null ],
+      [ "Are API and ABI stable?", "page_faq.html#autotoc_md66", null ]
     ] ],
     [ "Libraries", "libraries.html", "libraries" ],
     [ "Platforms", "page_platforms.html", null ],
     [ "Principles", "page_principles.html", [
-      [ "📖 Readability", "page_principles.html#autotoc_md69", null ],
-      [ "✅ Correctness", "page_principles.html#autotoc_md70", null ],
-      [ "🚀 Speed", "page_principles.html#autotoc_md71", null ]
+      [ "📖 Readability", "page_principles.html#autotoc_md70", null ],
+      [ "✅ Correctness", "page_principles.html#autotoc_md71", null ],
+      [ "🚀 Speed", "page_principles.html#autotoc_md72", null ]
     ] ],
     [ "Single File Amalgamation", "page_single_file_libs.html", null ],
     [ "Tests", "page_tests.html", null ],
     [ "Tools", "page_tools.html", [
-      [ "Why tools are C++ programs", "page_tools.html#autotoc_md72", null ],
-      [ "Invoke a built-in tool", "page_tools.html#autotoc_md73", null ],
-      [ "Write a small custom tool", "page_tools.html#autotoc_md74", null ],
-      [ "SC-build.cpp", "page_tools.html#autotoc_md75", null ],
-      [ "SC-package.cpp", "page_tools.html#autotoc_md76", [
-        [ "Think in recipes, receipts, and exports", "page_tools.html#autotoc_md77", null ],
-        [ "Inspect before changing package state", "page_tools.html#autotoc_md78", null ],
-        [ "Install, import, or repair", "page_tools.html#autotoc_md79", null ],
-        [ "Record the resolved environment", "page_tools.html#autotoc_md80", null ]
+      [ "Why tools are C++ programs", "page_tools.html#autotoc_md73", null ],
+      [ "Invoke a built-in tool", "page_tools.html#autotoc_md74", null ],
+      [ "Write a small custom tool", "page_tools.html#autotoc_md75", null ],
+      [ "SC-build.cpp", "page_tools.html#autotoc_md76", null ],
+      [ "SC-package.cpp", "page_tools.html#autotoc_md77", [
+        [ "Think in recipes, receipts, and exports", "page_tools.html#autotoc_md78", null ],
+        [ "Inspect before changing package state", "page_tools.html#autotoc_md79", null ],
+        [ "Install, import, or repair", "page_tools.html#autotoc_md80", null ],
+        [ "Record the resolved environment", "page_tools.html#autotoc_md81", null ]
       ] ],
-      [ "SC-format.cpp", "page_tools.html#autotoc_md81", [
-        [ "Format a working tree", "page_tools.html#autotoc_md82", null ],
-        [ "Check without modifying files", "page_tools.html#autotoc_md83", null ]
+      [ "SC-format.cpp", "page_tools.html#autotoc_md82", [
+        [ "Format a working tree", "page_tools.html#autotoc_md83", null ],
+        [ "Check without modifying files", "page_tools.html#autotoc_md84", null ]
       ] ],
-      [ "How does it work", "page_tools.html#autotoc_md84", null ],
-      [ "Know the boundary", "page_tools.html#autotoc_md85", null ]
+      [ "How does it work", "page_tools.html#autotoc_md85", null ],
+      [ "Know the boundary", "page_tools.html#autotoc_md86", null ]
     ] ],
     [ "HTTP Library Notes", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html", [
-      [ "Architecture Overview", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md417", null ],
-      [ "Core constraints", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md418", null ],
-      [ "Hot paths", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md419", null ],
-      [ "Benchmark workflow", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md420", null ],
-      [ "Client-specific notes", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md421", null ],
-      [ "Validation", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md422", null ]
+      [ "Architecture Overview", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md419", null ],
+      [ "Core constraints", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md420", null ],
+      [ "Hot paths", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md421", null ],
+      [ "Benchmark workflow", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md422", null ],
+      [ "Client-specific notes", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md423", null ],
+      [ "Validation", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md424", null ]
     ] ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
@@ -182,17 +183,17 @@ var NAVTREEINDEX =
 [
 "ArenaMapKey_8h_source.html",
 "group__group__file__system__iterator.html#ga2069a89984fd960d3c83dd03c5c6308a",
-"library_file_system.html#autotoc_md225",
-"page_building_user.html#autotoc_md28",
-"structSC_1_1AsyncFileRead.html#a2d427d0658bdfe2739cff3abff6c457e",
-"structSC_1_1AsyncRequest.html#a30d6471c05f7834b6cfa810e0e2dcd87",
-"structSC_1_1Atomic.html",
-"structSC_1_1FiberJobWorkerPool.html#a3fa550573d72d177d0c8700f55df8333",
-"structSC_1_1FileSystemIterator_1_1Options.html#a20c696fe67bca871d4ab63ba1560cd94",
-"structSC_1_1HttpClientSessionAuthChallenge.html",
-"structSC_1_1PipeOptions.html",
-"structSC_1_1SocketIPAddress.html#a1e39061c75db7c62f939b6b7bd5d5864",
-"structSC_1_1VectorMap.html#ad7776ab6c83bced4795576369e63380a"
+"library_file_system.html#autotoc_md226",
+"page_building_user.html#autotoc_md27",
+"structSC_1_1AsyncFileRead.html",
+"structSC_1_1AsyncRequest.html#a2d427d0658bdfe2739cff3abff6c457e",
+"structSC_1_1AsyncZLibTransformStreamT.html",
+"structSC_1_1FiberJobWorkerPool.html",
+"structSC_1_1FileSystemIterator_1_1Entry.html#af5b915b6c652e3ea86c83e4b7e1caac0",
+"structSC_1_1HttpClientSession.html",
+"structSC_1_1PipeDescriptor.html#a3dcae6cfbee78db33167e4f183463bf4",
+"structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcdaaf8aa232b7192311ab494f787228eb7ce",
+"structSC_1_1VectorMap.html#a88ff9fd626e6b9254aa7acfbb55285be"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"structSC_1_1FiberJobWorkerPool.html":[19,0,0,154],
+"structSC_1_1FiberJobWorkerPool.html#a3fa550573d72d177d0c8700f55df8333":[18,0,0,154,2],
 "structSC_1_1FiberJobWorkerPool.html#a3fa550573d72d177d0c8700f55df8333":[19,0,0,154,2],
 "structSC_1_1FiberJobWorkerPool.html#a7b3bee70584247f80fd82dfc53828689":[18,0,0,154,1],
 "structSC_1_1FiberJobWorkerPool.html#a7b3bee70584247f80fd82dfc53828689":[19,0,0,154,1],
@@ -25,6 +27,8 @@ var NAVTREEINDEX7 =
 "structSC_1_1FiberSemaphore.html#a8e0e54c82e6cffa2c9fc75f10929ccb1":[19,0,0,160,0],
 "structSC_1_1FiberStack.html":[18,0,0,161],
 "structSC_1_1FiberStack.html":[19,0,0,161],
+"structSC_1_1FiberStack.html#a93ab8175696b1ca6adf949bd73adc838":[18,0,0,161,0],
+"structSC_1_1FiberStack.html#a93ab8175696b1ca6adf949bd73adc838":[19,0,0,161,0],
 "structSC_1_1FiberStackClass.html":[18,0,0,162],
 "structSC_1_1FiberStackClass.html":[19,0,0,162],
 "structSC_1_1FiberStackClassDefinition.html":[18,0,0,163],
@@ -245,9 +249,5 @@ var NAVTREEINDEX7 =
 "structSC_1_1FileSystemIterator_1_1Entry.html":[17,10,0,0],
 "structSC_1_1FileSystemIterator_1_1Entry.html#a183849c0a747271ad9ab8d0551c25af6":[17,10,0,0,0],
 "structSC_1_1FileSystemIterator_1_1Entry.html#a9b6f2f36a8a850250d8ace6b77b39091":[17,10,0,0,1],
-"structSC_1_1FileSystemIterator_1_1Entry.html#acd7a603146ab6e17c2e7272962640a0f":[17,10,0,0,3],
-"structSC_1_1FileSystemIterator_1_1Entry.html#af5b915b6c652e3ea86c83e4b7e1caac0":[17,10,0,0,2],
-"structSC_1_1FileSystemIterator_1_1Entry.html#afb6f1f57ff56d04e1f58acab97167570":[17,10,0,0,4],
-"structSC_1_1FileSystemIterator_1_1FolderState.html":[17,10,0,1],
-"structSC_1_1FileSystemIterator_1_1Options.html":[17,10,0,2]
+"structSC_1_1FileSystemIterator_1_1Entry.html#acd7a603146ab6e17c2e7272962640a0f":[17,10,0,0,3]
 };
