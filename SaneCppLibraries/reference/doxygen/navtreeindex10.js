@@ -1,5 +1,7 @@
 var NAVTREEINDEX10 =
 {
+"structSC_1_1Path_1_1Windows.html":[17,9,5,2],
+"structSC_1_1PipeDescriptor.html":[17,8,4],
 "structSC_1_1PipeDescriptor.html#a3dcae6cfbee78db33167e4f183463bf4":[17,8,4,3],
 "structSC_1_1PipeDescriptor.html#a894b341a80f9f8a1d9d68756cc91160b":[17,8,4,1],
 "structSC_1_1PipeDescriptor.html#a8a7368d21e95cacf430847f4a32228c2":[17,8,4,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX10 =
 "structSC_1_1SocketFlags.html#aec08f165e03740d9137b9e7cca67941b":[17,17,0,1],
 "structSC_1_1SocketFlags.html#aec08f165e03740d9137b9e7cca67941ba25afb353e41cd7298ba414dac55da436":[17,17,0,1,0],
 "structSC_1_1SocketFlags.html#aec08f165e03740d9137b9e7cca67941badb7ec7386bf10eb8cade818c1b557661":[17,17,0,1,1],
-"structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcda":[17,17,0,3],
-"structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcdaa37047f582af977a5db4b34d1f367fd39":[17,17,0,3,1],
-"structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcdaadef8e69d488d909305b2f108ca481a54":[17,17,0,3,2]
+"structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcda":[17,17,0,3]
 };

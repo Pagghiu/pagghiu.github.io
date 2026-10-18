@@ -142,10 +142,10 @@ Inheritance diagram for SC::AsyncFileSend::CompletionData:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aa1db0a736392d7847d58301c817c3573" id="r_aa1db0a736392d7847d58301c817c3573"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1db0a736392d7847d58301c817c3573">bytesTransferred</a> = 0</td></tr>
-<tr class="memdesc:aa1db0a736392d7847d58301c817c3573"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of bytes successfully sent.  <br /></td></tr>
+<tr class="memdesc:aa1db0a736392d7847d58301c817c3573"><td class="mdescLeft">&#160;</td><td class="mdescRight">Known completed prefix, including on error.  <br /></td></tr>
 <tr class="separator:aa1db0a736392d7847d58301c817c3573"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b4c3c3309728cd038ed9626f168170d" id="r_a6b4c3c3309728cd038ed9626f168170d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b4c3c3309728cd038ed9626f168170d">usedZeroCopy</a> = false</td></tr>
-<tr class="memdesc:a6b4c3c3309728cd038ed9626f168170d"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if zero-copy mechanism was used.  <br /></td></tr>
+<tr class="memdesc:a6b4c3c3309728cd038ed9626f168170d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backend used a zero-copy mechanism; not a physical-copy guarantee.  <br /></td></tr>
 <tr class="separator:a6b4c3c3309728cd038ed9626f168170d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -161,7 +161,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Number of bytes successfully sent. </p>
+<p>Known completed prefix, including on error. </p>
 
 </div>
 </div>
@@ -177,7 +177,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>True if zero-copy mechanism was used. </p>
+<p>Backend used a zero-copy mechanism; not a physical-copy guarantee. </p>
 
 </div>
 </div>

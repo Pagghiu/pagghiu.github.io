@@ -157,7 +157,7 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9f2252a044bccc698e1ae8759de0c94a" id="r_a9f2252a044bccc698e1ae8759de0c94a"><td class="memItemLeft" align="right" valign="top">SC::Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f2252a044bccc698e1ae8759de0c94a">start</a> (<a class="el" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a> &amp;eventLoop, const <a class="el" href="structSC_1_1FileDescriptor.html">FileDescriptor</a> &amp;file, const <a class="el" href="structSC_1_1SocketDescriptor.html">SocketDescriptor</a> &amp;socket, int64_t offset=0, size_t length=0, size_t pipeSize=0)</td></tr>
-<tr class="memdesc:a9f2252a044bccc698e1ae8759de0c94a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the file send operation.  <br /></td></tr>
+<tr class="memdesc:a9f2252a044bccc698e1ae8759de0c94a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start file send.  <br /></td></tr>
 <tr class="separator:a9f2252a044bccc698e1ae8759de0c94a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d427d0658bdfe2739cff3abff6c457e" id="r_a2d427d0658bdfe2739cff3abff6c457e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1AsyncFileSend_1_1Result.html">Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d427d0658bdfe2739cff3abff6c457e">start</a> (<a class="el" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a> &amp;eventLoop)</td></tr>
 <tr class="memdesc:a2d427d0658bdfe2739cff3abff6c457e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut for <a class="el" href="structSC_1_1AsyncEventLoop.html#a99323b220bb1c49ee3118fca2bf93ed1" title="Queues an async request request that has been correctly setup.">AsyncEventLoop::start</a>.  <br /></td></tr>
@@ -372,11 +372,11 @@ File Opening Requirements</h2>
       </table>
 </div><div class="memdoc">
 
-<p>Start the file send operation. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Start file send. </p>
+<p>Zero progress reports FileSendIncomplete; native API failures retain their error. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">eventLoop</td><td>The event loop to use </td></tr>
-    <tr><td class="paramname">file</td><td>The file descriptor (must be open for reading). For true async I/O (without thread pool), open with <code><a class="el" href="structSC_1_1FileOpen.html#aeab1ae17d0e3c5f8abd6ef230862c443" title="Set to false if file will be used for Async I/O (see Async)">FileOpen::blocking</a> = false</code>. When using thread pool, either blocking mode works. </td></tr>
+    <tr><td class="paramname">file</td><td>The file descriptor (must be open for reading). For true async I/O (without thread pool), open with <code><a class="el" href="structSC_1_1FileOpen.html#aeab1ae17d0e3c5f8abd6ef230862c443" title="Set to false if file will be used for Async I/O (see Async)">FileOpen::blocking</a> = false</code>. On Windows, thread-pool fallback requires blocking = true. </td></tr>
     <tr><td class="paramname">socket</td><td>The socket descriptor (must be connected) </td></tr>
     <tr><td class="paramname">offset</td><td>File offset to start reading from (0 for beginning) </td></tr>
     <tr><td class="paramname">length</td><td>Number of bytes to send. Must be greater than 0. </td></tr>

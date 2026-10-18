@@ -1,5 +1,7 @@
 var NAVTREEINDEX11 =
 {
+"structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcdaa37047f582af977a5db4b34d1f367fd39":[17,17,0,3,1],
+"structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcdaadef8e69d488d909305b2f108ca481a54":[17,17,0,3,2],
 "structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcdaaf8aa232b7192311ab494f787228eb7ce":[17,17,0,3,0],
 "structSC_1_1SocketIPAddress.html":[17,17,1],
 "structSC_1_1SocketIPAddress.html#a036652ea8ded638ca6c64a57026d98a3":[17,17,1,7],
@@ -201,7 +203,8 @@ var NAVTREEINDEX11 =
 "structSC_1_1ThreadPool.html#aa7618a9dfecffb08e340e64a92f586cd":[17,27,9,0],
 "structSC_1_1ThreadPool.html#ab0a2c7c2ebdf267037f8600b1f2dc7ed":[17,27,9,2],
 "structSC_1_1ThreadPoolTask.html":[17,27,8],
-"structSC_1_1ThreadPoolTask.html#a072b75678d89c9fd7120c87a6a00a140":[17,27,8,0],
+"structSC_1_1ThreadPoolTask.html#a072b75678d89c9fd7120c87a6a00a140":[17,27,8,1],
+"structSC_1_1ThreadPoolTask.html#a240ab8940912dd405a418030c7f4d1b6":[17,27,8,0],
 "structSC_1_1Time_1_1Absolute.html":[17,28,4],
 "structSC_1_1Time_1_1Absolute.html#a07877a14d9b55e4a7eab5e5a3cb060b5":[17,28,4,5],
 "structSC_1_1Time_1_1Absolute.html#a4de63c0e48d4bed572580ea5c48fd632":[17,28,4,4],
@@ -246,8 +249,5 @@ var NAVTREEINDEX11 =
 "structSC_1_1Vector.html#abe9023dffafd28b34e51d34ee3060582":[17,5,3,3],
 "structSC_1_1VectorMap.html":[17,5,6],
 "structSC_1_1VectorMap.html#a2b0feaed0d8c1c92a5709ec2d0c2bc0b":[17,5,6,11],
-"structSC_1_1VectorMap.html#a3a298bad7ef90f78fe374304ad2a950b":[17,5,6,8],
-"structSC_1_1VectorMap.html#a3f9839eb474d78cfbc3dc3350323759d":[17,5,6,9],
-"structSC_1_1VectorMap.html#a564c4aa1435e90259d50463ceb7f2f10":[17,5,6,2],
-"structSC_1_1VectorMap.html#a6d1ac667819e33bcd6242d545bdca970":[17,5,6,4]
+"structSC_1_1VectorMap.html#a3a298bad7ef90f78fe374304ad2a950b":[17,5,6,8]
 };

@@ -157,6 +157,8 @@ var NAVTREEINDEX5 =
 "structSC_1_1AsyncSocketReceiveFrom.html#a428a0fa7b59089392a9e146751ac94b5":[19,0,0,53,1],
 "structSC_1_1AsyncSocketReceive_1_1CompletionData.html":[18,0,0,52,0],
 "structSC_1_1AsyncSocketReceive_1_1CompletionData.html":[19,0,0,52,0],
+"structSC_1_1AsyncSocketReceive_1_1CompletionData.html#a9a2a8aceac89fc92786cf4fb226a004c":[18,0,0,52,0,0],
+"structSC_1_1AsyncSocketReceive_1_1CompletionData.html#a9a2a8aceac89fc92786cf4fb226a004c":[19,0,0,52,0,0],
 "structSC_1_1AsyncSocketReceive_1_1Result.html":[18,0,0,52,1],
 "structSC_1_1AsyncSocketReceive_1_1Result.html":[19,0,0,52,1],
 "structSC_1_1AsyncSocketReceive_1_1Result.html#a030b54cea207a89babc03d18ba1c13a2":[18,0,0,52,1,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX5 =
 "structSC_1_1AsyncWritableStream.html#add57b8fd027db681ea64a80e30f5a71f":[19,0,0,61,22],
 "structSC_1_1AsyncWritableStream.html#afbe966a9f49eb13d06bccc1fae60488d":[18,0,0,61,17],
 "structSC_1_1AsyncWritableStream.html#afbe966a9f49eb13d06bccc1fae60488d":[19,0,0,61,17],
-"structSC_1_1AsyncWritableStream_1_1Request.html":[18,0,0,61,0],
-"structSC_1_1AsyncWritableStream_1_1Request.html":[19,0,0,61,0],
-"structSC_1_1AsyncZLibTransformStreamT.html":[18,0,0,62]
+"structSC_1_1AsyncWritableStream_1_1Request.html":[18,0,0,61,0]
 };

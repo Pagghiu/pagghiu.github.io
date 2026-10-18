@@ -31,6 +31,7 @@ var group__group__threading =
     ] ],
     [ "SC::ResultThreading", "structSC_1_1ResultThreading.html", null ],
     [ "SC::ThreadPoolTask", "structSC_1_1ThreadPoolTask.html", [
+      [ "afterRelease", "structSC_1_1ThreadPoolTask.html#a240ab8940912dd405a418030c7f4d1b6", null ],
       [ "function", "structSC_1_1ThreadPoolTask.html#a072b75678d89c9fd7120c87a6a00a140", null ]
     ] ],
     [ "SC::ThreadPool", "structSC_1_1ThreadPool.html", [

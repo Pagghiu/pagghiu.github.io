@@ -1,5 +1,7 @@
 var NAVTREEINDEX9 =
 {
+"structSC_1_1HttpClientResponseBuffer.html":[17,15,19],
+"structSC_1_1HttpClientResponseHeaderIterator.html":[17,15,1],
 "structSC_1_1HttpClientSession.html":[17,15,34],
 "structSC_1_1HttpClientSessionAuthCacheEntry.html":[17,15,29],
 "structSC_1_1HttpClientSessionAuthCacheEntry.html#a1f7492ac34c2d98e3b05149230491af4":[17,15,29,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX9 =
 "structSC_1_1Path_1_1ParsedView.html#ae2b0d4f670be38c7a0f985c638cdb228":[17,9,5,0,7],
 "structSC_1_1Path_1_1ParsedView.html#ae3e55f6ab4e5013a3b13cca1428084f0":[17,9,5,0,3],
 "structSC_1_1Path_1_1ParsedView.html#aeb837ba4b3e0b28a5e7279081cdb100d":[17,9,5,0,0],
-"structSC_1_1Path_1_1Posix.html":[17,9,5,1],
-"structSC_1_1Path_1_1Windows.html":[17,9,5,2],
-"structSC_1_1PipeDescriptor.html":[17,8,4]
+"structSC_1_1Path_1_1Posix.html":[17,9,5,1]
 };

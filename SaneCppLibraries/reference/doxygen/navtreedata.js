@@ -187,13 +187,13 @@ var NAVTREEINDEX =
 "page_building_user.html#autotoc_md27",
 "structSC_1_1AsyncFileRead.html",
 "structSC_1_1AsyncRequest.html#a2d427d0658bdfe2739cff3abff6c457e",
-"structSC_1_1AsyncZLibTransformStreamT.html",
-"structSC_1_1FiberJobWorkerPool.html",
-"structSC_1_1FileSystemIterator_1_1Entry.html#af5b915b6c652e3ea86c83e4b7e1caac0",
-"structSC_1_1HttpClientSession.html",
-"structSC_1_1PipeDescriptor.html#a3dcae6cfbee78db33167e4f183463bf4",
-"structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcdaaf8aa232b7192311ab494f787228eb7ce",
-"structSC_1_1VectorMap.html#a88ff9fd626e6b9254aa7acfbb55285be"
+"structSC_1_1AsyncWritableStream_1_1Request.html",
+"structSC_1_1FiberJobWorkerDiagnostics.html",
+"structSC_1_1FileSystemIterator_1_1Entry.html#a9b6f2f36a8a850250d8ace6b77b39091",
+"structSC_1_1HttpClientResponseBuffer.html",
+"structSC_1_1Path_1_1Windows.html",
+"structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcdaa37047f582af977a5db4b34d1f367fd39",
+"structSC_1_1VectorMap.html#a3f9839eb474d78cfbc3dc3350323759d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

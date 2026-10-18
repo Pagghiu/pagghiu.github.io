@@ -141,6 +141,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a072b75678d89c9fd7120c87a6a00a140" id="r_a072b75678d89c9fd7120c87a6a00a140"><td class="memItemLeft" align="right" valign="top">Function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a072b75678d89c9fd7120c87a6a00a140">function</a></td></tr>
 <tr class="memdesc:a072b75678d89c9fd7120c87a6a00a140"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that will be executed during the task.  <br /></td></tr>
 <tr class="separator:a072b75678d89c9fd7120c87a6a00a140"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a240ab8940912dd405a418030c7f4d1b6" id="r_a240ab8940912dd405a418030c7f4d1b6"><td class="memItemLeft" align="right" valign="top">Function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a240ab8940912dd405a418030c7f4d1b6">afterRelease</a></td></tr>
+<tr class="memdesc:a240ab8940912dd405a418030c7f4d1b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional worker notification after an executed task node is released.  <br /></td></tr>
+<tr class="separator:a240ab8940912dd405a418030c7f4d1b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -152,6 +155,23 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>ThreadPool</b></td>
 <div class="textblock"><p>A small task containing a function to execute that can be queued in the thread pool. </p>
 <p>Fill Task::function with any function to execute in the thread pool. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a240ab8940912dd405a418030c7f4d1b6" name="a240ab8940912dd405a418030c7f4d1b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a240ab8940912dd405a418030c7f4d1b6">&#9670;&#160;</a></span>afterRelease</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Function&lt;void()&gt; SC::ThreadPoolTask::afterRelease</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional worker notification after an executed task node is released. </p>
+<p>Discarded queued tasks do not notify. A copy is invoked, so it may destroy or requeue this Task. waitForTask waits for node release; waitForAllTasks/destroy also join this notification. Keep it nonblocking with respect to the pool itself: do not wait for or destroy this pool from here. </p>
+
+</div>
+</div>
 <a id="a072b75678d89c9fd7120c87a6a00a140" name="a072b75678d89c9fd7120c87a6a00a140"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a072b75678d89c9fd7120c87a6a00a140">&#9670;&#160;</a></span>function</h2>
 

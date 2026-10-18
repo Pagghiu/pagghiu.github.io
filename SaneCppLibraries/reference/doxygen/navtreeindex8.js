@@ -1,5 +1,7 @@
 var NAVTREEINDEX8 =
 {
+"structSC_1_1FileSystemIterator_1_1Entry.html#a9b6f2f36a8a850250d8ace6b77b39091":[17,10,0,0,1],
+"structSC_1_1FileSystemIterator_1_1Entry.html#acd7a603146ab6e17c2e7272962640a0f":[17,10,0,0,3],
 "structSC_1_1FileSystemIterator_1_1Entry.html#af5b915b6c652e3ea86c83e4b7e1caac0":[17,10,0,0,2],
 "structSC_1_1FileSystemIterator_1_1Entry.html#afb6f1f57ff56d04e1f58acab97167570":[17,10,0,0,4],
 "structSC_1_1FileSystemIterator_1_1FolderState.html":[17,10,0,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX8 =
 "structSC_1_1HttpClientRequestTimeoutOptions.html#ae6d54eb0974a298ea04b8904e788fc3a":[17,15,9,0],
 "structSC_1_1HttpClientRequestTlsOptions.html":[17,15,10],
 "structSC_1_1HttpClientResponse.html":[17,15,15],
-"structSC_1_1HttpClientResponse.html#a7952d482e4d825a54b4c36dfcaab7709":[17,15,15,0],
-"structSC_1_1HttpClientResponseBuffer.html":[17,15,19],
-"structSC_1_1HttpClientResponseHeaderIterator.html":[17,15,1]
+"structSC_1_1HttpClientResponse.html#a7952d482e4d825a54b4c36dfcaab7709":[17,15,15,0]
 };

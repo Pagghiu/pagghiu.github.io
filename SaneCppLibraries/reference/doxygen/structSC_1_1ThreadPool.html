@@ -154,10 +154,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab0a2c7c2ebdf267037f8600b1f2dc7ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue a task (that should not be already in use)  <br /></td></tr>
 <tr class="separator:ab0a2c7c2ebdf267037f8600b1f2dc7ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2855571a2d31de4001baf7df415d92d" id="r_aa2855571a2d31de4001baf7df415d92d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultThreading.html">ResultThreading</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2855571a2d31de4001baf7df415d92d">waitForAllTasks</a> ()</td></tr>
-<tr class="memdesc:aa2855571a2d31de4001baf7df415d92d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks execution until all queued and pending tasks will be fully completed.  <br /></td></tr>
+<tr class="memdesc:aa2855571a2d31de4001baf7df415d92d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks execution until all queued tasks and their afterRelease notifications have completed.  <br /></td></tr>
 <tr class="separator:aa2855571a2d31de4001baf7df415d92d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a446e87d622faf2ce48daf64ba4354a47" id="r_a446e87d622faf2ce48daf64ba4354a47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultThreading.html">ResultThreading</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a446e87d622faf2ce48daf64ba4354a47">waitForTask</a> (<a class="el" href="structSC_1_1ThreadPoolTask.html">Task</a> &amp;task)</td></tr>
-<tr class="memdesc:a446e87d622faf2ce48daf64ba4354a47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks execution until all queued and pending tasks will be fully completed.  <br /></td></tr>
+<tr class="memdesc:a446e87d622faf2ce48daf64ba4354a47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until this task's function finishes and its node is released, before its optional notification.  <br /></td></tr>
 <tr class="separator:a446e87d622faf2ce48daf64ba4354a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -249,7 +249,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Destroy the thread pool created previously with <a class="el" href="#aa7618a9dfecffb08e340e64a92f586cd" title="Create a thread pool with the requested number of worker threads.">ThreadPool::create</a>. </p>
-<dl class="section warning"><dt>Warning</dt><dd>Tasks that are queued will NOT be executed (but you can use <a class="el" href="#aa2855571a2d31de4001baf7df415d92d" title="Blocks execution until all queued and pending tasks will be fully completed.">ThreadPool::waitForAllTasks</a> for that) </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Tasks that are queued will NOT be executed (but you can use <a class="el" href="#aa2855571a2d31de4001baf7df415d92d" title="Blocks execution until all queued tasks and their afterRelease notifications have completed.">ThreadPool::waitForAllTasks</a> for that) </dd></dl>
 
 </div>
 </div>
@@ -287,7 +287,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Blocks execution until all queued and pending tasks will be fully completed. </p>
+<p>Blocks execution until all queued tasks and their afterRelease notifications have completed. </p>
 
 </div>
 </div>
@@ -306,7 +306,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Blocks execution until all queued and pending tasks will be fully completed. </p>
+<p>Blocks until this task's function finishes and its node is released, before its optional notification. </p>
 
 </div>
 </div>

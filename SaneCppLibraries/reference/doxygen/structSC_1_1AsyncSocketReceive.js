@@ -1,6 +1,6 @@
 var structSC_1_1AsyncSocketReceive =
 [
-    [ "CompletionData", "structSC_1_1AsyncSocketReceive_1_1CompletionData.html", null ],
+    [ "CompletionData", "structSC_1_1AsyncSocketReceive_1_1CompletionData.html", "structSC_1_1AsyncSocketReceive_1_1CompletionData" ],
     [ "Result", "structSC_1_1AsyncSocketReceive_1_1Result.html", "structSC_1_1AsyncSocketReceive_1_1Result" ],
     [ "closeHandle", "structSC_1_1AsyncSocketReceive.html#a6f6cbc9839094a17391926218c183409", null ],
     [ "start", "structSC_1_1AsyncSocketReceive.html#a2d427d0658bdfe2739cff3abff6c457e", null ],
