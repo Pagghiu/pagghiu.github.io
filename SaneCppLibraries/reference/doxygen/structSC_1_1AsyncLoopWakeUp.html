@@ -315,7 +315,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isThreadPoolForced</b
 <div class="line">    result.reactivateRequest(<span class="keyword">true</span>); <span class="comment">// To allow waking-up again later</span></div>
 <div class="line">};</div>
 <div class="line">SC_TRY(wakeUp.start(eventLoop));</div>
-</div><!-- fragment --><p>An <a class="el" href="structSC_1_1EventObject.html" title="An automatically reset event object to synchronize two threads.">EventObject</a> can be wait-ed to synchronize further actions from the thread invoking the wake up request, ensuring that the callback has finished its execution.</p>
+</div><!-- fragment --><p>An <a class="el" href="structSC_1_1EventObject.html" title="An automatically reset event object to synchronize two threads.">EventObject</a> can be wait-ed to synchronize further actions from the thread invoking the wake up request, ensuring that the callback has finished its execution. The <a class="el" href="structSC_1_1EventObject.html" title="An automatically reset event object to synchronize two threads.">EventObject</a> must survive the callback and the following signal. A callback that does not reactivate the request may destroy its request storage.</p>
 <div class="fragment"><div class="line"><span class="comment">// Assuming an already created (and running) AsyncEventLoop named eventLoop</span></div>
 <div class="line"><span class="comment">// ...</span></div>
 <div class="line"><span class="comment">// This code runs on some different thread from the one calling SC::AsyncEventLoop::run.</span></div>
