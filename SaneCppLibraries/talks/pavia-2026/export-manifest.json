@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "conferenceDate": "2026-10-17",
+  "url": "https://pagghiu.github.io/SaneCppLibraries/talks/pavia-2026/",
+  "files": [
+    {
+      "file": "assets/RepositoryQR.svg",
+      "bytes": 1978,
+      "sha256": "e3e90ff2d99a9bd19a9d98b788da2e5843a48e31506d586d14f305ee8f7ded3e"
+    },
+    {
+      "file": "assets/SC.svg",
+      "bytes": 3944,
+      "sha256": "54a8e3023958969c82bf9217c243c2ea4defc456d2bb360c4621ed26e542352d"
+    },
+    {
+      "file": "assets/posters/SCBuildNative01.jpg",
+      "bytes": 153472,
+      "sha256": "dd3b388ae04fbf87491c43caf26c68506cadbf7f62820001d1bbe571771444f4"
+    },
+    {
+      "file": "assets/posters/SCBuildNative02.jpg",
+      "bytes": 177959,
+      "sha256": "afd88d86f95d682c42defb0f725aecedeb5b339786b00a463c376c2426eddade"
+    },
+    {
+      "file": "assets/posters/Simplification.jpg",
+      "bytes": 205953,
+      "sha256": "505609f0936100d112f0edcb6a8bad88bdf2998f7780df5935da91ef744461f5"
+    },
+    {
+      "file": "assets/posters/WebSocketsAndUpload.jpg",
+      "bytes": 144606,
+      "sha256": "fa2b6a331c65e78c46716f52b44f83edcf392653c4128760e3a5bcec794b1632"
+    },
+    {
+      "file": "index.html",
+      "bytes": 60250,
+      "sha256": "75d3cab269eb013c17b86d51e170043dc0675afdb5dbfa5505b78e4038fb9a5b"
+    },
+    {
+      "file": "media/images/CodexCrossPlatformVM.png",
+      "bytes": 303895,
+      "sha256": "78a3316f45ac86713c75ed05f666b818247b787a2f09d76dd88b8fde292091f9"
+    },
+    {
+      "file": "media/videos/SCBuildNative01.mp4",
+      "bytes": 12407133,
+      "sha256": "4889c78f40d49f42b2c609965e26a74614bf23fede4f9d0f8925cc319851380f"
+    },
+    {
+      "file": "media/videos/SCBuildNative02.mp4",
+      "bytes": 17179223,
+      "sha256": "c01b44c656c886496ba31904b55b5a554ba4a3b9b27f614fcf4df74cd781b9c1"
+    },
+    {
+      "file": "media/videos/Simplification-H264.mp4",
+      "bytes": 11555010,
+      "sha256": "a9b234195a019c6500de76932d5ba0579852a62b5bef5abfb27935b307f70178"
+    },
+    {
+      "file": "media/videos/Simplification.mp4",
+      "bytes": 4264922,
+      "sha256": "c234caac65fc15f29c2d574f66068431ec5bcaf09cfed5934297c7a7143c0081"
+    },
+    {
+      "file": "media/videos/WebSocketsAndUpload.mp4",
+      "bytes": 30934089,
+      "sha256": "3aa8fca788b84f5aa6c9a1bdfbc6324f420c07822d8a51571b817ef979819b4f"
+    },
+    {
+      "file": "runtime/dependencies.js",
+      "bytes": 5064,
+      "sha256": "12079d839dc1192fdd2767fca0b8eb374e682d43ba5d46c1ed01d88baf5ad1bf"
+    },
+    {
+      "file": "runtime/highlight.js",
+      "bytes": 2944,
+      "sha256": "0576cbc542a2d094d88a2c41971ce7604d4d4669f32fbd7ec62e7b8f54f98ac2"
+    },
+    {
+      "file": "runtime/language.js",
+      "bytes": 5488,
+      "sha256": "09d0302bc062cfaf34fe66e75b35cc05697d1bda233c366463cbc1ac3589c5b2"
+    },
+    {
+      "file": "runtime/navigation.js",
+      "bytes": 28776,
+      "sha256": "d3e62fd880bb71d339c6bb80ccbce27946cb6942e286b81c56267f6bed120475"
+    },
+    {
+      "file": "runtime/scenes.js",
+      "bytes": 5846,
+      "sha256": "52c1332583668c3819d557572827789c81bdb05bbcfa5c42f54098a52848b6e3"
+    },
+    {
+      "file": "runtime/translations.it.js",
+      "bytes": 37194,
+      "sha256": "5797f18065f24f9f4fabfa69976eebe7ba4f93fb51806a5e1b44dcabc6eba413"
+    },
+    {
+      "file": "runtime/viewer.js",
+      "bytes": 8397,
+      "sha256": "682d910d06bdf9a044c5ccf70f9b7ae6da2a38337cec1ed7e2e265504dbf5990"
+    },
+    {
+      "file": "styles/details.css",
+      "bytes": 35214,
+      "sha256": "6a69f953c6097b34bb7f4fd09e526d525182b63394b4f03b8ace65a8bae3284e"
+    },
+    {
+      "file": "styles/layout.css",
+      "bytes": 27971,
+      "sha256": "968d27bf3b1c96375b37835ad1ccbd24cf33db943ad5f4cdff317f07fae8458b"
+    },
+    {
+      "file": "styles/public.css",
+      "bytes": 1296,
+      "sha256": "b65edb14dbcec4a4709f959ec76d505b0c3b9941119bfc3bd2afb00523072904"
+    },
+    {
+      "file": "styles/scenes.css",
+      "bytes": 44080,
+      "sha256": "8401c7a5c090f9089e4131d61cb762dfb3af699f3a9c055606e6f1ac2d8bc6ad"
+    },
+    {
+      "file": "styles/theme.css",
+      "bytes": 10400,
+      "sha256": "afbccf5a3a684ef56f17a2853d235ce59bab9079344dc900c84136a38364a215"
+    }
+  ]
+}

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title data-no-translate="">Old-School C++ for the Agentic Age | C++ Day 2026</title>
+<link rel="stylesheet" href="styles/layout.css">
+<link rel="stylesheet" href="styles/theme.css">
+<script src="runtime/dependencies.js" defer></script>
+<script src="runtime/navigation.js" defer></script>
+<script src="runtime/highlight.js" defer></script>
+<link rel="stylesheet" href="styles/scenes.css">
+<script src="runtime/scenes.js" defer></script>
+<link rel="stylesheet" href="styles/details.css">
+
+<script src="runtime/viewer.js" defer></script>
+
+<script src="runtime/translations.it.js" defer></script>
+<script src="runtime/language.js" defer></script>
+<link href="https://pagghiu.github.io/SaneCppLibraries/talks/pavia-2026/" rel="canonical"><meta content="Stefano Cristiano’s C++ Day 2026 slides: Sane C++ Libraries, cross-platform APIs and agent-driven development. English and Italian." name="description"><link href="styles/public.css" rel="stylesheet"></head>
+<body data-mode="public" data-theme="ritual">
+
+<div id="stage-fit">
+<main id="stage" aria-label="Sane C++ Libraries presentation">
+<section class="slide is-current opening" data-slide="1" aria-labelledby="opening-title">
+<div class="hero-glow" aria-hidden="true"></div>
+<div class="topline">
+<span>C++ Day · Pavia · 17 October 2026</span>
+<span class="project-name">Sane C++ Libraries</span>
+</div>
+<div class="hero-body">
+<div class="hero-copy">
+<p class="eyebrow">Sane C++ Libraries</p>
+<h1 id="opening-title" data-no-translate="">Old School C++<br><span>for the agentic age</span></h1>
+<p class="hero-subtitle">Cross-platform APIs and agent-assisted development.</p>
+</div>
+<img class="hero-logo" src="assets/SC.svg" alt="Sane C++ Libraries logo">
+</div>
+<div class="slide-footer">
+<span>Stefano Cristiano · Principal Research Scientist at NVIDIA</span>
+<span>01 / 34</span>
+</div>
+
+</section>
+
+<section class="slide content-slide technical-slide disclosure-slide" data-slide="2" aria-labelledby="disclosure-title" hidden><div class="topline"><span>Sane C++ Libraries</span><span>02 / 34</span></div><h2 id="disclosure-title">About this project</h2><div class="disclosure-copy"><p>Sane C++ Libraries is my<br><strong>personal project.</strong></p><p>It is not an NVIDIA product.</p><div>Stefano Cristiano<br><span>Principal Research Scientist at NVIDIA</span></div></div></section>
+
+<section class="slide content-slide technical-slide" data-slide="3" data-topic="Introduction" aria-labelledby="slide-3-title" hidden><div class="topline"><span>Sane C++ Libraries / Introduction</span><span>03 / 34</span></div><h2 id="slide-3-title">What is Sane C++ Libraries?</h2><div class="definition"><p>A cross-platform<br><em>systems-programming base layer.</em></p><div class="os-line"><span>macOS</span><span>Windows</span><span>Linux</span></div><p class="definition-detail">Independent libraries for common runtime facilities.<br>Designed to compose, from one library to a whole application.</p></div><div class="definition-bottom"><span>Files · processes · networking · async I/O</span><span>With its own self-hosted C++ build system.</span></div></section>
+
+<section class="slide content-slide technical-slide history-slide" data-slide="4" data-topic="Context" aria-labelledby="slide-13-title" data-scene-steps="4" data-step="0" hidden><div class="topline"><span>Sane C++ Libraries / Context</span><span>04 / 34</span></div><h2 id="slide-13-title">Project history</h2><div class="history-track"><div style="--i:0"><small>2022</small><strong>Private project</strong><p>Repository begins.</p></div><div style="--i:1"><small>December 2023</small><strong>Open source</strong><p>Fast builds, readable code,<br>easy integration.</p></div><div style="--i:2"><small>Transition</small><strong>AI assisted</strong><p>Increasing delegation<br>of implementation.</p></div><div style="--i:3"><small>January 2026 →</small><strong>Agent driven</strong><p>“I no longer manually<br>write the code.”</p></div></div><div class="scene-controls" aria-label="Animation steps"></div></section>
+
+<section class="slide content-slide technical-slide landscape catalog-slide" data-slide="5" aria-labelledby="s3-title" hidden><div class="topline"><span>Sane C++ Libraries</span><span>05 / 34</span></div><h2 id="s3-title">Libraries and dependencies</h2><p class="deck-subtitle">Common runtime facilities with explicit dependencies.</p><div class="catalog-toolbar"><button type="button" id="catalog-toggle">Show dependency graph →</button><span id="catalog-description">28 libraries · Draft / MVP / Usable</span></div><div id="library-map" class="library-map"><div class="dependency-family systems"><span>System facilities</span></div><div class="dependency-family optional"><span>Optional containers / reflection / serialization · keep your STL if you prefer</span></div><svg id="dependency-edges" viewBox="0 0 1448 560" aria-hidden="true" /><div id="library-nodes"></div></div><div class="catalog-legend"><span><i class="status draft">D</i> Draft</span><span><i class="status mvp">M</i> MVP</span><span><i class="status usable">U</i> Usable</span><span class="graph-only depth-key"><i></i>No dependencies <i></i>One level <i></i>Two levels</span><span class="graph-only">Arrows: library → dependency · transitive edges omitted</span></div></section>
+
+<section class="slide content-slide technical-slide integration-code" data-slide="6" aria-labelledby="s4-title" hidden><div class="topline"><span>Sane C++ Libraries</span><span>06 / 34</span></div><h2 id="s4-title">Easy to integrate: single file libraries</h2><p class="deck-subtitle">The same Process API with three integration choices.</p><div class="build-tabs"><button data-select-build="0">Single file</button><button data-select-build="1">SC.cpp</button><button data-select-build="2">SC-build</button></div><div class="build-panel" data-build="0"><div class="source-code"><div class="source-label">Single file · main.cpp</div><pre><code>#define SANE_CPP_IMPLEMENTATION
+#include "SaneCppProcess.h"
+
+int main()
+{
+    SC::Process git;
+    if (!git.exec({"git", "--version"})) return 1;
+    return git.getExitStatus();
+}</code></pre></div><div class="source-code compact-code"><div class="source-label">macOS · command line</div><pre><code>clang++ main.cpp -o demo</code></pre></div><p class="code-caption">Self-contained Process header beside main.cpp. Tested with this compiler’s default and with C++14.</p></div><div class="build-panel" data-build="1" hidden><div class="source-code"><div class="source-label">SC.cpp · main.cpp</div><pre><code>#include "SaneCppProcess.h"
+
+int main()
+{
+    SC::Process git;
+    if (!git.exec({"git", "--version"})) return 1;
+    return git.getExitStatus();
+}</code></pre></div><div class="source-code compact-code"><div class="source-label">Windows · Developer Command Prompt</div><pre><code>cl /permissive- /I SC\Includes main.cpp SC\SC.cpp /Fe:demo.exe</code></pre></div><p class="code-caption">SC is the repository checkout. MSVC links the system libraries through the source’s pragma directives.</p></div><div class="build-panel" data-build="2" hidden><div class="integration-pair"><div class="source-code"><div class="source-label">SC-build.cpp · build definition</div><pre><code>// sc-build-version: main
+#include "SaneCppBuild.h"
+SC::Result SC::Build::configure(
+    Definition&amp; d, const Parameters&amp; p)
+{
+    Project project = {"Demo"};
+    SC_TRY(project.addFiles(".", "main.cpp"));
+    SC_TRY(addSaneCppLibraries(project, p));
+    return d.addProject(move(project));
+}</code></pre></div><div class="source-code"><div class="source-label">main.cpp · application</div><pre><code>#include "SaneCppProcess.h"
+int main()
+{
+    SC::Process git;
+    if (!git.exec({"git", "--version"}))
+        return 1;
+    return git.getExitStatus();
+}</code></pre></div></div><div class="source-code"><div class="source-label">macOS · command line</div><pre><code>./SC-build.sh compile Demo Debug</code></pre></div><p class="code-caption">Copy SC-build.sh into the project. The version marker selects Sane; first run downloads/caches it.</p></div></section>
+
+<section class="slide content-slide technical-slide result-slide" data-slide="7" aria-labelledby="sept26-20" hidden><div class="topline"><span>Sane C++ Libraries</span><span>07 / 34</span></div><h2 id="sept26-20">Result and SC_TRY</h2><div class="build-tabs"><button data-select-build="0">Success / failure</button><button data-select-build="1">Portable identity</button><button data-select-build="2">Platform diagnostics</button></div><div class="build-panel result-intro" data-build="0"><div class="result-first-pair"><div class="source-code"><div class="source-label">Caller · output arguments carry the data</div><pre><code>Result readConfig(FileDescriptor&amp; file) {
+    char storage[4096];
+    Span&lt;char&gt; bytes;
+    SC_TRY(file.read(storage, bytes));
+    // Use bytes only after success.
+    return Result(true);
+}</code></pre></div><div class="source-code"><div class="source-label">SC_TRY · branch hints omitted</div><pre><code>#define SC_TRY(expression) \
+    do { \
+        auto _exprResConv = \
+            SC::Result::Explicit(expression); \
+        if (!_exprResConv) \
+            return _exprResConv; \
+    } while (false)</code></pre></div></div><p class="scene-caption">Evaluate once. On failure, return immediately. On success, continue.</p><div class="result-flow"><span>call</span><b>→</b><span>Result</span><b>→</b><span>continue / return error</span></div></div><div class="build-panel result-portable" data-build="1" hidden><div class="result-definitions"><div class="source-code"><div class="source-label">FileError.h · result branch · enum excerpt</div><pre><code>enum class FileError : uint32_t {
+    InvalidHandle = 1,
+    UnsupportedPathEncoding,
+    InvalidPath,
+    // More errors omitted.
+};
+constexpr ResultCategory
+    FileResultCategory{10};</code></pre></div><div class="source-code"><div class="source-label">Return and inspect an error without parsing text</div><pre><code>Result lowerLevel() {
+    return Result::Error(
+        FileResultCategory,
+        FileError::InvalidPath);
+}
+Result higherLevel() {
+    SC_TRY(lowerLevel());
+    return Result(true);
+}</code></pre></div></div><div class="source-code"><div class="source-label">Caller · structured identity survives SC_TRY</div><pre><code>const Result result = higherLevel();
+if (result.isError(FileResultCategory, FileError::InvalidPath)) {
+    // Ask for a different path, or report this specific failure.
+}</code></pre></div></div><div class="build-panel result-native" data-build="2" hidden><div class="native-error-map"><div><small>macOS / Linux</small><code>EADDRINUSE</code></div><div><small>Windows</small><code>WSAEADDRINUSE</code></div><b>→ SocketError::AddressInUse</b></div><div class="source-code" data-bindings="result:1 portable:2"><div class="source-label">Socket result · native diagnostics retained in the typed result</div><pre><code>ResultSocket result = server.bind(address);
+if (result.contextKind == SocketErrorContextKind::NativeError) {
+    console.print("OS error: {}\n", result.context.nativeError);
+}
+if (result.isError(SocketError::AddressInUse)) {
+    // Offer a different port, independent of the operating system.
+}
+Result portable = result; // Category + error code only.</code></pre></div><p class="scene-caption">Keep ResultSocket when you need the native code and operation detail.</p></div></section>
+
+<section class="slide content-slide technical-slide showcase-slide" data-slide="8" data-topic="API / Process" aria-labelledby="slide-6-title" hidden><div class="topline"><span>Sane C++ Libraries / API / Process</span><span>08 / 34</span></div><h2 id="slide-6-title">Process: pipes and redirected I/O</h2><div class="showcase-main" data-example="process"><div class="source-code" data-bindings="first:1 second:2 chain:3 captured:2"><div class="source-label">Process · namespace and Result-returning wrapper omitted</div><pre><code>Process first, second;
+ProcessChain chain;
+SmallString&lt;128&gt; captured;
+SC_TRY(chain.pipe(first, {"cat"}));
+SC_TRY(chain.pipe(second, {"grep", "Sane"}));
+SC_TRY(chain.exec(captured, "Hello\nSane C++\n"));
+//                stdout,  stdin</code></pre></div></div><div class="shell-equivalent"><span>Synchronous I/O · equivalent Bash pipeline</span><code>printf 'Hello\nSane C++\n' | cat | grep Sane</code></div><div class="pipe-sketch"><span>provided stdin</span><i>→</i><span>cat</span><i>→</i><span>grep Sane</span><i>→</i><span>captured stdout</span></div></section>
+
+<section class="slide content-slide technical-slide showcase-slide" data-slide="9" data-topic="API / Socket" aria-labelledby="slide-7-title" hidden><div class="topline"><span>Sane C++ Libraries / API / Socket</span><span>09 / 34</span></div><h2 id="slide-7-title">Socket: caller-provided outputs</h2><div class="showcase-main" data-example="socket"><div class="source-code" data-bindings="listener:1 client:2" data-connect="client"><div class="source-label">Socket · synchronous TCP accept · port chosen by caller</div><pre><code>SocketDescriptor listener, client;
+SocketIPAddress address;
+SC_TRY(address.fromAddressPort("127.0.0.1", port));
+SC_TRY(listener.create(address.getAddressFamily()));
+SocketServer server(listener);
+SC_TRY(server.bind(address));
+SC_TRY(server.listen(8));
+SC_TRY(server.accept(address.getAddressFamily(), client));</code></pre></div></div><div class="output-explanation"><strong>client ↑ caller-owned output</strong><span>accept fills that descriptor. Result reports success or failure.</span></div></section>
+
+<section class="slide content-slide technical-slide showcase-slide" data-slide="10" data-topic="API / Files" aria-labelledby="slide-8-title" hidden><div class="topline"><span>Sane C++ Libraries / API / Files</span><span>10 / 34</span></div><h2 id="slide-8-title">Files: storage, traversal and changes</h2><div class="build-tabs"><button data-select-build="0">Read</button><button data-select-build="1">Iterate</button><button data-select-build="2">Watch</button></div><div class="build-panel" data-build="0"><div class="source-code" data-bindings="storage:1 bytes:2"><div class="source-label">File · one read</div><pre><code>FileDescriptor file;
+SC_TRY(file.open(absolutePath, FileOpen::Read));
+char storage[4096];
+Span&lt;char&gt; bytes;
+SC_TRY(file.read(storage, bytes));</code></pre></div><div class="type-ribbon"><span>char storage[4096]</span><b>→</b><span>Span&lt;char&gt; { address, extent }</span></div><p class="scene-caption">A C array converts to a typed Span. For a vector: <code>{storage.data(), storage.size()}</code>.</p></div><div class="build-panel" data-build="1" hidden data-example="iterator"><div class="source-code"><div class="source-label">FileSystemIterator · inspect is application code</div><pre><code>FileSystemIterator::FolderState levels[16];
+FileSystemIterator walk;
+walk.options.recursive = true;
+SC_TRY(walk.init(rootPath, levels));
+while (walk.enumerateNext())
+{
+    inspect(walk.get().path);
+}
+SC_TRY(walk.checkErrors());</code></pre></div></div><div class="build-panel watcher-panel" data-build="2" hidden><div class="source-code" data-bindings="watcher:1 folder:2"><div class="source-label">FileSystemWatcher · console supplied by application</div><pre><code>FileSystemWatcher::ThreadRunner runner;
+FileSystemWatcher watcher;
+FileSystemWatcher::FolderWatcher folder;
+SC_TRY(watcher.init(runner));
+
+folder.notifyCallback = [&amp;](const auto&amp; notification) {
+    StringPath path;
+    if (notification.getFullPath(path))
+        console.print("Changed: {}\n", path.view());
+};
+SC_TRY(watcher.watch(folder, directoryPath));</code></pre></div><p class="scene-caption">Print the affected path. ThreadRunner here; event-loop delivery is also available.</p></div></section>
+
+<section class="slide content-slide technical-slide" data-slide="11" aria-labelledby="s7-title" hidden><div class="topline"><span>Sane C++ Libraries</span><span>11 / 34</span></div><h2 id="s7-title">Caller-owned storage in Async</h2><p class="deck-subtitle">Requests, buffers and callback state must remain stable until completion.</p><div class="code-with-notes"><div class="source-code"><div class="source-label">Read request · setup and error cleanup omitted</div><pre><code>AsyncFileRead read;
+char buffer[4096];
+read.buffer = buffer; // Span&lt;char&gt;: address + extent
+read.callback = [&amp;](auto&amp; result) // AsyncFileRead::Result
+{
+    Span&lt;char&gt; bytes;
+    if (result.get(bytes))
+        received = bytes.sizeInBytes() == 4;
+};
+SC_TRY(read.start(loop));
+SC_TRY(loop.run());</code></pre></div><div class="code-annotations"><p><b>read</b> is a caller-owned request.</p><p><b>buffer</b> converts to Span&lt;char&gt;. Its size stays part of the contract.</p><p><b>bytes</b> views the completed portion.</p><p><b>loop.run()</b> dispatches the callback while this scope stays alive.</p></div></div></section>
+
+<section class="slide content-slide technical-slide showcase-slide async-paradigms-slide" data-slide="12" data-topic="API / Control flow" aria-labelledby="slide-10-title" hidden><div class="topline"><span>Sane C++ Libraries / API / Control flow</span><span>12 / 34</span></div><h2 id="slide-10-title">Await and Fibers</h2><p class="deck-subtitle">Sane C++ supports the major async paradigms: callbacks, fibers and coroutines.</p><div class="build-tabs"><button data-select-build="0">Await · coroutines</button><button data-select-build="1">Fibers · stackful</button></div><div class="build-panel" data-build="0" data-example="await"><div class="source-code"><div class="source-label">Await · inside AwaitTask · connected socket, loop and caller buffer supplied</div><pre><code>AwaitSocketReceiveResult received;
+SC_CO_TRY(co_await await.receive(socket, buffer, received));
+SC_CO_TRY(co_await await.sendAll(socket, received.data));
+co_return Result(true);</code></pre></div><p class="scene-caption">Receive one chunk, then echo it. <code>received.data</code> is a Span over the supplied buffer.</p></div><div class="build-panel" data-build="1" hidden data-example="fibers"><div class="source-code"><div class="source-label">AsyncFibers · inside a fiber task · io is AsyncFiberIO</div><pre><code>AsyncFiberSocketReceiveResult received;
+SC_TRY(io.receive(socket, buffer, received));
+SC_TRY(io.sendAll(socket, received.data));
+return Result(true);</code></pre></div><p class="scene-caption">The same I/O, expressed as sequential code on a caller-supplied fiber stack.</p></div><div class="execution-easter-egg"><div class="easter-egg-heading"><span>EASTER EGG · 17 OCT 2026</span><a href="#33">Bonus: sender/receiver example →</a></div><strong>AsyncExecution · one-shot vibe-coding prototype</strong><p>Built with Codex during this conference, inspired by Alberto Barbati’s earlier talk.</p></div></section>
+
+<section class="slide content-slide technical-slide showcase-slide stream-slide" data-slide="13" aria-labelledby="sept26-12" hidden><div class="topline"><span>Sane C++ Libraries</span><span>13 / 34</span></div><h2 id="sept26-12">AsyncStreams: file → compression → socket</h2><div class="pipeline-single"><div class="source-code" data-bindings="source:1 compressor:2 destination:3"><div class="source-label">Endpoints initialized with the same pool and caller-owned queues</div><pre><code>AsyncReadableFileStream&lt;AsyncEventLoop&gt; source;
+AsyncZLibTransformStreamT&lt;AsyncEventLoop&gt; compressor;
+AsyncWritableSocketStream&lt;AsyncEventLoop&gt; destination;
+// File, socket, compression and queue setup omitted.
+AsyncPipeline pipeline;
+pipeline.source        = &amp;source;
+pipeline.transforms[0] = &amp;compressor;
+pipeline.sinks[0]      = &amp;destination;
+SC_TRY(pipeline.pipe());
+SC_TRY(pipeline.start());</code></pre></div><div class="stream-flow" data-paused="false"><div class="stream-node">readable file<small>input bytes</small></div><div class="stream-node">zlib transform<small>compressed bytes</small></div><div class="stream-node">writable socket<small>partial writes</small></div><i class="flow-packet" style="--packet:0">bytes</i><i class="flow-packet" style="--packet:1">bytes</i><i class="flow-packet" style="--packet:2">bytes</i><span class="pool-return">completed buffers return to the shared pool ↶</span></div><div class="stream-status"><button id="stream-backpressure">Slow the consumer</button><span id="stream-flow-status">Conceptual flow · fixed I/O pool; compression workspace is separate.</span></div></div></section>
+
+<section class="slide content-slide technical-slide video-demo-slide" data-slide="14" data-topic="API / HTTP" aria-labelledby="http-video-title" hidden>
+<div class="topline"><span>Sane C++ Libraries / API / HTTP</span><span>14 / 34</span></div><h2 id="http-video-title">HTTP: WebSockets and file uploads</h2>
+<figure class="video-demo"><video controls playsinline preload="none" poster="assets/posters/WebSocketsAndUpload.jpg" aria-label="HTTP: WebSockets and file uploads"><source src="media/videos/WebSocketsAndUpload.mp4" type="video/mp4"></video><figcaption>SC-build bootstrap → async web server → two browsers sharing a WebSocket canvas</figcaption></figure>
+</section>
+
+<section class="slide content-slide technical-slide showcase-slide" data-slide="15" data-topic="API / Plugin" aria-labelledby="slide-12-title" hidden><div class="topline"><span>Sane C++ Libraries / API / Plugin</span><span>15 / 34</span></div><h2 id="slide-12-title">Plugin: loading a typed interface</h2><div class="plugin-pair" data-example="plugin"><div class="source-code"><div class="source-label">Plugin · initialized registry and error wrapper omitted</div><pre><code>SC_TRY(registry.loadPlugin(id, compiler, sysroot, hostPath));
+PluginDynamicLibrary* module = registry.findPlugin(id);
+ITransform* api = nullptr;
+SC_TRY_MSG(module &amp;&amp; module-&gt;queryInterface(api), "interface");
+const int value = api-&gt;transform(2);
+SC_TRY(registry.unloadPlugin(id));</code></pre></div><div class="source-code"><div class="source-label">Application-defined interface</div><pre><code>struct ITransform {
+    static constexpr auto InterfaceHash =
+        PluginHash("ITransform");
+    Function&lt;int(int)&gt; transform;
+};</code></pre></div></div><p class="scene-caption">A typed interface across a dynamically loaded module boundary.</p></section>
+
+
+
+<section class="slide content-slide technical-slide pillars-slide" data-slide="16" data-topic="Design" aria-labelledby="slide-15-title" data-scene-steps="2" data-step="0" hidden><div class="topline"><span>Sane C++ Libraries / Design</span><span>16 / 34</span></div><h2 id="slide-15-title">Design principles: then and now</h2><div class="pillar-table"><div class="pillar-head"><span data-no-translate="">Original motivation</span><span>With coding agents</span></div><div class="pillar-row" style="--i:0"><b data-no-translate="">Fast compile times</b><i>→</i><span>Frequent verification loops</span></div><div class="pillar-row" style="--i:1"><b data-no-translate="">Bloat free</b><i>→</i><span>Less code to inspect and load</span></div><div class="pillar-row" style="--i:2"><b data-no-translate="">Simple and readable code</b><i>→</i><span>Fewer conventions to reconstruct</span></div><div class="pillar-row" style="--i:3"><b data-no-translate="">Easy to integrate</b><i>→</i><span>Use and inspect the source in the app</span></div></div><div class="constraints-strip">Implementation choices: no required STL, exceptions or RTTI; no forced build system or third-party build dependencies.</div><p class="experience-label">Personal experience and expectations · reevaluate as models change.</p><div class="scene-controls" aria-label="Animation steps"></div></section>
+
+
+
+<section class="slide content-slide technical-slide allocation-promise-slide" data-slide="17" data-topic="Memory" aria-labelledby="allocation-title" data-scene-steps="3" data-step="0" hidden>
+<div class="topline"><span>Sane C++ Libraries / Memory</span><span>17 / 34</span></div>
+<h2 id="allocation-title">No hidden allocations</h2>
+<p class="deck-subtitle">The entire library set is structured around caller-provided storage.</p>
+<div class="allocation-layout">
+<div class="allocation-examples">
+<div class="source-code allocation-example" data-allocation-example="0" data-bindings="storage:1"><div class="source-label">File · caller-provided bytes</div><pre><code>char storage[4096];
+Span&lt;char&gt; bytes;
+SC_TRY(file.read(storage, bytes));</code></pre></div>
+<div class="source-code allocation-example" data-allocation-example="1" data-bindings="levels:2"><div class="source-label">FileSystemIterator · caller-provided traversal state</div><pre><code>FileSystemIterator::FolderState levels[16];
+FileSystemIterator walk;
+SC_TRY(walk.init(rootPath, levels));</code></pre></div>
+<div class="source-code allocation-example" data-allocation-example="2" data-bindings="storage:3 read:1"><div class="source-label">Async · caller-provided request and buffer</div><pre><code>char storage[4096];
+AsyncFileRead read;
+read.buffer = storage; // Span&lt;char&gt;</code></pre></div>
+</div>
+<aside class="allocation-options">
+<h3>Where allocation is available</h3>
+<p class="allocation-options-intro">Only these areas allow allocation without a fixed budget. Each also has a bounded path.</p>
+<div class="allocation-option"><h4>Memory + Containers</h4><p>Allocate by default.</p><div><code>FixedAllocator / Array&lt;T, N&gt;</code></div></div>
+<div class="allocation-option"><h4>Await</h4><p>Explicit coroutine-frame allocator.</p><div><code>allocator.createFixed(storage)</code></div></div>
+<div class="allocation-option"><h4>Fibers</h4><p>Explicit scheduler / stack allocation.</p><div><code>allocator.createFixed(storage)</code></div></div>
+</aside>
+</div>
+<div class="allocation-footer"><strong>Storage and capacity come from the caller.</strong><span>Independent excerpts · setup omitted · arrays convert to Span</span></div>
+<div class="scene-controls" aria-label="Animation steps"></div>
+</section>
+
+<section class="slide content-slide technical-slide lifetime-owner-slide" data-slide="18" data-topic="Lifetimes" aria-labelledby="slide-20-title" hidden><div class="topline"><span>Sane C++ Libraries / Lifetimes</span><span>18 / 34</span></div><h2 id="slide-20-title">Grouping the lifetime of a compile job</h2><div class="code-with-notes"><div class="source-code compact-code" data-bindings="exited:1 stdoutRead:2 stdoutPipe:2 stdoutBuffer:2 stderrRead:3 stderrPipe:3 stderrBuffer:3"><div class="source-label">SC-build-inspired · one job = one owner</div><pre><code>struct Slot
+{
+    // One compile job owns this whole group.
+    AsyncProcessExit exited;
+    AsyncFileRead stdoutRead, stderrRead;
+    PipeDescriptor stdoutPipe, stderrPipe;
+    SmallVector&lt;char, 4096&gt; stdoutBuffer, stderrBuffer;
+    bool processFinished = false;
+    bool stdoutFinished = false, stderrFinished = false;
+    // Reuse the group only after its LAST completion.
+    bool reusable() const
+    { return processFinished
+          &amp;&amp; stdoutFinished &amp;&amp; stderrFinished; }
+};</code></pre></div><div class="code-annotations"><p><b>FIRST: start monitoring a compile job.</b></p><p>Keep its monitor, reads, pipes and buffers together.</p><p><b>LAST: process exit + both streams finished.</b></p><p>Only then can the whole slot serve another job.</p><p class="lifetime-key">Completion of one request does not end the group’s lifetime.</p></div></div></section>
+
+<section class="slide lifecycle" data-slide="19" aria-labelledby="lifecycle-title" hidden>
+<div class="topline"><span>Resource design · SC-build inspired</span><span>19 / 34</span></div>
+<h2 id="lifecycle-title">Lifetimes in async systems</h2>
+<p class="lifecycle-subtitle">A finished process can still have unread output. Keep the whole slot alive until all three completions.</p>
+<div class="timeline-diagram" aria-label="Timeline of process exit and stdout and stderr completion">
+<div class="lane-labels" aria-hidden="true"><span>process</span><span>stdout</span><span>stderr</span></div>
+<div class="timeline-plot">
+<div class="timeline-cursor" aria-hidden="true"></div>
+<div class="timeline-lane process-lane"><span class="launch-event">launch</span><span class="event" data-reveal="2" style="--x:60%">exit callback</span></div>
+<div class="timeline-lane stdout-lane"><span class="event" data-reveal="1" style="--x:38%">EOF</span></div>
+<div class="timeline-lane stderr-lane"><span class="event" data-reveal="3" style="--x:74%">last bytes</span><span class="event final-event" data-reveal="4" style="--x:88%">EOF</span></div>
+</div>
+</div>
+<div class="lifetime-retained-group" id="lifetime-retained-group"><b>Slot</b><span>process monitor</span><span>stdout reader + buffer</span><span>stderr reader + buffer</span><strong id="lifetime-reuse-label">Keep the whole group</strong></div>
+<div class="completion-rule"><span>Slot reusable when</span><span class="rule-formula">process exit <b>∧</b> stdout EOF <b>∧</b> stderr EOF</span></div>
+<div class="completion-gates" aria-label="Required completion events"><span data-gate="process">process exit</span><span data-gate="stdout">stdout EOF</span><span data-gate="stderr">stderr EOF</span><strong id="slot-state">ACTIVE SLOT</strong></div>
+<p id="timeline-caption" class="timeline-caption" aria-live="polite">Compiler launched. The slot owns the process and both read requests.</p>
+<div class="slide-footer"><span>Events can arrive in another order; the three-way condition stays the same.</span><span><button id="timeline-reset" type="button">Reset</button><button id="timeline-next" type="button">Next event →</button></span></div>
+
+</section>
+
+<section class="slide content-slide technical-slide header-review-slide" data-slide="20" aria-labelledby="revision-23-title" data-scene-steps="3" data-step="0" hidden><div class="topline"><span>Sane C++ Libraries / Architecture</span><span>20 / 34</span></div><h2 id="revision-23-title">Public headers and template instantiation</h2><div class="header-review"><div class="header-boundary-content"><div class="header-code-column"><div class="source-code"><div class="source-label">Public header · simplified shape</div><pre class="forbidden-includes"><s>#include &lt;Windows.h&gt;</s><s>#include &lt;sys/socket.h&gt;</s><s>#include &lt;CoreServices/CoreServices.h&gt;</s></pre><pre><code>#pragma once
+// Sane types and declarations only.
+namespace SC {
+    struct AsyncEventLoop;
+    struct AsyncFileRead;
+    // Public API declarations...
+}</code></pre></div></div><div class="header-purpose"><span class="macro-cloud" aria-hidden="true">#define min<br>#define max</span><h3>Keep OS headers private</h3><p>Less parsing.<br>Fewer leaked symbols.<br>No imported OS macros.</p><div class="private-include-list">Windows / Linux / macOS<br><b>implementation files</b></div></div></div><div class="template-content"><div class="source-code"><div class="source-label">StringIterator.h · public declaration · other members omitted</div><pre><code>template &lt;typename CharIterator&gt;
+struct StringIterator {
+    bool reverseAdvanceUntilMatches(CodePoint c);
+    // ...
+};</code></pre></div><div class="source-code"><div class="source-label">Private StringIterator.inl · included by Strings.cpp</div><pre><code>template &lt;typename CharIterator&gt;
+bool StringIterator&lt;CharIterator&gt;::
+    reverseAdvanceUntilMatches(CodePoint c)
+{
+    // Implementation lives here.
+}
+template bool StringIterator&lt;StringIteratorUTF8&gt;::
+    reverseAdvanceUntilMatches(CodePoint);
+// Also explicitly instantiated: ASCII, UTF16.</code></pre></div></div></div><div class="phase-copy"><p data-phase="0">A public header is part of every consumer’s compilation environment.</p><p data-phase="1">OS headers stay behind the implementation boundary—including their macros.</p><p data-phase="2">Known template instantiations can be compiled once, with the body outside the public header.</p></div><div class="scene-controls" aria-label="Animation steps"></div></section>
+
+<section class="slide content-slide technical-slide duplicate-slide" data-slide="21" aria-labelledby="revision-24-title" data-scene-steps="2" data-step="0" hidden><div class="topline"><span>Sane C++ Libraries / Architecture</span><span>21 / 34</span></div><h2 id="revision-24-title">Independence and deliberate duplication</h2><div class="duplicate-pair"><article><h3>File</h3><div class="source-code"><div class="source-label">File.cpp · setFileFlags · simplified</div><pre><code>// Private descriptor-flag helper (excerpt).
+int oldFlags = ::fcntl(fd, F_GETFL);
+// Check errors; retry EINTR (omitted).
+const int newFlags = enabled
+    ? oldFlags | O_NONBLOCK
+    : oldFlags &amp; ~O_NONBLOCK;
+// If changed: fcntl(fd, F_SETFL, newFlags).
+// Check errors; retry EINTR (omitted).</code></pre></div></article><article><h3>Socket</h3><div class="source-code"><div class="source-label">SocketDescriptorPosix.inl · same operation</div><pre><code>// Private descriptor-flag helper (excerpt).
+int oldFlags = ::fcntl(fd, F_GETFL);
+// Check errors; retry EINTR (omitted).
+const int newFlags = enabled
+    ? oldFlags | O_NONBLOCK
+    : oldFlags &amp; ~O_NONBLOCK;
+// If changed: fcntl(fd, F_SETFL, newFlags).
+// Check errors; retry EINTR (omitted).</code></pre></div></article></div><div class="duplicate-policy"><span>small private helper</span><b>≠</b><span>new public dependency</span></div><p class="scene-caption">Both own their descriptor policy. Socket need not depend on File for a few flag operations.</p><div class="duplication-more">Common .inl fragments are another mechanism for per-library private implementations.</div><div class="scene-controls" aria-label="Animation steps"></div></section>
+
+<section class="slide content-slide technical-slide benchmark expanded-benchmark" data-slide="22" data-topic="Evidence" aria-labelledby="slide-25-title" hidden><div class="topline"><span>Sane C++ Libraries / Evidence</span><span>22 / 34</span></div><h2 id="slide-25-title">Compilation cost: one file and many files</h2><div class="build-tabs"><button data-select-build="0">What we compiled</button><button data-select-build="1">One consumer</button><button data-select-build="2">100 consumers</button></div><div class="build-panel" data-build="0"><div class="code-pair compile-examples"><div class="source-code"><div class="source-label">Sane · excerpt from measured consumer</div><pre><code>#include "SaneCppAsyncStandalone.h"
+// Loop and pipe setup omitted.
+read.buffer = buffer;
+read.callback = onRead;
+if (not read.start(loop)) return 5;
+if (not loop.run()) return 8;</code></pre></div><div class="source-code"><div class="source-label">Asio · includes from measured consumer</div><pre><code>#include &lt;asio/io_context.hpp&gt;
+#include &lt;asio/readable_pipe.hpp&gt;
+#include &lt;asio/writable_pipe.hpp&gt;
+#include &lt;asio/connect_pipe.hpp&gt;
+#include &lt;asio/buffer.hpp&gt;
+// async_read_some(...); loop.run();</code></pre></div><div class="source-code"><div class="source-label">libuv · measured consumer excerpt</div><pre><code>#include &lt;uv.h&gt;
+// Loop, pipe and callbacks omitted.
+uv_read_start(
+    reinterpret_cast&lt;uv_stream_t*&gt;(
+        &amp;readPipe), allocate, onRead);
+uv_run(&amp;loop, UV_RUN_DEFAULT);</code></pre></div></div><div class="compile-separation"><div><small>ON THE FIRST BUILD</small><b>Compile implementations from source</b><span>Sane: SANE_CPP_IMPLEMENTATION<br>Asio: ASIO_SEPARATE_COMPILATION<br>libuv: full static library built from source</span></div><div><small>ON EACH EDIT</small><b>consumer.cpp → consumer.o → link</b><span>Reuse implementation objects / libuv archive.<br>Header-visible templates / inline code remain.</span></div></div><p class="benchmark-caveat">One async pipe example, one changed translation unit. All three read four bytes.</p></div><div class="build-panel" data-build="1" hidden><p class="benchmark-measure-title">One consumer · compile + link after an edit</p><div class="benchmark-animation-label">Bars: compressed playback of measured medians.</div><div class="compile-bars" data-compile-chart="single"><div data-compile-library="sane"><b>Sane</b><div class="compile-bar-track"><span></span></div><strong></strong></div><div data-compile-library="libuv"><b>libuv</b><div class="compile-bar-track"><span></span></div><strong></strong></div><div data-compile-library="asio"><b>Asio</b><div class="compile-bar-track"><span></span></div><strong></strong></div></div><table class="compile-metrics"><thead><tr><th>Library</th><th>First build from source</th><th>One consumer edit + link</th></tr></thead><tbody id="compile-metrics"></tbody></table><p class="benchmark-caveat">M1 Pro · median of 5 fresh builds / 12 edits · earlier baseline<br>First build scope differs: libuv includes CMake + its full 37-file C library.</p></div>
+<div class="build-panel" data-build="2" hidden><div class="fanout-experiment"><div class="fanout-header">app_contract.h</div><span>↓ included by all 100 consumers</span><div class="fanout-files" aria-label="100 consumer translation units"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div><p class="benchmark-measure-title">Shared-header edit · 100 consumers + link · four compiler jobs</p><div class="benchmark-animation-label">Bars: compressed playback of measured medians.</div><div class="compile-bars" data-compile-chart="many"><div data-compile-library="sane"><b>Sane</b><div class="compile-bar-track"><span></span></div><strong></strong></div><div data-compile-library="libuv"><b>libuv</b><div class="compile-bar-track"><span></span></div><strong></strong></div><div data-compile-library="asio"><b>Asio</b><div class="compile-bar-track"><span></span></div><strong></strong></div></div><table class="compile-metrics many-metrics"><thead><tr><th>Library</th><th>Fresh build · 4 jobs</th><th>Edit one .cpp</th><th>Edit header · 4 jobs</th><th>Edit header · serial</th></tr></thead><tbody id="compile-many-metrics"></tbody></table><p class="benchmark-caveat">M1 Pro · three rounds · measured compile + link wall time · implementation reused on edits<br>Controlled example: the same working pipe program repeated in 100 files. Raw reports include ranges.</p></div>
+</section>
+
+<section class="slide content-slide technical-slide verification-slide shared-vm-slide" data-slide="23" data-topic="Verification" aria-labelledby="slide-26-title" data-scene-steps="3" data-step="0" hidden>
+<div class="topline"><span>Sane C++ Libraries / Verification</span><span>23 / 34</span></div>
+<h2 id="slide-26-title">Cross-platform verification loop</h2>
+<div class="shared-vm-art" aria-label="One macOS working folder is mounted into Linux and Windows virtual machines">
+<svg viewBox="0 0 1448 565" role="img" aria-labelledby="vm-map-title vm-map-desc">
+<title id="vm-map-title">One working folder, three build environments</title><desc id="vm-map-desc">The macOS host owns one SC working folder. Linux and Windows guests mount that same folder. The agent invokes the native macOS command and remote commands in both virtual machines, then uses their results for the next edit.</desc>
+<defs><marker id="vm-mount-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#78daff" /></marker><symbol id="vm-folder" viewBox="0 0 90 70"><path d="M5 17V8h31l10 12h39v45H5Z" fill="#172e44" stroke="#78daff" stroke-width="2" /><path d="M5 23h80" stroke="#78daff" stroke-width="2" /></symbol></defs>
+<rect class="vm-host-boundary" x="8" y="8" width="1432" height="548" rx="16" />
+<text class="vm-host-label" x="34" y="44">macOS host</text>
+<g class="vm-root-folder"><use href="#vm-folder" x="390" y="80" width="95" height="74" /><text class="vm-folder-label" x="512" y="109">One working folder</text><text class="vm-detail" x="512" y="142">SC source · edit once</text></g>
+<g class="vm-mount-paths"><path d="M690 165V205H246V273" /><path d="M690 165V273" /><path d="M690 165V205H1184V273" /></g>
+<g class="vm-environment vm-native"><rect x="64" y="285" width="366" height="205" rx="12" /><text class="vm-os" x="90" y="324">macOS</text><text class="vm-detail" x="90" y="353">Native build + tests</text><use href="#vm-folder" x="90" y="374" width="68" height="53" /><text class="vm-alias" x="174" y="399">working folder</text><text class="vm-detail vm-command" x="90" y="464">agent → local command</text></g>
+<g class="vm-environment vm-linux"><rect x="507" y="285" width="366" height="205" rx="12" /><text class="vm-os" x="533" y="324">Linux VM</text><text class="vm-detail" x="533" y="353">Shared-folder mount</text><use href="#vm-folder" x="533" y="374" width="68" height="53" /><text class="vm-alias" x="617" y="399">/media/psf/…</text><text class="vm-detail vm-command" x="533" y="464">agent → SSH command</text></g>
+<g class="vm-environment vm-windows"><rect x="950" y="285" width="434" height="205" rx="12" /><text class="vm-os" x="976" y="324">Windows VM</text><text class="vm-detail" x="976" y="353">Shared-folder mount</text><use href="#vm-folder" x="976" y="374" width="68" height="53" /><text class="vm-alias" x="1060" y="399">//Mac/Developer/…</text><text class="vm-detail vm-command" x="976" y="464">agent → SSH command</text></g>
+<text class="vm-same-files" x="724" y="535" text-anchor="middle">Same files, different mount paths. No commit needed to transfer an edit.</text>
+</svg></div>
+<figure class="vm-proof"><div class="vm-proof-frame">
+<svg class="vm-proof-full" viewBox="0 0 1686 1086" role="img" aria-label="The complete Codex thread, with the three platform commands highlighted"><image href="media/images/CodexCrossPlatformVM.png" width="1686" height="1086" /><rect class="vm-command-group" x="150" y="630" width="1450" height="150" rx="8" /></svg>
+<svg class="vm-proof-close" viewBox="140 623 1468 167" role="img" aria-label="Linux SSH, local macOS build, then Windows Bash over SSH"><image href="media/images/CodexCrossPlatformVM.png" width="1686" height="1086" /><rect class="vm-highlight vm-highlight-linux" x="154" y="633" width="1444" height="46" rx="5" /><rect class="vm-highlight vm-highlight-macos" x="154" y="682" width="1444" height="46" rx="5" /><rect class="vm-highlight vm-highlight-windows" x="154" y="731" width="1444" height="46" rx="5" /></svg>
+</div><div class="vm-command-legend" data-no-translate=""><span class="vm-legend-linux">Linux · SSH</span><span class="vm-legend-macos">macOS · ./SC.sh</span><span class="vm-legend-windows">Windows · Bash / SSH</span></div><figcaption>One agent invokes the host and both guests, then feeds the test results into the next edit.</figcaption></figure>
+<div class="phase-copy"><p data-phase="0">One source tree on the host, mounted into both guests. Each OS builds its own configuration.</p><p data-phase="1">A real development thread: a fixture correction, followed by checks on all three hosts.</p><p data-phase="2">Linux via SSH · macOS locally · Windows Bash via SSH — against the same working folder.</p></div>
+<div class="scene-controls" aria-label="Animation steps"></div>
+</section>
+
+<section class="slide content-slide technical-slide automation-slide" data-slide="24" data-topic="Verification" aria-labelledby="slide-27-title" data-scene-steps="3" data-step="0" hidden><div class="topline"><span>Sane C++ Libraries / Verification</span><span>24 / 34</span></div><h2 id="slide-27-title">Automation keeps agents on rails</h2><div class="automation-scene"><div class="change-orbit">agent<br><b>change</b></div><div class="automation-gates"><div style="--i:0"><small>01</small><b>Dependencies</b><span>Detect accidental new library coupling</span></div><div style="--i:1"><small>02</small><b>Formatting</b><span>Mechanical consistency</span></div><div style="--i:2"><small>03</small><b>Single-file generation</b><span>Two generators agree; artifacts compile</span></div><div style="--i:3"><small>04</small><b>Platform tests</b><span>Debug / Release; crypto ASan / UBSan</span></div><div style="--i:4"><small>05</small><b>Compatibility</b><span>STL interop; public headers without runtime linkage</span></div><div style="--i:5"><small>06</small><b>Build-system tests</b><span>SC-build regression fixtures and examples</span></div><div style="--i:6"><small>07</small><b>Coverage</b><span>Measure exercised paths</span></div><div style="--i:7"><small>08</small><b>Documentation</b><span>Build, artifacts and website trigger</span></div></div></div><p class="scene-caption">The agent can propose a change. Repeatable checks test whether it fits the project.</p><div class="scene-controls" aria-label="Animation steps"></div></section>
+
+<section class="slide content-slide technical-slide adr-scene-slide" data-slide="25" data-topic="Persistent decisions" aria-labelledby="slide-28-title" data-scene-steps="3" data-step="0" hidden><div class="topline"><span>Sane C++ Libraries / Persistent decisions</span><span>25 / 34</span></div><h2 id="slide-28-title">Architecture Decision Records</h2><div class="adr-scene"><div class="repo-tree"><span>SaneCppLibraries/</span><span>├ Libraries/</span><span>├ Tests/</span><span>└ <b>Architecture/</b></span><span class="indent">├ Global/</span><span class="indent">└ <b>Async/</b></span><strong>async-0002-… .md</strong></div><article class="decision-file"><div class="decision-heading"><span>ASYNC-0002</span><b>Accepted</b></div><h3>Keep submit, poll and dispatch separate</h3><div class="decision-part"><small>CONTEXT</small><p>GUI and frame loops need control over when callbacks run.</p></div><div class="decision-part"><small>DECISION</small><p>Expose submitRequests, blockingPoll and dispatchCompletions alongside run().</p></div><div class="decision-part"><small>PREVENTS</small><p>Collapsing the phases into run() and breaking GUI integration.</p></div></article></div><div class="phase-copy"><p data-phase="0">An ADR records a decision, its constraints, rationale and consequences.</p><p data-phase="1">Find it in Architecture/&lt;library&gt;/. It is persistent context for a new agent.</p><p data-phase="2">The API shows three phases. The ADR explains why all three must remain.</p></div><div class="scene-controls" aria-label="Animation steps"></div></section>
+
+<section class="slide content-slide technical-slide skill-location-slide" data-slide="26" data-topic="Agents" aria-labelledby="review-29-title" data-scene-steps="4" data-step="0" hidden><div class="topline"><span>Sane C++ Libraries / Agents</span><span>26 / 34</span></div><h2 id="review-29-title">Skills: APIs, design and simplification</h2><div class="skill-location"><div class="repo-tree"><b>Skills/</b><span class="indent">sane-cpp-libraries/</span><strong>SKILL.md</strong><span class="indent">sane-cpp-style/</span><strong>SKILL.md</strong><span class="indent">sane-cpp-simplify/</span><strong>SKILL.md</strong></div><div class="skill-descriptions"><article><small>sane-cpp-libraries</small><h3>Use Sane’s APIs</h3><p>Types, contracts, setup and examples.</p></article><article><small>sane-cpp-style</small><h3>Apply the design elsewhere</h3><p>Caller-owned storage, grouped lifetimes and independent APIs.</p></article><article><small>sane-cpp-simplify</small><h3>Simplify existing code</h3><p>Propose substantial changes. Preserve contracts.<br>Implement selected proposals and verify the result.</p></article></div></div><div class="skill-load-path"><span>name + description</span><i>→</i><span>SKILL.md</span><i>→</i><span>relevant references</span></div><div class="phase-copy"><p data-phase="0">Three repository skills: use the APIs, carry the design, simplify the implementation.</p><p data-phase="1">The API skill helps an agent use the actual library contracts.</p><p data-phase="2">The style skill carries the architectural approach into your own libraries.</p><p data-phase="3">The simplification skill maintains a proposal board, decisions, evidence and validation.</p></div><div class="scene-controls" aria-label="Animation steps"></div></section>
+
+<section class="slide content-slide technical-slide video-demo-slide" data-slide="27" data-topic="Agents / Simplification" aria-labelledby="simplification-video-title" hidden><div class="topline"><span>Sane C++ Libraries / Agents</span><span>27 / 34</span></div><h2 id="simplification-video-title">Simplification: a persistent proposal dashboard</h2><figure class="video-demo"><video controls playsinline preload="none" poster="assets/posters/Simplification.jpg" aria-label="Browsing the simplification proposal dashboard inside Codex"><source src="media/videos/Simplification-H264.mp4" type="video/mp4"><source src="media/videos/Simplification.mp4" type="video/mp4; codecs=&quot;hvc1&quot;"></video><figcaption>Browse proposals, review evidence and risks, then select the next batch.</figcaption></figure></section>
+
+<section class="slide content-slide technical-slide skill-eval-recommendation" data-slide="28" data-topic="Agents" aria-labelledby="slide-30-title" hidden><div class="topline"><span>Sane C++ Libraries / Agents</span><span>28 / 34</span></div><h2 id="slide-30-title">Skill evaluation</h2><div class="eval-recommendation"><p>Evaluate your skills on real tasks.<br>Revise the guidance when they fail.</p><div class="eval-small-cycle"><span>task</span><i>→</i><span>check result</span><i>→</i><span>improve skill</span><i>↻</i></div><a class="eval-talk" href="https://www.youtube.com/watch?v=0vphxNt4wyk"><small>FOR THE FULL METHOD</small><strong>Don’t Ship Skills Without Evals</strong><span>Philipp Schmid · AI Engineer 2026 ↗</span></a></div></section>
+
+<section class="slide content-slide technical-slide contribution-slide" data-slide="29" data-topic="Contributing" aria-labelledby="slide-32-title" hidden><div class="topline"><span>Sane C++ Libraries / Contributing</span><span>29 / 34</span></div><h2 id="slide-32-title">AI contributions: credit the problem-solving</h2><div class="build-tabs"><button data-select-build="0">What I ask contributors for</button><button data-select-build="1">An actual contribution</button></div><div class="build-panel" data-build="0"><p class="contribution-principle">For casual contributions, I value a precise problem description<br>more than a proposed code patch.</p><div class="contribution-rules"><article><h3>Bug report</h3><p>Reproduction steps, environment,<br>expected and actual behavior.</p></article><article><h3>Feature request</h3><p>The use case, why it matters,<br>and how it fits the project.</p></article></div><p class="scene-caption">An issue or PR can provide that input. Code is one possible solution;<br>I decide the implementation and whether the change belongs.</p><p class="scene-caption">Core contributors already share the project context.</p></div><div class="build-panel" data-build="1" hidden><div class="contribution-flow"><article><small>ISSUE #31 · cozis</small><h3>A failed upgrade takes down the server</h3><blockquote>“the server should keep running and keep serving every other connection.”</blockquote><p class="issue-context">Expected behavior · original issue excerpt<br>Reproducer disables AF_ALG on Linux.</p></article><i>→</i><article><small>MAINTAINER + AGENT</small><h3>Implement, verify, merge</h3><p>My agent wrote the fix from the report.<br>Failed upgrades return an error;<br>the server keeps running.</p></article></div><div class="commit-credit"><small>MERGED COMMIT · EXCERPT</small><strong>AsyncWebServer: Contain WebSocket upgrade failures</strong><code>Fixes #31<br>Co-authored-by: Francesco Cozzuto</code></div><a class="source-link" href="https://github.com/Pagghiu/SaneCppLibraries/issues/31">Francesco Cozzuto / cozis · original issue ↗</a></div></section>
+
+<section class="slide content-slide technical-slide closing-review-slide" data-slide="30" data-topic="Next step" aria-labelledby="slide-33-title" hidden><div class="topline"><span>Sane C++ Libraries / Next step</span><span>30 / 34</span></div><h2 id="slide-33-title">Try Sane C++ Libraries</h2><div class="closing-review"><img class="closing-logo" src="assets/SC.svg" alt="Sane C++ Libraries logo"><div><p>Cross-platform C++ libraries for coding agents.</p><a href="https://github.com/Pagghiu/SaneCppLibraries">github.com/Pagghiu/SaneCppLibraries</a><a class="closing-social" href="https://x.com/pagghiu_" data-no-translate="">X / Twitter · @pagghiu_</a></div><figure class="closing-qr"><a href="https://github.com/Pagghiu/SaneCppLibraries" aria-label="Open the Sane C++ Libraries repository"><img src="assets/RepositoryQR.svg" alt="QR code linking to the Sane C++ Libraries repository"></a><figcaption>Scan for the repository</figcaption></figure></div><div class="closing-thanks">Stefano Cristiano <span>Questions?</span></div></section>
+<section class="slide content-slide technical-slide video-demo-slide backup-slide" data-slide="31" data-topic="Backup / SC-build" data-backup="true" aria-labelledby="scbuild-first-video-title" hidden>
+<div class="topline"><span>Sane C++ Libraries / Backup / SC-build</span><span>31 / 34</span></div><h2 id="scbuild-first-video-title">SC-build: first native backend build</h2>
+<figure class="video-demo"><video controls playsinline preload="none" poster="assets/posters/SCBuildNative01.jpg" aria-label="SC-build: first native backend build"><source src="media/videos/SCBuildNative01.mp4" type="video/mp4"></video><figcaption>First successful run of the self-hosted native C++ backend</figcaption></figure>
+</section>
+
+<section class="slide content-slide technical-slide video-demo-slide backup-slide" data-slide="32" data-topic="Backup / SC-build" data-backup="true" aria-labelledby="scbuild-bootstrap-video-title" hidden>
+<div class="topline"><span>Sane C++ Libraries / Backup / SC-build</span><span>32 / 34</span></div><h2 id="scbuild-bootstrap-video-title">SC-build: bootstrap and global installation</h2>
+<figure class="video-demo"><video controls playsinline preload="none" poster="assets/posters/SCBuildNative02.jpg" aria-label="SC-build: bootstrap and global installation"><source src="media/videos/SCBuildNative02.mp4" type="video/mp4"></video><figcaption>Download SC-build.sh → make it executable → clone and install Sane globally</figcaption></figure>
+</section>
+
+<section class="slide content-slide technical-slide backup-slide execution-code-slide" data-slide="33" data-topic="Backup / AsyncExecution" data-backup="true" aria-labelledby="execution-code-title" hidden>
+<div class="topline"><span>Sane C++ Libraries / Backup / AsyncExecution</span><span>33 / 34</span></div>
+<h2 id="execution-code-title">AsyncExecution: sender composition</h2>
+<p class="deck-subtitle">A prototype built with Codex at C++ Day 2026 · 17 October.</p>
+<div class="source-code execution-source"><div class="source-label" data-no-translate="">Experimental owning facade · ex = SC::AsyncExecutionProtocol</div><pre><code>AsyncExecution app;
+SC_TRY(app.create(2));
+
+auto sendEncoded = [&amp;](StringSpan file, uint16_t port)
+{
+    return app.readFile(file)
+        | ex::continues_on(app.getPoolScheduler())
+        | ex::then(base64Encode)
+        | ex::let_value([&amp;, port](auto&amp; message) noexcept {
+              return app.sendTCP("127.0.0.1", port, move(message));
+          });
+};
+
+SC_TRY(app.run(ex::when_all(
+    sendEncoded("first.txt", 19092),
+    sendEncoded("second.txt", 19093))));</code></pre></div>
+<div class="execution-context"><span>Inspired by Alberto Barbati’s C++26 Execution Control talk.</span><a href="https://italiancpp.github.io/cppday26/#talk_id_Cpp26_Execution_Control__un_introduzione">C++ Day 2026 ↗</a></div>
+</section>
+
+<section class="slide content-slide technical-slide backup-slide execution-flow-slide" data-slide="34" data-topic="Backup / AsyncExecution" data-backup="true" aria-labelledby="execution-flow-title" hidden>
+<div class="topline"><span>Sane C++ Libraries / Backup / AsyncExecution</span><span>34 / 34</span></div>
+<h2 id="execution-flow-title">AsyncExecution: two joined transfers</h2>
+<p class="deck-subtitle">File I/O on the pool · Base64 on a worker · TCP through Async</p>
+<div class="execution-flow" role="img" aria-label="Two file-to-Base64-to-TCP pipelines joined by when_all">
+<div class="execution-branches"><div class="execution-branch"><div class="execution-node execution-file"><strong data-no-translate="">first.txt</strong><code>readFile</code><span>Pool file I/O</span></div><div class="execution-node execution-cpu"><strong>Base64</strong><code>continues_on → then</code><span>Pool worker</span></div><div class="execution-node execution-tcp"><strong data-no-translate="">TCP :19092</strong><code>let_value → sendTCP</code><span>Native Async requests</span></div></div><div class="execution-branch"><div class="execution-node execution-file"><strong data-no-translate="">second.txt</strong><code>readFile</code><span>Pool file I/O</span></div><div class="execution-node execution-cpu"><strong>Base64</strong><code>continues_on → then</code><span>Pool worker</span></div><div class="execution-node execution-tcp"><strong data-no-translate="">TCP :19093</strong><code>let_value → sendTCP</code><span>Native Async requests</span></div></div></div><div class="execution-join"><code>when_all</code><span>Join both transfers</span></div></div>
+<div class="execution-evidence"><article><h3>Verified on macOS, Linux and Windows</h3><p>Debug + Release: 319 assertions each.</p><p>Both payloads independently decoded and checked.</p><p>Missing-file error and sibling cancellation checked.</p></article><article><h3>From experiment to supported adapter?</h3><p><a class="execution-branch-link" href="https://github.com/Pagghiu/SaneCppLibraries/tree/async-execution" data-no-translate="">async-execution ↗</a></p><p>Possible next step: a proper specification.</p><p>Evaluate support alongside fibers and coroutines.</p></article></div>
+<p class="execution-provider">C++26 draft N5046 protocols · stdexec reference provider · native standard-library senders unavailable locally</p>
+</section>
+</main>
+</div>
+<nav id="deck-controls" aria-label="Presentation controls"><button id="previous-slide" type="button" aria-label="Previous slide">←</button>
+<span id="slide-position" aria-live="polite">Slide 1 of 34</span>
+<button id="next-slide" type="button" aria-label="Next slide">→</button>
+<button id="toggle-outline" type="button">Contents</button>
+<button id="toggle-fullscreen" type="button" aria-label="Toggle fullscreen">Fullscreen</button>
+<label class="language-control" for="deck-language"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9" /><ellipse cx="12" cy="12" rx="4" ry="9" /><path d="M3 12h18M5 7h14M5 17h14" /></svg><select id="deck-language" data-no-translate="" aria-label="Presentation language"><option value="en">EN</option><option value="it">IT</option></select></label></nav>
+
+<dialog id="outline-dialog"><div class="notes-head"><strong>Talk sequence</strong><button id="close-outline">Close</button></div><p class="public-context-links"><a href="https://italiancpp.github.io/cppday26/">C++ Day 2026</a> · <a href="https://italiancpp.github.io/cppday26/#talk_id_Old-School_Cpp_for_the_Agentic_Age__Lessons_from_Sane_Cpp_Libraries">Talk abstract</a></p><div id="outline-list"></div></dialog>
+<div id="runtime-message" role="status" hidden></div>
+
+</body>
+</html>
