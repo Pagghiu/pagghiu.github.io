@@ -136,37 +136,37 @@ $(function(){initNavTree('StringConverter_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span>SC</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structSC_1_1StringConverter.html">   20</a></span><span class="keyword">struct </span>SC_STRINGS_EXPORT <a class="code hl_struct" href="structSC_1_1StringConverter.html">StringConverter</a></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
-<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372">   23</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372">StringTermination</a></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372a595ca5020910b720cd0914ea3eff62be">   25</a></span>        <a class="code hl_enumvalue" href="structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372a595ca5020910b720cd0914ea3eff62be">NullTerminate</a>, </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        DoNotTerminate </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372aef08bf05bcca3cbc3c862f2bb2173603">   27</a></span>    };</div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structSC_1_1StringConverter.html">   24</a></span><span class="keyword">struct </span>SC_STRINGS_EXPORT <a class="code hl_struct" href="structSC_1_1StringConverter.html">StringConverter</a></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372">   27</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372">StringTermination</a></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372a595ca5020910b720cd0914ea3eff62be">   29</a></span>        <a class="code hl_enumvalue" href="structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372a595ca5020910b720cd0914ea3eff62be">NullTerminate</a>, </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        DoNotTerminate </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372aef08bf05bcca3cbc3c862f2bb2173603">   31</a></span>    };</div>
 </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structSC_1_1StringConverter.html#a5391d6a10c8b69f4872f7289a1e74002">   36</a></span>    [[nodiscard]] <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structSC_1_1StringConverter.html#a5391d6a10c8b69f4872f7289a1e74002">appendEncodingTo</a>(StringEncoding encoding, StringSpan text, T&amp; buffer,</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                                               <a class="code hl_enumeration" href="structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372">StringTermination</a> nullTerminate)</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        GrowableBuffer&lt;T&gt; growableBuffer{buffer};</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordflow">return</span> appendEncodingTo(encoding, text, <span class="keyword">static_cast&lt;</span>IGrowableBuffer&amp;<span class="keyword">&gt;</span>(growableBuffer), nullTerminate);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structSC_1_1StringConverter.html#a5391d6a10c8b69f4872f7289a1e74002">   40</a></span>    [[nodiscard]] <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structSC_1_1StringConverter.html#a5391d6a10c8b69f4872f7289a1e74002">appendEncodingTo</a>(StringEncoding encoding, StringSpan text, T&amp; buffer,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                                               <a class="code hl_enumeration" href="structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372">StringTermination</a> nullTerminate)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        GrowableBuffer&lt;T&gt; growableBuffer{buffer};</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">return</span> appendEncodingTo(encoding, text, <span class="keyword">static_cast&lt;</span>IGrowableBuffer&amp;<span class="keyword">&gt;</span>(growableBuffer), nullTerminate);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
 </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    [[nodiscard]] <span class="keyword">static</span> <span class="keywordtype">bool</span> appendEncodingTo(StringEncoding encoding, StringSpan text, IGrowableBuffer&amp; buffer,</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                                               StringTermination nullTerminate);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">struct </span>Internal;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>};</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    [[nodiscard]] <span class="keyword">static</span> <span class="keywordtype">bool</span> appendEncodingTo(StringEncoding encoding, StringSpan text, IGrowableBuffer&amp; buffer,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                                               StringTermination nullTerminate);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">struct </span>Internal;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>};</div>
 </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>} <span class="comment">// namespace SC</span></div>
-<div class="ttc" id="astructSC_1_1StringConverter_html"><div class="ttname"><a href="structSC_1_1StringConverter.html">SC::StringConverter</a></div><div class="ttdoc">Converts String to a different encoding (UTF8, UTF16).</div><div class="ttdef"><b>Definition</b> StringConverter.h:21</div></div>
-<div class="ttc" id="astructSC_1_1StringConverter_html_a5391d6a10c8b69f4872f7289a1e74002"><div class="ttname"><a href="structSC_1_1StringConverter.html#a5391d6a10c8b69f4872f7289a1e74002">SC::StringConverter::appendEncodingTo</a></div><div class="ttdeci">static bool appendEncodingTo(StringEncoding encoding, StringSpan text, T &amp;buffer, StringTermination nullTerminate)</div><div class="ttdoc">Appends to buffer text with requested encoding, optionally null-terminating it too.</div><div class="ttdef"><b>Definition</b> StringConverter.h:36</div></div>
-<div class="ttc" id="astructSC_1_1StringConverter_html_ac60688170c5eacd2410a36fe56025372"><div class="ttname"><a href="structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372">SC::StringConverter::StringTermination</a></div><div class="ttdeci">StringTermination</div><div class="ttdoc">Specifies if to add a null terminator.</div><div class="ttdef"><b>Definition</b> StringConverter.h:24</div></div>
-<div class="ttc" id="astructSC_1_1StringConverter_html_ac60688170c5eacd2410a36fe56025372a595ca5020910b720cd0914ea3eff62be"><div class="ttname"><a href="structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372a595ca5020910b720cd0914ea3eff62be">SC::StringConverter::NullTerminate</a></div><div class="ttdeci">@ NullTerminate</div><div class="ttdoc">A null terminator will be added at the end of the String.</div><div class="ttdef"><b>Definition</b> StringConverter.h:25</div></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>} <span class="comment">// namespace SC</span></div>
+<div class="ttc" id="astructSC_1_1StringConverter_html"><div class="ttname"><a href="structSC_1_1StringConverter.html">SC::StringConverter</a></div><div class="ttdoc">Converts String to a different encoding (UTF8, UTF16).</div><div class="ttdef"><b>Definition</b> StringConverter.h:25</div></div>
+<div class="ttc" id="astructSC_1_1StringConverter_html_a5391d6a10c8b69f4872f7289a1e74002"><div class="ttname"><a href="structSC_1_1StringConverter.html#a5391d6a10c8b69f4872f7289a1e74002">SC::StringConverter::appendEncodingTo</a></div><div class="ttdeci">static bool appendEncodingTo(StringEncoding encoding, StringSpan text, T &amp;buffer, StringTermination nullTerminate)</div><div class="ttdoc">Appends to buffer text with requested encoding, optionally null-terminating it too.</div><div class="ttdef"><b>Definition</b> StringConverter.h:40</div></div>
+<div class="ttc" id="astructSC_1_1StringConverter_html_ac60688170c5eacd2410a36fe56025372"><div class="ttname"><a href="structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372">SC::StringConverter::StringTermination</a></div><div class="ttdeci">StringTermination</div><div class="ttdoc">Specifies if to add a null terminator.</div><div class="ttdef"><b>Definition</b> StringConverter.h:28</div></div>
+<div class="ttc" id="astructSC_1_1StringConverter_html_ac60688170c5eacd2410a36fe56025372a595ca5020910b720cd0914ea3eff62be"><div class="ttname"><a href="structSC_1_1StringConverter.html#ac60688170c5eacd2410a36fe56025372a595ca5020910b720cd0914ea3eff62be">SC::StringConverter::NullTerminate</a></div><div class="ttdeci">@ NullTerminate</div><div class="ttdoc">A null terminator will be added at the end of the String.</div><div class="ttdef"><b>Definition</b> StringConverter.h:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

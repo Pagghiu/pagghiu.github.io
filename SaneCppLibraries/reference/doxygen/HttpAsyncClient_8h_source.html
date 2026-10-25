@@ -289,221 +289,244 @@ $(function(){initNavTree('HttpAsyncClient_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a21073d14e75d7deb780fad0ed3e6a548">  195</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a21073d14e75d7deb780fad0ed3e6a548">clearResponseDecompression</a>() { responseDecoder = <span class="keyword">nullptr</span>; }</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a7cae1c0a66995771b81950e1da5d7e38">  201</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a7cae1c0a66995771b81950e1da5d7e38">setTransportSetup</a>(Function&lt;Result(<a class="code hl_struct" href="structSC_1_1HttpAsyncClientTransportSetup.html">HttpAsyncClientTransportSetup</a>&amp;)&gt;&amp;&amp; setup) { transportSetup = move(setup); }</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
-<div class="foldopen" id="foldopen00206" data-start="{" data-end="}">
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a01a160cd30913ccf732eeaaf9345b588">  206</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a01a160cd30913ccf732eeaaf9345b588">setTransportPreflight</a>(Function&lt;Result(<span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1HttpURLParser.html">HttpURLParser</a>&amp;)&gt;&amp;&amp; preflight)</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    {</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        transportPreflight = move(preflight);</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    }</div>
+<div class="foldopen" id="foldopen00201" data-start="{" data-end="}">
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a4f974353f0c1ac071bd9b2dc365d13fc">  201</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a4f974353f0c1ac071bd9b2dc365d13fc">setTransportSetup</a>(Function&lt;Result(<a class="code hl_struct" href="structSC_1_1HttpAsyncClientTransportSetup.html">HttpAsyncClientTransportSetup</a>&amp;)&gt;&amp;&amp; setup, <span class="keyword">const</span> <span class="keywordtype">void</span>* owner = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    {</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        SC_TRY(checkTransportMutation(owner));</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        transportSetup = move(setup);</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    }</div>
 </div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
-<div class="foldopen" id="foldopen00215" data-start="{" data-end="}">
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a6e642f9b17cd91f544ededad6935f3dc">  215</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a6e642f9b17cd91f544ededad6935f3dc">setExternalConnector</a>(Function&lt;Result(<a class="code hl_struct" href="structSC_1_1HttpAsyncClientExternalConnection.html">HttpAsyncClientExternalConnection</a>&amp;)&gt;&amp;&amp; connector)</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    {</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        externalConnector = move(connector);</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    }</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="foldopen" id="foldopen00211" data-start="{" data-end="}">
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a17ef4987c72dffc540a513ead10b8647">  211</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a17ef4987c72dffc540a513ead10b8647">setTransportPreflight</a>(Function&lt;Result(<span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1HttpURLParser.html">HttpURLParser</a>&amp;)&gt;&amp;&amp; preflight, <span class="keyword">const</span> <span class="keywordtype">void</span>* owner = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    {</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        SC_TRY(checkTransportMutation(owner));</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        transportPreflight = move(preflight);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    }</div>
 </div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#ad9ea44f3cd2a0c3a02d5599f99a179bb">  223</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#ad9ea44f3cd2a0c3a02d5599f99a179bb">setTransportClose</a>(Function&lt;<span class="keywordtype">void</span>()&gt;&amp;&amp; close) { transportClose = move(close); }</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
-<div class="foldopen" id="foldopen00230" data-start="{" data-end="}">
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a67e76a98a29e49b1d2f697606f67cad5">  230</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a67e76a98a29e49b1d2f697606f67cad5">setTransportShutdown</a>(Function&lt;Result(Function&lt;<span class="keywordtype">void</span>(Result)&gt;)&gt;&amp;&amp; shutdown)</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    {</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        transportShutdown = move(shutdown);</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    }</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="foldopen" id="foldopen00222" data-start="{" data-end="}">
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a4ac0d0c4de1d39accc4e7cbb05b5718f">  222</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a4ac0d0c4de1d39accc4e7cbb05b5718f">setExternalConnector</a>(Function&lt;Result(<a class="code hl_struct" href="structSC_1_1HttpAsyncClientExternalConnection.html">HttpAsyncClientExternalConnection</a>&amp;)&gt;&amp;&amp; connector,</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>                                <span class="keyword">const</span> <span class="keywordtype">void</span>*                                            owner = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    {</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        SC_TRY(checkTransportMutation(owner));</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        externalConnector = move(connector);</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    }</div>
 </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
-<div class="foldopen" id="foldopen00236" data-start="{" data-end="}">
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a6db4595e70bcc4e094704972edba5aec">  236</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a6db4595e70bcc4e094704972edba5aec">clearTransportSetup</a>()</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    {</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        transportPreflight = {};</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        externalConnector  = {};</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        transportSetup     = {};</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        transportShutdown  = {};</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        transportClose     = {};</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    }</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="foldopen" id="foldopen00233" data-start="{" data-end="}">
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#af44636962636c42c307281c935243ab7">  233</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#af44636962636c42c307281c935243ab7">setTransportClose</a>(Function&lt;<span class="keywordtype">void</span>()&gt;&amp;&amp; close, <span class="keyword">const</span> <span class="keywordtype">void</span>* owner = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    {</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        SC_TRY(checkTransportMutation(owner));</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        transportClose = move(close);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    }</div>
 </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a3cccbb35e3548a738e91fc6b7af69b1e">  246</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a3cccbb35e3548a738e91fc6b7af69b1e">detachWebSocketTransport</a>(<a class="code hl_struct" href="structSC_1_1HttpWebSocketTransportView.html">HttpWebSocketTransportView</a>&amp; transport);</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a540d32d866646058bd70645423af0c12">  251</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a540d32d866646058bd70645423af0c12">start</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, <a class="code hl_enumeration" href="structSC_1_1HttpParser.html#a84befaaf1146b8dfdabb9184b4966752">HttpParser::Method</a> method, StringSpan url, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a72a608b853d725512a3915b386de3dcd">  255</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a72a608b853d725512a3915b386de3dcd">sendRequest</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, <span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1HttpAsyncClient_1_1RequestOptions.html">RequestOptions</a>&amp; options);</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a708b76ae0e68492fa880ad1b8e92901a">  258</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a708b76ae0e68492fa880ad1b8e92901a">get</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="foldopen" id="foldopen00245" data-start="{" data-end="}">
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a7006b07caef09361359bd1c897c43c1b">  245</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a7006b07caef09361359bd1c897c43c1b">setTransportShutdown</a>(Function&lt;Result(Function&lt;<span class="keywordtype">void</span>(Result)&gt;)&gt;&amp;&amp; shutdown, <span class="keyword">const</span> <span class="keywordtype">void</span>* owner = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    {</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        SC_TRY(checkTransportMutation(owner));</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        transportShutdown = move(shutdown);</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        <span class="keywordflow">return</span> Result(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    }</div>
+</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#aba660849d68e6707dfd3347e1d7cfbf7">  253</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#aba660849d68e6707dfd3347e1d7cfbf7">clearTransportSetup</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* owner = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a889b2b5b37606a8a5fbe4a6c38afdc81">  258</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a889b2b5b37606a8a5fbe4a6c38afdc81">claimTransport</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* owner);</div>
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a50eeeba8b5d96ceba6e99b4be4fad56b">  261</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a50eeeba8b5d96ceba6e99b4be4fad56b">head</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a0a7fb31cc887d9ff1131e0ff1fe56d6e">  264</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a0a7fb31cc887d9ff1131e0ff1fe56d6e">options</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a0013252f5c3b564868d29d801b153642">  267</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a0013252f5c3b564868d29d801b153642">deleteRequest</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#ad4b1608c4094f7bfc63d0de77bcb837a">  270</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#ad4b1608c4094f7bfc63d0de77bcb837a">put</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, Span&lt;const char&gt; body, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    Result put(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, StringSpan body, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>)</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    {</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        <span class="keywordflow">return</span> put(loop, url, body.toCharSpan(), keepAlive);</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    }</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a01dab9a842de9bcf12e8bda03b5e3d83">  262</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a01dab9a842de9bcf12e8bda03b5e3d83">releaseTransport</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* owner);</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a3cccbb35e3548a738e91fc6b7af69b1e">  265</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a3cccbb35e3548a738e91fc6b7af69b1e">detachWebSocketTransport</a>(<a class="code hl_struct" href="structSC_1_1HttpWebSocketTransportView.html">HttpWebSocketTransportView</a>&amp; transport);</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a540d32d866646058bd70645423af0c12">  270</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a540d32d866646058bd70645423af0c12">start</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, <a class="code hl_enumeration" href="structSC_1_1HttpParser.html#a84befaaf1146b8dfdabb9184b4966752">HttpParser::Method</a> method, StringSpan url, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a72a608b853d725512a3915b386de3dcd">  274</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a72a608b853d725512a3915b386de3dcd">sendRequest</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, <span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1HttpAsyncClient_1_1RequestOptions.html">RequestOptions</a>&amp; options);</div>
 <div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a95366ee5860d37a2a9f311b94e86ecb5">  277</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a95366ee5860d37a2a9f311b94e86ecb5">post</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, Span&lt;const char&gt; body, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    Result post(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, StringSpan body, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>)</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    {</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        <span class="keywordflow">return</span> post(loop, url, body.toCharSpan(), keepAlive);</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    }</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a2dfc0abd9394abb6dc867c7be10784bf">  284</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a2dfc0abd9394abb6dc867c7be10784bf">patch</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, Span&lt;const char&gt; body, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    Result patch(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, StringSpan body, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>)</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    {</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        <span class="keywordflow">return</span> patch(loop, url, body.toCharSpan(), keepAlive);</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    }</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a5f461b1886d1645e147c320e96f66c1d">  291</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a5f461b1886d1645e147c320e96f66c1d">postMultipart</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, <a class="code hl_struct" href="structSC_1_1HttpMultipartWriter.html">HttpMultipartWriter</a>&amp; writer, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    [[nodiscard]] <a class="code hl_struct" href="structSC_1_1HttpAsyncClientResponse.html">HttpAsyncClientResponse</a>&amp;       getResponse() { <span class="keywordflow">return</span> response; }</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    [[nodiscard]] <span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1HttpAsyncClientResponse.html">HttpAsyncClientResponse</a>&amp; getResponse()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> response; }</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#ab5f3a211983791272352ca6089627858">  297</a></span>    Function&lt;void(<a class="code hl_struct" href="structSC_1_1HttpAsyncClientRequest.html">HttpAsyncClientRequest</a>&amp;)&gt; <a class="code hl_variable" href="structSC_1_1HttpAsyncClient.html#ab5f3a211983791272352ca6089627858">onPrepareRequest</a>;</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a21127bcc9127c4c3805782098f2533ba">  300</a></span>    Function&lt;void(<a class="code hl_struct" href="structSC_1_1HttpAsyncClientResponse.html">HttpAsyncClientResponse</a>&amp;)&gt; <a class="code hl_variable" href="structSC_1_1HttpAsyncClient.html#a21127bcc9127c4c3805782098f2533ba">onResponse</a>;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a708b76ae0e68492fa880ad1b8e92901a">  277</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a708b76ae0e68492fa880ad1b8e92901a">get</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a50eeeba8b5d96ceba6e99b4be4fad56b">  280</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a50eeeba8b5d96ceba6e99b4be4fad56b">head</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a0a7fb31cc887d9ff1131e0ff1fe56d6e">  283</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a0a7fb31cc887d9ff1131e0ff1fe56d6e">options</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a0013252f5c3b564868d29d801b153642">  286</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a0013252f5c3b564868d29d801b153642">deleteRequest</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#ad4b1608c4094f7bfc63d0de77bcb837a">  289</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#ad4b1608c4094f7bfc63d0de77bcb837a">put</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, Span&lt;const char&gt; body, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    Result put(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, StringSpan body, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>)</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    {</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>        <span class="keywordflow">return</span> put(loop, url, body.toCharSpan(), keepAlive);</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    }</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a95366ee5860d37a2a9f311b94e86ecb5">  296</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a95366ee5860d37a2a9f311b94e86ecb5">post</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, Span&lt;const char&gt; body, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    Result post(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, StringSpan body, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>)</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    {</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>        <span class="keywordflow">return</span> post(loop, url, body.toCharSpan(), keepAlive);</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    }</div>
 <div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a5816c14a19e7aa64fb2decea5dd3bd55">  303</a></span>    Function&lt;void(Result)&gt; <a class="code hl_variable" href="structSC_1_1HttpAsyncClient.html#a5816c14a19e7aa64fb2decea5dd3bd55">onError</a>;</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    <span class="keyword">struct </span>RequestPreset</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    {</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        <span class="keyword">enum class</span> BodyMode : uint8_t</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        {</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>            None,</div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>            Span,</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>            Stream,</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>            Multipart,</div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        };</div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        <a class="code hl_enumeration" href="structSC_1_1HttpParser.html#a84befaaf1146b8dfdabb9184b4966752">HttpParser::Method</a> method = HttpParser::Method::HttpGET;</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a2dfc0abd9394abb6dc867c7be10784bf">  303</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a2dfc0abd9394abb6dc867c7be10784bf">patch</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, Span&lt;const char&gt; body, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    Result patch(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, StringSpan body, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>)</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    {</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        <span class="keywordflow">return</span> patch(loop, url, body.toCharSpan(), keepAlive);</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    }</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span> </div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a5f461b1886d1645e147c320e96f66c1d">  310</a></span>    Result <a class="code hl_function" href="structSC_1_1HttpAsyncClient.html#a5f461b1886d1645e147c320e96f66c1d">postMultipart</a>(<a class="code hl_struct" href="structSC_1_1AsyncEventLoop.html">AsyncEventLoop</a>&amp; loop, StringSpan url, <a class="code hl_struct" href="structSC_1_1HttpMultipartWriter.html">HttpMultipartWriter</a>&amp; writer, <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    [[nodiscard]] <a class="code hl_struct" href="structSC_1_1HttpAsyncClientResponse.html">HttpAsyncClientResponse</a>&amp;       getResponse() { <span class="keywordflow">return</span> response; }</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    [[nodiscard]] <span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1HttpAsyncClientResponse.html">HttpAsyncClientResponse</a>&amp; getResponse()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> response; }</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#ab5f3a211983791272352ca6089627858">  316</a></span>    Function&lt;void(<a class="code hl_struct" href="structSC_1_1HttpAsyncClientRequest.html">HttpAsyncClientRequest</a>&amp;)&gt; <a class="code hl_variable" href="structSC_1_1HttpAsyncClient.html#ab5f3a211983791272352ca6089627858">onPrepareRequest</a>;</div>
 <div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        StringSpan url;</div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>        <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>        <span class="keywordtype">bool</span> autoSend  = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span> </div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>        Span&lt;const char&gt; bodySpan;</div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>        BodyMode bodyMode      = BodyMode::None;</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>        uint64_t contentLength = 0;</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a21127bcc9127c4c3805782098f2533ba">  319</a></span>    Function&lt;void(<a class="code hl_struct" href="structSC_1_1HttpAsyncClientResponse.html">HttpAsyncClientResponse</a>&amp;)&gt; <a class="code hl_variable" href="structSC_1_1HttpAsyncClient.html#a21127bcc9127c4c3805782098f2533ba">onResponse</a>;</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno"><a class="line" href="structSC_1_1HttpAsyncClient.html#a5816c14a19e7aa64fb2decea5dd3bd55">  322</a></span>    Function&lt;void(Result)&gt; <a class="code hl_variable" href="structSC_1_1HttpAsyncClient.html#a5816c14a19e7aa64fb2decea5dd3bd55">onError</a>;</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>    Result checkTransportMutation(<span class="keyword">const</span> <span class="keywordtype">void</span>* owner) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    Result checkTransportQuiescence() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>        Span&lt;const Header&gt; headers;</div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span> </div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>        <a class="code hl_struct" href="structSC_1_1AsyncReadableStream.html">AsyncReadableStream</a>* bodyStream      = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        <a class="code hl_struct" href="structSC_1_1HttpMultipartWriter.html">HttpMultipartWriter</a>* multipartWriter = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    };</div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    <span class="keyword">enum class</span> State : uint8_t</div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    {</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        Idle,</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        Connecting,</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        Sending,</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        WaitingResponse,</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        StreamingResponse,</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    };</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span> </div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    Result startRequest(AsyncEventLoop&amp; loop, <span class="keyword">const</span> RequestPreset&amp; preset);</div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    Result prepareRequest(<span class="keyword">const</span> RequestPreset&amp; preset);</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    Result startPreparedRequest(<span class="keyword">const</span> RequestPreset&amp; preset);</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    Result ensureConnected();</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>    Result closeConnectionForReconnect();</div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    Result beginReconnectClose();</div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>    Result continueReconnectAfterClose();</div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <span class="keywordtype">void</span>   clearReconnectCloseListeners();</div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    Result beginExternalConnection();</div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    Result beginSocketConnection();</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    Result beginResponseRead();</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>    Result beginRequestSend();</div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    Result onResponseBodyStreamRead();</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    Result validateActiveRequest() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span> </div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    <span class="keywordtype">void</span>                 completeTransportSetup(Result result);</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>    [[nodiscard]] Result rememberConnectedOrigin();</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    <span class="keywordtype">void</span> finalizeResponse(<span class="keywordtype">bool</span> finishBodyStream);</div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>    <span class="keywordtype">void</span> closeConnection(<span class="keywordtype">bool</span> preserveReconnectListeners = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>    <span class="keywordtype">void</span> finishResponse();</div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    <span class="keywordtype">void</span> fail(Result error);</div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span> </div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>    <span class="keywordtype">void</span> onReconnectReadableClosed();</div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>    <span class="keywordtype">void</span> onReconnectWritableClosed();</div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>    <span class="keywordtype">void</span> onReconnectSocketReadableClosed();</div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    <span class="keywordtype">void</span> onReconnectSocketWritableClosed();</div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>    <span class="keywordtype">void</span> onReconnectTransportShutdown(Result result);</div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span> </div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>    <span class="keywordtype">void</span> onConnected(AsyncSocketConnect::Result&amp; result);</div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>    <span class="keywordtype">void</span> onReadableError(Result result);</div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>    <span class="keywordtype">void</span> onWritableError(Result result);</div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>    <span class="keywordtype">void</span> onPipelineError(Result result);</div>
-<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>    <span class="keywordtype">void</span> onReadableEnd();</div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>    <span class="keywordtype">void</span> onHeadersBufferWritten(AsyncBufferView::ID bufferID);</div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>    <span class="keywordtype">void</span> onResponseData(AsyncBufferView::ID bufferID);</div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>    <span class="keywordtype">void</span> onResponseBodyData(AsyncBufferView::ID bufferID);</div>
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>    <span class="keywordtype">void</span> onCompressedResponseBodyData(AsyncBufferView::ID bufferID);</div>
-<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>    <span class="keywordtype">void</span> onCompressedResponseBodyWritten(AsyncBufferView::ID bufferID);</div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>    <span class="keywordtype">void</span> onCompressedResponseBodyEnd();</div>
-<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>    <span class="keywordtype">void</span> onCompressedResponseError(Result result);</div>
-<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span> </div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>    [[nodiscard]] <span class="keywordtype">bool</span>   canReuseConnectionFor(StringSpan protocol, StringSpan host, uint16_t port) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>    [[nodiscard]] <span class="keywordtype">bool</span>   responseMustNotHaveBody() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>    [[nodiscard]] <span class="keywordtype">bool</span>   responseHasKnownLength() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>    [[nodiscard]] Result prepareResponseDecompression();</div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>    [[nodiscard]] Result startResponseStreams();</div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>    <span class="keywordtype">void</span>                 detachResponseDecompression();</div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span> </div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    HttpConnectionBase* connection = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    <span class="keyword">struct </span>RequestPreset</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    {</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>        <span class="keyword">enum class</span> BodyMode : uint8_t</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        {</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>            None,</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>            Span,</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>            Stream,</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>            Multipart,</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        };</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span> </div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        <a class="code hl_enumeration" href="structSC_1_1HttpParser.html#a84befaaf1146b8dfdabb9184b4966752">HttpParser::Method</a> method = HttpParser::Method::HttpGET;</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        StringSpan url;</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        <span class="keywordtype">bool</span> keepAlive = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>        <span class="keywordtype">bool</span> autoSend  = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>        Span&lt;const char&gt; bodySpan;</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        BodyMode bodyMode      = BodyMode::None;</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>        uint64_t contentLength = 0;</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>        Span&lt;const Header&gt; headers;</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span> </div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>        <a class="code hl_struct" href="structSC_1_1AsyncReadableStream.html">AsyncReadableStream</a>* bodyStream      = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>        <a class="code hl_struct" href="structSC_1_1HttpMultipartWriter.html">HttpMultipartWriter</a>* multipartWriter = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>    };</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    <span class="keyword">enum class</span> State : uint8_t</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>    {</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>        Idle,</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>        Connecting,</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>        Sending,</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>        WaitingResponse,</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>        StreamingResponse,</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>    };</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    Result startRequest(AsyncEventLoop&amp; loop, <span class="keyword">const</span> RequestPreset&amp; preset);</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>    Result prepareRequest(<span class="keyword">const</span> RequestPreset&amp; preset);</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>    Result startPreparedRequest(<span class="keyword">const</span> RequestPreset&amp; preset);</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>    Result ensureConnected();</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    Result closeConnectionForReconnect();</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>    Result beginReconnectClose();</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>    Result continueReconnectAfterClose();</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>    <span class="keywordtype">void</span>   clearReconnectCloseListeners();</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>    Result beginExternalConnection();</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>    Result beginSocketConnection();</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>    Result beginResponseRead();</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>    Result beginRequestSend();</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>    Result onResponseBodyStreamRead();</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>    Result validateActiveRequest() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span> </div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>    <span class="keywordtype">void</span>                 completeTransportSetup(Result result);</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>    [[nodiscard]] Result rememberConnectedOrigin();</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span> </div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>    <span class="keywordtype">void</span> finalizeResponse(<span class="keywordtype">bool</span> finishBodyStream);</div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>    <span class="keywordtype">void</span> closeConnection(<span class="keywordtype">bool</span> preserveReconnectListeners = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>    <span class="keywordtype">void</span> finishResponse();</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>    <span class="keywordtype">void</span> fail(Result error);</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span> </div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>    <span class="keywordtype">void</span> onReconnectReadableClosed();</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>    <span class="keywordtype">void</span> onReconnectWritableClosed();</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>    <span class="keywordtype">void</span> onReconnectSocketReadableClosed();</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>    <span class="keywordtype">void</span> onReconnectSocketWritableClosed();</div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    <span class="keywordtype">void</span> onReconnectTransportShutdown(Result result);</div>
 <div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span> </div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    AsyncEventLoop*         eventLoop      = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>    HttpAsyncClientRequest* currentRequest = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span> </div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>    HttpAsyncClientRequest  request;</div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    HttpAsyncClientResponse response;</div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>    AsyncSocketConnect      connectAsync;</div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>    RequestPreset           currentPreset;</div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span> </div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>    SyncZLibTransformStream* responseDecoder       = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>    <span class="keywordtype">bool</span>                     responseDecoderActive = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span> </div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>    Function&lt;Result(<span class="keyword">const</span> HttpURLParser&amp;)&gt;               transportPreflight;</div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>    Function&lt;Result(HttpAsyncClientExternalConnection&amp;)&gt; externalConnector;</div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>    Function&lt;Result(HttpAsyncClientTransportSetup&amp;)&gt;     transportSetup;</div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>    Function&lt;Result(Function&lt;<span class="keywordtype">void</span>(Result)&gt;)&gt;             transportShutdown;</div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    Function&lt;void()&gt;                                     transportClose;</div>
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span> </div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>    State state = State::Idle;</div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span> </div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>    StringSpan currentProtocol;</div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    <span class="keywordtype">char</span>       currentProtocolStorage[16] = {0};</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    <span class="keywordtype">void</span> onConnected(AsyncSocketConnect::Result&amp; result);</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>    <span class="keywordtype">void</span> onReadableError(Result result);</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    <span class="keywordtype">void</span> onWritableError(Result result);</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>    <span class="keywordtype">void</span> onPipelineError(Result result);</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    <span class="keywordtype">void</span> onReadableEnd();</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>    <span class="keywordtype">void</span> onHeadersBufferWritten(AsyncBufferView::ID bufferID);</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>    <span class="keywordtype">void</span> onResponseData(AsyncBufferView::ID bufferID);</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>    <span class="keywordtype">void</span> onResponseBodyData(AsyncBufferView::ID bufferID);</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>    <span class="keywordtype">void</span> onCompressedResponseBodyData(AsyncBufferView::ID bufferID);</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>    <span class="keywordtype">void</span> onCompressedResponseBodyWritten(AsyncBufferView::ID bufferID);</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>    <span class="keywordtype">void</span> onCompressedResponseBodyEnd();</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>    <span class="keywordtype">void</span> onCompressedResponseError(Result result);</div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span> </div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>    [[nodiscard]] <span class="keywordtype">bool</span>   canReuseConnectionFor(StringSpan protocol, StringSpan host, uint16_t port) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>    [[nodiscard]] <span class="keywordtype">bool</span>   responseMustNotHaveBody() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    [[nodiscard]] <span class="keywordtype">bool</span>   responseHasKnownLength() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>    [[nodiscard]] Result prepareResponseDecompression();</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>    [[nodiscard]] Result startResponseStreams();</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>    <span class="keywordtype">void</span>                 detachResponseDecompression();</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span> </div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    HttpConnectionBase* connection = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span> </div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>    StringSpan currentHost;</div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>    <span class="keywordtype">char</span>       currentHostStorage[256] = {0};</div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>    uint16_t   currentPort             = 0;</div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span> </div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>    HttpURLParser currentURL;</div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>    uint32_t      requestCount = 0;</div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span> </div>
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>    <span class="keywordtype">bool</span> hasOpenConnection = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>    <span class="keywordtype">bool</span> responseDelivered = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>    <span class="keywordtype">bool</span> responseFinalized = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>    <span class="keywordtype">bool</span> webSocketUpgraded = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span> </div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>    uint8_t reconnectClosuresPending = 0;</div>
-<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>    <span class="keywordtype">bool</span>    reconnectCloseInProgress = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>    <span class="keywordtype">bool</span>    reconnectPending         = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span> </div>
-<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>    AsyncReadableStream* reconnectReadableStream = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>    AsyncWritableStream* reconnectWritableStream = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>    AsyncEventLoop*         eventLoop      = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>    HttpAsyncClientRequest* currentRequest = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span> </div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>    HttpAsyncClientRequest  request;</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>    HttpAsyncClientResponse response;</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>    AsyncSocketConnect      connectAsync;</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>    RequestPreset           currentPreset;</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span> </div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>    SyncZLibTransformStream* responseDecoder       = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>    <span class="keywordtype">bool</span>                     responseDecoderActive = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span> </div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>    Function&lt;Result(<span class="keyword">const</span> HttpURLParser&amp;)&gt;               transportPreflight;</div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>    Function&lt;Result(HttpAsyncClientExternalConnection&amp;)&gt; externalConnector;</div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>    Function&lt;Result(HttpAsyncClientTransportSetup&amp;)&gt;     transportSetup;</div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>    Function&lt;Result(Function&lt;<span class="keywordtype">void</span>(Result)&gt;)&gt;             transportShutdown;</div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>    Function&lt;void()&gt;                                     transportClose;</div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span> </div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>    <span class="keyword">const</span> <span class="keywordtype">void</span>* transportOwner = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span> </div>
-<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>    AsyncReadableStream* reconnectSocketReadableStream = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>    AsyncWritableStream* reconnectSocketWritableStream = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>};</div>
-</div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>    uint32_t transportCallbackDepth = 0;</div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span> </div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>    State state = State::Idle;</div>
 <div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span> </div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>} <span class="comment">// namespace SC</span></div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>    StringSpan currentProtocol;</div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>    <span class="keywordtype">char</span>       currentProtocolStorage[16] = {0};</div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span> </div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>    StringSpan currentHost;</div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>    <span class="keywordtype">char</span>       currentHostStorage[256] = {0};</div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>    uint16_t   currentPort             = 0;</div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span> </div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>    HttpURLParser currentURL;</div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>    uint32_t      requestCount = 0;</div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span> </div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>    <span class="keywordtype">bool</span> hasOpenConnection = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>    <span class="keywordtype">bool</span> responseDelivered = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>    <span class="keywordtype">bool</span> responseFinalized = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>    <span class="keywordtype">bool</span> webSocketUpgraded = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span> </div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>    uint8_t reconnectClosuresPending = 0;</div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>    <span class="keywordtype">bool</span>    reconnectCloseInProgress = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>    <span class="keywordtype">bool</span>    reconnectPending         = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span> </div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>    AsyncReadableStream* reconnectReadableStream = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>    AsyncWritableStream* reconnectWritableStream = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span> </div>
+<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>    AsyncReadableStream* reconnectSocketReadableStream = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>    AsyncWritableStream* reconnectSocketWritableStream = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span>};</div>
+</div>
+<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span> </div>
+<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span>} <span class="comment">// namespace SC</span></div>
 <div class="ttc" id="astructSC_1_1AsyncEventLoop_html"><div class="ttname"><a href="structSC_1_1AsyncEventLoop.html">SC::AsyncEventLoop</a></div><div class="ttdoc">Asynchronous I/O (files, sockets, timers, processes, fs events, threads wake-up) (see Async) AsyncEve...</div><div class="ttdef"><b>Definition</b> Async.h:1517</div></div>
 <div class="ttc" id="astructSC_1_1AsyncReadableStream_html"><div class="ttname"><a href="structSC_1_1AsyncReadableStream.html">SC::AsyncReadableStream</a></div><div class="ttdoc">Async source abstraction emitting data events in caller provided byte buffers.</div><div class="ttdef"><b>Definition</b> AsyncStreams.h:229</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClientConnection_html"><div class="ttname"><a href="structSC_1_1HttpAsyncClientConnection.html">SC::HttpAsyncClientConnection</a></div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:54</div></div>
@@ -515,29 +538,31 @@ $(function(){initNavTree('HttpAsyncClient_8h_source.html',''); initResizable(tru
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_1_1RequestOptions_html"><div class="ttname"><a href="structSC_1_1HttpAsyncClient_1_1RequestOptions.html">SC::HttpAsyncClient::RequestOptions</a></div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:93</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_html"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html">SC::HttpAsyncClient</a></div><div class="ttdoc">Asynchronous HTTP/1.1 client using caller-provided fixed storage.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:85</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a0013252f5c3b564868d29d801b153642"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a0013252f5c3b564868d29d801b153642">SC::HttpAsyncClient::deleteRequest</a></div><div class="ttdeci">Result deleteRequest(AsyncEventLoop &amp;loop, StringSpan url, bool keepAlive=false)</div><div class="ttdoc">Convenience wrapper for a DELETE request without a request body.</div></div>
-<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a01a160cd30913ccf732eeaaf9345b588"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a01a160cd30913ccf732eeaaf9345b588">SC::HttpAsyncClient::setTransportPreflight</a></div><div class="ttdeci">void setTransportPreflight(Function&lt; Result(const HttpURLParser &amp;)&gt; &amp;&amp;preflight)</div><div class="ttdoc">Sets an optional transport policy hook invoked after URL parsing and before DNS or socket activity.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:206</div></div>
+<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a01dab9a842de9bcf12e8bda03b5e3d83"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a01dab9a842de9bcf12e8bda03b5e3d83">SC::HttpAsyncClient::releaseTransport</a></div><div class="ttdeci">Result releaseTransport(const void *owner)</div><div class="ttdoc">Clears hooks and releases only the matching owner's claim on a quiescent client.</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a0a7fb31cc887d9ff1131e0ff1fe56d6e"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a0a7fb31cc887d9ff1131e0ff1fe56d6e">SC::HttpAsyncClient::options</a></div><div class="ttdeci">Result options(AsyncEventLoop &amp;loop, StringSpan url, bool keepAlive=false)</div><div class="ttdoc">Convenience wrapper for an OPTIONS request without a request body.</div></div>
+<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a17ef4987c72dffc540a513ead10b8647"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a17ef4987c72dffc540a513ead10b8647">SC::HttpAsyncClient::setTransportPreflight</a></div><div class="ttdeci">Result setTransportPreflight(Function&lt; Result(const HttpURLParser &amp;)&gt; &amp;&amp;preflight, const void *owner=nullptr)</div><div class="ttdoc">Sets an optional transport policy hook invoked after URL parsing and before DNS or socket activity.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:211</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a21073d14e75d7deb780fad0ed3e6a548"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a21073d14e75d7deb780fad0ed3e6a548">SC::HttpAsyncClient::clearResponseDecompression</a></div><div class="ttdeci">void clearResponseDecompression()</div><div class="ttdoc">Disables response decompression for future requests.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:195</div></div>
-<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a21127bcc9127c4c3805782098f2533ba"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a21127bcc9127c4c3805782098f2533ba">SC::HttpAsyncClient::onResponse</a></div><div class="ttdeci">Function&lt; void(HttpAsyncClientResponse &amp;)&gt; onResponse</div><div class="ttdoc">Called after the response headers have been parsed.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:300</div></div>
+<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a21127bcc9127c4c3805782098f2533ba"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a21127bcc9127c4c3805782098f2533ba">SC::HttpAsyncClient::onResponse</a></div><div class="ttdeci">Function&lt; void(HttpAsyncClientResponse &amp;)&gt; onResponse</div><div class="ttdoc">Called after the response headers have been parsed.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:319</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a2dfc0abd9394abb6dc867c7be10784bf"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a2dfc0abd9394abb6dc867c7be10784bf">SC::HttpAsyncClient::patch</a></div><div class="ttdeci">Result patch(AsyncEventLoop &amp;loop, StringSpan url, Span&lt; const char &gt; body, bool keepAlive=false)</div><div class="ttdoc">Convenience wrapper for a PATCH request with a fixed in-memory body.</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a3cccbb35e3548a738e91fc6b7af69b1e"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a3cccbb35e3548a738e91fc6b7af69b1e">SC::HttpAsyncClient::detachWebSocketTransport</a></div><div class="ttdeci">Result detachWebSocketTransport(HttpWebSocketTransportView &amp;transport)</div><div class="ttdoc">Hands the connected socket streams to a WebSocket owner after a validated 101 response.</div></div>
+<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a4ac0d0c4de1d39accc4e7cbb05b5718f"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a4ac0d0c4de1d39accc4e7cbb05b5718f">SC::HttpAsyncClient::setExternalConnector</a></div><div class="ttdeci">Result setExternalConnector(Function&lt; Result(HttpAsyncClientExternalConnection &amp;)&gt; &amp;&amp;connector, const void *owner=nullptr)</div><div class="ttdoc">Sets an optional connector that owns DNS and connection establishment for future requests.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:222</div></div>
+<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a4f974353f0c1ac071bd9b2dc365d13fc"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a4f974353f0c1ac071bd9b2dc365d13fc">SC::HttpAsyncClient::setTransportSetup</a></div><div class="ttdeci">Result setTransportSetup(Function&lt; Result(HttpAsyncClientTransportSetup &amp;)&gt; &amp;&amp;setup, const void *owner=nullptr)</div><div class="ttdoc">Sets an optional transport setup hook invoked after TCP connect and before HTTP request bytes are sen...</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:201</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a50eeeba8b5d96ceba6e99b4be4fad56b"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a50eeeba8b5d96ceba6e99b4be4fad56b">SC::HttpAsyncClient::head</a></div><div class="ttdeci">Result head(AsyncEventLoop &amp;loop, StringSpan url, bool keepAlive=false)</div><div class="ttdoc">Convenience wrapper for a HEAD request without a request body.</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a540d32d866646058bd70645423af0c12"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a540d32d866646058bd70645423af0c12">SC::HttpAsyncClient::start</a></div><div class="ttdeci">Result start(AsyncEventLoop &amp;loop, HttpParser::Method method, StringSpan url, bool keepAlive=false)</div><div class="ttdoc">Starts a request that must be configured inside onPrepareRequest onPrepareRequest must send the heade...</div></div>
-<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a5816c14a19e7aa64fb2decea5dd3bd55"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a5816c14a19e7aa64fb2decea5dd3bd55">SC::HttpAsyncClient::onError</a></div><div class="ttdeci">Function&lt; void(Result)&gt; onError</div><div class="ttdoc">Called on connection, protocol or streaming errors.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:303</div></div>
+<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a5816c14a19e7aa64fb2decea5dd3bd55"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a5816c14a19e7aa64fb2decea5dd3bd55">SC::HttpAsyncClient::onError</a></div><div class="ttdeci">Function&lt; void(Result)&gt; onError</div><div class="ttdoc">Called on connection, protocol or streaming errors.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:322</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a5f461b1886d1645e147c320e96f66c1d"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a5f461b1886d1645e147c320e96f66c1d">SC::HttpAsyncClient::postMultipart</a></div><div class="ttdeci">Result postMultipart(AsyncEventLoop &amp;loop, StringSpan url, HttpMultipartWriter &amp;writer, bool keepAlive=false)</div><div class="ttdoc">Convenience wrapper for a multipart/form-data POST request.</div></div>
-<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a67e76a98a29e49b1d2f697606f67cad5"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a67e76a98a29e49b1d2f697606f67cad5">SC::HttpAsyncClient::setTransportShutdown</a></div><div class="ttdeci">void setTransportShutdown(Function&lt; Result(Function&lt; void(Result)&gt;)&gt; &amp;&amp;shutdown)</div><div class="ttdoc">Sets an optional asynchronous hook that drains a transport before reconnecting to another origin.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:230</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a6c1c1c2cf1453f8d7f62b29015eb80f8"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a6c1c1c2cf1453f8d7f62b29015eb80f8">SC::HttpAsyncClient::close</a></div><div class="ttdeci">Result close()</div><div class="ttdoc">Closes any active connection and releases references to the initialized storage.</div></div>
-<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a6db4595e70bcc4e094704972edba5aec"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a6db4595e70bcc4e094704972edba5aec">SC::HttpAsyncClient::clearTransportSetup</a></div><div class="ttdeci">void clearTransportSetup()</div><div class="ttdoc">Clears the optional transport setup hook and restores default socket transport setup.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:236</div></div>
-<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a6e642f9b17cd91f544ededad6935f3dc"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a6e642f9b17cd91f544ededad6935f3dc">SC::HttpAsyncClient::setExternalConnector</a></div><div class="ttdeci">void setExternalConnector(Function&lt; Result(HttpAsyncClientExternalConnection &amp;)&gt; &amp;&amp;connector)</div><div class="ttdoc">Sets an optional connector that owns DNS and connection establishment for future requests.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:215</div></div>
+<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a7006b07caef09361359bd1c897c43c1b"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a7006b07caef09361359bd1c897c43c1b">SC::HttpAsyncClient::setTransportShutdown</a></div><div class="ttdeci">Result setTransportShutdown(Function&lt; Result(Function&lt; void(Result)&gt;)&gt; &amp;&amp;shutdown, const void *owner=nullptr)</div><div class="ttdoc">Sets an optional asynchronous hook that drains a transport before reconnecting to another origin.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:245</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a708b76ae0e68492fa880ad1b8e92901a"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a708b76ae0e68492fa880ad1b8e92901a">SC::HttpAsyncClient::get</a></div><div class="ttdeci">Result get(AsyncEventLoop &amp;loop, StringSpan url, bool keepAlive=false)</div><div class="ttdoc">Convenience wrapper for a GET request without a request body.</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a72a608b853d725512a3915b386de3dcd"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a72a608b853d725512a3915b386de3dcd">SC::HttpAsyncClient::sendRequest</a></div><div class="ttdeci">Result sendRequest(AsyncEventLoop &amp;loop, const RequestOptions &amp;options)</div><div class="ttdoc">Starts an auto-sent request described by caller-owned request options.</div></div>
-<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a7cae1c0a66995771b81950e1da5d7e38"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a7cae1c0a66995771b81950e1da5d7e38">SC::HttpAsyncClient::setTransportSetup</a></div><div class="ttdeci">void setTransportSetup(Function&lt; Result(HttpAsyncClientTransportSetup &amp;)&gt; &amp;&amp;setup)</div><div class="ttdoc">Sets an optional transport setup hook invoked after TCP connect and before HTTP request bytes are sen...</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:201</div></div>
+<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a889b2b5b37606a8a5fbe4a6c38afdc81"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a889b2b5b37606a8a5fbe4a6c38afdc81">SC::HttpAsyncClient::claimTransport</a></div><div class="ttdeci">Result claimTransport(const void *owner)</div><div class="ttdoc">Claims the complete transport hook group on a quiescent client without existing hooks or an owner.</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a8969d7b32edfe4f28690c18472a68739"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a8969d7b32edfe4f28690c18472a68739">SC::HttpAsyncClient::init</a></div><div class="ttdeci">Result init(HttpConnectionBase &amp;storage)</div><div class="ttdoc">Initializes the client with caller-provided connection storage The storage must outlive the client an...</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a95366ee5860d37a2a9f311b94e86ecb5"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a95366ee5860d37a2a9f311b94e86ecb5">SC::HttpAsyncClient::post</a></div><div class="ttdeci">Result post(AsyncEventLoop &amp;loop, StringSpan url, Span&lt; const char &gt; body, bool keepAlive=false)</div><div class="ttdoc">Convenience wrapper for a POST request with a fixed in-memory body.</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_html_a998f70246175eb767239741331dc2352"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#a998f70246175eb767239741331dc2352">SC::HttpAsyncClient::setResponseDecompression</a></div><div class="ttdeci">void setResponseDecompression(SyncZLibTransformStream &amp;decoder)</div><div class="ttdoc">Enables opt-in gzip/deflate response decompression.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:192</div></div>
-<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_ab5f3a211983791272352ca6089627858"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#ab5f3a211983791272352ca6089627858">SC::HttpAsyncClient::onPrepareRequest</a></div><div class="ttdeci">Function&lt; void(HttpAsyncClientRequest &amp;)&gt; onPrepareRequest</div><div class="ttdoc">Called after the request has been created and can still be customized.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:297</div></div>
+<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_ab5f3a211983791272352ca6089627858"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#ab5f3a211983791272352ca6089627858">SC::HttpAsyncClient::onPrepareRequest</a></div><div class="ttdeci">Function&lt; void(HttpAsyncClientRequest &amp;)&gt; onPrepareRequest</div><div class="ttdoc">Called after the request has been created and can still be customized.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:316</div></div>
+<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_aba660849d68e6707dfd3347e1d7cfbf7"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#aba660849d68e6707dfd3347e1d7cfbf7">SC::HttpAsyncClient::clearTransportSetup</a></div><div class="ttdeci">Result clearTransportSetup(const void *owner=nullptr)</div><div class="ttdoc">Clears the optional transport setup hook and restores default socket transport setup.</div></div>
 <div class="ttc" id="astructSC_1_1HttpAsyncClient_html_ad4b1608c4094f7bfc63d0de77bcb837a"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#ad4b1608c4094f7bfc63d0de77bcb837a">SC::HttpAsyncClient::put</a></div><div class="ttdeci">Result put(AsyncEventLoop &amp;loop, StringSpan url, Span&lt; const char &gt; body, bool keepAlive=false)</div><div class="ttdoc">Convenience wrapper for a PUT request with a fixed in-memory body.</div></div>
-<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_ad9ea44f3cd2a0c3a02d5599f99a179bb"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#ad9ea44f3cd2a0c3a02d5599f99a179bb">SC::HttpAsyncClient::setTransportClose</a></div><div class="ttdeci">void setTransportClose(Function&lt; void()&gt; &amp;&amp;close)</div><div class="ttdoc">Sets an optional transport teardown hook invoked before HTTP destroys the connected socket streams.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:223</div></div>
+<div class="ttc" id="astructSC_1_1HttpAsyncClient_html_af44636962636c42c307281c935243ab7"><div class="ttname"><a href="structSC_1_1HttpAsyncClient.html#af44636962636c42c307281c935243ab7">SC::HttpAsyncClient::setTransportClose</a></div><div class="ttdeci">Result setTransportClose(Function&lt; void()&gt; &amp;&amp;close, const void *owner=nullptr)</div><div class="ttdoc">Sets an optional transport teardown hook invoked before HTTP destroys the connected socket streams.</div><div class="ttdef"><b>Definition</b> HttpAsyncClient.h:233</div></div>
 <div class="ttc" id="astructSC_1_1HttpConnectionBase_html"><div class="ttname"><a href="structSC_1_1HttpConnectionBase.html">SC::HttpConnectionBase</a></div><div class="ttdoc">Shared async transport storage for HTTP client and server endpoints.</div><div class="ttdef"><b>Definition</b> HttpConnection.h:73</div></div>
 <div class="ttc" id="astructSC_1_1HttpMultipartWriter_html"><div class="ttname"><a href="structSC_1_1HttpMultipartWriter.html">SC::HttpMultipartWriter</a></div><div class="ttdef"><b>Definition</b> HttpConnection.h:40</div></div>
 <div class="ttc" id="astructSC_1_1HttpParser_html_a84befaaf1146b8dfdabb9184b4966752"><div class="ttname"><a href="structSC_1_1HttpParser.html#a84befaaf1146b8dfdabb9184b4966752">SC::HttpParser::Method</a></div><div class="ttdeci">Method</div><div class="ttdoc">Method of the current request / response.</div><div class="ttdef"><b>Definition</b> HttpParser.h:19</div></div>

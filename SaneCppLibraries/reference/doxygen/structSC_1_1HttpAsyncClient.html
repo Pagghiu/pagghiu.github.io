@@ -158,24 +158,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a21073d14e75d7deb780fad0ed3e6a548" id="r_a21073d14e75d7deb780fad0ed3e6a548"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21073d14e75d7deb780fad0ed3e6a548">clearResponseDecompression</a> ()</td></tr>
 <tr class="memdesc:a21073d14e75d7deb780fad0ed3e6a548"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables response decompression for future requests.  <br /></td></tr>
 <tr class="separator:a21073d14e75d7deb780fad0ed3e6a548"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cae1c0a66995771b81950e1da5d7e38" id="r_a7cae1c0a66995771b81950e1da5d7e38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cae1c0a66995771b81950e1da5d7e38">setTransportSetup</a> (Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncClientTransportSetup.html">HttpAsyncClientTransportSetup</a> &amp;)&gt; &amp;&amp;setup)</td></tr>
-<tr class="memdesc:a7cae1c0a66995771b81950e1da5d7e38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport setup hook invoked after TCP connect and before HTTP request bytes are sent.  <br /></td></tr>
-<tr class="separator:a7cae1c0a66995771b81950e1da5d7e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01a160cd30913ccf732eeaaf9345b588" id="r_a01a160cd30913ccf732eeaaf9345b588"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01a160cd30913ccf732eeaaf9345b588">setTransportPreflight</a> (Function&lt; Result(const <a class="el" href="structSC_1_1HttpURLParser.html">HttpURLParser</a> &amp;)&gt; &amp;&amp;preflight)</td></tr>
-<tr class="memdesc:a01a160cd30913ccf732eeaaf9345b588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport policy hook invoked after URL parsing and before DNS or socket activity.  <br /></td></tr>
-<tr class="separator:a01a160cd30913ccf732eeaaf9345b588"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e642f9b17cd91f544ededad6935f3dc" id="r_a6e642f9b17cd91f544ededad6935f3dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e642f9b17cd91f544ededad6935f3dc">setExternalConnector</a> (Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncClientExternalConnection.html">HttpAsyncClientExternalConnection</a> &amp;)&gt; &amp;&amp;connector)</td></tr>
-<tr class="memdesc:a6e642f9b17cd91f544ededad6935f3dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional connector that owns DNS and connection establishment for future requests.  <br /></td></tr>
-<tr class="separator:a6e642f9b17cd91f544ededad6935f3dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9ea44f3cd2a0c3a02d5599f99a179bb" id="r_ad9ea44f3cd2a0c3a02d5599f99a179bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9ea44f3cd2a0c3a02d5599f99a179bb">setTransportClose</a> (Function&lt; void()&gt; &amp;&amp;<a class="el" href="#a6c1c1c2cf1453f8d7f62b29015eb80f8">close</a>)</td></tr>
-<tr class="memdesc:ad9ea44f3cd2a0c3a02d5599f99a179bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport teardown hook invoked before HTTP destroys the connected socket streams.  <br /></td></tr>
-<tr class="separator:ad9ea44f3cd2a0c3a02d5599f99a179bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67e76a98a29e49b1d2f697606f67cad5" id="r_a67e76a98a29e49b1d2f697606f67cad5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67e76a98a29e49b1d2f697606f67cad5">setTransportShutdown</a> (Function&lt; Result(Function&lt; void(Result)&gt;)&gt; &amp;&amp;shutdown)</td></tr>
-<tr class="memdesc:a67e76a98a29e49b1d2f697606f67cad5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional asynchronous hook that drains a transport before reconnecting to another origin.  <br /></td></tr>
-<tr class="separator:a67e76a98a29e49b1d2f697606f67cad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6db4595e70bcc4e094704972edba5aec" id="r_a6db4595e70bcc4e094704972edba5aec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6db4595e70bcc4e094704972edba5aec">clearTransportSetup</a> ()</td></tr>
-<tr class="memdesc:a6db4595e70bcc4e094704972edba5aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the optional transport setup hook and restores default socket transport setup.  <br /></td></tr>
-<tr class="separator:a6db4595e70bcc4e094704972edba5aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f974353f0c1ac071bd9b2dc365d13fc" id="r_a4f974353f0c1ac071bd9b2dc365d13fc"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f974353f0c1ac071bd9b2dc365d13fc">setTransportSetup</a> (Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncClientTransportSetup.html">HttpAsyncClientTransportSetup</a> &amp;)&gt; &amp;&amp;setup, const void *owner=nullptr)</td></tr>
+<tr class="memdesc:a4f974353f0c1ac071bd9b2dc365d13fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport setup hook invoked after TCP connect and before HTTP request bytes are sent.  <br /></td></tr>
+<tr class="separator:a4f974353f0c1ac071bd9b2dc365d13fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17ef4987c72dffc540a513ead10b8647" id="r_a17ef4987c72dffc540a513ead10b8647"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17ef4987c72dffc540a513ead10b8647">setTransportPreflight</a> (Function&lt; Result(const <a class="el" href="structSC_1_1HttpURLParser.html">HttpURLParser</a> &amp;)&gt; &amp;&amp;preflight, const void *owner=nullptr)</td></tr>
+<tr class="memdesc:a17ef4987c72dffc540a513ead10b8647"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport policy hook invoked after URL parsing and before DNS or socket activity.  <br /></td></tr>
+<tr class="separator:a17ef4987c72dffc540a513ead10b8647"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ac0d0c4de1d39accc4e7cbb05b5718f" id="r_a4ac0d0c4de1d39accc4e7cbb05b5718f"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ac0d0c4de1d39accc4e7cbb05b5718f">setExternalConnector</a> (Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncClientExternalConnection.html">HttpAsyncClientExternalConnection</a> &amp;)&gt; &amp;&amp;connector, const void *owner=nullptr)</td></tr>
+<tr class="memdesc:a4ac0d0c4de1d39accc4e7cbb05b5718f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional connector that owns DNS and connection establishment for future requests.  <br /></td></tr>
+<tr class="separator:a4ac0d0c4de1d39accc4e7cbb05b5718f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af44636962636c42c307281c935243ab7" id="r_af44636962636c42c307281c935243ab7"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af44636962636c42c307281c935243ab7">setTransportClose</a> (Function&lt; void()&gt; &amp;&amp;<a class="el" href="#a6c1c1c2cf1453f8d7f62b29015eb80f8">close</a>, const void *owner=nullptr)</td></tr>
+<tr class="memdesc:af44636962636c42c307281c935243ab7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport teardown hook invoked before HTTP destroys the connected socket streams.  <br /></td></tr>
+<tr class="separator:af44636962636c42c307281c935243ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7006b07caef09361359bd1c897c43c1b" id="r_a7006b07caef09361359bd1c897c43c1b"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7006b07caef09361359bd1c897c43c1b">setTransportShutdown</a> (Function&lt; Result(Function&lt; void(Result)&gt;)&gt; &amp;&amp;shutdown, const void *owner=nullptr)</td></tr>
+<tr class="memdesc:a7006b07caef09361359bd1c897c43c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional asynchronous hook that drains a transport before reconnecting to another origin.  <br /></td></tr>
+<tr class="separator:a7006b07caef09361359bd1c897c43c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba660849d68e6707dfd3347e1d7cfbf7" id="r_aba660849d68e6707dfd3347e1d7cfbf7"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba660849d68e6707dfd3347e1d7cfbf7">clearTransportSetup</a> (const void *owner=nullptr)</td></tr>
+<tr class="memdesc:aba660849d68e6707dfd3347e1d7cfbf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the optional transport setup hook and restores default socket transport setup.  <br /></td></tr>
+<tr class="separator:aba660849d68e6707dfd3347e1d7cfbf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a889b2b5b37606a8a5fbe4a6c38afdc81" id="r_a889b2b5b37606a8a5fbe4a6c38afdc81"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a889b2b5b37606a8a5fbe4a6c38afdc81">claimTransport</a> (const void *owner)</td></tr>
+<tr class="memdesc:a889b2b5b37606a8a5fbe4a6c38afdc81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Claims the complete transport hook group on a quiescent client without existing hooks or an owner.  <br /></td></tr>
+<tr class="separator:a889b2b5b37606a8a5fbe4a6c38afdc81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01dab9a842de9bcf12e8bda03b5e3d83" id="r_a01dab9a842de9bcf12e8bda03b5e3d83"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01dab9a842de9bcf12e8bda03b5e3d83">releaseTransport</a> (const void *owner)</td></tr>
+<tr class="memdesc:a01dab9a842de9bcf12e8bda03b5e3d83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears hooks and releases only the matching owner's claim on a quiescent client.  <br /></td></tr>
+<tr class="separator:a01dab9a842de9bcf12e8bda03b5e3d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cccbb35e3548a738e91fc6b7af69b1e" id="r_a3cccbb35e3548a738e91fc6b7af69b1e"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cccbb35e3548a738e91fc6b7af69b1e">detachWebSocketTransport</a> (<a class="el" href="structSC_1_1HttpWebSocketTransportView.html">HttpWebSocketTransportView</a> &amp;transport)</td></tr>
 <tr class="memdesc:a3cccbb35e3548a738e91fc6b7af69b1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hands the connected socket streams to a WebSocket owner after a validated <code>101</code> response.  <br /></td></tr>
 <tr class="separator:a3cccbb35e3548a738e91fc6b7af69b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -280,6 +286,26 @@ Public Attributes</h2></td></tr>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(client.start(loop, HttpParser::Method::HttpPUT, url.view()));</div>
 </div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a889b2b5b37606a8a5fbe4a6c38afdc81" name="a889b2b5b37606a8a5fbe4a6c38afdc81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a889b2b5b37606a8a5fbe4a6c38afdc81">&#9670;&#160;</a></span>claimTransport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::HttpAsyncClient::claimTransport </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Claims the complete transport hook group on a quiescent client without existing hooks or an owner. </p>
+<p>The non-null token must remain address-stable until release and completion of adapter callbacks. Serialize configuration on the owning loop thread; mutation/release inside transport callbacks is rejected. </p>
+
+</div>
+</div>
 <a id="a21073d14e75d7deb780fad0ed3e6a548" name="a21073d14e75d7deb780fad0ed3e6a548"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a21073d14e75d7deb780fad0ed3e6a548">&#9670;&#160;</a></span>clearResponseDecompression()</h2>
 
@@ -307,27 +333,19 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a6db4595e70bcc4e094704972edba5aec" name="a6db4595e70bcc4e094704972edba5aec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6db4595e70bcc4e094704972edba5aec">&#9670;&#160;</a></span>clearTransportSetup()</h2>
+<a id="aba660849d68e6707dfd3347e1d7cfbf7" name="aba660849d68e6707dfd3347e1d7cfbf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba660849d68e6707dfd3347e1d7cfbf7">&#9670;&#160;</a></span>clearTransportSetup()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SC::HttpAsyncClient::clearTransportSetup </td>
+          <td class="memname">Result SC::HttpAsyncClient::clearTransportSetup </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Clears the optional transport setup hook and restores default socket transport setup. </p>
@@ -635,6 +653,26 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a01dab9a842de9bcf12e8bda03b5e3d83" name="a01dab9a842de9bcf12e8bda03b5e3d83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01dab9a842de9bcf12e8bda03b5e3d83">&#9670;&#160;</a></span>releaseTransport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::HttpAsyncClient::releaseTransport </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears hooks and releases only the matching owner's claim on a quiescent client. </p>
+<p>A live idle keep-alive connection is not quiescent. Clear alone retains ownership. </p>
+
+</div>
+</div>
 <a id="a72a608b853d725512a3915b386de3dcd" name="a72a608b853d725512a3915b386de3dcd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a72a608b853d725512a3915b386de3dcd">&#9670;&#160;</a></span>sendRequest()</h2>
 
@@ -659,8 +697,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a6e642f9b17cd91f544ededad6935f3dc" name="a6e642f9b17cd91f544ededad6935f3dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e642f9b17cd91f544ededad6935f3dc">&#9670;&#160;</a></span>setExternalConnector()</h2>
+<a id="a4ac0d0c4de1d39accc4e7cbb05b5718f" name="a4ac0d0c4de1d39accc4e7cbb05b5718f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ac0d0c4de1d39accc4e7cbb05b5718f">&#9670;&#160;</a></span>setExternalConnector()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -669,10 +707,14 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SC::HttpAsyncClient::setExternalConnector </td>
+          <td class="memname">Result SC::HttpAsyncClient::setExternalConnector </td>
           <td>(</td>
-          <td class="paramtype">Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncClientExternalConnection.html">HttpAsyncClientExternalConnection</a> &amp;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>connector</em></span></td><td>)</td>
+          <td class="paramtype">Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncClientExternalConnection.html">HttpAsyncClientExternalConnection</a> &amp;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>connector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -715,8 +757,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ad9ea44f3cd2a0c3a02d5599f99a179bb" name="ad9ea44f3cd2a0c3a02d5599f99a179bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9ea44f3cd2a0c3a02d5599f99a179bb">&#9670;&#160;</a></span>setTransportClose()</h2>
+<a id="af44636962636c42c307281c935243ab7" name="af44636962636c42c307281c935243ab7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af44636962636c42c307281c935243ab7">&#9670;&#160;</a></span>setTransportClose()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -725,10 +767,14 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SC::HttpAsyncClient::setTransportClose </td>
+          <td class="memname">Result SC::HttpAsyncClient::setTransportClose </td>
           <td>(</td>
-          <td class="paramtype">Function&lt; void()&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>close</em></span></td><td>)</td>
+          <td class="paramtype">Function&lt; void()&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>close</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -743,8 +789,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a01a160cd30913ccf732eeaaf9345b588" name="a01a160cd30913ccf732eeaaf9345b588"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01a160cd30913ccf732eeaaf9345b588">&#9670;&#160;</a></span>setTransportPreflight()</h2>
+<a id="a17ef4987c72dffc540a513ead10b8647" name="a17ef4987c72dffc540a513ead10b8647"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17ef4987c72dffc540a513ead10b8647">&#9670;&#160;</a></span>setTransportPreflight()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -753,10 +799,14 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SC::HttpAsyncClient::setTransportPreflight </td>
+          <td class="memname">Result SC::HttpAsyncClient::setTransportPreflight </td>
           <td>(</td>
-          <td class="paramtype">Function&lt; Result(const <a class="el" href="structSC_1_1HttpURLParser.html">HttpURLParser</a> &amp;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>preflight</em></span></td><td>)</td>
+          <td class="paramtype">Function&lt; Result(const <a class="el" href="structSC_1_1HttpURLParser.html">HttpURLParser</a> &amp;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>preflight</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -771,8 +821,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a7cae1c0a66995771b81950e1da5d7e38" name="a7cae1c0a66995771b81950e1da5d7e38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7cae1c0a66995771b81950e1da5d7e38">&#9670;&#160;</a></span>setTransportSetup()</h2>
+<a id="a4f974353f0c1ac071bd9b2dc365d13fc" name="a4f974353f0c1ac071bd9b2dc365d13fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f974353f0c1ac071bd9b2dc365d13fc">&#9670;&#160;</a></span>setTransportSetup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -781,10 +831,14 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SC::HttpAsyncClient::setTransportSetup </td>
+          <td class="memname">Result SC::HttpAsyncClient::setTransportSetup </td>
           <td>(</td>
-          <td class="paramtype">Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncClientTransportSetup.html">HttpAsyncClientTransportSetup</a> &amp;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>setup</em></span></td><td>)</td>
+          <td class="paramtype">Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncClientTransportSetup.html">HttpAsyncClientTransportSetup</a> &amp;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>setup</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -799,8 +853,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a67e76a98a29e49b1d2f697606f67cad5" name="a67e76a98a29e49b1d2f697606f67cad5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67e76a98a29e49b1d2f697606f67cad5">&#9670;&#160;</a></span>setTransportShutdown()</h2>
+<a id="a7006b07caef09361359bd1c897c43c1b" name="a7006b07caef09361359bd1c897c43c1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7006b07caef09361359bd1c897c43c1b">&#9670;&#160;</a></span>setTransportShutdown()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -809,10 +863,14 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SC::HttpAsyncClient::setTransportShutdown </td>
+          <td class="memname">Result SC::HttpAsyncClient::setTransportShutdown </td>
           <td>(</td>
-          <td class="paramtype">Function&lt; Result(Function&lt; void(Result)&gt;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>shutdown</em></span></td><td>)</td>
+          <td class="paramtype">Function&lt; Result(Function&lt; void(Result)&gt;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>shutdown</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
   </td>

@@ -1,5 +1,9 @@
 var NAVTREEINDEX6 =
 {
+"structSC_1_1AsyncWritableStream.html#add57b8fd027db681ea64a80e30f5a71f":[19,0,0,61,22],
+"structSC_1_1AsyncWritableStream.html#afbe966a9f49eb13d06bccc1fae60488d":[18,0,0,61,17],
+"structSC_1_1AsyncWritableStream.html#afbe966a9f49eb13d06bccc1fae60488d":[19,0,0,61,17],
+"structSC_1_1AsyncWritableStream_1_1Request.html":[18,0,0,61,0],
 "structSC_1_1AsyncWritableStream_1_1Request.html":[19,0,0,61,0],
 "structSC_1_1AsyncZLibTransformStreamT.html":[18,0,0,62],
 "structSC_1_1AsyncZLibTransformStreamT.html":[19,0,0,62],
@@ -245,9 +249,5 @@ var NAVTREEINDEX6 =
 "structSC_1_1FiberJobScheduler.html#a91e8754239c4b7c03cb39087e4473c58":[19,0,0,151,0],
 "structSC_1_1FiberJobScheduler.html#a935dd88e67d945cb0370e1861efd69b2":[18,0,0,151,2],
 "structSC_1_1FiberJobScheduler.html#a935dd88e67d945cb0370e1861efd69b2":[19,0,0,151,2],
-"structSC_1_1FiberJobScheduler.html#aa010226c46ead2edd3037d517081c478":[18,0,0,151,1],
-"structSC_1_1FiberJobScheduler.html#aa010226c46ead2edd3037d517081c478":[19,0,0,151,1],
-"structSC_1_1FiberJobWorker.html":[18,0,0,152],
-"structSC_1_1FiberJobWorker.html":[19,0,0,152],
-"structSC_1_1FiberJobWorkerDiagnostics.html":[18,0,0,153]
+"structSC_1_1FiberJobScheduler.html#aa010226c46ead2edd3037d517081c478":[18,0,0,151,1]
 };

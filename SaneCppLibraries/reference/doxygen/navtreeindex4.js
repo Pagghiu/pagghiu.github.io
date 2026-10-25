@@ -1,5 +1,9 @@
 var NAVTREEINDEX4 =
 {
+"structSC_1_1AsyncFiberSocketReceiveResult.html":[19,0,0,23],
+"structSC_1_1AsyncFiberSocketSendResult.html":[18,0,0,24],
+"structSC_1_1AsyncFiberSocketSendResult.html":[19,0,0,24],
+"structSC_1_1AsyncFileRead.html":[18,0,0,25],
 "structSC_1_1AsyncFileRead.html":[19,0,0,25],
 "structSC_1_1AsyncFileRead.html#a2d427d0658bdfe2739cff3abff6c457e":[18,0,0,25,5],
 "structSC_1_1AsyncFileRead.html#a2d427d0658bdfe2739cff3abff6c457e":[19,0,0,25,5],
@@ -245,9 +249,5 @@ var NAVTREEINDEX4 =
 "structSC_1_1AsyncReadableStream_1_1Request.html":[19,0,0,41,0],
 "structSC_1_1AsyncRequest.html":[18,0,0,42],
 "structSC_1_1AsyncRequest.html":[19,0,0,42],
-"structSC_1_1AsyncRequest.html#a07a607966dcbfd9347e789160578e0c2":[18,0,0,42,9],
-"structSC_1_1AsyncRequest.html#a07a607966dcbfd9347e789160578e0c2":[19,0,0,42,9],
-"structSC_1_1AsyncRequest.html#a0cad8875aba183bd5c3790f7b0b5cb1b":[18,0,0,42,1],
-"structSC_1_1AsyncRequest.html#a0cad8875aba183bd5c3790f7b0b5cb1b":[19,0,0,42,1],
-"structSC_1_1AsyncRequest.html#a2d427d0658bdfe2739cff3abff6c457e":[18,0,0,42,12]
+"structSC_1_1AsyncRequest.html#a07a607966dcbfd9347e789160578e0c2":[18,0,0,42,9]
 };

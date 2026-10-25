@@ -1,5 +1,15 @@
 var NAVTREEINDEX9 =
 {
+"structSC_1_1HttpClientRequestProxyOptions.html#a8e6a8f23ed83ce9dda40661d0a4ebcd1a5a17ef359e29d3f74e89d0a414a8dd5c":[17,15,12,0,1],
+"structSC_1_1HttpClientRequestProxyOptions.html#a8e6a8f23ed83ce9dda40661d0a4ebcd1abf4e1a4e6135c00761ece417ec81db81":[17,15,12,0,0],
+"structSC_1_1HttpClientRequestProxyOptions.html#a8e6a8f23ed83ce9dda40661d0a4ebcd1aea9e4479e4f47925ef1a32a71e4c6de5":[17,15,12,0,2],
+"structSC_1_1HttpClientRequestProxyOptions.html#a8e86ed47b9efcf99e20f5faee91cb522":[17,15,12,2],
+"structSC_1_1HttpClientRequestRedirectOptions.html":[17,15,8],
+"structSC_1_1HttpClientRequestTimeoutOptions.html":[17,15,9],
+"structSC_1_1HttpClientRequestTimeoutOptions.html#ae6d54eb0974a298ea04b8904e788fc3a":[17,15,9,0],
+"structSC_1_1HttpClientRequestTlsOptions.html":[17,15,10],
+"structSC_1_1HttpClientResponse.html":[17,15,15],
+"structSC_1_1HttpClientResponse.html#a7952d482e4d825a54b4c36dfcaab7709":[17,15,15,0],
 "structSC_1_1HttpClientResponseBuffer.html":[17,15,19],
 "structSC_1_1HttpClientResponseHeaderIterator.html":[17,15,1],
 "structSC_1_1HttpClientSession.html":[17,15,34],
@@ -239,15 +249,5 @@ var NAVTREEINDEX9 =
 "structSC_1_1Path.html#adfe658c511303987f907ab7aa77195bd":[17,9,5,3],
 "structSC_1_1Path.html#adfe658c511303987f907ab7aa77195bda7a32f0e7ec38bf24763bf8356ea62a90":[17,9,5,3,0],
 "structSC_1_1Path.html#adfe658c511303987f907ab7aa77195bda90001437222799c30772900daf572b29":[17,9,5,3,2],
-"structSC_1_1Path.html#adfe658c511303987f907ab7aa77195bdac60d680eadcb2ca7f3a440688e360d3a":[17,9,5,3,1],
-"structSC_1_1Path_1_1ParsedView.html":[17,9,5,0],
-"structSC_1_1Path_1_1ParsedView.html#a36b508065c6c943aa546e1e97b2aa272":[17,9,5,0,6],
-"structSC_1_1Path_1_1ParsedView.html#a3eb607e73e289c3f5fbff3031a304187":[17,9,5,0,1],
-"structSC_1_1Path_1_1ParsedView.html#a7494c0c4cd27e023fa307f1cbce958e8":[17,9,5,0,2],
-"structSC_1_1Path_1_1ParsedView.html#aa456088c57feea77a90f88d0e9f4a5fd":[17,9,5,0,5],
-"structSC_1_1Path_1_1ParsedView.html#ac9ae77efd78f782005e0a8fc0411ad67":[17,9,5,0,4],
-"structSC_1_1Path_1_1ParsedView.html#ae2b0d4f670be38c7a0f985c638cdb228":[17,9,5,0,7],
-"structSC_1_1Path_1_1ParsedView.html#ae3e55f6ab4e5013a3b13cca1428084f0":[17,9,5,0,3],
-"structSC_1_1Path_1_1ParsedView.html#aeb837ba4b3e0b28a5e7279081cdb100d":[17,9,5,0,0],
-"structSC_1_1Path_1_1Posix.html":[17,9,5,1]
+"structSC_1_1Path.html#adfe658c511303987f907ab7aa77195bdac60d680eadcb2ca7f3a440688e360d3a":[17,9,5,3,1]
 };

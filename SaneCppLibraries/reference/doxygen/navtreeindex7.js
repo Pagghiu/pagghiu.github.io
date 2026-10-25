@@ -1,5 +1,9 @@
 var NAVTREEINDEX7 =
 {
+"structSC_1_1FiberJobScheduler.html#aa010226c46ead2edd3037d517081c478":[19,0,0,151,1],
+"structSC_1_1FiberJobWorker.html":[18,0,0,152],
+"structSC_1_1FiberJobWorker.html":[19,0,0,152],
+"structSC_1_1FiberJobWorkerDiagnostics.html":[18,0,0,153],
 "structSC_1_1FiberJobWorkerDiagnostics.html":[19,0,0,153],
 "structSC_1_1FiberJobWorkerPool.html":[18,0,0,154],
 "structSC_1_1FiberJobWorkerPool.html":[19,0,0,154],
@@ -245,9 +249,5 @@ var NAVTREEINDEX7 =
 "structSC_1_1FileSystemIterator.html#ac4950da6c7db1038a7224c64fccad594":[17,10,0,5],
 "structSC_1_1FileSystemIterator.html#ad48b96d1532d88815ab00f6397028588":[17,10,0,4],
 "structSC_1_1FileSystemIterator.html#af1efa7365fb46b74b8af53f4b340a968":[17,10,0,3],
-"structSC_1_1FileSystemIterator.html#af1efa7365fb46b74b8af53f4b340a968a0b27918290ff5323bea1e3b78a9cf04e":[17,10,0,3,1],
-"structSC_1_1FileSystemIterator.html#af1efa7365fb46b74b8af53f4b340a968ae73cda510e8bb947f7e61089e5581494":[17,10,0,3,0],
-"structSC_1_1FileSystemIterator.html#afff35fe653ef12bf2fa5663bd407f83c":[17,10,0,9],
-"structSC_1_1FileSystemIterator_1_1Entry.html":[17,10,0,0],
-"structSC_1_1FileSystemIterator_1_1Entry.html#a183849c0a747271ad9ab8d0551c25af6":[17,10,0,0,0]
+"structSC_1_1FileSystemIterator.html#af1efa7365fb46b74b8af53f4b340a968a0b27918290ff5323bea1e3b78a9cf04e":[17,10,0,3,1]
 };

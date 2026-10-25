@@ -143,12 +143,12 @@ var NAVTREE =
       [ "Know the boundary", "page_tools.html#autotoc_md86", null ]
     ] ],
     [ "HTTP Library Notes", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html", [
-      [ "Architecture Overview", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md419", null ],
-      [ "Core constraints", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md420", null ],
-      [ "Hot paths", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md421", null ],
-      [ "Benchmark workflow", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md422", null ],
-      [ "Client-specific notes", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md423", null ],
-      [ "Validation", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md424", null ]
+      [ "Architecture Overview", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md423", null ],
+      [ "Core constraints", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md424", null ],
+      [ "Hot paths", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md425", null ],
+      [ "Benchmark workflow", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md426", null ],
+      [ "Client-specific notes", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md427", null ],
+      [ "Validation", "md__2home_2runner_2work_2pagghiu_8github_8io-source_2pagghiu_8github_8io-source_2SaneCppLibraries_2Libraries_2Http_2AGENTS.html#autotoc_md428", null ]
     ] ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
@@ -184,16 +184,16 @@ var NAVTREEINDEX =
 "ArenaMapKey_8h_source.html",
 "group__group__file__system__iterator.html#ga2069a89984fd960d3c83dd03c5c6308a",
 "library_file_system.html#autotoc_md226",
-"page_building_user.html#autotoc_md27",
-"structSC_1_1AsyncFileRead.html",
-"structSC_1_1AsyncRequest.html#a2d427d0658bdfe2739cff3abff6c457e",
-"structSC_1_1AsyncWritableStream_1_1Request.html",
-"structSC_1_1FiberJobWorkerDiagnostics.html",
-"structSC_1_1FileSystemIterator_1_1Entry.html#a9b6f2f36a8a850250d8ace6b77b39091",
-"structSC_1_1HttpClientResponseBuffer.html",
-"structSC_1_1Path_1_1Windows.html",
-"structSC_1_1SocketFlags.html#afffd1e6a635d29bf873e48dbb60fbcdaa37047f582af977a5db4b34d1f367fd39",
-"structSC_1_1VectorMap.html#a3f9839eb474d78cfbc3dc3350323759d"
+"page_building_contributor.html#autotoc_md24",
+"structSC_1_1AsyncFiberSocketReceiveResult.html",
+"structSC_1_1AsyncRequest.html#a07a607966dcbfd9347e789160578e0c2",
+"structSC_1_1AsyncWritableStream.html#add57b8fd027db681ea64a80e30f5a71f",
+"structSC_1_1FiberJobScheduler.html#aa010226c46ead2edd3037d517081c478",
+"structSC_1_1FileSystemIterator.html#af1efa7365fb46b74b8af53f4b340a968ae73cda510e8bb947f7e61089e5581494",
+"structSC_1_1HttpClientRequestProxyOptions.html#a8e6a8f23ed83ce9dda40661d0a4ebcd1a5a17ef359e29d3f74e89d0a414a8dd5c",
+"structSC_1_1Path_1_1ParsedView.html",
+"structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4ae9840221e9e868f02daf2d5d6d98ecf1",
+"structSC_1_1Time_1_1Seconds.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

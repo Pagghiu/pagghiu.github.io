@@ -1271,6 +1271,7 @@ var namespaces_dup =
         [ "ClientUserInfoUnsupported", "group__group__http.html#ggacd74a0594a479e73fa7b218dac634a89a9418ae7a368f3d8b856bc3f8f20dadfe", null ],
         [ "ClientReconnectNotPending", "group__group__http.html#ggacd74a0594a479e73fa7b218dac634a89af09d8bafec1f097170432e78f7313fbc", null ],
         [ "ClientReconnectListenerUnavailable", "group__group__http.html#ggacd74a0594a479e73fa7b218dac634a89a8fe8cb3b7f4c5bcfdc47f356f44c7c55", null ],
+        [ "ServerEndListenerUnavailable", "group__group__http.html#ggacd74a0594a479e73fa7b218dac634a89a37f212cc22cd515e08c61c75765b7ed7", null ],
         [ "ClientSocketInvalid", "group__group__http.html#ggacd74a0594a479e73fa7b218dac634a89acbe5c58a74b63ac3a509dc284d50fe4d", null ],
         [ "ClientHttpsTransportMissing", "group__group__http.html#ggacd74a0594a479e73fa7b218dac634a89af360ee02497eb994166f088f22e40953", null ],
         [ "ClientProtocolStorageTooSmall", "group__group__http.html#ggacd74a0594a479e73fa7b218dac634a89a2f3588c17f0c82f5344df561b5377875", null ],
@@ -1328,7 +1329,12 @@ var namespaces_dup =
         [ "WebSocketPumpNotAttached", "group__group__http.html#ggacd74a0594a479e73fa7b218dac634a89a17f0c999988e943303cb60adb46b119a", null ],
         [ "WebSocketFrameEmpty", "group__group__http.html#ggacd74a0594a479e73fa7b218dac634a89aa6d5ca0aa35a8370bec3b60001701311", null ],
         [ "WebSocketHubFull", "group__group__http.html#ggacd74a0594a479e73fa7b218dac634a89addf679e921205083b2838ccb13345f64", null ],
-        [ "WebSocketHubClientIndexInvalid", "group__group__http.html#ggacd74a0594a479e73fa7b218dac634a89a7d400b92d0a23fdab34e0643dae4762d", null ]
+        [ "WebSocketHubClientIndexInvalid", "group__group__http.html#ggacd74a0594a479e73fa7b218dac634a89a7d400b92d0a23fdab34e0643dae4762d", null ],
+        [ "TransportOwnerRequired", "group__group__http.html#ggacd74a0594a479e73fa7b218dac634a89af28131204f1de21ceb3c47afc8de7628", null ],
+        [ "TransportAlreadyClaimed", "group__group__http.html#ggacd74a0594a479e73fa7b218dac634a89ad598a0cc202b4191da6896412c05c838", null ],
+        [ "TransportHooksAlreadyConfigured", "group__group__http.html#ggacd74a0594a479e73fa7b218dac634a89a11febb3436bc2f79c243ae5af0f2db55", null ],
+        [ "TransportOwnerMismatch", "group__group__http.html#ggacd74a0594a479e73fa7b218dac634a89af5f158381243add9711ce33afb33048d", null ],
+        [ "TransportMutationRequiresQuiescence", "group__group__http.html#ggacd74a0594a479e73fa7b218dac634a89a64d393f9728b4867e4819e225d9d37fb", null ]
       ] ],
       [ "HttpWebSocketEndpointRole", "group__group__http.html#ga5bdde1ed4c2627805b32bda38e8f8445", [
         [ "Client", "group__group__http.html#gga5bdde1ed4c2627805b32bda38e8f8445a577d7068826de925ea2aec01dbadf5e4", null ],

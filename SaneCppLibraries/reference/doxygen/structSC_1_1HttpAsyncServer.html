@@ -167,21 +167,27 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
 <tr class="memitem:a817c12b89a8a6c33274d80f7805d41b5" id="r_a817c12b89a8a6c33274d80f7805d41b5"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a817c12b89a8a6c33274d80f7805d41b5">getMaxHeaderSize</a> () const</td></tr>
 <tr class="memdesc:a817c12b89a8a6c33274d80f7805d41b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the maximum accepted request-header size in bytes.  <br /></td></tr>
 <tr class="separator:a817c12b89a8a6c33274d80f7805d41b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a054cde027b8af5126eef158a6fefe4ac" id="r_a054cde027b8af5126eef158a6fefe4ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a054cde027b8af5126eef158a6fefe4ac">setTransportSetup</a> (Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncServerTransportSetup.html">HttpAsyncServerTransportSetup</a> &amp;)&gt; &amp;&amp;setup)</td></tr>
-<tr class="memdesc:a054cde027b8af5126eef158a6fefe4ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport setup hook invoked after accepting TCP and before HTTP reads request bytes.  <br /></td></tr>
-<tr class="separator:a054cde027b8af5126eef158a6fefe4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa92f6ef801b9d9147dd58b3c321b62c1" id="r_aa92f6ef801b9d9147dd58b3c321b62c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa92f6ef801b9d9147dd58b3c321b62c1">setTransportClose</a> (Function&lt; void(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;)&gt; &amp;&amp;<a class="el" href="#aff4ed39c8e2965711cd96dd7c60b5f0f">close</a>)</td></tr>
-<tr class="memdesc:aa92f6ef801b9d9147dd58b3c321b62c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport teardown hook invoked before HTTP destroys the installed transport streams.  <br /></td></tr>
-<tr class="separator:aa92f6ef801b9d9147dd58b3c321b62c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9258d79a2a92b44549546962d70cf387" id="r_a9258d79a2a92b44549546962d70cf387"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9258d79a2a92b44549546962d70cf387">setTransportReuse</a> (Function&lt; Result(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;)&gt; &amp;&amp;reuse)</td></tr>
-<tr class="memdesc:a9258d79a2a92b44549546962d70cf387"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional hook that reopens an alternate writable transport for the next keep-alive response.  <br /></td></tr>
-<tr class="separator:a9258d79a2a92b44549546962d70cf387"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00a1c7d544e619501c2a6c00ddf7344a" id="r_a00a1c7d544e619501c2a6c00ddf7344a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00a1c7d544e619501c2a6c00ddf7344a">setTransportShutdown</a> (Function&lt; Result(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;, Function&lt; void(Result)&gt;)&gt; &amp;&amp;shutdown)</td></tr>
-<tr class="memdesc:a00a1c7d544e619501c2a6c00ddf7344a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional asynchronous hook that drains a terminal response before closing its socket.  <br /></td></tr>
-<tr class="separator:a00a1c7d544e619501c2a6c00ddf7344a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a964bbc409d735920c86f9ed66d464a0d" id="r_a964bbc409d735920c86f9ed66d464a0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a964bbc409d735920c86f9ed66d464a0d">clearTransportSetup</a> ()</td></tr>
-<tr class="memdesc:a964bbc409d735920c86f9ed66d464a0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears optional transport setup, reuse, shutdown, and teardown hooks.  <br /></td></tr>
-<tr class="separator:a964bbc409d735920c86f9ed66d464a0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89ccc22b5cebd136962c1f2e777ded99" id="r_a89ccc22b5cebd136962c1f2e777ded99"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89ccc22b5cebd136962c1f2e777ded99">setTransportSetup</a> (Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncServerTransportSetup.html">HttpAsyncServerTransportSetup</a> &amp;)&gt; &amp;&amp;setup, const void *owner=nullptr)</td></tr>
+<tr class="memdesc:a89ccc22b5cebd136962c1f2e777ded99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport setup hook invoked after accepting TCP and before HTTP reads request bytes.  <br /></td></tr>
+<tr class="separator:a89ccc22b5cebd136962c1f2e777ded99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a213b4a1afab84e717af4d59567a8d1c4" id="r_a213b4a1afab84e717af4d59567a8d1c4"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a213b4a1afab84e717af4d59567a8d1c4">setTransportClose</a> (Function&lt; void(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;)&gt; &amp;&amp;<a class="el" href="#aff4ed39c8e2965711cd96dd7c60b5f0f">close</a>, const void *owner=nullptr)</td></tr>
+<tr class="memdesc:a213b4a1afab84e717af4d59567a8d1c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional transport teardown hook invoked before HTTP destroys the installed transport streams.  <br /></td></tr>
+<tr class="separator:a213b4a1afab84e717af4d59567a8d1c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac497a07acdb975571618e9a3f827bf0e" id="r_ac497a07acdb975571618e9a3f827bf0e"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac497a07acdb975571618e9a3f827bf0e">setTransportReuse</a> (Function&lt; Result(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;)&gt; &amp;&amp;reuse, const void *owner=nullptr)</td></tr>
+<tr class="memdesc:ac497a07acdb975571618e9a3f827bf0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional hook that reopens an alternate writable transport for the next keep-alive response.  <br /></td></tr>
+<tr class="separator:ac497a07acdb975571618e9a3f827bf0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81a348b0a702c1079d55b7bacdd87572" id="r_a81a348b0a702c1079d55b7bacdd87572"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81a348b0a702c1079d55b7bacdd87572">setTransportShutdown</a> (Function&lt; Result(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;, Function&lt; void(Result)&gt;)&gt; &amp;&amp;shutdown, const void *owner=nullptr)</td></tr>
+<tr class="memdesc:a81a348b0a702c1079d55b7bacdd87572"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an optional asynchronous hook that drains a terminal response before closing its socket.  <br /></td></tr>
+<tr class="separator:a81a348b0a702c1079d55b7bacdd87572"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40d109d1ae60f86252ac7d90f6a964c5" id="r_a40d109d1ae60f86252ac7d90f6a964c5"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40d109d1ae60f86252ac7d90f6a964c5">clearTransportSetup</a> (const void *owner=nullptr)</td></tr>
+<tr class="memdesc:a40d109d1ae60f86252ac7d90f6a964c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears optional transport setup, reuse, shutdown, and teardown hooks.  <br /></td></tr>
+<tr class="separator:a40d109d1ae60f86252ac7d90f6a964c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe60490350098096b4a076783c0beae6" id="r_afe60490350098096b4a076783c0beae6"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe60490350098096b4a076783c0beae6">claimTransport</a> (const void *owner)</td></tr>
+<tr class="memdesc:afe60490350098096b4a076783c0beae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Claims the transport hook group with a non-null address-stable owner token.  <br /></td></tr>
+<tr class="separator:afe60490350098096b4a076783c0beae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ca46e04e47f07585023c768b1bcf247" id="r_a3ca46e04e47f07585023c768b1bcf247"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ca46e04e47f07585023c768b1bcf247">releaseTransport</a> (const void *owner)</td></tr>
+<tr class="memdesc:a3ca46e04e47f07585023c768b1bcf247"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears hooks and releases only the matching owner's claim after complete server teardown.  <br /></td></tr>
+<tr class="separator:a3ca46e04e47f07585023c768b1bcf247"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78fc7c746bb235fa859bb026154918f4" id="r_a78fc7c746bb235fa859bb026154918f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78fc7c746bb235fa859bb026154918f4">isStarted</a> () const</td></tr>
 <tr class="memdesc:a78fc7c746bb235fa859bb026154918f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the server has been started.  <br /></td></tr>
 <tr class="separator:a78fc7c746bb235fa859bb026154918f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -324,27 +330,39 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a964bbc409d735920c86f9ed66d464a0d" name="a964bbc409d735920c86f9ed66d464a0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a964bbc409d735920c86f9ed66d464a0d">&#9670;&#160;</a></span>clearTransportSetup()</h2>
+<a id="afe60490350098096b4a076783c0beae6" name="afe60490350098096b4a076783c0beae6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe60490350098096b4a076783c0beae6">&#9670;&#160;</a></span>claimTransport()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SC::HttpAsyncServer::clearTransportSetup </td>
+          <td class="memname">Result SC::HttpAsyncServer::claimTransport </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
+</div><div class="memdoc">
+
+<p>Claims the transport hook group with a non-null address-stable owner token. </p>
+<p>Requires a fully stopped server, no existing hooks/owner and no transport callback dispatch. Configuration is serialized on the owning loop thread; retain the token through release and adapter callback completion. </p>
+
+</div>
+</div>
+<a id="a40d109d1ae60f86252ac7d90f6a964c5" name="a40d109d1ae60f86252ac7d90f6a964c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40d109d1ae60f86252ac7d90f6a964c5">&#9670;&#160;</a></span>clearTransportSetup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::HttpAsyncServer::clearTransportSetup </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 <p>Clears optional transport setup, reuse, shutdown, and teardown hooks. </p>
@@ -508,6 +526,26 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
 
 </div>
 </div>
+<a id="a3ca46e04e47f07585023c768b1bcf247" name="a3ca46e04e47f07585023c768b1bcf247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ca46e04e47f07585023c768b1bcf247">&#9670;&#160;</a></span>releaseTransport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Result SC::HttpAsyncServer::releaseTransport </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears hooks and releases only the matching owner's claim after complete server teardown. </p>
+<p>Clear alone retains ownership; Stopping is not quiescent. </p>
+
+</div>
+</div>
 <a id="a4e4fedd0e2f6eaaf3aa226c0817855e0" name="a4e4fedd0e2f6eaaf3aa226c0817855e0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4e4fedd0e2f6eaaf3aa226c0817855e0">&#9670;&#160;</a></span>setDefaultKeepAlive()</h2>
 
@@ -603,8 +641,8 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
 
 </div>
 </div>
-<a id="aa92f6ef801b9d9147dd58b3c321b62c1" name="aa92f6ef801b9d9147dd58b3c321b62c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa92f6ef801b9d9147dd58b3c321b62c1">&#9670;&#160;</a></span>setTransportClose()</h2>
+<a id="a213b4a1afab84e717af4d59567a8d1c4" name="a213b4a1afab84e717af4d59567a8d1c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a213b4a1afab84e717af4d59567a8d1c4">&#9670;&#160;</a></span>setTransportClose()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -613,10 +651,14 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SC::HttpAsyncServer::setTransportClose </td>
+          <td class="memname">Result SC::HttpAsyncServer::setTransportClose </td>
           <td>(</td>
-          <td class="paramtype">Function&lt; void(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>close</em></span></td><td>)</td>
+          <td class="paramtype">Function&lt; void(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>close</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -631,8 +673,8 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
 
 </div>
 </div>
-<a id="a9258d79a2a92b44549546962d70cf387" name="a9258d79a2a92b44549546962d70cf387"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9258d79a2a92b44549546962d70cf387">&#9670;&#160;</a></span>setTransportReuse()</h2>
+<a id="ac497a07acdb975571618e9a3f827bf0e" name="ac497a07acdb975571618e9a3f827bf0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac497a07acdb975571618e9a3f827bf0e">&#9670;&#160;</a></span>setTransportReuse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -641,10 +683,14 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SC::HttpAsyncServer::setTransportReuse </td>
+          <td class="memname">Result SC::HttpAsyncServer::setTransportReuse </td>
           <td>(</td>
-          <td class="paramtype">Function&lt; Result(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>reuse</em></span></td><td>)</td>
+          <td class="paramtype">Function&lt; Result(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>reuse</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -658,8 +704,8 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
 
 </div>
 </div>
-<a id="a054cde027b8af5126eef158a6fefe4ac" name="a054cde027b8af5126eef158a6fefe4ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a054cde027b8af5126eef158a6fefe4ac">&#9670;&#160;</a></span>setTransportSetup()</h2>
+<a id="a89ccc22b5cebd136962c1f2e777ded99" name="a89ccc22b5cebd136962c1f2e777ded99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89ccc22b5cebd136962c1f2e777ded99">&#9670;&#160;</a></span>setTransportSetup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -668,10 +714,14 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SC::HttpAsyncServer::setTransportSetup </td>
+          <td class="memname">Result SC::HttpAsyncServer::setTransportSetup </td>
           <td>(</td>
-          <td class="paramtype">Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncServerTransportSetup.html">HttpAsyncServerTransportSetup</a> &amp;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>setup</em></span></td><td>)</td>
+          <td class="paramtype">Function&lt; Result(<a class="el" href="structSC_1_1HttpAsyncServerTransportSetup.html">HttpAsyncServerTransportSetup</a> &amp;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>setup</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -685,8 +735,8 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
 
 </div>
 </div>
-<a id="a00a1c7d544e619501c2a6c00ddf7344a" name="a00a1c7d544e619501c2a6c00ddf7344a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00a1c7d544e619501c2a6c00ddf7344a">&#9670;&#160;</a></span>setTransportShutdown()</h2>
+<a id="a81a348b0a702c1079d55b7bacdd87572" name="a81a348b0a702c1079d55b7bacdd87572"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81a348b0a702c1079d55b7bacdd87572">&#9670;&#160;</a></span>setTransportShutdown()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -695,10 +745,14 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SC::HttpAsyncServer::setTransportShutdown </td>
+          <td class="memname">Result SC::HttpAsyncServer::setTransportShutdown </td>
           <td>(</td>
-          <td class="paramtype">Function&lt; Result(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;, Function&lt; void(Result)&gt;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>shutdown</em></span></td><td>)</td>
+          <td class="paramtype">Function&lt; Result(<a class="el" href="structSC_1_1HttpConnection.html">HttpConnection</a> &amp;, Function&lt; void(Result)&gt;)&gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>shutdown</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
   </td>
