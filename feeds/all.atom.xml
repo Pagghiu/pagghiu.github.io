@@ -4,7 +4,14 @@
   <link href="https://pagghiu.github.io/feeds/all.atom.xml" rel="self"/>
   <link href="https://pagghiu.github.io/"/>
   <id>https://pagghiu.github.io/</id>
-  <updated>2026-09-30T00:00:00Z</updated>
+  <updated>2026-10-31T00:00:00Z</updated>
+<entry>
+  <title>🍁 Sane C++ October 26</title>
+  <link href="https://pagghiu.github.io/site/blog/2026-10-31-SaneCppLibrariesUpdate.html"/>
+  <id>https://pagghiu.github.io/site/blog/2026-10-31-SaneCppLibrariesUpdate.html</id>
+  <updated>2026-10-31T00:00:00Z</updated>
+  <summary>Welcome to the October 2026 update! This month: C++ Day, an AsyncExecution experiment that helped strengthen Async, shorter CI jobs, and more Fil-C coverage.</summary>
+</entry>
 <entry>
   <title>🍂 Sane C++ September 26</title>
   <link href="https://pagghiu.github.io/site/blog/2026-09-30-SaneCppLibrariesUpdate.html"/>

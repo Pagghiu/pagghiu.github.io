@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-4dqtj3le> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>🍁 Sane C++ October 26</title><meta name="description" content="Welcome to the October 2026 update! This month: C++ Day, an AsyncExecution experiment that helped strengthen Async, shorter CI jobs, and more Fil-C coverage."><meta property="og:title" content="🍁 Sane C++ October 26"><meta property="og:description" content="Welcome to the October 2026 update! This month: C++ Day, an AsyncExecution experiment that helped strengthen Async, shorter CI jobs, and more Fil-C coverage."><meta property="og:type" content="website"><meta property="og:url" content="https://pagghiu.github.io/site/blog/2026-10-31-SaneCppLibrariesUpdate.html/"><link rel="canonical" href="https://pagghiu.github.io/site/blog/2026-10-31-SaneCppLibrariesUpdate.html/"><link rel="alternate" type="application/atom+xml" title="Sane Coding Blog" href="/feeds/all.atom.xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"><script type="module">(()=>{const e=localStorage.getItem("sc-theme"),t=e==="light"||e==="dark"?e:"dark";document.documentElement.dataset.theme=t})();</script><link rel="stylesheet" href="/_astro/index.CIXfjxd1.css">
+<style>.blog-post[data-astro-cid-r6jj2a6h]{min-width:0}.blog-post[data-astro-cid-r6jj2a6h] header[data-astro-cid-r6jj2a6h]{margin-bottom:2rem}time[data-astro-cid-r6jj2a6h]{display:block;margin-bottom:.65rem;color:color-mix(in srgb,var(--accent-cool) 70%,var(--muted));font-size:.82rem;font-weight:850;text-transform:uppercase}h1[data-astro-cid-r6jj2a6h]{margin:0 0 1.2rem;color:var(--text);font-size:clamp(2.7rem,7vw,4.6rem);line-height:1}header[data-astro-cid-r6jj2a6h] p[data-astro-cid-r6jj2a6h]{margin:1.4rem 0 0;color:var(--muted-strong);font-size:1.16rem;line-height:1.75}.post-hero-image[data-astro-cid-r6jj2a6h]{display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:2.45 / 1;margin:0;overflow:hidden;border-radius:8px;border:1px solid var(--border-strong);background:var(--surface-strong)}.post-hero-image[data-astro-cid-r6jj2a6h] img[data-astro-cid-r6jj2a6h]{width:100%;height:100%;object-fit:contain}.blog-prose[data-astro-cid-r6jj2a6h]{color:var(--muted-strong)}.blog-prose[data-astro-cid-r6jj2a6h] img{max-height:72vh;object-fit:contain;border-radius:8px;margin:1.5rem auto}.blog-prose[data-astro-cid-r6jj2a6h] a{color:var(--link)}.blog-prose[data-astro-cid-r6jj2a6h] h1[id],.blog-prose[data-astro-cid-r6jj2a6h] h2[id],.blog-prose[data-astro-cid-r6jj2a6h] h3[id]{scroll-margin-top:6rem}@media(max-width:720px){h1[data-astro-cid-r6jj2a6h]{font-size:clamp(2.2rem,12vw,3.1rem)}.post-hero-image[data-astro-cid-r6jj2a6h]{aspect-ratio:2.45 / 1}}
+</style>
+<link rel="stylesheet" href="/_astro/index.JvRTTUI7.css"></head> <body class="blog-body" data-astro-cid-4dqtj3le> <header class="blog-header" data-astro-cid-4dqtj3le> <div class="shell blog-nav" data-astro-cid-4dqtj3le> <a class="blog-brand" href="/" data-astro-cid-4dqtj3le> <img src="/images/favicon.png" alt="" width="46" height="46" data-astro-cid-4dqtj3le> <strong data-astro-cid-4dqtj3le>Sane Coding Blog</strong> <span data-astro-cid-4dqtj3le>Notes on Sane C++ Libraries and practical systems work.</span> </a> <div class="blog-actions" data-astro-cid-4dqtj3le> <nav aria-label="Primary" data-astro-cid-4dqtj3le> <a href="/" data-astro-cid-4dqtj3le>Blog</a> <a href="/SaneCppLibraries/" data-astro-cid-4dqtj3le>Sane C++ Libraries</a> <a href="https://github.com/Pagghiu" data-astro-cid-4dqtj3le>GitHub</a> </nav> <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme" data-astro-cid-x3pjskd3> <span class="theme-icon" aria-hidden="true" data-astro-cid-x3pjskd3>◐</span> <span class="theme-label" data-astro-cid-x3pjskd3>Theme</span> </button> <script>
+  const themeStorageKey = "sc-theme";
+
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    const button = document.querySelector("[data-theme-toggle]");
+    const label = button?.querySelector(".theme-label");
+    const icon = button?.querySelector(".theme-icon");
+    if (label) {
+      label.textContent = theme === "light" ? "Light" : "Dark";
+    }
+    if (icon) {
+      icon.textContent = theme === "light" ? "☀" : "☾";
+    }
+  }
+
+  function getInitialTheme() {
+    const saved = localStorage.getItem(themeStorageKey);
+    if (saved === "light" || saved === "dark") return saved;
+    return "dark";
+  }
+
+  applyTheme(getInitialTheme());
+
+  document.querySelector("[data-theme-toggle]")?.addEventListener("click", () => {
+    const current = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+    const next = current === "light" ? "dark" : "light";
+    localStorage.setItem(themeStorageKey, next);
+    applyTheme(next);
+  });
+</script>  </div> </div> </header> <main class="blog-main has-blog-sidebar has-toc" data-astro-cid-4dqtj3le> <div class="blog-frame" data-astro-cid-4dqtj3le> <aside class="blog-sidebar" aria-label="Blog navigation" data-astro-cid-4dqtj3le> <nav data-astro-cid-4dqtj3le> <strong data-astro-cid-4dqtj3le>Projects</strong> <a class="sidebar-link project-link" href="/SaneCppLibraries/" data-astro-cid-4dqtj3le>Sane C++ Libraries</a> <strong data-astro-cid-4dqtj3le>Blog</strong> <a class="sidebar-link active" href="/site/blog/2026-10-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🍁 Sane C++ October 26 </a><a class="sidebar-link" href="/site/blog/2026-09-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🍂 Sane C++ September 26 </a><a class="sidebar-link" href="/site/blog/2026-08-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌊 Sane C++ August 26 </a><a class="sidebar-link" href="/site/blog/2026-07-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☀️ Sane C++ July 26 </a><a class="sidebar-link" href="/site/blog/2026-06-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☀️ Sane C++ June 26 </a><a class="sidebar-link" href="/site/blog/2026-05-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌸 Sane C++ May 26 </a><a class="sidebar-link" href="/site/blog/2026-04-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌷 Sane C++ April 26 </a><a class="sidebar-link" href="/site/blog/2026-03-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☔️ Sane C++ March 26 </a><a class="sidebar-link" href="/site/blog/2026-02-28-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🔌 Sane C++ February 26 </a><a class="sidebar-link" href="/site/blog/2026-01-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ❄️ Sane C++ January 26 </a><a class="sidebar-link" href="/site/blog/2025-12-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌫️ Sane C++ December 25 </a><a class="sidebar-link" href="/site/blog/2025-12-23-SaneCpp2Year.html" data-astro-cid-4dqtj3le> 2️⃣ Years of Sane C++ Libraries </a><a class="sidebar-link" href="/site/blog/2025-11-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌫️ Sane C++ November 25 </a><a class="sidebar-link" href="/site/blog/2025-10-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌧️ Sane C++ October 25 </a><a class="sidebar-link" href="/site/blog/2025-09-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🍂 Sane C++ September 25 </a><a class="sidebar-link" href="/site/blog/2025-08-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌊 Sane C++ August 25 </a><a class="sidebar-link" href="/site/blog/2025-07-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🏖️ Sane C++ July 25 </a><a class="sidebar-link" href="/site/blog/2025-06-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☀️ Sane C++ June 25 </a><a class="sidebar-link" href="/site/blog/2025-05-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌸 Sane C++ May 25 </a><a class="sidebar-link" href="/site/blog/2025-04-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 💤 Sane C++ April 25 </a><a class="sidebar-link" href="/site/blog/2025-03-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☔️ Sane C++ March 25 </a><a class="sidebar-link" href="/site/blog/2025-02-28-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🎠 Sane C++ February 25 </a><a class="sidebar-link" href="/site/blog/2025-01-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ❄️ Sane C++ January 25 </a><a class="sidebar-link" href="/site/blog/2024-12-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☃️ Sane C++ December 24 </a><a class="sidebar-link" href="/site/blog/2024-12-23-SaneCpp1Year.html" data-astro-cid-4dqtj3le> 1️⃣ Year of Sane C++ </a><a class="sidebar-link" href="/site/blog/2024-11-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌫️ Sane C++ November 24 </a><a class="sidebar-link" href="/site/blog/2024-08-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌊 Sane C++ August 24 </a><a class="sidebar-link" href="/site/blog/2024-07-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🏖️ Sane C++ July 24 </a><a class="sidebar-link" href="/site/blog/2024-06-30-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☀️ Sane C++ June 24 </a><a class="sidebar-link" href="/site/blog/2024-05-31-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🌸 Sane C++ May 24 </a><a class="sidebar-link" href="/site/blog/2024-04-27-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 💤 Sane C++ April 24 </a><a class="sidebar-link" href="/site/blog/2024-03-27-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ☔️ Sane C++ March 24 </a><a class="sidebar-link" href="/site/blog/2024-02-23-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> 🎠 Sane C++ February 24 </a><a class="sidebar-link" href="/site/blog/2024-01-23-SaneCppLibrariesUpdate.html" data-astro-cid-4dqtj3le> ❄️ Sane C++ January 24 </a><a class="sidebar-link" href="/site/blog/2023-12-23-SaneCppLibrariesRelease.html" data-astro-cid-4dqtj3le> 🎉 Sane C++ Libraries </a> </nav> </aside> <div class="blog-content" data-astro-cid-4dqtj3le>  <article class="blog-post" data-astro-cid-r6jj2a6h> <header id="section-0" data-astro-cid-r6jj2a6h> <time datetime="2026-10-31" data-astro-cid-r6jj2a6h>2026-10-31</time> <h1 data-astro-cid-r6jj2a6h>🍁 Sane C++ October 26</h1>  <p data-astro-cid-r6jj2a6h>Welcome to the October 2026 update! This month: C++ Day, an AsyncExecution experiment that helped strengthen Async, shorter CI jobs, and more Fil-C coverage.</p> </header> <div class="prose blog-prose" data-astro-cid-r6jj2a6h><h1 id="c-day-2026">C++ Day 2026</h1>
+<p>On October 17 I presented <strong>Old-School C++ for the Agentic Age: Lessons from Sane C++ Libraries</strong> at
+<a href="https://italiancpp.github.io/cppday26/">C++ Day 2026 in Pavia</a>. The talk covers cross-platform APIs, explicit
+ownership and lifetimes, fast verification loops, and my experience developing with coding agents.</p>
+<p><a href="https://pagghiu.github.io/SaneCppLibraries/talks/pavia-2026/?lang=en"><img src="/images/2026-10-31-SaneCppLibrariesUpdate/cpp-day-slide.png" alt="Opening slide of Old School C++ for the agentic age"></a></p>
+<p>The slides, including demos and bonus material about AsyncExecution, are available in
+<a href="https://pagghiu.github.io/SaneCppLibraries/talks/pavia-2026/?lang=en">English</a> and
+<a href="https://pagghiu.github.io/SaneCppLibraries/talks/pavia-2026/?lang=it">Italian</a>.</p>
+<h1 id="asyncexecution-experiment">AsyncExecution experiment</h1>
+<p>This month I added <a href="https://pagghiu.github.io/SaneCppLibraries/experimental/async-execution/">AsyncExecution</a>, an
+experimental sender/receiver layer built on <a href="https://pagghiu.github.io/SaneCppLibraries/libraries/async/">Async</a>.
+It explores C++26 sender algorithms for composing timers, files, sockets, worker tasks, and cancellation using the
+same event loop as <a href="https://pagghiu.github.io/SaneCppLibraries/libraries/await/">Await</a> and
+<a href="https://pagghiu.github.io/SaneCppLibraries/libraries/async-fibers/">AsyncFibers</a>.</p>
+<p><img src="/images/2026-10-31-SaneCppLibrariesUpdate/async-layers.svg" alt="AsyncExecution, Await and AsyncFibers use the Async event loop"></p>
+<p>Ownership stays explicit: payloads live in caller-owned storage, and a scope can use a bounded set of typed slots for
+operations. Requesting cancellation or reaching a timeout does not make borrowed buffers safe to reuse until the
+outstanding work has completed its handoff.</p>
+<p>The <a href="https://github.com/Pagghiu/SaneCppLibraries/tree/development/Extra/Experimental/AsyncExecution">code and examples</a>
+remain experimental and may change or disappear. CI tests the optional stdexec provider on macOS, Linux, and Windows;
+this is an interoperability check, not a claim of native <code>std::execution</code> conformance.</p>
+<p>Most of this month&#39;s Async strengthening came from edge cases discovered while developing AsyncExecution. Even if the
+adapter stays experimental, building it has already been useful for the underlying library.</p>
+<p><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/c236acbd1">AsyncExecution commit</a> ·
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/32784c491">CI coverage</a></p>
+<h1 id="strengthening-async">Strengthening Async</h1>
+<p>Composing operations exposed difficult cases around partial transfers, cancellation, and callback lifetimes. The
+resulting fixes make sure completions are delivered once, preserve observed progress, and finish bookkeeping before a
+callback can destroy or reuse its request.</p>
+<p>Windows vector writes now track completed bytes and avoid duplicate IOCP completions. File sends preserve progress at
+EOF. Cancellation joins the completion path, wake-up callback storage survives delivery, and POSIX connect watchers
+are removed before stopped completion. Datagram truncation is reported consistently, and io_uring initialization no
+longer risks closing stdin.</p>
+<p>These changes benefit users of Async itself, along with its coroutine and fiber adapters.</p>
+<p><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/cf675b9fd">Windows vector writes</a> ·
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/546e81706">Cancellation</a> ·
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/7426b03e0">Callback lifetime</a> ·
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8ba332b0a">Datagram truncation</a></p>
+<h1 id="reducing-ci-time">Reducing CI time</h1>
+<p>The work since October 26 has focused on shorter feedback cycles. Windows runs core, auxiliary, and build-fixture jobs
+in parallel and reuses compatible MSVC setup. POSIX runs isolated test groups after one build; macOS auxiliary work
+also runs alongside the core builds. Fil-C reuses validated objects across test executables, and compiler and test
+timing diagnostics help identify the remaining expensive work.</p>
+<p>A unity-build option was tried and then reverted because hosted measurements did not show a consistent benefit.</p>
+<p>For one comparison, I measured successful <code>development</code> pushes on October 25 (<code>32784c491</code>) and October 31
+(<code>74ae1b413</code>). These are <strong>individual job durations</strong>, from job start to completion, excluding queue and prerequisite
+waits:</p>
+<p><img src="/images/2026-10-31-SaneCppLibrariesUpdate/ci-timings.svg" alt="Longest Windows job: 9 minutes 2 seconds to 3 minutes 42 seconds. Longest POSIX job: 5 minutes 39 seconds to 3 minutes 22 seconds."></p>
+<table>
+<thead>
+<tr>
+<th>Measurement</th>
+<th align="right">October 25</th>
+<th align="right">October 31</th>
+<th align="right">Change</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Longest Windows job</td>
+<td align="right">9m 02s</td>
+<td align="right">3m 42s</td>
+<td align="right">59% shorter</td>
+</tr>
+<tr>
+<td>Longest POSIX job, including Fil-C</td>
+<td align="right">5m 39s</td>
+<td align="right">3m 22s</td>
+<td align="right">40% shorter</td>
+</tr>
+<tr>
+<td>Summed job time across both workflows</td>
+<td align="right">53m 41s</td>
+<td align="right">52m 34s</td>
+<td align="right">2% lower</td>
+</tr>
+</tbody></table>
+<p>The shorter jobs show the effect of dividing work; they are not the total pipeline wait, which also includes
+prerequisites and queueing. Summed job time includes setup and warmup jobs and is not a billing estimate. These are
+single runs, not averages, and caches and runner load vary. Documentation/coverage and the separate package-cache
+workflow are excluded.</p>
+<p>Source runs: <a href="https://github.com/Pagghiu/SaneCppLibraries/actions/runs/40201002092">October 25 Windows</a>,
+<a href="https://github.com/Pagghiu/SaneCppLibraries/actions/runs/40201002038">October 25 POSIX</a>,
+<a href="https://github.com/Pagghiu/SaneCppLibraries/actions/runs/41186064937">October 31 Windows</a>, and
+<a href="https://github.com/Pagghiu/SaneCppLibraries/actions/runs/41186064931">October 31 POSIX</a>.</p>
+<p><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/593989b94">POSIX test groups</a> ·
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/08766ce3b">Fil-C object reuse</a> ·
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8b23afbb9">macOS auxiliary jobs</a> ·
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/b7c1ef120">Unity revert</a></p>
+<h1 id="fil-c-and-fibers">Fil-C and Fibers</h1>
+<p>Fil-C coverage now includes HttpClient TLS and HTTP/2 transfers, Cryptography&#39;s Linux AF_ALG and OpenSSL paths, and
+restored process and serial-port tests on native ARM.</p>
+<p><a href="https://pagghiu.github.io/SaneCppLibraries/libraries/fibers/">Fibers</a> gained opt-in Fil-C scheduling and
+AsyncFibers integration. That mode uses runtime-owned stacks and stays on the owning thread; worker pools, stealing,
+and cross-thread execution are rejected. Native Fibers also gained GCC ARM64 context switching, sanitizer fixes, and
+scheduler wake-up and quiescence fixes. Plugin can use matching Fil-C toolchains with explicit reload limits.</p>
+<p><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0d0b4dccd">Fil-C fibers</a> ·
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/01a2b27e2">GCC ARM64</a> ·
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/4557b4432">Fil-C HTTP/2 and TLS</a></p>
+<h1 id="test-reliability-and-other-fixes">Test reliability and other fixes</h1>
+<p>Several flaky tests now synchronize explicitly: the WebSocket release test waits for connection, AsyncFibers tests
+publish suspension before polling, and fiber auto-reset tests acknowledge each signal. Support-tool tests use separate
+scratch directories, while timeouts provide better diagnostics.</p>
+<p>Some failures exposed library bugs. <a href="https://pagghiu.github.io/SaneCppLibraries/libraries/file-system-watcher/">FileSystemWatcher</a>
+now drains pending Apple notification handoffs before refreshing watches. <a href="https://pagghiu.github.io/SaneCppLibraries/libraries/http/">Http</a>
+received keep-alive, close-policy, incremental-header, and callback-lifetime fixes.
+<a href="https://pagghiu.github.io/SaneCppLibraries/libraries/http-client/">HttpClient</a> rejects truncated Windows responses and
+preserves body-stream errors. There were also fixes in
+<a href="https://pagghiu.github.io/SaneCppLibraries/libraries/strings/">Strings</a>,
+<a href="https://pagghiu.github.io/SaneCppLibraries/libraries/time/">Time</a>, and
+<a href="https://pagghiu.github.io/SaneCppLibraries/libraries/plugin/">Plugin</a>.</p>
+<p>Finally, the new <a href="https://github.com/Pagghiu/SaneCppLibraries/tree/development/Skills/sane-cpp-simplify">simplification skill</a>
+helps review repeated code and test setup while keeping behavioral coverage visible.</p>
+<p><a href="https://github.com/Pagghiu/SaneCppLibraries/commit/0453b06a8">FileSystemWatcher fix</a> ·
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/8e7453bbf">Http keep-alive</a> ·
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/9dce49b47">HttpClient errors</a> ·
+<a href="https://github.com/Pagghiu/SaneCppLibraries/commit/10b93ea9a">WebSocket test</a></p>
+<p>See you next month!</p>
+</div> </article>  </div> <aside class="blog-toc" aria-label="Article sections" data-astro-cid-4dqtj3le> <strong data-astro-cid-4dqtj3le>Content</strong> <nav data-astro-cid-4dqtj3le> <a href="#section-0" data-astro-cid-4dqtj3le>October Updates</a><a href="#c-day-2026" data-astro-cid-4dqtj3le>C++ Day 2026</a><a href="#asyncexecution-experiment" data-astro-cid-4dqtj3le>AsyncExecution experiment</a><a href="#strengthening-async" data-astro-cid-4dqtj3le>Strengthening Async</a><a href="#reducing-ci-time" data-astro-cid-4dqtj3le>Reducing CI time</a><a href="#fil-c-and-fibers" data-astro-cid-4dqtj3le>Fil-C and Fibers</a><a href="#test-reliability-and-other-fixes" data-astro-cid-4dqtj3le>Test reliability and other fixes</a> </nav> </aside> </div> </main> <footer class="blog-footer" data-astro-cid-4dqtj3le> <div class="shell" data-astro-cid-4dqtj3le> <span data-astro-cid-4dqtj3le>© Stefano Cristiano</span> <a href="/feeds/all.atom.xml" data-astro-cid-4dqtj3le>Atom feed</a> </div> </footer> </body></html> 

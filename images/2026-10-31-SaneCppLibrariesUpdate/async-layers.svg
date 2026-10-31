@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 270" role="img" aria-labelledby="title desc">
+<title id="title">Async composition layers</title><desc id="desc">AsyncExecution, Await and AsyncFibers share the Async event loop.</desc>
+<rect width="900" height="270" rx="22" fill="#101828"/>
+<g font-family="sans-serif" text-anchor="middle"><g fill="#253652" stroke="#81d8ff" stroke-width="2"><rect x="30" y="35" width="250" height="66" rx="12"/><rect x="325" y="35" width="250" height="66" rx="12"/><rect x="620" y="35" width="250" height="66" rx="12"/><rect x="200" y="172" width="500" height="65" rx="12" fill="#273c5a"/></g>
+<g fill="#f5f8ff" font-size="22" font-weight="700"><text x="155" y="76">AsyncExecution</text><text x="450" y="76">Await</text><text x="745" y="76">AsyncFibers</text><text x="450" y="211">Async event loop</text></g>
+<g stroke="#81d8ff" stroke-width="3" fill="none"><path d="M155 101v30h295v36M450 101v66M745 101v30H450"/><path d="M442 157l8 10 8-10"/></g></g></svg>

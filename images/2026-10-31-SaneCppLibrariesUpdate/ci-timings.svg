@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" role="img" aria-labelledby="title desc">
+<title id="title">Longest CI jobs before and after</title><desc id="desc">Windows 9 minutes 2 seconds to 3 minutes 42 seconds; POSIX 5 minutes 39 seconds to 3 minutes 22 seconds.</desc>
+<rect width="900" height="330" rx="22" fill="#101828"/>
+<g font-family="sans-serif"><text x="35" y="42" font-size="21" fill="#dbe9fb" font-weight="700">Longest individual job</text><text x="35" y="84" font-size="18" fill="#dbe9fb">Windows</text><text x="35" y="211" font-size="18" fill="#dbe9fb">POSIX</text>
+<g font-size="16" fill="#c3d2e8"><text x="35" y="115">Oct 25</text><text x="35" y="153">Oct 31</text><text x="35" y="242">Oct 25</text><text x="35" y="280">Oct 31</text></g>
+<g fill="#566881"><rect x="115" y="96" width="620" height="26" rx="6"/><rect x="115" y="223" width="388" height="26" rx="6"/></g><g fill="#70d4ff"><rect x="115" y="134" width="254" height="26" rx="6"/><rect x="115" y="261" width="231" height="26" rx="6"/></g>
+<g font-size="18" fill="#f5f8ff" font-weight="700"><text x="750" y="115">9m 02s</text><text x="384" y="153">3m 42s</text><text x="518" y="242">5m 39s</text><text x="361" y="280">3m 22s</text></g></g></svg>
