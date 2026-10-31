@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Sane C++ Libraries: Async and CI</title>
+  <desc id="desc">AsyncExecution, Await, and AsyncFibers share the Async event loop. The longest Windows CI job went from 9 minutes 2 seconds to 3 minutes 42 seconds, while the longest POSIX job went from 5 minutes 39 seconds to 3 minutes 22 seconds.</desc>
+  <defs>
+    <linearGradient id="brand" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#a427e2"/><stop offset="1" stop-color="#3957ff"/></linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#191539"/><stop offset="1" stop-color="#080d1a"/></linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#aabfff" stroke-opacity=".06"/></pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <circle cx="1510" cy="-100" r="390" fill="none" stroke="#6074ec" stroke-opacity=".16" stroke-width="2"/>
+  <circle cx="1510" cy="-100" r="470" fill="none" stroke="#b43ee5" stroke-opacity=".12" stroke-width="2"/>
+  <rect x="70" y="56" width="72" height="72" rx="19" fill="url(#brand)"/>
+  <text x="106" y="103" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-weight="800" font-size="27" fill="#83e3ff">SC++</text>
+  <g font-family="Helvetica,Arial,sans-serif">
+    <text x="162" y="83" font-size="19" font-weight="700" letter-spacing="2.5" fill="#98adcf">SANE C++ LIBRARIES</text>
+    <text x="162" y="120" font-size="38" font-weight="700" fill="#f4f8ff">Async, fibers &amp; CI</text>
+    <text x="1530" y="102" text-anchor="end" font-size="19" font-weight="700" letter-spacing="2" fill="#9baecc">ASYNC  /  CI</text>
+    <rect x="70" y="165" width="1460" height="338" rx="26" fill="#101b30" stroke="#7ba5da" stroke-opacity=".25"/>
+    <text x="112" y="213" font-size="17" font-weight="700" letter-spacing="2" fill="#75d9fb">01  /  ASYNCHRONOUS COMPOSITION</text>
+    <text x="112" y="257" font-size="27" font-weight="700" fill="#f4f8ff">Three ways to work with one event loop</text>
+    <g text-anchor="middle" font-size="24" font-weight="700" fill="#f4f8ff">
+      <rect x="112" y="279" width="415" height="88" rx="15" fill="#263657" stroke="#8a91ff" stroke-width="2"/>
+      <rect x="592" y="279" width="415" height="88" rx="15" fill="#1d304a" stroke="#6eaccf" stroke-width="2"/>
+      <rect x="1072" y="279" width="415" height="88" rx="15" fill="#1d304a" stroke="#6eaccf" stroke-width="2"/>
+      <text x="319" y="314">AsyncExecution</text><text x="799" y="314">Await</text><text x="1279" y="314">AsyncFibers</text>
+      <g font-size="18" font-weight="400" fill="#c2d5ea"><text x="319" y="343">C++26 senders · experimental</text><text x="799" y="343">C++20 coroutines</text><text x="1279" y="343">Stackful fiber I/O</text></g>
+    </g>
+    <g fill="none" stroke="#76d5f5" stroke-width="3" opacity=".8"><path d="M319 367v28h960v-28"/><path d="M799 367v55"/><path d="M790 411l9 11 9-11"/></g>
+    <rect x="482" y="422" width="634" height="68" rx="12" fill="#284d66" stroke="#81ddfc" stroke-width="2"/>
+    <text x="799" y="450" text-anchor="middle" font-size="23" font-weight="700" fill="#e7f9ff">SC::Async event loop</text>
+    <text x="799" y="477" text-anchor="middle" font-size="18" fill="#d0eafb">Callbacks · no internal allocations</text>
+    <rect x="70" y="526" width="1460" height="300" rx="26" fill="#101b30" stroke="#7ba5da" stroke-opacity=".25"/>
+    <text x="112" y="574" font-size="17" font-weight="700" letter-spacing="2" fill="#75d9fb">02  /  CI FEEDBACK</text>
+    <text x="112" y="615" font-size="27" font-weight="700" fill="#f4f8ff">Longest individual jobs</text>
+    <text x="1488" y="611" text-anchor="end" font-size="17" fill="#adc0da">25 OCT  →  31 OCT</text>
+    <g font-size="22" fill="#e7eefb" font-weight="700"><text x="112" y="670">Windows</text><text x="112" y="757">POSIX</text></g>
+    <g fill="#536781"><rect x="290" y="641" width="785" height="26" rx="7"/><rect x="290" y="728" width="491" height="26" rx="7"/></g>
+    <g fill="#75d9fb"><rect x="290" y="677" width="322" height="26" rx="7"/><rect x="290" y="764" width="293" height="26" rx="7"/></g>
+    <g fill="#d7e6f8" font-size="20"><text x="1093" y="661">9m 02s</text><text x="630" y="697">3m 42s</text><text x="799" y="748">5m 39s</text><text x="601" y="784">3m 22s</text></g>
+    <g text-anchor="end" font-weight="700" fill="#83e4ff"><text x="1488" y="691" font-size="37">59% shorter</text><text x="1488" y="778" font-size="37">40% shorter</text></g>
+    <text x="72" y="864" font-size="17" fill="#9aacc6">Individual job duration · one run per date · excludes queue and prerequisite waits</text>
+    <text x="1528" y="864" text-anchor="end" font-size="17" fill="#9aacc6">pagghiu.github.io/SaneCppLibraries</text>
+  </g>
+</svg>
