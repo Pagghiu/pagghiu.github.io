@@ -167,7 +167,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p><code>#include &lt;Testing.h&gt;</code></p>
-<b>Value:</b><div class="fragment"><div class="line">recordExpectation(StringSpan(#e), (e)) ? (void)0  : (TestCase::report.debugBreakOnFailedTest ? SC_COMPILER_DEBUG_BREAK : (void)0)</div>
+<b>Value:</b><div class="fragment"><div class="line">TestCase::recordLiteralExpectation(*<span class="keyword">this</span>, #e, <span class="keyword">sizeof</span>(#e) - 1, (e)) ? (void)0 : (TestCase::report.debugBreakOnFailedTest ? SC_COMPILER_DEBUG_BREAK : (void)0)</div>
 </div><!-- fragment -->
 <p>Records a test expectation (eventually aborting or breaking o n failed test) </p>
 

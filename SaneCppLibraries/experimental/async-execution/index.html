@@ -227,6 +227,10 @@ cannot safely join arbitrary asynchronous work. <a href="https://github.com/Pagg
 shows frame-driven cancellation, timeout and shutdown; <code>--scope-failure</code> demonstrates retained submission/child errors.</p>
 <p>Borrowed requests/tasks are embedded in connected storage. Typed scope storage and payload spans require no
 adapter heap allocation. OS resources and arbitrary provider/user algorithms have separate requirements.</p>
+<h2 id="blog">Blog</h2>
+<ul>
+<li><a href="https://pagghiu.github.io/site/blog/2026-10-31-SaneCppLibrariesUpdate.html">October 2026 Update</a></li>
+</ul>
 <h2 id="build-and-run">Build and run</h2>
 <p>Include <code>Extra/Experimental/AsyncExecution/AsyncExecution.h</code> and compile
 <code>Extra/Experimental/AsyncExecution/AsyncExecution.cpp</code> once, with matching provider settings in consumers and implementation. The native

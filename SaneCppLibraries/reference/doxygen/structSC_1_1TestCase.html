@@ -126,6 +126,7 @@ $(function(){initNavTree('structSC_1_1TestCase.html',''); initResizable(true); }
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="structSC_1_1TestCase-members.html">List of all members</a>  </div>
@@ -162,6 +163,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aab57def055afef038b6e1db6f9c69cac" id="r_aab57def055afef038b6e1db6f9c69cac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab57def055afef038b6e1db6f9c69cac">test_section</a> (StringSpan sectionName, <a class="el" href="#a459de05ee277d86b3e6db5ef82f8d583">Execute</a> execution=<a class="el" href="#a459de05ee277d86b3e6db5ef82f8d583a7a1920d61156abc05a60135aefe8bc67">Execute::Default</a>)</td></tr>
 <tr class="memdesc:aab57def055afef038b6e1db6f9c69cac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a new test section.  <br /></td></tr>
 <tr class="separator:aab57def055afef038b6e1db6f9c69cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ae6fbf5fefd0007a2cf5b33bb41c95a66" id="r_ae6fbf5fefd0007a2cf5b33bb41c95a66"><td class="memTemplParams" colspan="2">template&lt;typename Test &gt; </td></tr>
+<tr class="memitem:ae6fbf5fefd0007a2cf5b33bb41c95a66"><td class="memTemplItemLeft" align="right" valign="top">static SC_TESTING_NO_INLINE bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae6fbf5fefd0007a2cf5b33bb41c95a66">recordLiteralExpectation</a> (Test &amp;test, const char *expression, size_t length, bool status)</td></tr>
+<tr class="memdesc:ae6fbf5fefd0007a2cf5b33bb41c95a66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shares literal-message construction while preserving the test's expectation overloads.  <br /></td></tr>
+<tr class="separator:ae6fbf5fefd0007a2cf5b33bb41c95a66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6049f3b87f51ef377d974d51d99106b" id="r_ad6049f3b87f51ef377d974d51d99106b"><td class="memTemplParams" colspan="2">template&lt;typename Test &gt; </td></tr>
+<tr class="memitem:ad6049f3b87f51ef377d974d51d99106b"><td class="memTemplItemLeft" align="right" valign="top">static SC_TESTING_NO_INLINE bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad6049f3b87f51ef377d974d51d99106b">recordLiteralExpectation</a> (Test &amp;test, const char *expression, size_t length, Result status)</td></tr>
+<tr class="memdesc:ad6049f3b87f51ef377d974d51d99106b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forwards a Result expectation with the same literal text and error identity.  <br /></td></tr>
+<tr class="separator:ad6049f3b87f51ef377d974d51d99106b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -343,6 +355,93 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>TestReport</b></td>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>false</code> if <code>status</code> Result is not valid </dd></dl>
+
+</div>
+</div>
+<a id="ae6fbf5fefd0007a2cf5b33bb41c95a66" name="ae6fbf5fefd0007a2cf5b33bb41c95a66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6fbf5fefd0007a2cf5b33bb41c95a66">&#9670;&#160;</a></span>recordLiteralExpectation() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Test &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static SC_TESTING_NO_INLINE bool SC::TestCase::recordLiteralExpectation </td>
+          <td>(</td>
+          <td class="paramtype">Test &amp;</td>          <td class="paramname"><span class="paramname"><em>test</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>expression</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>status</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Shares literal-message construction while preserving the test's expectation overloads. </p>
+<p>Keeping this boundary prevents repeated instrumentation of StringSpan temporaries at every assertion. </p>
+
+</div>
+</div>
+<a id="ad6049f3b87f51ef377d974d51d99106b" name="ad6049f3b87f51ef377d974d51d99106b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6049f3b87f51ef377d974d51d99106b">&#9670;&#160;</a></span>recordLiteralExpectation() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Test &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static SC_TESTING_NO_INLINE bool SC::TestCase::recordLiteralExpectation </td>
+          <td>(</td>
+          <td class="paramtype">Test &amp;</td>          <td class="paramname"><span class="paramname"><em>test</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>expression</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Result</td>          <td class="paramname"><span class="paramname"><em>status</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Forwards a Result expectation with the same literal text and error identity. </p>
 
 </div>
 </div>

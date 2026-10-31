@@ -217,7 +217,7 @@ Cross builds are three decisions</h1>
 <div class="line">./SC.sh build run --help</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md9"></a>
 Experimental Fil-C toolchain</h1>
-<p>On Linux, <code>--toolchain filc</code> selects the native host architecture. Fil-C 0.686 packages are available for Intel64 (<code>x86_64</code>) and ARM64 (<code>aarch64</code>); the imported compiler's target triple must match the host. Fil-C remains toolchain-only and does not add a <code>linux-filc-*</code> target profile.</p>
+<p>On Linux, <code>--toolchain filc</code> selects the native host architecture. The rootless Fil-C 0.687 packages are available for Intel64 (<code>x86_64</code>) and ARM64 (<code>aarch64</code>); the imported compiler's target triple must match the host. Fil-C remains toolchain-only and does not add a <code>linux-filc-*</code> target profile.</p>
 <p>Install the archive for the current host, then build without an explicit cross-target:</p>
 <div class="fragment"><div class="line">./SC.sh package install filc</div>
 <div class="line">./SC.sh build compile SaneHttpGet Debug --toolchain filc</div>
