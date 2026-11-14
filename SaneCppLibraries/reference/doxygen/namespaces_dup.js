@@ -964,7 +964,8 @@ var namespaces_dup =
         [ "InitializationFailed", "group__group__file__system__watcher.html#gga4929229d788c83e8fa1edf66e781839dad748cd9cc870c4c5c39577d588f2169c", null ],
         [ "WatchSetupFailed", "group__group__file__system__watcher.html#gga4929229d788c83e8fa1edf66e781839dac657570d9c7de4d22e8a5dd4248d8e63", null ],
         [ "StopWatchingFailed", "group__group__file__system__watcher.html#gga4929229d788c83e8fa1edf66e781839da9de548cab93646d337032919b0f1531d", null ],
-        [ "CloseFailed", "group__group__file__system__watcher.html#gga4929229d788c83e8fa1edf66e781839da51e0bf5342d28b4824d0c74ef161c2c0", null ]
+        [ "CloseFailed", "group__group__file__system__watcher.html#gga4929229d788c83e8fa1edf66e781839da51e0bf5342d28b4824d0c74ef161c2c0", null ],
+        [ "MonitoringFailed", "group__group__file__system__watcher.html#gga4929229d788c83e8fa1edf66e781839dac6f735e7a5fc3013177155a557181af3", null ]
       ] ],
       [ "FileSystemWatcherErrorDetail", "group__group__file__system__watcher.html#ga78210c0a13e63ffe680e0df78e29db2c", [
         [ "None", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2ca6adf97f83acf6453d4a6a4b1070f3754", null ],
@@ -997,7 +998,24 @@ var namespaces_dup =
         [ "AppleCreateEventStream", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2caa26b16e1b4a9d3312daeb08810d7bb53", null ],
         [ "AppleStartEventStream", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2ca72a70b41742baeee869b2bf582e68a5a", null ],
         [ "WindowsOpenDirectory", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2cafbeba6c44d06bd82c137461881d21d37", null ],
-        [ "WindowsSubmitDirectoryChanges", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2cac75591e3914f68ac34040d0867c55ac5", null ]
+        [ "WindowsSubmitDirectoryChanges", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2cac75591e3914f68ac34040d0867c55ac5", null ],
+        [ "AppleOpenRootDirectory", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2cab2350b63ae9fe9c5f9fa91ba5d2cf3ec", null ],
+        [ "WindowsQueryRootDirectory", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2ca4aadafc9039f9bfeb6fe4ab47fe577e8", null ],
+        [ "LinuxOpenDirectoryStream", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2ca511b5103a2f0d011a5e5bf5fd13cc897", null ],
+        [ "LinuxReadDirectoryEntries", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2cab79a2bea301f1e04d9784224043afd5c", null ],
+        [ "LinuxInspectDirectoryEntry", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2caee7136b845fdcf3e085302cfa0acd69a", null ],
+        [ "LinuxOpenSubdirectory", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2ca7e17b0f452f7d3f050397399a8f5bfbb", null ],
+        [ "LinuxReadEvents", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2cab8bfa4257def7a7dcd4892aece0983cc", null ],
+        [ "LinuxWaitForEvents", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2cac6a366e35d9a4543a46cb603eeb740b7", null ],
+        [ "LinuxWatchInvalidated", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2ca1771b85bbf3bca05df34e75a999fe768", null ],
+        [ "AppleResolveWatchRoot", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2ca471c0cd952d9947fdde295604680ae62", null ],
+        [ "AppleWatchInvalidated", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2ca5b6e3b87085334cd05971c8354d09f86", null ],
+        [ "WindowsCompleteDirectoryChanges", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2ca6bfa6bfbb4b927ef6c46428845a6c18f", null ],
+        [ "WindowsCreateWatchEvent", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2ca3669885a6a110f49234351bf0572b779", null ],
+        [ "WindowsSignalWatchEvent", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2cacba85125e976b38da130dbbbdc099d08", null ],
+        [ "WindowsWaitForWatchEvents", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2ca5c6a1bed009cdd77f11e59c91c907819", null ],
+        [ "WindowsCancelDirectoryChanges", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2ca70448fef1a21f994d4ccf48ca3c81c55", null ],
+        [ "LinuxVerifyDirectoryIdentity", "group__group__file__system__watcher.html#gga78210c0a13e63ffe680e0df78e29db2ca584cc1c4853eacfc29d094c0c48b5547", null ]
       ] ],
       [ "HttpClientError", "group__group__http__client.html#gadc2093ee5ab238a6a2f9130c19d0aa89", [
         [ "RequestHeaderNameEmpty", "group__group__http__client.html#ggadc2093ee5ab238a6a2f9130c19d0aa89a2204cbb09e5dff1ada45e1f1e40cbf56", null ],
@@ -1601,7 +1619,8 @@ var namespaces_dup =
         [ "ConnectSocket", "group__group__socket.html#gga3f8da05037b18d34dee5f1cb5cba5a61ae29c7d21b1d2ab867e788df6c5e766bd", null ],
         [ "SendStream", "group__group__socket.html#gga3f8da05037b18d34dee5f1cb5cba5a61a788a6c9d8aaba468a8098d9f86eb7e3b", null ],
         [ "ReceiveStream", "group__group__socket.html#gga3f8da05037b18d34dee5f1cb5cba5a61aafc73d9f903dd76360ba74497fa8477a", null ],
-        [ "WaitForRead", "group__group__socket.html#gga3f8da05037b18d34dee5f1cb5cba5a61af0af1fdbbfb53581e84613072f7b7199", null ]
+        [ "WaitForRead", "group__group__socket.html#gga3f8da05037b18d34dee5f1cb5cba5a61af0af1fdbbfb53581e84613072f7b7199", null ],
+        [ "GetTcpNoDelay", "group__group__socket.html#gga3f8da05037b18d34dee5f1cb5cba5a61abb82ca2b40676fcdba03ec6e3354310c", null ]
       ] ],
       [ "StringsError", "group__group__strings.html#ga195abdf608a23b3686b36da7d3c22580", [
         [ "InvalidArgumentCount", "group__group__strings.html#gga195abdf608a23b3686b36da7d3c22580aa94aaadd2645b6bce83813ad694df91c", null ],

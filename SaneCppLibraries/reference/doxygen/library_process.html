@@ -257,6 +257,7 @@ Environment and working directory</h1>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1String.html">String</a> output;</div>
 <div class="line">    <span class="comment">// Spawn the child process writing all env variables as KEY=VALUE\n to stdout, redirected to output</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(spawnChildAndPrintEnvironmentVars(process, output));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(process.<a class="code hl_function" href="structSC_1_1Process.html#a12f23b577863eaf5b43edeadc87fbe23">getExitStatus</a>() == 0);</div>
 <div class="line">    <span class="comment">// We can check that the NewEnvVar has been set to SomeValue</span></div>
 <div class="line">    <a class="code hl_struct" href="structSC_1_1StringView.html">StringView</a> out = output.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>();</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(out.<a class="code hl_function" href="structSC_1_1StringView.html#ae59944bd39c323dde4cea38a12fd9887">containsString</a>(<span class="stringliteral">&quot;NewEnvVar=SomeValue&quot;</span>));</div>

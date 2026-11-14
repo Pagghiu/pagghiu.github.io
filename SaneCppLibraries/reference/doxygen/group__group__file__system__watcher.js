@@ -11,10 +11,17 @@ var group__group__file__system__watcher =
       [ "Notification", "structSC_1_1FileSystemWatcher_1_1Notification.html", [
         [ "getFullPath", "structSC_1_1FileSystemWatcher_1_1Notification.html#afe02888be2c49818302775e0eb727b8e", null ],
         [ "basePath", "structSC_1_1FileSystemWatcher_1_1Notification.html#a4c50af6f27b4b870918c30ef2520f131", null ],
+        [ "failure", "structSC_1_1FileSystemWatcher_1_1Notification.html#ac0f48153ff7d80ccbc39a87241141884", null ],
+        [ "kind", "structSC_1_1FileSystemWatcher_1_1Notification.html#a00dcc4776aefcb4f56b11979375e08f2", null ],
         [ "operation", "structSC_1_1FileSystemWatcher_1_1Notification.html#a29b32702755750ac0e7c0ec1df99df15", null ],
         [ "relativePath", "structSC_1_1FileSystemWatcher_1_1Notification.html#a07b9b9525e5acdc1bce17be7f2e16c28", null ]
       ] ],
       [ "ThreadRunner", "structSC_1_1FileSystemWatcher.html#aef9ec2ef9267eb768be9ebac1bd4ea0e", null ],
+      [ "NotificationKind", "structSC_1_1FileSystemWatcher.html#aa66ce3c85d94764fb7c3d33313a1d61a", [
+        [ "Change", "structSC_1_1FileSystemWatcher.html#aa66ce3c85d94764fb7c3d33313a1d61aaf4ec5f57bd4d31b803312d873be40da9", null ],
+        [ "RescanRequired", "structSC_1_1FileSystemWatcher.html#aa66ce3c85d94764fb7c3d33313a1d61aaf3c453771235a3922b016a08ed31a5f2", null ],
+        [ "WatchStopped", "structSC_1_1FileSystemWatcher.html#aa66ce3c85d94764fb7c3d33313a1d61aa144d7e231471f8b5878e914f7b769ca8", null ]
+      ] ],
       [ "Operation", "structSC_1_1FileSystemWatcher.html#a97111929c4c1ba3be0f8659b9cdc3fe0", [
         [ "Modified", "structSC_1_1FileSystemWatcher.html#a97111929c4c1ba3be0f8659b9cdc3fe0a35e0c8c0b180c95d4e122e55ed62cc64", null ],
         [ "AddRemoveRename", "structSC_1_1FileSystemWatcher.html#a97111929c4c1ba3be0f8659b9cdc3fe0ae0ff1b3de115701e9f3074c8331167cf", null ]

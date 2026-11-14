@@ -2,6 +2,7 @@ var structSC_1_1SocketDescriptor =
 [
     [ "create", "structSC_1_1SocketDescriptor.html#a42ce30e6d93fa71acfb16d247970b919", null ],
     [ "getAddressFamily", "structSC_1_1SocketDescriptor.html#ac2cecb26db1f2f4cfd168e2f4bce397b", null ],
+    [ "getTcpNoDelay", "structSC_1_1SocketDescriptor.html#a0c00d61f14c3661f77e29000b1fb548a", null ],
     [ "isInheritable", "structSC_1_1SocketDescriptor.html#af0d26790abd6ca235bf0b4b5e835dc09", null ],
     [ "joinMulticastGroup", "structSC_1_1SocketDescriptor.html#a69e0e61d4075a420d900307063589cb4", null ],
     [ "leaveMulticastGroup", "structSC_1_1SocketDescriptor.html#a41290e646e5fc1a23b980507e3a744b6", null ],

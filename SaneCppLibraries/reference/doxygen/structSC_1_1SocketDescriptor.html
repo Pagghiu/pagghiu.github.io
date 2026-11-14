@@ -164,6 +164,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab51ea0450b48a89f502b937fb6e9a25f" id="r_ab51ea0450b48a89f502b937fb6e9a25f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab51ea0450b48a89f502b937fb6e9a25f">setTcpNoDelay</a> (bool tcpNoDelay)</td></tr>
 <tr class="memdesc:ab51ea0450b48a89f502b937fb6e9a25f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables Nagle's algorithm for low-latency communication.  <br /></td></tr>
 <tr class="separator:ab51ea0450b48a89f502b937fb6e9a25f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c00d61f14c3661f77e29000b1fb548a" id="r_a0c00d61f14c3661f77e29000b1fb548a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c00d61f14c3661f77e29000b1fb548a">getTcpNoDelay</a> (bool &amp;tcpNoDelay) const</td></tr>
+<tr class="memdesc:a0c00d61f14c3661f77e29000b1fb548a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries whether Nagle's algorithm is disabled on this TCP socket.  <br /></td></tr>
+<tr class="separator:a0c00d61f14c3661f77e29000b1fb548a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66e588c36c3feec7f45fb36cee0dcaad" id="r_a66e588c36c3feec7f45fb36cee0dcaad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66e588c36c3feec7f45fb36cee0dcaad">setBroadcast</a> (bool enableBroadcast)</td></tr>
 <tr class="memdesc:a66e588c36c3feec7f45fb36cee0dcaad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables broadcast on this socket (for UDP)  <br /></td></tr>
 <tr class="separator:a66e588c36c3feec7f45fb36cee0dcaad"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -227,10 +230,22 @@ Example (extracted from unit test): </p><div class="fragment"><div class="line">
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(isInheritable);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Test TCP_NODELAY</span></div>
+<div class="line">    <span class="keywordtype">bool</span> tcpNoDelay = <span class="keyword">false</span>;</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#ab51ea0450b48a89f502b937fb6e9a25f">setTcpNoDelay</a>(<span class="keyword">true</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#a0c00d61f14c3661f77e29000b1fb548a">getTcpNoDelay</a>(tcpNoDelay));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(tcpNoDelay);</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#ab51ea0450b48a89f502b937fb6e9a25f">setTcpNoDelay</a>(<span class="keyword">false</span>));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.<a class="code hl_function" href="#a0c00d61f14c3661f77e29000b1fb548a">getTcpNoDelay</a>(tcpNoDelay));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not tcpNoDelay);</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(socket.close());</div>
+<div class="line">    tcpNoDelay = <span class="keyword">true</span>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> <a class="code hl_struct" href="structSC_1_1ResultSocket.html">ResultSocket</a> queryClosedSocket = socket.<a class="code hl_function" href="#a0c00d61f14c3661f77e29000b1fb548a">getTcpNoDelay</a>(tcpNoDelay);</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(queryClosedSocket.isError(SocketError::DescriptorQueryFailed));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(queryClosedSocket.detail == SocketErrorDetail::GetTcpNoDelay);</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(queryClosedSocket.contextKind == SocketErrorContextKind::NativeError);</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(tcpNoDelay);</div>
 </div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a42ce30e6d93fa71acfb16d247970b919" name="a42ce30e6d93fa71acfb16d247970b919"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a42ce30e6d93fa71acfb16d247970b919">&#9670;&#160;</a></span>create()</h2>
@@ -304,6 +319,32 @@ Example (extracted from unit test): </p><div class="fragment"><div class="line">
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result the address family for this socket has been queried successfully </dd></dl>
+
+</div>
+</div>
+<a id="a0c00d61f14c3661f77e29000b1fb548a" name="a0c00d61f14c3661f77e29000b1fb548a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c00d61f14c3661f77e29000b1fb548a">&#9670;&#160;</a></span>getTcpNoDelay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSC_1_1ResultSocket.html">ResultSocket</a> SC::SocketDescriptor::getTcpNoDelay </td>
+          <td>(</td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>tcpNoDelay</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Queries whether Nagle's algorithm is disabled on this TCP socket. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">tcpNoDelay</td><td>Receives true when the TCP_NODELAY option is enabled </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Valid Result if the option was queried successfully </dd></dl>
 
 </div>
 </div>

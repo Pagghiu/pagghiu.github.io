@@ -190,10 +190,10 @@ var NAVTREEINDEX =
 "structSC_1_1AsyncWritableStream.html#add57b8fd027db681ea64a80e30f5a71f",
 "structSC_1_1FiberJobScheduler.html#aa010226c46ead2edd3037d517081c478",
 "structSC_1_1FileSystemIterator.html#af1efa7365fb46b74b8af53f4b340a968ae73cda510e8bb947f7e61089e5581494",
-"structSC_1_1HttpClientRequestProxyOptions.html#a8e6a8f23ed83ce9dda40661d0a4ebcd1a5a17ef359e29d3f74e89d0a414a8dd5c",
-"structSC_1_1Path_1_1ParsedView.html",
-"structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4ae9840221e9e868f02daf2d5d6d98ecf1",
-"structSC_1_1Time_1_1Seconds.html"
+"structSC_1_1HttpClientRequestOptions.html",
+"structSC_1_1NamedPipeServerOptions_1_1Posix.html#a8f40191d58d5947afc2b8d62c801824a",
+"structSC_1_1SocketFlags.html",
+"structSC_1_1Time_1_1Realtime.html#a89d4f6f7cd5b0a5989a369a7ac5cfee9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

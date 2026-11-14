@@ -742,6 +742,44 @@ Public Member Functions</h2></td></tr>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a9a5091bf36c799b3d16774581ec352a0">read</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>, content));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(content.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>() == contentSource);</div>
 <div class="line"> </div>
+<div class="line">    <span class="comment">// Exercise copies larger than the buffered POSIX copy path&#39;s transfer buffer.</span></div>
+<div class="line">    <span class="keywordtype">char</span> largerContent[10000];</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> idx = 0; idx &lt; <span class="keyword">sizeof</span>(largerContent); ++idx)</div>
+<div class="line">        largerContent[idx] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(<span class="charliteral">&#39;a&#39;</span> + idx % 26);</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6ed1623ad2a4ba82eac8dba4bff911c7">write</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, Span&lt;const char&gt;(largerContent, <span class="keyword">sizeof</span>(largerContent))));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#aec94dd8f1e0bc4aca64a63e1e29e808f">copyFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>,</div>
+<div class="line">                               <a class="code hl_struct" href="structSC_1_1FileSystemCopyFlags.html">FileSystem::CopyFlags</a>().<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a7a7bbd09647669be8d2c087a9fe91f22">setOverwrite</a>(<span class="keyword">true</span>).<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a05995644e6811c1569619244c9f37557">setUseCloneIfSupported</a>(<span class="keyword">false</span>)));</div>
+<div class="line">    <a class="code hl_struct" href="structSC_1_1String.html">String</a> largerResult = StringEncoding::Ascii;</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a9a5091bf36c799b3d16774581ec352a0">read</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>, largerResult));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(largerResult.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>().sizeInBytes() == <span class="keyword">sizeof</span>(largerContent));</div>
+<div class="line">    <span class="keywordflow">if</span> (largerResult.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>().sizeInBytes() == <span class="keyword">sizeof</span>(largerContent))</div>
+<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(::memcmp(largerResult.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>().bytesWithoutTerminator(), largerContent, <span class="keyword">sizeof</span>(largerContent)) ==</div>
+<div class="line">                       0);</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#if SC_PLATFORM_LINUX</span></div>
+<div class="line">    <span class="comment">// Virtual files can report a size of zero while still providing readable content.</span></div>
+<div class="line">    <span class="keyword">struct </span>stat procStat;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">int</span>   procFd = ::open(<span class="stringliteral">&quot;/proc/self/cmdline&quot;</span>, O_RDONLY);</div>
+<div class="line">    <span class="keywordflow">if</span> (procFd &gt;= 0)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordtype">char</span>          expected[4096];</div>
+<div class="line">        <span class="keyword">const</span> ssize_t expectedSize = ::read(procFd, expected, <span class="keyword">sizeof</span>(expected));</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">int</span>     statResult   = ::fstat(procFd, &amp;procStat);</div>
+<div class="line">        ::close(procFd);</div>
+<div class="line">        <span class="keywordflow">if</span> (statResult == 0 and procStat.st_size == 0 and expectedSize &gt; 0)</div>
+<div class="line">        {</div>
+<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#aec94dd8f1e0bc4aca64a63e1e29e808f">copyFile</a>(<span class="stringliteral">&quot;/proc/self/cmdline&quot;</span>, <span class="stringliteral">&quot;virtualCopy&quot;</span>));</div>
+<div class="line">            <a class="code hl_struct" href="structSC_1_1String.html">String</a> copiedVirtual = StringEncoding::Ascii;</div>
+<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a9a5091bf36c799b3d16774581ec352a0">read</a>(<span class="stringliteral">&quot;virtualCopy&quot;</span>, copiedVirtual));</div>
+<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(copiedVirtual.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>().sizeInBytes() &gt;= <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(expectedSize));</div>
+<div class="line">            <span class="keywordflow">if</span> (copiedVirtual.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>().sizeInBytes() &gt;= <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(expectedSize))</div>
+<div class="line">                <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(::memcmp(copiedVirtual.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>().bytesWithoutTerminator(), expected,</div>
+<div class="line">                                        <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(expectedSize)) == 0);</div>
+<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a3a8162bae02fd1eb40236a4bc2d500b8">removeFile</a>(<span class="stringliteral">&quot;virtualCopy&quot;</span>));</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
 <div class="line">    <span class="comment">// Remove all files created by the test</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a96e07c730e90b70892e508daa24e9f30">removeFiles</a>({<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>}));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(not fs.<a class="code hl_function" href="#a4275a8dc6156e7c752724bcbce071a73">exists</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>));</div>
@@ -1014,6 +1052,44 @@ Public Member Functions</h2></td></tr>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a06befd291c35a36b21adf1498d746762">existsAndIsFile</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a9a5091bf36c799b3d16774581ec352a0">read</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>, content));</div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(content.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>() == contentSource);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Exercise copies larger than the buffered POSIX copy path&#39;s transfer buffer.</span></div>
+<div class="line">    <span class="keywordtype">char</span> largerContent[10000];</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> idx = 0; idx &lt; <span class="keyword">sizeof</span>(largerContent); ++idx)</div>
+<div class="line">        largerContent[idx] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(<span class="charliteral">&#39;a&#39;</span> + idx % 26);</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a6ed1623ad2a4ba82eac8dba4bff911c7">write</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, Span&lt;const char&gt;(largerContent, <span class="keyword">sizeof</span>(largerContent))));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#aec94dd8f1e0bc4aca64a63e1e29e808f">copyFile</a>(<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>,</div>
+<div class="line">                               <a class="code hl_struct" href="structSC_1_1FileSystemCopyFlags.html">FileSystem::CopyFlags</a>().<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a7a7bbd09647669be8d2c087a9fe91f22">setOverwrite</a>(<span class="keyword">true</span>).<a class="code hl_function" href="structSC_1_1FileSystemCopyFlags.html#a05995644e6811c1569619244c9f37557">setUseCloneIfSupported</a>(<span class="keyword">false</span>)));</div>
+<div class="line">    <a class="code hl_struct" href="structSC_1_1String.html">String</a> largerResult = StringEncoding::Ascii;</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a9a5091bf36c799b3d16774581ec352a0">read</a>(<span class="stringliteral">&quot;destinationFile.txt&quot;</span>, largerResult));</div>
+<div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(largerResult.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>().sizeInBytes() == <span class="keyword">sizeof</span>(largerContent));</div>
+<div class="line">    <span class="keywordflow">if</span> (largerResult.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>().sizeInBytes() == <span class="keyword">sizeof</span>(largerContent))</div>
+<div class="line">        <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(::memcmp(largerResult.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>().bytesWithoutTerminator(), largerContent, <span class="keyword">sizeof</span>(largerContent)) ==</div>
+<div class="line">                       0);</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#if SC_PLATFORM_LINUX</span></div>
+<div class="line">    <span class="comment">// Virtual files can report a size of zero while still providing readable content.</span></div>
+<div class="line">    <span class="keyword">struct </span>stat procStat;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">int</span>   procFd = ::open(<span class="stringliteral">&quot;/proc/self/cmdline&quot;</span>, O_RDONLY);</div>
+<div class="line">    <span class="keywordflow">if</span> (procFd &gt;= 0)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordtype">char</span>          expected[4096];</div>
+<div class="line">        <span class="keyword">const</span> ssize_t expectedSize = ::read(procFd, expected, <span class="keyword">sizeof</span>(expected));</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">int</span>     statResult   = ::fstat(procFd, &amp;procStat);</div>
+<div class="line">        ::close(procFd);</div>
+<div class="line">        <span class="keywordflow">if</span> (statResult == 0 and procStat.st_size == 0 and expectedSize &gt; 0)</div>
+<div class="line">        {</div>
+<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#aec94dd8f1e0bc4aca64a63e1e29e808f">copyFile</a>(<span class="stringliteral">&quot;/proc/self/cmdline&quot;</span>, <span class="stringliteral">&quot;virtualCopy&quot;</span>));</div>
+<div class="line">            <a class="code hl_struct" href="structSC_1_1String.html">String</a> copiedVirtual = StringEncoding::Ascii;</div>
+<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a9a5091bf36c799b3d16774581ec352a0">read</a>(<span class="stringliteral">&quot;virtualCopy&quot;</span>, copiedVirtual));</div>
+<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(copiedVirtual.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>().sizeInBytes() &gt;= <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(expectedSize));</div>
+<div class="line">            <span class="keywordflow">if</span> (copiedVirtual.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>().sizeInBytes() &gt;= <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(expectedSize))</div>
+<div class="line">                <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(::memcmp(copiedVirtual.<a class="code hl_function" href="structSC_1_1String.html#a5371d90b41f10577ef37b04406b205d4">view</a>().bytesWithoutTerminator(), expected,</div>
+<div class="line">                                        <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(expectedSize)) == 0);</div>
+<div class="line">            <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a3a8162bae02fd1eb40236a4bc2d500b8">removeFile</a>(<span class="stringliteral">&quot;virtualCopy&quot;</span>));</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Remove all files created by the test</span></div>
 <div class="line">    <a class="code hl_define" href="group__group__testing.html#gae99d5c969c290b1234140c49bb9d8cf8">SC_TEST_EXPECT</a>(fs.<a class="code hl_function" href="#a96e07c730e90b70892e508daa24e9f30">removeFiles</a>({<span class="stringliteral">&quot;sourceFile.txt&quot;</span>, <span class="stringliteral">&quot;destinationFile.txt&quot;</span>}));</div>

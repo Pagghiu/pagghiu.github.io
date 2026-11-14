@@ -1,5 +1,12 @@
 var NAVTREEINDEX11 =
 {
+"structSC_1_1SocketFlags.html":[17,17,0],
+"structSC_1_1SocketFlags.html#a357d032950bdf447d6c95bcfe9f1600e":[17,17,0,5],
+"structSC_1_1SocketFlags.html#a357d032950bdf447d6c95bcfe9f1600ea4c9f6424d4cdbf38ac35c8bdf3d17488":[17,17,0,5,0],
+"structSC_1_1SocketFlags.html#a357d032950bdf447d6c95bcfe9f1600ea5bd3d1408e57f9946f26eb53275cfd59":[17,17,0,5,1],
+"structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4":[17,17,0,0],
+"structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4ac4c69d285788a7f5a10361da4a24ce53":[17,17,0,0,1],
+"structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4ac8a8e60decf73a029544a3114c085f40":[17,17,0,0,0],
 "structSC_1_1SocketFlags.html#ab1714d4c1477f453548dfab9cc778ce4ae9840221e9e868f02daf2d5d6d98ecf1":[17,17,0,0,2],
 "structSC_1_1SocketFlags.html#ab7ac892f56746963a049a84488c11bad":[17,17,0,2],
 "structSC_1_1SocketFlags.html#ab7ac892f56746963a049a84488c11bada0c8ad2aeef309cc59c03268de46e977c":[17,17,0,2,0],
@@ -242,12 +249,5 @@ var NAVTREEINDEX11 =
 "structSC_1_1Time_1_1Monotonic.html#ad041506edaed5b5d23e98d5d1bec3c9c":[17,28,5,0],
 "structSC_1_1Time_1_1Nanoseconds.html":[17,28,0],
 "structSC_1_1Time_1_1Realtime.html":[17,28,6],
-"structSC_1_1Time_1_1Realtime.html#a37e286bfe70f015504904f624bc1d7a8":[17,28,6,2],
-"structSC_1_1Time_1_1Realtime.html#a89d4f6f7cd5b0a5989a369a7ac5cfee9":[17,28,6,1],
-"structSC_1_1Time_1_1Realtime.html#ad041506edaed5b5d23e98d5d1bec3c9c":[17,28,6,0],
-"structSC_1_1Time_1_1Relative.html":[17,28,3],
-"structSC_1_1Time_1_1Relative.html#a2630b0c5b373cdd8d2a89a3459daf276":[17,28,3,1],
-"structSC_1_1Time_1_1Relative.html#a3e7788ea5d2c4a13c513a5d9b83da959":[17,28,3,3],
-"structSC_1_1Time_1_1Relative.html#a622603268af1d84832d1f0d2e07b9e4b":[17,28,3,0],
-"structSC_1_1Time_1_1Relative.html#a89668f06747b2dcbc368203e26ff6b81":[17,28,3,2]
+"structSC_1_1Time_1_1Realtime.html#a37e286bfe70f015504904f624bc1d7a8":[17,28,6,2]
 };

@@ -799,6 +799,7 @@ template&lt;typename T , typename  = typename TypeTraits::EnableIf&lt;TypeTraits
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Accepted TCP sockets default to TCP_NODELAY for low-latency responses. A transport setup hook may change it. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Valid Result if http listening has been started successfully </dd></dl>
 
 </div>

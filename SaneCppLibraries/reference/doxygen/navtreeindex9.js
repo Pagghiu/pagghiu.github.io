@@ -1,5 +1,11 @@
 var NAVTREEINDEX9 =
 {
+"structSC_1_1HttpClientRequestOptions.html":[17,15,13],
+"structSC_1_1HttpClientRequestProtocolOptions.html":[17,15,11],
+"structSC_1_1HttpClientRequestProxyOptions.html":[17,15,12],
+"structSC_1_1HttpClientRequestProxyOptions.html#a36b284501435dec4c8c6fa7fd163486c":[17,15,12,1],
+"structSC_1_1HttpClientRequestProxyOptions.html#a431b2a8366fd7cc6330c2059ed4d44a1":[17,15,12,3],
+"structSC_1_1HttpClientRequestProxyOptions.html#a8e6a8f23ed83ce9dda40661d0a4ebcd1":[17,15,12,0],
 "structSC_1_1HttpClientRequestProxyOptions.html#a8e6a8f23ed83ce9dda40661d0a4ebcd1a5a17ef359e29d3f74e89d0a414a8dd5c":[17,15,12,0,1],
 "structSC_1_1HttpClientRequestProxyOptions.html#a8e6a8f23ed83ce9dda40661d0a4ebcd1abf4e1a4e6135c00761ece417ec81db81":[17,15,12,0,0],
 "structSC_1_1HttpClientRequestProxyOptions.html#a8e6a8f23ed83ce9dda40661d0a4ebcd1aea9e4479e4f47925ef1a32a71e4c6de5":[17,15,12,0,2],
@@ -243,11 +249,5 @@ var NAVTREEINDEX9 =
 "structSC_1_1NamedPipeServerOptions.html#a03a51ce5dcda50d2b15adb5dbd95e488":[17,8,7,2],
 "structSC_1_1NamedPipeServerOptions.html#af49b95de32fb9a472a8d93f5a41682f4":[17,8,7,1],
 "structSC_1_1NamedPipeServerOptions_1_1Posix.html":[17,8,7,0],
-"structSC_1_1NamedPipeServerOptions_1_1Posix.html#a4d94e743fb2795d3ce339d600017506b":[17,8,7,0,0],
-"structSC_1_1NamedPipeServerOptions_1_1Posix.html#a8f40191d58d5947afc2b8d62c801824a":[17,8,7,0,1],
-"structSC_1_1Path.html":[17,9,5],
-"structSC_1_1Path.html#adfe658c511303987f907ab7aa77195bd":[17,9,5,3],
-"structSC_1_1Path.html#adfe658c511303987f907ab7aa77195bda7a32f0e7ec38bf24763bf8356ea62a90":[17,9,5,3,0],
-"structSC_1_1Path.html#adfe658c511303987f907ab7aa77195bda90001437222799c30772900daf572b29":[17,9,5,3,2],
-"structSC_1_1Path.html#adfe658c511303987f907ab7aa77195bdac60d680eadcb2ca7f3a440688e360d3a":[17,9,5,3,1]
+"structSC_1_1NamedPipeServerOptions_1_1Posix.html#a4d94e743fb2795d3ce339d600017506b":[17,8,7,0,0]
 };

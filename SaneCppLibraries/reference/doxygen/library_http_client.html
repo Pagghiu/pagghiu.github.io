@@ -283,6 +283,7 @@ Backend policy and current limits</h1>
 <li>Chunked request trailers, non-Basic authentication policy, HTTP/3, pluggable backend selection, and uniform advanced TLS customization are not provided.</li>
 </ul>
 <p>Capability fields describe what this build can request from its backend, not what a remote server will negotiate. Applications with a hard deployment requirement can pass required backend/features to <code>HttpClient::init()</code> and fail before accepting work.</p>
+<p>On Linux, libcurl is loaded at runtime. The dynamic loader must be able to find <code>libcurl.so.4</code> or <code>libcurl.so</code> with all required symbols. The loader tries each name in that order. The reported backend identifies the compiled transport. Initialization returns <code>RequiredBackendUnavailable</code> when neither candidate can be loaded with the required symbols. HTTP/2 and TLS policy capabilities come from the loaded libcurl build and are cached on the first capability query. If that probe cannot load libcurl, those runtime-dependent features are reported as unsupported for the lifetime of the process.</p>
 <h1><a class="anchor" id="autotoc_md290"></a>
 Where to look next</h1>
 <ul>

@@ -157,9 +157,6 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>operator uint32_
 <tr class="memitem:afa9042ad7361bf20f06b91ecac46396c" id="r_afa9042ad7361bf20f06b91ecac46396c"><td class="memItemLeft" align="right" valign="top"><a id="afa9042ad7361bf20f06b91ecac46396c" name="afa9042ad7361bf20f06b91ecac46396c"></a>
 constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>operator uint64_t</b> () const</td></tr>
 <tr class="separator:afa9042ad7361bf20f06b91ecac46396c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dd146bc0f769a901d1fdf1b1a378a89" id="r_a7dd146bc0f769a901d1fdf1b1a378a89"><td class="memItemLeft" align="right" valign="top"><a id="a7dd146bc0f769a901d1fdf1b1a378a89" name="a7dd146bc0f769a901d1fdf1b1a378a89"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>operator size_t</b> () const</td></tr>
-<tr class="separator:a7dd146bc0f769a901d1fdf1b1a378a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1912a286b18113df7b95eba3a59638f6" id="r_a1912a286b18113df7b95eba3a59638f6"><td class="memItemLeft" align="right" valign="top"><a id="a1912a286b18113df7b95eba3a59638f6" name="a1912a286b18113df7b95eba3a59638f6"></a>
 constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>operator int8_t</b> () const</td></tr>
 <tr class="separator:a1912a286b18113df7b95eba3a59638f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,6 +169,10 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>operator int32_t
 <tr class="memitem:ab7ce7bfad0e50e5012e2949cba55b716" id="r_ab7ce7bfad0e50e5012e2949cba55b716"><td class="memItemLeft" align="right" valign="top"><a id="ab7ce7bfad0e50e5012e2949cba55b716" name="ab7ce7bfad0e50e5012e2949cba55b716"></a>
 constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>operator int64_t</b> () const</td></tr>
 <tr class="separator:ab7ce7bfad0e50e5012e2949cba55b716"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae185380b08e183d19d90aa139adb6f39" id="r_ae185380b08e183d19d90aa139adb6f39"><td class="memTemplParams" colspan="2"><a id="ae185380b08e183d19d90aa139adb6f39" name="ae185380b08e183d19d90aa139adb6f39"></a>
+template&lt;typename T , typename TypeTraits::EnableIf&lt; TypeTraits::IsSame&lt; T, size_t &gt;::value or TypeTraits::IsSame&lt; T, ssize_t &gt;::value, int &gt;::type  = 0&gt; </td></tr>
+<tr class="memitem:ae185380b08e183d19d90aa139adb6f39"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator T</b> () const</td></tr>
+<tr class="separator:ae185380b08e183d19d90aa139adb6f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfc66e57e107781553d0b876411fedd1" id="r_acfc66e57e107781553d0b876411fedd1"><td class="memItemLeft" align="right" valign="top"><a id="acfc66e57e107781553d0b876411fedd1" name="acfc66e57e107781553d0b876411fedd1"></a>
 constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>operator float</b> () const</td></tr>
 <tr class="separator:acfc66e57e107781553d0b876411fedd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -181,7 +182,7 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>operator double<
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An object that can be converted to any primitive type providing its max value. </p>
-<p>Fox Example: </p><div class="fragment"><div class="line">uint64_t value = <a class="code hl_struct" href="structSC_1_1MaxValue.html">MaxValue</a>(); <span class="comment">// contains now maximum value for uint64_t</span></div>
+<p>For example: </p><div class="fragment"><div class="line">uint64_t value = <a class="code hl_struct" href="structSC_1_1MaxValue.html">MaxValue</a>(); <span class="comment">// contains now maximum value for uint64_t</span></div>
 <div class="ttc" id="astructSC_1_1MaxValue_html"><div class="ttname"><a href="structSC_1_1MaxValue.html">SC::MaxValue</a></div><div class="ttdoc">An object that can be converted to any primitive type providing its max value.</div><div class="ttdef"><b>Definition</b> Limits.h:24</div></div>
 </div><!-- fragment --> </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="Limits_8h_source.html">Limits.h</a></li>
