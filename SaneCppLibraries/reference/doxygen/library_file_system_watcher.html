@@ -177,7 +177,7 @@ When it is a good fit</h1>
 <li><code>AddRemoveRename</code> means the directory structure changed, without pretending that every backend can distinguish creation, deletion, and rename consistently.</li>
 </ul>
 <p>This coarse model is intentional. Native backends coalesce, duplicate, reorder, or occasionally drop events, and their behavior can also vary with the filesystem. Treat a notification as a reason to inspect or rebuild current state, not as a transaction log. The SCExample hot-reload system follows that rule: it remembers a changed path when possible, but falls back to a full rescan for structural, ambiguous, or multiple changes.</p>
-<p>The library watches directory trees recursively, subject to the Linux caveat below. It is less suitable when every write must be observed, when old and new rename names must be paired, or when application correctness depends on replaying an exact sequence of changes. A polling and snapshot/diff design is a better fallback for those requirements.</p>
+<p>The library watches directory trees recursively. It is less suitable when every write must be observed, when old and new rename names must be paired, or when application correctness depends on replaying an exact sequence of changes. A polling and snapshot/diff design is a better fallback for those requirements.</p>
 <h1><a class="anchor" id="autotoc_md240"></a>
 Mental model</h1>
 <p>A <code>FileSystemWatcher</code> owns the native monitoring machinery. Each stable-address <code>FolderWatcher</code> represents one watched tree and owns its callback and a copy of the watched path. Initialization selects where callbacks run:</p>
@@ -300,7 +300,7 @@ Storage, limits, and lifetime</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Apple   </td><td class="markdownTableBodyLeft">Native drops, event ID wrap, coalesced subtree or mount events, and shared stream refresh   </td><td class="markdownTableBodyLeft">A native root-change event ends the affected folder.    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Linux   </td><td class="markdownTableBodyLeft">Shared queue overflow, an unrepresentable event path, subtree invalidation, or a new directory   </td><td class="markdownTableBodyLeft">Root invalidation ends that folder. A fatal read, wait, or readiness failure ends the shared monitor.   </td></tr>
+<td class="markdownTableBodyLeft">Linux   </td><td class="markdownTableBodyLeft">Shared queue overflow, an unrepresentable event path, or a directory tree change   </td><td class="markdownTableBodyLeft">Root invalidation or failed directory registration ends that folder. A fatal read, wait, or readiness failure ends the shared monitor.   </td></tr>
 </table>
 <p>The backend reports the loss it can observe. Filesystem and native API behavior can limit which events arrive.</p>
 <p>The underlying operating-system services may allocate their own resources. In particular, the Apple backend uses CoreServices objects while rebuilding its FSEvents stream. The allocation-free API shape therefore means caller-owned, bounded SC object storage; it is not a promise that native watcher setup performs no system allocation.</p>
@@ -316,7 +316,7 @@ Platform behavior worth designing for</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Linux   </td><td class="markdownTableBodyLeft"><code>inotify</code>, one watch per directory discovered during setup   </td><td class="markdownTableBodyLeft">Paths must be ASCII or UTF-8; recursive capacity and stored relative paths are bounded as described above   </td></tr>
 </table>
-<p>Changes that bypass the watched directory entry may not produce a notification. Examples include modifying a file through a symbolic or hard link outside the watched tree, and some memory-mapped writes. On Linux, subdirectories created after <code>watch</code> produce a structural notification but are not themselves registered recursively; stop and restart the watcher or rescan through another mechanism if their descendants must be observed. On every platform, callers should tolerate a coarse rescan signal and races between notification and inspection: by the time a callback runs, the named path may already have changed again or disappeared.</p>
+<p>Changes that bypass the watched directory entry may not produce a notification. Examples include modifying a file through a symbolic or hard link outside the watched tree, and some memory-mapped writes. On Linux, the watcher registers new or moved-in subdirectories recursively and then reports <code>RescanRequired</code> for changes that may have happened before registration. On every platform, callers should tolerate a coarse rescan signal and races between notification and inspection: by the time a callback runs, the named path may already have changed again or disappeared.</p>
 <dl class="section warning"><dt>Warning</dt><dd>On iOS, FSEvents is a private API. Shipping an app that uses this library is therefore likely to be rejected by the App Store.</dd></dl>
 <h1><a class="anchor" id="autotoc_md244"></a>
 How it fits with neighboring libraries</h1>
